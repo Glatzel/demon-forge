@@ -1,0 +1,18 @@
+context:
+  version: 1.7.0
+build:
+  number: 0
+  script:
+  - if: win
+    then:
+    - pwsh -f %PREFIX%\build.ps1
+    - mkdir %PREFIX%\scripts
+    - copy %RECIPE_DIR%\jq.exe %PREFIX%\scripts\jq.exe
+package:
+  name: jq
+  version: ${{ version }}
+source:
+  git: https://github.com/jqlang/jq.git
+tests:
+- script:
+  - jq --help

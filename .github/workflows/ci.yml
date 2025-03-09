@@ -1,12 +1,6 @@
 name: CI
-
 on:
   workflow_dispatch:
-  workflow_call:
-    inputs:
-      build-dist:
-        type: boolean
-        default: false
   push:
     branches: main
     paths-ignore:
@@ -21,11 +15,25 @@ on:
       - "*.md"
   schedule:
     - cron: 0 16 * * *
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  GH_TOKEN: ${{ github.token }}
+
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   jq:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: jq
+
+
