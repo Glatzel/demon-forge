@@ -48,7 +48,9 @@ jobs:
       - name: publish
         # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
         run: |
-          foreach ($conda_file in Get-ChildItem "./output/win-64/*.conda") {
-            pixi run rattler-build upload prefix -c glatzel
+         
+          if(Test-Path "./*/output/win-64/*.conda"){
+            foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
+              pixi run rattler-build upload prefix -c glatzel "$conda_file"
+            }
           }
-        working-directory: ./jq
