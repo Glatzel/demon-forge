@@ -24,6 +24,8 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
+env:
+  GH_TOKEN: ${{ github.token }}
 jobs:
   jq:
     runs-on: windows-latest
