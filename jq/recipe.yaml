@@ -14,4 +14,3 @@ package:
   name: jq
 context:
   version: 1.7.1
-
