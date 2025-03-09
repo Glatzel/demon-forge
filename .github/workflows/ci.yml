@@ -1,11 +1,7 @@
 name: CI
 on:
 
-  workflow_call:
-    inputs:
-      build-dist:
-        type: boolean
-        default: false
+  workflow_dispatch:
   push:
     branches: main
     paths-ignore:
@@ -52,8 +48,23 @@ jobs:
           if(Test-Path "./*/output/win-64/*.conda"){
             foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
               write-output "::group::publish $pkg"
-              pixi run rattler-build upload prefix -c glatzel "$conda_file"
+              pixi run rattler-build upload prefix -c glatzel "$pkg"
               write-output "::endgroup::"
             }
           }
           else {write-output "No new package."}
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        # if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update changelog.md"
+          title: "chore: update changelog.md"
+          branch: update-changelog
+          base: main
+          labels: action
+          delete-branch: true
+          add-paths: changelog.md
+          assignees: Glatzel
+          draft: false
