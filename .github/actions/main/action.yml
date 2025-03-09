@@ -2,11 +2,7 @@ name: rattler build
 inputs:
   - pkg:
       description: 'pkg'
-  - token:
-      description: 'The token that the action will use to create and update the pull request.'
-      default: ${{ github.token }}
-env:
-  GH_TOKEN: ${{ github.token }}
+
 runs:
   using: "composite"
   steps:
@@ -21,6 +17,8 @@ runs:
 
     - name: upload
       uses: actions/upload-artifact@v4
+      env:
+        GH_TOKEN: ${{ github.token }}
       with:
         name: ${{inputs.pkg}}
         path: ./*/output/win-64/*.conda
@@ -28,7 +26,6 @@ runs:
     - name: publish
       # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
       run: |
-       
         if(Test-Path "./*/output/win-64/*.conda"){
           foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
             write-output "::group::publish $pkg"
@@ -42,7 +39,7 @@ runs:
       uses: peter-evans/create-pull-request@v7
       if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
       with:
-        token: ${{ inputs.token }}
+        token: ${{ github.token }}
         commit-message: "chore: update recipe"
         title: "chore: update recipe"
         branch: update-recipe
