@@ -43,6 +43,6 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: imagemagick
-        
-        
-        
+
+
+
