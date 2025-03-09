@@ -7,7 +7,7 @@ tests:
 - script:
   - aria2c --help
 build:
-  number: 1
+  number: 0
   script:
   - if: win
     then:
