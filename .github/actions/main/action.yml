@@ -3,8 +3,8 @@ inputs:
   - pkg:
       description: 'pkg'
   - token:
-    description: 'The token that the action will use to create and update the pull request.'
-    default: ${{ github.token }}
+      description: 'The token that the action will use to create and update the pull request.'
+      default: ${{ github.token }}
 env:
   GH_TOKEN: ${{ github.token }}
 runs:
