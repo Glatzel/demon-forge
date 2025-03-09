@@ -16,4 +16,3 @@ context:
   version: 1.7.1
 source:
   git: https://github.com/jqlang/jq.git
-

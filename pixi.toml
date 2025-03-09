@@ -9,7 +9,3 @@ version = "0.1.0"
 
 [dependencies]
 rattler-build="*"
-m2-patch="*"
-m2-bzip2="*"
-m2-gzip="*"
-m2-tar="*"
