@@ -29,6 +29,13 @@ permissions:
   pull-requests: write
 
 jobs:
+  aria2:
+    uses: ./.github/workflows/single.yml
+    with:
+      pkg: aria2
+    secrets:
+      prefix_key: ${{ secrets.PREFIX_KEY }}
+
   imagemagick:
     uses: ./.github/workflows/single.yml
     with:

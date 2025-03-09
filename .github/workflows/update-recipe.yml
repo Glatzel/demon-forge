@@ -24,7 +24,7 @@ jobs:
       - name: update
         run: |
           . ./scripts/setup.ps1
-          $pkgs=("jq","imagemagick")
+          $pkgs=("aria2","jq","imagemagick")
           foreach($pkg in $pkgs)
           {
             write-output "::group::update $pkg"

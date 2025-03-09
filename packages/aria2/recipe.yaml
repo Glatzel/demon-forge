@@ -1,0 +1,17 @@
+context:
+  version: 1.37.0
+
+package:
+  version: ${{ version }}
+  name: aria2
+
+tests:
+  - script:
+    - aria2c --help
+
+build:
+  number: 0
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build.ps1
