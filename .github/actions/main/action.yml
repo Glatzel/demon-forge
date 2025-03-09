@@ -15,38 +15,38 @@ runs:
       run: ./${{inputs.pkg}}/ci.ps1
       shell: pwsh
 
-    - name: upload
-      uses: actions/upload-artifact@v4
-      env:
-        GH_TOKEN: ${{ github.token }}
-      with:
-        name: ${{inputs.pkg}}
-        path: ./*/output/win-64/*.conda
+    # - name: upload
+    #   uses: actions/upload-artifact@v4
+    #   env:
+    #     GH_TOKEN: ${{ github.token }}
+    #   with:
+    #     name: ${{inputs.pkg}}
+    #     path: ./*/output/win-64/*.conda
     
-    - name: publish
-      # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
-      run: |
-        if(Test-Path "./*/output/win-64/*.conda"){
-          foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
-            write-output "::group::publish $pkg"
-            pixi run rattler-build upload prefix -c glatzel "$pkg"
-            write-output "::endgroup::"
-          }
-        }
-        else {write-output "No new package."}
-      shell: pwsh
+    # - name: publish
+    #   # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
+    #   run: |
+    #     if(Test-Path "./*/output/win-64/*.conda"){
+    #       foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
+    #         write-output "::group::publish $pkg"
+    #         pixi run rattler-build upload prefix -c glatzel "$pkg"
+    #         write-output "::endgroup::"
+    #       }
+    #     }
+    #     else {write-output "No new package."}
+    #   shell: pwsh
 
-    - name: Create pull request
-      uses: peter-evans/create-pull-request@v7
-      if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
-      with:
-        token: ${{ github.token }}
-        commit-message: "chore: update recipe"
-        title: "chore: update recipe"
-        branch: update-recipe
-        base: main
-        labels: action
-        delete-branch: true
-        add-paths: ./*/recipe.yaml
-        assignees: Glatzel
-        draft: true 
+    # - name: Create pull request
+    #   uses: peter-evans/create-pull-request@v7
+    #   if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
+    #   with:
+    #     token: ${{ github.token }}
+    #     commit-message: "chore: update recipe"
+    #     title: "chore: update recipe"
+    #     branch: update-recipe
+    #     base: main
+    #     labels: action
+    #     delete-branch: true
+    #     add-paths: ./*/recipe.yaml
+    #     assignees: Glatzel
+    #     draft: true 
