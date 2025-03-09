@@ -1,8 +1,5 @@
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
-if($env:CI){
-    Install-Module powershell-yaml -AcceptLicense
-}
 Import-Module powershell-yaml
 
 function get-current-version {
