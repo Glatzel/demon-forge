@@ -1,16 +1,17 @@
-package:
-  name: imagemagick
-  version: ${{ version }}
-context:
-  version: 7.1.1.44
 source:
   git: https://github.com/ImageMagick/ImageMagick.git
-build:
-  number: 0
-  script:
-  - then:
-    - pwsh -f %RECIPE_DIR%\build.ps1
-    if: win
 tests:
 - script:
   - magick --help
+package:
+  version: ${{ version }}
+  name: imagemagick
+context:
+  version: 7.1.1.44
+build:
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build.ps1
+  number: 0
+
