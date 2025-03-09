@@ -13,6 +13,3 @@ gh release download -R jqlang/jq -p "jq-windows-amd64.exe" -O  ../../temp/jq/jq.
 update-recipe -version $latest_version
 build_pkg
 test_pkg
-
-Remove-Item  ../../dist/*jq*.conda
-Copy-Item ./output/win-64/*.conda  ../../dist
