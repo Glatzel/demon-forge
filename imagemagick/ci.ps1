@@ -5,7 +5,7 @@ $current_version = get-current-version
 Write-Output "Current Version: $current_version"
 
 $latest_version = get_latest_version -repo "ImageMagick/ImageMagick"
-aria2c -c -x16 -s16 -d ./ "https://imagemagick.org/archive/binaries/ImageMagick-$latest_version-portable-Q16-x64.zip" -o magick.zip --all-proxy=http://127.0.0.1:10808
+aria2c -c -x16 -s16 -d ./ "https://imagemagick.org/archive/binaries/ImageMagick-$latest_version-portable-Q16-x64.zip" -o magick.zip
 Remove-Item ./temp -Recurse -ErrorAction SilentlyContinue
 Expand-Archive ./magick.zip ./temp
 $latest_version = "$latest_version".Replace("-", ".")
