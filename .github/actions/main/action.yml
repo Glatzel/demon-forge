@@ -1,0 +1,48 @@
+name: rattler build
+inputs:
+  - pkg:
+      type: string
+runs:
+  using: "composite"
+  steps:
+    - name: Set up pixi
+      uses: prefix-dev/setup-pixi@v0.8.1
+      with:
+        run-install: false
+
+    - name: ci
+      run: ./${{inputs.pkg}}/ci.ps1
+
+    - name: upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{inputs.pkg}}
+        path: ./*/output/win-64/*.conda
+    
+    - name: publish
+      # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
+      run: |
+       
+        if(Test-Path "./*/output/win-64/*.conda"){
+          foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
+            write-output "::group::publish $pkg"
+            pixi run rattler-build upload prefix -c glatzel "$pkg"
+            write-output "::endgroup::"
+          }
+        }
+        else {write-output "No new package."}
+
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v7
+      if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "chore: update recipe"
+        title: "chore: update recipe"
+        branch: update-recipe
+        base: main
+        labels: action
+        delete-branch: true
+        add-paths: ./*/recipe.yaml
+        assignees: Glatzel
+        draft: true 
