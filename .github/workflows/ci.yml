@@ -51,6 +51,9 @@ jobs:
          
           if(Test-Path "./*/output/win-64/*.conda"){
             foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
+              write-output "::group::publish $pkg"
               pixi run rattler-build upload prefix -c glatzel "$conda_file"
+              write-output "::endgroup::"
             }
           }
+          else {write-output "No new package."}
