@@ -28,7 +28,7 @@ jobs:
           foreach($pkg in $pkgs)
           {
             write-output "::group::update $pkg"
-            set-location ./packages
+            set-location ./packages/$pkg
             ./ci.ps1
             reset-build-code
             set-location $PSScriptRoot
