@@ -37,15 +37,14 @@ jobs:
           run-install: false
       - run: Install-Module powershell-yaml -Force
 
-      - name: build
+      - name: build jq
         run: ./jq/ci.ps1
 
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-          name: jq
-          path: jq/win-64/*.conda
-          if-no-files-found: error
+          name: conda-pkg
+          path: */output/win-64/*.conda
 
       - name: publish
         run: |
