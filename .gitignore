@@ -5,3 +5,5 @@
 # pkg
 output
 *.exe
+*.zip
+temp
