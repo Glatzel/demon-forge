@@ -29,13 +29,24 @@ permissions:
   pull-requests: write
 
 jobs:
-  jq:
-    uses: ./.github/workflows/single.yml
-    with:
-      pkg: jq
-
-
   imagemagick:
     uses: ./.github/workflows/single.yml
     with:
       pkg: imagemagick
+
+  jq:
+    uses: ./.github/workflows/single.yml
+    with:
+      pkg: jq
+    
+  upload:
+    needs: [imagemagick,jq]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+      - name: publish
+        run: |
+          ./scripts/publish.ps1
+        shell: pwsh
+        continue-on-error: true
