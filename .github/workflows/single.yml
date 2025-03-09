@@ -49,17 +49,23 @@ jobs:
           name: ${{inputs.pkg}}
           path: ./packages/${{inputs.pkg}}/output/win-64
 
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v7
-        if: ${{github.event_name !='pull_request' }}
-        with:
-          token: ${{ github.token }}
-          commit-message: "chore: update recipe"
-          title: "chore: update recipe"
-          branch: update-recipe
-          base: main
-          labels: action
-          delete-branch: true
-          add-paths: ./*/recipe.yaml
-          assignees: Glatzel
-          draft: true
+      - name: publish
+        run: |
+          ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
+        shell: pwsh
+        continue-on-error: true
+
+      # - name: Create pull request
+      #   uses: peter-evans/create-pull-request@v7
+      #   if: ${{github.event_name !='pull_request' }}
+      #   with:
+      #     token: ${{ github.token }}
+      #     commit-message: "chore: update recipe"
+      #     title: "chore: update recipe"
+      #     branch: update-recipe
+      #     base: main
+      #     labels: action
+      #     delete-branch: true
+      #     add-paths: ./*/recipe.yaml
+      #     assignees: Glatzel
+      #     draft: true
