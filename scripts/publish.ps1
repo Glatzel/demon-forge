@@ -1,6 +1,5 @@
 Set-Location $PSScriptRoot
 Set-Location ..
-. ./scripts/setup.ps1
 
 if (Test-Path "./*/output/win-64/*.conda") {
     foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
