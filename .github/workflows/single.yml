@@ -49,13 +49,6 @@ jobs:
           name: ${{inputs.pkg}}
           path: ./*/output/win-64/*.conda
 
-      - name: publish
-        if: ${{github.event_name !='pull_request' && success() }}
-        run: |
-          ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
-        shell: pwsh
-        continue-on-error: true
-
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
         if: ${{github.event_name !='pull_request' }}
