@@ -26,7 +26,7 @@ jobs:
 
       - name: Set up pixi
         if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
-        uses: prefix-dev/setup-pixi@v0.8.1
+        uses: prefix-dev/setup-pixi@v0.8.3
         with:
           run-install: false
       - name: install pwsh-yaml
