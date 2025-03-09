@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 if($env:CI){
-    Install-Module powershell-yaml
+    Install-Module powershell-yaml -y
 }
 Import-Module powershell-yaml
 
