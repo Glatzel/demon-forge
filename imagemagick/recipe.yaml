@@ -1,18 +1,17 @@
-context:
-  version: 1.7.0
-build:
-  number: 0
-  script:
-  - if: win
-    then:
-    - pwsh -f %PREFIX%\build.ps1
-    - mkdir %PREFIX%\scripts
-    - copy %RECIPE_DIR%\jq.exe %PREFIX%\scripts\jq.exe
 package:
   name: imagemagick
   version: ${{ version }}
+context:
+  version: 7.1.1.44
 source:
   git: https://github.com/ImageMagick/ImageMagick.git
+build:
+  number: 0
+  script:
+  - then:
+    - pwsh -f %PREFIX%\build.ps1
+    if: win
 tests:
 - script:
   - magick --help
+

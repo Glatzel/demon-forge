@@ -11,8 +11,8 @@ Expand-Archive ./magick.zip ./temp
 $latest_version = "$latest_version".Replace("-", ".")
 Write-Output "Latest Version: $latest_version"
 
-# if($current_version -ne $latest_version){
-#     update-recipe -version $latest_version
-#     build_pkg
-#     test_pkg
-# }
+if($current_version -ne $latest_version){
+    update-recipe -version $latest_version
+    build_pkg
+    test_pkg
+}
