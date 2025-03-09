@@ -14,13 +14,13 @@ runs:
       run: Install-Module powershell-yaml -Force
 
     - name: ci
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: ./${{inputs.pkg}}/ci.ps1
       shell: pwsh
 
     - name: upload
       uses: actions/upload-artifact@v4
-      env:
-        GH_TOKEN: ${{ github.token }}
       with:
         name: ${{inputs.pkg}}
         path: ./*/output/win-64/*.conda
