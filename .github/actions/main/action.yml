@@ -27,7 +27,7 @@ runs:
         path: ./*/output/win-64/*.conda
     
     - name: publish
-      # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
+      # if: ${{github.event_name =='push' ||github.event_name =='schedule' }}
       run: |
         . ./scripts/setup.ps1
 
