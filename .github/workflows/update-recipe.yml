@@ -22,6 +22,8 @@ jobs:
         run: Install-Module powershell-yaml -Force
         shell: pwsh
       - name: update
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           . ./scripts/setup.ps1
           $pkgs=("aria2","jq","imagemagick")
@@ -31,8 +33,7 @@ jobs:
             set-location ./packages/$pkg
             ./ci.ps1
             reset-build-code
-            set-location $PSScriptRoot
-            set-location ..
+            set-location ../../
             write-output "::endgroup::"
           }
 
