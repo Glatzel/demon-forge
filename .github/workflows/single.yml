@@ -39,7 +39,7 @@ jobs:
         if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
-        run: ./${{inputs.pkg}}/ci.ps1
+        run: ./packages/${{inputs.pkg}}/ci.ps1
         shell: pwsh
 
       - name: upload
@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{inputs.pkg}}
-          path: ./*/output/win-64/*.conda
+          path: ./dist/*.conda
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7

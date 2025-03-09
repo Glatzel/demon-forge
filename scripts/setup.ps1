@@ -28,7 +28,7 @@ function update-recipe {
     $yamlContent = Get-Content -Path $yamlFilePath -Raw
 
     # Convert the YAML content to a PowerShell object
-    $yamlObject = $yamlContent | ConvertFrom-Yaml
+    $yamlObject = $yamlContent | ConvertFrom-Yaml -Ordered
 
     # Get the current version from the context
     $yamlObject.context.version = $version
