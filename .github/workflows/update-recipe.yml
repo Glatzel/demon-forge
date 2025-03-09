@@ -33,8 +33,7 @@ jobs:
             set-location ./packages/$pkg
             ./ci.ps1
             reset-build-code
-            set-location $PSScriptRoot
-            set-location ..
+            set-location ../../
             write-output "::endgroup::"
           }
 
