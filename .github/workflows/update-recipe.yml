@@ -24,11 +24,11 @@ jobs:
       - name: update
         run: |
           . ./scripts/setup.ps1
-          $pkgs=("jq","imagemagick")
+          $pkgs=("aria2","jq","imagemagick")
           foreach($pkg in $pkgs)
           {
             write-output "::group::update $pkg"
-            set-location ./packages
+            set-location ./packages/$pkg
             ./ci.ps1
             reset-build-code
             set-location $PSScriptRoot
