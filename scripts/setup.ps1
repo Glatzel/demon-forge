@@ -41,7 +41,7 @@ function update-recipe {
 }
 function reset-build-code {
     # Define the path to the YAML file
-    $yamlFilePath = "./packages/$pkg/recipe.yaml"
+    $yamlFilePath = "./recipe.yaml"
 
     # Read the YAML content
     $yamlContent = Get-Content -Path $yamlFilePath -Raw
@@ -55,7 +55,7 @@ function reset-build-code {
     $updatedYamlContent = $yamlObject | ConvertTo-Yaml
 
     # Write the updated YAML content back to the file
-    Set-Content -Path "./packages/$pkg/recipe.yaml" -Value $updatedYamlContent
+    Set-Content -Path "./recipe.yaml" -Value $updatedYamlContent
     }
 
 function build_pkg {
