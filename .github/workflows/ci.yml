@@ -28,9 +28,10 @@ permissions:
   id-token: write
 
 jobs:
-  conda:
+  jq:
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/main
         with:
           pkg: jq
