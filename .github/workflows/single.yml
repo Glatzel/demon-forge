@@ -51,21 +51,7 @@ jobs:
       - name: publish
         if: ${{github.event_name !='pull_request' && success() }}
         run: |
-          . ./scripts/setup.ps1
-
-          if(Test-Path "./*/output/win-64/*.conda"){
-            foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
-              $filename=Split-Path $pkg -Leaf
-              $search_result=pixi search -c https://repo.prefix.dev/glatzel ${{inputs.pkg}}
-              if (-not ("$search_result" -like "*$filename*")){
-                write-output "::group::publish $pkg"
-                pixi run rattler-build upload prefix -c glatzel "$pkg"
-                write-output "::endgroup::"
-              }
-              else {write-output "No new package."}
-            }
-          }
-          else {write-output "No new package."}
+          ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
         shell: pwsh
 
       - name: Create pull request
