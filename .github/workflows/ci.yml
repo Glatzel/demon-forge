@@ -29,17 +29,12 @@ permissions:
 
 jobs:
   jq:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-        with:
-          pkg: jq
+    uses: ./.github/workflows/single.yml
+    with:
+      pkg: jq
+
 
   imagemagick:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-        with:
-          pkg: imagemagick
+    uses: ./.github/workflows/single.yml
+    with:
+      pkg: imagemagick
