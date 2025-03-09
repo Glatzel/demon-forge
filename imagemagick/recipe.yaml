@@ -14,4 +14,3 @@ build:
 tests:
 - script:
   - magick --help
-
