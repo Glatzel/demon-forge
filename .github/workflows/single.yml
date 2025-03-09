@@ -51,7 +51,7 @@ jobs:
 
       - name: publish
         run: |
-          ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
+          ./scripts/publish.ps1 -pkg ${{inputs.pkg}} -key ${{secret.PREFIX_KEY}}
         shell: pwsh
         continue-on-error: true
 

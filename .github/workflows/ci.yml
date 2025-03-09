@@ -38,21 +38,3 @@ jobs:
     uses: ./.github/workflows/single.yml
     with:
       pkg: jq
-    
-  upload:
-    needs: [imagemagick,jq]
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up pixi
-        uses: prefix-dev/setup-pixi@v0.8.3
-        with:
-          run-install: false
-      - uses: actions/download-artifact@v4
-        with:
-          path: ./dist
-      - name: publish
-        run: |
-          ./scripts/publish.ps1
-        shell: pwsh
-        continue-on-error: true
