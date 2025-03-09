@@ -40,11 +40,6 @@ function update-recipe {
     Write-Output "::endgroup::"
 }
 function reset-build-code {
-    Set-Location $PSScriptRoot
-    Set-Location ..
-    $pkgs=("jq","imagemagick")
-    foreach ($pkg in $pkgs) {
-        Write-Output "::group::reset build code for $pkg"
     # Define the path to the YAML file
     $yamlFilePath = "./packages/$pkg/recipe.yaml"
 
@@ -61,10 +56,8 @@ function reset-build-code {
 
     # Write the updated YAML content back to the file
     Set-Content -Path "./packages/$pkg/recipe.yaml" -Value $updatedYamlContent
-    Write-Output "::endgroup::"
     }
 
-}
 function build_pkg {
     Write-Output "::group::build"
     pixi run rattler-build build
