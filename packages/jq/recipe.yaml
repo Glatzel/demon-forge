@@ -1,16 +1,17 @@
 source:
   git: https://github.com/jqlang/jq.git
+tests:
+- script:
+  - jq --help
 build:
+  number: 0
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build.ps1
-  number: 0
-tests:
-- script:
-  - jq --help
 package:
   version: ${{ version }}
   name: jq
 context:
   version: 1.7.1
+
