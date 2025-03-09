@@ -1,5 +1,3 @@
-$ErrorActionPreference = "Stop"
-$PSNativeCommandUseErrorActionPreference = $true
 Import-Module powershell-yaml
 
 function get-current-version {
