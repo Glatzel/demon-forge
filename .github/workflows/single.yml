@@ -82,4 +82,3 @@ jobs:
           add-paths: ./*/recipe.yaml
           assignees: Glatzel
           draft: true
-
