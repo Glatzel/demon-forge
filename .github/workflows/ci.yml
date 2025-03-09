@@ -1,6 +1,5 @@
 name: CI
 on:
-
   workflow_dispatch:
   push:
     branches: main
@@ -16,11 +15,18 @@ on:
       - "*.md"
   schedule:
     - cron: 0 16 * * *
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
+
 env:
   GH_TOKEN: ${{ github.token }}
+
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   conda:
     runs-on: windows-latest
@@ -32,7 +38,7 @@ jobs:
           run-install: false
       - run: Install-Module powershell-yaml -Force
 
-      - name: build jq
+      - name: jq
         run: ./jq/ci.ps1
 
       - name: upload
