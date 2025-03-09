@@ -12,6 +12,7 @@ runs:
         run-install: false
     - name: install pwsh-yaml
       run: Install-Module powershell-yaml -Force
+      shell: pwsh
 
     - name: ci
       env:
