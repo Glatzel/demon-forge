@@ -59,12 +59,12 @@ jobs:
         if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: update changelog.md"
-          title: "chore: update changelog.md"
-          branch: update-changelog
+          commit-message: "chore: update recipe"
+          title: "chore: update recipe"
+          branch: update-recipe
           base: main
           labels: action
           delete-branch: true
-          add-paths: changelog.md
+          add-paths: ./*/recipe.yaml
           assignees: Glatzel
-          draft: false
+          draft: true
