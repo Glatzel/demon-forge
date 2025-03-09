@@ -5,7 +5,7 @@ $current_version = get-current-version
 Write-Output "Current Version: $current_version"
 
 $latest_version = get_latest_version -repo "ImageMagick/ImageMagick"
-Remove-Item ../../temp/imagemagick -Recurse -ErrorAction Continue
+Remove-Item ../../temp/imagemagick -Recurse -ErrorAction SilentlyContinue
 New-Item ../../temp/imagemagick -ItemType Directory
 New-Item ../../temp/imagemagick/expand -ItemType Directory
 aria2c -c -x16 -s16 -d ./ "https://imagemagick.org/archive/binaries/ImageMagick-$latest_version-portable-Q16-x64.zip" `
