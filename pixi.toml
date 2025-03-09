@@ -2,7 +2,7 @@
 authors = ["Glatzel <893016099@qq.com>"]
 channels = ["conda-forge"]
 name = "rattler-package"
-platforms = ["win-64"，"linux-64"]
+platforms = ["win-64","linux-64"]
 version = "0.1.0"
 
 [tasks]
