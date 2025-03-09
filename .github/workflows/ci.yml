@@ -1,7 +1,6 @@
 name: CI
-
 on:
-  workflow_dispatch:
+
   workflow_call:
     inputs:
       build-dist:
@@ -44,9 +43,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: conda-pkg
-          path: */output/win-64/*.conda
+          path: ./*/output/win-64/*.conda
 
       - name: publish
+        # if: ${{github.event_name =='push' ||github.event_name =='schedule' }} 
         run: |
           foreach ($conda_file in Get-ChildItem "./output/win-64/*.conda") {
             pixi run rattler-build upload prefix -c glatzel
