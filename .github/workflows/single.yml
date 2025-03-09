@@ -5,6 +5,9 @@ on:
       pkg:
         type: string
         description: "pkg"
+    secrets:
+      prefix_key:
+        required: true
 permissions:
   contents: write
   id-token: write
@@ -51,7 +54,7 @@ jobs:
 
       - name: publish
         run: |
-          ./scripts/publish.ps1 -pkg ${{inputs.pkg}} -key ${{secret.PREFIX_KEY}}
+          ./scripts/publish.ps1 -pkg ${{inputs.pkg}} -key ${{secret.prefix_key}}
         shell: pwsh
         continue-on-error: true
 
