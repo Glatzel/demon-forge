@@ -35,7 +35,7 @@ runs:
           foreach ($pkg in Get-ChildItem "./*/output/win-64/*.conda") {
             $filename=Split-Path $pkg -Leaf
             $search_result=pixi search -c https://repo.prefix.dev/glatzel ${{inputs.pkg}}
-            if (-not ($search_result -contains $filename)){
+            if (-not ("$search_result" -like "*$filename*")){
               write-output "::group::publish $pkg"  
               pixi run rattler-build upload prefix -c glatzel "$pkg"
               write-output "::endgroup::"
