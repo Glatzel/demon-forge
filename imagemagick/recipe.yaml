@@ -14,4 +14,3 @@ build:
     then:
     - pwsh -f %RECIPE_DIR%\build.ps1
   number: 0
-
