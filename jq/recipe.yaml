@@ -16,4 +16,3 @@ source:
 tests:
 - script:
   - jq --help
-

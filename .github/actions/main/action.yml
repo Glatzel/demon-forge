@@ -25,7 +25,7 @@ runs:
       with:
         name: ${{inputs.pkg}}
         path: ./*/output/win-64/*.conda
-    
+
     - name: publish
       # if: ${{github.event_name =='push' ||github.event_name =='schedule' }}
       run: |
@@ -48,7 +48,7 @@ runs:
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v7
-      if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
+      if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }}
       with:
         token: ${{ github.token }}
         commit-message: "chore: update recipe"
@@ -59,4 +59,4 @@ runs:
         delete-branch: true
         add-paths: ./*/recipe.yaml
         assignees: Glatzel
-        draft: true 
+        draft: true
