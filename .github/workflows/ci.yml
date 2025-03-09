@@ -29,12 +29,12 @@ permissions:
 
 jobs:
   jq:
-    uses: ./.github/workflows/single.yml@main
+    uses: ./.github/workflows/single.yml
     with:
       pkg: jq
 
 
   imagemagick:
-    uses: ./.github/workflows/single.yml@main
+    uses: ./.github/workflows/single.yml
     with:
       pkg: imagemagick
