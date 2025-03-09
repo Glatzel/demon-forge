@@ -1,7 +1,12 @@
 name: rattler build
 inputs:
   - pkg:
-      type: string
+      description: 'pkg'
+  - token:
+    description: 'The token that the action will use to create and update the pull request.'
+    default: ${{ github.token }}
+env:
+  GH_TOKEN: ${{ github.token }}
 runs:
   using: "composite"
   steps:
@@ -37,7 +42,7 @@ runs:
       uses: peter-evans/create-pull-request@v7
       if: ${{github.event_name =='workflow_dispatch' ||github.event_name =='schedule'||github.event_name =='push' }} 
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ inputs.token }}
         commit-message: "chore: update recipe"
         title: "chore: update recipe"
         branch: update-recipe
