@@ -13,6 +13,7 @@ Write-Output "Latest Version: $latest_version"
 
 if($current_version -ne $latest_version){
     update-recipe -version $latest_version
-    build_pkg
-    test_pkg
 }
+
+build_pkg
+test_pkg
