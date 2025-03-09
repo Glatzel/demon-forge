@@ -36,4 +36,13 @@ jobs:
         with:
           pkg: jq
 
-
+  imagemagick:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: imagemagick
+        
+        
+        
