@@ -1,15 +1,15 @@
 context:
-  version: 1.37.0
+  version: 6.13.2
 package:
+  name: nuget
   version: ${{ version }}
-  name: aria2
 tests:
 - script:
-  - aria2c --help
+  - nuget help
 build:
-  number: 1
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build.ps1
+  number: 0
 

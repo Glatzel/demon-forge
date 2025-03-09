@@ -49,3 +49,11 @@ jobs:
       pkg: jq
     secrets:
       prefix_key: ${{ secrets.PREFIX_KEY }}
+
+  nuget:
+    uses: ./.github/workflows/single.yml
+    with:
+      pkg: nuget
+    secrets:
+      prefix_key: ${{ secrets.PREFIX_KEY }}
+    
