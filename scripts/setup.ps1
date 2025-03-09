@@ -39,6 +39,25 @@ function update-recipe {
     Set-Content -Path "recipe.yaml" -Value $updatedYamlContent
     Write-Output "::endgroup::"
 }
+function reset-build-code {
+    # Define the path to the YAML file
+    $yamlFilePath = "./recipe.yaml"
+
+    # Read the YAML content
+    $yamlContent = Get-Content -Path $yamlFilePath -Raw
+
+    # Convert the YAML content to a PowerShell object
+    $yamlObject = $yamlContent | ConvertFrom-Yaml -Ordered
+
+    # Get the current version from the context
+    $yamlObject.build.number = 0
+    # Convert the updated object back to YAML
+    $updatedYamlContent = $yamlObject | ConvertTo-Yaml
+
+    # Write the updated YAML content back to the file
+    Set-Content -Path "./recipe.yaml" -Value $updatedYamlContent
+    }
+
 function build_pkg {
     Write-Output "::group::build"
     pixi run rattler-build build

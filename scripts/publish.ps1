@@ -1,4 +1,4 @@
-param($key)
+param($pkg, $key)
 Set-Location $PSScriptRoot
 Set-Location ..
 
