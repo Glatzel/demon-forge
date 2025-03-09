@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{inputs.pkg}}
-          path: ./dist/*.conda
+          path: ./packages/${{inputs.pkg}}/output/win-64
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7

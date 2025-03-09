@@ -41,7 +41,7 @@ jobs:
     
   upload:
     needs: [imagemagick,jq]
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - name: Set up pixi
@@ -49,9 +49,6 @@ jobs:
         with:
           run-install: false
       - uses: actions/download-artifact@v4
-        with:
-          path: ./dist
-          merge-multiple: true
       - name: publish
         run: |
           ./scripts/publish.ps1

@@ -17,6 +17,3 @@ Write-Output "Latest Version: $latest_version"
 update-recipe -version $latest_version
 build_pkg
 test_pkg
-
-Remove-Item ../../dist/*imagemagick*.conda
-Copy-Item ./output/win-64/*.conda ../../dist
