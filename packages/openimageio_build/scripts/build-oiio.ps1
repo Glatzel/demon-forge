@@ -1,10 +1,8 @@
 Set-Location $PSScriptRoot
 Set-Location ..
 
-$ocio_root=Resolve-Path ./oiio_dep/ocio
-$ocio_root = "$ocio_root" -replace "\\", "/"
-$vcpkg_dep=Resolve-Path ./oiio_dep/vcpkg_installed/x64-windows
-$vcpkg_dep = "$vcpkg_dep" -replace "\\", "/"
+$conda_pkg=Resolve-Path ./.pixi/envs/oiio/Library
+$conda_pkg = "$conda_pkg" -replace "\\", "/"
 
 Write-Output "::group::Make oiio"
 Set-Location ./external/OpenImageIO
@@ -13,8 +11,8 @@ Remove-Item */CMakeCache.txt -ErrorAction SilentlyContinue
 # make
 cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DBUILD_DOCS=0 `
-  -DBUILD_SHARED_LIBS=0 `
-  -DBZip2_ROOT="$vcpkg_dep" `
+  -DBUILD_SHARED_LIBS=1 `
+  -DBZip2_ROOT="$conda_pkg" `
   -DCMAKE_C_FLAGS="/utf-8" `
   -DCMAKE_CXX_FLAGS="/utf-8" `
   -DENABLE_DCMTK=0 `
@@ -26,29 +24,28 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DENABLE_OpenVDB=0 `
   -DENABLE_Ptex=0 `
   -DENABLE_Python3=0 `
-  -Dfmt_ROOT="$vcpkg_dep" `
-  -DFreetype_ROOT="$vcpkg_dep" `
-  -DGIF_ROOT="$vcpkg_dep" `
-  -DImath_ROOT="$vcpkg_dep" `
+  -Dfmt_ROOT="$conda_pkg" `
+  -DFreetype_ROOT="$conda_pkg" `
+  -DGIF_ROOT="$conda_pkg" `
+  -DImath_ROOT="$conda_pkg" `
   -DINSTALL_DOCS=0 `
-  -DJXL_ROOT="$vcpkg_dep" `
-  -DLibheif_ROOT="$vcpkg_dep" `
-  -Dlibjpeg-turbo_ROOT="$vcpkg_dep" `
-  -DLibRaw_ROOT="$vcpkg_dep" `
-  -DLINKSTATIC=1 `
+  -DJXL_ROOT="$conda_pkg" `
+  -DLibheif_ROOT="$conda_pkg" `
+  -Dlibjpeg-turbo_ROOT="$conda_pkg" `
+  -DLibRaw_ROOT="$conda_pkg" `
+  -DLINKSTATIC=0 `
   -DOIIO_BUILD_TESTS=0 `
-  -DOpenColorIO_ROOT="$ocio_root" `
-  -DOpenEXR_ROOT="$vcpkg_dep" `
-  -DOpenJPEG_ROOT="$vcpkg_dep" `
-  -DPNG_ROOT="$vcpkg_dep" `
-  -DTBB_ROOT="$vcpkg_dep" `
-  -DTIFF_ROOT="$vcpkg_dep" `
+  -DOpenColorIO_ROOT="$conda_pkg" `
+  -DOpenEXR_ROOT="$conda_pkg" `
+  -DOpenJPEG_ROOT="$conda_pkg" `
+  -DPNG_ROOT="$conda_pkg" `
+  -DTBB_ROOT="$conda_pkg" `
+  -DTIFF_ROOT="$conda_pkg" `
   -DUSE_PYTHON=0 `
   -DUSE_QT=0 `
   -DUSE_SIMD="sse4.2,avx2" `
-  -DWebP_ROOT="$vcpkg_dep" `
-  -DZLIB_ROOT="$vcpkg_dep" `
-  -DCMAKE_INSTALL_PREFIX="../../dist"
+  -DWebP_ROOT="$conda_pkg" `
+  -DZLIB_ROOT="$conda_pkg"
 Write-Output "::endgroup::"
 
 Write-Output "::group::build oiio"

@@ -8,7 +8,7 @@ Set-Location ..
 $patch_libraw = Resolve-Path ./patch/fix_libraw.patch
 
 Remove-Item external -Force -Recurse -ErrorAction SilentlyContinue
-New-Item external -ItemType Directory -ErrorAction SilentlyContinue
+New-Item external -ItemType Directory
 Set-Location external
 
 Write-Output "::group::clone OpenImageIO"
