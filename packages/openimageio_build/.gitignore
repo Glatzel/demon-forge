@@ -4,5 +4,4 @@ openimageio
 vcpkg
 temp
 dist
-oiio_dep/ocio
 .pixi
