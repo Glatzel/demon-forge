@@ -18,35 +18,21 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Get changed
-        id: changed
-        uses: tj-actions/changed-files@v45
-        with:
-          # Avoid using single or double quotes for multiline patterns
-          files: |
-            ./github/**
-            ./scripts/**
-            ./${{inputs.pkg}}/**
-
       - name: Set up pixi
-        if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
         uses: prefix-dev/setup-pixi@v0.8.3
         with:
           run-install: false
       - name: install pwsh-yaml
-        if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
         run: Install-Module powershell-yaml -Force
         shell: pwsh
 
       - name: ci
-        if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: ./packages/${{inputs.pkg}}/ci.ps1
         shell: pwsh
 
       - name: upload
-        if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{inputs.pkg}}

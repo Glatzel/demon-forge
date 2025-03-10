@@ -11,7 +11,7 @@ Remove-Item */CMakeCache.txt -ErrorAction SilentlyContinue
 # make
 cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DBUILD_DOCS=0 `
-  -DBUILD_SHARED_LIBS=1 `
+  -DBUILD_SHARED_LIBS=0 `
   -DBZip2_ROOT="$conda_pkg" `
   -DCMAKE_C_FLAGS="/utf-8" `
   -DCMAKE_CXX_FLAGS="/utf-8" `
