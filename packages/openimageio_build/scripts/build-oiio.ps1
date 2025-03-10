@@ -33,7 +33,7 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DLibheif_ROOT="$conda_pkg" `
   -Dlibjpeg-turbo_ROOT="$conda_pkg" `
   -DLibRaw_ROOT="$conda_pkg" `
-  -DLINKSTATIC=0 `
+  -DLINKSTATIC=1 `
   -DOIIO_BUILD_TESTS=0 `
   -DOpenColorIO_ROOT="$conda_pkg" `
   -DOpenEXR_ROOT="$conda_pkg" `
