@@ -22,7 +22,7 @@ Remove-Item $PSScriptRoot/../openimageio_build/dist -Recurse -ErrorAction Silent
 & $PSScriptRoot/../openimageio_build/scripts/copy-item.ps1
 
 #rattler build
-# Set-Location $PSScriptRoot
-# update-recipe -version $latest_version
-# build_pkg
-# test_pkg
+Set-Location $PSScriptRoot
+update-recipe -version $latest_version
+build_pkg
+test_pkg
