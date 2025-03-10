@@ -9,13 +9,13 @@ $latest_version = "$latest_version".Replace("v","")
 Write-Output "Latest Version: $latest_version"
 
 #pre-build
-# Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
-# Remove-Item $PSScriptRoot/../openimageio_build/vcpkg -Recurse -Force -ErrorAction SilentlyContinue
-# Remove-Item $PSScriptRoot/../openimageio_build/dist -Recurse -ErrorAction SilentlyContinue
-# Remove-Item $PSScriptRoot/../openimageio_build/.pixi -Recurse -ErrorAction SilentlyContinue
-# & $PSScriptRoot/../openimageio_build/scripts/clone-repo.ps1
+Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
+Remove-Item $PSScriptRoot/../openimageio_build/vcpkg -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item $PSScriptRoot/../openimageio_build/dist -Recurse -ErrorAction SilentlyContinue
+Remove-Item $PSScriptRoot/../openimageio_build/.pixi -Recurse -ErrorAction SilentlyContinue
+& $PSScriptRoot/../openimageio_build/scripts/clone-repo.ps1
 & $PSScriptRoot/../openimageio_build/scripts/pixi-install.ps1
-# & $PSScriptRoot/../openimageio_build/scripts/vcpkg-setup.ps1
+& $PSScriptRoot/../openimageio_build/scripts/vcpkg-setup.ps1
 & $PSScriptRoot/../openimageio_build/scripts/vcpkg-install.ps1
 & $PSScriptRoot/../openimageio_build/scripts/build-ocio.ps1
 & $PSScriptRoot/../openimageio_build/scripts/build-oiio.ps1
