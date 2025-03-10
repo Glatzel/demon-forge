@@ -1,3 +1,4 @@
+param($reinstall='true')
 Set-Location $PSScriptRoot
 . ../../scripts/setup.ps1
 
@@ -12,10 +13,11 @@ Write-Output "Latest Version: $latest_version"
 Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
 Remove-Item $PSScriptRoot/../openimageio_build/vcpkg -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item $PSScriptRoot/../openimageio_build/dist -Recurse -ErrorAction SilentlyContinue
-Remove-Item $PSScriptRoot/../openimageio_build/.pixi -Recurse -ErrorAction SilentlyContinue
 & $PSScriptRoot/../openimageio_build/scripts/clone-repo.ps1
-& $PSScriptRoot/../openimageio_build/scripts/vcpkg-setup.ps1
-& $PSScriptRoot/../openimageio_build/scripts/vcpkg-install.ps1
+if($reinstall -eq 'true'){
+    & $PSScriptRoot/../openimageio_build/scripts/vcpkg-setup.ps1
+    & $PSScriptRoot/../openimageio_build/scripts/vcpkg-install.ps1
+}
 & $PSScriptRoot/../openimageio_build/scripts/build-ocio.ps1
 & $PSScriptRoot/../openimageio_build/scripts/build-oiio.ps1
 

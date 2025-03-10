@@ -30,36 +30,82 @@ permissions:
 
 jobs:
   aria2:
-    uses: ./.github/workflows/single.yml
-    with:
-      pkg: aria2
-    secrets:
-      prefix_key: ${{ secrets.PREFIX_KEY }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main/action.yml
+        with:
+          pkg: aria2
 
   imagemagick:
-    uses: ./.github/workflows/single.yml
-    with:
-      pkg: imagemagick
-    secrets:
-      prefix_key: ${{ secrets.PREFIX_KEY }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main/action.yml
+        with:
+          pkg: imagemagick
 
   jq:
-    uses: ./.github/workflows/single.yml
-    with:
-      pkg: jq
-    secrets:
-      prefix_key: ${{ secrets.PREFIX_KEY }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main/action.yml
+        with:
+          pkg: jq
 
   nuget:
-    uses: ./.github/workflows/single.yml
-    with:
-      pkg: nuget
-    secrets:
-      prefix_key: ${{ secrets.PREFIX_KEY }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main/action.yml
+        with:
+          pkg: nuget
+
+  cache-vcpkg-openimageio:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: restore vcpkg
+        id: restore-vcpkg
+        uses: actions/cache/restore@v4
+        with:
+          path: ./packages/openimageio_build/**/vcpkg_installed
+          key: vcpkg-openimageio-${{ runner.os }}-${{ hashFiles('./packages/openimageio_build/**vcpkg.json') }}
+          lookup-only: true
+
+      - name: setup vcpkg
+        if: ${{steps.restore-vcpkg.outputs.cache-hit!='true'}}
+        run: ./packages/openimageio_build/scripts/vcpkg-setup.ps1
+        shell: pwsh
+
+      - name: install vcpkg dependencies
+        if: ${{steps.restore-vcpkg.outputs.cache-hit!='true'}}
+        run: ./packages/openimageio_build/scripts/vcpkg-install.ps1
+        shell: pwsh
+
+      - name: save vcpkg
+        if: ${{steps.restore-vcpkg.outputs.cache-hit!='true'}}
+        uses: actions/cache/save@v4
+        with:
+          path: ./packages/openimageio_build/**/vcpkg_installed
+          key: ${{steps.restore-vcpkg.outputs.cache-primary-key}}
 
   openimageio:
-    uses: ./.github/workflows/single.yml
-    with:
-      pkg: openimageio
-    secrets:
-      prefix_key: ${{ secrets.PREFIX_KEY }}
+    needs: cache-vcpkg-openimageio
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: restore vcpkg
+        id: restore-vcpkg
+        uses: actions/cache/restore@v4
+        with:
+          path: ./packages/openimageio_build/**/vcpkg_installed
+          key: vcpkg-openimageio-${{ runner.os }}-${{ hashFiles('./packages/openimageio_build/**vcpkg.json') }}
+          lookup-only: true
+
+      - uses: ./.github/actions/main/action.yml
+        with:
+          pkg: openimageio
+          args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
