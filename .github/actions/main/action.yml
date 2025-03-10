@@ -15,7 +15,7 @@ runs:
       with:
         # Avoid using single or double quotes for multiline patterns
         files: |
-          ./github/**
+          ./.github/**
           ./scripts/**
           ./packages/${{inputs.pkg}}/**
 
