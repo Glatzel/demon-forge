@@ -31,7 +31,7 @@ jobs:
           {
             write-output "::group::update $pkg"
             set-location ./packages/$pkg
-            ./ci.ps1
+            ./ci-$pkg.ps1
             reset-build-code
             set-location ../../
             write-output "::endgroup::"

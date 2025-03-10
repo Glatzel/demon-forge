@@ -29,7 +29,7 @@ jobs:
       - name: ci
         env:
           GH_TOKEN: ${{ github.token }}
-        run: ./packages/${{inputs.pkg}}/ci.ps1
+        run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1
         shell: pwsh
 
       - name: upload

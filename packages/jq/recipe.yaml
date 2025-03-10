@@ -11,5 +11,5 @@ build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build.ps1
+    - pwsh -f %RECIPE_DIR%\build-jq.ps1
 
