@@ -1,4 +1,4 @@
-New-Item $env:PREFIX/scripts -ItemType Directory
+New-Item $env:PREFIX/bin/imagemagick -ItemType Directory
 foreach ($f in Get-ChildItem  "$env:RECIPE_DIR/../../temp/imagemagick/ImageMagick-*-portable-Q16-x64/*") {
-    Copy-Item $f "$env:PREFIX/scripts/"
+    Copy-Item $f "$env:PREFIX/bin/imagemagick"
 }

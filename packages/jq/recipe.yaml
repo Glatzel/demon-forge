@@ -3,12 +3,12 @@ context:
 package:
   version: ${{ version }}
   name: jq
-tests:
-- script:
-  - jq --help
 build:
-  number: 0
+  number: 1
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-jq.ps1
+tests:
+- script:
+  - '%PREFIX%/bin/jq/jq.exe --help'

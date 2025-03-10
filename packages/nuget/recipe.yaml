@@ -8,7 +8,7 @@ build:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-nuget.ps1
-  number: 0
+  number: 1
 tests:
 - script:
-  - nuget help
+  - '%PREFIX%/bin/nuget/nuget.exe help'
