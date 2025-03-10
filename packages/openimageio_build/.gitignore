@@ -1,0 +1,8 @@
+vcpkg_installed
+external
+openimageio
+vcpkg
+temp
+# pixi environments
+.pixi
+*.egg-info

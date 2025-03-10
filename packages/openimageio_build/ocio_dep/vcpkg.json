@@ -1,0 +1,6 @@
+{
+  "dependencies": [
+    "openimageio"
+  ],
+  "name": "ocio-ext"
+}
