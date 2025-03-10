@@ -33,7 +33,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/main/action.yml
+      - uses: ./.github/actions/main
         with:
           pkg: aria2
 
@@ -41,7 +41,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/main/action.yml
+      - uses: ./.github/actions/main
         with:
           pkg: imagemagick
 
@@ -49,7 +49,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/main/action.yml
+      - uses: ./.github/actions/main
         with:
           pkg: jq
 
@@ -57,7 +57,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/main/action.yml
+      - uses: ./.github/actions/main
         with:
           pkg: nuget
 
@@ -105,7 +105,7 @@ jobs:
           key: vcpkg-openimageio-${{ runner.os }}-${{ hashFiles('./packages/openimageio_build/**vcpkg.json') }}
           lookup-only: true
 
-      - uses: ./.github/actions/main/action.yml
+      - uses: ./.github/actions/main
         with:
           pkg: openimageio
           args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
