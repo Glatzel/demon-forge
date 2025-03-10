@@ -9,8 +9,8 @@ $latest_version = "$latest_version".Replace("""","")
 
 Remove-Item ../../temp/nuget -Recurse -ErrorAction SilentlyContinue
 New-Item ../../temp/nuget -ItemType Directory
-aria2c -c -x16 -s16 -d ./ "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" `
-    -o ../../temp/nuget/nuget.exe
+aria2c -c -x16 -s16 -d ../../temp/nuget/ "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" `
+    -o nuget.exe
 Write-Output "Latest Version: $latest_version"
 
 update-recipe -version $latest_version
