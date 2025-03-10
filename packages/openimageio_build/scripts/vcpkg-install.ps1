@@ -4,6 +4,6 @@ $triplet=Resolve-Path ./triplet
 
 Write-Output "::group::install OpenColorIO vcpkg"
 Set-Location ./ocio_dep
-vcpkg install --overlay-triplets=$triplet
+../../vcpkg/vcpkg.exe install --overlay-triplets=$triplet
 Set-Location ..
 Write-Output "::endgroup::"
