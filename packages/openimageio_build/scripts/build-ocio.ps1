@@ -1,7 +1,6 @@
 Set-Location $PSScriptRoot
 Set-Location ..
 $vcpkg = Resolve-Path ./ocio_dep/vcpkg_installed/x64-windows-static
-$conda_pkg=Resolve-Path ./.pixi/envs/ocio/Library
 $install_prefix=Resolve-Path ./oiio_dep/vcpkg_installed/x64-windows-static
 
 Set-Location ./external/OpenColorIO
@@ -10,8 +9,8 @@ Remove-Item */CMakeCache.txt -ErrorAction SilentlyContinue
 cmake -S . -B build `
     -DCMAKE_BUILD_TYPE=Release `
     -DOpenImageIO_ROOT="$vcpkg" `
-    -DYAML-CPP_ROOT="$conda_pkg" `
-    -DZLIB_ROOT="$conda_pkg" `
+    -DYAML-CPP_ROOT="$vcpkg" `
+    -DZLIB_ROOT="$vcpkg" `
     -DOCIO_BUILD_APPS=OFF `
     -DOCIO_BUILD_NUKE=OFF `
     -DOCIO_BUILD_DOCS=OFF `
