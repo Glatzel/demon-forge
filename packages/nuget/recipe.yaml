@@ -3,14 +3,13 @@ context:
 package:
   name: nuget
   version: ${{ version }}
-
 build:
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build.ps1
   number: 0
-
 tests:
 - script:
   - nuget help
+
