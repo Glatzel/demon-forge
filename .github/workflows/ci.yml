@@ -56,4 +56,11 @@ jobs:
       pkg: nuget
     secrets:
       prefix_key: ${{ secrets.PREFIX_KEY }}
+
+  openimageio:
+    uses: ./.github/workflows/single.yml
+    with:
+      pkg: openimageio
+    secrets:
+      prefix_key: ${{ secrets.PREFIX_KEY }}
     
