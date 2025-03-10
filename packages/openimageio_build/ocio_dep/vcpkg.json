@@ -4,5 +4,6 @@
     "yaml-cpp",
     "zlib"
   ],
-  "name": "ocio-ext"
+  "name": "ocio-ext",
+  "builtin-baseline": "5c41ff21f6feda702a7d5a1afc765f88d25783c5"
 }
