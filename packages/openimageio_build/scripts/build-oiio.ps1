@@ -45,7 +45,8 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DUSE_QT=0 `
   -DUSE_SIMD="sse4.2,avx2" `
   -DWebP_ROOT="$conda_pkg" `
-  -DZLIB_ROOT="$conda_pkg"
+  -DZLIB_ROOT="$conda_pkg" `
+  -DCMAKE_INSTALL_PREFIX="../../dist"
 Write-Output "::endgroup::"
 
 Write-Output "::group::build oiio"

@@ -1,5 +1,5 @@
 context:
-  version: 6.13.2
+  version: 3.0.4.0
 package:
   name: openimageio
   version: ${{ version }}
@@ -11,4 +11,5 @@ build:
   number: 0
 tests:
 - script:
-  - nuget help
+  - oiiotool --help
+

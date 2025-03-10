@@ -1,18 +1,23 @@
 Set-Location $PSScriptRoot
 . ../../scripts/setup.ps1
 
+# process version
 $current_version = get-current-version
 Write-Output "Current Version: $current_version"
-
-$latest_version = curl https://dist.nuget.org/index.json | jq '.artifacts[0].versions[0].version'
-$latest_version = "$latest_version".Replace("""","")
-
-Remove-Item ../../temp/nuget -Recurse -ErrorAction SilentlyContinue
-New-Item ../../temp/nuget -ItemType Directory
-aria2c -c -x16 -s16 -d ../../temp/nuget/ "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" `
-    -o nuget.exe
+$latest_version = get_latest_version -repo "AcademySoftwareFoundation/OpenImageIO"
+$latest_version = "$latest_version".Replace("v","")
 Write-Output "Latest Version: $latest_version"
 
+#pre-build
+& $PSScriptRoot/../openimageio_build/scripts/clone-repo.ps1
+& $PSScriptRoot/../openimageio_build/scripts/vcpkg-setup.ps1
+& $PSScriptRoot/../openimageio_build/scripts/vcpkg-install.ps1
+& $PSScriptRoot/../openimageio_build/scripts/pixi-install.ps1
+& $PSScriptRoot/../openimageio_build/scripts/build-ocio.ps1
+& $PSScriptRoot/../openimageio_build/scripts/build-oiio.ps1
+
+#rattler build
+Set-Location $PSScriptRoot
 update-recipe -version $latest_version
-build_pkg
-test_pkg
+# build_pkg
+# test_pkg
