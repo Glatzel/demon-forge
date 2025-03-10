@@ -1,8 +1,8 @@
 Set-Location $PSScriptRoot
 Set-Location ..
-$vcpkg = Resolve-Path ./ocio_dep/vcpkg_installed/x64-windows
+$vcpkg = Resolve-Path ./ocio_dep/vcpkg_installed/x64-windows-static
 $conda_pkg=Resolve-Path ./.pixi/envs/ocio/Library
-$install_prefix=Resolve-Path ./.pixi/envs/oiio/Library
+$install_prefix=Resolve-Path ./oiio_dep/vcpkg_installed/x64-windows-static
 
 Set-Location ./external/OpenColorIO
 Write-Output "::group::Make ocio"
@@ -20,7 +20,7 @@ cmake -S . -B build `
     -DOCIO_BUILD_PYTHON=OFF `
     -DOCIO_BUILD_PYGLUE=OFF `
     -DOCIO_BUILD_JAVA=OFF `
-    -DBUILD_SHARED_LIBS=ON `
+    -DBUILD_SHARED_LIBS=OFF `
     -DCMAKE_INSTALL_PREFIX="$install_prefix"
 Write-Output "::endgroup::"
 
