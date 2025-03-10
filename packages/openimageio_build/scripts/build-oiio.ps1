@@ -3,7 +3,7 @@ Set-Location ..
 
 $ocio_root=Resolve-Path ./oiio_dep/ocio
 $ocio_root = "$ocio_root" -replace "\\", "/"
-$vcpkg_dep=Resolve-Path ./oiio_dep/vcpkg_installed/x64-windows-static
+$vcpkg_dep=Resolve-Path ./oiio_dep/vcpkg_installed/x64-windows
 $vcpkg_dep = "$vcpkg_dep" -replace "\\", "/"
 
 Write-Output "::group::Make oiio"

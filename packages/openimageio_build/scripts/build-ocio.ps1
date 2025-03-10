@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 Set-Location ..
 New-Item ./oiio_dep/ocio -ItemType Directory -ErrorAction SilentlyContinue
-$vcpkg = Resolve-Path ./ocio_dep/vcpkg_installed/x64-windows-static
+$vcpkg = Resolve-Path ./ocio_dep/vcpkg_installed/x64-windows
 $install_prefix=Resolve-Path ./oiio_dep/ocio
 
 Set-Location ./external/OpenColorIO
