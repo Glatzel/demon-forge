@@ -7,8 +7,9 @@ build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build.ps1
+    - pwsh -f %RECIPE_DIR%\build-openimageio.ps1
   number: 0
 tests:
 - script:
   - oiiotool --help
+
