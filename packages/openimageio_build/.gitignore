@@ -3,7 +3,5 @@ external
 openimageio
 vcpkg
 temp
-# pixi environments
-.pixi
-*.egg-info
 dist
+oiio_dep/ocio

@@ -1,7 +1,8 @@
 Set-Location $PSScriptRoot
 Set-Location ..
+New-Item ./oiio_dep/ocio -ItemType Directory -ErrorAction SilentlyContinue
 $vcpkg = Resolve-Path ./ocio_dep/vcpkg_installed/x64-windows-static
-$install_prefix=Resolve-Path ./oiio_dep/vcpkg_installed/x64-windows-static
+$install_prefix=Resolve-Path ./oiio_dep/ocio
 
 Set-Location ./external/OpenColorIO
 Write-Output "::group::Make ocio"
@@ -19,7 +20,7 @@ cmake -S . -B build `
     -DOCIO_BUILD_PYTHON=OFF `
     -DOCIO_BUILD_PYGLUE=OFF `
     -DOCIO_BUILD_JAVA=OFF `
-    -DBUILD_SHARED_LIBS=OFF `
+    -DBUILD_SHARED_LIBS=ON `
     -DCMAKE_INSTALL_PREFIX="$install_prefix"
 Write-Output "::endgroup::"
 
