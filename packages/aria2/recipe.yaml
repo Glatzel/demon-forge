@@ -3,14 +3,12 @@ context:
 package:
   version: ${{ version }}
   name: aria2
-
 build:
-  number: 1
+  number: 2
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-aria2.ps1
-
 tests:
 - script:
-  - aria2c --help
+  - '%PREFIX%/bin/aria2/aria2c.exe --help'

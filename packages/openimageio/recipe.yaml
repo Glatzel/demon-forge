@@ -8,7 +8,7 @@ build:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-openimageio.ps1
-  number: 0
+  number: 1
 tests:
 - script:
-  - oiiotool --help
+  - '%PREFIX%/bin/openimageio/oiiotool.exe --help'
