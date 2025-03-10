@@ -1,0 +1,7 @@
+vcpkg_installed
+external
+openimageio
+vcpkg
+temp
+dist
+.pixi

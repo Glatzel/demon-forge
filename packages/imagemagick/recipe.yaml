@@ -3,13 +3,13 @@ context:
 package:
   name: imagemagick
   version: ${{ version }}
-tests:
-- script:
-  - magick --help
+
 build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build.ps1
+    - pwsh -f %RECIPE_DIR%\build-imagemagick.ps1
   number: 0
-
+tests:
+- script:
+  - magick --help

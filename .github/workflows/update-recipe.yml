@@ -26,12 +26,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           . ./scripts/setup.ps1
-          $pkgs=("aria2","imagemagick","jq","nuget")
+          $pkgs=("aria2","imagemagick","jq","nuget","openimageio")
           foreach($pkg in $pkgs)
           {
             write-output "::group::update $pkg"
             set-location ./packages/$pkg
-            ./ci.ps1
+            ./ci-$pkg.ps1
             reset-build-code
             set-location ../../
             write-output "::endgroup::"

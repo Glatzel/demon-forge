@@ -1,0 +1,34 @@
+[project]
+channels = ["conda-forge"]
+name = "oiio"
+platforms = ["win-64"]
+
+[tasks]
+
+
+
+[feature.ocio.dependencies]
+yaml-cpp="*"
+zlib="*"
+
+[feature.oiio.dependencies]
+bzip2="*"
+fmt="*"
+freetype="*"
+giflib="*"
+libheif="*"
+libjpeg-turbo="*"
+libjxl="*"
+libpng="*"
+libraw="*"
+libtiff="*"
+libwebp="*"
+openexr="*"
+openjpeg="*"
+tbb-devel="*"
+yaml-cpp="*"
+zlib="*"
+
+[environments]
+ocio=["ocio"]
+oiio=["oiio"]

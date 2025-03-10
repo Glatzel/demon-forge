@@ -1,14 +1,14 @@
 context:
-  version: 6.13.2
+  version: 3.0.4.0
 package:
-  name: nuget
+  name: openimageio
   version: ${{ version }}
 build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-nuget.ps1
+    - pwsh -f %RECIPE_DIR%\build-openimageio.ps1
   number: 0
 tests:
 - script:
-  - nuget help
+  - oiiotool --help
