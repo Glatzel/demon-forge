@@ -1,0 +1,14 @@
+context:
+  version: 0.28.1
+package:
+  version: ${{ version }}
+  name: jq
+build:
+  number: 0
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-pkg-config-lite.ps1
+tests:
+- script:
+  - '%PREFIX%/bin/pkg-config-lite/pkg-config-lite.exe --help'

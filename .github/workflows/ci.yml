@@ -78,3 +78,11 @@ jobs:
         with:
           pkg: openimageio
           args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
+
+  pkg-config-lite:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: pkg-config-lite
