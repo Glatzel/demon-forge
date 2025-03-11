@@ -10,5 +10,6 @@ foreach ($pkg_file in Get-ChildItem "./packages/$pkg/output/win-64/*.conda" -Rec
         Write-Host "Upload fail: $pkg" -ForegroundColor Red
     }
     else{Write-Host "Upload succeed: $pkg" -ForegroundColor Red}
+    $LASTEXITCODE=0
     Write-Output "::endgroup::"
 }
