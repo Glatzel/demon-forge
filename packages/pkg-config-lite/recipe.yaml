@@ -11,4 +11,4 @@ build:
     - pwsh -f %RECIPE_DIR%\build-pkg-config-lite.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/pkg-config-lite/pkg-config-lite.exe --help'
+  - '%PREFIX%/bin/pkg-config-lite/pkg-config.exe --help'
