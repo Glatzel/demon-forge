@@ -2,7 +2,7 @@ context:
   version: 0.28.1
 package:
   version: ${{ version }}
-  name: jq
+  name: pkg-config-lite
 build:
   number: 0
   script:
