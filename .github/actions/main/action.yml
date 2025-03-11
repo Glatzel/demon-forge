@@ -49,4 +49,3 @@ runs:
       run: |
         ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
       shell: pwsh
-      continue-on-error: true
