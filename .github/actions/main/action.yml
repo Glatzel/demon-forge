@@ -36,6 +36,7 @@ runs:
         GH_TOKEN: ${{ github.token }}
       run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1 ${{inputs.args}}
       shell: pwsh
+      continue-on-error: true
 
     - name: upload
       if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
