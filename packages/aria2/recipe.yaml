@@ -1,7 +1,5 @@
-context:
-  version: 1.37.0
 package:
-  version: ${{ version }}
+  version: 1.37.0
   name: aria2
 build:
   number: 2

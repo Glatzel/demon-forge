@@ -1,7 +1,5 @@
-context:
-  version: 1.7.1
 package:
-  version: ${{ version }}
+  version: 1.7.1
   name: jq
 build:
   number: 2
