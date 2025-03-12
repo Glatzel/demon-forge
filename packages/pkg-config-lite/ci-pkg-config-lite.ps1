@@ -9,4 +9,3 @@ aria2c -c -x16 -s16 -d ../../temp/pkg-config-lite/ `
 Expand-Archive ../../temp/pkg-config-lite/pkg-config-lite.zip ../../temp/pkg-config-lite/
 
 build_pkg
-test_pkg

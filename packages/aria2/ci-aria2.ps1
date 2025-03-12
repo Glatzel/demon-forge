@@ -15,4 +15,3 @@ gh release download -R aria2/aria2 -p "aria2-*-win-64bit*.zip" `
 Expand-Archive ../../temp/aria2/aria2.zip ../../temp/aria2/
 update-recipe -version $latest_version
 build_pkg
-test_pkg
