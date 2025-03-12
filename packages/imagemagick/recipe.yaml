@@ -1,8 +1,6 @@
-context:
-  version: 7.1.1.44
 package:
   name: imagemagick
-  version: ${{ version }}
+  version: 7.1.1.44
 
 build:
   script:
