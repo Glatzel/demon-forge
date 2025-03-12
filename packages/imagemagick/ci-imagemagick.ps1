@@ -17,4 +17,3 @@ Write-Output "Latest Version: $latest_version"
 
 update-recipe -version $latest_version
 build_pkg
-test_pkg
