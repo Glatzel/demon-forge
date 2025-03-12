@@ -63,4 +63,3 @@ function build_pkg {
     pixi run rattler-build build
     Write-Output "::endgroup::"
 }
-
