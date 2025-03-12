@@ -1,18 +1,6 @@
-Import-Module powershell-yaml
-
 function get-current-version {
-    # Define the path to the YAML file
-    $yamlFilePath = "recipe.yaml"
-
-    # Read the YAML content
-    $yamlContent = Get-Content -Path $yamlFilePath -Raw
-
-    # Convert the YAML content to a PowerShell object
-    $yamlObject = $yamlContent | ConvertFrom-Yaml
-
-    # Get the current version from the context
-    $currentVersion = $yamlObject.context.version
-    Write-Output "$currentVersion"
+    $matched=Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
+    Write-Output $matched.Matches[0].Groups[1]
 }
 function get_latest_version {
     param($repo)
@@ -21,42 +9,12 @@ function get_latest_version {
 function update-recipe {
     param($version)
     Write-Output "::group::update recipe"
-    # Define the path to the YAML file
-    $yamlFilePath = "recipe.yaml"
-
-    # Read the YAML content
-    $yamlContent = Get-Content -Path $yamlFilePath -Raw
-
-    # Convert the YAML content to a PowerShell object
-    $yamlObject = $yamlContent | ConvertFrom-Yaml -Ordered
-
-    # Get the current version from the context
-    $yamlObject.context.version = $version
-    # Convert the updated object back to YAML
-    $updatedYamlContent = $yamlObject | ConvertTo-Yaml
-
-    # Write the updated YAML content back to the file
-    Set-Content -Path "recipe.yaml" -Value $updatedYamlContent
+    (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: $version" | Set-Content -Path "./recipe.yaml"
     Write-Output "::endgroup::"
 }
 function reset-build-code {
-    # Define the path to the YAML file
-    $yamlFilePath = "./recipe.yaml"
-
-    # Read the YAML content
-    $yamlContent = Get-Content -Path $yamlFilePath -Raw
-
-    # Convert the YAML content to a PowerShell object
-    $yamlObject = $yamlContent | ConvertFrom-Yaml -Ordered
-
-    # Get the current version from the context
-    $yamlObject.build.number = 0
-    # Convert the updated object back to YAML
-    $updatedYamlContent = $yamlObject | ConvertTo-Yaml
-
-    # Write the updated YAML content back to the file
-    Set-Content -Path "./recipe.yaml" -Value $updatedYamlContent
-    }
+    (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
+}
 
 function build_pkg {
     Write-Output "::group::build"

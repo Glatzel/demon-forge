@@ -25,11 +25,6 @@ runs:
       with:
         run-install: false
 
-    - name: install pwsh-yaml
-      if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
-      run: Install-Module powershell-yaml -Force
-      shell: pwsh
-
     - name: ci
       if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
       env:
