@@ -17,7 +17,7 @@ runs:
         files: |
           ./.github/**
           ./scripts/**
-          ./packages/${{inputs.pkg}}/**
+          ./packages/${{inputs.pkg}}*/**
 
     - name: Set up pixi
       if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
