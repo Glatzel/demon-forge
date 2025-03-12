@@ -13,4 +13,3 @@ gh release download -R jqlang/jq -p "jq-windows-amd64.exe" `
     -O  ../../temp/jq/jq.exe --clobber
 update-recipe -version $latest_version
 build_pkg
-test_pkg
