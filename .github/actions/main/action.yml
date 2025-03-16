@@ -9,24 +9,38 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Get changed
+      id: changed
+      uses: tj-actions/changed-files@v45
+      with:
+        # Avoid using single or double quotes for multiline patterns
+        files: |
+          ./.github/**
+          ./scripts/**
+          ./packages/${{inputs.pkg}}*/**
+
     - name: Set up pixi
+      if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
       uses: prefix-dev/setup-pixi@v0.8.3
       with:
         run-install: false
 
     - name: ci
+      if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
       env:
         GH_TOKEN: ${{ github.token }}
       run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1 ${{inputs.args}}
       shell: pwsh
 
     - name: upload
+      if: ${{github.event_name !='pull_request' || steps.changed.outputs.any_changed == 'true' }}
       uses: actions/upload-artifact@v4
       with:
         name: ${{inputs.pkg}}
         path: ./packages/${{inputs.pkg}}/output/win-64
 
     - name: publish
+      if: ${{github.event_name !='pull_request' && success()}}
       run: |
         ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
       shell: pwsh
