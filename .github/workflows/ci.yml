@@ -29,7 +29,53 @@ permissions:
   pull-requests: write
 
 jobs:
+  changed:
+    if: ${{github.event_name == 'pull_request'}}
+    outputs:
+      changed-android-sdk-platform-tools: ${{steps.main.outputs.android-sdk-platform-tools_any_changed}}
+      changed-aria2: ${{steps.main.outputs.aria2_any_changed}}
+      changed-imagemagick: ${{steps.main.outputs.imagemagick_any_changed }}
+      changed-jq: ${{steps.main.outputs.jq_any_changed}}
+      changed-nuget: ${{steps.main.outputs.nuget_any_changed}}
+      changed-openimageio: ${{steps.main.outputs.openimageio_any_changed}}
+      changed-pkg-config-lite: ${{steps.main.outputs.pkg-config-lite_any_changed}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        if: ${{github.event_name == 'pull_request'}}
+      - id: main
+        uses: tj-actions/changed-files@v46
+        if: ${{github.event_name == 'pull_request'}}
+        with:
+          files_yaml: |
+            android-sdk-platform-tools:
+              - ./packages/android-sdk-platform-tools/**
+            aria2:
+              - ./packages/aria2/**
+            imagemagick:
+              - ./packages/imagemagick/**
+            jq:
+              - ./packages/jq/**
+            nuget:
+              - ./packages/nuget/**
+            openimageio:
+              - ./packages/openimageio/**
+            pkg-config-lite:
+              - ./packages/pkg-config-lite/**
+
+  android-sdk-platform-tools:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-android-sdk-platform-tools != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: aria2
+
   aria2:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-aria2 != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +84,8 @@ jobs:
           pkg: aria2
 
   imagemagick:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-imagemagick != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,6 +94,8 @@ jobs:
           pkg: imagemagick
 
   jq:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-jq != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +104,8 @@ jobs:
           pkg: jq
 
   nuget:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-nuget != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,7 +114,8 @@ jobs:
           pkg: nuget
 
   openimageio:
-    # needs: cache-vcpkg-openimageio
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-openimageio != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,6 +133,8 @@ jobs:
           args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
 
   pkg-config-lite:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-pkg-config-lite != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
