@@ -71,7 +71,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/main
         with:
-          pkg: aria2
+          pkg: android-sdk-platform-tools
 
   aria2:
     needs: changed
