@@ -30,7 +30,6 @@ permissions:
 
 jobs:
   changed:
-    if: ${{github.event_name == 'pull_request'}}
     outputs:
       changed-android-sdk-platform-tools: ${{steps.main.outputs.android-sdk-platform-tools_any_changed}}
       changed-aria2: ${{steps.main.outputs.aria2_any_changed}}
