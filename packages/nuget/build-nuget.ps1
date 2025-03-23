@@ -1,2 +1,6 @@
-New-Item $env:PREFIX/bin/nuget -ItemType Directory
-Copy-Item "$env:RECIPE_DIR/../../temp/nuget/nuget.exe" "$env:PREFIX/bin/nuget/nuget.exe"
+Set-Location $PSScriptRoot
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
+$name=get-name
+New-Item $env:PREFIX/bin/$name -ItemType Directory
+Copy-Item "$ROOT/temp/$name/$name.exe" "$env:PREFIX/bin/$name/$name.exe"

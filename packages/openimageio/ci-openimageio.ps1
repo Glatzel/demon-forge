@@ -1,6 +1,7 @@
 param($reinstall='true')
 Set-Location $PSScriptRoot
-. ../../scripts/setup.ps1
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/setup.ps1
 
 # process version
 $current_version = get-current-version

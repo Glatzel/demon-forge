@@ -1,15 +1,17 @@
 Set-Location $PSScriptRoot
-. ../../scripts/setup.ps1
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
+$name=get-name
 
 $current_version = get-current-version
 Write-Output "Current Version: $current_version"
 
-$latest_version = get_latest_version -repo "jqlang/jq"
-$latest_version = "$latest_version".Replace("jq-", "")
+$latest_version = get-latest-version -repo "jqlang/$name"
+$latest_version = "$latest_version".Replace("$name-", "")
 Write-Output "Latest Version: $latest_version"
-Remove-Item ../../temp/jq -Recurse -ErrorAction SilentlyContinue
-New-Item  ../../temp/jq -ItemType Directory
-gh release download -R jqlang/jq -p "jq-windows-amd64.exe" `
-    -O  ../../temp/jq/jq.exe --clobber
+Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+New-Item  $ROOT/temp/$name -ItemType Directory
+gh release download -R jqlang/$name -p "$name-windows-amd64.exe" `
+    -O  $ROOT/temp/$name/$name.exe --clobber
 update-recipe -version $latest_version
-build_pkg
+build-pkg

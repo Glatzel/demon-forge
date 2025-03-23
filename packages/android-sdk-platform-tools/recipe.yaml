@@ -1,5 +1,5 @@
 package:
-  version: 35.0.2.12147458
+  version: 35.0.2
   name: android-sdk-platform-tools
 build:
   number: 0
