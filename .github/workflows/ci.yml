@@ -94,7 +94,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: dism-plus-plus
-          
+
   imagemagick:
     needs: changed
     if: ${{ needs.changed.outputs.changed-imagemagick != 'false'}}
