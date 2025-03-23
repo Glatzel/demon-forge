@@ -2,7 +2,7 @@ package:
   version: 10.1.1002.2
   name: dism-plus-plus
 build:
-  number: 2
+  number: 3
   script:
   - if: win
     then:
