@@ -1,3 +1,6 @@
+Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
-New-Item $env:PREFIX/bin/android-sdk-platform-tools -ItemType Directory
-Copy-Item "$ROOT/temp/android-sdk-platform-tools/platform-tools/*" "$env:PREFIX/bin/android-sdk-platform-tools"
+. $ROOT/scripts/util.ps1
+$name=get-name
+New-Item $env:PREFIX/bin/$name -ItemType Directory
+Copy-Item "$ROOT/temp/$name/platform-tools/*" "$env:PREFIX/bin/$name"

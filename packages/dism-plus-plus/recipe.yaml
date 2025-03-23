@@ -1,0 +1,9 @@
+package:
+  version: 10.1.1002.2
+  name: dism-plus-plus
+build:
+  number: 2
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-dism-plus-plus.ps1
