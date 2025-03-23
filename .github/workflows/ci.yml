@@ -52,7 +52,7 @@ jobs:
               - ./packages/android-sdk-platform-tools/**
             aria2:
               - ./packages/aria2/**
-            dism-plus-plus
+            dism-plus-plus:
               - ./packages/dism-plus-plus/**
             imagemagick:
               - ./packages/imagemagick/**
