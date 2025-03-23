@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+    "menu_name": "dism-plus-plus",
+    "menu_items": [
+        {
+            "name": "Launch dism-plus-plus",
+            "description": "Launch App",
+            "command": [
+                "bin/dism-plus-plus/dism++x64.exe"
+            ],
+            "platforms": {
+                "win": {}
+            }
+        }
+    ]
+}
