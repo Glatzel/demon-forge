@@ -10,7 +10,9 @@
                 "{{ PREFIX }}/bin/dism-plus-plus/Dism++x64.exe"
             ],
             "platforms": {
-                "win": {}
+                "win": {
+                    "desktop": false
+                }
             }
         }
     ]

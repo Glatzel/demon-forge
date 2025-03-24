@@ -5,6 +5,8 @@ inputs:
   args:
     description: "ci.ps1 args"
     default: ''
+  publish:
+    description: "upload package"
 
 runs:
   using: "composite"
@@ -27,6 +29,7 @@ runs:
         path: ./packages/${{inputs.pkg}}/output/win-64
 
     - name: publish
+      if: ${{inputs.publish=='true'}}
       run: |
         ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
       shell: pwsh
