@@ -74,6 +74,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: android-sdk-platform-tools
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   aria2:
     needs: changed
@@ -84,6 +85,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: aria2
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   dism-plus-plus:
     needs: changed
@@ -94,6 +96,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: dism-plus-plus
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   imagemagick:
     needs: changed
@@ -104,6 +107,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: imagemagick
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   jq:
     needs: changed
@@ -114,6 +118,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: jq
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   nuget:
     needs: changed
@@ -124,6 +129,7 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: nuget
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   openimageio:
     needs: changed
@@ -143,6 +149,7 @@ jobs:
         with:
           pkg: openimageio
           args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   pkg-config-lite:
     needs: changed
@@ -153,3 +160,4 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: pkg-config-lite
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
