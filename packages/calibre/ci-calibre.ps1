@@ -11,8 +11,11 @@ $latest_version = "$latest_version".Replace("v", "")
 Write-Output "Latest Version: $latest_version"
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
+Remove-Item C:/temp -Recurse -ErrorAction SilentlyContinue
+New-Item  C:/temp -ItemType Directory
 gh release download -R https://github.com/kovidgoyal/$name -p "$name-portable*" `
     -O  $ROOT/temp/$name/$name.exe --clobber
-Start-Process -FilePath "$ROOT/temp/$name/$name.exe" -ArgumentList "$ROOT/temp/$name/$name" -Wait
+Start-Process -FilePath "$ROOT/temp/$name/$name.exe" -ArgumentList "C:/temp" -Wait
 update-recipe -version $latest_version
 build-pkg
+Remove-Item C:/temp -Recurse -ErrorAction SilentlyContinue

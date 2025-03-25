@@ -9,4 +9,5 @@ build:
     - pwsh -f %RECIPE_DIR%\build-calibre.ps1
 tests:
 - script:
-  - pwsh -c 'test-path $env:PREFIX/bin/calibre/calibre.exe'
+
+  - pwsh -c 'if (-not (Test-Path $env:PREFIX/bin/calibre/calibre.exe)) { throw "File not found: C:\path\to\your\file.txt" }'
