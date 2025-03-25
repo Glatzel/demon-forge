@@ -9,4 +9,4 @@ build:
     - pwsh -f %RECIPE_DIR%\build-calibre.ps1
 tests:
 - script:
-  - if not exist "%PREFIX%/bin/calibre/calibre.exe" exit /b 1 ))
+  - if not exist "%PREFIX%/bin/calibre/calibre-portable.exe" exit /b 1 ))
