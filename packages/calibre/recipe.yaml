@@ -1,5 +1,5 @@
 package:
-  version: 8.0.1
+  version: 
   name: calibre
 build:
   number: 0
