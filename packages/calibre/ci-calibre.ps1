@@ -13,7 +13,6 @@ Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
 gh release download -R https://github.com/kovidgoyal/$name -p "$name-portable*" `
     -O  $ROOT/temp/$name/$name.exe --clobber
-$process = Start-Process $ROOT/temp/$name/$name.exe -ArgumentList "$ROOT/temp/$name" -PassThru
-$process.WaitForExit()
+& $ROOT/temp/$name/$name.exe "$ROOT/temp/$name/$name"
 update-recipe -version $latest_version
 build-pkg
