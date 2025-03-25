@@ -1,0 +1,12 @@
+package:
+  version: 8.0.1
+  name: calibre
+build:
+  number: 0
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-calibre.ps1
+tests:
+- script:
+  - pwsh -c 'test-path $env:PREFIX/bin/calibre/calibre.exe'

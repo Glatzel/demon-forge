@@ -33,6 +33,7 @@ jobs:
     outputs:
       changed-android-sdk-platform-tools: ${{steps.main.outputs.android-sdk-platform-tools_any_changed}}
       changed-aria2: ${{steps.main.outputs.aria2_any_changed}}
+      changed-calibre: ${{steps.main.outputs.calibre_any_changed}}
       changed-dism-plus-plus: ${{steps.main.outputs.dism-plus-plus_any_changed}}
       changed-imagemagick: ${{steps.main.outputs.imagemagick_any_changed }}
       changed-jq: ${{steps.main.outputs.jq_any_changed}}
@@ -54,6 +55,8 @@ jobs:
               - ./packages/android-sdk-platform-tools/**
             aria2:
               - ./packages/aria2/**
+            calibre:
+              - ./packages/calibre/**
             dism-plus-plus:
               - ./packages/dism-plus-plus/**
             imagemagick:
@@ -91,6 +94,17 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: aria2
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+
+  calibre:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-calibre != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: calibre
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   dism-plus-plus:
