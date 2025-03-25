@@ -5,7 +5,7 @@ $name=get-name
 $current_version = get-current-version
 Write-Output "Current Version: $current_version"
 
-$latest_version = curl https://dist.$name.org/index.json | jq '.artifacts[0].versions[0].version'
+$latest_version = curl "https://dist.$name.org/index.json" | jq '.artifacts[0].versions[0].version'
 $latest_version = "$latest_version".Replace("""", "")
 
 Remove-Item $ROOT/temp/nuget -Recurse -ErrorAction SilentlyContinue
