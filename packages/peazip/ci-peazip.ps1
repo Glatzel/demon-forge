@@ -6,13 +6,11 @@ $name = get-name
 $current_version = get-current-version
 Write-Output "Current Version: $current_version"
 
-$latest_version = get-latest-version -repo "$name/$name"
-$latest_version = "$latest_version".Replace("release-", "")
+$latest_version = get-latest-version -repo "https://github.com/$name/PeaZip"
 Write-Output "Latest Version: $latest_version"
-
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
-gh release download -R $name/$name -p "$name-*-win-64bit*.zip" `
+gh release download -R https://github.com/$name/PeaZip -p "peazip_portable-*.WIN64.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber
 7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name"
 update-recipe -version $latest_version
