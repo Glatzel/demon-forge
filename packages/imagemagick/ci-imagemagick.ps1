@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$name=get-name
+$name = get-name
 
 $current_version = get-current-version
 Write-Output "Current Version: $current_version"
@@ -13,7 +13,7 @@ New-Item $ROOT/temp/$name/expand -ItemType Directory
 aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
     "https://$name.org/archive/binaries/ImageMagick-$latest_version-portable-Q16-HDRI-x64.zip" `
     -o "$name.zip"
-Expand-Archive $ROOT/temp/$name/$name.zip $ROOT/temp/$name/
+7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name"
 $latest_version = "$latest_version".Replace("-", ".")
 Write-Output "Latest Version: $latest_version"
 
