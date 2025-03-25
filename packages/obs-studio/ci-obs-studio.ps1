@@ -14,4 +14,4 @@ gh release download -R https://github.com/obsproject/$name -p "*-Windows.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber
     Expand-Archive $ROOT/temp/$name/$name.zip $ROOT/temp/$name/$name
 update-recipe -version $latest_version
-# build-pkg
+build-pkg

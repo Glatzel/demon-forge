@@ -9,4 +9,4 @@ build:
     - pwsh -f %RECIPE_DIR%\build-obs-studio.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/obs-studio/bin/obs64.exe --help'
+  - '%PREFIX%/bin/obs-studio/bin/64bit/obs64.exe --help'
