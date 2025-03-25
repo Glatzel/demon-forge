@@ -37,6 +37,7 @@ jobs:
       changed-imagemagick: ${{steps.main.outputs.imagemagick_any_changed }}
       changed-jq: ${{steps.main.outputs.jq_any_changed}}
       changed-nuget: ${{steps.main.outputs.nuget_any_changed}}
+      changed-obs-studio: ${{steps.main.outputs.obs-studio_any_changed}}
       changed-openimageio: ${{steps.main.outputs.openimageio_any_changed}}
       changed-pkg-config-lite: ${{steps.main.outputs.pkg-config-lite_any_changed}}
     runs-on: ubuntu-latest
@@ -60,6 +61,8 @@ jobs:
               - ./packages/jq/**
             nuget:
               - ./packages/nuget/**
+            obs-studio
+              - ./packages/obs-studio/**
             openimageio:
               - ./packages/openimageio/**
             pkg-config-lite:
@@ -129,6 +132,17 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: nuget
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+
+  obs-studio:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-nuget != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: obs-studio
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   openimageio:
