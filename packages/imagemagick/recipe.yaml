@@ -1,6 +1,6 @@
 package:
   name: imagemagick
-  version: 7.1.1.44
+  version: 7.1.1.46
 
 build:
   script:
