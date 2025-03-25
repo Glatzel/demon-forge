@@ -10,7 +10,7 @@ aria2c --dir="$ROOT/temp/$name/" `
     "magnet:?xt=urn:btih:3ac8c8ba74ea297a13339369e1341be2464f0a72&tr=http://open.acgtracker.com:1096/announce" `
     --disable-ipv6
 foreach ($f in Get-ChildItem $ROOT/temp/$name/*.7z) {
-    7z x "$f" "-o$ROOT/temp/$name/" 
+    7z x "$f" "-o$ROOT/temp/$name/"
 }
 
 build-pkg
