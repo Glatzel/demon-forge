@@ -9,7 +9,7 @@ aria2c --dir="$ROOT/temp/$name/" `
     --bt-tracker="http://github.itzmx.com/1265578519/OpenTracker/master/tracker.txt" `
     --enable-rpc `
     --rpc-listen-all `
-    --auto-sjutdown `
+    --auto-shutdown `
     "magnet:?xt=urn:btih:3ac8c8ba74ea297a13339369e1341be2464f0a72&tr=http://open.acgtracker.com:1096/announce" `
 
 foreach ($f in Get-ChildItem $ROOT/temp/$name/*.7z) {
