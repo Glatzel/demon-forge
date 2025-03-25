@@ -9,4 +9,4 @@ build:
     - pwsh -f %RECIPE_DIR%\build-obs-studio.ps1
 tests:
 - script:
-  - pwsh -c 'test-path $env:PREFIX/bin/obs-studio/bin/64bit/obs64.exe'
+  - if not exist "%PREFIX%/bin/obs-studio/bin/64bit/obs64.exe" exit /b 1 ))

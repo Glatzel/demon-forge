@@ -9,4 +9,4 @@ build:
     - pwsh -f %RECIPE_DIR%\build-peazip.ps1
 tests:
 - script:
-  - pwsh -c 'test-path $env:PREFIX/bin/peazip/pea.exe'
+  - if not exist "%PREFIX%/bin/peazip/pea.exe" exit /b 1 ))
