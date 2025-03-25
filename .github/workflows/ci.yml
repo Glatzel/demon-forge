@@ -69,6 +69,7 @@ jobs:
               - ./packages/obs-studio/**
             openimageio:
               - ./packages/openimageio/**
+              - ./packages/openimageio_build/**
             peazip:
               - ./packages/peazip/**
             pkg-config-lite:
