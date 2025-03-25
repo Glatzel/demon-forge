@@ -178,7 +178,7 @@ jobs:
         with:
           pkg: peazip
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
-        
+
   pkg-config-lite:
     needs: changed
     if: ${{ needs.changed.outputs.changed-pkg-config-lite != 'false'}}
