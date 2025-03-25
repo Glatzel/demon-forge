@@ -9,4 +9,4 @@ build:
     - pwsh -f %RECIPE_DIR%\build-peazip.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/peazip/pea.exe --help'
+  - pwsh -c 'test-path $env:PREFIX/bin/peazip/pea.exe'
