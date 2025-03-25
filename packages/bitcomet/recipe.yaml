@@ -1,0 +1,12 @@
+package:
+  name: bitcomet
+  version: 2.12.1.14
+build:
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-bitcomet.ps1
+  number: 1
+tests:
+- script:
+  - if not exist "%PREFIX%/bin/bitcomet/bitcomet.exe" exit /b 1 ))
