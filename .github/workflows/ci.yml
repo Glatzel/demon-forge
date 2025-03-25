@@ -39,6 +39,7 @@ jobs:
       changed-nuget: ${{steps.main.outputs.nuget_any_changed}}
       changed-obs-studio: ${{steps.main.outputs.obs-studio_any_changed}}
       changed-openimageio: ${{steps.main.outputs.openimageio_any_changed}}
+      changed-peazip: ${{steps.main.outputs.peazip_any_changed}}
       changed-pkg-config-lite: ${{steps.main.outputs.pkg-config-lite_any_changed}}
     runs-on: ubuntu-latest
     steps:
@@ -61,10 +62,12 @@ jobs:
               - ./packages/jq/**
             nuget:
               - ./packages/nuget/**
-            obs-studio
+            obs-studio:
               - ./packages/obs-studio/**
             openimageio:
               - ./packages/openimageio/**
+            peazip:
+              - ./packages/peazip/**
             pkg-config-lite:
               - ./packages/pkg-config-lite/**
 
@@ -136,7 +139,7 @@ jobs:
 
   obs-studio:
     needs: changed
-    if: ${{ needs.changed.outputs.changed-nuget != 'false'}}
+    if: ${{ needs.changed.outputs.changed-obs-studio != 'false'}}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -165,6 +168,17 @@ jobs:
           args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
+  peazip:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-peazip != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: peazip
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+        
   pkg-config-lite:
     needs: changed
     if: ${{ needs.changed.outputs.changed-pkg-config-lite != 'false'}}
