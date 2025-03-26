@@ -19,7 +19,7 @@ options.add_experimental_option(
     },
 )
 driver = webdriver.Edge(options=options)
-driver.set_window_size(1920,1080)
+driver.set_window_size(1080, 1920)
 
 # open web
 driver.get("https://www.pureref.com/download.php")
