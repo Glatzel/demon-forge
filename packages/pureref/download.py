@@ -24,7 +24,7 @@ driver.set_window_size(1080, 1920)
 # open web
 driver.get("https://www.pureref.com/download.php")
 WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located(
+    EC.element_to_be_clickable(
         (By.XPATH, "//div[@id='buildSelect']/label/div/span/select")
     )
 )
