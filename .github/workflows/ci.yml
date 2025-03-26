@@ -37,6 +37,7 @@ jobs:
       changed-dism-plus-plus: ${{steps.main.outputs.dism-plus-plus_any_changed}}
       changed-imagemagick: ${{steps.main.outputs.imagemagick_any_changed }}
       changed-jq: ${{steps.main.outputs.jq_any_changed}}
+      changed-mkcert: ${{steps.main.outputs.mkcert_any_changed}}
       changed-nuget: ${{steps.main.outputs.nuget_any_changed}}
       changed-obs-studio: ${{steps.main.outputs.obs-studio_any_changed}}
       changed-openimageio: ${{steps.main.outputs.openimageio_any_changed}}
@@ -64,6 +65,8 @@ jobs:
               - ./packages/imagemagick/**
             jq:
               - ./packages/jq/**
+            mkcert:
+              - ./packages/mkcert/**
             nuget:
               - ./packages/nuget/**
             obs-studio:
@@ -142,6 +145,16 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: jq
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+  mkcert:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-mkcert != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: mkcert
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   nuget:

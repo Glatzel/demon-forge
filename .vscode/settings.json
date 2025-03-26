@@ -1,0 +1,9 @@
+{
+    "python.analysis.exclude": [
+        "**/vcpkg",
+        "**/.pixi",
+        "**/output",
+        "**/packages/openimageio_build",
+        "**/temp"
+    ]
+}
