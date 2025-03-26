@@ -22,6 +22,7 @@ options.add_experimental_option(
     },
 )
 options.add_argument("--force-device-scale-factor=0.5")
+options.add_argument("--headless=new")
 driver = webdriver.Edge(options=options)
 driver.set_window_size(2160, 4096)
 
