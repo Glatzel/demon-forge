@@ -1,0 +1,12 @@
+package:
+  version: 2.0.3
+  name: pureref
+build:
+  number: 0
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-pureref.ps1
+tests:
+- script:
+  - if not exist "%PREFIX%/bin/pureref/PureRef.exe" exit /b 1 ))
