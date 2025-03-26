@@ -42,6 +42,7 @@ jobs:
       changed-openimageio: ${{steps.main.outputs.openimageio_any_changed}}
       changed-peazip: ${{steps.main.outputs.peazip_any_changed}}
       changed-pkg-config-lite: ${{steps.main.outputs.pkg-config-lite_any_changed}}
+      changed-pureref: ${{steps.main.outputs.pureref_any_changed}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -74,6 +75,8 @@ jobs:
               - ./packages/peazip/**
             pkg-config-lite:
               - ./packages/pkg-config-lite/**
+            pureref:
+              - ./packages/pureref/**
 
   android-sdk-platform-tools:
     needs: changed
@@ -203,4 +206,15 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: pkg-config-lite
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+
+  pureref:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-pureref != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: pureref
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
