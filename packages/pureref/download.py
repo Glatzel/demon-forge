@@ -19,6 +19,7 @@ options.add_experimental_option(
     },
 )
 driver = webdriver.Edge(options=options)
+driver.set_window_size(1920,1080)
 
 # open web
 driver.get("https://www.pureref.com/download.php")
@@ -45,7 +46,6 @@ print("select windows portable")
 # set price
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "customAmount")))
 element = driver.find_element(By.ID, "customAmount")
-# driver.execute_script("arguments[0].scrollIntoView();", element)
 element.click()
 print("click custom amount")
 element = driver.find_element(By.NAME, "amount")
