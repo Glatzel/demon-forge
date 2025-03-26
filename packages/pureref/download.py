@@ -1,13 +1,16 @@
+import logging
 import time
 from pathlib import Path
 
+import clerk
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
+logging.basicConfig(level=logging.INFO, handlers=[clerk.rich_handler()])
+log = logging.getLogger(__name__)
 # config driver
 download_dir = Path(__file__).parents[2] / "temp" / "pureref"
 options = EdgeOptions()
@@ -39,27 +42,29 @@ element = driver.find_element(
     By.XPATH, "//div[@id='buildSelect']/label/div/span/select"
 )
 # driver.execute_script("arguments[0].scrollIntoView();", element)
-print("click drop down menu")
+log.info("click drop down menu")
 select_element = Select(element)
 select_element.select_by_index(1)
-print("select windows portable")
+log.info("select windows portable")
 
 # set price
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "customAmount")))
 element = driver.find_element(By.ID, "customAmount")
 element.click()
-print("click custom amount")
+log.info("click custom amount")
 element = driver.find_element(By.NAME, "amount")
 element.clear()
 element.send_keys("0")
-print("set amount")
+log.info("set amount to zero")
 driver.execute_script("arguments[0].dispatchEvent(new Event('change'))", element)
 
 # download
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, """//*[@id="freeDownload"]/button""")))
+WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, """//*[@id="freeDownload"]/button"""))
+)
 element = driver.find_element(By.XPATH, """//*[@id="freeDownload"]/button""")
 element.click()
-print("start download")
+log.info("start download")
 
 # Wait for file to appear
 max_wait = 100  # seconds
@@ -71,4 +76,4 @@ while waited < max_wait:
     waited += 1
 else:
     raise TimeoutError("File didn't download in time")
-print("finish download")
+log.info("finish download")
