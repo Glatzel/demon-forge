@@ -18,13 +18,14 @@ options.add_experimental_option(
         "download.directory_upgrade": True,
     },
 )
+options.add_argument("--force-device-scale-factor=0.5")
 driver = webdriver.Edge(options=options)
-driver.set_window_size(1080, 1920)
+driver.set_window_size(2160, 4096)
 
 # open web
 driver.get("https://www.pureref.com/download.php")
 WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable(
+    EC.presence_of_element_located(
         (By.XPATH, "//div[@id='buildSelect']/label/div/span/select")
     )
 )
@@ -44,7 +45,7 @@ select_element.select_by_index(1)
 print("select windows portable")
 
 # set price
-WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "customAmount")))
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "customAmount")))
 element = driver.find_element(By.ID, "customAmount")
 element.click()
 print("click custom amount")
@@ -53,8 +54,9 @@ element.clear()
 element.send_keys("0")
 print("set amount")
 driver.execute_script("arguments[0].dispatchEvent(new Event('change'))", element)
-time.sleep(5)
+
 # download
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, """//*[@id="freeDownload"]/button""")))
 element = driver.find_element(By.XPATH, """//*[@id="freeDownload"]/button""")
 element.click()
 print("start download")
