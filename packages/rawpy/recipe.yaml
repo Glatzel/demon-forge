@@ -1,0 +1,14 @@
+context:
+  libraw-version: 0.21.3
+package:
+  name: rawpy
+  version: 0.24.0
+build:
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-rawpy.ps1
+  number: 1
+tests:
+- script:
+  - '%PREFIX%/bin/openimageio/oiiotool.exe --help'
