@@ -15,7 +15,7 @@ $libraw_version="$libraw_version".Replace(".","_")
 (Get-Content -Path "./recipe.yaml") -replace '^  libraw-version: .*', "  libraw-version: '$libraw_version'" | Set-Content -Path "./recipe.yaml"
 
 # #pre-build
-# & $PSScriptRoot/../${name}_build/scripts/build-$name.ps1
+& $PSScriptRoot/../${name}_build/scripts/build-$name.ps1
 
 #rattler build
 Set-Location $PSScriptRoot
