@@ -83,7 +83,7 @@ jobs:
               - ./packages/pureref/**
             rawpy:
               - ./packages/rawpy/**
-              - ./packages/rawpy/**
+              - ./packages/rawpy_build/**
 
   android-sdk-platform-tools:
     needs: changed
