@@ -13,5 +13,3 @@ Set-Location rawpy
 ../scripts/init-vs.ps1
 pixi run -e vfx2024 python -u setup.py bdist_wheel
 Rename-Item ./dist/rawpy-*.*.*-cp311-cp311-win_amd64.whl "rawpy-2024-cp311-cp311-win_amd64.whl"
-pixi run -e vfx2025 python -u setup.py bdist_wheel
-Rename-Item ./dist/rawpy-*.*.*-cp311-cp311-win_amd64.whl "rawpy-2025-cp311-cp311-win_amd64.whl"
