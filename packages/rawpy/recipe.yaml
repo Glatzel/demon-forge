@@ -4,7 +4,7 @@ context:
 
 package:
   name: rawpy
-  version: ${{ vfx }}
+  version: 0.24.0
 
 build:
   script:

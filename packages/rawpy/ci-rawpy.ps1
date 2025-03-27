@@ -13,7 +13,7 @@ Write-Output "libraw: $libraw_version"
 update-recipe -version $rawpy_version
 (Get-Content -Path "./recipe.yaml") -replace '^  libraw-version: .*', "  libraw-version: $libraw_version" | Set-Content -Path "./recipe.yaml"
 #pre-build
-& $PSScriptRoot/../$name_build/scripts/build_$name.ps1
+& $PSScriptRoot/../${name}_build/scripts/build-$name.ps1
 
 #rattler build
 Set-Location $PSScriptRoot
