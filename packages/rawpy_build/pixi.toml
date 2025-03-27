@@ -22,11 +22,11 @@ python = "3.11.*"
 [feature.vfx2024.pypi-dependencies]
 numpy = "==1.24.*"
 
-[feature.vfx2025.dependencies]
-python = "3.11.*"
-[feature.vfx2025.pypi-dependencies]
-numpy = "==1.26.*"
+# [feature.vfx2025.dependencies]
+# python = "3.11.*"
+# [feature.vfx2025.pypi-dependencies]
+# numpy = "==1.26.*"
 
 [environments]
 vfx2024 = ["vfx2024"]
-vfx2025 = ["vfx2025"]
+# vfx2025 = ["vfx2025"]
