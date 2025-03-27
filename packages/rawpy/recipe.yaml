@@ -1,22 +1,23 @@
 context:
-  libraw-version: 0.21.3
-  rawpy-version: 0.24.0
+  libraw_version: '0_21_3'
+  rawpy_version: '0_24_0'
+  version: 2024
 
 package:
   name: rawpy
-  version: 0.24.0
+  version: ${{2024}}.0
 
 build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-rawpy.ps1
+    - pwsh -f %RECIPE_DIR%\build-rawpy.ps1 -version ${{ version }}
   number: 0
-  string: rawpy_${{ rawpy-version }}_libraw_${{libraw-version}}_${{ hash }}_${{ build_number }}
+  string: rawpy_${{rawpy_version}}_libraw_${{ libraw_version }}_${{ hash }}_${{ build_number }}
 
 requirements:
   host:
-    - ${{ python }}
+    - python 3.11.*
     - pip
   run:
     - ${{ python }}
