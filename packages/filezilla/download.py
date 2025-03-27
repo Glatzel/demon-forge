@@ -34,7 +34,7 @@ driver = webdriver.Edge(options=options)
 # open web
 driver.get("https://filezilla-project.org/download.php?show_all=1")
 
-# find download 
+# find download
 WebDriverWait(driver, 10).until(
     EC.presence_of_element_located(
         (By.XPATH, "/html/body/div[1]/div[2]/div[2]/div/div[2]/div[2]/p/a")

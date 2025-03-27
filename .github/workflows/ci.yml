@@ -131,7 +131,7 @@ jobs:
         with:
           pkg: dism-plus-plus
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
-  
+
   filezilla:
     needs: changed
     if: ${{ needs.changed.outputs.changed-filezilla != 'false'}}
