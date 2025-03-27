@@ -15,7 +15,6 @@ update-recipe -version $rawpy_version
 #pre-build
 & $PSScriptRoot/../$name_build/scripts/build_$name.ps1
 
-# #rattler build
-# Set-Location $PSScriptRoot
-
-# build-pkg
+#rattler build
+Set-Location $PSScriptRoot
+build-pkg
