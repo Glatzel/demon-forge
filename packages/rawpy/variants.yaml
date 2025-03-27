@@ -1,0 +1,4 @@
+zip_keys: ["vfx", "python", "numpy"]
+vfx: ["2024", "2025"]
+python: ["3.11", "3.11"]
+numpy: ["1.24", "1.26"]

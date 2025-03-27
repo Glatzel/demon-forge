@@ -1,5 +1,6 @@
 context:
   libraw-version: 0.21.3
+  rawpy-version: 0.24.0
 package:
   name: rawpy
   version: 0.24.0
