@@ -1,0 +1,22 @@
+[project]
+authors = ["Glatzel <893016099@qq.com.com>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "rawpy"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[feature.vfx2024.dependencies]
+python="3.11.*"
+libraw="*"
+lcms2="*"
+libjpeg-turbo="*"
+zlib="*"
+jasper="*"
+[feature.vfx2024.pypi-dependencies]
+cython="*"
+numpy="==1.24.*"
+setuptools="*"
+
+[environments]
+vfx2024=["vfx2024"]
