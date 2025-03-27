@@ -42,7 +42,6 @@ time.sleep(5)
 element = driver.find_element(
     By.XPATH, "//div[@id='buildSelect']/label/div/span/select"
 )
-# driver.execute_script("arguments[0].scrollIntoView();", element)
 log.info("click drop down menu")
 select_element = Select(element)
 select_element.select_by_index(1)
