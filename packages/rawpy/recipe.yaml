@@ -1,15 +1,27 @@
 context:
   libraw-version: 0.21.3
   rawpy-version: 0.24.0
+
 package:
   name: rawpy
-  version: 0.24.0
+  version: ${{ vfx }}
+
 build:
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-rawpy.ps1
   number: 1
+
+requirements:
+  host:
+    - ${{ python }}
+    - pip
+  run:
+    - ${{ python }}
+    - ${{ numpy }}
+    
 tests:
-- script:
-  - '%PREFIX%/bin/openimageio/oiiotool.exe --help'
+  - python:
+      imports:
+        - rawpy

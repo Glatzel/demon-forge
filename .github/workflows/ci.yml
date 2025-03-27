@@ -44,6 +44,7 @@ jobs:
       changed-peazip: ${{steps.main.outputs.peazip_any_changed}}
       changed-pkg-config-lite: ${{steps.main.outputs.pkg-config-lite_any_changed}}
       changed-pureref: ${{steps.main.outputs.pureref_any_changed}}
+      changed-rawpy: ${{steps.main.outputs.rawpy_any_changed}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,6 +81,9 @@ jobs:
               - ./packages/pkg-config-lite/**
             pureref:
               - ./packages/pureref/**
+            rawpy:
+              - ./packages/rawpy/**
+              - ./packages/rawpy/**
 
   android-sdk-platform-tools:
     needs: changed
@@ -231,3 +235,15 @@ jobs:
         with:
           pkg: pureref
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+
+  rawpy:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-rawpy != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: rawpy
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+        
