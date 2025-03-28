@@ -1,0 +1,12 @@
+package:
+  version: 1.4.1.1026
+  name: everything
+build:
+  number: 0
+  script:
+  - if: win
+    then:
+    - pwsh -f %RECIPE_DIR%\build-everything.ps1
+tests:
+- script:
+  - if not exist "%PREFIX%/bin/everything/everything.exe" exit /b 1 ))
