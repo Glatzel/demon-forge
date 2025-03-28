@@ -1,6 +1,6 @@
 package:
   name: rawpy
-  version: 0_24_0
+  version: 0.24.0
 
 build:
   script:
