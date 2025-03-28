@@ -14,14 +14,15 @@ function get-latest-version {
 function update-recipe {
 
     param($version)
-    $cversion=get-current-version
-    Write-Output "current version: $cversion"
-    Write-Output "latest version: $version"
-    if (($cversion -ne $version) -and ($version -ne '')) {
+    $cversion = get-current-version
+    Write-Output "current version: <$cversion>"
+    Write-Output "latest version: <$version>"
+
+    if (("$cversion" -ne "$version") -and ($version -ne '')) {
         Write-Output "::group::update recipe"
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: $version" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
-        if($env:CI){
+        if ($env:CI) {
             "update=true" >> $env:GITHUB_OUTPUT
             "latest-version=$version" >> $env:GITHUB_OUTPUT
         }
