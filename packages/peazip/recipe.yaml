@@ -4,12 +4,12 @@ package:
 build:
   number: 1
   script:
-  - if: win
-    then:
-    - pwsh -f %RECIPE_DIR%\build-peazip.ps1
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-peazip.ps1
 tests:
-- script:
-  - if not exist "%PREFIX%/bin/peazip/pea.exe" exit /b 1 ))
+  - script:
+      - if not exist "%PREFIX%/bin/peazip/pea.exe" exit /b 1 ))
 
 about:
   repository: https://github.com/peazip/PeaZip

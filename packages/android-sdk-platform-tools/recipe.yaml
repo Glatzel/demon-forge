@@ -5,7 +5,7 @@ package:
   version: 36.0.0
   name: ${{ name }}
 build:
-  number: 2
+  number: 3
   script:
   - if: win
     then:
@@ -17,7 +17,10 @@ about:
   homepage: https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn#downloads
   description: |
     [dependencies]
+
     ${{ name }} = "*"
 
+
     [exposed]
+
     adb = "bin/${{ name }}/adb"

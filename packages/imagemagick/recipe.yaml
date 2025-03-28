@@ -1,23 +1,27 @@
 context:
   name: imagemagick
+
 package:
   name: ${{ name }}
   version: 7.1.1.46
 
 build:
   script:
-  - if: win
-    then:
-    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 3
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  number: 4
 tests:
-- script:
-  - '%PREFIX%/bin/${{ name }}/magick.exe --help'
+  - script:
+      - "%PREFIX%/bin/${{ name }}/magick.exe --help"
 about:
   repository: https://github.com/ImageMagick/ImageMagick
   description: |
     [dependencies]
+
     ${{ name }} = "*"
 
+
     [exposed]
+
     magick = "bin/${{ name }}/magick"

@@ -4,19 +4,22 @@ package:
   version: 1.4.4
   name: ${{ name }}
 build:
-  number: 5
+  number: 6
   script:
-  - if: win
-    then:
-    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
-- script:
-  - '%PREFIX%/bin/${{ name }}/${{ name }}.exe --help'
+  - script:
+      - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
 about:
   repository: https://github.com/FiloSottile/mkcert
   description: |
     [dependencies]
+
     ${{ name }} = "*"
 
+
     [exposed]
+
     ${{ name }} = "bin/${{ name }}/${{ name }}"

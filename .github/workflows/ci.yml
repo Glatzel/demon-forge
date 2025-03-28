@@ -29,171 +29,56 @@ permissions:
   pull-requests: write
 
 jobs:
-  changed:
-    outputs:
-      changed-android-sdk-platform-tools: ${{steps.main.outputs.android-sdk-platform-tools_any_changed}}
-      changed-aria2: ${{steps.main.outputs.aria2_any_changed}}
-      changed-calibre: ${{steps.main.outputs.calibre_any_changed}}
-      changed-dism-plus-plus: ${{steps.main.outputs.dism-plus-plus_any_changed}}
-      changed-everything: ${{steps.main.outputs.everything_any_changed}}
-      changed-filezilla: ${{steps.main.outputs.filezilla_any_changed}}
-      changed-imagemagick: ${{steps.main.outputs.imagemagick_any_changed }}
-      changed-jq: ${{steps.main.outputs.jq_any_changed}}
-      changed-mkcert: ${{steps.main.outputs.mkcert_any_changed}}
-      changed-nuget: ${{steps.main.outputs.nuget_any_changed}}
-      changed-obs-studio: ${{steps.main.outputs.obs-studio_any_changed}}
-      changed-openimageio: ${{steps.main.outputs.openimageio_any_changed}}
-      changed-peazip: ${{steps.main.outputs.peazip_any_changed}}
-      changed-pkg-config-lite: ${{steps.main.outputs.pkg-config-lite_any_changed}}
-      changed-pureref: ${{steps.main.outputs.pureref_any_changed}}
-      changed-rawpy: ${{steps.main.outputs.rawpy_any_changed}}
-      changed-rufus: ${{steps.main.outputs.rufus_any_changed}}
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      matrix:
+        pkg:
+          - android-sdk-platform-tools
+          - aria2
+          - calibre
+          - dism-plus-plus
+          - everything
+          - filezilla
+          - imagemagick
+          - jq
+          - mkcert
+          - nuget
+          - obs-studio
+          - peazip
+          - pkg-config-lite
+          - pureref
+          - rawpy
+          - rufus
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-        if: ${{github.event_name == 'pull_request'}}
-      - id: main
+
+      - id: changed
         uses: tj-actions/changed-files@v46
         if: ${{github.event_name == 'pull_request'}}
         with:
-          files_yaml: |
-            android-sdk-platform-tools:
-              - ./packages/android-sdk-platform-tools/**
-            aria2:
-              - ./packages/aria2/**
-            calibre:
-              - ./packages/calibre/**
-            dism-plus-plus:
-              - ./packages/dism-plus-plus/**
-            everything:
-              - ./packages/everything/**
-            filezilla:
-              - ./packages/filezilla/**
-            imagemagick:
-              - ./packages/imagemagick/**
-            jq:
-              - ./packages/jq/**
-            mkcert:
-              - ./packages/mkcert/**
-            nuget:
-              - ./packages/nuget/**
-            obs-studio:
-              - ./packages/obs-studio/**
-            openimageio:
-              - ./packages/openimageio/**
-              - ./packages/openimageio_build/**
-            peazip:
-              - ./packages/peazip/**
-            pkg-config-lite:
-              - ./packages/pkg-config-lite/**
-            pureref:
-              - ./packages/pureref/**
-            rawpy:
-              - ./packages/rawpy/**
-              - ./packages/rawpy_build/**
+          files: |
+            ./packages/${{matrix.pkg}}*/**
 
-  android-sdk-platform-tools:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-android-sdk-platform-tools != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
       - uses: ./.github/actions/main
+        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
         with:
-          pkg: android-sdk-platform-tools
-          publish: ${{(github.job =='pull_request' || github.event_name =='schedule') && 'false' ||'true'}}
+          pkg: ${{matrix.pkg}}
 
-  aria2:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-aria2 != 'false'}}
+  build-openimageio:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
+
+      - id: changed
+        uses: tj-actions/changed-files@v46
+        if: ${{github.event_name == 'pull_request'}}
         with:
-          publish: ${{(github.event_name =='pull_request' || github.event_name =='schedule') && 'false' ||'true'}}
-
-  calibre:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-calibre != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-
-  dism-plus-plus:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-dism-plus-plus != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  everything:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-everything != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  filezilla:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-filezilla != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  imagemagick:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-imagemagick != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  jq:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-jq != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  mkcert:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-mkcert != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  nuget:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-nuget != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  obs-studio:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-obs-studio != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  openimageio:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-openimageio != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
+          files: |
+            ./packages/openimageio*/**
 
       - name: restore vcpkg
+        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
         id: restore-vcpkg
         uses: actions/cache@v4
         with:
@@ -201,45 +86,6 @@ jobs:
           key: vcpkg-openimageio-${{ runner.os }}-${{ hashFiles('./packages/openimageio_build/ocio_dep/vcpkg.json') }}
 
       - uses: ./.github/actions/main
+        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
         with:
-          args: -reinstall ${{steps.restore-vcpkg.outputs.cache-hit =='true' && 'false' ||'true'}}
-
-  peazip:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-peazip != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  pkg-config-lite:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-pkg-config-lite != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  pureref:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-pureref != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  rawpy:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-rawpy != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
-
-  rufus:
-    needs: changed
-    if: ${{ needs.changed.outputs.changed-rawpy != 'false'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/main
+          pkg: openimageio

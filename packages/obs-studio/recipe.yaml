@@ -4,11 +4,11 @@ package:
 build:
   number: 0
   script:
-  - if: win
-    then:
-    - pwsh -f %RECIPE_DIR%\build-obs-studio.ps1
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-obs-studio.ps1
 tests:
-- script:
-  - if not exist "%PREFIX%/bin/obs-studio/bin/64bit/obs64.exe" exit /b 1 ))
+  - script:
+      - if not exist "%PREFIX%/bin/obs-studio/bin/64bit/obs64.exe" exit /b 1 ))
 about:
   repository: https://github.com/obsproject/obs-studio
