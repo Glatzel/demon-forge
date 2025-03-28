@@ -50,6 +50,7 @@ jobs:
           - peazip
           - pkg-config-lite
           - pureref
+          - rawpy
           - rufus
     runs-on: windows-latest
     steps:
