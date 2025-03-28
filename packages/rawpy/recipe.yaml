@@ -12,7 +12,7 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-rawpy.ps1 -version ${{ version }}
-  number: 1
+  number: 2
   string: rawpy_${{rawpy_version}}_libraw_${{ libraw_version }}_${{ hash }}_${{ build_number }}
 
 requirements:
