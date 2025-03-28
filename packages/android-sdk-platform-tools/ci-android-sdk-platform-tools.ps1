@@ -11,6 +11,5 @@ aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
 $output = & $ROOT/temp/$name/platform-tools/adb.exe version
 "$output" -match 'Version (\S+)-\S+'
 $version = $Matches[1]
-Write-Output "version: $version"
 update-recipe -version $version
 build-pkg

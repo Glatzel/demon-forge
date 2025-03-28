@@ -19,4 +19,6 @@ $libraw_version="$libraw_version".Replace(".","_")
 
 #rattler build
 Set-Location $PSScriptRoot
+$version=get-current-version
+update-recipe -version $version
 build-pkg

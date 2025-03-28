@@ -9,4 +9,6 @@ aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
     -o "$name.zip"
 7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name"
 
+$version=get-current-version
+update-recipe -version $version
 build-pkg
