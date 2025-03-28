@@ -21,4 +21,11 @@ git apply numpy_require.patch
 $env:CMAKE_PREFIX_PATH = Resolve-Path "./.pixi/envs/vfx2024/Library"
 Set-Location rawpy
 ../scripts/init-vs.ps1
-pixi run -e vfx2024 python -u setup.py bdist_wheel
+pixi run -e vfx2024 python -u setup.py develop
+
+#copy file
+Set-Location $PSScriptRoot/..
+Copy-Item ./rawpy/rawpy/vcomp140.dll ./mod/rawpy
+Copy-Item ./rawpy/rawpy/raw_r.dll ./mod/rawpy
+Copy-Item ./rawpy/rawpy/*.py ./mod/rawpy
+Copy-Item ./rawpy/rawpy/*.pyd ./mod/rawpy
