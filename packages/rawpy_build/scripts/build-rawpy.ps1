@@ -25,8 +25,8 @@ pixi run python -u setup.py bdist_wheel
 
 # unarchive
 Set-Location $PSScriptRoot/..
-$whlfile=(Get-ChildItem "rawpy/dist/*.whl")[0]
-7z -x "$whlfile" "-orawpy/dist"
+$whlfile=(Get-ChildItem "./rawpy/dist/*.whl")[0]
+7z x "$whlfile" "-orawpy/dist"
 
 #copy file
 Set-Location $PSScriptRoot/..
