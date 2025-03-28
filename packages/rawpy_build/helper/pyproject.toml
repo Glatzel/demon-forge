@@ -3,4 +3,4 @@ name = "rawpy"
 requires-python = ">=3.11"
 version = '0.24.0'
 authors = [{ name = "letmaik"}]
-dependencies = ["lazy-loader", "numpy"]
+dependencies = ["lazy-loader", "numpy", "pydantic"]
