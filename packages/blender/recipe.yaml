@@ -13,4 +13,4 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
 about:
-  repository: https://github.com/blender/blender
+  repository: https://github.com/${{ name }}/${{ name }}
