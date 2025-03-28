@@ -13,7 +13,7 @@ tests:
   - script:
       - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
 about:
-  repository: https://github.com/jqlang/jq
+  repository: https://github.com/jqlang/${{ name }}
   description: |
     [exposed]
 
