@@ -1,10 +1,20 @@
 Set-Location $PSScriptRoot/..
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 
 pixi install --all
 
-# # clone rawpy
+# clone rawpy
 Remove-Item ./rawpy -Recurse -Force -ErrorAction SilentlyContinue
-git clone https://github.com/letmaik/rawpy.git --depth 1
+git clone https://github.com/letmaik/rawpy.git
+
+# checkout latest tag
+Set-Location rawpy
+$rawpy_version = get-latest-version -repo "letmaik/rawpy"
+git checkout tags/"$rawpy_version" -b "$rawpy_version-branch"
+Set-Location $PSScriptRoot/..
+
+# apply patch
 git apply numpy_require.patch
 
 # build
