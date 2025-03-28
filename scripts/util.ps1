@@ -25,6 +25,7 @@ function update-recipe {
         if ($env:CI) {
             "update=true" >> $env:GITHUB_OUTPUT
             "latest-version=$version" >> $env:GITHUB_OUTPUT
+            "current-version=$cversion" >> $env:GITHUB_OUTPUT
         }
         Write-Output "::endgroup::"
     }

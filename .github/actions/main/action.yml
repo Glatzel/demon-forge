@@ -36,8 +36,8 @@ runs:
       uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ github.token }}
-        commit-message: "chore: update `${{inputs.pkg}}` to `${{ steps.main.outputs.latest-version}}`"
-        title: "chore: update `${{inputs.pkg}}` to `${{ steps.main.outputs.latest-version}}`"
+        commit-message: "chore: update `${{inputs.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+        title: "chore: update `${{inputs.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
         branch: update-${{inputs.pkg}}
         base: main
         labels: action
