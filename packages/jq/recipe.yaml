@@ -4,7 +4,7 @@ package:
   version: 1.7.1
   name: ${{ name }}
 build:
-  number: 3
+  number: 4
   script:
   - if: win
     then:
@@ -13,8 +13,10 @@ tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/${{ name }}.exe --help'
 about:
+  repository: https://github.com/jqlang/jq
   description: |
     [dependencies]
     ${{ name }} = "*"
+
     [exposed]
     ${{ name }} = "bin/${{ name }}/${{ name }}"

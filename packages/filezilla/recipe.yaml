@@ -4,7 +4,7 @@ package:
   version: 3.68.1
   name: ${{ name }}
 build:
-  number: 1
+  number: 2
   script:
   - if: win
     then:
@@ -12,3 +12,5 @@ build:
 tests:
 - script:
   - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+about:
+  homepage: https://filezilla-project.org/download.php?show_all=1

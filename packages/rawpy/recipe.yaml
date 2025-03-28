@@ -22,3 +22,5 @@ requirements:
   run:
     - python 3.11.*
     - numpy 1.24.*
+about:
+  repository: https://github.com/letmaik/rawpy

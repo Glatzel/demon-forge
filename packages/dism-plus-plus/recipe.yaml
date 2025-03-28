@@ -4,8 +4,10 @@ package:
   version: 10.1.1002.2
   name: ${{ name }}
 build:
-  number: 202503228
+  number: 3
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+about:
+  repository: https://github.com/Chuyu-Team/Dism-Multi-language

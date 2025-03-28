@@ -5,7 +5,7 @@ package:
   version: 1.37.0
   name: ${{ name }}
 build:
-  number: 3
+  number: 4
   script:
   - if: win
     then:
@@ -14,8 +14,10 @@ tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/${{ name }}c.exe --help'
 about:
+  repository: https://github.com/aria2/aria2
   description: |
     [dependencies]
     ${{ name }} = "*"
+
     [exposed]
     ${{ name }}c = "bin/${{ name }}/${{ name }}c"

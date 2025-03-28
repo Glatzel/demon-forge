@@ -4,7 +4,7 @@ package:
   version: 0.28.1
   name: ${{ name }}
 build:
-  number: 1
+  number: 2
   script:
   - if: win
     then:
@@ -13,8 +13,11 @@ tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/pkg-config.exe --help'
 about:
+  repository: https://sourceforge.net/projects/pkgconfiglite/files/
   description: |
     [dependencies]
     ${{ name }} = "*"
+
     [exposed]
     pkg-config = "bin/${{ name }}/pkg-config"
+  

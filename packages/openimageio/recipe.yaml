@@ -8,13 +8,15 @@ build:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 2
+  number: 3
 tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/oiiotool.exe --help'
 about:
+  repository: https://github.com/AcademySoftwareFoundation/OpenImageIO
   description: |
     [dependencies]
     ${{ name }} = "*"
+
     [exposed]
     ottotool = "bin/${{ name }}/oiiotool"
