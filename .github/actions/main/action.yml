@@ -1,8 +1,7 @@
 name: main
 inputs:
-  args:
-    description: "ci.ps1 args"
-    default: ""
+  pkg:
+    description: "package"
 
 runs:
   using: "composite"
@@ -16,19 +15,19 @@ runs:
       id: main
       env:
         GH_TOKEN: ${{ github.token }}
-      run: ./packages/${{github.job}}/ci-${{github.job}}.ps1 ${{inputs.args}}
+      run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1 ${{inputs.args}}
       shell: pwsh
 
     - name: upload
       uses: actions/upload-artifact@v4
       with:
-        name: ${{github.job}}
-        path: ./packages/${{github.job}}/output/win-64
+        name: ${{inputs.pkg}}
+        path: ./packages/${{inputs.pkg}}/output/win-64
 
     - name: publish
       if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request'}}
       run: |
-        ./scripts/publish.ps1 -pkg ${{github.job}}
+        ./scripts/publish.ps1 -pkg ${{inputs.pkg}}
       shell: pwsh
       continue-on-error: true
 
@@ -37,9 +36,9 @@ runs:
       uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ github.token }}
-        commit-message: "chore: update `${{github.job}}` to `${{ steps.main.outputs.latest-version}}`"
-        title: "chore: update `${{github.job}}` to `${{ steps.main.outputs.latest-version}}`"
-        branch: update-${{github.job}}
+        commit-message: "chore: update `${{inputs.pkg}}` to `${{ steps.main.outputs.latest-version}}`"
+        title: "chore: update `${{inputs.pkg}}` to `${{ steps.main.outputs.latest-version}}`"
+        branch: update-${{inputs.pkg}}
         base: main
         labels: action
         delete-branch: true
