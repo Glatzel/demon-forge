@@ -36,7 +36,7 @@ runs:
       if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
       uses: peter-evans/create-pull-request@v7
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ github.token }}
         commit-message: "chore: update `${{github.job}}` to `${{ steps.main.outputs.latest-version}}`"
         title: "chore: update `${{github.job}}` to `${{ steps.main.outputs.latest-version}}`"
         branch: update-${{github.job}}
