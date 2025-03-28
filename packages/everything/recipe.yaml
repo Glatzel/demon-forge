@@ -6,11 +6,11 @@ package:
 build:
   number: 1
   script:
-  - if: win
-    then:
-    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-    - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+      - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
 about:
   homepage: https://www.voidtools.com/zh-cn/downloads/
