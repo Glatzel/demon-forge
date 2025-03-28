@@ -1,12 +1,22 @@
-package:
-  version: 35.0.2
+context:
   name: android-sdk-platform-tools
+
+package:
+  version: 36.0.0
+  name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-android-sdk-platform-tools.ps1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/android-sdk-platform-tools/adb.exe --help'
+  - '%PREFIX%/bin/${{ name }}/adb.exe --help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    adb = "bin/${{ name }}/adb"
+

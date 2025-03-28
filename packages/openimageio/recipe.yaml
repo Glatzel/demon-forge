@@ -1,12 +1,20 @@
-package:
+context:
   name: openimageio
+package:
+  name: 
   version: 3.0.4.0
 build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-openimageio.ps1
-  number: 1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  number: 2
 tests:
 - script:
-  - '%PREFIX%/bin/openimageio/oiiotool.exe --help'
+  - '%PREFIX%/bin/${{ name }}/oiiotool.exe --help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    ottotool = "bin/${{ name }}/oiiotool"

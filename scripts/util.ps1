@@ -3,7 +3,7 @@ function get-current-version {
     Write-Output $matched.Matches[0].Groups[1]
 }
 function get-name {
-    $matched=Select-String -Path "./recipe.yaml" -Pattern '^  name: (\S+)'
+    $matched=Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
     Write-Output $matched.Matches[0].Groups[1]
 }
 

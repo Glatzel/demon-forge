@@ -1,12 +1,20 @@
+context:
+  name: jq
 package:
   version: 1.7.1
-  name: jq
+  name: ${{ name }}
 build:
-  number: 2
+  number: 3
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-jq.ps1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/jq/jq.exe --help'
+  - '%PREFIX%/bin/${{ name }}/${{ name }}.exe --help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    ${{ name }} = "bin/${{ name }}/${{ name }}"

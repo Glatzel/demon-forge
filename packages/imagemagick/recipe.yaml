@@ -1,13 +1,21 @@
-package:
+context:
   name: imagemagick
+package:
+  name: ${{ name }}
   version: 7.1.1.46
 
 build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-imagemagick.ps1
-  number: 1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  number: 2
 tests:
 - script:
-  - '%PREFIX%/bin/imagemagick/magick.exe --help'
+  - '%PREFIX%/bin/${{ name }}/magick.exe --help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    magick = "bin/${{ name }}/magick"
