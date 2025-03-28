@@ -22,19 +22,3 @@ $env:CMAKE_PREFIX_PATH = Resolve-Path "./.pixi/envs/default/Library"
 Set-Location rawpy
 ../scripts/init-vs.ps1
 pixi run python -u setup.py bdist_wheel
-
-# unarchive
-Set-Location $PSScriptRoot/..
-$whlfile=(Get-ChildItem "./rawpy/dist/*.whl")[0]
-7z x "$whlfile" "-orawpy/dist"
-
-#copy file
-Set-Location $PSScriptRoot/..
-Remove-Item mod -Recurse -Force -ErrorAction SilentlyContinue
-New-Item mod/rawpy -ItemType Directory -ErrorAction SilentlyContinue
-
-Copy-Item ./rawpy/dist/rawpy/* ./mod/rawpy
-
-$rawpy_version="$rawpy_version".Replace("v","")
-(Get-Content -Path "./helper/pyproject.toml") -replace '^version = ''.*''', "version = '$rawpy_version'" | Set-Content -Path "./helper/pyproject.toml"
-Copy-Item ./helper/pyproject.toml ./mod

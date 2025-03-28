@@ -12,7 +12,7 @@ lcms2 = "*"
 libjpeg-turbo = "*"
 zlib = "*"
 jasper = "*"
-
+pydantic="*"
 [pypi-dependencies]
 cython = "*"
 setuptools = "*"

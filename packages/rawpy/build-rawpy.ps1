@@ -3,5 +3,8 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $name = get-name
 
-pip install "$ROOT/packages/${name}_build/mod" -v
-Copy-Item "$ROOT/packages/${name}_build/mod/$name/*" $env:PREFIX/Lib/site-packages/rawpy
+$whl=(Get-ChildItem "$PSScriptRoot/../${name}_build/$name/dist/*.whl")[0]
+pip install "$whl" -v
+
+$helper=Resolve-Path "$PSScriptRoot/../${name}_helper/"
+pip install "$helper" -v
