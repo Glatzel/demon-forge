@@ -20,4 +20,4 @@ about:
 
     [exposed]
     pkg-config = "bin/${{ name }}/pkg-config"
-  
+
