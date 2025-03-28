@@ -18,7 +18,7 @@ Set-Location $PSScriptRoot/..
 git apply numpy_require.patch
 
 # build
-$env:CMAKE_PREFIX_PATH = Resolve-Path "./.pixi/envs/vfx2024/Library"
+$env:CMAKE_PREFIX_PATH = Resolve-Path "./.pixi/envs/default/Library"
 Set-Location rawpy
 ../scripts/init-vs.ps1
 pixi run python -u setup.py bdist_wheel
