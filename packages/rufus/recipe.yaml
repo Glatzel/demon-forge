@@ -1,7 +1,7 @@
 context:
-  name: everything
+  name: rufus
 package:
-  version: 1.4.1.1026
+  version: 4.6
   name: ${{ name }}
 build:
   number: 0
@@ -10,5 +10,5 @@ build:
     then:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
-  - script:
-    - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+- script:
+  - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
