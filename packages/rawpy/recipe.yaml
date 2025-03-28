@@ -12,7 +12,7 @@ build:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-rawpy.ps1 -version ${{ version }}
-  number: 0
+  number: 1
   string: rawpy_${{rawpy_version}}_libraw_${{ libraw_version }}_${{ hash }}_${{ build_number }}
 
 requirements:
@@ -22,3 +22,5 @@ requirements:
   run:
     - python 3.11.*
     - numpy 1.24.*
+about:
+  repository: https://github.com/letmaik/rawpy

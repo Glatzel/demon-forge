@@ -9,13 +9,15 @@ build:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 2
+  number: 3
 tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/magick.exe --help'
 about:
+  repository: https://github.com/ImageMagick/ImageMagick
   description: |
     [dependencies]
     ${{ name }} = "*"
+
     [exposed]
     magick = "bin/${{ name }}/magick"

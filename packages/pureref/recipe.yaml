@@ -2,7 +2,7 @@ package:
   version: 2.0.3
   name: pureref
 build:
-  number: 0
+  number: 1
   script:
   - if: win
     then:
@@ -10,3 +10,5 @@ build:
 tests:
 - script:
   - if not exist "%PREFIX%/bin/pureref/PureRef.exe" exit /b 1 ))
+about:
+  homepage: https://www.pureref.com/download.php

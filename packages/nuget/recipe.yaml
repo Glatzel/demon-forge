@@ -8,13 +8,15 @@ build:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 5
+  number: 6
 tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/${{ name }}.exe help'
 about:
+  repository: https://www.nuget.org/downloads
   description: |
     [dependencies]
     ${{ name }} = "*"
+
     [exposed]
     ${{ name }} = "bin/${{ name }}/${{ name }}"
