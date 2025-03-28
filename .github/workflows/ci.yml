@@ -35,6 +35,7 @@ jobs:
       changed-aria2: ${{steps.main.outputs.aria2_any_changed}}
       changed-calibre: ${{steps.main.outputs.calibre_any_changed}}
       changed-dism-plus-plus: ${{steps.main.outputs.dism-plus-plus_any_changed}}
+      changed-everything: ${{steps.main.outputs.everything_any_changed}}
       changed-filezilla: ${{steps.main.outputs.filezilla_any_changed}}
       changed-imagemagick: ${{steps.main.outputs.imagemagick_any_changed }}
       changed-jq: ${{steps.main.outputs.jq_any_changed}}
@@ -63,6 +64,8 @@ jobs:
               - ./packages/calibre/**
             dism-plus-plus:
               - ./packages/dism-plus-plus/**
+            everything:
+              - ./packages/everything/**
             filezilla:
               - ./packages/filezilla/**
             imagemagick:
@@ -130,6 +133,17 @@ jobs:
       - uses: ./.github/actions/main
         with:
           pkg: dism-plus-plus
+          publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
+
+  everything:
+    needs: changed
+    if: ${{ needs.changed.outputs.changed-everything != 'false'}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/main
+        with:
+          pkg: everything
           publish: ${{github.event_name =='pull_request' && 'false' ||'true'}}
 
   filezilla:
