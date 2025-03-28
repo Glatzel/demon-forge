@@ -4,11 +4,8 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 # process version
-$current_version = get-current-version
-Write-Output "Current Version: $current_version"
 $latest_version = get-latest-version -repo "AcademySoftwareFoundation/OpenImageIO"
 $latest_version = "$latest_version".Replace("v","")
-Write-Output "Latest Version: $latest_version"
 
 #pre-build
 Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
