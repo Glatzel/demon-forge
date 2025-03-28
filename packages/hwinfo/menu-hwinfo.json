@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+    "menu_name": "hwinfo",
+    "menu_items": [
+        {
+            "name": "hwinfo",
+            "description": "Launch hwinfo",
+            "command": [
+                "{{ PREFIX }}/bin/hwinfo/HWiNFO64.exe"
+            ],
+            "platforms": {
+                "win": {
+                    "desktop": false
+                }
+            }
+        }
+    ]
+}

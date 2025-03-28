@@ -40,6 +40,7 @@ jobs:
           - dism-plus-plus
           - everything
           - filezilla
+          - hwinfo
           - imagemagick
           - jq
           - mkcert
