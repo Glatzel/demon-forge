@@ -15,7 +15,7 @@ runs:
       id: main
       env:
         GH_TOKEN: ${{ github.token }}
-      run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1 ${{inputs.args}}
+      run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1
       shell: pwsh
 
     - name: upload
