@@ -36,6 +36,7 @@ jobs:
           - android-sdk-platform-tools
           - aria2
           - blender
+          - blender-benchmark
           - calibre
           - dism-plus-plus
           - everything
