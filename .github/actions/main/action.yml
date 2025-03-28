@@ -14,8 +14,6 @@ runs:
 
     - name: main
       id: main
-      outputs:
-        update:
       env:
         GH_TOKEN: ${{ github.token }}
       run: ./packages/${{github.job}}/ci-${{github.job}}.ps1 ${{inputs.args}}
