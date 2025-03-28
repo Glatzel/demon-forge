@@ -1,12 +1,20 @@
-package:
+context:
   name: nuget
+package:
+  name: ${{ name }}
   version: 6.13.2
 build:
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-nuget.ps1
-  number: 1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  number: 5
 tests:
 - script:
-  - '%PREFIX%/bin/nuget/nuget.exe help'
+  - '%PREFIX%/bin/${{ name }}/${{ name }}.exe help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    ${{ name }} = "bin/${{ name }}/${{ name }}"

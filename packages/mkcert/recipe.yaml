@@ -1,12 +1,20 @@
+context:
+  name: mkcert
 package:
   version: 1.4.4
-  name: mkcert
+  name: ${{ name }}
 build:
-  number: 0
+  number: 4
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-mkcert.ps1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/mkcert/mkcert.exe --help'
+  - '%PREFIX%/bin/${{ name }}/${{ name }}.exe --help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    ${{ name }} = "bin/${{ name }}/${{ name }}"

@@ -1,14 +1,20 @@
 context:
-  version: 0.28.1
-package:
-  version: ${{ version }}
   name: pkg-config-lite
+package:
+  version: 0.28.1
+  name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
   - if: win
     then:
-    - pwsh -f %RECIPE_DIR%\build-pkg-config-lite.ps1
+    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/pkg-config-lite/pkg-config.exe --help'
+  - '%PREFIX%/bin/${{ name }}/pkg-config.exe --help'
+about:
+  description: |
+    [dependencies]
+    ${{ name }} = "*"
+    [exposed]
+    pkg-config = "bin/${{ name }}/pkg-config"

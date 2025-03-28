@@ -1,21 +1,20 @@
 context:
-  name: imagemagick
+  name: everything
 package:
+  version: 1.4.0
   name: ${{ name }}
-  version: 7.1.1.46
-
 build:
+  number: 1
   script:
   - if: win
     then:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 2
 tests:
-- script:
-  - '%PREFIX%/bin/${{ name }}/magick.exe --help'
+  - script:
+    - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
 about:
   description: |
     [dependencies]
     ${{ name }} = "*"
     [exposed]
-    magick = "bin/${{ name }}/magick"
+    ${{ name }} = "bin/${{ name }}/${{ name }}"
