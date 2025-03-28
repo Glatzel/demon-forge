@@ -4,5 +4,5 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $name = get-name
 
-$whl=Resolve-Path $PSScriptRoot/../${name}_build/$name/dist/$name-$version-cp311-cp311-win_amd64.whl
+$whl=(Get-ChildItem "$PSScriptRoot/../${name}_build/$name/dist/*.whl")[0]
 pip install "$whl" -v
