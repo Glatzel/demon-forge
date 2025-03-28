@@ -1,0 +1,16 @@
+context:
+  name: hwinfo
+package:
+  version: 8.22
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+tests:
+  - script:
+      - if not exist "%PREFIX%/bin/${{ name }}/HWiNFO64.exe" exit /b 1 ))
+about:
+  homepage: https://www.hwinfo.com/download/

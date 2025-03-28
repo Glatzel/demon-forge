@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 logging.basicConfig(level=logging.INFO, handlers=[clerk.rich_handler()])
 log = logging.getLogger(__name__)
 # config driver
-download_dir = Path(__file__).parents[2] / "temp" / "filezilla"
+download_dir = Path(__file__).parents[2] / "temp" / "hwinfo"
 options = EdgeOptions()
 options.add_experimental_option(
     "prefs",
@@ -34,15 +34,19 @@ options.add_experimental_option("useAutomationExtension", False)
 driver = webdriver.Edge(options=options)
 
 # open web
-driver.get("https://filezilla-project.org/download.php?show_all=1")
+driver.get("https://www.hwinfo.com/download/")
 
 # find download
 WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, "//a[contains(.,'win64.zip')]"))
+    EC.presence_of_element_located(
+        (By.XPATH, "//a[contains(.,'SAC ftp')and contains(@href,'zip')]")
+    )
 )
-element = driver.find_element(By.XPATH, "//a[contains(.,'win64.zip')]")
-log.info("click download")
-element.click()
+element = driver.find_element(
+    By.XPATH, "//a[contains(.,'SAC ftp')and contains(@href,'zip')]"
+)
+url = element.get_attribute("href")
+driver.get(url) # type: ignore
 log.info("start download")
 
 # Wait for file to appear
