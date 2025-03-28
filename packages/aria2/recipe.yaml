@@ -16,11 +16,6 @@ tests:
 about:
   repository: https://github.com/aria2/aria2
   description: |
-    [dependencies]
-
-    ${{ name }} = "*"
-
-
     [exposed]
 
     ${{ name }}c = "bin/${{ name }}/${{ name }}c"

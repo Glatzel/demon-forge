@@ -17,11 +17,6 @@ tests:
 about:
   repository: https://github.com/ImageMagick/ImageMagick
   description: |
-    [dependencies]
-
-    ${{ name }} = "*"
-
-
     [exposed]
 
     magick = "bin/${{ name }}/magick"
