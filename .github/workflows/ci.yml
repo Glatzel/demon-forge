@@ -34,22 +34,22 @@ jobs:
       matrix:
         pkg:
           - android-sdk-platform-tools
-          - aria2                     
-          - calibre                   
-          - dism-plus-plus            
-          - everything                
-          - filezilla                 
-          - imagemagick               
-          - jq                        
-          - mkcert                    
-          - nuget                     
-          - obs-studio                
-          - openimageio               
-          - peazip                    
-          - pkg-config-lite           
-          - pureref                   
-          - rawpy                     
-          - rufus                     
+          - aria2
+          - calibre
+          - dism-plus-plus
+          - everything
+          - filezilla
+          - imagemagick
+          - jq
+          - mkcert
+          - nuget
+          - obs-studio
+          - openimageio
+          - peazip
+          - pkg-config-lite
+          - pureref
+          - rawpy
+          - rufus
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -59,7 +59,7 @@ jobs:
         if: ${{github.event_name == 'pull_request'}}
         with:
           files: |
-              ./packages/${{matrix.pkg}}*/**
+            ./packages/${{matrix.pkg}}*/**
 
       - uses: ./.github/actions/main
         if: ${{ steps.changed.outputs.any_changed!= 'false'}}
