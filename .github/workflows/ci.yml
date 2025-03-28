@@ -35,6 +35,7 @@ jobs:
         pkg:
           - android-sdk-platform-tools
           - aria2
+          - blender
           - calibre
           - dism-plus-plus
           - everything
