@@ -44,7 +44,6 @@ jobs:
           - mkcert
           - nuget
           - obs-studio
-          - openimageio
           - peazip
           - pkg-config-lite
           - pureref
@@ -65,3 +64,28 @@ jobs:
         if: ${{ steps.changed.outputs.any_changed!= 'false'}}
         with:
           pkg: ${{matrix.pkg}}
+
+  build-openimageio:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: changed
+        uses: tj-actions/changed-files@v46
+        if: ${{github.event_name == 'pull_request'}}
+        with:
+          files: |
+            ./packages/openimageio*/**
+
+      - name: restore vcpkg
+        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
+        id: restore-vcpkg
+        uses: actions/cache@v4
+        with:
+          path: ./packages/openimageio_build/ocio_dep/vcpkg_installed
+          key: vcpkg-openimageio-${{ runner.os }}-${{ hashFiles('./packages/openimageio_build/ocio_dep/vcpkg.json') }}
+
+      - uses: ./.github/actions/main
+        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
+        with:
+          pkg: openimageio
