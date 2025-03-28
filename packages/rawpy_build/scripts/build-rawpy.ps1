@@ -18,7 +18,6 @@ Set-Location $PSScriptRoot/..
 git apply numpy_require.patch
 
 # build
-Copy-Item ./stub.pyi ./rawpy/rawpy/__init__.pyi
 $env:CMAKE_PREFIX_PATH = Resolve-Path "./.pixi/envs/vfx2024/Library"
 Set-Location rawpy
 ../scripts/init-vs.ps1
