@@ -1,19 +1,14 @@
-context:
-  libraw_version: "0_21_3"
-  rawpy_version: "0_24_0"
-  version: 2024
-
 package:
   name: rawpy
-  version: ${{2024}}.0
+  version: 0.24.0
 
 build:
   script:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-rawpy.ps1 -version ${{ version }}
-  number: 1
-  string: rawpy_${{rawpy_version}}_libraw_${{ libraw_version }}_${{ hash }}_${{ build_number }}
+  number: 0
+  string: vfx2024_${{ hash }}_${{ build_number }}
 
 requirements:
   host:

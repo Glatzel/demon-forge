@@ -1,0 +1,6 @@
+[project]
+name = "rawpy"
+requires-python = ">=3.11"
+dynamic = ["version"]
+authors = [{ name = "letmaik"}]
+dependencies = ["lazy-loader", "numpy"]
