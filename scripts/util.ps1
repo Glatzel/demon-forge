@@ -26,7 +26,7 @@ function update-recipe {
         }
         Write-Output "::endgroup::"
     }
-    
+
 }
 function reset-build-code {
     (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
