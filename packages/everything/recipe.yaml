@@ -1,10 +1,10 @@
 context:
   name: everything
 package:
-  version: 1.4.0
+  version: 1.4.1.1026
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
   script:
   - if: win
     then:
