@@ -15,11 +15,6 @@ tests:
 about:
   repository: https://www.nuget.org/downloads
   description: |
-    [dependencies]
-
-    ${{ name }} = "*"
-
-
     [exposed]
 
     ${{ name }} = "bin/${{ name }}/${{ name }}"

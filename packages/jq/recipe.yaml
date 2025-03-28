@@ -15,11 +15,6 @@ tests:
 about:
   repository: https://github.com/jqlang/jq
   description: |
-    [dependencies]
-
-    ${{ name }} = "*"
-
-
     [exposed]
 
     ${{ name }} = "bin/${{ name }}/${{ name }}"

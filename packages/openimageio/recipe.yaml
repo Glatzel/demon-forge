@@ -19,11 +19,6 @@ tests:
 about:
   repository: https://github.com/AcademySoftwareFoundation/OpenImageIO
   description: |
-    [dependencies]
-
-    ${{ name }} = "*"
-
-
     [exposed]
 
     ottotool = "bin/${{ name }}/oiiotool"
