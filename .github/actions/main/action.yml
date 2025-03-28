@@ -33,7 +33,7 @@ runs:
       continue-on-error: true
 
     - name: Create pull request
-      if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request'}}
+      if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
       uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
