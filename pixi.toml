@@ -14,5 +14,11 @@ rattler-build = "*"
 selenium = "*"
 clerk-py = "*"
 
+
+[feature.pip.dependencies]
+python="3.11.*"
+pip = "*"
+
 [environments]
 selenium = ["selenium"]
+pip =["pip"]

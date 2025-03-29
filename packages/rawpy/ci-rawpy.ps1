@@ -3,16 +3,16 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $name = get-name
 
-# process version
-$rawpy_version = get-latest-version -repo "letmaik/rawpy"
-$rawpy_version ="$rawpy_version".Replace("v","")
-Write-Output "rawpy: $rawpy_version"
-Write-Output "libraw: $libraw_version"
+Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+New-Item $ROOT/temp/$name -ItemType Directory
+Set-Location $ROOT/temp/$name
+pixi run -e pip pip download rawpy
 
-# #pre-build
-& $PSScriptRoot/../${name}_build/scripts/build-$name.ps1
+$whlfile=(Get-ChildItem "$ROOT/temp/$name/$name*.whl")[0]
+$whlfile.BaseName -match "rawpy-(\S+)-\S+-\S+-win_amd64"
+$latest_version=$Matches[1]
 
 #rattler build
 Set-Location $PSScriptRoot
-update-recipe -version $rawpy_version
+update-recipe -version $latest_version
 build-pkg
