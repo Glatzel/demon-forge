@@ -18,11 +18,11 @@ runs:
       run: ./packages/${{inputs.pkg}}/ci-${{inputs.pkg}}.ps1
       shell: pwsh
 
-    - name: upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{inputs.pkg}}
-        path: ./packages/${{inputs.pkg}}/output/win-64
+    # - name: upload
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: ${{inputs.pkg}}
+    #     path: ./packages/${{inputs.pkg}}/output/win-64
 
     - name: publish
       if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
