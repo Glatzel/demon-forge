@@ -38,6 +38,7 @@ jobs:
           - blender
           - blender-benchmark
           - calibre
+          - cinebench
           - dism-plus-plus
           - everything
           - filezilla
