@@ -3,8 +3,8 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $name = get-name
 
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item $ROOT/temp/$name -ItemType Directory
+Remove-Item $ROOT/temp/$name -Recurse -force -ErrorAction SilentlyContinue
+New-Item $ROOT/temp/$name -ItemType Directory -ErrorAction SilentlyContinue
 pixi run -e selenium python download.py
 
 $zipfile=(Get-ChildItem "$ROOT/temp/$name/*.zip")[0]

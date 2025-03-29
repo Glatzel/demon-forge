@@ -23,7 +23,7 @@ options.add_experimental_option(
         "download_max_connections": 8  # Number of parallel connections
     },
 )
-# options.add_argument("--force-device-scale-factor=0.5")
+options.add_argument("--force-device-scale-factor=0.5")
 # options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
 options.add_argument(
@@ -56,7 +56,10 @@ WebDriverWait(driver, 10).until(
 element = driver.find_element(
     By.XPATH, "//button/span[contains(text(),'Download Cinebench')]"
 )
+time.sleep(3)
 element.click()
+log.info("click drop down menu")
+time.sleep(3)
 WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, "//li/a[contains(text(),'Windows x86_64')]"))
 )
