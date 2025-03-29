@@ -3,4 +3,4 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $name=get-name
 New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name*/*" "$env:PREFIX/bin/$name" -Recurse
+Copy-Item "$ROOT/temp/$name/*/aria2c.exe" "$env:PREFIX/bin/$name/aria2c.exe"

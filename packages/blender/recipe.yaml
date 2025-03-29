@@ -1,7 +1,7 @@
 context:
-  name: blender
+  name: termscp
 package:
-  version: 4.4.0
+  version: 0.17.0
   name: ${{ name }}
 build:
   number: 0
@@ -11,6 +11,11 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+      - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
+
 about:
-  repository: https://github.com/${{ name }}/${{ name }}
+  repository: https://github.com/termscp/${{ name }}
+  description: |
+    [exposed]
+
+    ${{ name }} = "bin/${{ name }}/${{ name }}"
