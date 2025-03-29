@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support.ui import  WebDriverWait
 
 logging.basicConfig(level=logging.INFO, handlers=[clerk.rich_handler()])
 log = logging.getLogger(__name__)
@@ -19,6 +19,8 @@ options.add_experimental_option(
     {
         "download.default_directory": str(download_dir),
         "download.directory_upgrade": True,
+        "download_parallel": True,  # Enable parallel downloads
+        "download_max_connections": 8,  # Number of parallel connections
     },
 )
 options.add_argument("--force-device-scale-factor=0.5")

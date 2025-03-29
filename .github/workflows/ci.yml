@@ -38,6 +38,7 @@ jobs:
           - blender
           - blender-benchmark
           - calibre
+          - cinebench
           - dism-plus-plus
           - everything
           - filezilla
@@ -58,13 +59,13 @@ jobs:
 
       - id: changed
         uses: tj-actions/changed-files@v46
-        if: ${{github.event_name == 'pull_request'}}
+        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         with:
           files: |
             ./packages/${{matrix.pkg}}*/**
 
       - uses: ./.github/actions/main
-        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
         with:
           pkg: ${{matrix.pkg}}
 
@@ -75,7 +76,7 @@ jobs:
 
       - id: changed
         uses: tj-actions/changed-files@v46
-        if: ${{github.event_name == 'pull_request'}}
+        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         with:
           files: |
             ./packages/openimageio*/**
