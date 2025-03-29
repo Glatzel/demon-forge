@@ -43,6 +43,7 @@ WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, "//a[text()='Download from Maxon']"))
 )
 element = driver.find_element(By.XPATH, "//a[text()='Download from Maxon']")
+time.sleep(3)
 element.click()
 current_url = driver.current_url
 log.info(f"download page: {current_url}")
