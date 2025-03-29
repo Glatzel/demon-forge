@@ -24,7 +24,7 @@ options.add_experimental_option(
     },
 )
 options.add_argument("--force-device-scale-factor=0.5")
-# options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
 options.add_argument(
     "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
