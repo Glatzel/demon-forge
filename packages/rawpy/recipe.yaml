@@ -1,3 +1,6 @@
+context:
+  number: 0
+
 package:
   name: rawpy
   version: 0.24.0
@@ -7,8 +10,8 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-rawpy.ps1 -version ${{ version }}
-  number: 0
-  string: vfx2024_${{ hash }}_${{ build_number }}
+
+  string: vfx2024_${{ hash }}_${{ number }}
 
 requirements:
   host:

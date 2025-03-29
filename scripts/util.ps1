@@ -18,7 +18,7 @@ function update-recipe {
     Write-Output "current version: <$cversion>"
     Write-Output "latest version: <$version>"
 
-    if (("$cversion" -ne "$version") -and ($version -ne '')) {
+    if (("$cversion" -ne "$version") -and ($version)) {
         Write-Output "::group::update recipe"
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: $version" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
