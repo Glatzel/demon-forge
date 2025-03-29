@@ -1,0 +1,16 @@
+context:
+  name: blender
+package:
+  version: 4.4.0
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+tests:
+  - script:
+      - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+about:
+  repository: https://github.com/${{ name }}/${{ name }}
