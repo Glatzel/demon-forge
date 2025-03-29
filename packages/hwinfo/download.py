@@ -19,6 +19,8 @@ options.add_experimental_option(
     {
         "download.default_directory": str(download_dir),
         "download.directory_upgrade": True,
+        "download_parallel": True,  # Enable parallel downloads
+        "download_max_connections": 8,  # Number of parallel connections
     },
 )
 options.add_argument("--force-device-scale-factor=0.5")
@@ -46,7 +48,7 @@ element = driver.find_element(
     By.XPATH, "//a[contains(.,'SAC ftp')and contains(@href,'zip')]"
 )
 url = element.get_attribute("href")
-driver.get(url) # type: ignore
+driver.get(url)  # type: ignore
 log.info("start download")
 
 # Wait for file to appear
