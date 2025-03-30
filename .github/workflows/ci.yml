@@ -38,6 +38,8 @@ jobs:
           - blender
           - blender-benchmark
           - calibre
+          - crystal-disk-info
+          - crystal-disk-mark
           - dism-plus-plus
           - everything
           - filezilla
