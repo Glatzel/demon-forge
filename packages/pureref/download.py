@@ -17,10 +17,6 @@ driver = init_driver(download_dir, windows_size=(2160, 4096))
 
 # open web
 driver.get("https://www.pureref.com/download.php")
-WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, "//div[@id='buildSelect']/label/div/span/select"))
-)
-WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "amount")))
 element = find_element(driver, By.ID, "personalSelector")
 driver.execute_script("arguments[0].scrollIntoView();", element)
 time.sleep(5)
