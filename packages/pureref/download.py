@@ -4,8 +4,7 @@ from pathlib import Path
 
 import clerk
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support.ui import Select
 
 from lucifer import download_waiter, find_button, find_element, init_driver
 
