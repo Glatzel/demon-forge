@@ -20,9 +20,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  GH_TOKEN: ${{ github.token }}
-
 permissions:
   contents: write
   id-token: write
@@ -71,6 +68,7 @@ jobs:
         if: ${{ steps.changed.outputs.any_changed!= 'false' }}
         with:
           pkg: ${{matrix.pkg}}
+          prefix_token: ${{secrets.PREFIX_TOKEN}}
 
   build-openimageio:
     runs-on: windows-latest
@@ -96,3 +94,4 @@ jobs:
         if: ${{ steps.changed.outputs.any_changed!= 'false'}}
         with:
           pkg: openimageio
+          prefix_token: ${{secrets.PREFIX_TOKEN}}
