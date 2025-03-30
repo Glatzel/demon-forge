@@ -12,7 +12,7 @@ runs:
         run-install: false
 
     - name: login
-      run: auth login prefix.dev --token ${{secrets.PREFIX_TOKEN}}
+      run: pixi auth login prefix.dev --token ${{secrets.PREFIX_TOKEN}}
 
     - name: main
       id: main
