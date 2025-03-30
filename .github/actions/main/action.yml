@@ -2,6 +2,7 @@ name: main
 inputs:
   pkg:
     description: "package"
+  prefix_token:
 
 runs:
   using: "composite"
@@ -12,7 +13,7 @@ runs:
         run-install: false
 
     - name: login
-      run: pixi auth login prefix.dev --token ${{secrets.PREFIX_TOKEN}}
+      run: pixi auth login prefix.dev --token ${{inputs.prefix_token}}
       shell: pwsh
 
     - name: main
