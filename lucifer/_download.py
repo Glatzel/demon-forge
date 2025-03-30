@@ -8,7 +8,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 log = logging.getLogger()
 
 
-def init_driver(download_dir: str | Path):
+def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920, 1080)):
     download_dir = Path(download_dir)
     options = EdgeOptions()
     options.add_experimental_option(
