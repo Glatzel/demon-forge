@@ -22,7 +22,7 @@ def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920,
     )
     options.add_argument("--force-device-scale-factor=0.5")
     options.add_argument("--headless=new")
-    options.add_argument("--window-size=1920,1080")
+    options.add_argument(f"--window-size={windows_size[0]},{windows_size[1]}")
     options.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"  # noqa: E501
     )
