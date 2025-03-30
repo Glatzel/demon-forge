@@ -2,13 +2,13 @@ import logging
 import time
 from pathlib import Path
 
-from selenium import webdriver
+from selenium.webdriver import Edge
 from selenium.webdriver.edge.options import Options as EdgeOptions
 
 log = logging.getLogger()
 
 
-def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920, 1080)):
+def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920, 1080)) -> Edge:
     download_dir = Path(download_dir)
     options = EdgeOptions()
     options.add_experimental_option(
@@ -29,7 +29,7 @@ def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920,
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
-    driver = webdriver.Edge(options=options)
+    driver = Edge(options=options)
     return driver
 
 
