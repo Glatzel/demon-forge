@@ -11,6 +11,9 @@ runs:
       with:
         run-install: false
 
+    - name: login
+      run: auth login prefix.dev --token ${{PREFIX_TOKEN}}
+
     - name: main
       id: main
       env:
