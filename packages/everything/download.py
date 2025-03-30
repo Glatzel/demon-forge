@@ -3,10 +3,8 @@ from pathlib import Path
 
 import clerk
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
-from lucifer import download_waiter, init_driver
+from lucifer import download_waiter, find_element, init_driver
 
 logging.basicConfig(level=logging.INFO, handlers=[clerk.rich_handler()])
 log = logging.getLogger(__name__)
@@ -18,8 +16,7 @@ driver = init_driver(download_dir)
 driver.get("https://www.voidtools.com/zh-cn/downloads/")
 
 # download
-WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "下载便携版 64 位")))
-element = driver.find_element(By.LINK_TEXT, "下载便携版 64 位")
+element = find_element(driver, By.LINK_TEXT, "下载便携版 64 位")
 log.info("find download button")
 element.click()
 log.info("click download button")
