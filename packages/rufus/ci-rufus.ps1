@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$name=get-name
+
 
 $latest_version = get-latest-version -repo "pbatard/$name"
 $latest_version = "$latest_version".Replace("v", "")
