@@ -223,9 +223,7 @@ class RawpyParams(BaseModel):
             four_color_rgb=self.four_color_rgb,
             dcb_iterations=self.dcb_iterations,
             dcb_enhance=self.dcb_enhance,
-            fbdd_noise_reduction=rawpy.FBDDNoiseReductionMode(
-                self.fbdd_noise_reduction
-            ),  # type: ignore
+            fbdd_noise_reduction=rawpy.FBDDNoiseReductionMode(self.fbdd_noise_reduction),  # type: ignore
             noise_thr=self.noise_thr,
             median_filter_passes=self.median_filter_passes,
             use_camera_wb=self.use_camera_wb,

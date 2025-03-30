@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Annotated, Literal, Optional, Self
 
 import rawpy
-from pydantic import BaseModel, Field, StrictBool, field_serializer # type: ignore
+from pydantic import BaseModel, Field, StrictBool, field_serializer  # type: ignore
 
 
 class DEMOSAIC_ALGORITHM(int, Enum):
@@ -223,7 +223,7 @@ class RawpyParams(BaseModel):
             four_color_rgb=self.four_color_rgb,
             dcb_iterations=self.dcb_iterations,
             dcb_enhance=self.dcb_enhance,
-            fbdd_noise_reduction=rawpy.FBDDNoiseReductionMode( # type: ignore
+            fbdd_noise_reduction=rawpy.FBDDNoiseReductionMode(  # type: ignore
                 self.fbdd_noise_reduction
             ),  # type: ignore
             noise_thr=self.noise_thr,
