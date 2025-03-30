@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+    "menu_name": "filezilla",
+    "menu_items": [
+        {
+            "name": "crystal-disk-mark",
+            "description": "Launch crystal-disk-mark",
+            "command": [
+                "{{ PREFIX }}/bin/crystal-disk-mark/DiskMark64.exe"
+            ],
+            "platforms": {
+                "win": {
+                    "desktop": false
+                }
+            }
+        }
+    ]
+}
