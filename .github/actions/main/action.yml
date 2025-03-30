@@ -3,6 +3,7 @@ inputs:
   pkg:
     description: "package"
   prefix_token:
+    description: "prefix token"
 
 runs:
   using: "composite"
