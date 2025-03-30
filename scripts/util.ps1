@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+$env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
 function get-current-version {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
     Write-Output $matched.Matches[0].Groups[1]
