@@ -8,7 +8,7 @@ New-Item $ROOT/temp/$name -ItemType Directory
 pixi run -e selenium python download.py
 
 $zipfile = (Get-ChildItem "$ROOT/temp/$name/*.zip")[0]
-7z x "$zipfile" "-o$ROOT/temp/$name/$name"
+7z x "$zipfile" "-o$ROOT/temp/$name"
 $zipfile.BaseName -match "FurMark_(\S+)_win64"
 $latest_version=$Matches[1]
 
