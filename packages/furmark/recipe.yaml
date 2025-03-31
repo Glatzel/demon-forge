@@ -1,0 +1,20 @@
+context:
+  name: furmark
+package:
+  version: 2.7.0.0
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+tests:
+  - script:
+      - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
+about:
+  homepage: https://geeks3d.com/furmark/downloads/
+  description: |
+    [exposed]
+
+    ${{ name }} = "bin/${{ name }}/furmark"

@@ -36,11 +36,13 @@ jobs:
           - blender
           - blender-benchmark
           - calibre
+          - cpu-z
           - crystal-disk-info
           - crystal-disk-mark
           - dism-plus-plus
           - everything
           - filezilla
+          - furmark
           - hwinfo
           - imagemagick
           - jq
