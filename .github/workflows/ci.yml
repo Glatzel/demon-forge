@@ -52,7 +52,6 @@ jobs:
           - peazip
           - pkg-config-lite
           - pureref
-          - rawpy
           - rufus
           - termscp
     runs-on: windows-latest

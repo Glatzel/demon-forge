@@ -1,5 +1,0 @@
-[project]
-name = "rawpy_helper"
-requires-python = ">=3.11"
-version = '0.1.0'
-authors = [{ name = "Glatzel"}]
