@@ -1,6 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
-
+$ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $true
 
 function get-current-version {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
