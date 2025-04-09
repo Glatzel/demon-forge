@@ -8,6 +8,7 @@ copy-Item ./external/OpenImageIO/dist/bin/* ./dist
 copy-Item ./.pixi/envs/oiio/Library/bin/*.dll ./dist
 
 new-item temp -itemtype directory -ErrorAction SilentlyContinue
+$PSNativeCommandUseErrorActionPreference = $false
 foreach ($dep in Get-ChildItem ./dist/*.dll) {
     $name = $dep.Name
     copy-Item $dep ./temp
@@ -17,8 +18,9 @@ foreach ($dep in Get-ChildItem ./dist/*.dll) {
         copy-Item "./temp/$name" ./dist
         Write-Host "It is a dependency: $name" -ForegroundColor Green
     }
-    else{
+    else {
         Write-Host "It is not a dependency: $name" -ForegroundColor Red
     }
 }
-$LASTEXITCODE=0
+$PSNativeCommandUseErrorActionPreference = $true
+$LASTEXITCODE = 0
