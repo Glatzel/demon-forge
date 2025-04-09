@@ -5,7 +5,6 @@ if($version -eq '')
 }
 Set-Location $PSScriptRoot
 Set-Location ..
-$patch_libraw = Resolve-Path ./patch/fix_libraw.patch
 
 Remove-Item external -Force -Recurse -ErrorAction SilentlyContinue
 New-Item external -ItemType Directory -ErrorAction SilentlyContinue
@@ -15,8 +14,7 @@ Write-Output "::group::clone OpenImageIO"
 git clone https://github.com/AcademySoftwareFoundation/OpenImageIO.git
 Set-Location OpenImageIO
 git checkout tags/"$version" -b "$version-branch"
- # apply patch
-git apply -v $patch_libraw
+
 # copy dependencies to install dir
 "install(FILES $<TARGET_RUNTIME_DLLS:iconvert> TYPE BIN)" >> CmakeLists.txt
 "install(FILES $<TARGET_RUNTIME_DLLS:idiff> TYPE BIN)" >> CmakeLists.txt
