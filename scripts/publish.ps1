@@ -12,7 +12,7 @@ foreach ($pkg_file in Get-ChildItem "./packages/$pkg/output/win-64/*.conda" -Rec
         Write-Output "$pkg is a private package"
         pixi run rattler-build upload prefix -s -c glatzel-private $pkg_file
     }
-   
+
     $LASTEXITCODE = 0
     Write-Output "::endgroup::"
 }
