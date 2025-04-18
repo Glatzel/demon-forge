@@ -30,36 +30,36 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pkg:
-          - android-sdk-platform-tools
-          - aria2
-          - blender
-          - blender-benchmark
-          - calibre
-          - cpu-z
-          - crystal-disk-info
-          - crystal-disk-mark
-          - dism-plus-plus
-          - everything
-          - filezilla
-          - furmark
-          - hwinfo
-          - imagemagick
-          - jq
-          - libraw
-          - mkcert
-          - nuget
-          - obs-studio
-          - openimageio
-          - peazip
-          - pkg-config-lite
-          - proj
-          - pureref
-          - rufus
-          - termscp
-        machine: [windows-latest]
         include:
-          - pkg: 
+          - pkg:
+            - android-sdk-platform-tools
+            - aria2
+            - blender
+            - blender-benchmark
+            - calibre
+            - cpu-z
+            - crystal-disk-info
+            - crystal-disk-mark
+            - dism-plus-plus
+            - everything
+            - filezilla
+            - furmark
+            - hwinfo
+            - imagemagick
+            - jq
+            - libraw
+            - mkcert
+            - nuget
+            - obs-studio
+            - openimageio
+            - peazip
+            - pkg-config-lite
+            - proj
+            - pureref
+            - rufus
+            - termscp
+            machine: windows-latest
+          - pkg:
               - libraw
               - proj
             machine: ubuntu-latest
