@@ -11,6 +11,6 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
     - if: linux
       then:
-        - pwsh -f $RECIPE_DIR\build-${{ name }}.ps1
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
   repository: https://github.com/OSGeo/PROJ
