@@ -1,0 +1,16 @@
+context:
+  name: libraw
+package:
+  version: 0.21.4
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: linux
+      then:
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+about:
+  repository: https://github.com/Libraw/Libraw

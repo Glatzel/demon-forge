@@ -46,15 +46,25 @@ jobs:
           - hwinfo
           - imagemagick
           - jq
+          - libraw
           - mkcert
           - nuget
           - obs-studio
+          - openimageio
           - peazip
           - pkg-config-lite
+          - proj
           - pureref
           - rufus
           - termscp
-    runs-on: windows-latest
+        machine: [windows-latest]
+        include:
+          - pkg: libraw
+            machine: ubuntu-latest
+          - pkg: proj
+            machine: ubuntu-latest
+
+    runs-on: ${{matrix.machine}}
     steps:
       - uses: actions/checkout@v4
 
@@ -65,34 +75,47 @@ jobs:
           files: |
             ./packages/${{matrix.pkg}}*/**
 
-      - uses: ./.github/actions/main
+      - name: Set up pixi
         if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        uses: prefix-dev/setup-pixi@v0.8.3
         with:
-          pkg: ${{matrix.pkg}}
-          prefix_token: ${{secrets.PREFIX_TOKEN}}
+          run-install: false
 
-  build-openimageio:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
+      - name: login
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        run: pixi auth login prefix.dev --token ${{secrets.PREFIX_TOKEN}}
+        shell: pwsh
 
-      - id: changed
-        uses: tj-actions/changed-files@v46
-        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
+      - name: main
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        id: main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./packages/${{matrix.pkg}}/ci-${{matrix.pkg}}.ps1
+        shell: pwsh
+
+      - name: upload
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        uses: actions/upload-artifact@v4
         with:
-          files: |
-            ./packages/openimageio*/**
+          name: ${{matrix.pkg}}-${{runner.os}}
+          path: ./packages/${{matrix.pkg}}/output
 
-      - name: restore vcpkg
-        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
-        id: restore-vcpkg
-        uses: actions/cache@v4
-        with:
-          path: ./packages/openimageio_build/ocio_dep/vcpkg_installed
-          key: vcpkg-openimageio-${{ runner.os }}-${{ hashFiles('./packages/openimageio_build/ocio_dep/vcpkg.json') }}
+      - name: publish
+        if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
+        run: |
+          ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+        shell: pwsh
 
-      - uses: ./.github/actions/main
-        if: ${{ steps.changed.outputs.any_changed!= 'false'}}
+      - name: Create pull request
+        if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
+        uses: peter-evans/create-pull-request@v7
         with:
-          pkg: openimageio
-          prefix_token: ${{secrets.PREFIX_TOKEN}}
+          token: ${{ github.token }}
+          commit-message: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+          title: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+          branch: update-${{matrix.pkg}}
+          base: main
+          delete-branch: true
+          assignees: Glatzel
+          draft: true
