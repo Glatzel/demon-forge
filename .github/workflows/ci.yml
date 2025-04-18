@@ -59,9 +59,9 @@ jobs:
           - termscp
         machine: [windows-latest]
         include:
-          - pkg: 
-              - libraw
-              - proj
+          - pkg: libraw
+            machine: ubuntu-latest
+          - pkg: proj
             machine: ubuntu-latest
 
     runs-on: ${{matrix.machine}}
