@@ -58,6 +58,9 @@ jobs:
           - rufus
           - termscp
         machine: [windows-latest]
+        include:
+          - pkg: [libraw, libraw]
+            machine: ubuntu-latest
 
     runs-on: ${{matrix.machine}}
     steps:
