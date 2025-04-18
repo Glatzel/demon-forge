@@ -2,7 +2,7 @@ param($pkg)
 Set-Location $PSScriptRoot
 Set-Location ..
 
-foreach ($pkg_file in Get-ChildItem "./packages/$pkg/output/win-64/*.conda" -Recurse -ErrorAction Continue) {
+foreach ($pkg_file in Get-ChildItem "./packages/$pkg/output/*/*.conda" -Recurse -ErrorAction Continue) {
     Write-Output "::group:: upload $pkg"
     if(Test-Path "./packages/$pkg/PUBLIC") {
         Write-Output "$pkg is a public package"
