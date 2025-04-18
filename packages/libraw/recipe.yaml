@@ -6,6 +6,11 @@ package:
 build:
   number: 0
   script:
-    - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: linux
+      then:
+        - pwsh -f $RECIPE_DIR\build-${{ name }}.ps1
 about:
   repository: https://github.com/Libraw/Libraw
