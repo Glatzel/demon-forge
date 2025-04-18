@@ -4,11 +4,11 @@
       "name": "proj"
     }
   ],
-  "builtin-baseline": "ea2a964f9303270322cf3f2d51c265ba146c422d",
+  "builtin-baseline": "8945a6d89ce4ae46de7dd2834ac31f33c98ad3ab",
   "overrides": [
     {
       "name": "proj",
-      "version": "9.4.1"
+      "version": "9.6.0"
     }
   ]
 }
