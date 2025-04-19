@@ -52,7 +52,6 @@ jobs:
           - obs-studio
           - openimageio
           - peazip
-          - pkg-config-lite
           - proj
           - pureref
           - rufus
