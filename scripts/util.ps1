@@ -1,5 +1,10 @@
 $ROOT = git rev-parse --show-toplevel
-$env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
+if ($IsWindows) {
+    $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
+}
+else {
+    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+}
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
