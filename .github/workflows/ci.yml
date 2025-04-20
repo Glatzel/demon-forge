@@ -55,6 +55,7 @@ jobs:
           - proj
           - pureref
           - rufus
+          - sony-camera-remote-sdk
           - termscp
         machine: [windows-latest]
         include:
@@ -62,6 +63,10 @@ jobs:
             machine: ubuntu-latest
           - pkg: proj
             machine: ubuntu-latest
+          - pkg: sony-camera-remote-sdk
+            machine: ubuntu-latest
+          - pkg: sony-camera-remote-sdk
+            machine: macos-latest
 
     runs-on: ${{matrix.machine}}
     steps:
