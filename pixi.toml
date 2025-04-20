@@ -2,7 +2,7 @@
 authors = ["Glatzel <893016099@qq.com>"]
 channels = ["https://repo.prefix.dev/glatzel", "conda-forge"]
 name = "rattler-package"
-platforms = ["win-64","linux-64","osx-arm64"]
+platforms = ["win-64","linux-64"]
 version = "0.1.0"
 
 [tasks]
@@ -13,10 +13,6 @@ rattler-build = "==0.40.0"
 [feature.selenium.dependencies]
 python = "3.11.*"
 selenium = "==4.31.0"
-
-[feature.clerk]
-platforms = ["win-64","linux-64"]
-[feature.clerk.dependencies]
 clerk-py = "==0.0.8"
 
 [feature.pip.dependencies]
@@ -24,5 +20,5 @@ python = "3.11.*"
 pip = "==25.0.1"
 
 [environments]
-selenium = ["selenium","clerk"]
+selenium = ["selenium"]
 pip = ["pip"]
