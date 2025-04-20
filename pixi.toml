@@ -15,7 +15,6 @@ python = "3.11.*"
 selenium = "==4.31.0"
 clerk-py = "==0.0.8"
 
-
 [feature.pip.dependencies]
 python = "3.11.*"
 pip = "==25.0.1"

@@ -1,0 +1,14 @@
+context:
+  name: sony-camera-remote-sdk
+package:
+  name: ${{ name }}
+  version: 1.14.0
+build:
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: unix
+      then:
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+  number: 0
