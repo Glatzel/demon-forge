@@ -1,14 +1,16 @@
+context:
+  name: obs-studio
 package:
   version: 31.0.3
-  name: obs-studio
+  name: ${{ name }}
 build:
   number: 0
   script:
     - if: win
       then:
-        - pwsh -f %RECIPE_DIR%\build-obs-studio.ps1
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/obs-studio/bin/64bit/obs64.exe" exit /b 1 ))
+      - if not exist "%PREFIX%/bin/${{ name }}/bin/64bit/obs64.exe" exit /b 1 ))
 about:
-  repository: https://github.com/obsproject/obs-studio
+  repository: https://github.com/obsproject/${{ name }}
