@@ -55,6 +55,7 @@ jobs:
           - proj
           - pureref
           - rufus
+          - slumber
           - sony-camera-remote-sdk
           - termscp
         machine: [windows-latest]
