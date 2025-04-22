@@ -11,8 +11,7 @@
             ],
             "platforms": {
                 "win": {
-                    "desktop": false,
-                    "quicklaunch": true
+                    "desktop": false
                 }
             }
         }
