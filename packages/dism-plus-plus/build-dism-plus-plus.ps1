@@ -7,4 +7,4 @@ Copy-Item "$ROOT/temp/$name/$name/*" "$env:PREFIX/bin/$name" -Recurse
 
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "menu-$name.json" "$env:PREFIX/Menu"
+Copy-Item "$name.json" "$env:PREFIX/Menu"

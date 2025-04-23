@@ -2,7 +2,7 @@ package:
   version: 10.4.0
   name: peazip
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:

@@ -4,3 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 
 New-Item $env:PREFIX/bin/$name -ItemType Directory
 Copy-Item "$ROOT/temp/$name/$name_portable*/*" "$env:PREFIX/bin/$name" -Recurse
+# shortcut
+New-Item $env:PREFIX/Menu -ItemType Directory
+Copy-Item "$name.json" "$env:PREFIX/Menu"
