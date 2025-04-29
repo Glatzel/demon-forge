@@ -16,7 +16,7 @@ python = "3.11.*"
 selenium = "==4.31.0"
 
 [feature.pip.dependencies]
-pip = "==25.0.1"
+pip = "==25.1"
 python = "3.11.*"
 
 [environments]
