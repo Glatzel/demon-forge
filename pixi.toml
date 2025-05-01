@@ -8,7 +8,7 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
-rattler-build = "==0.40.0"
+rattler-build = "==0.41.0"
 
 [feature.selenium.dependencies]
 clerk-py = "==0.0.9"
