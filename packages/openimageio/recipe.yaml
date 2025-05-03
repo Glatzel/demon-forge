@@ -3,14 +3,14 @@ context:
 
 package:
   name: ${{ name }}
-  version: 3.0.4.0
+  version: 3.0.6.1
 
 build:
   script:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 4
+  number: 0
 
 tests:
   - script:
