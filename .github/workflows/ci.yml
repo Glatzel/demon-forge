@@ -26,6 +26,8 @@ permissions:
   pull-requests: write
 
 jobs:
+  pre-commit:
+    uses: Glatzel/template/.github/workflows/pre-commit.yml@main
   build:
     strategy:
       fail-fast: false
