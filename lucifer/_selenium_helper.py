@@ -12,7 +12,7 @@ def find_element(driver: Edge, by: str, value: str, timeout: float = 10):
 def find_button              (driver: Edge, by: str,                 value: str,                timeout: float = 10):
     WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((by, value)))
     element = driver.find_element(           by,
-                                  
-                                  
+
+
                                   value)
     return element
