@@ -4,12 +4,12 @@ package:
   version: 9.6.0
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-    - if: linux
+    - if: unix
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
