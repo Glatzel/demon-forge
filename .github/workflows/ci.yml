@@ -62,8 +62,14 @@ jobs:
         include:
           - pkg: libraw
             machine: ubuntu-latest
+          - pkg: libraw
+            machine: macos-latest
+
           - pkg: proj
             machine: ubuntu-latest
+          - pkg: proj
+            machine: macos-latest
+
           - pkg: sony-camera-remote-sdk
             machine: ubuntu-latest
           - pkg: sony-camera-remote-sdk
