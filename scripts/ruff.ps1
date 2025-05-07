@@ -1,4 +1,4 @@
 Set-Location $PSScriptRoot/..
-ruff format   
+ruff format
 ruff check --fix
-   
+
