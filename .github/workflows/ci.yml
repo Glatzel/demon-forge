@@ -41,7 +41,7 @@ jobs:
           - cpu-z
           - crystal-disk-info
           - crystal-disk-mark
-          - dism-plus-plus   
+          - dism-plus-plus
           - everything
           - filezilla
           - furmark
