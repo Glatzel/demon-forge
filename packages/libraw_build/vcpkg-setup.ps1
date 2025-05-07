@@ -8,4 +8,3 @@ if ($IsWindows) {
 if ($IsLinux -or $IsMacOS) {
     ./vcpkg/bootstrap-vcpkg.sh
 }
-
