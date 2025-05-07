@@ -1,4 +1,4 @@
-[project]
+[workspace]
 authors = ["Glatzel <893016099@qq.com>"]
 channels = ["https://repo.prefix.dev/glatzel", "conda-forge"]
 name = "rattler-package"
