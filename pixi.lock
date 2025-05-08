@@ -16,11 +16,11 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-14.2.0-h4852527_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.5.0-h7b32b05_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/patchelf-0.17.2-h58526e2_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.40.0-h159367c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.41.0-h159367c_0.conda
       osx-arm64:
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.40.0-h8dba533_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.41.0-h8dba533_0.conda
       win-64:
-      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.40.0-ha073cba_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.41.0-ha073cba_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.22621.0-h57928b3_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.3-h2b53caa_26.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.42.34438-hfd919c2_26.conda
@@ -51,9 +51,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h2d0b736_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.5.0-h7b32b05_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/patchelf-0.17.2-h58526e2_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1-pyh8b19718_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1.1-pyh8b19718_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.11.12-h9e4cc4f_0_cpython.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.40.0-h159367c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.41.0-h159367c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8c095d6_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-78.1.1-pyhff2d567_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
@@ -69,9 +69,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libzlib-1.3.1-h8359307_2.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/ncurses-6.5-h5e97a16_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/openssl-3.5.0-h81ee809_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1-pyh8b19718_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1.1-pyh8b19718_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.11.12-hc22306f_0_cpython.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.40.0-h8dba533_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.41.0-h8dba533_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.2-h1d1bf99_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-78.1.1-pyhff2d567_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h5083fa2_1.conda
@@ -86,9 +86,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/libsqlite-3.49.1-h67fdade_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libzlib-1.3.1-h2466b09_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/openssl-3.5.0-ha4e3fda_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1-pyh8b19718_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1.1-pyh8b19718_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.11.12-h3f84c4b_0_cpython.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.40.0-ha073cba_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.41.0-ha073cba_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-78.1.1-pyhff2d567_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h5226925_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025b-h78e105d_0.conda
@@ -145,11 +145,11 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyha55dd90_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.11.12-h9e4cc4f_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/python_abi-3.11-6_cp311.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.40.0-h159367c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.41.0-h159367c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8c095d6_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rich-14.0.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.31.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.31.0-h6c30b3d_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.32.0-pyhe01879c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.32.0-hb23c6cf_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sniffio-1.3.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
@@ -195,11 +195,11 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyha55dd90_7.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.11.12-hc22306f_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python_abi-3.11-6_cp311.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.40.0-h8dba533_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.41.0-h8dba533_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.2-h1d1bf99_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rich-14.0.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.31.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.31.0-h8dba533_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.32.0-pyhe01879c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.32.0-hf783435_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sniffio-1.3.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h5083fa2_1.conda
@@ -243,10 +243,10 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyh09c184e_7.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.11.12-h3f84c4b_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python_abi-3.11-6_cp311.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.40.0-ha073cba_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.41.0-ha073cba_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rich-14.0.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.31.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.31.0-ha073cba_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.32.0-pyhe01879c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.32.0-h63977a8_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sniffio-1.3.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h5226925_1.conda
@@ -872,17 +872,17 @@ packages:
   license_family: GPL
   size: 94048
   timestamp: 1673473024463
-- conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1-pyh8b19718_0.conda
-  sha256: 81a7ffe7b7ca8718bc09476a258cd48754e1d4e1bd3b80a6fef41ffb71e3bfc8
-  md5: 2247aa245832ea47e8b971bef73d7094
+- conda: https://conda.anaconda.org/conda-forge/noarch/pip-25.1.1-pyh8b19718_0.conda
+  sha256: ebfa591d39092b111b9ebb3210eb42251be6da89e26c823ee03e5e838655a43e
+  md5: 32d0781ace05105cc99af55d36cbec7c
   depends:
   - python >=3.9,<3.13.0a0
   - setuptools
   - wheel
   license: MIT
   license_family: MIT
-  size: 1247085
-  timestamp: 1745671930895
+  size: 1242995
+  timestamp: 1746249983238
 - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyh29332c3_1.conda
   sha256: 79db7928d13fab2d892592223d7570f5061c192f27b9febd1a418427b719acc6
   md5: 12c566707c80111f9799308d9e265aef
@@ -1021,34 +1021,34 @@ packages:
   license_family: BSD
   size: 7348
   timestamp: 1743483205320
-- conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.40.0-h159367c_0.conda
-  sha256: 147c0df9d87ebd4eb74e5532576b633125aada64a685476af68b6b1ceed0e5b2
-  md5: 52da0bb7888e4f07745717a178b81464
+- conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.41.0-h159367c_0.conda
+  sha256: ee1fb9a3cf8969ae54a093ac2275401560bf23b42e64bb845e0cb1c5767d8012
+  md5: 65cb2d12fe849b15c1d4f94cb7b8b335
   depends:
   - patchelf
-  - libgcc >=13
   - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
   - openssl >=3.5.0,<4.0a0
   constrains:
   - __glibc >=2.17
   license: BSD-3-Clause
   license_family: BSD
-  size: 12807900
-  timestamp: 1744818186672
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.40.0-h8dba533_0.conda
-  sha256: 6bb566eb8f51106daae10fe3aa9191223b99345b9fb16131a48550dce5ea49c4
-  md5: c36fe9a2549c54efa6fa8123900950ec
+  size: 15794152
+  timestamp: 1746021851385
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.41.0-h8dba533_0.conda
+  sha256: de701ec656fb9fe7bef966e227e7e95d395b37e51d8864f648c6530e66c04eab
+  md5: 52ba9f0c0c2f74e7fca80b089685ebea
   depends:
   - __osx >=11.0
   constrains:
   - __osx >=11.0
   license: BSD-3-Clause
   license_family: BSD
-  size: 10706931
-  timestamp: 1744818186112
-- conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.40.0-ha073cba_0.conda
-  sha256: c8d61ee41d404c2f7774facb10379c691feced5cb8b798e985e8d9af3a599fe9
-  md5: ccaaca456adbb6d4debad3fa6fa47b65
+  size: 13306099
+  timestamp: 1746021886773
+- conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.41.0-ha073cba_0.conda
+  sha256: ddcd3b52b339c605b4c9fa94fa93dce32f4b82fc2061ac6b2b0b3b9e4ab5d1e2
+  md5: 70c0c1e8c91de3e4aa32d3995ed7d3a0
   depends:
   - vc >=14.2,<15
   - vc14_runtime >=14.29.30139
@@ -1058,8 +1058,8 @@ packages:
   - ucrt >=10.0.20348.0
   license: BSD-3-Clause
   license_family: BSD
-  size: 10667231
-  timestamp: 1744818263703
+  size: 12984801
+  timestamp: 1746021924009
 - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8c095d6_2.conda
   sha256: 2d6d0c026902561ed77cd646b5021aef2d4db22e57a5b0178dfc669231e06d2c
   md5: 283b96675859b20a825f8fa30f311446
@@ -1092,13 +1092,13 @@ packages:
   license_family: MIT
   size: 200323
   timestamp: 1743371105291
-- conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.31.0-pyh29332c3_0.conda
-  sha256: 026199fa788dfb6a12aa32e9677ba94e585bdec6c450f48a2b3ad9a63a4a257a
-  md5: a0e583c38899387eae52af07cb7835f6
+- conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.32.0-pyhe01879c_0.conda
+  sha256: 5e5c3908846eb12982bc441309d6f1e1e3ccf03d6d03c5e603b5e4440dfd53cf
+  md5: 8f84e44404e6e1af7b4315024b562372
   depends:
   - certifi >=2021.10.8
   - python >=3.9
-  - selenium-manager 4.31.*
+  - selenium-manager 4.32.*
   - trio >=0.17,<1.0
   - trio-websocket >=0.9,<1.0
   - typing_extensions >=4.9,<5.0
@@ -1107,34 +1107,34 @@ packages:
   - python
   license: Apache-2.0
   license_family: APACHE
-  size: 317197
-  timestamp: 1743861127371
-- conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.31.0-h6c30b3d_0.conda
-  sha256: 46c07a62001657bb402612d766109babc5ecd206be71df52d67af3c498cc5988
-  md5: f9cdc718031e8afa2e535805c4f6714b
+  size: 328060
+  timestamp: 1746223088302
+- conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.32.0-hb23c6cf_0.conda
+  sha256: 2724b839b1527784f52d5860088765b323148faa9d9c6239c878538b9021f1bd
+  md5: 773fe0a6cec6767eda70552066432390
   depends:
-  - __glibc >=2.17,<3.0.a0
   - libgcc >=13
+  - __glibc >=2.17,<3.0.a0
   constrains:
   - __glibc >=2.17
   license: Apache-2.0
   license_family: APACHE
-  size: 2279257
-  timestamp: 1743851706072
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.31.0-h8dba533_0.conda
-  sha256: a54af67b898a43a089603c5379476d93173c14f92c8b5a82e4d27993519d69b0
-  md5: 4ec19443f25c141ca6876a815e03ebcc
+  size: 2278955
+  timestamp: 1746221141886
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.32.0-hf783435_0.conda
+  sha256: 88199743fc95e99f8e46e172e1aa91c96f9a2a459afea03e647677f18b824286
+  md5: 9c1beac0e30b8451733789805fe8f141
   depends:
   - __osx >=11.0
   constrains:
   - __osx >=11.0
   license: Apache-2.0
   license_family: APACHE
-  size: 1976073
-  timestamp: 1743851765723
-- conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.31.0-ha073cba_0.conda
-  sha256: d03490529dece06a7a172e878c9ee8d45aa48f16f432c21a92e67c36f79d8d1d
-  md5: b0e4f2f885997e3ac2caa1fa3b5bb840
+  size: 1977560
+  timestamp: 1746221213605
+- conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.32.0-h63977a8_0.conda
+  sha256: dacab1fb0b704d3bb93e09521cf8ffbe70cbcb95a3f897affbb4045ed555efee
+  md5: 09752995447a3687c4fd9ecb286d22cb
   depends:
   - vc >=14.2,<15
   - vc14_runtime >=14.29.30139
@@ -1144,8 +1144,8 @@ packages:
   - ucrt >=10.0.20348.0
   license: Apache-2.0
   license_family: APACHE
-  size: 1944949
-  timestamp: 1743851720693
+  size: 1944836
+  timestamp: 1746221165425
 - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-78.1.1-pyhff2d567_0.conda
   sha256: 33a0cab4724d8130055f65e6edc101df7136f2f26cefb52669df88de8aeee28c
   md5: 72437384f9364b6baf20b6dd68d282c2
