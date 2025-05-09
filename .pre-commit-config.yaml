@@ -20,3 +20,4 @@ repos:
       # misc
       - id: taplo-format
       - id: actionlint
+      - id: typos
