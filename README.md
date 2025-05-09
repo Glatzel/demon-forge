@@ -1,1 +1,1 @@
-# rattler-packag
+# rattler-package
