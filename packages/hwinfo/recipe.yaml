@@ -1,10 +1,10 @@
 context:
   name: hwinfo
 package:
-  version: 8.24
+  version: 8.26
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
   script:
     - if: win
       then:
