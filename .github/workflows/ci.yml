@@ -64,8 +64,8 @@ jobs:
         include:
           - pkg: libraw
             machine: ubuntu-latest
-          # - pkg: libraw
-          #   machine: macos-latest
+          - pkg: libraw
+            machine: macos-latest
 
           - pkg: proj
             machine: ubuntu-latest
