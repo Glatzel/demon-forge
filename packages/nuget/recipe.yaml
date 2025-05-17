@@ -2,7 +2,7 @@ context:
   name: nuget
 package:
   name: ${{ name }}
-  version: 6.14.0
+  version: 6.13.2
 build:
   script:
     - if: win
