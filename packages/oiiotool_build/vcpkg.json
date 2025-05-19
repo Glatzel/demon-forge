@@ -1,0 +1,26 @@
+{
+  "dependencies": [
+    {
+      "name": "openimageio",
+      "features": [
+        "ffmpeg",
+        "freetype",
+        "jpegxl",
+        "libheif",
+        "libraw",
+        "opencolorio",
+        "opencv",
+        "openjpeg",
+        "tools",
+        "webp"
+      ]
+    }
+  ],
+  "builtin-baseline": "f26ec398c25c4980f33a50391f00a75f7ad62ef7",
+  "overrides": [
+    {
+      "name": "openimageio",
+      "version": "3.0.1.0"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 context:
-  name: openimageio
+  name: oiiotool
 
 package:
   name: ${{ name }}
