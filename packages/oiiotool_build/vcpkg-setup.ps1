@@ -4,6 +4,6 @@ git clone https://github.com/microsoft/vcpkg.git
 if ($IsWindows) {
     ./vcpkg/bootstrap-vcpkg.bat
 }
-if ($IsLinux ) {
+if (-not $IsWindows) {
     ./vcpkg/bootstrap-vcpkg.sh
 }
