@@ -2,7 +2,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches: [main]
     paths-ignore:
       - "*.md"
   pull_request:
@@ -14,7 +14,7 @@ on:
     paths-ignore:
       - "*.md"
   schedule:
-    - cron: 0 16 * * *
+    - cron: 0 16 * * 1
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
@@ -66,6 +66,9 @@ jobs:
             machine: ubuntu-latest
           - pkg: libraw
             machine: macos-latest
+
+          - pkg: slumber
+            machine: ubuntu-latest
 
           - pkg: proj
             machine: ubuntu-latest
