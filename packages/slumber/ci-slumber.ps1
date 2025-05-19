@@ -8,8 +8,16 @@ $latest_version = "$latest_version".Replace("v", "")
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
-gh release download -R LucasPickering/$name -p "*windows*.zip" `
-    -O  $ROOT/temp/$name/$name.zip --clobber
-7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
+if ($IsWindows) {
+    gh release download -R LucasPickering/$name -p "*windows*.zip" `
+        -O  $ROOT/temp/$name/$name.zip --clobber
+    7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
+}
+if ($IsLinux) {
+    gh release download -R LucasPickering/$name -p "slumber-x86_64-unknown-linux-gnu.tar.xz" `
+        -O  $ROOT/temp/$name/$name.tar.xz --clobber
+    7z x "$ROOT/temp/$name/slumber-x86_64-unknown-linux-gnu.tar.xz.zip" "-o$ROOT/temp/$name/$name"
+}
+
 update-recipe -version $latest_version
 build-pkg
