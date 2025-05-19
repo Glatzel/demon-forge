@@ -18,7 +18,7 @@ if ($IsLinux) {
         -O  $ROOT/temp/$name/$name.tar.xz --clobber
     New-Item $ROOT/temp/$name/temp
     New-Item $ROOT/temp/$name/$name
-    tar -xf "$ROOT/temp/$name/$name.tar.xz" "$ROOT/temp/$name/temp"
+    tar -xf "$ROOT/temp/$name/$name.tar.xz" -C "$ROOT/temp/$name/temp"
     Copy-Item  "$ROOT/temp/$name/temp/slumber-x86_64-unknown-linux-gnu/*" "-o$ROOT/temp/$name/$name/" -Recurse
 }
 
