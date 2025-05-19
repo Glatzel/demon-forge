@@ -16,7 +16,10 @@ if ($IsWindows) {
 if ($IsLinux) {
     gh release download -R LucasPickering/$name -p "slumber-x86_64-unknown-linux-gnu.tar.xz" `
         -O  $ROOT/temp/$name/$name.tar.xz --clobber
-    7z x "$ROOT/temp/$name/$name.tar.xz" "-o$ROOT/temp/$name/$name"
+    New-Item $ROOT/temp/$name/temp
+    New-Item $ROOT/temp/$name/$name
+    tar -xf "$ROOT/temp/$name/$name.tar.xz" "$ROOT/temp/$name/temp"
+    Copy-Item  "$ROOT/temp/$name/temp/slumber-x86_64-unknown-linux-gnu/*" "-o$ROOT/temp/$name/$name/" -Recurse
 }
 
 update-recipe -version $latest_version
