@@ -14,7 +14,13 @@ build:
 
 tests:
   - script:
-      - "%PREFIX%/bin/${{ name }}/oiiotool.exe --help"
+      - if: win
+        then:
+          "%PREFIX%/bin/${{ name }}/oiiotool --help"
+      - if: unix
+        then:
+          "$PREFIX/bin/${{ name }}/oiiotool --help"
+    
 
 about:
   repository: https://github.com/AcademySoftwareFoundation/OpenImageIO
