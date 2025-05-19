@@ -16,7 +16,7 @@ tests:
   - script:
       - if: win
         then:
-          "%PREFIX%/bin/${{ name }}/oiiotool --help"
+          "%PREFIX%/bin/${{ name }}/oiiotool.exe --help"
       - if: unix
         then:
           "$PREFIX/bin/${{ name }}/oiiotool --help"
