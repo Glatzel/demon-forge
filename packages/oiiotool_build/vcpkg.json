@@ -3,13 +3,10 @@
     {
       "name": "openimageio",
       "features": [
-        "ffmpeg",
         "freetype",
         "jpegxl",
-        "libheif",
         "libraw",
         "opencolorio",
-        "opencv",
         "openjpeg",
         "tools",
         "webp"

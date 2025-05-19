@@ -2,7 +2,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches: [main]
     paths-ignore:
       - "*.md"
   pull_request:
@@ -52,7 +52,7 @@ jobs:
           - mkcert
           - nuget
           - obs-studio
-          - openimageio
+          - oiiotool
           - peazip
           - proj
           - pureref
@@ -65,6 +65,11 @@ jobs:
           - pkg: libraw
             machine: ubuntu-latest
           - pkg: libraw
+            machine: macos-latest
+          
+          - pkg: oiiotool
+            machine: ubuntu-latest
+          - pkg: oiiotool
             machine: macos-latest
 
           - pkg: proj
