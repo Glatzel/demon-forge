@@ -19,7 +19,7 @@ tests:
         - "%PREFIX%/bin/${{ name }}/${{ name }}.exe help"
     - if: linux
       then:
-        - "%PREFIX%/bin/${{ name }}/${{ name }} help"
+        - "$PREFIX/bin/${{ name }}/${{ name }} help"
 
 about:
   repository: https://github.com/LucasPickering/slumber
