@@ -104,7 +104,7 @@ jobs:
         if: ${{github.event_name == 'pull_request'|| github.event_name == 'push'}}
         id: changed-pkgs
         run: |
-          RESULT=$(cat ./pkg_map.json | jq -c --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
+          RESULT=$(jq -c --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))' ./pkg_map.json)
           echo "matrix={\"include\":$RESULT}"
           echo "matrix={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
       - name: all-pkgs
