@@ -101,7 +101,7 @@ jobs:
       - name: changed-pkgs
         id: changed-pkgs
         run: |
-          cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" 'map(select(.pkg as $p | $pkgs | index($p)))'
+          result=cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" 'map(select(.pkg as $p | $pkgs | index($p)))'
           echo "changed=${result}" >> "$GITHUB_OUTPUT"
 
   rattler-build:
