@@ -101,11 +101,6 @@ jobs:
         with:
           run-install: false
 
-      - name: login
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-        run: pixi auth login prefix.dev --token ${{secrets.PREFIX_TOKEN}}
-        shell: pwsh
-
       - name: main
         if: ${{ steps.changed.outputs.any_changed!= 'false' }}
         id: main
