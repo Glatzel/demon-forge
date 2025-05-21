@@ -99,7 +99,7 @@ jobs:
      #   - ./packages/termscp*/**
 
       - name: changed-json
-        run: echo ${{ steps.change.outputs.all_changed_files }}
+        run: echo ${{ steps.change.outputs.any_changed }}
         # build:
   #   strategy:
   #     fail-fast: false
