@@ -1,7 +1,7 @@
 context:
   name: rufus
 package:
-  version: 4.7
+  version: '4.7'
   name: ${{ name }}
 build:
   number: 1
@@ -11,6 +11,6 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+      - if not exist "%PREFIX%/bin/${{ name }}.exe" exit /b 1 ))
 about:
   repository: https://github.com/pbatard/rufus

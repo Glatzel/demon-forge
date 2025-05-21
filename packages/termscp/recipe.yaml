@@ -11,11 +11,11 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
+      - "%PREFIX%/bin/${{ name }}.exe --help"
 
 about:
   repository: https://github.com/termscp/${{ name }}
   description: |
     [exposed]
 
-    ${{ name }} = "bin/${{ name }}/${{ name }}"
+    ${{ name }} = "bin//${{ name }}"
