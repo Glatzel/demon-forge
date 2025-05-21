@@ -12,10 +12,10 @@ build:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/${{ name }}/${{ name }}c.exe --help'
+  - '%PREFIX%/bin/${{ name }}c.exe --help'
 about:
   repository: https://github.com/aria2/aria2
   description: |
     [exposed]
 
-    ${{ name }}c = "bin/${{ name }}/${{ name }}c"
+    ${{ name }}c = "${{ name }}c"
