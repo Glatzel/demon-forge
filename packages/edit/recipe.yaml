@@ -1,10 +1,10 @@
 context:
-  name: msedit
+  name: edit
 package:
   version: 1.0.0
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
