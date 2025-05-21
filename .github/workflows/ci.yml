@@ -95,7 +95,7 @@ jobs:
               - ./packages/sony-camera-remote-sdk/**
             termscp
               - ./packages/termscp/**
-          
+
       - name: changed-json
         run: echo "${{ steps.changed.outputs.modified_keys }}"
         # build:
