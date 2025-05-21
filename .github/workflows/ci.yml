@@ -41,6 +41,7 @@ jobs:
           - cpu-z
           - crystal-disk-info
           - crystal-disk-mark
+          - edit
           - dism-plus-plus
           - everything
           - filezilla
@@ -62,6 +63,9 @@ jobs:
           - termscp
         machine: [windows-latest]
         include:
+          - pkg: edit
+            machine: ubuntu-latest
+
           - pkg: libraw
             machine: ubuntu-latest
           - pkg: libraw
