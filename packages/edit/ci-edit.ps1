@@ -16,6 +16,7 @@ if ($IsLinux) {
     gh release download -R "microsoft/$name" -p "*x86_64-linux*" `
         -O  $ROOT/temp/$name/$name.xz --clobber
     7z x "$ROOT/temp/$name/$name.xz" "-o$ROOT/temp/$name"
+    Remove-Item "$ROOT/temp/$name/$name.xz"
 }
 update-recipe -version $latest_version
 build-pkg
