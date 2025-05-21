@@ -37,6 +37,7 @@ jobs:
       - id: change
         uses: tj-actions/changed-files@v46
         with:
+          json: true
           files_yaml: |
             ci
               - .github/workflows/**
@@ -98,7 +99,7 @@ jobs:
      #   - ./packages/termscp*/**
 
       - name: changed-json
-        run: echo ${{ steps.change.outputs.changed_keys }}
+        run: echo ${{ steps.change.outputs.all_changed_files }}
         # build:
   #   strategy:
   #     fail-fast: false
