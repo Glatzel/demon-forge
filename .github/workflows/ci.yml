@@ -39,61 +39,61 @@ jobs:
         with:
           files_yaml: |
             android-sdk-platform-tools
-              - ./packages/android-sdk-platform-tools/**
+              - ./packages/android-sdk-platform-tools*/**
             aria2
-              - ./packages/aria2/**
+              - ./packages/aria2*/**
             blender
-              - ./packages/blender/**
+              - ./packages/blender*/**
             blender-benchmark
-              - ./packages/blender-benchmark/**
+              - ./packages/blender-benchmark*/**
             calibre
-              - ./packages/calibre/**
+              - ./packages/calibre*/**
             cpu-z
-              - ./packages/cpu-z/**
+              - ./packages/cpu-z*/**
             crystal-disk-info
-              - ./packages/crystal-disk-info/**
+              - ./packages/crystal-disk-info*/**
             crystal-disk-mark
-              - ./packages/crystal-disk-mark/**
+              - ./packages/crystal-disk-mark*/**
             edit
-              - ./packages/edit/**
+              - ./packages/edit*/**
             dism-plus-plus
-              - ./packages/dism-plus-plus/**
+              - ./packages/dism-plus-plus*/**
             everything
-              - ./packages/everything/**
+              - ./packages/everything*/**
             filezilla
-              - ./packages/filezilla/**
+              - ./packages/filezilla*/**
             furmark
-              - ./packages/furmark/**
+              - ./packages/furmark*/**
             hwinfo
-              - ./packages/hwinfo/**
+              - ./packages/hwinfo*/**
             imagemagick
-              - ./packages/imagemagick/**
+              - ./packages/imagemagick*/**
             jq
-              - ./packages/jq/**
+              - ./packages/jq*/**
             libraw
-              - ./packages/libraw/**
+              - ./packages/libraw*/**
             mkcert
-              - ./packages/mkcert/**
+              - ./packages/mkcert*/**
             nuget
-              - ./packages/nuget/**
+              - ./packages/nuget*/**
             obs-studio
-              - ./packages/obs-studio/**
+              - ./packages/obs-studio*/**
             openimageio
-              - ./packages/openimageio/**
+              - ./packages/openimageio*/**
             peazip
-              - ./packages/peazip/**
+              - ./packages/peazip*/**
             proj
-              - ./packages/proj/**
+              - ./packages/proj*/**
             pureref
-              - ./packages/pureref/**
+              - ./packages/pureref*/**
             rufus
-              - ./packages/rufus/**
+              - ./packages/rufus*/**
             slumber
-              - ./packages/slumber/**
+              - ./packages/slumber*/**
             sony-camera-remote-sdk
-              - ./packages/sony-camera-remote-sdk/**
+              - ./packages/sony-camera-remote-sdk*/**
             termscp
-              - ./packages/termscp/**
+              - ./packages/termscp*/**
 
       - name: changed-json
         run: echo ${{ steps.changed.outputs.changed_keys }}
