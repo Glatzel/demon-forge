@@ -112,8 +112,8 @@ jobs:
         id: all-pkgs
         run: |
           RESULT=$(jq -c . ./pkg_map.json)
-          echo "all={\"include\":$RESULT}"
-          echo "all={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
+          echo "all=$RESULT"
+          echo "all=$RESULT" >> "$GITHUB_OUTPUT"
 
   rattler-build:
     needs: changed
