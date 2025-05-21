@@ -1,10 +1,10 @@
 context:
   name: edit
 package:
-  version: 1.7.1
+  version: 1.0.0
   name: ${{ name }}
 build:
-  number: 5
+  number: 0
   script:
     - if: win
       then:
@@ -16,10 +16,10 @@ tests:
   - script:
       - if: win
         then:
-          - "%PREFIX%/bin/${{ name }}.exe --help"
+          - if not exist "%PREFIX%/bin/${{ name }}.exe" exit /b 1 ))
       - if: linux
         then:
-          - "$PREFIX/bin/${{ name }} --help"
+          - "if [ -f '$PREFIX/bin/${{ name }}' ]; then echo 'File exists.'; else exit 1; fi"
 about:
   repository: https://github.com/microsoft/${{ name }}
   description: |

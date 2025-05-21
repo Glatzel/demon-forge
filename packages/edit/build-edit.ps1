@@ -4,8 +4,8 @@ $ROOT = git rev-parse --show-toplevel
 
 New-Item $env:PREFIX/bin/$name -ItemType Directory
 if ($IsWindows) {
-    Copy-Item "$ROOT/temp/$name/$name.exe" "$env:PREFIX/bin/$name/$name.exe"
+    Copy-Item "$ROOT/temp/$name/*/$name.exe" "$env:PREFIX/bin/$name/$name.exe"
 }
 if ($IsLinux) {
-    Copy-Item "$ROOT/temp/$name/$name" "$env:PREFIX/bin/$name/$name"
+    Copy-Item "$ROOT/temp/$name/*/$name" "$env:PREFIX/bin/$name/$name"
 }
