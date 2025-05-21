@@ -77,8 +77,6 @@ jobs:
               - ./packages/jq*/**
             libraw:
               - ./packages/libraw*/**
-            mkcert:
-              - ./packages/mkcert*/**
             nuget:
               - ./packages/nuget*/**
             obs-studio:
