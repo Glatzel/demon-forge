@@ -19,7 +19,7 @@ tests:
           - "%PREFIX%/bin/${{ name }}.exe -h"
       - if: linux
         then:
-          - "bash $PREFIX/bin/${{ name }} -h"
+          - "ls -l $PREFIX/bin/ && bash $PREFIX/bin/${{ name }} -h"
 about:
   repository: https://github.com/microsoft/${{ name }}
   description: |
