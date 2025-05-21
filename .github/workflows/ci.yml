@@ -101,11 +101,9 @@ jobs:
       - name: changed-pkgs
         id: changed-pkgs
         run: |
-          RESULT=$(cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
+          RESULT=$(cat ./pkg_map.json | jq -c --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
           echo "matrix={\"include\":$RESULT}"
-          echo "matrix<<EOF" >> "$GITHUB_OUTPUT"
           echo "matrix={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
 
   rattler-build:
     needs: changed
