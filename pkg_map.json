@@ -1,0 +1,146 @@
+[
+    {
+        "pkg": "android-sdk-platform-tools",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "aria2",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "blender",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "blender-benchmark",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "calibre",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "cpu-z",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "crystal-disk-info",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "crystal-disk-mark",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "edit",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "dism-plus-plus",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "everything",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "filezilla",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "furmark",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "hwinfo",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "imagemagick",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "jq",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "libraw",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "mkcert",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "nuget",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "obs-studio",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "openimageio",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "peazip",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "proj",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "pureref",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "rufus",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "slumber",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "sony-camera-remote-sdk",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "termscp",
+        "machine": "windows-latest"
+    },
+    {
+        "pkg": "edit",
+        "machine": "ubuntu-latest"
+    },
+    {
+        "pkg": "libraw",
+        "machine": "ubuntu-latest"
+    },
+    {
+        "pkg": "libraw",
+        "machine": "macos-latest"
+    },
+    {
+        "pkg": "slumber",
+        "machine": "ubuntu-latest"
+    },
+    {
+        "pkg": "proj",
+        "machine": "ubuntu-latest"
+    },
+    {
+        "pkg": "proj",
+        "machine": "macos-latest"
+    },
+    {
+        "pkg": "sony-camera-remote-sdk",
+        "machine": "ubuntu-latest"
+    },
+    {
+        "pkg": "sony-camera-remote-sdk",
+        "machine": "macos-latest"
+    }
+]
