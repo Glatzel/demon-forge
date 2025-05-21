@@ -19,7 +19,7 @@ tests:
           - if not exist "%PREFIX%/bin/${{ name }}.exe" exit /b 1 ))
       - if: linux
         then:
-          - "if [ -f '$PREFIX/bin/${{ name }}' ]; then echo 'File exists.'; else exit 1; fi"
+          - if [ -f '$PREFIX/bin/${{ name }}' ]; then echo 'File exists.'; else exit 1; fi
 about:
   repository: https://github.com/microsoft/${{ name }}
   description: |
