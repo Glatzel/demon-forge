@@ -16,7 +16,7 @@ tests:
   - script:
       - if: win
         then:
-          - %PREFIX%/bin/${{ name }}.exe -h
+          - "%PREFIX%/bin/${{ name }}.exe -h"
       - if: linux
         then:
           - $PREFIX/bin/${{ name }} -h
