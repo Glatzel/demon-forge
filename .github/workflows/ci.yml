@@ -37,7 +37,6 @@ jobs:
       - id: changed
         uses: tj-actions/changed-files@v46
         with:
-          json: true
           files_yaml: |
             android-sdk-platform-tools
               - ./packages/android-sdk-platform-tools/**
