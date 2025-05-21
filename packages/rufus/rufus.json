@@ -7,7 +7,7 @@
             "name": "rufus",
             "description": "Launch rufus",
             "command": [
-                "{{ PREFIX }}/bin/rufus/rufus.exe"
+                "{{ PREFIX }}/bin/rufus.exe"
             ],
             "platforms": {
                 "win": {

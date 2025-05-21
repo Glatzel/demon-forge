@@ -1,0 +1,28 @@
+context:
+  name: edit
+package:
+  version: 1.0.0
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%/build-${{ name }}.ps1
+    - if: linux
+      then:
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+tests:
+  - script:
+      - if: win
+        then:
+          - if not exist "%PREFIX%/bin/${{ name }}.exe" exit /b 1 ))
+      - if: linux
+        then:
+          - if [ -f "$PREFIX/bin/${{ name }}" ]; then echo "File exists."; else exit 1; fi
+about:
+  repository: https://github.com/microsoft/${{ name }}
+  description: |
+    [exposed]
+
+    ${{ name }} = "${{ name }}"

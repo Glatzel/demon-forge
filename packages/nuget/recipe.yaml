@@ -11,10 +11,10 @@ build:
   number: 0
 tests:
   - script:
-      - "%PREFIX%/bin/${{ name }}/${{ name }}.exe help"
+      - "%PREFIX%/bin/${{ name }}.exe help"
 about:
   repository: https://www.nuget.org/downloads
   description: |
     [exposed]
 
-    ${{ name }} = "bin/${{ name }}/${{ name }}"
+    ${{ name }} = "${{ name }}"
