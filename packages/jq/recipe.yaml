@@ -17,4 +17,4 @@ about:
   description: |
     [exposed]
 
-    ${{ name }} = "bin/${{ name }}/${{ name }}"
+    ${{ name }} = "${{ name }}"
