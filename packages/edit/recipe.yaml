@@ -19,7 +19,7 @@ tests:
           - "%PREFIX%/bin/${{ name }}.exe -h"
       - if: linux
         then:
-          - "ls -l $PREFIX/bin/"
+          - if [ -f "$PREFIX/bin/${{ name }}" ]; then echo "File exists."; else exit 1; fi
 about:
   repository: https://github.com/microsoft/${{ name }}
   description: |
