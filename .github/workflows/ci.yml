@@ -28,109 +28,179 @@ permissions:
 jobs:
   pre-commit:
     uses: Glatzel/template/.github/workflows/pre-commit.yml@main
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        pkg:
-          - android-sdk-platform-tools
-          - aria2
-          - blender
-          - blender-benchmark
-          - calibre
-          - cpu-z
-          - crystal-disk-info
-          - crystal-disk-mark
-          - edit
-          - dism-plus-plus
-          - everything
-          - filezilla
-          - furmark
-          - hwinfo
-          - imagemagick
-          - jq
-          - libraw
-          - mkcert
-          - nuget
-          - obs-studio
-          - openimageio
-          - peazip
-          - proj
-          - pureref
-          - rufus
-          - slumber
-          - sony-camera-remote-sdk
-          - termscp
-        machine: [windows-latest]
-        include:
-          - pkg: edit
-            machine: ubuntu-latest
 
-          - pkg: libraw
-            machine: ubuntu-latest
-          - pkg: libraw
-            machine: macos-latest
-
-          - pkg: slumber
-            machine: ubuntu-latest
-
-          - pkg: proj
-            machine: ubuntu-latest
-          - pkg: proj
-            machine: macos-latest
-
-          - pkg: sony-camera-remote-sdk
-            machine: ubuntu-latest
-          - pkg: sony-camera-remote-sdk
-            machine: macos-latest
-
-    runs-on: ${{matrix.machine}}
+  changed:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - id: changed
         uses: tj-actions/changed-files@v46
-        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         with:
-          files: |
-            ./packages/${{matrix.pkg}}*/**
+          json: true
+          files_yaml: |
+            android-sdk-platform-tools
+              - ./packages/android-sdk-platform-tools/**
+            aria2
+              - ./packages/aria2/**
+            blender
+              - ./packages/blender/**
+            blender-benchmark
+              - ./packages/blender-benchmark/**
+            calibre
+              - ./packages/calibre/**
+            cpu-z
+              - ./packages/cpu-z/**
+            crystal-disk-info
+              - ./packages/crystal-disk-info/**
+            crystal-disk-mark
+              - ./packages/crystal-disk-mark/**
+            edit
+              - ./packages/edit/**
+            dism-plus-plus
+              - ./packages/dism-plus-plus/**
+            everything
+              - ./packages/everything/**
+            filezilla
+              - ./packages/filezilla/**
+            furmark
+              - ./packages/furmark/**
+            hwinfo
+              - ./packages/hwinfo/**
+            imagemagick
+              - ./packages/imagemagick/**
+            jq
+              - ./packages/jq/**
+            libraw
+              - ./packages/libraw/**
+            mkcert
+              - ./packages/mkcert/**
+            nuget
+              - ./packages/nuget/**
+            obs-studio
+              - ./packages/obs-studio/**
+            openimageio
+              - ./packages/openimageio/**
+            peazip
+              - ./packages/peazip/**
+            proj
+              - ./packages/proj/**
+            pureref
+              - ./packages/pureref/**
+            rufus
+              - ./packages/rufus/**
+            slumber
+              - ./packages/slumber/**
+            sony-camera-remote-sdk
+              - ./packages/sony-camera-remote-sdk/**
+            termscp
+              - ./packages/termscp/**
+          
+      - name: changed-json
+        run: echo "${{ steps.changed.outputs.modified_keys }}"
+        # build:
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       pkg:
+  #         - android-sdk-platform-tools
+  #         - aria2
+  #         - blender
+  #         - blender-benchmark
+  #         - calibre
+  #         - cpu-z
+  #         - crystal-disk-info
+  #         - crystal-disk-mark
+  #         - edit
+  #         - dism-plus-plus
+  #         - everything
+  #         - filezilla
+  #         - furmark
+  #         - hwinfo
+  #         - imagemagick
+  #         - jq
+  #         - libraw
+  #         - mkcert
+  #         - nuget
+  #         - obs-studio
+  #         - openimageio
+  #         - peazip
+  #         - proj
+  #         - pureref
+  #         - rufus
+  #         - slumber
+  #         - sony-camera-remote-sdk
+  #         - termscp
+  #       machine: [windows-latest]
+  #       include:
+  #         - pkg: edit
+  #           machine: ubuntu-latest
 
-      - name: Set up pixi
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-        uses: prefix-dev/setup-pixi@v0.8.8
-        with:
-          run-install: false
+  #         - pkg: libraw
+  #           machine: ubuntu-latest
+  #         - pkg: libraw
+  #           machine: macos-latest
 
-      - name: main
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-        id: main
-        env:
-          GH_TOKEN: ${{github.token}}
-        run: ./packages/${{matrix.pkg}}/ci-${{matrix.pkg}}.ps1
-        shell: pwsh
+  #         - pkg: slumber
+  #           machine: ubuntu-latest
 
-      - name: upload
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{matrix.pkg}}-${{runner.os}}
-          path: ./packages/${{matrix.pkg}}/output
+  #         - pkg: proj
+  #           machine: ubuntu-latest
+  #         - pkg: proj
+  #           machine: macos-latest
 
-      - name: publish
-        if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
-        run: |
-          ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
-        shell: pwsh
+  #         - pkg: sony-camera-remote-sdk
+  #           machine: ubuntu-latest
+  #         - pkg: sony-camera-remote-sdk
+  #           machine: macos-latest
 
-      - name: Create pull request
-        if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ github.token }}
-          commit-message: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-          title: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-          branch: update-${{matrix.pkg}}
-          base: main
-          delete-branch: true
-          assignees: Glatzel
-          draft: true
+  #   runs-on: ${{matrix.machine}}
+  #   steps:
+  #     - uses: actions/checkout@v4
+
+  #     - id: changed
+  #       uses: tj-actions/changed-files@v46
+  #       if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
+  #       with:
+  #         files: |
+  #           ./packages/${{matrix.pkg}}*/**
+
+  #     - name: Set up pixi
+  #       if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+  #       uses: prefix-dev/setup-pixi@v0.8.8
+  #       with:
+  #         run-install: false
+
+  #     - name: main
+  #       if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+  #       id: main
+  #       env:
+  #         GH_TOKEN: ${{github.token}}
+  #       run: ./packages/${{matrix.pkg}}/ci-${{matrix.pkg}}.ps1
+  #       shell: pwsh
+
+  #     - name: upload
+  #       if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: ${{matrix.pkg}}-${{runner.os}}
+  #         path: ./packages/${{matrix.pkg}}/output
+
+  #     - name: publish
+  #       if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
+  #       run: |
+  #         ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+  #       shell: pwsh
+
+  #     - name: Create pull request
+  #       if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
+  #       uses: peter-evans/create-pull-request@v7
+  #       with:
+  #         token: ${{ github.token }}
+  #         commit-message: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+  #         title: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+  #         branch: update-${{matrix.pkg}}
+  #         base: main
+  #         delete-branch: true
+  #         assignees: Glatzel
+  #         draft: true
