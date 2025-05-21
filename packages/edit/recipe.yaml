@@ -16,7 +16,7 @@ tests:
   - script:
       - if: win
         then:
-          - if not exist "%PREFIX%/bin/${{ name }}.exe" exit /b 1 ))
+          - "%PREFIX%/bin/${{ name }}.exe -h"
       - if: linux
         then:
           - if [ -f "$PREFIX/bin/${{ name }}" ]; then echo "File exists."; else exit 1; fi
