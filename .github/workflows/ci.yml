@@ -31,6 +31,8 @@ jobs:
 
   changed:
     runs-on: ubuntu-latest
+    outputs:
+      changed-pkgs: ${{ steps.changed-pkgs.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -96,111 +98,65 @@ jobs:
             termscp:
               - ./packages/termscp*/**
 
-      - name: changed-json
-        run: cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" 'map(select(.pkg as $p | $pkgs | index($p)))'
-        # build:
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       pkg:
-  #         - android-sdk-platform-tools
-  #         - aria2
-  #         - blender
-  #         - blender-benchmark
-  #         - calibre
-  #         - cpu-z
-  #         - crystal-disk-info
-  #         - crystal-disk-mark
-  #         - edit
-  #         - dism-plus-plus
-  #         - everything
-  #         - filezilla
-  #         - furmark
-  #         - hwinfo
-  #         - imagemagick
-  #         - jq
-  #         - libraw
-  #         - mkcert
-  #         - nuget
-  #         - obs-studio
-  #         - openimageio
-  #         - peazip
-  #         - proj
-  #         - pureref
-  #         - rufus
-  #         - slumber
-  #         - sony-camera-remote-sdk
-  #         - termscp
-  #       machine: [windows-latest]
-  #       include:
-  #         - pkg: edit
-  #           machine: ubuntu-latest
+      - name: changed-pkgs
+        id: changed-pkgs
+        run: |
+          result = cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" 'map(select(.pkg as $p | $pkgs | index($p)))'
+           echo "changed=${result}" >> "$GITHUB_OUTPUT"
+  rattler-build:
+    needs: changed
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.changed.outputs.changed-pkgs) }}
 
-  #         - pkg: libraw
-  #           machine: ubuntu-latest
-  #         - pkg: libraw
-  #           machine: macos-latest
+    runs-on: ${{matrix.machine}}
+    steps:
+      - uses: actions/checkout@v4
 
-  #         - pkg: slumber
-  #           machine: ubuntu-latest
+      - id: changed
+        uses: tj-actions/changed-files@v46
+        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
+        with:
+          files: |
+            ./packages/${{matrix.pkg}}*/**
 
-  #         - pkg: proj
-  #           machine: ubuntu-latest
-  #         - pkg: proj
-  #           machine: macos-latest
+      - name: Set up pixi
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        uses: prefix-dev/setup-pixi@v0.8.8
+        with:
+          run-install: false
 
-  #         - pkg: sony-camera-remote-sdk
-  #           machine: ubuntu-latest
-  #         - pkg: sony-camera-remote-sdk
-  #           machine: macos-latest
+      - name: main
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        id: main
+        env:
+          GH_TOKEN: ${{github.token}}
+        run: ./packages/${{matrix.pkg}}/ci-${{matrix.pkg}}.ps1
+        shell: pwsh
 
-  #   runs-on: ${{matrix.machine}}
-  #   steps:
-  #     - uses: actions/checkout@v4
+      - name: upload
+        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{matrix.pkg}}-${{runner.os}}
+          path: ./packages/${{matrix.pkg}}/output
 
-  #     - id: changed
-  #       uses: tj-actions/changed-files@v46
-  #       if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
-  #       with:
-  #         files: |
-  #           ./packages/${{matrix.pkg}}*/**
+      - name: publish
+        if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
+        run: |
+          ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+        shell: pwsh
 
-  #     - name: Set up pixi
-  #       if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-  #       uses: prefix-dev/setup-pixi@v0.8.8
-  #       with:
-  #         run-install: false
-
-  #     - name: main
-  #       if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-  #       id: main
-  #       env:
-  #         GH_TOKEN: ${{github.token}}
-  #       run: ./packages/${{matrix.pkg}}/ci-${{matrix.pkg}}.ps1
-  #       shell: pwsh
-
-  #     - name: upload
-  #       if: ${{ steps.changed.outputs.any_changed!= 'false' }}
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: ${{matrix.pkg}}-${{runner.os}}
-  #         path: ./packages/${{matrix.pkg}}/output
-
-  #     - name: publish
-  #       if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
-  #       run: |
-  #         ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
-  #       shell: pwsh
-
-  #     - name: Create pull request
-  #       if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
-  #       uses: peter-evans/create-pull-request@v7
-  #       with:
-  #         token: ${{ github.token }}
-  #         commit-message: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-  #         title: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-  #         branch: update-${{matrix.pkg}}
-  #         base: main
-  #         delete-branch: true
-  #         assignees: Glatzel
-  #         draft: true
+      - name: Create pull request
+        if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+          title: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
+          branch: update-${{matrix.pkg}}
+          base: main
+          delete-branch: true
+          assignees: Glatzel
+          draft: true
