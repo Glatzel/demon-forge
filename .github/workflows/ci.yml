@@ -104,7 +104,7 @@ jobs:
           result=$(cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" 'map(select(.pkg as $p | $pkgs | index($p)))')
           echo $result
           echo "changed<<EOF" >> "$GITHUB_OUTPUT"
-          echo "changed='${result}'" >> "$GITHUB_OUTPUT"
+          echo "changed=${result}" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
   rattler-build:
