@@ -69,10 +69,6 @@
             "machine": "windows-latest"
         },
         {
-            "pkg": "mkcert",
-            "machine": "windows-latest"
-        },
-        {
             "pkg": "nuget",
             "machine": "windows-latest"
         },
