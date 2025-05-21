@@ -32,7 +32,7 @@ jobs:
   changed:
     runs-on: ubuntu-latest
     outputs:
-      changed-pkgs: ${{ steps.changed-pkgs.outputs.changed }}
+      matrix: ${{ steps.changed-pkgs.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
 
@@ -102,16 +102,16 @@ jobs:
         id: changed-pkgs
         run: |
           RESULT=$(cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
-          echo "changed={\"include\":$RESULT}"
-          echo "changed<<EOF" >> "$GITHUB_OUTPUT"
-          echo "changed={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
+          echo "matrix={\"include\":$RESULT}"
+          echo "matrix<<EOF" >> "$GITHUB_OUTPUT"
+          echo "matrix={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
   rattler-build:
     needs: changed
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.changed.outputs.changed-pkgs) }}
+      matrix: ${{ fromJSON(needs.changed.outputs.matrix) }}
 
     runs-on: ${{matrix.machine}}
     steps:
