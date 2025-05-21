@@ -102,7 +102,7 @@ jobs:
         id: changed-pkgs
         run: |
           RESULT=$(cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
-          echo $RESULT
+          echo "changed={\"include\":$RESULT}"
           echo "changed<<EOF" >> "$GITHUB_OUTPUT"
           echo "changed={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
