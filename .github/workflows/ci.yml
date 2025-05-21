@@ -34,69 +34,71 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - id: changed
+      - id: change
         uses: tj-actions/changed-files@v46
         with:
           files_yaml: |
-            android-sdk-platform-tools
-              - ./packages/android-sdk-platform-tools*/**
-            aria2
-              - ./packages/aria2*/**
-            blender
-              - ./packages/blender*/**
-            blender-benchmark
-              - ./packages/blender-benchmark*/**
-            calibre
-              - ./packages/calibre*/**
-            cpu-z
-              - ./packages/cpu-z*/**
-            crystal-disk-info
-              - ./packages/crystal-disk-info*/**
-            crystal-disk-mark
-              - ./packages/crystal-disk-mark*/**
-            edit
-              - ./packages/edit*/**
-            dism-plus-plus
-              - ./packages/dism-plus-plus*/**
-            everything
-              - ./packages/everything*/**
-            filezilla
-              - ./packages/filezilla*/**
-            furmark
-              - ./packages/furmark*/**
-            hwinfo
-              - ./packages/hwinfo*/**
-            imagemagick
-              - ./packages/imagemagick*/**
-            jq
-              - ./packages/jq*/**
-            libraw
-              - ./packages/libraw*/**
-            mkcert
-              - ./packages/mkcert*/**
-            nuget
-              - ./packages/nuget*/**
-            obs-studio
-              - ./packages/obs-studio*/**
-            openimageio
-              - ./packages/openimageio*/**
-            peazip
-              - ./packages/peazip*/**
-            proj
-              - ./packages/proj*/**
-            pureref
-              - ./packages/pureref*/**
-            rufus
-              - ./packages/rufus*/**
-            slumber
-              - ./packages/slumber*/**
-            sony-camera-remote-sdk
-              - ./packages/sony-camera-remote-sdk*/**
-            termscp
-              - ./packages/termscp*/**
+            ci
+              - .github/workflows/**
+            # android-sdk-platform-tools
+            #   - ./packages/android-sdk-platform-tools*/**
+            # aria2
+            #   - ./packages/aria2*/**
+            # blender
+            #   - ./packages/blender*/**
+            # blender-benchmark
+            #   - ./packages/blender-benchmark*/**
+            # calibre
+            #   - ./packages/calibre*/**
+            # cpu-z
+            #   - ./packages/cpu-z*/**
+            # crystal-disk-info
+            #   - ./packages/crystal-disk-info*/**
+            # crystal-disk-mark
+            #   - ./packages/crystal-disk-mark*/**
+            # edit
+            #   - ./packages/edit*/**
+            # dism-plus-plus
+            #   - ./packages/dism-plus-plus*/**
+            # everything
+            #   - ./packages/everything*/**
+            # filezilla
+            #   - ./packages/filezilla*/**
+            # furmark
+            #   - ./packages/furmark*/**
+            # hwinfo
+            #   - ./packages/hwinfo*/**
+            # imagemagick
+            #   - ./packages/imagemagick*/**
+            # jq
+            #   - ./packages/jq*/**
+            # libraw
+            #   - ./packages/libraw*/**
+            # mkcert
+            #   - ./packages/mkcert*/**
+            # nuget
+            #   - ./packages/nuget*/**
+            # obs-studio
+            #   - ./packages/obs-studio*/**
+            # openimageio
+            #   - ./packages/openimageio*/**
+            # peazip
+            #   - ./packages/peazip*/**
+            # proj
+            #   - ./packages/proj*/**
+            # pureref
+            #   - ./packages/pureref*/**
+            # rufus
+            #   - ./packages/rufus*/**
+            # slumber
+            #   - ./packages/slumber*/**
+            # sony-camera-remote-sdk
+            #   - ./packages/sony-camera-remote-sdk*/**
+            # termscp
+            #   - ./packages/termscp*/**
 
       - name: changed-json
-        run: echo ${{ steps.changed.outputs.changed_keys }}
+        run: echo ${{ steps.change.outputs.changed_keys }}
         # build:
   #   strategy:
   #     fail-fast: false
