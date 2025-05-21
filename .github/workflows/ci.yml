@@ -33,10 +33,12 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.changed-pkgs.outputs.matrix }}
+      all: ${{ steps.all-pkgs.outputs.all }}
     steps:
       - uses: actions/checkout@v4
 
       - id: change
+        if: ${{github.event_name == 'pull_request'}}
         uses: tj-actions/changed-files@v46
         with:
           json: true
@@ -99,17 +101,25 @@ jobs:
               - ./packages/termscp*/**
 
       - name: changed-pkgs
+        if: ${{github.event_name == 'pull_request'}}
         id: changed-pkgs
         run: |
           RESULT=$(cat ./pkg_map.json | jq -c --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
           echo "matrix={\"include\":$RESULT}"
           echo "matrix={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
+      - name: all-pkgs
+        if: ${{github.event_name != 'pull_request'}}
+        id: all-pkgs
+        run: |
+          RESULT=$(jq -c . ./pkg_map.json)
+          echo "all={\"include\":$RESULT}"
+          echo "all={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
 
   rattler-build:
     needs: changed
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.changed.outputs.matrix) }}
+      matrix: ${{github.event_name == 'pull_request' && fromJSON(needs.changed.outputs.matrix) ||fromJSON(needs.changed.outputs.all)}}
 
     runs-on: ${{matrix.machine}}
     steps:
