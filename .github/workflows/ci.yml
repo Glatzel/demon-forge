@@ -104,35 +104,25 @@ jobs:
           RESULT=$(cat ./pkg_map.json | jq --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
           echo $RESULT
           echo "changed<<EOF" >> "$GITHUB_OUTPUT"
-          echo "changed=$RESULT" >> "$GITHUB_OUTPUT"
+          echo "changed=\"include\":\{$RESULT\}" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
   rattler-build:
     needs: changed
     strategy:
       fail-fast: false
-      matrix: 
-        include: ${{ fromJSON(needs.changed.outputs.changed-pkgs) }}
+      matrix: ${{ fromJSON(needs.changed.outputs.changed-pkgs) }}
 
     runs-on: ${{matrix.machine}}
     steps:
       - uses: actions/checkout@v4
 
-      - id: changed
-        uses: tj-actions/changed-files@v46
-        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
-        with:
-          files: |
-            ./packages/${{matrix.pkg}}*/**
-
       - name: Set up pixi
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
         uses: prefix-dev/setup-pixi@v0.8.8
         with:
           run-install: false
 
       - name: main
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
         id: main
         env:
           GH_TOKEN: ${{github.token}}
@@ -140,7 +130,6 @@ jobs:
         shell: pwsh
 
       - name: upload
-        if: ${{ steps.changed.outputs.any_changed!= 'false' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{matrix.pkg}}-${{runner.os}}
