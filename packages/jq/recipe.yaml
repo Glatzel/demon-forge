@@ -4,7 +4,7 @@ package:
   version: 1.7.1
   name: ${{ name }}
 build:
-  number: 8
+  number: 9
   script:
     - if: win
       then:
