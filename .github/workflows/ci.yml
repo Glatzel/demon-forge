@@ -26,9 +26,6 @@ permissions:
   pull-requests: write
 
 jobs:
-  pre-commit:
-    uses: Glatzel/template/.github/workflows/pre-commit.yml@main
-
   changed:
     runs-on: ubuntu-latest
     outputs:
