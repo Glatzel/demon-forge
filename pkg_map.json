@@ -25,14 +25,6 @@
             "machine": "windows-latest"
         },
         {
-            "pkg": "crystal-disk-info",
-            "machine": "windows-latest"
-        },
-        {
-            "pkg": "crystal-disk-mark",
-            "machine": "windows-latest"
-        },
-        {
             "pkg": "edit",
             "machine": "windows-latest"
         },
