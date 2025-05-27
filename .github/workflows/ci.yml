@@ -55,10 +55,6 @@ jobs:
               - ./packages/calibre*/**
             cpu-z:
               - ./packages/cpu-z*/**
-            crystal-disk-info:
-              - ./packages/crystal-disk-info*/**
-            crystal-disk-mark:
-              - ./packages/crystal-disk-mark*/**
             edit:
               - ./packages/edit*/**
             dism-plus-plus:
