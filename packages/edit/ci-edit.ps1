@@ -14,9 +14,9 @@ if ($isWindows) {
 }
 if ($IsLinux) {
     gh release download -R "microsoft/$name" -p "*x86_64-linux*" `
-        -O  $ROOT/temp/$name/$name.xz --clobber
-    7z x "$ROOT/temp/$name/$name.xz" "-o$ROOT/temp/$name"
-    Remove-Item "$ROOT/temp/$name/$name.xz"
+        -O  $ROOT/temp/$name/$name.tar.zst --clobber
+    tar  --zstd -xvf "$ROOT/temp/$name/$name.tar.zst" -C "$ROOT/temp/$name"
+    Remove-Item "$ROOT/temp/$name/$name.tar.zst"
 }
 update-recipe -version $latest_version
 build-pkg
