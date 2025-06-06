@@ -11,9 +11,9 @@ version = "0.1.0"
 rattler-build = "==0.40.0"
 
 [feature.selenium.dependencies]
-clerk-py = "==0.0.9"
 python = "3.11.*"
 selenium = "==4.31.0"
+toolbox = "==0.0.20"
 
 [feature.pip.dependencies]
 pip = "==25.1"
