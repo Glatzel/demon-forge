@@ -23,7 +23,7 @@ element = find_element(
     "//a[@class='button icon-zip' and contains(./span/text(),'english') and contains(./span/em/text(),'64-bit')]",
 )
 url = element.get_attribute("href")
-url = url.replace("downloads/", "") # type: ignore
+url = url.replace("downloads/", "")  # type: ignore
 url = url.replace("www", "download")
 log.info(f"download page: {url}")
 driver.get(url)  # type: ignore
