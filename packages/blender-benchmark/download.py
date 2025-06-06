@@ -1,8 +1,8 @@
 import logging
 from pathlib import Path
 
-import clerk
 from selenium.webdriver.common.by import By
+from toolbox import clerk
 
 from lucifer import download_waiter, find_element, init_driver
 

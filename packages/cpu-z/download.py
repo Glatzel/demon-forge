@@ -1,8 +1,8 @@
 import logging
 from pathlib import Path
 
-import clerk
 from selenium.webdriver.common.by import By
+from toolbox import clerk
 
 from lucifer import download_waiter, find_element, init_driver
 
@@ -23,7 +23,7 @@ element = find_element(
     "//a[@class='button icon-zip' and contains(./span/text(),'english') and contains(./span/em/text(),'64-bit')]",
 )
 url = element.get_attribute("href")
-url = url.replace("downloads/", "")
+url = url.replace("downloads/", "") # type: ignore
 url = url.replace("www", "download")
 log.info(f"download page: {url}")
 driver.get(url)  # type: ignore

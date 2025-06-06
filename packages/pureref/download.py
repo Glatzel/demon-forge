@@ -2,9 +2,9 @@ import logging
 import time
 from pathlib import Path
 
-import clerk
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from toolbox import clerk
 
 from lucifer import download_waiter, find_button, find_element, init_driver
 

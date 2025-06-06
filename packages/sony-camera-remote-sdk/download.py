@@ -2,7 +2,7 @@ import logging
 import sys
 from pathlib import Path
 
-import clerk
+from toolbox import clerk
 
 from lucifer import download_waiter, init_driver
 
