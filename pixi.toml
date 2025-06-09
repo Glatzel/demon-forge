@@ -13,7 +13,7 @@ rattler-build = "==0.40.0"
 [feature.selenium.dependencies]
 python = "3.11.*"
 selenium = "==4.31.0"
-toolbox = "==0.0.20"
+toolbox = { version = "==0.0.20", channel = "https://repo.prefix.dev/glatzel" }
 
 [feature.pip.dependencies]
 pip = "==25.1"
