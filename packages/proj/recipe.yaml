@@ -1,7 +1,7 @@
 context:
   name: proj
 package:
-  version: 9.6.1
+  version: 9.6.2
   name: ${{ name }}
 build:
   number: 0
