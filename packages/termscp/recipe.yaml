@@ -1,10 +1,10 @@
 context:
   name: termscp
 package:
-  version: 0.17.0
+  version: 0.18.0
   name: ${{ name }}
 build:
-  number: 2
+  number: 0
   script:
     - if: win
       then:
