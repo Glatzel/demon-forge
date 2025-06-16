@@ -1,8 +1,8 @@
 package:
-  version: 10.4.0
+  version: 10.5.0
   name: peazip
 build:
-  number: 1
+  number: 0
   script:
     - if: win
       then:
