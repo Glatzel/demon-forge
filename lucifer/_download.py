@@ -35,7 +35,7 @@ def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920,
     return driver
 
 
-def download_waiter(download_dir: str | Path, pattern: str, timeout=100):
+def download_waiter(download_dir: str | Path, pattern: str, timeout=200):
     log.info("Start download.")
 
     download_dir = Path(download_dir)

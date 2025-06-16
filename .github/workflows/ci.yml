@@ -41,55 +41,57 @@ jobs:
           json: true
           files_yaml: |
             android-sdk-platform-tools:
-              - ./packages/android-sdk-platform-tools*/**
+              - ./packages/android-sdk-platform-tools/**
             aria2:
-              - ./packages/aria2*/**
+              - ./packages/aria2/**
             blender:
-              - ./packages/blender*/**
+              - ./packages/blender/**
             blender-benchmark:
-              - ./packages/blender-benchmark*/**
+              - ./packages/blender-benchmark/**
             calibre:
-              - ./packages/calibre*/**
+              - ./packages/calibre/**
             cpu-z:
-              - ./packages/cpu-z*/**
+              - ./packages/cpu-z/**
             edit:
-              - ./packages/edit*/**
+              - ./packages/edit/**
             dism-plus-plus:
-              - ./packages/dism-plus-plus*/**
+              - ./packages/dism-plus-plus/**
             everything:
-              - ./packages/everything*/**
+              - ./packages/everything/**
             filezilla:
-              - ./packages/filezilla*/**
+              - ./packages/filezilla/**
             furmark:
-              - ./packages/furmark*/**
+              - ./packages/furmark/**
             hwinfo:
-              - ./packages/hwinfo*/**
+              - ./packages/hwinfo/**
             imagemagick:
-              - ./packages/imagemagick*/**
+              - ./packages/imagemagick/**
             jq:
-              - ./packages/jq*/**
+              - ./packages/jq/**
             libraw:
               - ./packages/libraw*/**
             nuget:
-              - ./packages/nuget*/**
+              - ./packages/nuget/**
             obs-studio:
-              - ./packages/obs-studio*/**
+              - ./packages/obs-studio/**
             openimageio:
               - ./packages/openimageio*/**
             peazip:
-              - ./packages/peazip*/**
+              - ./packages/peazip/**
             proj:
               - ./packages/proj*/**
             pureref:
-              - ./packages/pureref*/**
+              - ./packages/pureref/**
             rufus:
-              - ./packages/rufus*/**
+              - ./packages/rufus/**
             slumber:
-              - ./packages/slumber*/**
+              - ./packages/slumber/**
             sony-camera-remote-sdk:
-              - ./packages/sony-camera-remote-sdk*/**
+              - ./packages/sony-camera-remote-sdk/**
+            sony-camera-remote-sdk-full:
+              - ./packages/sony-camera-remote-sdk-full/**
             termscp:
-              - ./packages/termscp*/**
+              - ./packages/termscp/**
 
       - name: changed-pkgs
         if: ${{github.event_name == 'pull_request'|| github.event_name == 'push'}}
