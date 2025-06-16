@@ -1,136 +1,140 @@
 {
     "include": [
         {
-            "pkg": "android-sdk-platform-tools",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "android-sdk-platform-tools"
         },
         {
-            "pkg": "aria2",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "aria2"
         },
         {
-            "pkg": "blender",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "blender"
         },
         {
-            "pkg": "blender-benchmark",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "blender-benchmark"
         },
         {
-            "pkg": "calibre",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "calibre"
         },
         {
-            "pkg": "cpu-z",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "cpu-z"
         },
         {
-            "pkg": "edit",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "edit"
         },
         {
-            "pkg": "dism-plus-plus",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "dism-plus-plus"
         },
         {
-            "pkg": "everything",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "everything"
         },
         {
-            "pkg": "filezilla",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "filezilla"
         },
         {
-            "pkg": "furmark",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "furmark"
         },
         {
-            "pkg": "hwinfo",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "hwinfo"
         },
         {
-            "pkg": "imagemagick",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "imagemagick"
         },
         {
-            "pkg": "jq",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "jq"
         },
         {
-            "pkg": "libraw",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "libraw"
         },
         {
-            "pkg": "nuget",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "nuget"
         },
         {
-            "pkg": "obs-studio",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "obs-studio"
         },
         {
-            "pkg": "openimageio",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "openimageio"
         },
         {
-            "pkg": "peazip",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "peazip"
         },
         {
-            "pkg": "proj",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "proj"
         },
         {
-            "pkg": "pureref",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "pureref"
         },
         {
-            "pkg": "rufus",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "rufus"
         },
         {
-            "pkg": "slumber",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "slumber"
         },
         {
-            "pkg": "sony-camera-remote-sdk",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "sony-camera-remote-sdk-full"
         },
         {
-            "pkg": "termscp",
-            "machine": "windows-latest"
+            "machine": "windows-latest",
+            "pkg": "termscp"
         },
         {
-            "pkg": "edit",
-            "machine": "ubuntu-latest"
+            "machine": "ubuntu-latest",
+            "pkg": "edit"
         },
         {
-            "pkg": "libraw",
-            "machine": "ubuntu-latest"
+            "machine": "ubuntu-latest",
+            "pkg": "libraw"
         },
         {
-            "pkg": "libraw",
-            "machine": "macos-latest"
+            "machine": "macos-latest",
+            "pkg": "libraw"
         },
         {
-            "pkg": "slumber",
-            "machine": "ubuntu-latest"
+            "machine": "ubuntu-latest",
+            "pkg": "slumber"
         },
         {
-            "pkg": "proj",
-            "machine": "ubuntu-latest"
+            "machine": "ubuntu-latest",
+            "pkg": "proj"
         },
         {
-            "pkg": "proj",
-            "machine": "macos-latest"
+            "machine": "macos-latest",
+            "pkg": "proj"
         },
         {
-            "pkg": "sony-camera-remote-sdk",
-            "machine": "ubuntu-latest"
+            "machine": "ubuntu-latest",
+            "pkg": "sony-camera-remote-sdk"
         },
         {
-            "pkg": "sony-camera-remote-sdk",
-            "machine": "macos-latest"
+            "machine": "ubuntu-latest",
+            "pkg": "sony-camera-remote-sdk-full"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "sony-camera-remote-sdk-full"
         }
     ]
 }
