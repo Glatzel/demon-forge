@@ -1,7 +1,7 @@
 context:
   name: rufus
 package:
-  version: 4.8
+  version: 4.9
   name: ${{ name }}
 build:
   number: 0
