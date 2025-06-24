@@ -23,12 +23,6 @@ driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/mac?fm=en-us")
 download_waiter(download_dir, "*Mac.zip")
 driver.close()
 
-log.info("linux arm64")
-driver = init_driver(download_dir)
-driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_64?fm=en-us")
-download_waiter(download_dir, "*Linux64ARMv8.zip")
-driver.close()
-
 log.info("linux x64")
 driver = init_driver(download_dir)
 driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_x86?fm=en-us")
