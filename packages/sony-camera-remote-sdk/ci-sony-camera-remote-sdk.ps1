@@ -32,4 +32,3 @@ if ($IsLinux) {
 else {
     build-pkg
 }
-
