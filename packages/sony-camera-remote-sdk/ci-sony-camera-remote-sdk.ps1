@@ -24,6 +24,7 @@ update-recipe -version $latest_version
 if ($IsLinux) {
     pixi run rattler-build build
     # linux arm64
+    $is_arm = $true
     sudo apt-get update
     sudo apt-get install -y qemu-user-static g++-aarch64-linux-gnu cmake ninja-build 
     pixi run rattler-build build --target-platform linux-aarch64
