@@ -2,7 +2,7 @@ context:
   name: sony-camera-remote-sdk-full
 package:
   name: ${{ name }}
-  version: 1.14.0
+  version: 2.00.0
 build:
   script:
     - if: win
@@ -11,6 +11,6 @@ build:
     - if: unix
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
-  number: 1
+  number: 0
 about:
   homepage: https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html
