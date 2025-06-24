@@ -88,8 +88,6 @@ jobs:
               - ./packages/slumber/**
             sony-camera-remote-sdk:
               - ./packages/sony-camera-remote-sdk/**
-            sony-camera-remote-sdk-full:
-              - ./packages/sony-camera-remote-sdk-full/**
             termscp:
               - ./packages/termscp/**
 
