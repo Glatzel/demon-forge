@@ -4,7 +4,6 @@ package:
   name: ${{ name }}
   version: 2.00.0
 build:
-  noarch: generic
   script:
     - if: win
       then:
