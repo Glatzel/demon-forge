@@ -20,4 +20,14 @@ foreach ($f in Get-ChildItem "$ROOT/temp/$name/*.zip") {
     7z x "$f" "-o$ROOT/temp/$name/unzip/$platform"
 }
 update-recipe -version $latest_version
-build-pkg
+
+if ($IsLinux) {
+    sudo apt-get update
+    sudo apt-get install -y qemu-user-static g++-aarch64-linux-gnu cmake ninja-build 
+    pixi run rattler-build build
+    pixi run rattler-build build --target-platform linux-aarch64
+}
+else {
+    build-pkg
+}
+

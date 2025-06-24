@@ -123,6 +123,14 @@
         {
             "machine": "ubuntu-latest",
             "pkg": "sony-camera-remote-sdk"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "sony-camera-remote-sdk"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "sony-camera-remote-sdk"
         }
     ]
 }
