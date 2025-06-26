@@ -11,12 +11,23 @@ if ($isWindows) {
     gh release download -R "microsoft/$name" -p "*x86_64-windows*" `
         -O  $ROOT/temp/$name/$name.zip --clobber
     7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name"
+    update-recipe -version $latest_version
+    build-pkg
+
 }
 if ($IsLinux) {
     gh release download -R "microsoft/$name" -p "*x86_64-linux*" `
         -O  $ROOT/temp/$name/$name.tar.zst --clobber
     tar  --zstd -xvf "$ROOT/temp/$name/$name.tar.zst" -C "$ROOT/temp/$name"
     Remove-Item "$ROOT/temp/$name/$name.tar.zst"
+    update-recipe -version $latest_version
+    build-pkg
+
+    #linux arm64
+    Remove-Item "$ROOT/temp/$name" -Recurse
+    gh release download -R "microsoft/$name" -p "*aarch64-linux*" `
+        -O  $ROOT/temp/$name/$name.tar.zst --clobber
+    tar  --zstd -xvf "$ROOT/temp/$name/$name.tar.zst" -C "$ROOT/temp/$name"
+    Remove-Item "$ROOT/temp/$name/$name.tar.zst"
+    pixi run rattler-build build --target-platform linux-aarch64
 }
-update-recipe -version $latest_version
-build-pkg
