@@ -1,10 +1,10 @@
 context:
   name: obs-studio
 package:
-  version: 31.0.3
+  version: 31.0.4
   name: ${{ name }}
 build:
-  number: 2
+  number: 0
   script:
     - if: win
       then:
