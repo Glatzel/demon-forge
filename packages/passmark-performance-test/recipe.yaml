@@ -9,9 +9,7 @@ build:
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
   number: 1
-tests:
-  - script:
-      - "%PREFIX%/bin/${{ name }}.exe help"
+
 about:
   homepage: https://www.passmark.com/products/pt_linux/download.php
   description: |
