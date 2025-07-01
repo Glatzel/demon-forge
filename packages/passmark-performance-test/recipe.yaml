@@ -1,0 +1,20 @@
+context:
+  name: passmark-performance-test
+package:
+  name: ${{ name }}
+  version: 11.0.0
+build:
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  number: 1
+tests:
+  - script:
+      - "%PREFIX%/bin/${{ name }}.exe help"
+about:
+  homepage: https://www.passmark.com/products/pt_linux/download.php
+  description: |
+    [exposed]
+
+    passmark_performance_test = "pt_linux_arm64"
