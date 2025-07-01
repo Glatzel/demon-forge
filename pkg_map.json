@@ -131,6 +131,10 @@
         {
             "machine": "windows-latest",
             "pkg": "sony-camera-remote-sdk"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "passmark-performance-test"
         }
     ]
 }
