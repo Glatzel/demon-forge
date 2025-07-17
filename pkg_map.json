@@ -135,6 +135,18 @@
         {
             "machine": "ubuntu-latest",
             "pkg": "passmark-performance-test"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-llvm-cov"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-llvm-cov"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-llvm-cov"
         }
     ]
 }
