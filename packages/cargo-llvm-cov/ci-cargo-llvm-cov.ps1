@@ -7,7 +7,7 @@ if ($env:CI) {
 }
 cargo +nightly install cargo-llvm-cov --locked --root $ROOT/temp/$name --force
 if ($IsWindows) {
-    $latest_version = & $ROOT/temp/$name/bin/cargo-llvm-cov.exe
+    $latest_version = & $ROOT/temp/$name/bin/cargo-llvm-cov.exe -V
 }
 
 update-recipe -version $latest_version
