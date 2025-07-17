@@ -6,7 +6,9 @@ if ($env:CI) {
     rustup toolchain install nightly --profile=minimal
 }
 cargo +nightly install cargo-llvm-cov --locked --root $ROOT/temp/$name --force
-$latest_version = & $ROOT/temp/$name/bin/cargo-llvm-cov
+if ($IsWindows) {
+    $latest_version = & $ROOT/temp/$name/bin/cargo-llvm-cov.exe
+}
 
 update-recipe -version $latest_version
 build-pkg
