@@ -54,6 +54,8 @@ jobs:
               - ./packages/cargo-bloat/**
             cargo-llvm-cov:
               - ./packages/cargo-llvm-cov/**
+            cargo-machete:
+              - ./packages/cargo-machete/**
             cpu-z:
               - ./packages/cpu-z/**
             edit:
