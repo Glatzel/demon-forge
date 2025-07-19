@@ -1,5 +1,5 @@
 Set-Location $PSScriptRoot
-
+$env:EMBED_RESOURCE_FILES = "ON"
 # use custom triplet
 $triplet = Resolve-Path ./triplet
 
