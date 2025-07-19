@@ -147,6 +147,18 @@
         {
             "machine": "windows-latest",
             "pkg": "cargo-llvm-cov"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-bloat"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-bloat"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-bloat"
         }
     ]
 }
