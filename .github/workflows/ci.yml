@@ -50,6 +50,8 @@ jobs:
               - ./packages/blender-benchmark/**
             calibre:
               - ./packages/calibre/**
+            cargo-bloat:
+              - ./packages/cargo-bloat/**
             cargo-llvm-cov:
               - ./packages/cargo-llvm-cov/**
             cpu-z:
