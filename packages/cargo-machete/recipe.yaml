@@ -1,7 +1,7 @@
 context:
-  name: cargo-llvm-cov
+  name: cargo-machete
 package:
-  version: 0.6.17
+  version: 0.12.1
   name: ${{ name }}
 build:
   number: 0

@@ -13,7 +13,6 @@ build:
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
-  repository: https://github.com/jqlang/${{ name }}
   description: |
     [exposed]
 
