@@ -1,7 +1,7 @@
 context:
   name: obs-studio
 package:
-  version: 31.0.4
+  version: 31.1.1
   name: ${{ name }}
 build:
   number: 0
