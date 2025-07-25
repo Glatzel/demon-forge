@@ -9,6 +9,6 @@ Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
 gh release download -R obsproject/$name -p "*-Windows-x64.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber
-    7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
+7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
 update-recipe -version $latest_version
 build-pkg
