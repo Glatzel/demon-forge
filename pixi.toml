@@ -8,15 +8,15 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
-rattler-build = "==0.40.0"
+rattler-build = "==0.45.0"
 
 [feature.selenium.dependencies]
 python = "3.11.*"
-selenium = "==4.34.0"
+selenium = "==4.34.2"
 toolbox = { version = "==0.0.20", channel = "https://repo.prefix.dev/glatzel" }
 
 [feature.pip.dependencies]
-pip = "==25.1"
+pip = "==25.2"
 python = "3.11.*"
 
 [environments]
