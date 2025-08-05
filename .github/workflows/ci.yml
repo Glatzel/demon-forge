@@ -114,6 +114,7 @@ jobs:
           echo "all=$RESULT" >> "$GITHUB_OUTPUT"
 
   rattler-build:
+    if: ${{needs.changed.outputs.matrix != 'matrix={"include":}'}}
     needs: changed
     strategy:
       fail-fast: false
