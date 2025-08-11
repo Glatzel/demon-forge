@@ -80,8 +80,6 @@ jobs:
               - ./packages/obs-studio/**
             openimageio:
               - ./packages/openimageio*/**
-            peazip:
-              - ./packages/peazip/**
             passmark-performance-test:
               - ./packages/passmark-performance-test/**
             proj:
@@ -157,4 +155,3 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
-

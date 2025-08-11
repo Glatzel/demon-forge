@@ -70,10 +70,6 @@
         },
         {
             "machine": "windows-latest",
-            "pkg": "peazip"
-        },
-        {
-            "machine": "windows-latest",
             "pkg": "proj"
         },
         {
@@ -170,4 +166,3 @@
         }
     ]
 }
-
