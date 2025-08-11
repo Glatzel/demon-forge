@@ -34,10 +34,6 @@
         },
         {
             "machine": "windows-latest",
-            "pkg": "everything"
-        },
-        {
-            "machine": "windows-latest",
             "pkg": "filezilla"
         },
         {
@@ -174,3 +170,4 @@
         }
     ]
 }
+

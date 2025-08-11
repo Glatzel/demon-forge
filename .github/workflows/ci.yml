@@ -62,8 +62,6 @@ jobs:
               - ./packages/edit/**
             dism-plus-plus:
               - ./packages/dism-plus-plus/**
-            everything:
-              - ./packages/everything/**
             filezilla:
               - ./packages/filezilla/**
             furmark:
@@ -159,3 +157,4 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
