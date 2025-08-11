@@ -2,10 +2,10 @@ context:
   name: android-sdk-platform-tools
 
 package:
-  version: 36.0.0
+  version: 36.0.1
   name: ${{ name }}
 build:
-  number: 3
+  number: 0
   script:
   - if: win
     then:
