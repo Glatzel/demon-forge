@@ -9,7 +9,9 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-
+    - if: unix
+      then:
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
   repository: https://github.com/cloudflare/${{ name }}
   description: |
