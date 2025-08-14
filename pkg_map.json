@@ -163,6 +163,14 @@
         {
             "machine": "windows-latest",
             "pkg": "cargo-machete"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cloudflared"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cloudflared"
         }
     ]
 }
