@@ -52,6 +52,8 @@ jobs:
               - ./packages/calibre/**
             cargo-bloat:
               - ./packages/cargo-bloat/**
+            cargo-bloat:
+              - ./packages/cargo-espflash/**
             cloudflared:
               - ./packages/cloudflared/**
             cpu-z:
