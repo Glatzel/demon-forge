@@ -153,18 +153,6 @@
             "pkg": "cargo-bloat"
         },
         {
-            "machine": "macos-latest",
-            "pkg": "cargo-machete"
-        },
-        {
-            "machine": "ubuntu-latest",
-            "pkg": "cargo-machete"
-        },
-        {
-            "machine": "windows-latest",
-            "pkg": "cargo-machete"
-        },
-        {
             "machine": "windows-latest",
             "pkg": "cloudflared"
         },
