@@ -52,8 +52,6 @@ jobs:
               - ./packages/calibre/**
             cargo-bloat:
               - ./packages/cargo-bloat/**
-            cargo-llvm-cov:
-              - ./packages/cargo-llvm-cov/**
             cloudflared:
               - ./packages/cloudflared/**
             cpu-z:
@@ -155,3 +153,4 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
