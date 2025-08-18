@@ -147,8 +147,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.45.0-h60886be_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8c095d6_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rich-14.0.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.34.2-pyhe01879c_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.34.0-hb23c6cf_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.35.0-pyhe01879c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.35.0-hb17b654_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sniffio-1.3.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_hd72426e_102.conda
@@ -197,8 +197,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.45.0-hcdef695_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.2-h1d1bf99_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rich-14.0.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.34.2-pyhe01879c_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.34.0-hf783435_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.35.0-pyhe01879c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.35.0-hcdef695_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sniffio-1.3.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h892fb3f_2.conda
@@ -244,8 +244,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.11-7_cp311.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.45.0-h18a1a76_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rich-14.0.0-pyh29332c3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.34.2-pyhe01879c_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.34.0-h18a1a76_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.35.0-pyhe01879c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.35.0-h18a1a76_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sniffio-1.3.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sortedcontainers-2.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h2c6b04d_2.conda
@@ -1071,49 +1071,49 @@ packages:
   license_family: MIT
   size: 200323
   timestamp: 1743371105291
-- conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.34.2-pyhe01879c_0.conda
-  sha256: e1881933de523a4cf116da94f4a4f030cb2518c0214ddcaf42dc462e97e42eba
-  md5: ce44cfcdfc43130e2056e707b6724fdd
+- conda: https://conda.anaconda.org/conda-forge/noarch/selenium-4.35.0-pyhe01879c_0.conda
+  sha256: 3f862992509130dfd09d60de485bb91e53980b71d46336bee4e1e3ae46a925a0
+  md5: 59b238507f6fc51e54f0a7abde1fe160
   depends:
   - certifi >=2025.6.15
   - python >=3.9
-  - selenium-manager 4.34.*
+  - selenium-manager 4.35.*
   - trio >=0.30.0,<0.31.0
   - trio-websocket >=0.12.2,<0.13.0
-  - typing_extensions >=4.14.0,<4.15
+  - typing_extensions >=4.14.0,<4.15.0
   - urllib3 >=2.5.0,<2.6.0
   - websocket-client >=1.8.0,<1.9.0
   - python
   license: Apache-2.0
   license_family: APACHE
-  size: 340464
-  timestamp: 1751992267299
-- conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.34.0-hb23c6cf_0.conda
-  sha256: be72087f3ec23b2dde6c7bf4c171c1b37f4195dc595201922cabc7e511693555
-  md5: b0e10ce25676464747ef1e918a24ce54
+  size: 346744
+  timestamp: 1755019333712
+- conda: https://conda.anaconda.org/conda-forge/linux-64/selenium-manager-4.35.0-hb17b654_0.conda
+  sha256: d76064f2513ab798b97935af6dbfb797cd8906643c5062c867884d0bb6e152b8
+  md5: 7b9b805df2f50354ab153860bdc289ed
   depends:
   - __glibc >=2.17,<3.0.a0
-  - libgcc >=13
+  - libgcc >=14
   constrains:
   - __glibc >=2.17
   license: Apache-2.0
   license_family: APACHE
-  size: 2268417
-  timestamp: 1751237724187
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.34.0-hf783435_0.conda
-  sha256: d72d54b6ab564e93bb877ad00c0ff3d21e556d7760906bd379c7ab19ec286da7
-  md5: 80c7276470d2ec4ef6fe9ecd9ffe5d13
+  size: 2302627
+  timestamp: 1755016598984
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/selenium-manager-4.35.0-hcdef695_0.conda
+  sha256: f50a33bc6f7abe201a65b0035aa3682bb0414f9dbe980ad31597bd6fe5c6b1e8
+  md5: d332becfae621da15905970726f542f1
   depends:
   - __osx >=11.0
   constrains:
   - __osx >=11.0
   license: Apache-2.0
   license_family: APACHE
-  size: 1976347
-  timestamp: 1751237731318
-- conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.34.0-h18a1a76_0.conda
-  sha256: 7e328044b8eda67ad4560a27fbce60afb4ed61b0f20b1d779f7f5e89a3bcd766
-  md5: d7481ea02b6d87dbb6bdd72275284818
+  size: 2013310
+  timestamp: 1755016585699
+- conda: https://conda.anaconda.org/conda-forge/win-64/selenium-manager-4.35.0-h18a1a76_0.conda
+  sha256: 7888749f3305bf5c332552a5575dd283158d94fa519f9796e400884b7a2c7a12
+  md5: c950b52139b2fe5169cec3f3048a251d
   depends:
   - vc >=14.3,<15
   - vc14_runtime >=14.44.35208
@@ -1123,8 +1123,8 @@ packages:
   - ucrt >=10.0.20348.0
   license: Apache-2.0
   license_family: APACHE
-  size: 1934899
-  timestamp: 1751237757859
+  size: 1974233
+  timestamp: 1755016611093
 - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-80.9.0-pyhff2d567_0.conda
   sha256: 972560fcf9657058e3e1f97186cc94389144b46dbdf58c807ce62e83f977e863
   md5: 4de79c071274a53dcaf2a8c749d1499e
