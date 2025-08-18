@@ -10,6 +10,7 @@ $zipfile = (Get-ChildItem "$ROOT/temp/$name/*.zip")[0]
 $zipfile.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
 $major = $Matches[1]
 $minor = $Matches[2]
+$patch = "$minor".Replace("00", "0")
 $patch = $Matches[3]
 $patch = "$patch".Replace("00", "0")
 $latest_version = "$major.$minor.$patch"

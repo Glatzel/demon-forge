@@ -147,6 +147,17 @@
         {
             "machine": "ubuntu-latest",
             "pkg": "cloudflared"
+        } ,{
+            "machine": "macos-latest",
+            "pkg": "cargo-espflash"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-espflash"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-espflash"
         }
     ]
 }
