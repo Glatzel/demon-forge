@@ -2,7 +2,7 @@ context:
   name: sony-camera-remote-sdk
 package:
   name: ${{ name }}
-  version: 2.00.0
+  version: 2.0.0
 build:
   script:
     - if: win
