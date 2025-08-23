@@ -26,11 +26,10 @@ if ($IsLinux) {
     pixi run rattler-build build
     Write-Output "::group::linux arm64"
     $is_arm = $true
-    sudo apt-get update
-    sudo apt-get install -y qemu-user-static g++-aarch64-linux-gnu cmake ninja-build
     pixi run rattler-build build --target-platform linux-aarch64
     Write-Output "::endgroup::"
 }
 else {
     build-pkg
 }
+
