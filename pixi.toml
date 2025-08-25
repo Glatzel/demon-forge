@@ -8,7 +8,7 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
-rattler-build = "==0.45.0"
+rattler-build = "==0.46.0"
 
 [feature.selenium.dependencies]
 python = "3.11.*"
