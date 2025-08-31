@@ -9,8 +9,5 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-tests:
-  - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/bin/64bit/obs64.exe" exit /b 1 ))
 about:
   repository: https://github.com/${{ name }}/${{ name }}
