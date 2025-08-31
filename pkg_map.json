@@ -147,7 +147,8 @@
         {
             "machine": "ubuntu-latest",
             "pkg": "cloudflared"
-        } ,{
+        },
+        {
             "machine": "macos-latest",
             "pkg": "cargo-espflash"
         },
@@ -158,6 +159,34 @@
         {
             "machine": "ubuntu-latest",
             "pkg": "cargo-espflash"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-llvm-lines"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-llvm-lines"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-llvm-lines"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-unused-features"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-unused-features"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-unused-features"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "upx"
         }
     ]
 }
