@@ -1,0 +1,13 @@
+context:
+  name: upx
+package:
+  version: 5.0.2
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+about:
+  repository: https://github.com/${{ name }}/${{ name }}

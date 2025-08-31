@@ -54,6 +54,10 @@ jobs:
               - ./packages/cargo-bloat/**
             cargo-espflash:
               - ./packages/cargo-espflash/**
+            cargo-llvm-lines:
+              - ./packages/cargo-llvm-lines/**
+            cargo-unused-features:
+              - ./packages/cargo-unused-features/**
             cloudflared:
               - ./packages/cloudflared/**
             cpu-z:
@@ -94,6 +98,8 @@ jobs:
               - ./packages/sony-camera-remote-sdk/**
             termscp:
               - ./packages/termscp/**
+            upx:
+              - ./packages/upx/**
 
       - name: changed-pkgs
         if: ${{github.event_name == 'pull_request'|| github.event_name == 'push'}}
