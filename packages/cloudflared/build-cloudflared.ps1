@@ -9,3 +9,7 @@ if ($IsWindows) {
 else {
     Copy-Item "$ROOT/temp/$name/$name" "$env:PREFIX/bin/$name"
 }
+if ($IsLinux) {
+    Copy-Item "$ROOT/temp/$name/$name" "$env:PREFIX/bin/$name"
+    chmod +rwx "$env:PREFIX/bin/$name"
+}
