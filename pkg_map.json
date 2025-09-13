@@ -187,6 +187,18 @@
         {
             "machine": "windows-latest",
             "pkg": "upx"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "miniserve"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "miniserve"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "miniserve"
         }
     ]
 }
