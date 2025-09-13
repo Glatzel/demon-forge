@@ -1,7 +1,7 @@
 context:
-  name: miniverse
+  name: miniserve
 package:
-  version: 0.12.1
+  version: 0.31.0
   name: ${{ name }}
 build:
   number: 0

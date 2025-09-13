@@ -16,17 +16,17 @@ if ($IsMacOS) {
         -O  $ROOT/temp/$name/$name --clobber
 }
 if ($IsLinux) {
-    gh release download -R "svenstaro/$name" -p "$name-*-x86_64-unknown-linux-musl
-" `
+    gh release download -R "svenstaro/$name" -p "$name-*-x86_64-unknown-linux-musl" `
         -O  $ROOT/temp/$name/$name --clobber
 }
 update-recipe -version $latest_version
 build-pkg
 
 #linux aarch
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item  $ROOT/temp/$name -ItemType Directory
+if ($IsLinux)
 {
+    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+    New-Item  $ROOT/temp/$name -ItemType Directory
     gh release download -R "svenstaro/$name" -p "$name-*-aarch64-unknown-linux-musl" `
         -O  $ROOT/temp/$name/$name --clobber
     pixi run rattler-build build --target-platform linux-aarch64

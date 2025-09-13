@@ -190,15 +190,15 @@
         },
         {
             "machine": "ubuntu-latest",
-            "pkg": "miniverse"
+            "pkg": "miniserve"
         },
         {
             "machine": "macos-latest",
-            "pkg": "miniverse"
+            "pkg": "miniserve"
         },
         {
             "machine": "windows-latest",
-            "pkg": "miniverse"
+            "pkg": "miniserve"
         }
     ]
 }
