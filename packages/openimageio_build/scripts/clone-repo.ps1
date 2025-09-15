@@ -24,10 +24,3 @@ git checkout tags/"$version" -b "$version-branch"
 "install(FILES $<TARGET_RUNTIME_DLLS:oiiotool> TYPE BIN)" >> CmakeLists.txt
 Set-Location ..
 Write-Output "::endgroup::"
-
-Write-Output "::group::clone OpenColorIO"
-git clone https://github.com/AcademySoftwareFoundation/OpenColorIO.git
-Set-Location OpenColorIO
-git checkout tags/v2.3.2 -b v2.3.2-branch
-Set-Location ..
-Write-Output "::endgroup::"

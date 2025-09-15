@@ -1,7 +1,0 @@
-{
-  "dependencies": [
-    "openimageio"
-  ],
-  "name": "ocio-ext",
-  "builtin-baseline": "300239058e33420acd153135b3f6e6b187828992"
-}

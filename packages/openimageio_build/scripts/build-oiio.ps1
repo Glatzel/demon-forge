@@ -3,6 +3,8 @@ Set-Location ..
 
 $conda_pkg=Resolve-Path ./.pixi/envs/oiio/Library
 $conda_pkg = "$conda_pkg" -replace "\\", "/"
+$ocio_pkg=Resolve-Path ./ocio/vcpkg_installed/x64-windows
+$ocio_pkg = "$ocio_pkg" -replace "\\", "/"
 
 Write-Output "::group::Make oiio"
 Set-Location ./external/OpenImageIO
@@ -35,7 +37,7 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DLibRaw_ROOT="$conda_pkg" `
   -DLINKSTATIC=0 `
   -DOIIO_BUILD_TESTS=0 `
-  -DOpenColorIO_ROOT="$conda_pkg" `
+  -DOpenColorIO_ROOT="$ocio_pkg" `
   -DOpenEXR_ROOT="$conda_pkg" `
   -DOpenJPEG_ROOT="$conda_pkg" `
   -DPNG_ROOT="$conda_pkg" `

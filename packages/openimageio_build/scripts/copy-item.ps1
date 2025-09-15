@@ -6,6 +6,7 @@ Remove-Item dist -Force -Recurse -ErrorAction SilentlyContinue
 new-item dist -itemtype directory
 copy-Item ./external/OpenImageIO/dist/bin/* ./dist
 copy-Item ./.pixi/envs/oiio/Library/bin/*.dll ./dist
+copy-Item ./ocio/vcpkg_installed/x64-windows/bin/*.dll ./dist
 
 new-item temp -itemtype directory -ErrorAction SilentlyContinue
 $PSNativeCommandUseErrorActionPreference = $false
