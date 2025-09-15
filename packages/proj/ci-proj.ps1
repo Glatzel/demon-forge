@@ -7,14 +7,3 @@ $ROOT = git rev-parse --show-toplevel
 
 Set-Location $PSScriptRoot
 build-pkg
-
-# linux-arm64
-Write-Output "::group::linux arm64"
-if ($IsLinux) {
-    sudo apt-get update
-    sudo apt-get install -y qemu-user-static g++-aarch64-linux-gnu cmake ninja-build
-    & $PSScriptRoot/../proj_build/vcpkg-install-arm.ps1
-    Set-Location $PSScriptRoot
-    pixi run rattler-build build --target-platform linux-aarch64
-}
-Write-Output "::endgroup::"

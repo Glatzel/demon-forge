@@ -51,3 +51,4 @@ function build-pkg {
     Write-Output "::endgroup::"
 }
 $name = get-name
+$arch = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
