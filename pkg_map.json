@@ -1,216 +1,220 @@
 {
-  "include": [
-    {
-      "machine": "windows-latest",
-      "pkg": "android-sdk-platform-tools"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "aria2"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "blender"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "blender-benchmark"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "calibre"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "cargo-bloat"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-bloat"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-bloat"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "cargo-espflash"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-espflash"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-espflash"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "cargo-llvm-lines"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-llvm-lines"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-llvm-lines"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "cargo-unused-features"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-unused-features"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-unused-features"
-    },
-    {
-      "machine": "ubuntu-24.04-arm",
-      "pkg": "cloudflared"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cloudflared"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cloudflared"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cpu-z"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "dism-plus-plus"
-    },
-    {
-      "machine": "ubuntu-24.04-arm",
-      "pkg": "edit"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "edit"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "edit"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "filezilla"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "furmark"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "hwinfo"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "imagemagick"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "jq"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "libraw"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "libraw"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "libraw"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "ubuntu-24.04-arm",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "nuget"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "obs-studio"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "openimageio"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "passmark-performance-test"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "proj"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "proj"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "proj"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "pureref"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "rufus"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "slumber"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "slumber"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "sony-camera-remote-sdk"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "sony-camera-remote-sdk"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "sony-camera-remote-sdk"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "termscp"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "upx"
-    }
-  ]
+    "include": [
+        {
+            "machine": "windows-latest",
+            "pkg": "android-sdk-platform-tools"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "aria2"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "blender"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "blender-benchmark"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "calibre"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-bloat"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-bloat"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-bloat"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-espflash"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-espflash"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-espflash"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-llvm-lines"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-llvm-lines"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-llvm-lines"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "cargo-unused-features"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cargo-unused-features"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cargo-unused-features"
+        },
+        {
+            "machine": "ubuntu-24.04-arm",
+            "pkg": "cloudflared"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "cloudflared"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cloudflared"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "cpu-z"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "dism-plus-plus"
+        },
+        {
+            "machine": "ubuntu-24.04-arm",
+            "pkg": "edit"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "edit"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "edit"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "filezilla"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "furmark"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "hwinfo"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "imagemagick"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "jq"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "libraw"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "libraw"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "libraw"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "miniserve"
+        },
+        {
+            "machine": "ubuntu-24.04-arm",
+            "pkg": "miniserve"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "miniserve"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "miniserve"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "nuget"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "obs-studio"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "openimageio"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "passmark-performance-test"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "proj"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "proj"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "proj"
+        },
+        {
+            "machine": "ubuntu-24.04-arm",
+            "pkg": "proj"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "pureref"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "rufus"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "slumber"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "slumber"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "sony-camera-remote-sdk"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "sony-camera-remote-sdk"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "sony-camera-remote-sdk"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "termscp"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "upx"
+        }
+    ]
 }
