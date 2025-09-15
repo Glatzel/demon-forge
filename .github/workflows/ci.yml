@@ -36,7 +36,7 @@ jobs:
 
       - id: change
         if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           json: true
           files_yaml: |
