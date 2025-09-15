@@ -17,4 +17,3 @@ about:
     [exposed]
 
     ${{ name }} = "${{ name }}"
-
