@@ -1,7 +1,7 @@
 context:
   name: cargo-espflash
 package:
-  version: 4.0.1
+  version: 4.1.0
   name: ${{ name }}
 build:
   number: 0
