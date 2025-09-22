@@ -7,11 +7,11 @@
       ]
     }
   ],
-  "builtin-baseline": "a6149c39c5474bcf72820f4ac5aab615798a596b",
+  "builtin-baseline": "29ff5b8131d0c6c8fcb8fbaef35992f0d507cd7c",
   "overrides": [
     {
       "name": "proj",
-      "version": "9.6.2"
+      "version": "9.7.0"
     }
   ]
 }
