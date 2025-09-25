@@ -85,6 +85,10 @@
       "pkg": "cpu-z"
     },
     {
+      "machine": "windows-latest",
+      "pkg": "dism-plus-plus"
+    },
+    {
       "machine": "macos-latest",
       "pkg": "dufs"
     },
@@ -99,10 +103,6 @@
     {
       "machine": "windows-latest",
       "pkg": "dufs"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "dism-plus-plus"
     },
     {
       "machine": "ubuntu-24.04-arm",
@@ -185,15 +185,15 @@
       "pkg": "proj"
     },
     {
+      "machine": "ubuntu-24.04-arm",
+      "pkg": "proj"
+    },
+    {
       "machine": "ubuntu-latest",
       "pkg": "proj"
     },
     {
       "machine": "windows-latest",
-      "pkg": "proj"
-    },
-    {
-      "machine": "ubuntu-24.04-arm",
       "pkg": "proj"
     },
     {
