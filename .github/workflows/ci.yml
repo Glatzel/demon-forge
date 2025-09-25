@@ -78,8 +78,6 @@ jobs:
               - ./packages/jq/**
             libraw:
               - ./packages/libraw*/**
-            miniserve:
-              - ./packages/miniserve/**
             nuget:
               - ./packages/nuget/**
             obs-studio:
@@ -163,3 +161,4 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
