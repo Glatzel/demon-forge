@@ -80,8 +80,6 @@ jobs:
               - ./packages/jq/**
             libraw:
               - ./packages/libraw*/**
-            miniserve:
-              - ./packages/miniserve/**
             nuget:
               - ./packages/nuget/**
             obs-studio:
