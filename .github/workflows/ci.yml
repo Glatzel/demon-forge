@@ -66,6 +66,8 @@ jobs:
               - ./packages/edit/**
             dism-plus-plus:
               - ./packages/dism-plus-plus/**
+            dufs:
+              - ./packages/dufs/**
             filezilla:
               - ./packages/filezilla/**
             furmark:
