@@ -215,6 +215,22 @@
         {
             "machine": "windows-latest",
             "pkg": "upx"
+        },
+        {
+            "machine": "macos-latest",
+            "pkg": "dufs"
+        },
+        {
+            "machine": "ubuntu-24.04-arm",
+            "pkg": "dufs"
+        },
+        {
+            "machine": "ubuntu-latest",
+            "pkg": "dufs"
+        },
+        {
+            "machine": "windows-latest",
+            "pkg": "dufs"
         }
     ]
 }
