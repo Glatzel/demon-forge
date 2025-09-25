@@ -9,4 +9,4 @@ if ($IsWindows) {
     update-recipe -version $latest_version
 }
 
-# build-pkg
+build-pkg
