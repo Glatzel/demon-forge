@@ -8,7 +8,7 @@ $latest_version = "$latest_version".Replace("v", "")
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
-gh release download -R "pbatard/$name" -p "$name-*.?.exe" `
+gh release download -R "pbatard/$name" -p "$name-*.??.exe" `
     -O  $ROOT/temp/$name/$name.exe --clobber
 update-recipe -version $latest_version
 build-pkg
