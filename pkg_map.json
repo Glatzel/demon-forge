@@ -149,22 +149,6 @@
       "pkg": "libraw"
     },
     {
-      "machine": "macos-latest",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "ubuntu-24.04-arm",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "miniserve"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "miniserve"
-    },
-    {
       "machine": "windows-latest",
       "pkg": "nuget"
     },
