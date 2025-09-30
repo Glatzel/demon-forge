@@ -147,7 +147,7 @@
     {
       "machine": "windows-latest",
       "pkg": "libraw"
-    }
+    },
     {
       "machine": "windows-latest",
       "pkg": "nuget"
@@ -218,4 +218,5 @@
     }
   ]
 }
+
 
