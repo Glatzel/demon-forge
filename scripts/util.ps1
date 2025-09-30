@@ -33,6 +33,8 @@ function update-recipe {
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
         if ($env:CI) {
+            $version="$version".Replace("""","")
+            $cversion="$cversion".Replace("""","")
             "update=true" >> $env:GITHUB_OUTPUT
             "latest-version=$version" >> $env:GITHUB_OUTPUT
             "current-version=$cversion" >> $env:GITHUB_OUTPUT
