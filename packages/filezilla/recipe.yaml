@@ -4,7 +4,7 @@ package:
   version: 3.69.3
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,4 +13,14 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
 about:
-  homepage: https://filezilla-project.org/download.php?show_all=1
+  homepage: https://filezilla-project.org
+  license: GPL-3.0-or-later
+  summary: Free and reliable FTP, FTPS, and SFTP client
+  description: >
+    FileZilla is a free and open-source FTP client that supports
+    FTP, FTPS, and SFTP. It provides a user-friendly interface for
+    transferring files between a local computer and a remote server,
+    featuring drag-and-drop support, site manager, transfer queue,
+    and more.
+  documentation: https://wiki.filezilla-project.org/Documentation
+  repository: https://github.com/filezilla/FileZilla

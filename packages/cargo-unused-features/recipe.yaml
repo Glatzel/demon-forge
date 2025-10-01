@@ -4,7 +4,7 @@ package:
   version: 0.2.0
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,7 +13,13 @@ build:
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://github.com/taiki-e/cargo-unused-features
+  license: MIT
+  summary: Detect unused Cargo features in Rust projects
+  description: >
+    cargo-unused-features is a Cargo subcommand that analyzes
+    Rust projects to detect which Cargo features are unused.
+    This helps developers clean up feature flags and reduce
+    unnecessary compilation overhead.
+  documentation: https://github.com/taiki-e/cargo-unused-features#usage
+  repository: https://github.com/taiki-e/cargo-unused-features

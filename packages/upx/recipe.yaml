@@ -4,10 +4,19 @@ package:
   version: 5.0.2
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 about:
-  repository: https://github.com/${{ name }}/${{ name }}
+  homepage: https://upx.github.io
+  license: GPL-2.0-or-later
+  summary: Ultimate Packer for Executables
+  description: >
+    UPX (Ultimate Packer for Executables) is a free, portable,
+    extendable, high-performance executable packer. It compresses
+    and decompresses executable files for multiple platforms,
+    reducing file size while preserving functionality.
+  documentation: https://upx.github.io/
+  repository: https://github.com/upx/upx

@@ -1,10 +1,10 @@
 context:
   name: hwinfo
 package:
-  version: 8.30
+  version: "8.30"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,4 +13,13 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}/HWiNFO64.exe" exit /b 1 ))
 about:
-  homepage: https://www.hwinfo.com/download/
+  homepage: https://www.hwinfo.com
+  license: Freeware
+  summary: Comprehensive hardware analysis and monitoring tool
+  description: >
+    HWiNFO is a professional hardware information and diagnostic
+    tool for Windows. It provides detailed information about
+    system components, real-time monitoring of sensors, and
+    reporting features for troubleshooting and performance analysis.
+  documentation: https://www.hwinfo.com/documentation/
+  repository: https://www.hwinfo.com/

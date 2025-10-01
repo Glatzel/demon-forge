@@ -1,10 +1,10 @@
 context:
   name: rufus
 package:
-  version: 4.10
+  version: "4.10"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,4 +13,13 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}.exe" exit /b 1 ))
 about:
+  homepage: https://rufus.ie
+  license: GPL-3.0-or-later
+  summary: Utility to create bootable USB drives
+  description: >
+    Rufus is a free and open-source utility that helps format
+    and create bootable USB drives, such as USB keys/pendrives,
+    memory sticks, etc. It is widely used for creating installation
+    media from ISO files for Windows, Linux, and other operating systems.
+  documentation: https://rufus.ie/en/
   repository: https://github.com/pbatard/rufus

@@ -4,7 +4,7 @@ package:
   version: 4.5.3
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,4 +13,13 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
 about:
-  repository: https://github.com/${{ name }}/${{ name }}
+  homepage: https://www.blender.org
+  license: GPL-3.0-or-later
+  summary: Free and open source 3D creation suite
+  description: >
+    Blender is the free and open source 3D creation suite.
+    It supports the entirety of the 3D pipeline including
+    modeling, rigging, animation, simulation, rendering,
+    compositing, motion tracking, and video editing.
+  documentation: https://docs.blender.org/manual/en/latest/
+  repository: https://projects.blender.org/blender/blender

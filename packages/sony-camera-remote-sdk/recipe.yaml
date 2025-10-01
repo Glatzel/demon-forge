@@ -11,6 +11,10 @@ build:
     - if: unix
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
-  number: 0
+  number: 1
 about:
   homepage: https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html
+  license: Proprietary
+  summary: Software Development Kit for remote control of Sony cameras
+  description: >
+    The Camera Remote SDK enables developers to integrate Sony cameras into custom software applications for remote control and data retrieval. It provides a high-level command system for efficient development, allowing operations such as shutter release, live view monitoring, and image transfer.

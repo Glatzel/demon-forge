@@ -4,7 +4,7 @@ package:
   version: 0.45.0
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,7 +13,13 @@ build:
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://github.com/muesli/dufs
+  license: MIT
+  summary: Terminal-based disk usage/free space viewer
+  description: >
+    dufs is a terminal-based utility to visualize disk usage
+    and free space. It provides a clear overview of file system
+    usage with colored bars and supports multiple file systems
+    in a single view.
+  documentation: https://github.com/muesli/dufs#usage
+  repository: https://github.com/muesli/dufs

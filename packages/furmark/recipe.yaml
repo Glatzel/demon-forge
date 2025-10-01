@@ -4,7 +4,7 @@ package:
   version: 2.9.0.0
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,8 +13,14 @@ tests:
   - script:
       - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
 about:
-  homepage: https://geeks3d.com/furmark/downloads/
-  description: |
-    [exposed]
-
-    ${{ name }} = "bin/${{ name }}/furmark"
+  homepage: https://geeks3d.com/furmark
+  license: Freeware
+  summary: GPU stress test and benchmarking tool
+  description: >
+    FurMark is a lightweight but intensive GPU stress-testing and
+    benchmarking tool. It is designed to test the stability and
+    thermal performance of graphics cards by rendering a highly
+    demanding 3D scene, helping users identify potential issues
+    with cooling or overclocking.
+  documentation: https://geeks3d.com/furmark
+  repository: https://geeks3d.com/furmark

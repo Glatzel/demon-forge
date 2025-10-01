@@ -4,7 +4,7 @@ package:
   version: 0.4.44
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then:
@@ -13,7 +13,13 @@ build:
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://github.com/kbknapp/cargo-llvm-lines
+  license: MIT
+  summary: Analyze Rust binaries to see LLVM IR code size per function
+  description: >
+    cargo-llvm-lines is a Cargo subcommand that analyzes Rust
+    binaries at the LLVM IR level, showing which functions
+    contribute most to code size. It helps developers optimize
+    binary size by identifying heavy functions.
+  documentation: https://github.com/kbknapp/cargo-llvm-lines#usage
+  repository: https://github.com/kbknapp/cargo-llvm-lines

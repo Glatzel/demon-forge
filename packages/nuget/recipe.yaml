@@ -8,13 +8,18 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 1
+  number: 2
 tests:
   - script:
       - "%PREFIX%/bin/${{ name }}.exe help"
 about:
-  repository: https://www.nuget.org/downloads
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://www.nuget.org
+  license: Apache-2.0
+  summary: Package manager for .NET
+  description: >
+    NuGet is the package manager for .NET, providing tools to
+    create, share, and consume reusable code packages. It
+    simplifies dependency management and versioning for .NET
+    projects across multiple platforms.
+  documentation: https://docs.microsoft.com/en-us/nuget/
+  repository: https://github.com/NuGet/NuGet.Client

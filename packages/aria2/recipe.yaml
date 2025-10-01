@@ -5,7 +5,7 @@ package:
   version: 1.37.0
   name: ${{ name }}
 build:
-  number: 6
+  number: 7
   script:
   - if: win
     then:
@@ -13,9 +13,15 @@ build:
 tests:
 - script:
   - '%PREFIX%/bin/${{ name }}c.exe --help'
-about:
-  repository: https://github.com/aria2/aria2
-  description: |
-    [exposed]
 
-    ${{ name }}c = "${{ name }}c"
+about:
+  homepage: https://aria2.github.io
+  license: GPL-2.0-or-later
+  summary: Lightweight multi-protocol & multi-source command-line download utility
+  description: >
+    aria2 is a lightweight multi-protocol and multi-source command-line
+    download utility. It supports HTTP, HTTPS, FTP, SFTP, BitTorrent,
+    and Metalink. aria2 can download a file from multiple sources and
+    protocols, maximizing download speed and reliability.
+  documentation: https://aria2.github.io/manual/en/html
+  repository: https://github.com/aria2/aria2

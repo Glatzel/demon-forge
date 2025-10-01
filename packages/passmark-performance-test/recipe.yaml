@@ -11,8 +11,14 @@ build:
   number: 1
 
 about:
-  homepage: https://www.passmark.com/products/pt_linux/download.php
-  description: |
-    [exposed]
-
-    passmark_performance_test = "pt_linux_arm64"
+  homepage: https://www.passmark.com/products/performancetest/
+  license: Commercial
+  summary: Benchmarking software for Windows PCs
+  description: >
+    PassMark PerformanceTest is a benchmarking tool for Windows
+    PCs that allows users to evaluate the performance of their
+    computer. It provides a range of tests including CPU, 2D/3D
+    graphics, disk, and memory benchmarks, and allows comparison
+    against other systems.
+  documentation: https://www.passmark.com/products/performancetest/
+  repository: https://www.passmark.com/
