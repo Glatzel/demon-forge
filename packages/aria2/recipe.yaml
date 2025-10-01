@@ -19,9 +19,9 @@ about:
   license: GPL-2.0-or-later
   summary: Lightweight multi-protocol & multi-source command-line download utility
   description: >
-    aria2 is a lightweight multi-protocol and multi-source command-line 
-    download utility. It supports HTTP, HTTPS, FTP, SFTP, BitTorrent, 
-    and Metalink. aria2 can download a file from multiple sources and 
+    aria2 is a lightweight multi-protocol and multi-source command-line
+    download utility. It supports HTTP, HTTPS, FTP, SFTP, BitTorrent,
+    and Metalink. aria2 can download a file from multiple sources and
     protocols, maximizing download speed and reliability.
   documentation: https://aria2.github.io/manual/en/html
   repository: https://github.com/aria2/aria2
