@@ -14,7 +14,6 @@ tests:
       - if not exist "%PREFIX%/bin/${{ name }}/HWiNFO64.exe" exit /b 1 ))
 about:
   homepage: https://www.hwinfo.com
-  license: Freeware
   summary: Comprehensive hardware analysis and monitoring tool
   description: >
     HWiNFO is a professional hardware information and diagnostic
