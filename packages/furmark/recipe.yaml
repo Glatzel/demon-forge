@@ -14,7 +14,6 @@ tests:
       - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
 about:
   homepage: https://geeks3d.com/furmark
-  license: Freeware
   summary: GPU stress test and benchmarking tool
   description: >
     FurMark is a lightweight but intensive GPU stress-testing and

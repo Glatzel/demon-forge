@@ -11,7 +11,6 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 about:
   homepage: https://www.chuyu.me/en/index.html
-  license: Freeware
   summary: Advanced Windows system management and optimization tool
   description: >
     Dism++ is a Windows system utility that extends the capabilities
