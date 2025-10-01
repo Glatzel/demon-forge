@@ -14,7 +14,6 @@ tests:
       - if not exist "%PREFIX%/bin/${{ name }}/cpuz_x64.exe" exit /b 1 ))
 about:
   homepage: https://www.cpuid.com/softwares/cpu-z.html
-  license: Freeware
   summary: System profiling and monitoring tool for Windows
   description: >
     CPU-Z is a freeware system profiling tool that gathers

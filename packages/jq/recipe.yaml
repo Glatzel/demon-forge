@@ -16,7 +16,6 @@ tests:
 about:
   homepage: https://jqlang.github.io/jq
   license: MIT
-  license_file: COPYING
   summary: A lightweight and flexible command-line JSON processor
   description: >
     jq is a lightweight and flexible command-line JSON processor.

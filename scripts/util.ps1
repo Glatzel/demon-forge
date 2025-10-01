@@ -12,7 +12,7 @@ function get-current-version {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
     $v = $matched.Matches[0].Groups[1]
     $v = "$v".Replace("""", "")
-    Write-Output $matched.Matches[0].Groups[1]
+    Write-Output $v
 }
 function get-name {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'

@@ -12,7 +12,6 @@ tests:
       - if not exist "%PREFIX%/bin/pureref/PureRef.exe" exit /b 1 ))
 about:
   homepage: https://www.pureref.com
-  license: Proprietary/Freeware
   summary: Lightweight reference image organizer for artists
   description: >
     PureRef is a lightweight application that allows artists

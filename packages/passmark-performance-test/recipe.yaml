@@ -12,7 +12,6 @@ build:
 
 about:
   homepage: https://www.passmark.com/products/performancetest/
-  license: Commercial
   summary: Benchmarking software for Windows PCs
   description: >
     PassMark PerformanceTest is a benchmarking tool for Windows
