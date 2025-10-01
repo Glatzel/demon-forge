@@ -12,9 +12,15 @@ build:
 tests:
   - script:
       - "%PREFIX%/bin/${{ name }}.exe --help"
-about:
-  repository: https://github.com/jqlang/${{ name }}
-  description: |
-    [exposed]
 
-    ${{ name }} = "${{ name }}"
+about:
+  homepage: https://jqlang.github.io/jq
+  license: MIT
+  license_file: COPYING
+  summary: A lightweight and flexible command-line JSON processor
+  description: >
+    jq is a lightweight and flexible command-line JSON processor. 
+    It allows you to slice, filter, map, and transform structured 
+    JSON data with ease, directly from your shell.
+  documentation: https://jqlang.github.io/jq/manual
+  repository: https://github.com/jqlang/jq

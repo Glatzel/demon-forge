@@ -10,4 +10,13 @@ build:
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 about:
-  repository: https://github.com/Chuyu-Team/Dism-Multi-language
+  homepage: https://www.chuyu.me/en/index.html
+  license: Freeware
+  summary: Advanced Windows system management and optimization tool
+  description: >
+    Dism++ is a Windows system utility that extends the capabilities
+    of the built-in DISM tool. It allows users to clean, optimize,
+    and manage Windows images, remove bloatware, manage drivers,
+    and maintain system health.
+  documentation: https://www.chuyu.me/en/index.html
+  repository: https://www.chuyu.me/

@@ -13,4 +13,13 @@ build:
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
-  repository: https://github.com/Libraw/Libraw
+  homepage: https://www.libraw.org
+  license: BSD-2-Clause
+  summary: Library for reading RAW files from digital cameras
+  description: >
+    LibRaw is an open-source C/C++ library for reading RAW
+    files from digital cameras. It supports a wide range of
+    camera models and RAW formats, providing easy access
+    to image data for processing, conversion, or analysis.
+  documentation: https://www.libraw.org/docs
+  repository: https://github.com/LibRaw/LibRaw

@@ -17,8 +17,14 @@ tests:
       - "%PREFIX%/bin/${{ name }}/oiiotool.exe --help"
 
 about:
-  repository: https://github.com/AcademySoftwareFoundation/OpenImageIO
-  description: |
-    [exposed]
-
-    ottotool = "bin/${{ name }}/oiiotool"
+  homepage: https://openimageio.org
+  license: BSD-3-Clause
+  summary: Library for reading and writing images
+  description: >
+    OpenImageIO (OIIO) is an open-source library for reading,
+    writing, and processing images. It supports a wide variety
+    of image formats and provides utilities for image manipulation,
+    texture processing, and metadata handling, commonly used in
+    visual effects and animation pipelines.
+  documentation: https://openimageio.org/documentation/
+  repository: https://github.com/OpenImageIO/oiio

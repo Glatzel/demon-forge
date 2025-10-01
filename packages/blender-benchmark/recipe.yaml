@@ -13,8 +13,13 @@ tests:
   - script:
       - "%PREFIX%/bin/${{ name }}/benchmark-launcher-cli.exe --help"
 about:
-  homepage: https://opendata.blender.org/
-  description: |
-    [exposed]
-
-    ${{ name }} = "bin/${{ name }}/benchmark-launcher-cli"
+  homepage: https://opendata.blender.org
+  license: GPL-3.0-or-later
+  summary: Blender Benchmark tool for measuring 3D rendering performance
+  description: >
+    Blender Benchmark is a performance testing tool that uses 
+    Blender to measure the rendering speed of your system. 
+    Results can be compared and shared on Blender Open Data, 
+    helping users evaluate hardware performance for 3D workloads.
+  documentation: https://opendata.blender.org/about
+  repository: https://projects.blender.org/blender/blender-benchmark

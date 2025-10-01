@@ -13,7 +13,12 @@ build:
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 about:
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://github.com/rylev/cargo-bloat
+  license: MIT
+  summary: Analyze Rust binaries to see what takes most space
+  description: >
+    cargo-bloat is a Cargo subcommand to analyze Rust binaries,
+    showing which functions and dependencies occupy the most
+    space. It helps developers optimize binary size and performance.
+  documentation: https://github.com/rylev/cargo-bloat#usage
+  repository: https://github.com/rylev/cargo-bloat

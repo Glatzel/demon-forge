@@ -14,8 +14,15 @@ tests:
       - "%PREFIX%/bin/${{ name }}.exe --help"
 
 about:
-  repository: https://github.com/termscp/${{ name }}
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://termscp.veeso.dev
+  license: MIT
+  summary: Feature-rich terminal file transfer and explorer
+  description: >
+    Termscp is a terminal user interface (TUI) application that facilitates
+    secure file transfers and remote file system exploration. It supports
+    multiple protocols including SCP, SFTP, FTP, FTPS, S3, SMB, and WebDAV,
+    allowing users to manage files across local and remote systems seamlessly.
+    Built with Rust, it is cross-platform and runs on Linux, macOS, FreeBSD,
+    NetBSD, and Windows.
+  documentation: https://termscp.veeso.dev/docs
+  repository: https://github.com/veeso/termscp

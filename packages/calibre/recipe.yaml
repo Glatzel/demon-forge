@@ -13,4 +13,14 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}-portable.exe" exit /b 1 ))
 about:
+  homepage: https://calibre-ebook.com
+  license: GPL-3.0-or-later
+  summary: Comprehensive e-book management software
+  description: >
+    Calibre is a powerful and easy-to-use e-book manager.
+    It supports organizing, converting, editing, and
+    transferring e-books to various devices. It also
+    includes a built-in e-book reader and server for
+    accessing your library remotely.
+  documentation: https://manual.calibre-ebook.com
   repository: https://github.com/kovidgoyal/calibre

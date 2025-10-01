@@ -11,4 +11,14 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/pureref/PureRef.exe" exit /b 1 ))
 about:
-  homepage: https://www.pureref.com/download.php
+  homepage: https://www.pureref.com
+  license: Proprietary/Freeware
+  summary: Lightweight reference image organizer for artists
+  description: >
+    PureRef is a lightweight application that allows artists
+    to organize and view reference images on an infinite canvas.
+    It helps creatives keep visual references accessible without
+    cluttering the desktop, supporting drag-and-drop, scaling,
+    grouping, and layering of images.
+  documentation: https://www.pureref.com/help
+  repository: https://www.pureref.com

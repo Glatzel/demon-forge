@@ -13,4 +13,13 @@ tests:
   - script:
       - if not exist "%PREFIX%/bin/${{ name }}/bin/64bit/obs64.exe" exit /b 1 ))
 about:
-  repository: https://github.com/obsproject/${{ name }}
+  homepage: https://obsproject.com
+  license: GPL-2.0-or-later
+  summary: Free and open-source software for video recording and live streaming
+  description: >
+    OBS Studio (Open Broadcaster Software) is a free and open-source
+    software suite for video recording and live streaming. It allows
+    users to capture real-time video and audio, mix multiple sources,
+    and stream to platforms like Twitch, YouTube, and Facebook Live.
+  documentation: https://obsproject.com/wiki/
+  repository: https://github.com/obsproject/obs-studio

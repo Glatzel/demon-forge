@@ -22,8 +22,16 @@ tests:
         - "$PREFIX/bin/${{ name }}/${{ name }} help"
 
 about:
+  homepage: https://slumber.lucaspickering.me
+  license: MIT
+  summary: Terminal-based HTTP/REST client
+  description: >
+    Slumber is a terminal user interface (TUI) HTTP client designed to define,
+    execute, and share configurable HTTP requests. It offers a source-first
+    configuration approach, allowing users to easily persist and share request
+    templates. Slumber supports importing from external formats like Insomnia,
+    building requests dynamically from other requests, files, and shell commands,
+    and browsing response data using JSONPath selectors. It also allows switching
+    between different environments using profiles.
+  documentation: https://slumber.readthedocs.io/
   repository: https://github.com/LucasPickering/slumber
-  description: |
-    [exposed]
-
-    ${{ name }} = "bin/${{ name }}/${{ name }}"

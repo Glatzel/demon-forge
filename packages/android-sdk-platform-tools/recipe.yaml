@@ -5,7 +5,7 @@ package:
   version: 36.0.0
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
   - if: win
     then:
@@ -13,9 +13,14 @@ build:
 tests:
 - script:
   - '%PREFIX%/bin/${{ name }}/adb.exe --help'
-about:
-  homepage: https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn#downloads
-  description: |
-    [exposed]
 
-    adb = "bin/${{ name }}/adb"
+about:
+  homepage: https://developer.android.com/studio/releases/platform-tools
+  license: Apache-2.0
+  summary: Android SDK Platform-Tools
+  description: >
+    Android SDK Platform-Tools includes adb and fastboot, 
+    essential command-line tools for communicating with 
+    Android devices during development and debugging.
+  documentation: https://developer.android.com/studio/command-line
+

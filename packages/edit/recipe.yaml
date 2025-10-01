@@ -21,8 +21,14 @@ tests:
         then:
           - if [ -f "$PREFIX/bin/${{ name }}" ]; then echo "File exists."; else exit 1; fi
 about:
-  repository: https://github.com/microsoft/${{ name }}
-  description: |
-    [exposed]
-
-    ${{ name }} = "${{ name }}"
+  homepage: https://github.com/microsoft/edit
+  license: MIT
+  summary: Lightweight, modeless command-line text editor for Windows
+  description: >
+    Edit is a small, modern command-line text editor for Windows 11,
+    designed to be intuitive and user-friendly. It offers a modeless
+    interface, making it easier for users unfamiliar with modal editors
+    like Vim. With a footprint under 250KB, it integrates seamlessly
+    into the Windows environment.
+  documentation: https://learn.microsoft.com/en-us/windows/edit/
+  repository: https://github.com/microsoft/edit
