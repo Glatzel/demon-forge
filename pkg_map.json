@@ -46,6 +46,22 @@
     },
     {
       "machine": "macos-latest",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "ubuntu-24.04-arm",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "macos-latest",
       "pkg": "cargo-llvm-lines"
     },
     {
@@ -103,22 +119,6 @@
     {
       "machine": "windows-latest",
       "pkg": "dufs"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "cargo-generate"
-    },
-    {
-      "machine": "ubuntu-24.04-arm",
-      "pkg": "cargo-generate"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-generate"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-generate"
     },
     {
       "machine": "ubuntu-24.04-arm",

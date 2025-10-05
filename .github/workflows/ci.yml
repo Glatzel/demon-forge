@@ -50,8 +50,8 @@ jobs:
               - ./packages/blender-benchmark/**
             calibre:
               - ./packages/calibre/**
-            cargo-generate:
-              - ./packages/cargo-generate/**
+            cargo-binutils:
+              - ./packages/cargo-binutils/**
             cargo-bloat:
               - ./packages/cargo-bloat/**
             cargo-espflash:
