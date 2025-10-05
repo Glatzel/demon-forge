@@ -1,0 +1,14 @@
+context:
+  name: espflash
+package:
+  version: 4.1.0
+  name: ${{ name }}
+build:
+  number: 1
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: unix
+      then:
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1

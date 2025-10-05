@@ -22,6 +22,22 @@
     },
     {
       "machine": "macos-latest",
+      "pkg": "cargo-binutils"
+    },
+    {
+      "machine": "ubuntu-24.04-arm",
+      "pkg": "cargo-binutils"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "cargo-binutils"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "cargo-binutils"
+    },
+    {
+      "machine": "macos-latest",
       "pkg": "cargo-bloat"
     },
     {
@@ -115,6 +131,30 @@
     {
       "machine": "windows-latest",
       "pkg": "edit"
+    },
+    {
+      "machine": "macos-latest",
+      "pkg": "esp-generate"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "esp-generate"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "esp-generate"
+    },
+    {
+      "machine": "macos-latest",
+      "pkg": "espflash"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "espflash"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "espflash"
     },
     {
       "machine": "windows-latest",

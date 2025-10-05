@@ -50,6 +50,8 @@ jobs:
               - ./packages/blender-benchmark/**
             calibre:
               - ./packages/calibre/**
+            cargo-binutils:
+              - ./packages/cargo-binutils/**
             cargo-bloat:
               - ./packages/cargo-bloat/**
             cargo-espflash:
@@ -64,6 +66,10 @@ jobs:
               - ./packages/cpu-z/**
             edit:
               - ./packages/edit/**
+            esp-generate:
+              - ./packages/esp-generate/**
+            espflash:
+              - ./packages/espflash/**
             dism-plus-plus:
               - ./packages/dism-plus-plus/**
             dufs:
