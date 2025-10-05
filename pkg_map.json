@@ -22,30 +22,6 @@
     },
     {
       "machine": "macos-latest",
-      "pkg": "cargo-bloat"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-bloat"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-bloat"
-    },
-    {
-      "machine": "macos-latest",
-      "pkg": "cargo-espflash"
-    },
-    {
-      "machine": "ubuntu-latest",
-      "pkg": "cargo-espflash"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "cargo-espflash"
-    },
-    {
-      "machine": "macos-latest",
       "pkg": "cargo-binutils"
     },
     {
@@ -59,6 +35,30 @@
     {
       "machine": "windows-latest",
       "pkg": "cargo-binutils"
+    },
+    {
+      "machine": "macos-latest",
+      "pkg": "cargo-bloat"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "cargo-bloat"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "cargo-bloat"
+    },
+    {
+      "machine": "macos-latest",
+      "pkg": "cargo-espflash"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "cargo-espflash"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "cargo-espflash"
     },
     {
       "machine": "macos-latest",
