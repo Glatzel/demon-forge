@@ -46,19 +46,19 @@
     },
     {
       "machine": "macos-latest",
-      "pkg": "cargo-generate"
+      "pkg": "cargo-binutils"
     },
     {
       "machine": "ubuntu-24.04-arm",
-      "pkg": "cargo-generate"
+      "pkg": "cargo-binutils"
     },
     {
       "machine": "ubuntu-latest",
-      "pkg": "cargo-generate"
+      "pkg": "cargo-binutils"
     },
     {
       "machine": "windows-latest",
-      "pkg": "cargo-generate"
+      "pkg": "cargo-binutils"
     },
     {
       "machine": "macos-latest",
