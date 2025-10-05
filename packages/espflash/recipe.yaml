@@ -1,0 +1,25 @@
+context:
+  name: espflash
+package:
+  version: 4.1.0
+  name: ${{ name }}
+build:
+  number: 1
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - if: unix
+      then:
+        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+about:
+  homepage: https://esp-rs.github.io/espflash
+  license: MIT
+  summary: Flash and monitor ESP32/ESP8266 microcontrollers via Cargo
+  description: >
+    espflash is a command that allows flashing and
+    monitoring ESP32 microcontrollers directly from
+    the command line. It integrates with Rust embedded projects
+    for easy development and debugging.
+  documentation: https://esp-rs.github.io/espflash
+  repository: https://github.com/esp-rs/espflash

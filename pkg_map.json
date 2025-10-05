@@ -105,6 +105,22 @@
       "pkg": "dufs"
     },
     {
+      "machine": "macos-latest",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "ubuntu-24.04-arm",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "cargo-generate"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "cargo-generate"
+    },
+    {
       "machine": "ubuntu-24.04-arm",
       "pkg": "edit"
     },
@@ -115,6 +131,30 @@
     {
       "machine": "windows-latest",
       "pkg": "edit"
+    },
+    {
+      "machine": "macos-latest",
+      "pkg": "esp-generate"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "esp-generate"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "esp-generate"
+    },
+    {
+      "machine": "macos-latest",
+      "pkg": "espflash"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "espflash"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "espflash"
     },
     {
       "machine": "windows-latest",
