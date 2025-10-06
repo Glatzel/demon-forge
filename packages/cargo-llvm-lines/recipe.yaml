@@ -1,10 +1,10 @@
 context:
   name: cargo-llvm-lines
 package:
-  version: 0.4.44
+  version: "0.4.45"
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
   script:
     - if: win
       then:
