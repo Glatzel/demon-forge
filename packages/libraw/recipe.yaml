@@ -4,7 +4,7 @@ package:
   version: 0.21.4
   name: ${{ name }}
 build:
-  number: 2
+  number: 3
   script:
     - if: win
       then:
@@ -23,3 +23,4 @@ about:
     to image data for processing, conversion, or analysis.
   documentation: https://www.libraw.org/docs
   repository: https://github.com/LibRaw/LibRaw
+
