@@ -11,4 +11,7 @@ if ($IsWindows) {
 if ($IsLinux) {
     ./vcpkg/vcpkg install --triplet x64-linux-release --x-install-root ./installed
 }
+if($IsMacOS){
+    ./vcpkg/vcpkg install --triplet arm64-osx-release --x-install-root ./installed
+}
 Write-Output "::endgroup::"
