@@ -104,6 +104,8 @@ jobs:
               - ./packages/rufus/**
             slumber:
               - ./packages/slumber/**
+            spek:
+              - ./packages/spek/**
             sony-camera-remote-sdk:
               - ./packages/sony-camera-remote-sdk/**
             termscp:
