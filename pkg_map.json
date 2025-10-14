@@ -255,6 +255,10 @@
     {
       "machine": "windows-latest",
       "pkg": "upx"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "peazip"
     }
   ]
 }
