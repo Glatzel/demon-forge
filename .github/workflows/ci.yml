@@ -94,6 +94,8 @@ jobs:
               - ./packages/openimageio*/**
             passmark-performance-test:
               - ./packages/passmark-performance-test/**
+            peazip:
+              - ./packages/peazip/**
             proj:
               - ./packages/proj*/**
             pureref:
