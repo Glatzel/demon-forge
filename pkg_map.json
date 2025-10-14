@@ -258,6 +258,10 @@
     },
     {
       "machine": "windows-latest",
+      "pkg": "audacity"
+    },
+    {
+      "machine": "windows-latest",
       "pkg": "termscp"
     },
     {

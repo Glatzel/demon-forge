@@ -44,6 +44,8 @@ jobs:
               - ./packages/android-sdk-platform-tools/**
             aria2:
               - ./packages/aria2/**
+            audacity:
+              - ./packages/audacity/**
             blender:
               - ./packages/blender/**
             blender-benchmark:

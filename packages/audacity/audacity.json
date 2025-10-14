@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+    "menu_name": "audacity",
+    "menu_items": [
+        {
+            "name": "audacity",
+            "description": "Launch audacity",
+            "command": [
+                "{{ PREFIX }}/bin/audacity/Audacity.exe"
+            ],
+            "platforms": {
+                "win": {
+                    "desktop": false
+                }
+            }
+        }
+    ]
+}
