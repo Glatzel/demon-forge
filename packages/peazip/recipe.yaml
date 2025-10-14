@@ -12,4 +12,14 @@ tests:
       - if not exist "%PREFIX%/bin/peazip/pea.exe" exit /b 1 ))
 
 about:
+  homepage: https://peazip.github.io
+  license: LGPL-3.0-or-later
+  summary: Free and open-source file archiver utility
+  description: >
+    PeaZip is a cross-platform file archiver and file manager supporting
+    over 200 archive formats, including ZIP, 7Z, RAR, and TAR. It provides
+    a graphical interface for file compression, extraction, and encryption,
+    as well as advanced features such as two-factor authentication and
+    secure file deletion.
+  documentation: https://peazip.github.io/peazip-help.html
   repository: https://github.com/peazip/PeaZip

@@ -205,6 +205,10 @@
       "pkg": "passmark-performance-test"
     },
     {
+      "machine": "windows-latest",
+      "pkg": "peazip"
+    },
+    {
       "machine": "macos-latest",
       "pkg": "proj"
     },
@@ -250,15 +254,19 @@
     },
     {
       "machine": "windows-latest",
+      "pkg": "spek"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "audacity"
+    },
+    {
+      "machine": "windows-latest",
       "pkg": "termscp"
     },
     {
       "machine": "windows-latest",
       "pkg": "upx"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "peazip"
     }
   ]
 }

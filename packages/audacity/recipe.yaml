@@ -1,0 +1,22 @@
+context:
+  name: audacity
+package:
+  version: "3.7.5"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+about:
+  homepage: https://www.audacityteam.org
+  license: GPL-2.0-or-later
+  summary: Free, open-source, cross-platform audio software
+  description: >
+    Audacity is a free and open-source digital audio editor and recorder.
+    It allows users to record live audio, edit sound files, apply effects,
+    mix tracks, and analyze waveforms. Audacity supports a wide range of
+    audio formats and is available for Windows, macOS, and Linux.
+  documentation: https://support.audacityteam.org/
+  repository: https://github.com/audacity/audacity
