@@ -1,10 +1,10 @@
 context:
   name: cloudflared
 package:
-  version: 2025.9.1
+  version: "2025.10.0"
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
   script:
     - if: win
       then:
