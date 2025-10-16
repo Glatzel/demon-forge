@@ -18,7 +18,7 @@ about:
   summary: Cloudflare Tunnel client
   description: >
     cloudflared is a command-line tool that establishes secure
-    tunnels to Cloudflare’s network. It allows exposing local
+    tunnels to Cloudflare's network. It allows exposing local
     services to the internet without opening firewall ports,
     supporting features like Argo Tunnel and Zero Trust access.
   documentation: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
