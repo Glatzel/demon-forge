@@ -3,14 +3,14 @@ context:
 
 package:
   name: ${{ name }}
-  version: 7.1.2.3
+  version: "7.1.2.7"
 
 build:
   script:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 1
+  number: 0
 tests:
   - script:
       - "%PREFIX%/bin/${{ name }}/magick.exe --help"
