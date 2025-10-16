@@ -1,16 +1,19 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$name = get-name
+
+$latest_version = get-latest-version -repo "ImageMagick/ImageMagick"
+$latest_version = "$latest_version".Replace("-", ".")
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item $ROOT/temp/$name -ItemType Directory
-pixi run -e selenium python download.py
 
-$zipfile=(Get-ChildItem "$ROOT/temp/$name/*.zip")[0]
-7z x "$zipfile" "-o$ROOT/temp/$name"
-$zipfile.BaseName -match "ImageMagick-(\d+\.\d+\.\d+-\d+)-portable-Q16-HDRI-x64"
-$latest_version=$Matches[1]
-$latest_version="$latest_version".Replace("-",".")
+gh release download `
+    -R "ImageMagick/ImageMagick" `
+    -p "ImageMagick-*-portable-Q16-HDRI-x64.7z" `
+    -O  $ROOT/temp/$name/$name.7z `
+    --clobber
+
+7z x "$ROOT/temp/$name/$name.7z" "-o$ROOT/temp/$name/$name"
 update-recipe -version $latest_version
 build-pkg
