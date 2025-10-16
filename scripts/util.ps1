@@ -47,7 +47,7 @@ function update-recipe {
         # Update version number and reset build number
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
-        
+
         # If running in GitHub Actions, output metadata for workflow steps
         if ($env:CI) {
             "update=true" >> $env:GITHUB_OUTPUT
