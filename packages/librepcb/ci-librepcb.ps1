@@ -3,14 +3,15 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 
-$latest_version = curl "https://dist.$name.org/index.json" | jq '.artifacts[0].versions[0].version'
-$latest_version = "$latest_version".Replace("""", "")
+$latest_version = get-latest-version -repo "LibrePCB/LibrePCB"
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item $ROOT/temp/$name -ItemType Directory
 aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
-    "https://dist.$name.org/win-x86-commandline/latest/$name.exe" `
-    -o "$name.exe"
+    "https://download.librepcb.org/releases/$latest_version/librepcb-$latest_version-windows-x86_64.zip" `
+    -o "$name.zip"
+
+7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
 
 update-recipe -version $latest_version
 build-pkg
