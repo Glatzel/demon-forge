@@ -88,6 +88,8 @@ jobs:
               - ./packages/jq/**
             libraw:
               - ./packages/libraw*/**
+            librepcb:
+              - ./packages/librepcb/**
             nuget:
               - ./packages/nuget/**
             obs-studio:
