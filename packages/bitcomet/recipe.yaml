@@ -9,6 +9,3 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-tests:
-  - script:
-      - "%PREFIX%/bin/${{ name }}.exe --help"

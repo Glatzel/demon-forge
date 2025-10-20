@@ -1,6 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 $xml = [xml](Invoke-WebRequest -UseBasicParsing -Uri "https://www.kisssub.org/rss-bitcomet.xml").Content
 $latest = $xml.rss.channel.item[0]
 $title = $latest.title.'#cdata-section'
@@ -15,7 +16,13 @@ if ($guid -match 'show-([0-9a-f]+)\.html$') {
     Write-Host $guidHash
     $magnet = 'magnet:?xt=urn:btih:' + $guidHash
 }
-aria2c --seed-time=0 --dir "$ROOT/$name" "$magnet"
-
+$trackerList = (Invoke-WebRequest -UseBasicParsing -Uri 'http://github.itzmx.com/1265578519/OpenTracker/master/tracker.txt').Content
+$trackers = ($trackerList -split '\s+') -join ','
+aria2c --seed-time=0 --bt-tracker="$trackers" --dir "$ROOT/$name" "$magnet"
+$zipfile = (Get-ChildItem "$ROOT/temp/$name/*.7z")[0]
+7z x "$zipfile" "-o$ROOT/temp/$name/$name"
+$folder = (Get-ChildItem "$ROOT/temp/$name/$name/*")[0]
+Rename-Item $folder bitcomet
+Rename-Item
 update-recipe -version $latest_version
 build-pkg
