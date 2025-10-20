@@ -23,6 +23,5 @@ $zipfile = (Get-ChildItem "$ROOT/temp/$name/*.7z")[0]
 7z x "$zipfile" "-o$ROOT/temp/$name/$name"
 $folder = (Get-ChildItem "$ROOT/temp/$name/$name/*" -Directory)[0]
 Rename-Item $folder bitcomet
-Rename-Item
 update-recipe -version $latest_version
 build-pkg
