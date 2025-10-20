@@ -1,0 +1,11 @@
+context:
+  name: bitcomet
+package:
+  version: "2.16.8.23"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - if: win
+      then:
+        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
