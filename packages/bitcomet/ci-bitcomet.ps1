@@ -18,7 +18,7 @@ if ($guid -match 'show-([0-9a-f]+)\.html$') {
 }
 $trackerList = (Invoke-WebRequest -UseBasicParsing -Uri 'http://github.itzmx.com/1265578519/OpenTracker/master/tracker.txt').Content
 $trackers = ($trackerList -split '\s+') -join ','
-aria2c --seed-time=0 --bt-tracker="$trackers" --dir "$ROOT/$name" "$magnet"
+aria2c --seed-time=0 --bt-tracker="$trackers" --dir "$ROOT/temp/$name" "$magnet"
 $zipfile = (Get-ChildItem "$ROOT/temp/$name/*.7z")[0]
 7z x "$zipfile" "-o$ROOT/temp/$name/$name"
 $folder = (Get-ChildItem "$ROOT/temp/$name/$name/*")[0]
