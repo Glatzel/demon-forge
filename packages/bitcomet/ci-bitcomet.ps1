@@ -21,7 +21,7 @@ $trackers = ($trackerList -split '\s+') -join ','
 aria2c --seed-time=0 --bt-tracker="$trackers" --dir "$ROOT/temp/$name" "$magnet"
 $zipfile = (Get-ChildItem "$ROOT/temp/$name/*.7z")[0]
 7z x "$zipfile" "-o$ROOT/temp/$name/$name"
-$folder = (Get-ChildItem "$ROOT/temp/$name/$name/*")[0]
+$folder = (Get-ChildItem "$ROOT/temp/$name/$name/*" -Directory)[0]
 Rename-Item $folder bitcomet
 Rename-Item
 update-recipe -version $latest_version
