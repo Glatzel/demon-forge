@@ -46,6 +46,8 @@ jobs:
               - ./packages/aria2/**
             audacity:
               - ./packages/audacity/**
+            bitcomet:
+              - ./packages/bitcomet/**
             blender:
               - ./packages/blender/**
             blender-benchmark:
