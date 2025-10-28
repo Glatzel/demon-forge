@@ -1,7 +1,7 @@
 context:
   name: furmark
 package:
-  version: "2.10.1"
+  version: "2.10.2"
   name: ${{ name }}
 build:
   number: 0
