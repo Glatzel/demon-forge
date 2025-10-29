@@ -5,7 +5,7 @@ platforms = ["win-64"]
 
 [feature.oiio.dependencies]
 bzip2 = "==1.0.8"
-fmt = "==11.2.0"
+fmt = "==12.0.0"
 freetype = "==2.14.1"
 giflib = "==5.2.2"
 libheif = "==1.19.7"
