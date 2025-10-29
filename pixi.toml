@@ -8,13 +8,13 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
-rattler-build = "==0.48.1"
+rattler-build = "==0.49.0"
 
 [feature.selenium]
 platforms = ["win-64", "linux-64", "osx-arm64"]
 [feature.selenium.dependencies]
 python = "3.11.*"
-selenium = "==4.36.0"
+selenium = "==4.38.0"
 toolbox = { version = "==0.0.20", channel = "https://prefix.dev/glatzel" }
 
 [feature.pip.dependencies]
