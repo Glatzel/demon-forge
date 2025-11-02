@@ -275,6 +275,10 @@
     {
       "machine": "windows-latest",
       "pkg": "bitcomet"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "zyperwin"
     }
   ]
 }
