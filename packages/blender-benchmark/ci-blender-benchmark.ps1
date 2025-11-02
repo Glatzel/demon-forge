@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$name = get-name
+
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item $ROOT/temp/$name -ItemType Directory
