@@ -118,6 +118,8 @@ jobs:
               - ./packages/termscp/**
             upx:
               - ./packages/upx/**
+            zyperwin:
+              - ./packages/zyperwin/**
 
       - name: changed-pkgs
         if: ${{github.event_name == 'pull_request'|| github.event_name == 'push'}}
