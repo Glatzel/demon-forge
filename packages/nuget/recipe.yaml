@@ -2,13 +2,13 @@ context:
   name: nuget
 package:
   name: ${{ name }}
-  version: 6.14.0
+  version: "7.0.0"
 build:
   script:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 2
+  number: 0
 tests:
   - script:
       - "%PREFIX%/bin/${{ name }}.exe help"
