@@ -20,4 +20,4 @@ if ($IsLinux -and ($arch -eq "Arm64")) {
         -O  $ROOT/temp/$name/$name --clobber
 }
 update-recipe -version $latest_version
-# build-pkg
+build-pkg
