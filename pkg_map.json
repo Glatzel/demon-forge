@@ -10,6 +10,14 @@
     },
     {
       "machine": "windows-latest",
+      "pkg": "audacity"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "bitcomet"
+    },
+    {
+      "machine": "windows-latest",
       "pkg": "blender"
     },
     {
@@ -190,6 +198,10 @@
     },
     {
       "machine": "windows-latest",
+      "pkg": "librepcb"
+    },
+    {
+      "machine": "windows-latest",
       "pkg": "nuget"
     },
     {
@@ -258,11 +270,19 @@
     },
     {
       "machine": "windows-latest",
-      "pkg": "audacity"
+      "pkg": "termscp"
+    },
+    {
+      "machine": "ubuntu-latest",
+      "pkg": "ttyd"
     },
     {
       "machine": "windows-latest",
-      "pkg": "termscp"
+      "pkg": "ttyd"
+    },
+    {
+      "machine": "ubuntu-24.04-arm",
+      "pkg": "ttyd"
     },
     {
       "machine": "windows-latest",
@@ -270,19 +290,7 @@
     },
     {
       "machine": "windows-latest",
-      "pkg": "librepcb"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "bitcomet"
-    },
-    {
-      "machine": "windows-latest",
       "pkg": "zyperwin"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "ttyd"
     }
   ]
 }
