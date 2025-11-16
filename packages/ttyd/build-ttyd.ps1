@@ -7,7 +7,5 @@ if ($IsWindows) {
     Copy-Item "$ROOT/temp/$name/$name.exe" "$env:PREFIX/bin/$name.exe"
 }
 if ($IsLinux) {
-    ls $ROOT/temp
-    ls $ROOT/temp/$name
     Copy-Item "$ROOT/temp/$name/$name" "$env:PREFIX/bin/$name"
 }
