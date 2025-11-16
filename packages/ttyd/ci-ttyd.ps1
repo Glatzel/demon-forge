@@ -11,8 +11,12 @@ if ($IsWindows) {
     gh release download -R "Glatzel/$name" -p "*.exe" `
         -O  $ROOT/temp/$name/$name.exe --clobber
 }
-if ($IsLinux) {
+if ($IsLinux -and ($arch -ne "Arm64")) {
     gh release download -R "Glatzel/$name" -p "*.x86_64" `
+        -O  $ROOT/temp/$name/$name --clobber
+}
+if ($IsLinux -and ($arch -eq "Arm64")) {
+    gh release download -R "Glatzel/$name" -p "*.aarch64" `
         -O  $ROOT/temp/$name/$name --clobber
 }
 update-recipe -version $latest_version

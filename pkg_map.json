@@ -281,6 +281,10 @@
       "pkg": "ttyd"
     },
     {
+      "machine": "ubuntu-24.04-arm",
+      "pkg": "ttyd"
+    },
+    {
       "machine": "windows-latest",
       "pkg": "upx"
     },
