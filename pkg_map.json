@@ -283,10 +283,6 @@
     {
       "machine": "windows-latest",
       "pkg": "ttyd"
-    },
-    {
-      "machine": "windows-latest",
-      "pkg": "nssm"
     }
   ]
 }
