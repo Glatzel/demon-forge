@@ -279,6 +279,10 @@
     {
       "machine": "windows-latest",
       "pkg": "zyperwin"
+    },
+    {
+      "machine": "windows-latest",
+      "pkg": "ttyd"
     }
   ]
 }

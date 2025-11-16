@@ -116,6 +116,8 @@ jobs:
               - ./packages/sony-camera-remote-sdk/**
             termscp:
               - ./packages/termscp/**
+            ttyd:
+              - ./packages/ttyd/**
             upx:
               - ./packages/upx/**
             zyperwin:
