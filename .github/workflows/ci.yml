@@ -92,8 +92,6 @@ jobs:
               - ./packages/libraw*/**
             librepcb:
               - ./packages/librepcb/**
-            nssm:
-              - ./packages/nssm/**
             nuget:
               - ./packages/nuget/**
             obs-studio:
