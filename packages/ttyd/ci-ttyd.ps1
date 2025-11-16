@@ -11,14 +11,14 @@ if ($IsWindows) {
         -O  $ROOT/temp/$name/$name.exe --clobber
 }
 if ($IsLinux -and ($arch -ne "Arm64")) {
-    Test-Path $ROOT/temp/$name/$name
     gh release download -R "Glatzel/$name" -p "*.x86_64" `
         -O  $ROOT/temp/$name/$name --clobber
+    Test-Path $ROOT/temp/$name/$name
 }
 if ($IsLinux -and ($arch -eq "Arm64")) {
-    Test-Path $ROOT/temp/$name/$name
     gh release download -R "Glatzel/$name" -p "*.aarch64" `
         -O  $ROOT/temp/$name/$name --clobber
+    Test-Path $ROOT/temp/$name/$name
 }
 update-recipe -version $latest_version
 build-pkg
