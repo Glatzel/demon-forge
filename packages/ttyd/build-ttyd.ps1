@@ -9,4 +9,3 @@ if ($IsWindows) {
 if ($IsLinux) {
     Copy-Item "$ROOT/temp/$name/$name.exe" "$env:PREFIX/bin/$name"
 }
-
