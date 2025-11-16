@@ -16,4 +16,4 @@ if ($IsLinux) {
         -O  $ROOT/temp/$name/$name --clobber
 }
 update-recipe -version $latest_version
-build-pkg
+# build-pkg
