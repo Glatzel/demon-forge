@@ -8,4 +8,4 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-  number: 0
+  number: 1
