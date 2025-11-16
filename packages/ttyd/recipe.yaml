@@ -16,4 +16,4 @@ tests:
         - "%PREFIX%/bin/${{ name }}.exe --help"
     - if: linux
       then:
-        - "%PREFIX%/bin/${{ name }}.exe --help"
+        - "$PREFIX/bin/${{ name }}.exe --help"
