@@ -18,7 +18,5 @@ if ($IsLinux -and ($arch -eq "Arm64")) {
     gh release download -R "Glatzel/$name" -p "*.aarch64" `
         -O  $ROOT/temp/$name/$name --clobber
 }
-ls -l $ROOT/temp
-ls -l $ROOT/temp/ttyd
 update-recipe -version $latest_version
 build-pkg
