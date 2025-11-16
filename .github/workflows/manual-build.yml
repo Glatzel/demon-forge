@@ -7,7 +7,7 @@ on:
         type: string
         required: true
       machine:
-        description: "Package name"
+        description: "machine"
         type: choice
         required: true
         options:
