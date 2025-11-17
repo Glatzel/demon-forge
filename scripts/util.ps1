@@ -45,6 +45,16 @@ function get-version-vcpkg {
     curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
         jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
 }
+function get-version-url {
+    param($url, $pattern)
+    $html = curl -sL $url
+    $versions = [regex]::Matches($html, $pattern) | `
+        ForEach-Object { $_.Groups[1].Value }
+    $latest = $versions | `
+        Sort-Object { [version]$_ } -Descending | `
+        Select-Object -First 1
+    $latest
+}
 function update-vcpkg-json {
     param($file, $name, $version)
     $json = Get-Content $file -Raw | ConvertFrom-Json
