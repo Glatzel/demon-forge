@@ -5,6 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-latest-version -repo "https://github.com/kovidgoyal/$name"
 $latest_version = "$latest_version".Replace("v", "")
+update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
@@ -15,6 +16,5 @@ Remove-Item C:/temp -Recurse -ErrorAction SilentlyContinue
 New-Item  C:/temp -ItemType Directory
 Start-Process -FilePath "$ROOT/temp/$name/$name.exe" -ArgumentList "C:/temp" -Wait
 
-update-recipe -version $latest_version
 build-pkg
 Remove-Item C:/temp -Recurse -ErrorAction SilentlyContinue

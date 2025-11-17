@@ -3,6 +3,7 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 $latest_version = get-latest-version -repo "Glatzel/$name"
+update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
@@ -20,5 +21,5 @@ if ($IsLinux -and ($arch -eq "Arm64")) {
         -O  $ROOT/temp/$name/$name --clobber
     Test-Path $ROOT/temp/$name/$name
 }
-update-recipe -version $latest_version
+
 build-pkg

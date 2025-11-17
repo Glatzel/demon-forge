@@ -56,15 +56,15 @@ function update-recipe {
     }
     if ($env:CI) {
         switch ($true ) {
-            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
+            { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
-            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
+            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
             { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { $env:NEED_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
-            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { $env:NEED_BUILD = $true }
+            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { Write-Output "need build in pr." }
 
-            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
-            default { }
+            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
+            default { exit 0 }
         }
     }
 }
@@ -77,10 +77,6 @@ function reset-build-code {
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
-    if ($env:CI -and (-not $env:NEED_BUILD)) {
-        Write-Output "Skip rattler build."
-        return
-    }
     pixi run rattler-build build
     Write-Output "::endgroup::"
 }

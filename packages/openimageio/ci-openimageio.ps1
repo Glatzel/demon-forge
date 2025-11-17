@@ -5,6 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 # process version
 $latest_version = get-latest-version -repo "AcademySoftwareFoundation/OpenImageIO"
 $latest_version = "$latest_version".Replace("v","")
+update-recipe -version $latest_version
 
 #pre-build
 Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
@@ -19,5 +20,4 @@ Remove-Item $PSScriptRoot/../openimageio_build/dist -Recurse -ErrorAction Silent
 
 #rattler build
 Set-Location $PSScriptRoot
-update-recipe -version $latest_version
 build-pkg

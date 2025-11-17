@@ -9,6 +9,7 @@ $latestTag = git ls-remote --tags $repoUrl | Where-Object { $_ -match "refs/tags
 $latest_version = [Version]"$latestTag"
 $major = $latest_version.Major
 $minor = $latest_version.Minor
+update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
@@ -16,5 +17,5 @@ aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
     https://download.blender.org/release/Blender${major}.${minor}/blender-$latest_version-windows-x64.zip `
     -o "$name.zip"
 7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name"
-update-recipe -version $latest_version
+
 build-pkg
