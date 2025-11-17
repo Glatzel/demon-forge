@@ -156,17 +156,20 @@ jobs:
         id: main
         env:
           GH_TOKEN: ${{github.token}}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REF_NAME: ${{github.ref_name}}
+
         run: ./packages/${{matrix.pkg}}/ci-${{matrix.pkg}}.ps1
         shell: pwsh
 
       - name: publish
-        if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
+        if: ${{ steps.main.outputs.action_publish != 'true' }}
         run: |
           ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
         shell: pwsh
 
       - name: Create pull request
-        if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
+        if: ${{ steps.main.outputs.action_pr == 'true' }}
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ github.token }}

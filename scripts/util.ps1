@@ -41,20 +41,31 @@ function update-recipe {
     $cversion = get-current-version
     Write-Output "current version: <$cversion>"
     Write-Output "latest version: <$version>"
-
-    if (("$cversion" -ne "$version") -and ($version)) {
+    $HAS_NEW_VERSION = ("$cversion" -ne "$version") -and ($version)
+    if ($HAS_NEW_VERSION) {
         Write-Output "::group::update recipe"
+        Write-Output "New version found."
         # Update version number and reset build number
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
-
-        # If running in GitHub Actions, output metadata for workflow steps
         if ($env:CI) {
-            "update=true" >> $env:GITHUB_OUTPUT
             "latest-version=$version" >> $env:GITHUB_OUTPUT
             "current-version=$cversion" >> $env:GITHUB_OUTPUT
         }
         Write-Output "::endgroup::"
+    }
+    if ($env:CI) {
+        switch ($true ) {
+            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
+
+            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
+            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { $env:NEED_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
+
+            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { $env:NEED_BUILD = $true }
+
+            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
+            default { }
+        }
     }
 }
 
@@ -66,6 +77,9 @@ function reset-build-code {
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
+    if ($env:CI -and (-not $env:NEED_BUILD)) {
+        Write-Output "Skip rattler build."
+    }
     pixi run rattler-build build
     Write-Output "::endgroup::"
 }
