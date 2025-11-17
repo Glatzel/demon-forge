@@ -79,6 +79,7 @@ function build-pkg {
     Write-Output "::group::build"
     if ($env:CI -and (-not $env:NEED_BUILD)) {
         Write-Output "Skip rattler build."
+        return
     }
     pixi run rattler-build build
     Write-Output "::endgroup::"
