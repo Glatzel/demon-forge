@@ -57,9 +57,9 @@ function get-version-url {
         if ($latest) {
             return $latest
         }
-        
+
     }
-    
+
 }
 function update-vcpkg-json {
     param($file, $name, $version)
