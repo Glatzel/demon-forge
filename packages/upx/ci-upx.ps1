@@ -4,6 +4,8 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-latest-version -repo "https://github.com/$name/$name"
 $latest_version = "$latest_version".Replace("v", "")
+update-recipe -version $latest_version
+
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
 if ($IsWindows) {
@@ -17,5 +19,4 @@ if ($IsWindows) {
 #     7z x "$ROOT/temp/$name/$name.tar.xz" "-o$ROOT/temp/$name/$name"
 # }
 
-update-recipe -version $latest_version
 build-pkg

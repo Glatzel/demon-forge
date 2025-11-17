@@ -4,6 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 
 
 $latest_version = get-latest-version -repo "LibrePCB/LibrePCB"
+update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item $ROOT/temp/$name -ItemType Directory
@@ -13,5 +14,4 @@ aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
 
 7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
 
-update-recipe -version $latest_version
 build-pkg

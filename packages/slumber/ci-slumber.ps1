@@ -5,6 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-latest-version -repo "https://github.com/LucasPickering/$name"
 $latest_version = "$latest_version".Replace("v", "")
+update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item  $ROOT/temp/$name -ItemType Directory
@@ -22,5 +23,4 @@ if ($IsLinux) {
     Copy-Item  "$ROOT/temp/$name/temp/slumber-x86_64-unknown-linux-gnu/*" "$ROOT/temp/$name/$name" -Recurse
 }
 
-update-recipe -version $latest_version
 build-pkg

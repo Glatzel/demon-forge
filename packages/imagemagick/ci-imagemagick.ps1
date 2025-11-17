@@ -4,6 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-latest-version -repo "ImageMagick/ImageMagick"
 $latest_version = "$latest_version".Replace("-", ".")
+update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
 New-Item $ROOT/temp/$name -ItemType Directory
@@ -15,5 +16,5 @@ gh release download `
     --clobber
 
 7z x "$ROOT/temp/$name/$name.7z" "-o$ROOT/temp/$name/$name"
-update-recipe -version $latest_version
+
 build-pkg

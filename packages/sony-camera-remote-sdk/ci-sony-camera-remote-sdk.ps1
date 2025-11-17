@@ -14,13 +14,15 @@ $minor = "$minor".Replace("00", "0")
 $patch = $Matches[3]
 $patch = "$patch".Replace("00", "0")
 $latest_version = "$major.$minor.$patch"
+update-recipe -version $latest_version
+
 $platform = $Matches[4]
 foreach ($f in Get-ChildItem "$ROOT/temp/$name/*.zip") {
     $f.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
     $platform = $Matches[4]
     7z x "$f" "-o$ROOT/temp/$name/unzip/$platform"
 }
-update-recipe -version $latest_version
+
 
 if ($IsLinux) {
     pixi run rattler-build build
