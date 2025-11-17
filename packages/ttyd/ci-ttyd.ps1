@@ -2,7 +2,7 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
-$latest_version = get-latest-version -repo "Glatzel/$name"
+$latest_version = get-version-github -repo "Glatzel/$name"
 update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue

@@ -30,11 +30,16 @@ function get-name {
 }
 
 # Function: Get the latest release tag from a GitHub repository
-function get-latest-version {
+function get-version-github {
     param($repo)
     gh release view -R $repo --json tagName -q .tagName
 }
-
+function get-version-crateio {
+    param($name)
+    (cargo search $name | Select-String -Pattern "^$name = ""\d" | ForEach-Object {
+        ($_ -split '"')[1]
+    })
+}
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)

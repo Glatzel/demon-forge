@@ -3,7 +3,7 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 
-$latest_version = get-latest-version -repo "https://github.com/$name/PeaZip"
+$latest_version = get-version-github -repo "https://github.com/$name/PeaZip"
 update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
