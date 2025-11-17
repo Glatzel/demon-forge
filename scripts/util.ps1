@@ -30,11 +30,14 @@ function get-name {
 }
 
 # Function: Get the latest release tag from a GitHub repository
-function get-latest-version {
+function get-version-github {
     param($repo)
     gh release view -R $repo --json tagName -q .tagName
 }
-
+function get-version-crateio {
+    param($name)
+    curl -s https://crates.io/api/v1/crates/$name | jq -r  '.crate.max_version'
+}
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)

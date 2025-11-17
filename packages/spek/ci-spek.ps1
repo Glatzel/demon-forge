@@ -3,7 +3,7 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 
-$latest_version = get-latest-version -repo "https://github.com/alexkay/$name"
+$latest_version = get-version-github -repo "https://github.com/alexkay/$name"
 $latest_version = "$latest_version".Replace("v", "")
 update-recipe -version $latest_version
 
