@@ -2,9 +2,7 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
-
-$latest_version = get-latest-version -repo "https://github.com/LucasPickering/$name"
-$latest_version = "$latest_version".Replace("v", "")
+$latest_version = curl -s https://crates.io/api/v1/crates/$name | jq '.crate.max_version'
 update-recipe -version $latest_version
 
 Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue

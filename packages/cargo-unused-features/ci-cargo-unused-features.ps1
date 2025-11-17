@@ -2,8 +2,7 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
-$latest_version = get-latest-version -repo "TimonPost/$name"
-$latest_version = "$latest_version".Replace("v", "")
+$latest_version = curl -s https://crates.io/api/v1/crates/$name | jq '.crate.max_version'
 update-recipe -version $latest_version
 
 cargo install $name --locked --force --root $ROOT/temp/$name
