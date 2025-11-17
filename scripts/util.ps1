@@ -47,13 +47,19 @@ function get-version-vcpkg {
 }
 function get-version-url {
     param($url, $pattern)
-    $html = curl -sL $url
-    $versions = [regex]::Matches($html, $pattern) | `
-        ForEach-Object { $_.Groups[1].Value }
-    $latest = $versions | `
-        Sort-Object { [version]$_ } -Descending | `
-        Select-Object -First 1
-    $latest
+    for ($i = 0; $i -lt 5; $i++) {
+        $html = curl -sL $url
+        $versions = [regex]::Matches($html, $pattern) | `
+            ForEach-Object { $_.Groups[1].Value }
+        $latest = $versions | `
+            Sort-Object { [version]$_ } -Descending | `
+            Select-Object -First 1
+        if ($latest) {
+            return $latest
+        }
+        
+    }
+    
 }
 function update-vcpkg-json {
     param($file, $name, $version)
@@ -73,7 +79,7 @@ function update-recipe {
     $cversion = get-current-version
     Write-Output "current version: <$cversion>"
     Write-Output "latest version: <$version>"
-    if (-not ($version)){
+    if (-not ($version)) {
         throw "Invalid version"
     }
     $HAS_NEW_VERSION = ("$cversion" -ne "$version")
