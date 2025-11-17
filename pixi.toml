@@ -18,7 +18,7 @@ selenium = "==4.38.0"
 toolbox = { version = "==0.0.20", channel = "https://prefix.dev/glatzel" }
 
 [feature.pip.dependencies]
-pip = "==25.2"
+pip = "==25.3"
 python = "3.11.*"
 
 [environments]
