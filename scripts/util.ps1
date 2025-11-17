@@ -45,6 +45,20 @@ function get-version-vcpkg {
     curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
         jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
 }
+function get-version-url {
+    param($url, $pattern)
+    for ($i = 0; $i -lt 5; $i++) {
+        $html = curl -sL $url
+        $versions = [regex]::Matches($html, $pattern) | `
+            ForEach-Object { $_.Groups[1].Value }
+        $latest = $versions | `
+            Sort-Object { [version]$_ } -Descending | `
+            Select-Object -First 1
+        if ($latest) {
+            return $latest
+        }
+    }
+}
 function update-vcpkg-json {
     param($file, $name, $version)
     $json = Get-Content $file -Raw | ConvertFrom-Json
@@ -63,7 +77,10 @@ function update-recipe {
     $cversion = get-current-version
     Write-Output "current version: <$cversion>"
     Write-Output "latest version: <$version>"
-    $HAS_NEW_VERSION = ("$cversion" -ne "$version") -and ($version)
+    if (-not ($version)) {
+        throw "Invalid version"
+    }
+    $HAS_NEW_VERSION = ("$cversion" -ne "$version")
     if ($HAS_NEW_VERSION) {
         Write-Output "::group::update recipe"
         Write-Output "New version found."
