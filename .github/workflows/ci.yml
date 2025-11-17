@@ -163,7 +163,7 @@ jobs:
         shell: pwsh
 
       - name: publish
-        if: ${{ steps.main.outputs.action_publish != 'true' }}
+        if: ${{ steps.main.outputs.action_publish == 'true' }}
         run: |
           ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
         shell: pwsh
@@ -180,3 +180,4 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
