@@ -14,7 +14,7 @@ on:
     paths-ignore:
       - "*.md"
   schedule:
-    - cron: 0 16 * * 1
+    - cron: 0 16 * * *
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref=='refs/heads/main' && github.sha || github.ref}}
@@ -180,3 +180,4 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
