@@ -40,6 +40,23 @@ function get-version-crateio {
         ($_ -split '"')[1]
     })
 }
+function get-version-vcpkg {
+    param($name)
+    curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
+        jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
+}
+function update-vcpkg-json {
+    param($file, $name, $version)
+    $json = Get-Content $file -Raw | ConvertFrom-Json
+
+    # update the override
+    $json.overrides | Where-Object { $_.name -eq "$name" } | ForEach-Object {
+        $_.version = $version
+    }
+
+    # save formatted JSON
+    $json | ConvertTo-Json -Depth 10 | Set-Content $file
+}
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)
