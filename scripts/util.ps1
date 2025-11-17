@@ -36,10 +36,9 @@ function get-version-github {
 }
 function get-version-crateio {
     param($name)
-    if ($IsLinux) {
-        curl -sL https://crates.io/api/v1/crates/$name
-    }
-    curl -sL https://crates.io/api/v1/crates/$name | jq -r  '.crate.max_version'
+    (cargo search $name | Select-String -Pattern "^$name = ""\d" | ForEach-Object {
+        ($_ -split '"')[1]
+    })
 }
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
