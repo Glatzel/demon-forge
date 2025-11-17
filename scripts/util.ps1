@@ -37,8 +37,7 @@ function get-version-github {
 function get-version-crateio {
     param($name)
     if ($IsLinux) {
-        sudo apt update && sudo apt install ca-certificates
-        sudo update-ca-certificates
+        curl -sL https://crates.io/api/v1/crates/$name
     }
     curl -sL https://crates.io/api/v1/crates/$name | jq -r  '.crate.max_version'
 }
