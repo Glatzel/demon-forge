@@ -59,7 +59,7 @@ function update-recipe {
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT }
-            { (-not $HAS_NEW_VERSION) -and $env:GITHUB_EVENT_NAME -eq "push" } { $env:NEED_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { $env:NEED_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
             { $env:GITHUB_EVENT_NAME -eq "pull_request" } { $env:NEED_BUILD = $true }
 
