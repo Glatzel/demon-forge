@@ -73,7 +73,10 @@ function update-recipe {
     $cversion = get-current-version
     Write-Output "current version: <$cversion>"
     Write-Output "latest version: <$version>"
-    $HAS_NEW_VERSION = ("$cversion" -ne "$version") -and ($version)
+    if (-not ($version)){
+        throw "Invalid version"
+    }
+    $HAS_NEW_VERSION = ("$cversion" -ne "$version")
     if ($HAS_NEW_VERSION) {
         Write-Output "::group::update recipe"
         Write-Output "New version found."
