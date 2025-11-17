@@ -7,4 +7,3 @@ update-recipe -version $latest_version
 cargo install $name --root $ROOT/temp/$name --force
 
 build-pkg
-
