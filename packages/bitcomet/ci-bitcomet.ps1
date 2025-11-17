@@ -5,6 +5,11 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-url -url "https://www.kisssub.org/rss-bitcomet.xml" -pattern 'build (\d+\.\d+\.\d+\.\d+)'
 update-recipe -version $latest_version
 
+Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+$xml = [xml](Invoke-WebRequest -UseBasicParsing -Uri "https://www.kisssub.org/rss-bitcomet.xml").Content
+$latest = $xml.rss.channel.item[0]
+$title = $latest.title.'#cdata-section'
+$guid = $latest.guid.'#text'
 if ($guid -match 'show-([0-9a-f]+)\.html$') {
     $guidHash = $matches[1]
     Write-Host $guidHash
