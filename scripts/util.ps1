@@ -98,9 +98,9 @@ function update-recipe {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { $env:NEED_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_publish=true" >> $env:GITHUB_OUTPUT }
 
-            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { Write-Output "need build in pr." }
+            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
             default { exit 0 }
