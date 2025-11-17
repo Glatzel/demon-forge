@@ -8,3 +8,5 @@ if ($IsWindows) {
 if ($IsLinux -or $IsMacOS) {
     ./vcpkg/bootstrap-vcpkg.sh
 }
+Set-Location $PSScriptRoot
+./vcpkg/vcpkg.exe x-update-baseline

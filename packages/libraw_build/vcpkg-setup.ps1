@@ -7,3 +7,5 @@ if ($IsWindows) {
 else {
     ./vcpkg/bootstrap-vcpkg.sh
 }
+Set-Location $PSScriptRoot
+./vcpkg/vcpkg.exe x-update-baseline
