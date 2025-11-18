@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 
 # process version
 $latest_version = get-version-github -repo "AcademySoftwareFoundation/OpenImageIO"
-$latest_version = "$latest_version".Replace("v","")
 update-recipe -version $latest_version
 
 #pre-build
