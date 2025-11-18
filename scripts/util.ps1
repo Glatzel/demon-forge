@@ -74,13 +74,13 @@ function update-vcpkg-json {
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)
-    $cversion = get-current-version
-    Write-Output "current version: <$cversion>"
+    $current_version = get-current-version
+    Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
-    if (-not ($version)) {
+    if (-not ($version -cmatch '^\d+(\.\d+)+$')) {
         throw "Invalid version"
     }
-    $HAS_NEW_VERSION = ("$cversion" -ne "$version")
+    $HAS_NEW_VERSION = ("$current_version" -ne "$version")
     if ($HAS_NEW_VERSION) {
         Write-Output "::group::update recipe"
         Write-Output "New version found."
@@ -89,7 +89,7 @@ function update-recipe {
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
         if ($env:CI) {
             "latest-version=$version" >> $env:GITHUB_OUTPUT
-            "current-version=$cversion" >> $env:GITHUB_OUTPUT
+            "current-version=$current_version" >> $env:GITHUB_OUTPUT
         }
         Write-Output "::endgroup::"
     }
