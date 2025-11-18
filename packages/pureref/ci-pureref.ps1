@@ -1,9 +1,9 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-create-temp -name $name
 $latest_version = get-version-url -url "https://www.pureref.com/download.php" -pattern 'selected value="(\d+\.\d+\.\d+)"'
 update-recipe -version $latest_version
+create-temp -name $name
 
 pixi run -e selenium python download.py
 

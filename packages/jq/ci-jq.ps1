@@ -1,10 +1,10 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-create-temp -name $name
 $latest_version = get-version-github -repo "jqlang/$name"
 $latest_version = "$latest_version".Replace("$name-", "")
 update-recipe -version $latest_version
+create-temp -name $name
 
 gh release download -R "jqlang/$name" -p "$name-windows-amd64.exe" `
     -O  $ROOT/temp/$name/$name.exe --clobber

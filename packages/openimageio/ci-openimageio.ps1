@@ -1,10 +1,10 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-create-temp -name $name
 # process version
 $latest_version = get-version-github -repo "AcademySoftwareFoundation/OpenImageIO"
 update-recipe -version $latest_version
+create-temp -name $name
 
 #pre-build
 Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue

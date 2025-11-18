@@ -1,10 +1,10 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-create-temp -name $name
 
 $latest_version = get-version-github -repo "Chuyu-Team/Dism-Multi-language"
 update-recipe -version $latest_version
+create-temp -name $name
 
 gh release download -R Chuyu-Team/Dism-Multi-language -p "Dism*.zip" `
     -O  "$ROOT/temp/$name/$name.zip" --clobber

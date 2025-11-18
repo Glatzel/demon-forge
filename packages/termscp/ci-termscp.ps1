@@ -1,9 +1,9 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-create-temp -name $name
 $latest_version = get-version-crateio -name $name
 update-recipe -version $latest_version
+create-temp -name $name
 
 gh release download -R veeso/$name -p "*x86_64-pc-windows*.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber
