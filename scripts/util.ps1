@@ -33,7 +33,7 @@ function get-name {
 function get-version-github {
     param($repo)
     $version = gh release view -R $repo --json tagName -q .tagName
-    $version = "$version=".Replace("v", "")
+    $version = "$version".Replace("v", "")
     return $version
 }
 function get-version-crateio {
