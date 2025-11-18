@@ -32,7 +32,9 @@ function get-name {
 # Function: Get the latest release tag from a GitHub repository
 function get-version-github {
     param($repo)
-    gh release view -R $repo --json tagName -q .tagName
+    $version = gh release view -R $repo --json tagName -q .tagName
+    $version = "$version=".Replace("v", "")
+    return $version
 }
 function get-version-crateio {
     param($name)
