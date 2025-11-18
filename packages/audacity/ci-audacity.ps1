@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github -repo "https://github.com/$name/$name"
 $latest_version = "$latest_version".Replace("Audacity-", "")
 update-recipe -version $latest_version
-create-temp -name $name
 gh release download -R $name/$name -p "$name-win-*-64bit.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber
 7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"

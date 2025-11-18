@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "https://github.com/ZyperWave/ZyperWinOptimize"
 update-recipe -version $latest_version
-create-temp -name $name
 
 gh release download -R ZyperWave/ZyperWinOptimize -p "ZyperWin*.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber

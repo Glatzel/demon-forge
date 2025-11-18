@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "https://github.com/$name/PeaZip"
 update-recipe -version $latest_version
-create-temp -name $name
 
 gh release download -R https://github.com/$name/PeaZip -p "peazip_portable-*.WIN64.zip" `
     -O  $ROOT/temp/$name/$name.zip --clobber

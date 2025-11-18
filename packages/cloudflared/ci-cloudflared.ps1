@@ -3,7 +3,6 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $latest_version = get-version-github -repo "cloudflare/$name"
 update-recipe -version $latest_version
-create-temp -name $name
 
 if ($IsWindows) {
     gh release download -R "cloudflare/$name" -p "$name-windows-amd64.exe" `

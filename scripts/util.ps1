@@ -100,9 +100,9 @@ function update-recipe {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
-            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { }
+            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { pre-build -name $name }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
             default { exit 0 }
@@ -114,18 +114,18 @@ function update-recipe {
 function reset-build-code {
     (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
 }
-
+function pre-build {
+    param( $name)
+    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+    New-Item  $ROOT/temp/$name -ItemType Directory
+}
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
     pixi run rattler-build build
     Write-Output "::endgroup::"
 }
-function create-temp {
-    param( $name)
-    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-    New-Item  $ROOT/temp/$name -ItemType Directory
-}
+
 # Extract package name and current system architecture
 $name = get-name
 # Possible values:
