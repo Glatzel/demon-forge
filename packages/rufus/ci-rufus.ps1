@@ -6,8 +6,6 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github -repo "pbatard/$name"
 update-recipe -version $latest_version
 
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item  $ROOT/temp/$name -ItemType Directory
 gh release download -R "pbatard/$name" -p "$name-*.??.exe" `
     -O  $ROOT/temp/$name/$name.exe --clobber
 

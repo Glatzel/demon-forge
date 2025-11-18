@@ -5,8 +5,6 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-crateio -name $name
 update-recipe -version $latest_version
 
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item  $ROOT/temp/$name -ItemType Directory
 if ($IsWindows) {
     gh release download -R LucasPickering/$name -p "*windows*.zip" `
         -O  $ROOT/temp/$name/$name.zip --clobber

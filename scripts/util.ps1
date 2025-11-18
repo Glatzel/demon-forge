@@ -121,9 +121,14 @@ function build-pkg {
     pixi run rattler-build build
     Write-Output "::endgroup::"
 }
-
+function create-temp {
+    param( $name)
+    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+    New-Item  $ROOT/temp/$name -ItemType Directory
+}
 # Extract package name and current system architecture
 $name = get-name
+create-temp -name $name
 # Possible values:
 # - X86 (32-bit)
 # - X64 (64-bit)

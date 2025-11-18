@@ -5,8 +5,6 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github -repo "microsoft/$name"
 update-recipe -version $latest_version
 
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item  $ROOT/temp/$name -ItemType Directory
 if ($isWindows) {
     gh release download -R "microsoft/$name" -p "*x86_64-windows*" `
         -O  $ROOT/temp/$name/$name.zip --clobber
