@@ -1,9 +1,9 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-create-temp -name $name
 $latest_version = get-version-url -url "https://filezilla-project.org/newsfeed.php" -pattern 'FileZilla Client (\d+\.\d+\.\d+) released'
 update-recipe -version $latest_version
+create-temp -name $name
 
 pixi run -e selenium python download.py
 
@@ -11,4 +11,5 @@ $zipfile = (Get-ChildItem "$ROOT/temp/$name/FileZilla*win64.zip")[0]
 7z x "$zipfile" "-o$ROOT/temp/$name"
 
 update-recipe -version $latest_version
+create-temp -name $name
 build-pkg
