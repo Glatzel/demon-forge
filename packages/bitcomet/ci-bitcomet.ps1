@@ -7,7 +7,6 @@ update-recipe -version $latest_version
 
 $xml = [xml](Invoke-WebRequest -UseBasicParsing -Uri "https://www.kisssub.org/rss-bitcomet.xml").Content
 $latest = $xml.rss.channel.item[0]
-$title = $latest.title.'#cdata-section'
 $guid = $latest.guid.'#text'
 if ($guid -match 'show-([0-9a-f]+)\.html$') {
     $guidHash = $matches[1]
