@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "https://github.com/kovidgoyal/$name"
 update-recipe -version $latest_version
-create-temp -name $name
 
 gh release download -R https://github.com/kovidgoyal/$name -p "$name-portable*" `
     -O  $ROOT/temp/$name/$name.exe --clobber

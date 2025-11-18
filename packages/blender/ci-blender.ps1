@@ -7,7 +7,6 @@ $latest_version = [Version]"$latestTag"
 $major = $latest_version.Major
 $minor = $latest_version.Minor
 update-recipe -version $latest_version
-create-temp -name $name
 aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
     https://download.blender.org/release/Blender${major}.${minor}/blender-$latest_version-windows-x64.zip `
     -o "$name.zip"

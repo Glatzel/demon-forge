@@ -3,7 +3,6 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $latest_version = get-version-url -url "https://www.passmark.com/products/performancetest/download.php" -pattern 'Download PerformanceTest (\d+\.\d+)'
 update-recipe -version $latest_version
-create-temp -name $name
 
 aria2c -c -x16 -s16 `
     -d $ROOT/temp/$name `

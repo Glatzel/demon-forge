@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 # process version
 $latest_version = get-version-github -repo "AcademySoftwareFoundation/OpenImageIO"
 update-recipe -version $latest_version
-create-temp -name $name
 
 #pre-build
 Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
