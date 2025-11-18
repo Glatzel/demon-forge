@@ -1,13 +1,11 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
+create-temp -name $name
 
 $latest_version = get-version-github -repo "https://github.com/kovidgoyal/$name"
 update-recipe -version $latest_version
 
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item  $ROOT/temp/$name -ItemType Directory
 gh release download -R https://github.com/kovidgoyal/$name -p "$name-portable*" `
     -O  $ROOT/temp/$name/$name.exe --clobber
 

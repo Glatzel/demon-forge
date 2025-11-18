@@ -1,12 +1,10 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
+create-temp -name $name
 $latest_version = get-version-github -repo "Glatzel/$name"
 update-recipe -version $latest_version
 
-Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-New-Item  $ROOT/temp/$name -ItemType Directory
 if ($IsWindows) {
     gh release download -R "Glatzel/$name" -p "*.exe" `
         -O  $ROOT/temp/$name/$name.exe --clobber
