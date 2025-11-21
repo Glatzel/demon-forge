@@ -7,9 +7,7 @@ package:
 build:
   number: 7
   script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
 tests:
   - script:
       - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}c${{'.exe' if win}} --help"
