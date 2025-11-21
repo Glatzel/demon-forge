@@ -3,10 +3,7 @@ package:
   name: pureref
 build:
   number: 0
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%/build-pureref.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script:
       - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/PureRef${{'.exe' if win}}"

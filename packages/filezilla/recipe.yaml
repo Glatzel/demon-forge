@@ -8,7 +8,7 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script:
-      - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/${{name}}.exe ${{'.exe' if win}}"
+      - pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{name}}.exe ${{'.exe' if win}}"
 about:
   homepage: https://filezilla-project.org
   license: GPL-3.0-or-later

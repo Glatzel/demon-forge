@@ -10,7 +10,7 @@ tests:
   - script:
       - if: win
         then:
-          - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/HWiNFO64.exe"
+          - pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/HWiNFO64.exe"
 
 about:
   homepage: https://www.hwinfo.com
