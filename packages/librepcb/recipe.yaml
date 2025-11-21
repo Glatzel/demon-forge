@@ -5,9 +5,7 @@ package:
   version: "1.3.0"
 build:
   script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
   number: 0
 tests:
   - script:
