@@ -14,9 +14,4 @@ build:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 tests:
   - script:
-    - if: win
-      then:
-        - "%PREFIX%/bin/${{ name }}.exe --help"
-    - if: linux
-      then:
-        - "$PREFIX/bin/${{ name }} --help"
+      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"

@@ -11,7 +11,7 @@ build:
   number: 1
 tests:
   - script:
-      - "%PREFIX%/bin/${{ name }}.exe help"
+      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://www.nuget.org
   license: Apache-2.0

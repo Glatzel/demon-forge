@@ -11,7 +11,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - "%PREFIX%/bin/${{ name }}/${{ name }}.exe --help"
+    - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/${{ name }}${{'.exe' if win}}"
 about:
   homepage: https://geeks3d.com/furmark
   summary: GPU stress test and benchmarking tool

@@ -11,7 +11,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - "%PREFIX%/bin/${{ name }}.exe --help"
+      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
 
 about:
   homepage: https://jqlang.github.io/jq

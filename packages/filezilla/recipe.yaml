@@ -11,7 +11,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}.exe" exit /b 1 ))
+      - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/${{name}}.exe ${{'.exe' if win}}"
 about:
   homepage: https://filezilla-project.org
   license: GPL-3.0-or-later

@@ -89,13 +89,14 @@ function update-recipe {
         # Update version number and reset build number
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
-        if ($env:CI) {
-            "latest-version=$version" >> $env:GITHUB_OUTPUT
-            "current-version=$current_version" >> $env:GITHUB_OUTPUT
-        }
         Write-Output "::endgroup::"
     }
+    else {
+        Write-Output "No new version."
+    }
     if ($env:CI) {
+        "latest-version=$version" >> $env:GITHUB_OUTPUT
+        "current-version=$current_version" >> $env:GITHUB_OUTPUT
         switch ($true ) {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
@@ -108,6 +109,7 @@ function update-recipe {
             default { exit 0 }
         }
     }
+    else { pre-build -name $name }
 }
 
 # Function: Reset build number in recipe.yaml to 0

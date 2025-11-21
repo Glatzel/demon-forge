@@ -12,7 +12,7 @@ build:
     - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
 - script:
-  - '%PREFIX%/bin/${{ name }}/adb.exe --help'
+  - pwsh -Command "&$env:PREFIX/bin/${{ name }}/adb${{'.exe' if win}} --help"
 
 about:
   homepage: https://developer.android.com/studio/releases/platform-tools

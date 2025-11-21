@@ -9,6 +9,9 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+tests:
+  - script:
+      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://upx.github.io
   license: GPL-2.0-or-later

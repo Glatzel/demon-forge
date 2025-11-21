@@ -14,12 +14,7 @@ build:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 tests:
   - script:
-      - if: win
-        then:
-          - "%PREFIX%/bin/${{ name }}.exe -h"
-      - if: linux
-        then:
-          - if [ -f "$PREFIX/bin/${{ name }}" ]; then echo "File exists."; else exit 1; fi
+      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://github.com/microsoft/edit
   license: MIT

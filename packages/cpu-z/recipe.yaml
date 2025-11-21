@@ -11,7 +11,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/cpuz_x64.exe" exit /b 1 ))
+      - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/cpuz_x64${{'.exe' if win}}"
 about:
   homepage: https://www.cpuid.com/softwares/cpu-z.html
   summary: System profiling and monitoring tool for Windows

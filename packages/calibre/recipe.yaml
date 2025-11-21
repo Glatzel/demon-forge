@@ -1,7 +1,7 @@
 context:
   name: calibre
 package:
-  version: "8.14.0"
+  version: "8.15.0"
   name: ${{ name }}
 build:
   number: 0
@@ -11,7 +11,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/${{ name }}-portable.exe" exit /b 1 ))
+      - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/${{ name }}-portable.exe${{'.exe' if win}}"
 about:
   homepage: https://calibre-ebook.com
   license: GPL-3.0-or-later

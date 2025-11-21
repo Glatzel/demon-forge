@@ -9,3 +9,6 @@ build:
     - if: win
       then:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+tests:
+  - script:
+      - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/ZyperWin++${{'.exe' if win}}"

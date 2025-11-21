@@ -12,6 +12,9 @@ build:
     - if: unix
       then:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+tests:
+  - script:
+      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://esp-rs.github.io/espflash
   license: MIT
