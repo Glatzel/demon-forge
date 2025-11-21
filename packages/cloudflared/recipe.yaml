@@ -14,7 +14,7 @@ build:
         - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
 tests:
   - script:
-      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
+      - pwsh -Command "& $env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
   license: Apache-2.0
