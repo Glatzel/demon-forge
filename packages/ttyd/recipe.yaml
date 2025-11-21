@@ -8,4 +8,4 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else 'PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
