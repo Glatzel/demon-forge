@@ -7,7 +7,7 @@ build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://upx.github.io
   license: GPL-2.0-or-later
