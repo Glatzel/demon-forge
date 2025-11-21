@@ -5,11 +5,11 @@ package:
   version: "11.1"
 build:
   script:
-    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}\build-${{ name }}.ps1
   number: 0
 tests:
   - script:
-      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX' if win else 'PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://www.passmark.com/products/performancetest/
   summary: Benchmarking software for Windows PCs

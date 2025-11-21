@@ -6,10 +6,10 @@ package:
 build:
   number: 1
   script:
-    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}\build-${{ name }}.ps1
 tests:
   - script:
-    - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/${{ name }}${{'.exe' if win}}"
+      - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/${{ name }}${{'.exe' if win}}"
 about:
   homepage: https://geeks3d.com/furmark
   summary: GPU stress test and benchmarking tool

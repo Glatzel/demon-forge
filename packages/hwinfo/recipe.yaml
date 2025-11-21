@@ -6,12 +6,12 @@ package:
 build:
   number: 0
   script:
-    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}\build-${{ name }}.ps1
 tests:
   - script:
-    - if: win
-      then:
-      - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/HWiNFO64.exe"
+      - if: win
+        then:
+          - pwsh -Command "Test-Path %PREFIX%/bin/${{ name }}/HWiNFO64.exe"
 
 about:
   homepage: https://www.hwinfo.com

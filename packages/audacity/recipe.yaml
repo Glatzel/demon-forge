@@ -6,7 +6,7 @@ package:
 build:
   number: 0
   script:
-    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}\build-${{ name }}.ps1
 tests:
   - script:
       - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/Audacity${{'.exe' if win}}"

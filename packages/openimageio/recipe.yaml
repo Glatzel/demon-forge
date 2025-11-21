@@ -7,12 +7,12 @@ package:
 
 build:
   script:
-    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}\build-${{ name }}.ps1
   number: 0
 
 tests:
   - script:
-      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}/oiiotool${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX' if win else 'PREFIX'}}/bin/${{ name }}/oiiotool${{'.exe' if win}} --help"
 about:
   homepage: https://openimageio.org
   license: BSD-3-Clause

@@ -5,11 +5,11 @@ package:
   version: "7.0.0"
 build:
   script:
-    - pwsh -f ${{'$env:RECIPE_DIR'}}\build-${{ name }}.ps1
+    - pwsh -f ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}\build-${{ name }}.ps1
   number: 1
 tests:
   - script:
-      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX' if win else 'PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://www.nuget.org
   license: Apache-2.0
