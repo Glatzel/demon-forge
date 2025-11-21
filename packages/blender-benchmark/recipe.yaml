@@ -11,7 +11,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - pwsh -Command "&$env:PREFIX/bin/${{ name }}/benchmark-launcher-cli${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}/benchmark-launcher-cli${{'.exe' if win}} --help"
 about:
   homepage: https://opendata.blender.org
   license: GPL-3.0-or-later

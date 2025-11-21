@@ -11,7 +11,7 @@ build:
   number: 0
 tests:
   - script:
-      - pwsh -Command "&$env:PREFIX/bin/${{ name }}${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://www.passmark.com/products/performancetest/
   summary: Benchmarking software for Windows PCs

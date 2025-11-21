@@ -13,7 +13,7 @@ build:
   number: 0
 tests:
   - script:
-      - pwsh -Command "&$env:PREFIX/bin/${{ name }}/magick${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}/magick${{'.exe' if win}} --help"
 about:
   homepage: https://imagemagick.org
   license: Apache-2.0

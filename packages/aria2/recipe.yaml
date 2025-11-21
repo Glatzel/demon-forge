@@ -12,7 +12,7 @@ build:
         - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
 tests:
   - script:
-      - pwsh -Command "&$env:PREFIX/bin/${{ name }}c${{'.exe' if win}} --help"
+      - pwsh -Command "& ${{'$env:PREFIX'}}/bin/${{ name }}c${{'.exe' if win}} --help"
 
 about:
   homepage: https://aria2.github.io
