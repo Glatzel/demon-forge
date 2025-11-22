@@ -5,21 +5,10 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-    - if: linux
-      then:
-        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+
 tests:
-  - script:
-    - if: win
-      then:
-        - "%PREFIX%/bin/${{ name }}/${{ name }}.exe help"
-    - if: linux
-      then:
-        - "$PREFIX/bin/${{ name }}/${{ name }} help"
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}} --help"
 
 about:
   homepage: https://slumber.lucaspickering.me

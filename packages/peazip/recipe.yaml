@@ -1,15 +1,14 @@
+context:
+  name: peazip
 package:
   version: "10.7.0"
-  name: peazip
+  name: ${{ name }}
 build:
   number: 0
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-peazip.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/peazip/pea.exe" exit /b 1 ))
+      - pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/pea${{'.exe' if win}}"
 
 about:
   homepage: https://peazip.github.io

@@ -5,13 +5,10 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
-  - script:
-      - if not exist "%PREFIX%/bin/${{ name }}/HWiNFO64.exe" exit /b 1 ))
+  - script: pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/HWiNFO64${{'.exe' if win}}"
+
 about:
   homepage: https://www.hwinfo.com
   summary: Comprehensive hardware analysis and monitoring tool

@@ -5,18 +5,7 @@ package:
   name: ${{ name }}
 build:
   number: 2
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-    - if: linux
-      then:
-        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+
 tests:
-  - script:
-    - if: win
-      then:
-        - "%PREFIX%/bin/${{ name }}.exe --help"
-    - if: linux
-      then:
-        - "$PREFIX/bin/${{ name }} --help"
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"

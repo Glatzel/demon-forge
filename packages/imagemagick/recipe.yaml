@@ -6,14 +6,10 @@ package:
   version: "7.1.2.8"
 
 build:
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   number: 0
 tests:
-  - script:
-      - "%PREFIX%/bin/${{ name }}/magick.exe --help"
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/magick${{'.exe' if win}} --help"
 about:
   homepage: https://imagemagick.org
   license: Apache-2.0

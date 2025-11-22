@@ -5,13 +5,7 @@ package:
   name: ${{ name }}
 build:
   number: 3
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-    - if: unix
-      then:
-        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause

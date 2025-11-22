@@ -1,15 +1,14 @@
+context:
+  name: pureref
 package:
   version: "2.0.3"
-  name: pureref
+  name: ${{ name }}
 build:
   number: 0
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-pureref.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script:
-      - if not exist "%PREFIX%/bin/pureref/PureRef.exe" exit /b 1 ))
+      - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/PureRef${{'.exe' if win}}"
 about:
   homepage: https://www.pureref.com
   summary: Lightweight reference image organizer for artists

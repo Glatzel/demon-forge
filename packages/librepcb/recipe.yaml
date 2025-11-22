@@ -4,8 +4,10 @@ package:
   name: ${{ name }}
   version: "1.3.0"
 build:
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   number: 0
+tests:
+  - script:
+      - if: win
+        then:
+          - pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}}"

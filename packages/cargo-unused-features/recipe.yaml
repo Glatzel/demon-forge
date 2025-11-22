@@ -5,13 +5,9 @@ package:
   name: ${{ name }}
 build:
   number: 1
-  script:
-    - if: win
-      then:
-        - pwsh -f %RECIPE_DIR%\build-${{ name }}.ps1
-    - if: unix
-      then:
-        - pwsh -f $RECIPE_DIR/build-${{ name }}.ps1
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+tests:
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
 about:
   homepage: https://github.com/taiki-e/cargo-unused-features
   license: MIT
