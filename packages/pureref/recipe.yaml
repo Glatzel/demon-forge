@@ -1,6 +1,8 @@
+context:
+  name: pureref
 package:
   version: "2.0.3"
-  name: pureref
+  name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

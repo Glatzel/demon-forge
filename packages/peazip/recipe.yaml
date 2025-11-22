@@ -1,6 +1,8 @@
+context:
+  name: peazip
 package:
   version: "10.7.0"
-  name: peazip
+  name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

@@ -7,10 +7,7 @@ build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
-  - script:
-      - if: win
-        then:
-          - pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/HWiNFO64.exe"
+  - script: pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/HWiNFO64${{'.exe' if win}}"
 
 about:
   homepage: https://www.hwinfo.com
