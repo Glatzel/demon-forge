@@ -213,10 +213,6 @@
       "pkg": "openimageio"
     },
     {
-      "machine": "ubuntu-latest",
-      "pkg": "passmark-performance-test"
-    },
-    {
       "machine": "windows-latest",
       "pkg": "peazip"
     },
