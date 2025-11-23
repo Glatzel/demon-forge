@@ -41,11 +41,10 @@ jobs:
         uses: tj-actions/changed-files@v47
         with:
           json: true
-          files_yaml_from_source_file:  ./packages.yaml
+          files_yaml_from_source_file: ./packages.yaml
       - name: matrix_json
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_REF_NAME: ${{github.ref_name}}
           CHANGED_KEYS: ${{steps.change.outputs.changed_keys}}
         id: matrix_json
         run: ./scripts/matrix_json.ps1
@@ -55,7 +54,7 @@ jobs:
     needs: changed
     strategy:
       fail-fast: false
-      matrix: ${{(github.event_name == 'pull_request'|| github.event_name == 'push') && fromJSON(needs.changed.outputs.matrix) ||fromJSON(needs.changed.outputs.all)}}
+      matrix: ${{ fromJSON(needs.changed.outputs.matrix) }}
 
     runs-on: ${{matrix.machine}}
     steps:
