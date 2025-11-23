@@ -33,6 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: packages_yaml
+        if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         run: ./scripts/packages_yaml.ps1
         shell: pwsh
 
