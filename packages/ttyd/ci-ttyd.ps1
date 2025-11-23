@@ -20,7 +20,7 @@ foreach($t in "win32","x86_64","aarch64")
 {
 $env:BUILD_TARGET=$t
 & bash ./scripts/cross-build.sh
-    
+
 }
 ls ./build
 Set-Location $PSScriptRoot
