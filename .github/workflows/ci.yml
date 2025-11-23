@@ -55,7 +55,7 @@ jobs:
     needs: dispatch
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.changed.outputs.matrix) }}
+      matrix: ${{ fromJSON(needs.dispatch.outputs.matrix) }}
 
     runs-on: ${{matrix.machine}}
     steps:
