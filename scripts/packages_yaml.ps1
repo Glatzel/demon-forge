@@ -8,11 +8,10 @@ $csvData = Import-Csv $csvFile
 ForEach ($Row in $csvData) {
     "$Row.pkg"+':'>>$yamlFile
     '  - ./packages/"+"$Row.pkg'+'/**'>>$yamlFile
-    
+
 }
 
 # Print the exact contents of the YAML file
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
-
