@@ -27,4 +27,3 @@ switch ($env:GITHUB_EVENT){
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
-
