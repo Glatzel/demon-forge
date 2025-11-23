@@ -29,27 +29,26 @@ sudo apt-get update
 sudo apt-get install -y autoconf automake build-essential cmake curl file libtool
 write-output  "::endgroup::"
 
-foreach($t in "win32","x86_64","aarch64")
-{
+foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
-    $env:BUILD_TARGET=$t
+    $env:BUILD_TARGET = $t
     & bash ./scripts/cross-build.sh
     ls ./build
     Set-Location $PSScriptRoot
-    switch($t) {
-        "win32"{
-            $env:TARGET_PLATFORM='win-64'
+    switch ($t) {
+        "win32" {
+            $env:TARGET_PLATFORM = 'win-64'
             pixi run rattler-build build --target-platform 'win-64'
-            }
-        "x86_64"{
-            $env:TARGET_PLATFORM='linux-64'
-            pixi run rattler-build build --target-platform 'linux-64'
-            }
-        "aarch64"{
-            $env:TARGET_PLATFORM='linux-aarch64'
-            pixi run rattler-build build --target-platform 'linux-aarch64'
-            }
         }
-        Set-Location $ROOT/temp/$name/$name
-        Write-Output "::endgroup::"
+        "x86_64" {
+            $env:TARGET_PLATFORM = 'linux-64'
+            pixi run rattler-build build --target-platform 'linux-64'
+        }
+        "aarch64" {
+            $env:TARGET_PLATFORM = 'linux-aarch64'
+            pixi run rattler-build build --target-platform 'linux-aarch64'
+        }
+    }
+    Set-Location $ROOT/temp/$name/$name
+    Write-Output "::endgroup::"
 }
