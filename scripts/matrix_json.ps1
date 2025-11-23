@@ -38,6 +38,7 @@ switch ($env:GITHUB_EVENT_NAME) {
     end
 ) | .[0])}
 '@
+        $rule = ($rule -split "`r?`n" | ForEach-Object { $_.Trim() }) -join ' '
         $matrix = $matrix | jq -c "$rule"
     }
 }
@@ -48,3 +49,4 @@ switch ($env:GITHUB_EVENT_NAME) {
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
+
