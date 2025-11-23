@@ -7,3 +7,4 @@ platforms = ["win-64", "linux-64"]
 [dependencies]
 brotlipy = "==0.7.0"
 fonttools = "==4.60.1"
+nodejs="==18.12.1"
