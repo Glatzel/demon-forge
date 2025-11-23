@@ -8,3 +8,4 @@ temp
 *.conda
 __pycache__
 build
+packages.yaml

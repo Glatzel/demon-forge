@@ -29,117 +29,32 @@ jobs:
   changed:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.changed-pkgs.outputs.matrix }}
-      all: ${{ steps.all-pkgs.outputs.all }}
+      matrix: ${{ steps.matrix_json.outputs.matrix }}
     steps:
       - uses: actions/checkout@v5
+      - name: packages_yaml
+        run: ./scripts/packages_yaml.ps1
+        shell: pwsh
 
       - id: change
         if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         uses: tj-actions/changed-files@v47
         with:
           json: true
-          files_yaml: |
-            android-sdk-platform-tools:
-              - ./packages/android-sdk-platform-tools/**
-            aria2:
-              - ./packages/aria2/**
-            audacity:
-              - ./packages/audacity/**
-            bitcomet:
-              - ./packages/bitcomet/**
-            blender:
-              - ./packages/blender/**
-            blender-benchmark:
-              - ./packages/blender-benchmark/**
-            calibre:
-              - ./packages/calibre/**
-            cargo-binutils:
-              - ./packages/cargo-binutils/**
-            cargo-bloat:
-              - ./packages/cargo-bloat/**
-            cargo-espflash:
-              - ./packages/cargo-espflash/**
-            cargo-llvm-lines:
-              - ./packages/cargo-llvm-lines/**
-            cargo-unused-features:
-              - ./packages/cargo-unused-features/**
-            cloudflared:
-              - ./packages/cloudflared/**
-            cpu-z:
-              - ./packages/cpu-z/**
-            edit:
-              - ./packages/edit/**
-            esp-generate:
-              - ./packages/esp-generate/**
-            espflash:
-              - ./packages/espflash/**
-            dism-plus-plus:
-              - ./packages/dism-plus-plus/**
-            dufs:
-              - ./packages/dufs/**
-            filezilla:
-              - ./packages/filezilla/**
-            furmark:
-              - ./packages/furmark/**
-            hwinfo:
-              - ./packages/hwinfo/**
-            imagemagick:
-              - ./packages/imagemagick/**
-            jq:
-              - ./packages/jq/**
-            libraw:
-              - ./packages/libraw*/**
-            librepcb:
-              - ./packages/librepcb/**
-            nuget:
-              - ./packages/nuget/**
-            obs-studio:
-              - ./packages/obs-studio/**
-            openimageio:
-              - ./packages/openimageio*/**
-            peazip:
-              - ./packages/peazip/**
-            proj:
-              - ./packages/proj*/**
-            pureref:
-              - ./packages/pureref/**
-            rufus:
-              - ./packages/rufus/**
-            slumber:
-              - ./packages/slumber/**
-            spek:
-              - ./packages/spek/**
-            sony-camera-remote-sdk:
-              - ./packages/sony-camera-remote-sdk/**
-            termscp:
-              - ./packages/termscp/**
-            ttyd:
-              - ./packages/ttyd/**
-            upx:
-              - ./packages/upx/**
-            zyperwin:
-              - ./packages/zyperwin/**
-
-      - name: changed-pkgs
-        if: ${{github.event_name == 'pull_request'|| github.event_name == 'push'}}
-        id: changed-pkgs
-        run: |
-          RESULT=$(jq -c --argjson pkgs "${{steps.change.outputs.changed_keys}}" '.include | map(select(.pkg as $p | $pkgs | index($p)))' ./pkg_map.json)
-          echo "matrix={\"include\":$RESULT}" | tee -a "$GITHUB_OUTPUT"
-      - name: all-pkgs
-        if: ${{github.event_name != 'pull_request' && github.event_name != 'push'}}
-        id: all-pkgs
-        run: |
-          RESULT=$(jq -c . ./pkg_map.json)
-          echo "all=$RESULT"
-          echo "all=$RESULT" >> "$GITHUB_OUTPUT"
+          files_yaml_from_source_file: ./packages.yaml
+      - name: matrix_json
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          CHANGED_KEYS: ${{steps.change.outputs.changed_keys}}
+        id: matrix_json
+        run: ./scripts/matrix_json.ps1
+        shell: pwsh
 
   rattler-build:
     needs: changed
     strategy:
       fail-fast: false
-      matrix: ${{(github.event_name == 'pull_request'|| github.event_name == 'push') && fromJSON(needs.changed.outputs.matrix) ||fromJSON(needs.changed.outputs.all)}}
+      matrix: ${{ fromJSON(needs.changed.outputs.matrix) }}
 
     runs-on: ${{matrix.machine}}
     steps:
