@@ -5,5 +5,5 @@ platforms = ["win-64", "linux-64"]
 
 
 [dependencies]
-brotlipy = "*"
+brotlipy = "==0.7.0"
 fonttools = "==4.60.1"
