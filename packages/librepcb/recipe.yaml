@@ -10,4 +10,4 @@ tests:
   - script:
       - if: win
         then:
-          - pwsh -Command "Test-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}}"
+          - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}}"
