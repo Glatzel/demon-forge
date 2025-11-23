@@ -10,8 +10,9 @@ Set-Location $name
 git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
 git apply config.patch
+get-content ./index.scss >> ./html/src/style/index.scss
 
-write-output    "::group::font"
+write-output "::group::font"
 & ./download-font.ps1
 Write-Output "::endgroup::"
 
