@@ -21,20 +21,7 @@ switch ($env:GITHUB_EVENT_NAME) {
     # "schedule" {  }
     # "workflow_dispatch" {  }
     default {
-        $rule = '
-{include:
-  .include
-  | group_by(.pkg)
-  | map(
-      sort_by(
-        if .machine == "ubuntu-latest" then 0
-        elif .machine == "macos-latest" then 1
-        elif .machine == "windows-latest" then 2
-        elif .machine == "ubuntu-24.04-arm" then 3
-        else 4 end
-      ) | .[0]
-    )}
-'
+        $rule = '{include:.include| group_by(.pkg)| map(sort_by(if .machine == "ubuntu-latest" then 0 elif .machine == "macos-latest" then 1  elif .machine == "windows-latest" then 2 elif .machine == "ubuntu-24.04-arm" then 3   else 4 end    ) | .[0]  )}'
         $matrix = $matrix | jq -c $rule
     }
 }
