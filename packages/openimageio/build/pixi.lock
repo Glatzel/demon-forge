@@ -36,7 +36,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/libjpeg-turbo-3.1.2-hfd05255_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libjxl-0.11.1-hac9b6f3_5.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/liblzma-5.8.1-h2466b09_2.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/libpng-1.6.50-h7351971_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libpng-1.6.51-h7351971_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libraw-0.21.4-h866491b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libtiff-4.7.1-h8f73337_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libwebp-1.6.0-h4d5522a_0.conda
@@ -45,9 +45,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/libxml2-16-2.15.1-h692994f_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libxml2-2.15.1-h5d26750_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libzlib-1.3.1-h2466b09_2.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/openexr-3.4.3-ha75af49_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/openexr-3.4.4-ha75af49_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/openjpeg-2.5.4-h24db6dd_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/openjph-0.25.2-hf13a347_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/openjph-0.25.3-hf13a347_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/rav1e-0.7.1-ha073cba_3.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/svt-av1-3.1.2-hac47afa_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tbb-2022.3.0-hd094cb3_1.conda
@@ -373,9 +373,9 @@ packages:
   license: 0BSD
   size: 104935
   timestamp: 1749230611612
-- conda: https://conda.anaconda.org/conda-forge/win-64/libpng-1.6.50-h7351971_1.conda
-  sha256: e84b041f91c94841cb9b97952ab7f058d001d4a15ed4ce226ec5fdb267cc0fa5
-  md5: 3ae6e9f5c47c495ebeed95651518be61
+- conda: https://conda.anaconda.org/conda-forge/win-64/libpng-1.6.51-h7351971_0.conda
+  sha256: 4a558e1901cc67b1c336cf719dfa1b806c5e69492df9fe6c19991da57a6845d2
+  md5: 5b98079b7e86c25c7e70ed7fd7da7da5
   depends:
   - vc >=14.3,<15
   - vc14_runtime >=14.44.35208
@@ -385,8 +385,8 @@ packages:
   - ucrt >=10.0.20348.0
   - libzlib >=1.3.1,<2.0a0
   license: zlib-acknowledgement
-  size: 382709
-  timestamp: 1753879944850
+  size: 383255
+  timestamp: 1763764166376
 - conda: https://conda.anaconda.org/conda-forge/win-64/libraw-0.21.4-h866491b_0.conda
   sha256: db2cd8a48e5d329eb6a324063daa63eced3761ea42badaed5c685f468695fbd3
   md5: e5d4bf6388c45045a73d5e58e1364769
@@ -504,9 +504,9 @@ packages:
   license_family: Other
   size: 55476
   timestamp: 1727963768015
-- conda: https://conda.anaconda.org/conda-forge/win-64/openexr-3.4.3-ha75af49_0.conda
-  sha256: 85b72e425e739469a3aaf784ce89851bb99cabaf9bdef8f4e2278fa74f99932b
-  md5: 0405d3e3c7ff7c031d355e318dd0637a
+- conda: https://conda.anaconda.org/conda-forge/win-64/openexr-3.4.4-ha75af49_0.conda
+  sha256: 871f1c9a666f6077d0ac52908dd720108dfc133f98fb3fe64554979163ef88a8
+  md5: 83318300cb9803abf7b45cb88c169e19
   depends:
   - vc >=14.3,<15
   - vc14_runtime >=14.44.35208
@@ -514,14 +514,14 @@ packages:
   - vc >=14.3,<15
   - vc14_runtime >=14.44.35208
   - ucrt >=10.0.20348.0
-  - libzlib >=1.3.1,<2.0a0
-  - imath >=3.2.2,<3.2.3.0a0
-  - openjph >=0.25.0,<0.26.0a0
   - libdeflate >=1.25,<1.26.0a0
+  - openjph >=0.25.3,<0.26.0a0
+  - imath >=3.2.2,<3.2.3.0a0
+  - libzlib >=1.3.1,<2.0a0
   license: BSD-3-Clause
   license_family: BSD
-  size: 1073285
-  timestamp: 1762372325565
+  size: 948094
+  timestamp: 1763615187289
 - conda: https://conda.anaconda.org/conda-forge/win-64/openjpeg-2.5.4-h24db6dd_0.conda
   sha256: 226c270a7e3644448954c47959c00a9bf7845f6d600c2a643db187118d028eee
   md5: 5af852046226bb3cb15c7f61c2ac020a
@@ -536,9 +536,9 @@ packages:
   license_family: BSD
   size: 244860
   timestamp: 1758489556249
-- conda: https://conda.anaconda.org/conda-forge/win-64/openjph-0.25.2-hf13a347_0.conda
-  sha256: 5fd16060d23fc48f668cc2f6d6aff7d230ebd0568491952a007a58b9658fd4ad
-  md5: cbc09f1e744bb54f7c44482c9656704f
+- conda: https://conda.anaconda.org/conda-forge/win-64/openjph-0.25.3-hf13a347_0.conda
+  sha256: 3f59478860e5c00eabb4b8998c4eadebcbc4640bbb56ebaa5abfe14eb2322351
+  md5: c084115112e4fbefd921c53854e7cb4c
   depends:
   - vc >=14.3,<15
   - vc14_runtime >=14.44.35208
@@ -548,8 +548,9 @@ packages:
   - ucrt >=10.0.20348.0
   - libtiff >=4.7.1,<4.8.0a0
   license: BSD-2-Clause
-  size: 215007
-  timestamp: 1762603920092
+  license_family: BSD
+  size: 215012
+  timestamp: 1763316168042
 - conda: https://conda.anaconda.org/conda-forge/win-64/rav1e-0.7.1-ha073cba_3.conda
   sha256: d19a58b882a0387c7c8efbfce4e67a0df4b19d8da6cf6cec3011b6079e5bc743
   md5: 3bd3626822633688691ed41d661c2b2e
