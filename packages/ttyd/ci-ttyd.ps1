@@ -20,6 +20,12 @@ foreach($t in "win32","x86_64","aarch64")
 {
 $env:BUILD_TARGET=$t
 & bash ./scripts/cross-build.sh
+    
 }
 ls ./build
-#build-pkg
+Set-Location $PSScriptRoot
+foreach($t in "win-64","linux-64","linux-aarch64")
+{
+$env:TARGET_platform=$t
+pixi run rattler-build build --target-platform $t
+}
