@@ -9,8 +9,10 @@ git clone https://github.com/tsl0922/ttyd.git
 Set-Location $name
 git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
+git apply config.patch
+get-content ./index.scss >> ./html/src/style/index.scss
 
-write-output    "::group::font"
+write-output "::group::font"
 & ./download-font.ps1
 Write-Output "::endgroup::"
 
@@ -33,6 +35,9 @@ foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
     $env:BUILD_TARGET = $t
     & bash ./scripts/cross-build.sh
+    Write-Output "::endgroup::"
+
+    Write-Output "::group::build $t"
     Set-Location $PSScriptRoot
     switch ($t) {
         "win32" {
