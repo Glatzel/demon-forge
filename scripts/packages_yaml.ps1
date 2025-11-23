@@ -2,7 +2,7 @@
 $csvFile = "$PSScriptRoot/../packages.csv"
 # Output YAML
 $yamlFile = "$PSScriptRoot/../packages.yaml"
-
+Set-Content -Path $yamlFile -Value ""
 # Read CSV
 $csvData = Import-Csv $csvFile
 ForEach ($Row in $csvData) {
@@ -13,3 +13,4 @@ ForEach ($Row in $csvData) {
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
+
