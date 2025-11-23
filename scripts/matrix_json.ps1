@@ -20,7 +20,7 @@ foreach ($row in $csvData) {
 }
 
 $matrix = $matrix | ConvertTo-Json -Depth 10 -Compress | jq '{include: .}'
-switch ($env:GITHUB_EVENT) {
+switch ($env:GITHUB_EVENT_NAME) {
     "push" { $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '.include | map(select(.pkg as $p | $pkgs | index($p)))' }
     "pull_request" { $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '.include | map(select(.pkg as $p | $pkgs | index($p)))' }
     "schedule" { $matrix = $matrix | jq -c . }
