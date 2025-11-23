@@ -29,6 +29,9 @@ switch ($env:GITHUB_EVENT_NAME) {
     default { $matrix = $matrix | jq -c . }
 }
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
+Write-Output "::group::json raw"
+$matrix | jq -c .
+Write-Output "::endgroup::"
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
