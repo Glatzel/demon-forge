@@ -32,8 +32,7 @@ switch ($env:GITHUB_EVENT_NAME) {
         elif .machine == "ubuntu-24.04-arm" then 3
         else 4 end
       ) | .[0]
-    )
-    }
+    )}
 '
         $matrix = $matrix | jq -c $rule
     }
