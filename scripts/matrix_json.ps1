@@ -26,9 +26,4 @@ switch ($env:GITHUB_EVENT_NAME) {
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
-
-$matrix = "$matrix".Replace('"', '\"')
-Write-Output "::group::json raw"
-Write-Output $matrix
-Write-Output "::endgroup::"
-"matrix=$matrix" >> $env:GITHUB_OUTPUT
+Write-Output $RESULT | Tee-Object -a ${env:GITHUB_OUTPUT}
