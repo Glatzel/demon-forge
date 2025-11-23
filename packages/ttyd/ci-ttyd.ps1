@@ -10,7 +10,7 @@ Set-Location $name
 git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
 
-write-output    "::group::font" 
+write-output    "::group::font"
 & ./download-font.ps1
 Write-Output "::endgroup::"
 
@@ -22,7 +22,7 @@ pixi run yarn install
 pixi run yarn run check
 pixi run yarn run build
 Write-Output "::endgroup::"
-        
+
 write-output "::group::Install packages"
 Set-Location ..
 sudo apt-get update
