@@ -32,8 +32,8 @@ jobs:
       matrix: ${{ steps.matrix_json.outputs.matrix }}
     steps:
       - uses: actions/checkout@v5
-      - name: matrix_yaml
-        run: ./scripts/matrix_yaml.ps1
+      - name: packages_yaml
+        run: ./scripts/packages_yaml.ps1
         shell: pwsh
 
       - id: change
@@ -41,7 +41,7 @@ jobs:
         uses: tj-actions/changed-files@v47
         with:
           json: true
-          files_yaml_from_source_file:  ./pkg_matrix.yaml
+          files_yaml_from_source_file:  ./packages.yaml
       - name: matrix_json
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
@@ -93,3 +93,4 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
