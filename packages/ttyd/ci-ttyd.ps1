@@ -31,17 +31,24 @@ write-output  "::endgroup::"
 
 foreach($t in "win32","x86_64","aarch64")
 {
-        Write-Output "::group::compile $t"
-$env:BUILD_TARGET=$t
-& bash ./scripts/cross-build.sh
-        Write-Output "::endgroup::"
-}
-ls ./build
-Set-Location $PSScriptRoot
-foreach($t in "win-64","linux-64","linux-aarch64")
-{
-        Write-Output "::group::build $t"
-$env:TARGET_platform=$t
-pixi run rattler-build build --target-platform $t
+    Write-Output "::group::compile $t"
+    $env:BUILD_TARGET=$t
+    & bash ./scripts/cross-build.sh
+    Set-Location $PSScriptRoot
+    switch($t) {
+        "win32"{
+            $env:TARGET_platform='win-64'
+            pixi run rattler-build build --target-platform 'win-64'
+            }
+        "x86_64"{
+            $env:TARGET_platform='linux-64'
+            pixi run rattler-build build --target-platform 'linux-64'
+            }
+        "aarch64"{
+            $env:TARGET_platform='linux-aarch64'
+            pixi run rattler-build build --target-platform 'linux-aarch64'
+            }
+        }   
+        Set-Location $ROOT/temp/$name/$name
         Write-Output "::endgroup::"
 }
