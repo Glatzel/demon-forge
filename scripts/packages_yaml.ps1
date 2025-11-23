@@ -6,10 +6,13 @@ Set-Content -Path $yamlFile -Value ""
 # Read CSV
 $csvData = Import-Csv $csvFile
 ForEach ($Row in $csvData) {
-    $Row.pkg>>$yamlFile
+    "$Row.pkg"+':'>>$yamlFile
+    '  - ./packages/"+"$Row.pkg'+'/**'>>$yamlFile
+    
 }
 
 # Print the exact contents of the YAML file
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
+
