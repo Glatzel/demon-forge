@@ -9,6 +9,7 @@ git clone https://github.com/tsl0922/ttyd.git
 Set-Location $name
 git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
+git apply config.patch
 
 write-output    "::group::font"
 & ./download-font.ps1
