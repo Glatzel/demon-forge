@@ -4,7 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 
 New-Item $env:PREFIX/bin -ItemType Directory
 switch($env:TARGET_PLATFORM){
-"win-64"{copy-item $ROOT/temp/$name/$name/build/$name.win32.exe $env:PREFIX/bin/$name.exe}
-"linux-64"{copy-item $ROOT/temp/$name/$name/build/$name.x86_64 $env:PREFIX/bin/$name}
-"linux-aarch64"{copy-item $ROOT/temp/$name/$name/build/$name.aarch64 $env:PREFIX/bin/$name}
+"win-64"{copy-item $ROOT/temp/$name/$name/build/$name.exe $env:PREFIX/bin/$name.exe}
+"linux-64"{copy-item $ROOT/temp/$name/$name/build/$name $env:PREFIX/bin/$name}
+"linux-aarch64"{copy-item $ROOT/temp/$name/$name/build/$name $env:PREFIX/bin/$name}
 }
