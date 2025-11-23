@@ -86,6 +86,11 @@ function update-vcpkg-json {
     # save formatted JSON
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
+function pre-build {
+    param( $name)
+    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+    New-Item  $ROOT/temp/$name -ItemType Directory
+}
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)
@@ -129,11 +134,7 @@ function update-recipe {
 function reset-build-code {
     (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
 }
-function pre-build {
-    param( $name)
-    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-    New-Item  $ROOT/temp/$name -ItemType Directory
-}
+
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
