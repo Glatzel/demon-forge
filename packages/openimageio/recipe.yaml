@@ -1,0 +1,26 @@
+context:
+  name: openimageio
+
+package:
+  name: ${{ name }}
+  version: "3.1.7.0"
+
+build:
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  number: 0
+
+tests:
+  - script:
+      - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/oiiotool${{'.exe' if win}} --help"
+about:
+  homepage: https://openimageio.org
+  license: BSD-3-Clause
+  summary: Library for reading and writing images
+  description: >
+    OpenImageIO (OIIO) is an open-source library for reading,
+    writing, and processing images. It supports a wide variety
+    of image formats and provides utilities for image manipulation,
+    texture processing, and metadata handling, commonly used in
+    visual effects and animation pipelines.
+  documentation: https://openimageio.org/documentation/
+  repository: https://github.com/OpenImageIO/oiio
