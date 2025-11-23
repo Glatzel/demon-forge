@@ -21,7 +21,8 @@ switch ($env:GITHUB_EVENT_NAME) {
     # "schedule" {  }
     # "workflow_dispatch" {  }
     default {
-        $rule = '{include:
+        $rule = '
+{include:
   .include
   | group_by(.pkg)
   | map(
