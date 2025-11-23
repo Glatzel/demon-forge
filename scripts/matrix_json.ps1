@@ -21,7 +21,9 @@ foreach ($row in $csvData) {
 
 $matrix=$matrix | ConvertTo-Json -Depth 10 -Compress | jq '{include: .}'
 switch ($env:GITHUB_EVENT){
-    "schedule","workflow_dispatch"{$matrix=$($matrix|jq -c --argjson pkgs "${env:CHANGED_KEYS}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')}
+"push" -or "pull_request" {$matrix=$matrix|jq -c --argjson pkgs "${env:CHANGED_KEYS}" '.include | map(select(.pkg as $p | $pkgs | index($p)))')
+}
+    "schedule" -or "workflow_dispatch"{$matrix=$matrix|jq -c .}
 }
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
 Write-Output "::group::json"
