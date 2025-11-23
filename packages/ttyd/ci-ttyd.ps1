@@ -38,15 +38,15 @@ foreach($t in "win32","x86_64","aarch64")
     Set-Location $PSScriptRoot
     switch($t) {
         "win32"{
-            $env:TARGET_platform='win-64'
+            $env:TARGET_PLATFORM='win-64'
             pixi run rattler-build build --target-platform 'win-64'
             }
         "x86_64"{
-            $env:TARGET_platform='linux-64'
+            $env:TARGET_PLATFORM='linux-64'
             pixi run rattler-build build --target-platform 'linux-64'
             }
         "aarch64"{
-            $env:TARGET_platform='linux-aarch64'
+            $env:TARGET_PLATFORM='linux-aarch64'
             pixi run rattler-build build --target-platform 'linux-aarch64'
             }
         }
