@@ -22,11 +22,13 @@ switch ($env:GITHUB_EVENT_NAME) {
     "workflow_dispatch" { $matrix = $matrix | jq -c . }
     default { $matrix = $matrix | jq -c . }
 }
-Write-Output "::group::json raw"
-$matrix | jq -c .
-Write-Output "::endgroup::"
+
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
-$matrix="$matrix".Replace('"','\"')
+
+$matrix = "$matrix".Replace('"', '\"')
+Write-Output "::group::json raw"
+Write-Output $matrix
+Write-Output "::endgroup::"
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
