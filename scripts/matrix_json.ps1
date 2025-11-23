@@ -25,4 +25,3 @@ $matrix=$matrix | ConvertTo-Json -Depth 10 -Compress | jq '{include: .}'
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
-
