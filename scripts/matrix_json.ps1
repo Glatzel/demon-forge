@@ -26,4 +26,4 @@ switch ($env:GITHUB_EVENT_NAME) {
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
-Write-Output $RESULT | Tee-Object -a ${env:GITHUB_OUTPUT}
+Write-Output $matrix | Tee-Object -a ${env:GITHUB_OUTPUT}
