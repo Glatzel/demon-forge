@@ -1,7 +1,7 @@
 # Input CSV
-$csvFile = "$PSScriptRoot/packages.csv"
+$csvFile = "$PSScriptRoot/../packages.csv"
 # Output YAML
-$yamlFile = "$PSScriptRoot/packages.yaml"
+$yamlFile = "$PSScriptRoot/../packages.yaml"
 
 # Read CSV
 $csvData = Import-Csv $csvFile
@@ -22,3 +22,4 @@ Write-Host "Generated YAML file: $yamlFile"
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
+
