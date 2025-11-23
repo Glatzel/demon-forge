@@ -31,21 +31,34 @@ function get-name {
 
 # Function: Get the latest release tag from a GitHub repository
 function get-version-github {
-    param($repo)
-    $version = gh release view -R $repo --json tagName -q .tagName
-    $version = "$version".Replace("v", "")
-    return $version
+    param($repo)for ($i = 0; $i -lt 5; $i++) {
+        $latest = gh release view -R $repo --json tagName -q .tagName
+        $latest = "$latest".Replace("v", "")
+        if ($latest) {
+            return $latest
+        }
+    }
 }
 function get-version-crateio {
     param($name)
-    (cargo search $name | Select-String -Pattern "^$name = ""\d" | ForEach-Object {
-        ($_ -split '"')[1]
-    })
+    for ($i = 0; $i -lt 5; $i++) {
+        $latest = (cargo search $name | Select-String -Pattern "^$name = ""\d" | ForEach-Object {
+                ($_ -split '"')[1]
+            })
+        if ($latest) {
+            return $latest
+        }
+    }
 }
 function get-version-vcpkg {
     param($name)
-    curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
-        jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
+    for ($i = 0; $i -lt 5; $i++) {
+        $versions = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
+            jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
+        if ($latest) {
+            return $latest
+        }
+    }
 }
 function get-version-url {
     param($url, $pattern)
