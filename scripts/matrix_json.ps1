@@ -22,12 +22,10 @@ $env:CHANGED_KEYS = "${env:CHANGED_KEYS}".Replace("\", "")
 
 switch ($env:GITHUB_EVENT_NAME) {
     "push" {
-        $matrix = $matrix | `
-            jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
+        $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
     "pull_request" {
-        $matrix = $matrix | `
-            jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
+        $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
     default {
         $rule = @"
