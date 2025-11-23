@@ -35,6 +35,9 @@ foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
     $env:BUILD_TARGET = $t
     & bash ./scripts/cross-build.sh
+    Write-Output "::endgroup::"
+
+    Write-Output "::group::compile $t"
     Set-Location $PSScriptRoot
     switch ($t) {
         "win32" {
