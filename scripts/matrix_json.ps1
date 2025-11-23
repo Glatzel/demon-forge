@@ -1,7 +1,5 @@
 # Input CSV file
-$csvFile = "packages.csv"
-# Output JSON file
-$jsonFile = "packages-matrix.json"
+$csvFile = "$PSScriptRoot/../packages.csv"
 
 # Read CSV
 $csvData = Import-Csv $csvFile
@@ -22,6 +20,5 @@ foreach ($row in $csvData) {
 }
 
 # Convert to minified JSON and save
-$matrix | ConvertTo-Json -Depth 10 -Compress | Set-Content -Encoding UTF8 $jsonFile
+$matrix | ConvertTo-Json -Depth 10 -Compress 
 
-Write-Host "Converted CSV to minified JSON for GitHub Actions: $jsonFile"
