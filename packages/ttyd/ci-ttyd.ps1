@@ -6,8 +6,8 @@ update-recipe -version $latest_version
 
 Set-Location $ROOT/temp/$name
 git clone https://github.com/tsl0922/ttyd.git
-git checkout tags/"$latest_version" -b "$latest_version-branch"
 Set-Location $name
+git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
 & $ROOT/temp/$name/scripts/download-font.ps1
 pixi run corepack enable
