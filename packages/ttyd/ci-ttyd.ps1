@@ -9,7 +9,7 @@ git clone https://github.com/tsl0922/ttyd.git
 Set-Location $name
 git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
-& $ROOT/temp/$name/download-font.ps1
+& ./download-font.ps1
 pixi run corepack enable
 pixi run corepack prepare yarn@stable --activate
 pixi run yarn install
@@ -21,7 +21,6 @@ foreach($t in "win32","x86_64","aarch64")
 {
 $env:BUILD_TARGET=$t
 & bash ./scripts/cross-build.sh
-
 }
 ls ./build
 Set-Location $PSScriptRoot
