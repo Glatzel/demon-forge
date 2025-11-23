@@ -15,10 +15,11 @@ $yamlLines = $csvData | ForEach-Object {
 } | Select-Object -ExpandProperty *
 
 # Write all lines to file at once
-$yamlLines | Set-Content -Encoding UTF8 $yamlFile
+$yamlLines | Set-Content $yamlFile
 Write-Host "Generated YAML file: $yamlFile"
 
 # Print the exact contents of the YAML file
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
+
