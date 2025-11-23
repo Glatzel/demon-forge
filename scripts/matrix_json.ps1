@@ -20,5 +20,4 @@ foreach ($row in $csvData) {
 }
 
 # Convert to minified JSON and save
-$matrix | ConvertTo-Json -Depth 10 -Compress 
-
+$matrix | ConvertTo-Json -Depth 10 -Compress
