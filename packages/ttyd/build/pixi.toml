@@ -1,7 +1,7 @@
 [workspace]
 channels = ["conda-forge"]
 name = "ttyd"
-platforms = ["win-64", "linux-64"]
+platforms = [ "linux-64"]
 
 
 [dependencies]
