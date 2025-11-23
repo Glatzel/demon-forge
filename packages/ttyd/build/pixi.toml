@@ -1,9 +1,9 @@
 [workspace]
 channels = ["conda-forge"]
 name = "ttyd"
-platforms = ["win-64","linux-64"]
+platforms = ["win-64", "linux-64"]
 
 
 [dependencies]
-fonttools="==4.60.1"
-brotlipy="*"
+brotlipy = "*"
+fonttools = "==4.60.1"
