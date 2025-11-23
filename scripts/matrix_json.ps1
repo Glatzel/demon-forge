@@ -22,7 +22,7 @@ switch ($env:GITHUB_EVENT_NAME) {
     "workflow_dispatch" { $matrix = $matrix | jq -c . }
     default { $matrix = $matrix | jq -c . }
 }
-Write-Output $matrix | Tee-Object -a $env:GITHUB_OUTPUT
+"matrix=$matrix">> $env:GITHUB_OUTPUT
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
