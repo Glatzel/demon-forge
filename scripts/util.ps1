@@ -53,7 +53,7 @@ function get-version-crateio {
 function get-version-vcpkg {
     param($name)
     for ($i = 0; $i -lt 5; $i++) {
-        $versions = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
+        $latest = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
             jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
         if ($latest) {
             return $latest
