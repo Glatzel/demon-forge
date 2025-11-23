@@ -48,7 +48,7 @@ foreach($t in "win32","x86_64","aarch64")
             $env:TARGET_platform='linux-aarch64'
             pixi run rattler-build build --target-platform 'linux-aarch64'
             }
-        }   
+        }
         Set-Location $ROOT/temp/$name/$name
         Write-Output "::endgroup::"
 }
