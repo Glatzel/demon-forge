@@ -20,8 +20,9 @@ foreach ($row in $csvData) {
 }
 
 # Convert to minified JSON and save
-$matrix=$matrix | ConvertTo-Json -Depth 10 -Compress
+$matrix=$matrix | ConvertTo-Json -Depth 10 -Compress | jq '{include: .}'
 
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
+
