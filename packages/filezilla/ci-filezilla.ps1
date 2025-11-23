@@ -8,6 +8,6 @@ pixi run -e selenium python download.py
 
 $zipfile = (Get-ChildItem "$ROOT/temp/$name/FileZilla*win64.zip")[0]
 7z x "$zipfile" "-o$ROOT/temp/$name"
-
+ls $ROOT/temp/$name
 update-recipe -version $latest_version
 build-pkg
