@@ -5,7 +5,7 @@ $yamlFile = "$PSScriptRoot/../packages.yaml"
 
 # Read CSV
 $csvData = Import-Csv $csvFile
-
+$csvData | Format-Table
 # Generate all YAML lines at once
 $yamlLines = $csvData | ForEach-Object {
     @(
@@ -22,3 +22,4 @@ Write-Host "Generated YAML file: $yamlFile"
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
+
