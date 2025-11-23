@@ -35,7 +35,7 @@ jobs:
       - name: matrix_yaml
         run: ./scripts/matrix_yml.ps1
         shell: pwsh
-        
+
       - id: change
         if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         uses: tj-actions/changed-files@v47
@@ -93,4 +93,3 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
-
