@@ -1,10 +1,4 @@
-# Input CSV file
-$csvFile = "$PSScriptRoot/../packages.csv"
-
-# Read CSV
-$csvData = Import-Csv $csvFile
-
-# Initialize JSON array
+$csvData = Import-Csv "$PSScriptRoot/../packages.csv"
 $matrix = @()
 
 foreach ($row in $csvData) {
@@ -28,10 +22,11 @@ switch ($env:GITHUB_EVENT_NAME) {
     "workflow_dispatch" { $matrix = $matrix | jq -c . }
     default { $matrix = $matrix | jq -c . }
 }
-"matrix=$matrix" >> $env:GITHUB_OUTPUT
 Write-Output "::group::json raw"
 $matrix | jq -c .
 Write-Output "::endgroup::"
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
+$matrix="$matrix".Replace('"','\"')
+"matrix=$matrix" >> $env:GITHUB_OUTPUT
