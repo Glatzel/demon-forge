@@ -9,7 +9,7 @@ git clone https://github.com/tsl0922/ttyd.git
 Set-Location $name
 git checkout tags/"$latest_version" -b "$latest_version-branch"
 copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
-& $ROOT/temp/$name/scripts/download-font.ps1
+& $ROOT/temp/$name/download-font.ps1
 pixi run corepack enable
 pixi run corepack prepare yarn@stable --activate
 pixi run yarn install
