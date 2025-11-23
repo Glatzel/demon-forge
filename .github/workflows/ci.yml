@@ -40,6 +40,9 @@ jobs:
           json: true
           files_yaml_from_source_file:  ''
       - name: generate-matrix
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REF_NAME: ${{github.ref_name}}
         id: generate-matrix
         run: ./scripts/matrix_json.ps1
         shell: pwsh
@@ -87,3 +90,5 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+
+
