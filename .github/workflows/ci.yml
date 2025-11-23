@@ -31,7 +31,7 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix_json.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: packages_yaml
         if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
         run: ./scripts/packages_yaml.ps1
@@ -59,7 +59,7 @@ jobs:
 
     runs-on: ${{matrix.machine}}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Set up pixi
         uses: prefix-dev/setup-pixi@v0.9.3
