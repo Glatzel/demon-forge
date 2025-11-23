@@ -8,7 +8,7 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script:
-      - pwsh -Command "Test-Path $env:PREFIX/bin/${{ name }}/PureRef${{'.exe' if win}}"
+      - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/PureRef${{'.exe' if win}}"
 about:
   homepage: https://www.pureref.com
   summary: Lightweight reference image organizer for artists
