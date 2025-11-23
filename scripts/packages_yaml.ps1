@@ -13,4 +13,3 @@ ForEach ($Row in $csvData) {
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
-
