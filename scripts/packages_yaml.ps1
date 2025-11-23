@@ -7,7 +7,7 @@ Set-Content -Path $yamlFile -Value ""
 $csvData = Import-Csv $csvFile
 ForEach ($Row in $csvData) {
     $pkg=$Row.pkg
-    "${pkg}∆:">>$yamlFile
+    "${pkg}:">>$yamlFile
     "  - ./packages/$pkg/**">>$yamlFile
 }
 
@@ -15,4 +15,5 @@ ForEach ($Row in $csvData) {
 Write-Output "::group::yaml"
 Get-Content $yamlFile | ForEach-Object { Write-Host $_ }
 Write-Output "::endgroup::"
+
 
