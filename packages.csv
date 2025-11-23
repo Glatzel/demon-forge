@@ -1,6 +1,7 @@
 pkg,windows-latest,macos-latest,ubuntu-latest,ubuntu-24.04-arm
 android-sdk-platform-tools,true,false,false,false
 aria2,true,false,false,false
+ast-grep,true,true,true,true
 audacity,true,false,false,false
 bitcomet,true,false,false,false
 blender,true,false,false,false
@@ -9,7 +10,9 @@ calibre,true,false,false,false
 cargo-binutils,true,true,true,true
 cargo-bloat,true,true,true,false
 cargo-espflash,true,true,true,false
+cargo-llvm-cov,true,true,true,true
 cargo-llvm-lines,true,true,true,false
+cargo-nextest,true,true,true,true
 cargo-unused-features,true,true,true,false
 cloudflared,true,false,true,true
 cpu-z,true,false,false,false
