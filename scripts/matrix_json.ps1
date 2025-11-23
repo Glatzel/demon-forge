@@ -28,18 +28,7 @@ switch ($env:GITHUB_EVENT_NAME) {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
     default {
-        $rule = @'
-{include: .include | group_by(.pkg) | map(sort_by(
-    if .machine == "ubuntu-latest" then 0
-    elif .machine == "macos-latest" then 1
-    elif .machine == "windows-latest" then 2
-    elif .machine == "ubuntu-24.04-arm" then 3
-    else 4
-    end
-) | .[0])}
-'@
-        $rule = ($rule -split "`r?`n" | ForEach-Object { $_.Trim() }) -join ' '
-        $matrix = $matrix | jq -c "$rule"
+        $matrix = $matrix | jq -c '{include: .include | map(.machine = "ubuntu-latest") | group_by(.pkg) | map(.[0])}'
     }
 }
 
