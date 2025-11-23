@@ -31,21 +31,34 @@ function get-name {
 
 # Function: Get the latest release tag from a GitHub repository
 function get-version-github {
-    param($repo)
-    $version = gh release view -R $repo --json tagName -q .tagName
-    $version = "$version".Replace("v", "")
-    return $version
+    param($repo)for ($i = 0; $i -lt 5; $i++) {
+        $latest = gh release view -R $repo --json tagName -q .tagName
+        $latest = "$latest".Replace("v", "")
+        if ($latest) {
+            return $latest
+        }
+    }
 }
 function get-version-crateio {
     param($name)
-    (cargo search $name | Select-String -Pattern "^$name = ""\d" | ForEach-Object {
-        ($_ -split '"')[1]
-    })
+    for ($i = 0; $i -lt 5; $i++) {
+        $latest = (cargo search $name | Select-String -Pattern "^$name = ""\d" | ForEach-Object {
+                ($_ -split '"')[1]
+            })
+        if ($latest) {
+            return $latest
+        }
+    }
 }
 function get-version-vcpkg {
     param($name)
-    curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
-        jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
+    for ($i = 0; $i -lt 5; $i++) {
+        $latest = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
+            jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
+        if ($latest) {
+            return $latest
+        }
+    }
 }
 function get-version-url {
     param($url, $pattern)
@@ -72,6 +85,11 @@ function update-vcpkg-json {
 
     # save formatted JSON
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
+}
+function pre-build {
+    param( $name)
+    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+    New-Item  $ROOT/temp/$name -ItemType Directory
 }
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
@@ -116,11 +134,7 @@ function update-recipe {
 function reset-build-code {
     (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
 }
-function pre-build {
-    param( $name)
-    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
-    New-Item  $ROOT/temp/$name -ItemType Directory
-}
+
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"

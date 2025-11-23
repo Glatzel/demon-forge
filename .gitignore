@@ -5,7 +5,5 @@
 # pkg
 output
 temp
-*.conda
-__pycache__
-build
 packages.yaml
+__pycache__

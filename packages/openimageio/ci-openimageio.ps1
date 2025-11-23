@@ -6,15 +6,13 @@ $latest_version = get-version-github -repo "AcademySoftwareFoundation/OpenImageI
 update-recipe -version $latest_version
 
 #pre-build
-Remove-Item $PSScriptRoot/../openimageio_build/external -Recurse -ErrorAction SilentlyContinue
-Remove-Item $PSScriptRoot/../openimageio_build/vcpkg -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item $PSScriptRoot/../openimageio_build/dist -Recurse -ErrorAction SilentlyContinue
-& $PSScriptRoot/../openimageio_build/scripts/pixi-setup.ps1
-& $PSScriptRoot/../openimageio_build/scripts/clone-repo.ps1
-& $PSScriptRoot/../openimageio_build/scripts/vcpkg-setup.ps1
-& $PSScriptRoot/../openimageio_build/scripts/vcpkg-install.ps1
-& $PSScriptRoot/../openimageio_build/scripts/build-oiio.ps1
-& $PSScriptRoot/../openimageio_build/scripts/copy-item.ps1
+Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
+& $ROOT/temp/$name/scripts/pixi-setup.ps1
+& $ROOT/temp/$name/scripts/clone-repo.ps1
+& $ROOT/temp/$name/scripts/vcpkg-setup.ps1
+& $ROOT/temp/$name/scripts/vcpkg-install.ps1
+& $ROOT/temp/$name/scripts/build-oiio.ps1
+& $ROOT/temp/$name/scripts/copy-item.ps1
 
 #rattler build
 Set-Location $PSScriptRoot
