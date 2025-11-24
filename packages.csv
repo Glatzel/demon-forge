@@ -18,6 +18,7 @@ cloudflared,true,false,true,true
 cpu-z,true,false,false,false
 dism-plus-plus,true,false,false,false
 dufs,true,true,true,true
+easytier,true,true,true,true
 edit,true,false,true,true
 esp-generate,true,true,true,false
 espflash,true,true,true,false
