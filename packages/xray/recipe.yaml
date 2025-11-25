@@ -1,0 +1,10 @@
+context:
+  name: xray
+package:
+  version: "2.4.5"
+  name: ${{ name }}
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+tests:
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}-core${{'.exe' if win}} --help"
