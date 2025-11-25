@@ -42,4 +42,5 @@ spek,true,false,false,false
 termscp,true,false,false,false
 ttyd,false,false,true,false
 upx,true,false,false,false
+xray,true,true,true,true
 zyperwin,true,false,false,false
