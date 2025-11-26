@@ -29,6 +29,7 @@ imagemagick,true,false,false,false
 jq,true,false,false,false
 libraw,true,true,true,false
 librepcb,true,false,false,false
+nssm,true,false,false,false
 nuget,true,false,false,false
 obs-studio,true,false,false,false
 openimageio,true,false,false,false
