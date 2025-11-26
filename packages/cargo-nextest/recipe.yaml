@@ -8,3 +8,13 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+about: 
+  homepage: https://nexte.st
+  license: MIT OR Apache-2.0
+  summary: Next-generation test runner for Rust
+  description: >
+    Cargo Nextest is a next-generation test runner for Rust that aims to be faster,
+    more reliable, and more feature-rich than the default Cargo test runner. It provides
+    advanced features such as parallel test execution, test filtering, and detailed
+    reporting to enhance the testing experience for Rust developers.
+  repository: https://github.com/nextest-rs/nextest

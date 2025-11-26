@@ -8,6 +8,12 @@ build:
   number: 0
 tests:
   - script:
-      - if: win
-        then:
-          - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/bin/${{ name }}${{'.exe' if win}}"
+      - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/bin/${{ name }}${{'.exe' if win}}"
+about:
+  homepage: https://librepcb.org
+  license: GPL-3.0-only
+  summary: LibrePCB is a free EDA software to develop printed circuit boards
+  description: >
+    LibrePCB is a free EDA software to develop printed circuit boards. It features an
+    easy-to-use interface, a powerful library concept, and is designed to be extensible.
+  repository: https://github.com/LibrePCB/LibrePCB

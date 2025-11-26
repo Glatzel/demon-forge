@@ -8,3 +8,10 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script: pwsh -Command "&  ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} llvm-cov --help"
+about: 
+  homepage: https://github.com/taiki-e/cargo-llvm-cov
+  license: MIT OR Apache-2.0
+  summary: Cargo subcommands for LLVM coverage tools
+  description: >
+    A collection of Cargo subcommands for working with LLVM coverage tools such as llvm-cov.
+  repository: https://github.com/taiki-e/cargo-llvm-cov
