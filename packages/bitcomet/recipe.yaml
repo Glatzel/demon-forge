@@ -9,7 +9,7 @@ build:
 tests:
   - script:
       - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/BitComet${{'.exe' if win}}"
-about: 
+about:
   homepage: https://www.bitcomet.com
   license: Freeware
   summary: A powerful BitTorrent/HTTP/FTP download client
