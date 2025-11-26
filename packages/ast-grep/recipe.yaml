@@ -8,3 +8,10 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+about:
+  homepage: https://ast-grep.github.io
+  license: MIT
+  summary: A tool for structural code search and replace using AST patterns
+  description: |
+    ast-grep is a tool for searching and replacing code using Abstract Syntax Tree (AST) patterns. It supports multiple programming languages and allows developers to perform structural code analysis and transformations efficiently.
+  repository: https://github.com/ast-grep/ast-grep

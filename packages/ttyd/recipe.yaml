@@ -9,3 +9,11 @@ build:
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
+about: 
+  homepage: https://github.com/tsl0922/ttyd
+  license: MIT OR Apache-2.0
+  summary: A simple command-line tool for sharing terminal over the web
+  description: >
+    ttyd is a simple command-line tool for sharing terminal over the web. It is
+    based on libwebsockets and provides a web-based terminal emulator.
+  repository: https://github.com/tsl0922/ttyd
