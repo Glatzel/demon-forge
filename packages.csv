@@ -29,6 +29,7 @@ imagemagick,true,false,false,false
 jq,true,false,false,false
 libraw,true,true,true,false
 librepcb,true,false,false,false
+mqttui,true,true,true,true
 nssm,true,false,false,false
 nuget,true,false,false,false
 obs-studio,true,false,false,false
@@ -37,6 +38,7 @@ peazip,true,false,false,false
 proj,true,true,true,true
 pureref,true,false,false,false
 rufus,true,false,false,false
+rumqttd,true,true,true,true,
 slumber,true,false,true,false
 sony-camera-remote-sdk,true,true,true,false
 spek,true,false,false,false
