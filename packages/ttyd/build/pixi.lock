@@ -13,7 +13,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-hda65f42_8.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.11.12-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cffi-2.0.0-py314h4a8dc5f_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/fonttools-4.60.1-pyh7db6752_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/fonttools-4.61.0-pyh7db6752_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-75.1-he02047a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.45-default_hbd61a6d_104.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libbrotlicommon-1.2.0-hb03c661_1.conda
@@ -132,9 +132,9 @@ packages:
   license_family: MIT
   size: 300271
   timestamp: 1761203085220
-- conda: https://conda.anaconda.org/conda-forge/noarch/fonttools-4.60.1-pyh7db6752_0.conda
-  sha256: 0784c48b72fc19d9b844fc3408930f4afa5ba6d28ef83c55e3da882ea511e4b0
-  md5: 85c6b2f3ae5044dd279dc0970f882cd9
+- conda: https://conda.anaconda.org/conda-forge/noarch/fonttools-4.61.0-pyh7db6752_0.conda
+  sha256: dea661749b53d5ea7a28d3aa88bb2f60de884dd0ca27ba5e474246f5d4049c91
+  md5: 2ae6c63938d6dd000e940673df75419c
   depends:
   - brotli
   - munkres
@@ -144,8 +144,8 @@ packages:
   - fonttools_no_compile
   license: MIT
   license_family: MIT
-  size: 828176
-  timestamp: 1759187245788
+  size: 829871
+  timestamp: 1764352874210
 - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-75.1-he02047a_0.conda
   sha256: 71e750d509f5fa3421087ba88ef9a7b9be11c53174af3aa4d06aff4c18b38e8e
   md5: 8b189310083baabfb622af68fd9d3ae3
