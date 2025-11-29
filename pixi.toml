@@ -8,7 +8,7 @@ rattler-build = "==0.52.0"
 [feature.selenium]
 platforms = ["win-64", "linux-64", "osx-arm64"]
 [feature.selenium.dependencies]
-python = "3.11.*"
+python = "3.13.*"
 selenium = "==4.38.0"
 toolbox = { version = "==0.0.20", channel = "https://prefix.dev/glatzel" }
 
