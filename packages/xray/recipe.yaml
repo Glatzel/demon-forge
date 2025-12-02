@@ -1,7 +1,7 @@
 context:
   name: xray
 package:
-  version: "25.12.1"
+  version: "25.12.2"
   name: ${{ name }}
 build:
   number: 0
