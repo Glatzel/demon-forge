@@ -2,10 +2,10 @@ context:
   name: nuget
 package:
   name: ${{ name }}
-  version: "7.0.0"
+  version: "7.0.1"
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-  number: 1
+  number: 0
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} help"
 about:
