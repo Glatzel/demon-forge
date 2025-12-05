@@ -12,6 +12,6 @@ if ($IsLinux -and $arch -eq "Arm64") {
         -O  $ROOT/temp/$name/$name.tar.gz --clobber
 }
 7z x $ROOT/temp/$name/$name.tar.gz "-o$ROOT/temp/$name/"
-7z x $ROOT/temp/$name/$name.tar "-o$ROOT/temp/$name/$name"
+7z x $ROOT/temp/$name/*.tar "-o$ROOT/temp/$name/$name"
 
 build-pkg
