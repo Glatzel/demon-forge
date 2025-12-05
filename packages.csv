@@ -30,6 +30,8 @@ jq,true,false,false,false
 libraw,true,true,true,false
 librepcb,true,false,false,false
 mqttui,true,true,true,true
+nerdctl,true,false,true,true
+nerdctl-full,false,false,true,true
 nssm,true,false,false,false
 nuget,true,false,false,false
 obs-studio,true,false,false,false
