@@ -15,6 +15,7 @@ cargo-llvm-lines,true,true,true,false
 cargo-nextest,true,true,true,true
 cargo-unused-features,true,true,true,false
 cloudflared,true,false,true,true
+containerd,true,false,true,true
 cpu-z,true,false,false,false
 dism-plus-plus,true,false,false,false
 dufs,true,true,true,true
@@ -30,6 +31,7 @@ jq,true,false,false,false
 libraw,true,true,true,false
 librepcb,true,false,false,false
 mqttui,true,true,true,true
+nerdctl,true,false,true,true
 nssm,true,false,false,false
 nuget,true,false,false,false
 obs-studio,true,false,false,false
