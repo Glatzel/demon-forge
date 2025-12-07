@@ -15,7 +15,6 @@ cargo-llvm-lines,true,true,true,false
 cargo-nextest,true,true,true,true
 cargo-unused-features,true,true,true,false
 cloudflared,true,false,true,true
-cni-plugins,true,false,true,true
 containerd,true,false,true,true
 cpu-z,true,false,false,false
 dism-plus-plus,true,false,false,false
