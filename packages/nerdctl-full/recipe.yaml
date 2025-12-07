@@ -7,7 +7,7 @@ build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
-  run: 
+  run:
     - runc
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/nerdctl${{'.exe' if win}} --help"
