@@ -42,7 +42,7 @@ proj,true,true,true,true
 pureref,true,false,false,false
 rufus,true,false,false,false
 rumqttd,true,true,true,true
-slumber,true,false,true,false
+slumber,true,true,true,true
 sony-camera-remote-sdk,true,true,true,false
 spek,true,false,false,false
 termscp,true,false,false,false
