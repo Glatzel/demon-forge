@@ -4,7 +4,7 @@ package:
   version: "0.4.0"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/cargo-size${{'.exe' if win}} --help"
