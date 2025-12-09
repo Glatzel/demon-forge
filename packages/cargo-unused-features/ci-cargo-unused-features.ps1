@@ -4,7 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-crateio -name $name
 update-recipe -version $latest_version
 
-cargo install $name --locked --force --root $ROOT/temp/$name
+build-cargo-package $name $name
 if ($IsWindows) {
     Rename-Item $ROOT/temp/$name/bin/unused-features.exe $ROOT/temp/$name/bin/$name.exe
 }
