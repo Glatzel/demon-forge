@@ -7,7 +7,7 @@
             "name": "v2rayn",
             "description": "Launch v2rayn",
             "command": [
-                "{{ PREFIX }}/bin/v2rayN.exe"
+                "{{ PREFIX }}/bin/v2rayn/v2rayN"
             ],
             "platforms": {
                 "win": {
