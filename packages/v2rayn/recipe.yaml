@@ -1,0 +1,11 @@
+context:
+  name: v2rayn
+package:
+  version: "4.1"
+  name: ${{ name }}
+build:
+  number: 2
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+tests:
+  - script:
+      - pwsh -Command "Resolve-Path $env:PREFIX/bin/v2rayN${{'.exe' if win}}"
