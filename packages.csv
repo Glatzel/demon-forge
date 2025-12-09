@@ -45,7 +45,7 @@ rumqttd,true,true,true,true
 slumber,true,true,true,true
 sony-camera-remote-sdk,true,true,true,false
 spek,true,false,false,false
-termscp,true,true,true,true
+termscp,true,false,false,false
 ttyd,false,false,true,false
 upx,true,false,false,false
 v2rayn,true,false,false,false
