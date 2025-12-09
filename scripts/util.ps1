@@ -102,7 +102,12 @@ function build-cargo-package {
             --config 'profile.release.strip=true'
     }
     else {
-        cargo install $crate_names --root $ROOT/temp/$name --locked --force
+        cargo install $crate_names --root $ROOT/temp/$name --locked --force `
+            --config 'profile.release.opt-level=0' `
+            --config 'profile.release.debug=false' `
+            --config 'profile.release.codegen-units=256' `
+            --config 'profile.release.lto="off"' `
+            --config 'profile.release.strip=false'
     }
 }
 function build-cargo-package-github {
@@ -116,7 +121,12 @@ function build-cargo-package-github {
             --config 'profile.release.strip=true'
     }
     else {
-        cargo install --git $url --tag $tag --root $ROOT/temp/$name --force
+        cargo install --git $url --tag $tag --root $ROOT/temp/$name --force `
+            --config 'profile.release.opt-level=0' `
+            --config 'profile.release.debug=false' `
+            --config 'profile.release.codegen-units=256' `
+            --config 'profile.release.lto="off"' `
+            --config 'profile.release.strip=false'
     }
 }
 # Function: Update the recipe.yaml file if a new version is detected
