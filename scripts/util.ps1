@@ -93,7 +93,7 @@ function pre-build {
 }
 function build-cargo-package {
     param( $name, $crate_names)
-    if ($env:PUBLISH_BUILD) {
+    if ($env:DIST_BUILD) {
         cargo install $crate_names --root $ROOT/temp/$name --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
@@ -112,7 +112,7 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag)
-    if ($env:PUBLISH_BUILD) {
+    if ($env:DIST_BUILD) {
         cargo install --git $url --tag $tag --root $ROOT/temp/$name --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
@@ -157,7 +157,7 @@ function update-recipe {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; $env:PUBLISH_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; $env:DIST_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
             { $env:GITHUB_EVENT_NAME -eq "pull_request" } { pre-build -name $name }
 
