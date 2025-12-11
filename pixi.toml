@@ -10,7 +10,7 @@ platforms = ["win-64", "linux-64", "osx-arm64"]
 [feature.selenium.dependencies]
 python = "3.13.*"
 selenium = "==4.39.0"
-toolbox = { version = "==0.0.20", channel = "https://prefix.dev/glatzel" }
+toolbox = { version = "==3.5.0", channel = "https://prefix.dev/glatzel" }
 
 [feature.pip.dependencies]
 pip = "==25.3"
