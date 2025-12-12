@@ -36,6 +36,7 @@ nerdctl-full,false,false,true,true
 nssm,true,false,false,false
 nuget,true,false,false,false
 obs-studio,true,false,false,false
+opencolorio-config-aces,false,false,true,false
 openimageio,true,false,false,false
 peazip,true,false,false,false
 proj,true,true,true,true
