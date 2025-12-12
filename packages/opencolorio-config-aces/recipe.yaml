@@ -1,0 +1,11 @@
+context:
+  name: opencolorio-config-aces
+package:
+  version: 1.8.1
+  name: ${{ name }}
+build:
+  number: 4
+  noarch: generic
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+tests:
+  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/ocio/*.ocio"
