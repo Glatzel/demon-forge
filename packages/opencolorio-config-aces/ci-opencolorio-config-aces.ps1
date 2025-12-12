@@ -4,6 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github -repo "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
 update-recipe -version $latest_version
 
-gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -D  $ROOT/temp/$name --clobber
+gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "$ROOT/temp/$name" --clobber
 
 build-pkg
