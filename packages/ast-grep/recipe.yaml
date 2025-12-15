@@ -1,7 +1,7 @@
 context:
   name: ast-grep
 package:
-  version: "0.40.1"
+  version: "0.40.2"
   name: ${{ name }}
 build:
   number: 0
