@@ -1,7 +1,7 @@
 context:
   name: blender
 package:
-  version: "5.0.0"
+  version: "5.0.1"
   name: ${{ name }}
 build:
   number: 0
