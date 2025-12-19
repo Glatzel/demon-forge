@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-winget list
+winget search --source winget Microsoft.VisualStudio.BuildTools
 $latest_version = get-version-text -text $(winget search Microsoft.VisualStudio.BuildTools) -pattern ': (\d+\.\d+\.\d+)'
 update-recipe -version $latest_version
 
