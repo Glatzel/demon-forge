@@ -2,7 +2,8 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
-$latest_version = get-version-text -text $(winget show Microsoft.VisualStudio.BuildTools) -pattern ': (\d+\.\d+\.\d+)'
+$text = winget show Microsoft.VisualStudio.BuildTools
+$latest_version = get-version-text -text $text -pattern ': (\d+\.\d+\.\d+)'
 update-recipe -version $latest_version
 
 aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
