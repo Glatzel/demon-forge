@@ -76,16 +76,13 @@ function get-version-url {
 }
 function get-version-text {
     param($text, $pattern)
-    for ($i = 0; $i -lt 5; $i++) {
-        $versions = [regex]::Matches($text, $pattern) | `
-            ForEach-Object { $_.Groups[1].Value }
-        $latest = $versions | `
-            Sort-Object { [version]$_ } -Descending | `
-            Select-Object -First 1
-        if ($latest) {
-            return $latest
-        }
-    }
+
+    $versions = [regex]::Matches($text, $pattern) | `
+        ForEach-Object { $_.Groups[1].Value }
+    $latest = $versions | `
+        Sort-Object { [version]$_ } -Descending | `
+        Select-Object -First 1
+    return $latest
 }
 function update-vcpkg-json {
     param($file, $name, $version)
