@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+    "menu_name": "zed",
+    "menu_items": [
+        {
+            "name": "zed",
+            "description": "Launch zed",
+            "command": [
+                "{{ PREFIX }}/bin/zed.exe"
+            ],
+            "platforms": {
+                "win": {
+                    "desktop": false
+                }
+            }
+        }
+    ]
+}
