@@ -13,7 +13,8 @@ if($IsWindows){
       -Value 1 `
       -Force
 }
-
-build-cargo-package-github $name "https://github.com/zed-industries/$name.git" "v$latest_version" zed
-build-cargo-package-github $name "https://github.com/zed-industries/$name.git" "v$latest_version" cli
+cargo install --bins --git https://github.com/zed-industries/$name.git --tag "v$latest_version" --root $ROOT/temp/$name --force zed
+cargo install --bins --git https://github.com/zed-industries/$name.git --tag "v$latest_version" --root $ROOT/temp/$name --force cli
+# build-cargo-package-github $name "https://github.com/zed-industries/$name.git" "v$latest_version" zed
+# build-cargo-package-github $name "https://github.com/zed-industries/$name.git" "v$latest_version" cli
 build-pkg
