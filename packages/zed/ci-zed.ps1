@@ -3,6 +3,8 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $latest_version = get-version-github "zed-industries/$name"
 update-recipe -version $latest_version
+
+git config --system core.longpaths true
 New-ItemProperty `
   -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
   -Name "LongPathsEnabled" `
