@@ -1,7 +1,7 @@
 context:
   name: bitcomet
 package:
-  version: "2.18.11.3"
+  version: "2.19.12.15"
   name: ${{ name }}
 build:
   number: 0
