@@ -21,7 +21,12 @@ if ($env:DIST_BUILD){
     cargo build -r --package zed --package cli
 }
 else{
-    cargo build --package zed --package cli
+    cargo build --package zed --package cli `       
+--config 'profile.release.opt-level=0' `
+            --config 'profile.release.debug=false' `
+            --config 'profile.release.codegen-units=256' `
+            --config 'profile.release.lto="off"' `
+            --config 'profile.release.strip=false'
 }
 Set-Location $PSScriptRoot
 build-pkg
