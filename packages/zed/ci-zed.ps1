@@ -18,20 +18,10 @@ git clone https://github.com/zed-industries/zed.git
 cd zed
 git checkout tags/"v$latest_version" -b "$latest_version-branch"
 if ($env:DIST_BUILD){
-    cargo build -r --package zed --package cli `
-            --config 'profile.release.codegen-units=1' `
-            --config 'profile.release.debug=false' `
-            --config 'profile.release.lto="fat"' `
-            --config 'profile.release.opt-level=3' `
-            --config 'profile.release.strip=true'
+    cargo build -r --package zed --package cli
 }
 else{
-    cargo build --package zed --package cli `
---config 'profile.release.opt-level=0' `
-            --config 'profile.release.debug=false' `
-            --config 'profile.release.codegen-units=256' `
-            --config 'profile.release.lto="off"' `
-            --config 'profile.release.strip=false'
+    cargo build --package zed --package cli
 }
 Set-Location $PSScriptRoot
 build-pkg
