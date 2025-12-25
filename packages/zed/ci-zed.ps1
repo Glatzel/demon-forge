@@ -17,11 +17,11 @@ cd $ROOT/temp/$name
 git clone --branch "v$latest_version" https://github.com/zed-industries/zed.git
 cd zed
 if ($env:DIST_BUILD){
-    cargo build -r
+    cargo build -r --package zed --package cli
     ls ./target/release
 }
 else{
-    cargo build
+    cargo build --package zed --package cli
     ls ./target/debug
 }
 # build-pkgf
