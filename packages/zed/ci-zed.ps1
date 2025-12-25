@@ -23,4 +23,5 @@ if ($env:DIST_BUILD){
 else{
     cargo build --package zed --package cli
 }
-build-pkgf
+Set-Location $PSScriptRoot
+build-pkg
