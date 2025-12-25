@@ -121,7 +121,7 @@ function build-cargo-package {
     }
 }
 function build-cargo-package-github {
-    param( $name, $url, $tag,$target)
+    param( $name, $url, $tag, $target)
     if ($env:DIST_BUILD) {
         cargo install --bins --git $url --tag $tag --root $ROOT/temp/$name --locked --force `
             --config 'profile.release.codegen-units=1' `

@@ -4,11 +4,11 @@ $ROOT = git rev-parse --show-toplevel
 
 New-Item $env:PREFIX/bin -ItemType Directory
 
-if ($env:DIST_BUILD){
-$build_profile='release'
+if ($env:DIST_BUILD) {
+    $build_profile = 'release'
 }
-else{
-$build_profile='debug'
+else {
+    $build_profile = 'debug'
 }
 Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
 Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"

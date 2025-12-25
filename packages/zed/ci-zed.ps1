@@ -4,23 +4,23 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github "zed-industries/$name"
 update-recipe -version $latest_version
 
-if($IsWindows){
+if ($IsWindows) {
     git config --system core.longpaths true
     New-ItemProperty `
-      -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
-      -Name "LongPathsEnabled" `
-      -PropertyType DWord `
-      -Value 1 `
-      -Force
+        -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
+        -Name "LongPathsEnabled" `
+        -PropertyType DWord `
+        -Value 1 `
+        -Force
 }
-cd $ROOT/temp/$name
+Set-Location $ROOT/temp/$name
 git clone https://github.com/zed-industries/zed.git
-cd zed
+Set-Location zed
 git checkout tags/"v$latest_version" -b "$latest_version-branch"
-if ($env:DIST_BUILD){
+if ($env:DIST_BUILD) {
     cargo build -r --package zed --package cli
 }
-else{
+else {
     cargo build --package zed --package cli
 }
 Set-Location $PSScriptRoot
