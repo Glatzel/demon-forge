@@ -23,4 +23,4 @@ if ($env:DIST_BUILD){
 else{
     cargo build --package zed --package cli
 }
-# build-pkgf
+build-pkgf
