@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+  "menu_name": "panda-cad",
+  "menu_items": [
+    {
+      "name": "panda-cad",
+      "description": "Launch panda-cad",
+      "command": [
+        "{{ PREFIX }}/bin/panda-cad/PandaCADViewer.exe"
+      ],
+      "platforms": {
+        "win": {
+          "desktop": false
+        }
+      }
+    }
+  ]
+}

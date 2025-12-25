@@ -19,7 +19,7 @@ def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920,
             "download.default_directory": str(download_dir),
             "download.directory_upgrade": True,
             "download_parallel": True,  # Enable parallel downloads
-            "download_max_connections": 8,  # Number of parallel connections
+            "download_max_connections": 16,  # Number of parallel connections
         },
     )
     options.add_argument("--force-device-scale-factor=0.5")
@@ -31,6 +31,8 @@ def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920,
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
+    options.add_argument("--disable-web-security")
+    options.add_argument("--allow-running-insecure-content")
     driver = Edge(options=options)
     return driver
 

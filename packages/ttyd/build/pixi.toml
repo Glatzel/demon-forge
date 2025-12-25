@@ -3,8 +3,7 @@ channels = ["conda-forge"]
 name = "ttyd"
 platforms = ["linux-64"]
 
-
 [dependencies]
 brotlipy = "==0.7.0"
 fonttools = "==4.61.1"
-nodejs = "==24.10.0"
+nodejs = "==25.2.1"

@@ -38,6 +38,7 @@ nuget,true,false,false,false
 obs-studio,true,false,false,false
 opencolorio-config-aces,false,false,true,false
 openimageio,true,false,false,false
+panda-cad,true,false,false,false
 peazip,true,false,false,false
 proj,true,true,true,true
 pureref,true,false,false,false
