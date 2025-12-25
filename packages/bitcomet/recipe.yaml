@@ -11,7 +11,6 @@ tests:
       - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/BitComet${{'.exe' if win}}"
 about:
   homepage: https://www.bitcomet.com
-  license: Freeware
   summary: A powerful BitTorrent/HTTP/FTP download client
   description: >
     BitComet is a powerful, clean, fast, and easy-to-use BitTorrent/HTTP/FTP
