@@ -8,4 +8,4 @@ aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
     https://www.intrsio.com/downloadFile.jsp?fileName=PandaCAD-x64-v${latest_version}-Setup.exe `
     -o "$name.exe"
 7z x "$ROOT/temp/$name/$name.exe" "-o$ROOT/temp/$name/$name/"
-# build-pkg
+build-pkg
