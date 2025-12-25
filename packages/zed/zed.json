@@ -9,6 +9,7 @@
             "command": [
                 "{{ PREFIX }}/bin/zed.exe"
             ],
+            "icon":"{{ MENU_DIR }}/zed.{{ ICON_EXT }}",
             "platforms": {
                 "win": {
                     "desktop": false
