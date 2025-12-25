@@ -14,7 +14,7 @@ if($IsWindows){
       -Force
 }
 cd $ROOT/temp/$name
-git clone https://github.com/zed-industries/zed.git
+git clone --branch "v$latest_version" https://github.com/zed-industries/zed.git
 cd zed
 if ($env:DIST_BUILD){
     cargo build -r
@@ -24,4 +24,4 @@ else{
     cargo build
     ls ./target/debug
 }
-# build-pkg
+# build-pkgf
