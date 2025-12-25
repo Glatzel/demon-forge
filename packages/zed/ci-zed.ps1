@@ -14,8 +14,9 @@ if($IsWindows){
       -Force
 }
 cd $ROOT/temp/$name
-git clone --branch "v$latest_version" https://github.com/zed-industries/zed.git
+git clone https://github.com/zed-industries/zed.git
 cd zed
+git checkout tags/"v$version" -b "$version-branch"
 if ($env:DIST_BUILD){
     cargo build -r --package zed --package cli
     ls ./target/release
