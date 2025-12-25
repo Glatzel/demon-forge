@@ -18,6 +18,5 @@ Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/cli.exe" "$env:PREFIX/bi
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "$name.json" "$env:PREFIX/Menu"
 if ($IsWindows) {
-    $icon_ext = "ico"
+    Copy-Item "$ROOT/temp/$name/$name.ico" "$env:PREFIX/Menu"
 }
-Copy-Item "$name.$icon_ext" "$env:PREFIX/Menu"
