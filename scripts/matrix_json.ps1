@@ -9,7 +9,7 @@ foreach ($row in $csvData) {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "debian:buster"
+                    container = "ghcr.io/glatzel/github-action-runner"
                 }
             }
             elseif ($machine -eq "ubuntu-24.04-arm") {
