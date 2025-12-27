@@ -48,4 +48,3 @@ switch ($env:GITHUB_EVENT_NAME) {
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
-
