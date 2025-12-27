@@ -6,7 +6,11 @@ if ($IsWindows) {
     # On Windows, use semicolon as path separator
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
 }
-else {
+if ($IsMacOS) {
+    # On Unix-like systems, use colon as path separator
+    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+}
+if ($IsLinux) {
     # On Unix-like systems, use colon as path separator
     $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
 }
