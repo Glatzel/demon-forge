@@ -9,14 +9,14 @@ foreach ($row in $csvData) {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "condaforge/linux-anvil"
+                    container = "debian:buster"
                 }
             }
             elseif ($machine -eq "ubuntu-24.04-arm") {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "condaforge/linux-anvil-aarch64"
+                    container = "debian:buster"
                 }
             }
             else {
