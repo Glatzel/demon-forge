@@ -12,7 +12,7 @@ foreach ($row in $csvData) {
                     container = "ghcr.io/glatzel/ghar-linux"
                 }
             }
-            elseif ("$machine" -eq "ubuntu-latest") {
+            elseif ("$machine" -eq "ubuntu-latest-arm") {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
@@ -55,4 +55,5 @@ switch ($env:GITHUB_EVENT_NAME) {
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
+
 
