@@ -25,7 +25,7 @@ foreach ($row in $csvData) {
                     machine = $machine
                 }
             }
-          
+
         }
     }
 }
