@@ -8,7 +8,6 @@ on:
   pull_request:
     types:
       - opened
-      - edited
       - synchronize
       - ready_for_review
     paths-ignore:
@@ -57,7 +56,8 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.dispatch.outputs.matrix) }}
 
-    runs-on: ${{matrix.machine}}
+    runs-on: ${{ matrix.machine }}
+    container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v6
 
@@ -65,7 +65,8 @@ jobs:
         uses: prefix-dev/setup-pixi@v0.9.3
         with:
           run-install: false
-
+      - if: ${{contains(matrix.machine,'linux')}}
+        run: pixi global update
       - name: main
         id: main
         env:

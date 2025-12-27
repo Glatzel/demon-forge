@@ -5,10 +5,20 @@ foreach ($row in $csvData) {
     $pkg = $row.pkg
     foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
         if ($row.$machine -eq "true") {
-            $matrix += [PSCustomObject]@{
-                pkg     = $pkg
-                machine = $machine
+            if ($machine -contains "ubuntu") {
+                $matrix += [PSCustomObject]@{
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = "ghcr.io/glatzel/github-action-runner"
+                }
             }
+            else {
+                $matrix += [PSCustomObject]@{
+                    pkg     = $pkg
+                    machine = $machine
+                }
+            }
+
         }
     }
 }
@@ -28,7 +38,7 @@ switch ($env:GITHUB_EVENT_NAME) {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
     default {
-        $matrix = $matrix | jq -c '{include: .include | map(.machine = "ubuntu-latest") | group_by(.pkg) | map(.[0])}'
+        $matrix = $matrix | jq -c '{include: .include | map(.machine = \"ubuntu-latest\") | group_by(.pkg) | map(.[0])}'
     }
 }
 
