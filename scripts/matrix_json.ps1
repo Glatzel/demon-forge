@@ -23,7 +23,6 @@ foreach ($row in $csvData) {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = $null
                 }
             }
 
