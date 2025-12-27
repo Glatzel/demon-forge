@@ -101,8 +101,15 @@ function pre-build {
     Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
     New-Item  $ROOT/temp/$name -ItemType Directory
 }
+function install-rustup {
+    if ($IsLinux) {
+        Remove-Item Alias:curl -ErrorAction SilentlyContinue
+        curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
+    }
+}
 function build-cargo-package {
     param( $name, $crate_names)
+    install-rustup
     if ($env:DIST_BUILD) {
         cargo install $crate_names --root $ROOT/temp/$name --locked --force `
             --config 'profile.release.codegen-units=1' `
@@ -122,6 +129,7 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
+    install-rustup
     if ($env:DIST_BUILD) {
         cargo install --bins --git $url --tag $tag --root $ROOT/temp/$name --locked --force `
             --config 'profile.release.codegen-units=1' `
