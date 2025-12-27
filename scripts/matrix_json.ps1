@@ -21,8 +21,9 @@ foreach ($row in $csvData) {
             }
             else {
                 $matrix += [PSCustomObject]@{
-                    pkg     = $pkg
-                    machine = $machine
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = $null
                 }
             }
 
