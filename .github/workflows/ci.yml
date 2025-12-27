@@ -58,6 +58,7 @@ jobs:
       matrix: ${{ fromJSON(needs.dispatch.outputs.matrix) }}
 
     runs-on: ${{matrix.machine}}
+    container: matrix.container
     steps:
       - uses: actions/checkout@v6
 

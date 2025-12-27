@@ -5,10 +5,27 @@ foreach ($row in $csvData) {
     $pkg = $row.pkg
     foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
         if ($row.$machine -eq "true") {
-            $matrix += [PSCustomObject]@{
-                pkg     = $pkg
-                machine = $machine
+            if ($machine -eq "ubuntu-latest") {
+                $matrix += [PSCustomObject]@{
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = "condaforge/linux-anvil"
+                }
             }
+            elseif ($machine -eq "ubuntu-24.04-arm") {
+                $matrix += [PSCustomObject]@{
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = "condaforge/linux-anvil-aarch64"
+                }
+            }
+            else {
+                $matrix += [PSCustomObject]@{
+                    pkg     = $pkg
+                    machine = $machine
+                }
+            }
+          
         }
     }
 }
@@ -28,7 +45,7 @@ switch ($env:GITHUB_EVENT_NAME) {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
     default {
-        $matrix = $matrix | jq -c '{include: .include | map(.machine = "ubuntu-latest") | group_by(.pkg) | map(.[0])}'
+        $matrix = $matrix | jq -c '{include: .include | map(.machine = \"ubuntu-latest\") | group_by(.pkg) | map(.[0])}'
     }
 }
 
