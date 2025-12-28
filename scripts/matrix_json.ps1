@@ -5,30 +5,14 @@ foreach ($row in $csvData) {
     $pkg = $row.pkg
     foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
         if ($row.$machine -eq "true") {
-            if ("$machine" -eq "ubuntu-latest") {
-                $matrix += [PSCustomObject]@{
-                    pkg       = $pkg
-                    machine   = $machine
-                    container = "ghcr.io/glatzel/ghar-linux"
-                }
+            $matrix += [PSCustomObject]@{
+                pkg     = $pkg
+                machine = $machine
             }
-            elseif ("$machine" -eq "ubuntu-latest-arm") {
-                $matrix += [PSCustomObject]@{
-                    pkg       = $pkg
-                    machine   = $machine
-                    container = "ghcr.io/glatzel/ghar-linux-arm"
-                }
-            }
-            else {
-                $matrix += [PSCustomObject]@{
-                    pkg     = $pkg
-                    machine = $machine
-                }
-            }
-
         }
     }
 }
+
 
 $matrix = $matrix |
 ConvertTo-Json -Depth 10 -Compress |

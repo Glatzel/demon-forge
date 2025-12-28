@@ -1,0 +1,25 @@
+context:
+  name: toolbox
+package:
+  version: 0.0.33
+  name: ${{ name }}
+build:
+  noarch: python
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+
+requirements:
+  host:
+    - python 3.13.*
+    - pip
+    - setuptools
+    - wheel
+  run:
+    - python >= 3.13
+    - lazy-loader
+    - rich
+
+tests:
+  - python:
+      imports:
+        - toolbox
