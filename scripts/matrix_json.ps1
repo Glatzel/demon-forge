@@ -4,9 +4,11 @@ $matrix = @()
 foreach ($row in $csvData) {
     $pkg = $row.pkg
     foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
-        $matrix += [PSCustomObject]@{
-            pkg     = $pkg
-            machine = $machine
+        if ($row.$machine -eq "true") {
+            $matrix += [PSCustomObject]@{
+                pkg     = $pkg
+                machine = $machine
+            }
         }
     }
 }
