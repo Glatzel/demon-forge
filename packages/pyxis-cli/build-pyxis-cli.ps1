@@ -1,10 +1,14 @@
-New-Item $env:PREFIX/pyxis -ItemType Directory -ErrorAction SilentlyContinue
-New-Item $env:PREFIX/pyxis/bin -ItemType Directory -ErrorAction SilentlyContinue
-if ($IsWindows) {
-    Copy-Item $PSScriptRoot/../target/release/pyxis.exe "$env:PREFIX/pyxis/bin/"
-    Copy-Item $PSScriptRoot/../target/release/pyxis.exe "$env:PREFIX/pyxis/bin/"
+New-Item $env:PREFIX/bin -ItemType Directory -ErrorAction SilentlyContinue
+if ($env:DIST_BUILD) {
+    $config = "release"
 }
 else {
-    Copy-Item $PSScriptRoot/../target/release/pyxis "$env:PREFIX/pyxis/bin/"
-    Copy-Item $PSScriptRoot/../target/release/pyxis "$env:PREFIX/pyxis/bin/"
+    $config = "debug"
 }
+if ($IsWindows) {
+    Copy-Item $PSScriptRoot/../target/$config/pyxis.exe "$env:PREFIX/bin/"
+}
+else {
+    Copy-Item $PSScriptRoot/../target/$config/pyxis "$env:PREFIX/pyxis/bin/"
+}
+
