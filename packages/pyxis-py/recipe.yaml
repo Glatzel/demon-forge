@@ -1,0 +1,22 @@
+context:
+  name: pyxis-py
+package:
+  version: 0.0.38
+  name: ${{ name }}
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  host:
+    - python 3.13.*
+    - pip
+  run:
+    - python >= 3.13
+    - lazy-loader
+    - numpy
+    - scipy
+
+tests:
+  - python:
+      imports:
+        - pyxis

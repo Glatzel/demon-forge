@@ -44,6 +44,8 @@ panda-cad,true,false,false,false
 peazip,true,false,false,false
 proj,true,true,true,true
 pureref,true,false,false,false
+pyxis-cli,true,true,true,true
+pyxis-py,true,true,true,true
 rufus,true,false,false,false
 rumqttd,true,true,true,true
 slumber,true,true,true,true
