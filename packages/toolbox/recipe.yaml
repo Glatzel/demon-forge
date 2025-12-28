@@ -1,6 +1,8 @@
+context:
+  name: toolbox
 package:
   version: 0.0.33
-  name: toolbox
+  name: ${{ name }}
 build:
   noarch: python
   number: 0
