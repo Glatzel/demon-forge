@@ -1,0 +1,10 @@
+context:
+  name: pyxis-cli
+package:
+  version: 0.0.38
+  name: ${{ name }}
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+tests:
+  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/pyxis${{'.exe' if win}} --help"
