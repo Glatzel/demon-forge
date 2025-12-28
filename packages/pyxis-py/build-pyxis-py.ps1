@@ -1,6 +1,3 @@
-foreach ($whl in Get-ChildItem "$env:RECIPE_DIR/../dist/*.whl") {
-    pip install "$whl" -v
-}
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
