@@ -23,6 +23,7 @@ edit,true,false,true,true
 esp-generate,true,true,true,false
 espflash,true,true,true,false
 filezilla,true,false,false,false
+fornax-py,true,true,true,false
 fresh-editor,true,true,true,true
 furmark,true,false,false,false
 hwinfo,true,false,false,false
