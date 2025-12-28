@@ -1,4 +1,4 @@
-context: 
+context:
   name: fornax-py
 package:
   version: 0.0.10
