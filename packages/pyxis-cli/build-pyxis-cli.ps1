@@ -11,4 +11,3 @@ if ($IsWindows) {
 else {
     Copy-Item $PSScriptRoot/../target/$config/pyxis "$env:PREFIX/pyxis/bin/"
 }
-
