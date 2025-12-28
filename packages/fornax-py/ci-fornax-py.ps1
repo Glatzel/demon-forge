@@ -10,7 +10,11 @@ Set-Location fornax
 git checkout tags/"v$latest_version" -b "$latest_version-branch"
 & ./scripts/setup.ps1
 Set-Location ./crates/fornax-py
-pixi run maturin build --out ./dist --profile release
-
+if ($env:DIST_BUILD) {
+    pixi run maturin build --out ./dist --profile release
+}
+else {
+    pixi run maturin build --out ./dist
+}
 Set-Location $PSScriptRoot
 build-pkg

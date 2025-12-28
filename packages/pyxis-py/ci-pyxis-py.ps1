@@ -10,7 +10,12 @@ gh repo clone Glatzel/$name
 Set-Location $name
 git checkout tags/"v$latest_version" -b "$latest_version-branch"
 Set-Location python
-pixi run maturin build --out ./dist --profile release
+if ($env:DIST_BUILD) {
+    pixi run maturin build --out ./dist --profile release
+}
+else {
+    pixi run maturin build --out ./dist
+}
 
 Set-Location $PSScriptRoot
 build-pkg
