@@ -13,5 +13,5 @@ if ($IsWindows) {
     Copy-Item $ROOT/temp/$name/pyxis/rust/target/$config/pyxis.exe "$env:PREFIX/bin/"
 }
 else {
-    Copy-Item $ROOT/temp/$name/pyxis/rust/target/$config/pyxis "$env:PREFIX/pyxis/bin/"
+    Copy-Item $ROOT/temp/$name/pyxis/rust/target/$config/pyxis "$env:PREFIX/bin/"
 }
