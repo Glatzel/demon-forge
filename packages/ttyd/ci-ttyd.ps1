@@ -28,8 +28,8 @@ Write-Output "::endgroup::"
 
 write-output "::group::Install packages"
 Set-Location ..
-sudo apt-get update
-sudo apt-get install -y autoconf automake build-essential cmake curl file libtool
+apt-get update
+apt-get install -y autoconf automake build-essential cmake curl file libtool
 write-output  "::endgroup::"
 
 foreach ($t in "win32", "x86_64", "aarch64") {
