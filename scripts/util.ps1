@@ -107,6 +107,7 @@ function install-rustup {
     if ($IsLinux) {
         Remove-Item Alias:curl -ErrorAction SilentlyContinue
         curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
+        $env:PATH = "${env:PATH}`:${env:PATH}"
     }
 }
 function build-cargo-package {

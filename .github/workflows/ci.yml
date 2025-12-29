@@ -63,6 +63,7 @@ jobs:
     steps:
       - if: ${{matrix.container}}
         run: git config --global --add safe.directory /__w/demon-forge/demon-forge
+        
       - uses: actions/checkout@v6
 
       - name: Set up pixi
