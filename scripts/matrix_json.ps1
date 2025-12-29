@@ -5,9 +5,26 @@ foreach ($row in $csvData) {
     $pkg = $row.pkg
     foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
         if ($row.$machine -eq "true") {
-            $matrix += [PSCustomObject]@{
-                pkg     = $pkg
-                machine = $machine
+            if ((($env:GITHUB_EVENT_NAME -eq "pull_request") -or ($env:GITHUB_EVENT_NAME -eq "push")) -and $machine -eq "ubuntu-latest") {
+                $matrix += [PSCustomObject]@{
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = "ghar-linux"
+                }
+            }
+            elseif ((($env:GITHUB_EVENT_NAME -eq "pull_request") -or ($env:GITHUB_EVENT_NAME -eq "push" -and $env:GITHUB_REF_NAME -eq "main")) -and $machine -eq "ubuntu-24.04-arm") {
+                $matrix += [PSCustomObject]@{
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = "ghar-linux-arm"
+                }
+            }
+            else {
+                $matrix += [PSCustomObject]@{
+                    pkg     = $pkg
+                    machine = $machine
+                }
+            
             }
         }
     }
