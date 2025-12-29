@@ -58,11 +58,11 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.dispatch.outputs.matrix) }}
     runs-on: ${{ matrix.machine }}
-    container: ${{matrix.container}}
+    container:
+      image: ${{matrix.container}}
+      options: --user root
     steps:
       - uses: actions/checkout@v6
-        with:
-          set-safe-directory: false
 
       - name: Set up pixi
         uses: prefix-dev/setup-pixi@v0.9.3
