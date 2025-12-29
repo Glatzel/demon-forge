@@ -61,9 +61,10 @@ jobs:
     container:
       image: ${{matrix.container}}
     steps:
-      - uses: actions/checkout@v6
       - if: ${{matrix.container}}
-        run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
+        run: git config --global --add safe.directory /__w/demon-forge/demon-forge
+
+      - uses: actions/checkout@v6
 
       - name: Set up pixi
         uses: prefix-dev/setup-pixi@v0.9.3
