@@ -6,8 +6,10 @@ $latest_version = get-version-github -repo "Glatzel/pyxis"
 update-recipe -version $latest_version
 
 install-rust
+if($IsLinux){
 apt-get update
 apt-get install -y apt-utils
+}
 Set-Location $ROOT/temp/$name
 gh repo clone Glatzel/pyxis
 Set-Location pyxis
