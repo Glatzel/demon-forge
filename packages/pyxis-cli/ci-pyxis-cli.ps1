@@ -26,4 +26,4 @@ else {
     cargo build --bin pyxis
 }
 Set-Location $PSScriptRoot
-build-pkg
+build-pkg 
