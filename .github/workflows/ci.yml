@@ -62,9 +62,7 @@ jobs:
       image: ${{matrix.container}}
     steps:
       - if: ${{matrix.container}}
-        run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}/
-        shell: pwsh
-
+        run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
       - uses: actions/checkout@v6
 
       - name: Set up pixi
