@@ -1,7 +1,7 @@
 context:
   name: pyxis-cli
 package:
-  version: 0.0.38
+  version: 0.0.39
   name: ${{ name }}
 build:
   number: 1
