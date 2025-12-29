@@ -63,6 +63,7 @@ jobs:
     steps:
       - if: ${{matrix.container}}
         run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
+        shell: pwsh
 
       - uses: actions/checkout@v6
 
