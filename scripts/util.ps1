@@ -1,5 +1,7 @@
 # Get the root directory of the current Git repository
 $ROOT = git rev-parse --show-toplevel
+$ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $true
 
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
@@ -14,10 +16,6 @@ if ($IsLinux) {
     # On Unix-like systems, use colon as path separator
     $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
 }
-
-# Stop execution on any error and propagate native command errors
-$ErrorActionPreference = "Stop"
-$PSNativeCommandUseErrorActionPreference = $true
 
 # Function: Extract the current version from recipe.yaml
 function get-current-version {
