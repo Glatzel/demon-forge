@@ -18,6 +18,7 @@ Write-Output "::endgroup::"
 
 write-output "::group::Run yarn install, check and build"
 Set-Location ./html
+pixi run npm install -g corepack
 pixi run corepack enable
 pixi run corepack prepare yarn@stable --activate
 pixi run yarn install
@@ -27,8 +28,8 @@ Write-Output "::endgroup::"
 
 write-output "::group::Install packages"
 Set-Location ..
-sudo apt-get update
-sudo apt-get install -y autoconf automake build-essential cmake curl file libtool
+apt-get update
+apt-get install -y autoconf automake build-essential cmake curl file libtool apt-utils
 write-output  "::endgroup::"
 
 foreach ($t in "win32", "x86_64", "aarch64") {

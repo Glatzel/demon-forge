@@ -5,9 +5,22 @@ foreach ($row in $csvData) {
     $pkg = $row.pkg
     foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
         if ($row.$machine -eq "true") {
-            $matrix += [PSCustomObject]@{
-                pkg     = $pkg
-                machine = $machine
+            if ((($env:GITHUB_EVENT_NAME -eq "pull_request") -or ($env:GITHUB_EVENT_NAME -eq "push")) `
+                    -and $machine -like "*ubuntu*" `
+                    -and $row.container -eq 'true'
+            ) {
+                $matrix += [PSCustomObject]@{
+                    pkg       = $pkg
+                    machine   = $machine
+                    container = "ghcr.io/glatzel/ghar-linux"
+                }
+            }
+            else {
+                $matrix += [PSCustomObject]@{
+                    pkg     = $pkg
+                    machine = $machine
+                }
+
             }
         }
     }

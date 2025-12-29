@@ -1,5 +1,7 @@
 # Get the root directory of the current Git repository
 $ROOT = git rev-parse --show-toplevel
+$ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $true
 
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
@@ -14,10 +16,6 @@ if ($IsLinux) {
     # On Unix-like systems, use colon as path separator
     $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
 }
-
-# Stop execution on any error and propagate native command errors
-$ErrorActionPreference = "Stop"
-$PSNativeCommandUseErrorActionPreference = $true
 
 # Function: Extract the current version from recipe.yaml
 function get-current-version {
@@ -103,15 +101,18 @@ function pre-build {
     Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
     New-Item  $ROOT/temp/$name -ItemType Directory
 }
-function install-rustup {
+function install-rust {
     if ($IsLinux) {
+        apt update
+        apt install -y build-essential
         Remove-Item Alias:curl -ErrorAction SilentlyContinue
         curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
+        $env:PATH = "${env:HOME}/.cargo/bin`:${env:PATH}"
     }
 }
 function build-cargo-package {
     param( $name, $crate_names)
-    install-rustup
+    install-rust
     if ($env:DIST_BUILD) {
         cargo install $crate_names --root $ROOT/temp/$name --locked --force `
             --config 'profile.release.codegen-units=1' `
@@ -131,7 +132,7 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
-    install-rustup
+    install-rust
     if ($env:DIST_BUILD) {
         cargo install --bins --git $url --tag $tag --root $ROOT/temp/$name --locked --force `
             --config 'profile.release.codegen-units=1' `

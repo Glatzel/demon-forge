@@ -5,6 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github -repo "Glatzel/pyxis"
 update-recipe -version $latest_version
 
+install-rust
 Set-Location $ROOT/temp/$name
 gh repo clone Glatzel/pyxis
 Set-Location pyxis

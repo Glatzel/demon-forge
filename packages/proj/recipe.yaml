@@ -4,7 +4,7 @@ package:
   version: "9.7.1"
   name: ${{ name }}
 build:
-  number: 1
+  number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 about:
   repository: https://github.com/OSGeo/PROJ
