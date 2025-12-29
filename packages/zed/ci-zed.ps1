@@ -21,6 +21,7 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
+install-rust
 Set-Location $ROOT/temp/$name
 git clone https://github.com/zed-industries/zed.git
 Set-Location zed
