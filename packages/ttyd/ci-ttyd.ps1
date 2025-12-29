@@ -29,7 +29,6 @@ Write-Output "::endgroup::"
 write-output "::group::Install packages"
 Set-Location ..
 apt-get update
-apt-get install -y apt-utils
 apt-get install -y autoconf automake build-essential cmake curl file libtool apt-utils
 write-output  "::endgroup::"
 
