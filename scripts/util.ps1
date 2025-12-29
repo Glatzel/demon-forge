@@ -46,8 +46,7 @@ function get-version-github {
 function get-version-crateio {
     param($name)
     for ($i = 0; $i -lt 5; $i++) {
-        $latest = curl -v https://crates.io/api/v1/crates/$name | jq -r '.crate.max_version'
-        Write-Output $latest
+        $latest = curl -s -H "User-Agent: gh-actions-ci" https://crates.io/api/v1/crates/$name | jq -r '.crate.max_version'
         if ($latest) {
             return $latest
         }
