@@ -13,6 +13,12 @@ git checkout tags/"v$latest_version" -b "$latest_version-branch"
 Set-Location rust
 (Get-Content -Path "./scripts/setup.ps1") -replace "sudo ", "" | Set-Content -Path "./scripts/setup.ps1"
 & ./scripts/setup.ps1
+if ($IsLinux -and $arch -eq 'X64') {
+    $env:PKG_CONFIG_PATH = "/usr/lib/x86_64-linux-gnu/pkgconfig`:${env:PKG_CONFIG_PATH}"
+}
+if ($IsLinux -and $arch -eq 'Arm64') {
+    $env:PKG_CONFIG_PATH = "/usr/lib/aarch64-linux-gnu/pkgconfig`:${env:PKG_CONFIG_PATH}"
+}
 if ($env:DIST_BUILD) {
     cargo build --bin pyxis --release
 }
