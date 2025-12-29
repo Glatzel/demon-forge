@@ -61,7 +61,7 @@ jobs:
     container:
       image: ${{matrix.container}}
     steps:
-      - if: ${{matrix.container}}
+      - if: ${{matrix.container && matrix.machine=='ubuntu-latest'}}
         run: git config --global --add safe.directory /__w/demon-forge/demon-forge
 
       - uses: actions/checkout@v6
