@@ -61,6 +61,8 @@ jobs:
     container: ${{matrix.container}}
     steps:
       - uses: actions/checkout@v6
+        with:
+          set-safe-directory: false
 
       - name: Set up pixi
         uses: prefix-dev/setup-pixi@v0.9.3
