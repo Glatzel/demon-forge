@@ -9,14 +9,14 @@ foreach ($row in $csvData) {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "ghar-linux"
+                    container = "ghcr.io/glatzel/ghar-linux"
                 }
             }
             elseif ((($env:GITHUB_EVENT_NAME -eq "pull_request") -or ($env:GITHUB_EVENT_NAME -eq "push" -and $env:GITHUB_REF_NAME -eq "main")) -and $machine -eq "ubuntu-24.04-arm") {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "ghar-linux-arm"
+                    container = "ghcr.io/glatzel/ghar-linux-arm"
                 }
             }
             else {
