@@ -2,7 +2,6 @@
 $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
-
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
     # On Windows, use semicolon as path separator
@@ -50,16 +49,6 @@ function get-version-crateio {
         }
     }
 }
-function get-version-vcpkg {
-    param($name)
-    for ($i = 0; $i -lt 5; $i++) {
-        $latest = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
-            jq -r '( .["version-string"] // .version // .["version-semver"] // .["version-date"] )'
-        if ($latest) {
-            return $latest
-        }
-    }
-}
 function get-version-url {
     param($url, $pattern)
     for ($i = 0; $i -lt 5; $i++) {
@@ -84,35 +73,16 @@ function get-version-text {
         Select-Object -First 1
     return $latest
 }
-function update-vcpkg-json {
-    param($file, $name, $version)
-    $json = Get-Content $file -Raw | ConvertFrom-Json
-
-    # update the override
-    $json.overrides | Where-Object { $_.name -eq "$name" } | ForEach-Object {
-        $_.version = $version
-    }
-
-    # save formatted JSON
-    $json | ConvertTo-Json -Depth 10 | Set-Content $file
-}
 function pre-build {
     param( $name)
     Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
     New-Item  $ROOT/temp/$name -ItemType Directory
 }
-function install-rust {
-    if ($IsLinux) {
-        Remove-Item Alias:curl -ErrorAction SilentlyContinue
-        curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
-        $env:PATH = "${env:HOME}/.cargo/bin`:${env:PATH}"
-    }
-}
 function build-cargo-package {
     param( $name, $crate_names)
     install-rust
     if ($env:DIST_BUILD) {
-        cargo install $crate_names --root $ROOT/temp/$name --locked --force `
+        &$env:BUILD_PREFIX/bin/cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -120,7 +90,7 @@ function build-cargo-package {
             --config 'profile.release.strip=true'
     }
     else {
-        cargo install $crate_names --root $ROOT/temp/$name --locked --force `
+        &$env:BUILD_PREFIX/bin/cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
@@ -132,7 +102,7 @@ function build-cargo-package-github {
     param( $name, $url, $tag, $target)
     install-rust
     if ($env:DIST_BUILD) {
-        cargo install --bins --git $url --tag $tag --root $ROOT/temp/$name --locked --force `
+        &$env:BUILD_PREFIX/bin/cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -140,7 +110,7 @@ function build-cargo-package-github {
             --config 'profile.release.strip=true' $target
     }
     else {
-        cargo install --bins --git $url --tag $tag --root $ROOT/temp/$name --locked --force `
+        &$env:BUILD_PREFIX/bin/cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
