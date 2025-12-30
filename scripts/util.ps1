@@ -80,7 +80,6 @@ function pre-build {
 }
 function build-cargo-package {
     param( $name, $crate_names)
-    install-rust
     if ($env:DIST_BUILD) {
         &$env:BUILD_PREFIX/bin/cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
@@ -100,7 +99,6 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
-    install-rust
     if ($env:DIST_BUILD) {
         &$env:BUILD_PREFIX/bin/cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
