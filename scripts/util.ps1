@@ -80,8 +80,14 @@ function pre-build {
 }
 function build-cargo-package {
     param( $name, $crate_names)
+    if ($IsWindows) {
+        $cargo = "$env:BUILD_PREFIX/bin/cargo.exe"
+    }
+    else {
+        $cargo = "$env:BUILD_PREFIX/bin/cargo"
+    }
     if ($env:DIST_BUILD) {
-        &$env:BUILD_PREFIX/bin/cargo install $crate_names --root $env:PREFIX --locked --force `
+        & $cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -89,7 +95,7 @@ function build-cargo-package {
             --config 'profile.release.strip=true'
     }
     else {
-        &$env:BUILD_PREFIX/bin/cargo install $crate_names --root $env:PREFIX --locked --force `
+        & $cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
@@ -99,8 +105,14 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
+     if ($IsWindows) {
+        $cargo = "$env:BUILD_PREFIX/bin/cargo.exe"
+    }
+    else {
+        $cargo = "$env:BUILD_PREFIX/bin/cargo"
+    }
     if ($env:DIST_BUILD) {
-        &$env:BUILD_PREFIX/bin/cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        & $cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -108,7 +120,7 @@ function build-cargo-package-github {
             --config 'profile.release.strip=true' $target
     }
     else {
-        &$env:BUILD_PREFIX/bin/cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        & $cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
