@@ -81,7 +81,7 @@ function pre-build {
 function build-cargo-package {
     param( $name, $crate_names)
     if ($IsWindows) {
-        $cargo = "$env:BUILD_PREFIX/bin/cargo.exe"
+        $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
     }
     else {
         $cargo = "$env:BUILD_PREFIX/bin/cargo"
@@ -106,7 +106,7 @@ function build-cargo-package {
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
      if ($IsWindows) {
-        $cargo = "$env:BUILD_PREFIX/bin/cargo.exe"
+        $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
     }
     else {
         $cargo = "$env:BUILD_PREFIX/bin/cargo"
