@@ -4,7 +4,7 @@ package:
   version: "0.40.3"
   name: ${{ name }}
 build:
-  number: 2
+  number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"

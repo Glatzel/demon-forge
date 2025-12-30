@@ -103,8 +103,6 @@ function pre-build {
 }
 function install-rust {
     if ($IsLinux) {
-        apt update
-        apt install -y build-essential
         Remove-Item Alias:curl -ErrorAction SilentlyContinue
         curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
         $env:PATH = "${env:HOME}/.cargo/bin`:${env:PATH}"

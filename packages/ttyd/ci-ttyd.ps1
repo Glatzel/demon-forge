@@ -26,12 +26,6 @@ pixi run yarn run check
 pixi run yarn run build
 Write-Output "::endgroup::"
 
-write-output "::group::Install packages"
-Set-Location ..
-apt-get update
-apt-get install -y autoconf automake build-essential cmake curl file libtool apt-utils
-write-output  "::endgroup::"
-
 foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
     $env:BUILD_TARGET = $t

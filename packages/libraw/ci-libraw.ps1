@@ -5,10 +5,6 @@ $latest_version = get-version-vcpkg -name $name
 update-recipe -version $latest_version
 update-vcpkg-json -file $PSScriptRoot/build/vcpkg.json -name $name -version $latest_version
 
-if ($IsLinux) {
-    apt update
-    apt install -y python3
-}
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
 & $ROOT/temp/$name//vcpkg-setup.ps1
 & $ROOT/temp/$name//vcpkg-install.ps1
