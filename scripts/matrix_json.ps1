@@ -12,7 +12,7 @@ foreach ($row in $csvData) {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "ghcr.io/glatzel/ghar-linux"
+                    container = "ghcr.io/glatzel/ghar-linux-release-cloud"
                 }
             }
             else {
@@ -52,3 +52,4 @@ switch ($env:GITHUB_EVENT_NAME) {
 Write-Output "::group::json"
 $matrix | jq .
 Write-Output "::endgroup::"
+
