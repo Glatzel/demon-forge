@@ -5,4 +5,3 @@ $latest_version = get-version-url -url "https://support.d-imaging.sony.co.jp/app
 $latest_version = "$latest_version".Replace("00", "0")
 update-recipe -version $latest_version
 build-pkg
-

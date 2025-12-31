@@ -27,6 +27,7 @@ match sys.platform:
 
     case "linux":
         import os
+
         match os.uname().machine:
             case "x86_64":
                 log.info("linux arm64")
