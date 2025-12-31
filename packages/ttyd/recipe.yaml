@@ -25,7 +25,6 @@ requirements:
         - autoconf
         - automake
         - file
-        
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
