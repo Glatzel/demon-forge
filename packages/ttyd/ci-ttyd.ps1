@@ -18,9 +18,9 @@ Write-Output "::endgroup::"
 
 write-output "::group::Run yarn install, check and build"
 Set-Location ./html
-npm install -g corepack
-corepack enable
-corepack prepare yarn@stable --activate
+pixi run npm install -g corepack
+pixi run corepack enable
+pixi run corepack prepare yarn@stable --activate
 pixi run yarn install
 pixi run yarn run check
 pixi run yarn run build
