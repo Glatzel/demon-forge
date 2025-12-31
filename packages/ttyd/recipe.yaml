@@ -24,6 +24,9 @@ requirements:
         - autoconf
         - automake
         - file
+    - if: macos
+      then:
+        - openssl
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
