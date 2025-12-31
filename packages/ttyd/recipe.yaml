@@ -16,8 +16,14 @@ requirements:
     - fonttools
     - json-c
     - libwebsockets
+    - make
     - nodejs
     - zlib
+    - if: unix
+      then:
+        - autoconf
+        - automake
+        - file
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
