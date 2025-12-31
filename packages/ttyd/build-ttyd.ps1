@@ -38,7 +38,5 @@ cmake `
   -DCMAKE_LIBRARY_PATH="$BUILD_PREFIX/lib"  `
   -DCMAKE_INCLUDE_PATH="$BUILD_PREFIX/include" `
   ..
-
-    ..
 make
 make install
