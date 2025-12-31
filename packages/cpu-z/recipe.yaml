@@ -9,6 +9,7 @@ build:
 requirements:
   build:
     - selenium
+    - toolbox
 tests:
   - script:
       - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/cpuz_x64${{'.exe' if win}}"

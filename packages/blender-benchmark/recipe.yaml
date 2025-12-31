@@ -9,6 +9,7 @@ build:
 requirements:
   build:
     - selenium
+    - toolbox
 tests:
   - script:
       - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/benchmark-launcher-cli${{'.exe' if win}} --help"
