@@ -24,6 +24,7 @@ pixi run corepack prepare yarn@stable --activate
 pixi run yarn install
 pixi run yarn run check
 pixi run yarn run build
+Set-Location ..
 Write-Output "::endgroup::"
 
 foreach ($t in "win32", "x86_64", "aarch64") {
