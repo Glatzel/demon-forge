@@ -8,16 +8,16 @@ build:
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
-    autoconf 
-    automake 
-    brotlipy 
-    c-compiler 
+    autoconf
+    automake
+    brotlipy
+    c-compiler
     cmake 3.x
-    curl 
-    file 
-    fonttools 
-    libtool 
-    make 
+    curl
+    file
+    fonttools
+    libtool
+    make
     nodejs
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
