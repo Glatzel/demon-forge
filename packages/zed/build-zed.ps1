@@ -32,10 +32,10 @@ else {
 }
 
 if ($env:DIST_BUILD) {
-    & $cargo install -r --package zed --package cli --root $env:PREFIX
+    & $cargo install -r --root $env:PREFIX -- --package zed --package cli 
 }
 else {
-    & $cargo install --package zed --package cli --root $env:PREFIX
+    & $cargo install --root $env:PREFIX -- --package zed --package cli 
 }
 
 # shortcut

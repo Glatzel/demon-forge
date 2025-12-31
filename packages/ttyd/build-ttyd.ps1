@@ -19,7 +19,7 @@ get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1
 
 Set-Location ./html
-npm install -g corepack
+npm install -g --force corepack
 corepack enable
 corepack prepare yarn@stable --activate
 yarn install
