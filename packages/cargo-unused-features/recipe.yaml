@@ -12,6 +12,7 @@ requirements:
     - if: linux
       then:
         - pkg-config
+        - openssl >= 3
   run:
     - if: linux
       then:
