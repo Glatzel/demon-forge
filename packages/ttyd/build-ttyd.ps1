@@ -1,7 +1,6 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
 $version = get-current-version
 if ($IsWindows) {
     $env:PATH = "$env:BUILD_PREFIX/bin;$env:PATH"
@@ -28,7 +27,7 @@ yarn install
 yarn run check
 yarn run build
 Set-Location ..
-
+$env:CMAKE_BUILD_TYPE = "RELEASE"
 if ($IsWindows) {
 
 }
