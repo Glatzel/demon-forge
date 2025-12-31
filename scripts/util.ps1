@@ -162,7 +162,7 @@ function update-recipe {
             { $env:GITHUB_EVENT_NAME -eq "pull_request" } { pre-build -name $name }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            
+
             {$env:WORKFLOW_NAME -eq 'manual-build'} { pre-build -name $name }
             default { exit 0 }
         }
