@@ -5,7 +5,29 @@ package:
   name: ${{ name }}
 build:
   number: 7
-  script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - brotlipy
+    - c-compiler
+    - cmake 3.*
+    - curl
+    - cxx-compiler
+    - fonttools
+    - json-c
+    - libwebsockets
+    - make
+    - nodejs
+    - zlib
+    - pkg-config
+    - if: unix
+      then:
+        - autoconf
+        - automake
+        - file
+    - if: macos
+      then:
+        - openssl
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
