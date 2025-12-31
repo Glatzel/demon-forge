@@ -20,9 +20,11 @@ requirements:
         - cxx-compiler
         - file
         - fonttools
+        - json-c
         - libtool
         - make
         - nodejs
+        - zlib
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
