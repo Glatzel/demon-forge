@@ -32,13 +32,10 @@ Set-Location ..
 if ($IsWindows) {
 
 }
-if ($IsLinux -and $arch -eq 'X64') {
-    $env:BUILD_TARGET = "x86_64"
-    bash ./scripts/cross-build.sh
-    copy-item $ROOT/temp/$name/$name/build/$name $env:PREFIX/bin/$name
-}
-if ($IsLinux -and $arch -eq 'Arm64') {
-    $env:BUILD_TARGET = "aarch64"
-    bash ./scripts/cross-build.sh
-    copy-item $ROOT/temp/$name/$name/build/$name $env:PREFIX/bin/$name
+if ($IsLinux) {
+    mkdir build 
+    Set-Location build
+    cmake ..
+    make 
+    make PREFIX=$env:PREFIX install
 }
