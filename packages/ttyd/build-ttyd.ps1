@@ -30,12 +30,19 @@ $env:CMAKE_BUILD_TYPE = "RELEASE"
 mkdir build
 Set-Location build
 if ($IsMacOS) {
-    $env:WEB_SOCKET_LIBRARY = "$env:BUILD_PREFIX/lib"
-    $env:WEB_SOCKET_INCLUDE_DIR = "$env:BUILD_PREFIX/include"
+    cmake `
+        -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
+        -DCMAKE_BUILD_TYPE="RELEASE" `
+        -DWEB_SOCKET_LIBRARY="$env:BUILD_PREFIX/lib" `
+        -DWEB_SOCKET_INCLUDE_DIR="$env:BUILD_PREFIX/include" `
+        ..
 }
-cmake `
-    -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
-    -DCMAKE_BUILD_TYPE="RELEASE" `
-    ..
+else {
+    cmake `
+        -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
+        -DCMAKE_BUILD_TYPE="RELEASE" `
+        ..
+}
+
 make
 make install
