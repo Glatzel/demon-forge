@@ -34,6 +34,11 @@ Set-Location build
 cmake `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
+  -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
+  -DCMAKE_LIBRARY_PATH="$BUILD_PREFIX/lib"  `
+  -DCMAKE_INCLUDE_PATH="$BUILD_PREFIX/include" `
+  ..
+
     ..
 make
 make install
