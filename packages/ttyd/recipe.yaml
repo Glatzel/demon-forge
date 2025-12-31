@@ -22,10 +22,10 @@ requirements:
         - fonttools
         - json-c
         - libtool
+        - libwebsockets
         - make
         - nodejs
         - zlib
-        - libwebsockets
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
