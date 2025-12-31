@@ -8,7 +8,6 @@ if ($IsWindows) {
 if ($IsLinux) {
     $env:PATH = "$env:BUILD_PREFIX/bin`:$env:PATH"
 }
-New-Item $env:PREFIX/bin -ItemType Directory
 Set-Location $ROOT/temp/$name
 git clone https://github.com/tsl0922/ttyd.git
 Set-Location $name
@@ -35,7 +34,7 @@ if ($IsLinux) {
     mkdir build
     Set-Location build
     cmake `
-        -DCMAKE_INSTALL_PREFIX=/your/desired/installation/path `
+        -DCMAKE_INSTALL_PREFIX=$env:PREFIX `
         -DCMAKE_BUILD_TYPE="RELEASE" `
         ..
     make
