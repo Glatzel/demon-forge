@@ -28,6 +28,9 @@ Set-Location ..
 Write-Output "::endgroup::"
 foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
+    $env:CFLAGS=""
+$env:CXXFLAGS=""
+$env:LDFLAGS=""
     $env:BUILD_TARGET = $t
     pixi run bash ./scripts/cross-build.sh
     Write-Output "::endgroup::"
