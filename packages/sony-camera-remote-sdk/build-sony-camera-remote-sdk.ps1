@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-pixi run -e selenium python download.py
+python download.py
 
 $zipfile = (Get-ChildItem "$ROOT/temp/$name/*.zip")[0]
 $zipfile.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
