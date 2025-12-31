@@ -33,4 +33,5 @@ cmake `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     ..
-cmake --build . --target install --config Release
+make
+make install
