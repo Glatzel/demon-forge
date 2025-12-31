@@ -1,12 +1,12 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
+$version = get-current-version
 New-Item $env:PREFIX/bin -ItemType Directory
 #download icon
 if ($IsWindows) {
     aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
-        "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v$latest_version/crates/zed/resources/windows/app-icon.ico" `
+        "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v$version/crates/zed/resources/windows/app-icon.ico" `
         -o "$name.ico"
 }
 
@@ -23,7 +23,7 @@ if ($IsWindows) {
 Set-Location $ROOT/temp/$name
 git clone https://github.com/zed-industries/zed.git
 Set-Location zed
-git checkout tags/"v$latest_version" -b "$latest_version-branch"
+git checkout tags/"v$version" -b "$version"
 if ($env:DIST_BUILD) {
     cargo install -r --package zed --package cli --root $env:PREFIX
 }
