@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
+aria2c --max-tries=5 --retry-wait=10 -c -x16 -s16 -d "$ROOT/temp/$name/" `
     "https://nssm.cc/release/nssm-$(get-current-version).zip" `
     -o "$name.zip"
 
