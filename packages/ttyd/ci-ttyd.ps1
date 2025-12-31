@@ -18,19 +18,19 @@ Write-Output "::endgroup::"
 
 write-output "::group::Run yarn install, check and build"
 Set-Location ./html
-pixi run npm install -g corepack
-pixi run corepack enable
-pixi run corepack prepare yarn@stable --activate
-pixi run yarn install
-pixi run yarn run check
-pixi run yarn run build
+npm install -g corepack
+corepack enable
+corepack prepare yarn@stable --activate
+yarn install
+yarn run check
+yarn run build
 Set-Location ..
 Write-Output "::endgroup::"
 $env:PATH="$env:BUILD_PREFIX/bin`:$env:PATH"
 foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
     $env:BUILD_TARGET = $t
-    pixi run bash ./scripts/cross-build.sh
+    bash ./scripts/cross-build.sh
     Write-Output "::endgroup::"
 
     Write-Output "::group::build $t"
