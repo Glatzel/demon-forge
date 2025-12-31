@@ -3,7 +3,7 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $version = get-current-version
 if ($IsWindows) {
-    $env:PATH = "$env:BUILD_PREFIX/bin;$env:PATH"
+    $env:PATH = "$env:BUILD_PREFIX/bin;$env:BUILD_PREFIX/Library/bin;$env:PATH"
 }
 if ($IsLinux) {
     $env:PATH = "$env:BUILD_PREFIX/bin`:$env:PATH"

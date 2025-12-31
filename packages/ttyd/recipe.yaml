@@ -9,10 +9,10 @@ build:
 requirements:
   build:
     - brotlipy
-    - ${{ compiler('c') }}
+    - c-compiler
     - cmake 3.*
     - curl
-    - ${{ compiler('cxx') }}
+    - cxx-compiler
     - fonttools
     - json-c
     - libwebsockets
