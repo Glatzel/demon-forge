@@ -14,7 +14,7 @@ foreach ($f in Get-ChildItem "$ROOT/temp/$name/*.zip") {
 New-Item $env:PREFIX/$name -ItemType Directory
 Copy-Item "$ROOT/temp/$name/unzip/$platform/*" "$env:PREFIX/$name" -Recurse
 
-Remove-Item $env:PREFIX/app/*.h
-Remove-Item $env:PREFIX/app/*.cpp
-Remove-Item $env:PREFIX/*.zip
-Remove-Item $env:PREFIX/external/opencv/ -Recurse
+Remove-Item $env:PREFIX/$name/app/*.h
+Remove-Item $env:PREFIX/$name/app/*.cpp
+Remove-Item $env:PREFIX/$name/*.zip
+Remove-Item $env:PREFIX/$name/external/opencv/ -Recurse
