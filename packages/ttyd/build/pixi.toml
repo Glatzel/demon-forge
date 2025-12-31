@@ -4,14 +4,13 @@ name = "ttyd"
 platforms = ["linux-64"]
 
 [dependencies]
+autoconf = "*"
+automake = "*"
 brotlipy = "==0.7.0"
 c-compiler = "*"
+c-compiler = "*"
+cmake = "*"
+file = "*"
 fonttools = "==4.61.1"
+libtool = "*"
 nodejs = "==25.2.1"
-c-compiler= "*"
-autoconf ="*"
-automake ="*"
-cmake ="*"
-file ="*"
-libtool="*"
- 
