@@ -33,9 +33,9 @@ if ($IsWindows) {
 
 }
 if ($IsLinux) {
-    mkdir build 
+    mkdir build
     Set-Location build
     cmake ..
-    make 
+    make
     make PREFIX=$env:PREFIX install
 }
