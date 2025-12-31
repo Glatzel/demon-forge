@@ -26,7 +26,7 @@ pixi run yarn run check
 pixi run yarn run build
 Set-Location ..
 Write-Output "::endgroup::"
-$env:PATH="$env:BUILD_PREFIX/bin`:$env:$PATH"
+$env:PATH="$env:BUILD_PREFIX/bin`:$env:PATH"
 foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
     $env:BUILD_TARGET = $t
