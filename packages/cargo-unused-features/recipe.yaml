@@ -12,11 +12,11 @@ requirements:
     - if: linux
       then:
         - pkg-config
-        - openssl >= 3
+        - openssl
   run:
     - if: linux
       then:
-        - openssl >= 3
+        - openssl
 
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"

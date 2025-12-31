@@ -2,7 +2,6 @@
 $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
-pixi config set --global default-channels '["https://prefix.dev/glatzel", "conda-forge"]'
 
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
@@ -177,12 +176,7 @@ function reset-build-code {
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
-    if ($IsWindows) {
-        pixi run rattler-build --config-file $env:USERPROFILE/.pixi/config.toml build
-    }
-    else {
-        pixi run rattler-build --config-file ~/.pixi/config.toml build
-    }
+        pixi run rattler-build --config-file $ROOT/rattler-config.toml build
     Write-Output "::endgroup::"
 }
 
