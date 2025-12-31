@@ -9,6 +9,7 @@ build:
 requirements:
   build:
     - ${{ compiler('rust') }}
+    - cmake 3.*
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
 

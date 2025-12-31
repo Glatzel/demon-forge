@@ -163,7 +163,7 @@ function update-recipe {
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
-            {$env:WORKFLOW_NAME -eq 'manual-build'} { pre-build -name $name }
+            { $env:WORKFLOW_NAME -eq 'manual-build' } { pre-build -name $name }
             default { exit 0 }
         }
     }
@@ -178,7 +178,7 @@ function reset-build-code {
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
-        pixi run rattler-build --config-file $ROOT/rattler-config.toml build
+    pixi run rattler-build --config-file $ROOT/rattler-config.toml build
     Write-Output "::endgroup::"
 }
 
