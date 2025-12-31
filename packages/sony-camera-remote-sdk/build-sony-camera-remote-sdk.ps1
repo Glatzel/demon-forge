@@ -18,4 +18,3 @@ Remove-Item $env:PREFIX/app/*.h
 Remove-Item $env:PREFIX/app/*.cpp
 Remove-Item $env:PREFIX/*.zip
 Remove-Item $env:PREFIX/external/opencv/ -Recurse
-
