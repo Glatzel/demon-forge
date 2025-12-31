@@ -9,5 +9,6 @@ build:
 requirements:
   build:
     - ${{ compiler('rust') }}
+    - cmake 3.*
 tests:
   - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}}"
