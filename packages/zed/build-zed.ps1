@@ -32,10 +32,10 @@ else {
 }
 
 if ($env:DIST_BUILD) {
-    & $cargo build -r --root $env:PREFIX --package zed --package cli
+    & $cargo build -r $env:PREFIX --package zed --package cli
 }
 else {
-    & $cargo build --root $env:PREFIX --package zed --package cli
+    & $cargo build --package zed --package cli
 }
 
 if ($env:DIST_BUILD) {
