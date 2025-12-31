@@ -28,7 +28,7 @@ yarn install
 yarn run check
 yarn run build
 Set-Location ..
-$env:CMAKE_BUILD_TYPE = "RELEASE"
+make VERBOSE=1
 mkdir build
 Set-Location build
 cmake `
