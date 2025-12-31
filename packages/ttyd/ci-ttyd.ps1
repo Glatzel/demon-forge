@@ -21,16 +21,15 @@ Set-Location ./html
 npm install -g corepack
 corepack enable
 corepack prepare yarn@stable --activate
-yarn install
-yarn run check
-yarn run build
+pixi run yarn install
+pixi run yarn run check
+pixi run yarn run build
 Set-Location ..
 Write-Output "::endgroup::"
-$env:PATH="$env:BUILD_PREFIX/bin`:$env:PATH"
 foreach ($t in "win32", "x86_64", "aarch64") {
     Write-Output "::group::compile $t"
     $env:BUILD_TARGET = $t
-    bash ./scripts/cross-build.sh
+    pixi run bash ./scripts/cross-build.sh
     Write-Output "::endgroup::"
 
     Write-Output "::group::build $t"
