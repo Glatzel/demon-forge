@@ -2,7 +2,8 @@
 $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
-pixi config set default-channels '["https://prefix.dev/glatzel", "conda-forge"]'
+pixi config set --global default-channels '["https://prefix.dev/glatzel", "conda-forge"]'
+
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
     # On Windows, use semicolon as path separator
@@ -106,7 +107,7 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
-     if ($IsWindows) {
+    if ($IsWindows) {
         $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
     }
     else {
@@ -176,7 +177,12 @@ function reset-build-code {
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
     Write-Output "::group::build"
-    pixi run rattler-build build
+    if ($IsWindows) {
+        pixi run rattler-build --config-file $env:USERPROFILE/.pixi/config.toml build
+    }
+    else {
+        pixi run rattler-build --config-file ~/.pixi/config.toml build
+    }
     Write-Output "::endgroup::"
 }
 
