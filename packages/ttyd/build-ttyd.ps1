@@ -27,16 +27,12 @@ yarn run check
 yarn run build
 Set-Location ..
 $env:CMAKE_BUILD_TYPE = "RELEASE"
-if ($IsWindows) {
+mkdir build
+Set-Location build
+cmake `
+    -DCMAKE_INSTALL_PREFIX=$env:PREFIX `
+    -DCMAKE_BUILD_TYPE="RELEASE" `
+    ..
+make
+make install
 
-}
-if ($IsLinux) {
-    mkdir build
-    Set-Location build
-    cmake `
-        -DCMAKE_INSTALL_PREFIX=$env:PREFIX `
-        -DCMAKE_BUILD_TYPE="RELEASE" `
-        ..
-    make
-    make install
-}

@@ -8,24 +8,22 @@ build:
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - autoconf
-        - automake
-        - binutils
-        - brotlipy
-        - c-compiler
-        - cmake 3.*
-        - curl
-        - cxx-compiler
-        - file
-        - fonttools
-        - json-c
-        - libtool
-        - libwebsockets
-        - make
-        - nodejs
-        - zlib
+    - autoconf
+    - automake
+    - binutils
+    - brotlipy
+    - c-compiler
+    - cmake 3.*
+    - curl
+    - cxx-compiler
+    - file
+    - fonttools
+    - json-c
+    - libtool
+    - libwebsockets
+    - make
+    - nodejs
+    - zlib
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
