@@ -1,6 +1,8 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+
+    $env:PATH = "$env:BUILD_PREFIX/bin;$env:BUILD_PREFIX/Library/bin;$env:PATH"
 $version = get-current-version
 New-Item $env:PREFIX/bin -ItemType Directory
 #download icon
