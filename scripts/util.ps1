@@ -2,6 +2,7 @@
 $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
+pixi config set default-channels '["https://prefix.dev/glatzel", "conda-forge"]'
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
     # On Windows, use semicolon as path separator
