@@ -9,6 +9,7 @@ build:
 requirements:
   build:
     - ${{ compiler('rust') }}
+    - cmake 3.*
 tests:
   - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
 
@@ -25,3 +26,4 @@ about:
     NetBSD, and Windows.
   documentation: https://termscp.veeso.dev/docs
   repository: https://github.com/veeso/termscp
+
