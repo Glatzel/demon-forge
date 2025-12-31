@@ -34,7 +34,10 @@ if ($IsWindows) {
 if ($IsLinux) {
     mkdir build
     Set-Location build
-    cmake ..
+    cmake `
+        -DCMAKE_INSTALL_PREFIX=/your/desired/installation/path `
+        -DCMAKE_BUILD_TYPE="RELEASE" `
+        ..
     make
-    make PREFIX=$env:PREFIX install
+    make install
 }
