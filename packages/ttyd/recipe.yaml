@@ -3,7 +3,6 @@ context:
 package:
   version: "1.7.7"
   name: ${{ name }}
-
 build:
   number: 7
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
