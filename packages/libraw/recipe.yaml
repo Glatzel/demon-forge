@@ -15,8 +15,14 @@ requirements:
     - lcms2
     - zlib
     - openjpeg
-    - openmp
     - Jasper
+    - make
+    - if: linux
+      then: 
+        - openmp
+    - if: win
+      then: 
+        - openmp
 
 about:
   homepage: https://www.libraw.org
