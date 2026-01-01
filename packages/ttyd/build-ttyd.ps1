@@ -25,7 +25,7 @@ mkdir build
 Set-Location build
 
 if ($IsMacOS) {
-    nm /path/to/libwebsockets.19.dylib
+    nm $env:BUILD_PREFIX/lib/libwebsockets.19.dylib
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
