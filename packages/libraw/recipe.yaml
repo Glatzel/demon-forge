@@ -24,6 +24,18 @@ requirements:
       then:
         - openmp
         - vs2022_win-64
+  run:
+    - zlib
+    - lcms2
+    - openjpeg
+    - Jasper
+    - if: linux
+      then:
+        - openmp
+    - if: win
+      then:
+        - openmp
+
 tests:
   - package_contents:
       include:
