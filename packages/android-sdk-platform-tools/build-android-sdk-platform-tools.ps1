@@ -6,4 +6,4 @@ aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `
     -o "$name.zip"
 7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name"
 New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/platform-tools/*" "$env:PREFIX/bin/$name"
+Copy-Item "$ROOT/temp/$name/platform-tools/*" "$env:PREFIX/bin" -recurse
