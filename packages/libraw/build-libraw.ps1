@@ -15,4 +15,8 @@ git checkout tags/$version -b "branch-$version"
 Copy-Item ../LibRaw-cmake/* ./ -Recurse
 mkdir build
 Set-Location build
-cmake --build . --config Release --target install  -DCMAKE_INSTALL_PREFIX="$env:PREFIX"
+cmake `
+    -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
+    -DCMAKE_BUILD_TYPE="RELEASE" `
+    ..
+cmake --build . --config Release --target install
