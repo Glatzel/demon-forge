@@ -16,7 +16,7 @@ requirements:
     - zlib
     - openjpeg
     - Jasper
-    - ma
+    - make
     - if: win
       then:
         - vs2022_win-64
