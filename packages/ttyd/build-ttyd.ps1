@@ -37,7 +37,7 @@ if ($IsMacOS) {
         -DCMAKE_BUILD_TYPE="RELEASE" `
         -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
         -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
-        -Dlibwebsockets_DIR="/opt/homebrew/Cellar/libwebsockets/4.5.2/lib/cmake" `
+        -Dlibwebsockets_DIR="/opt/homebrew/Cellar/libwebsockets/lib/cmake" `
         -DZLIB_ROOT="$env:BUILD_PREFIX" `
         -DLIBUV_INCLUDE_DIR="$env:BUILD_PREFIX/include" `
         -DLIBUV_LIBRARY="$env:BUILD_PREFIX/lib/libuv.dylib" `
