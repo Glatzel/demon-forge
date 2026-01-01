@@ -32,6 +32,7 @@ mkdir build
 Set-Location build
 
 if($IsMacOS){
+get-content CMakeCache.txt
 cmake `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
