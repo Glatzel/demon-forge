@@ -30,14 +30,10 @@ yarn run build
 Set-Location ..
 mkdir build
 Set-Location build
+if($IsMacOS){brew install libwebsockets}
 cmake `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
-    -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
-    -DCMAKE_LIBRARY_PATH="$BUILD_PREFIX/lib"  `
-    -DCMAKE_INCLUDE_PATH="$BUILD_PREFIX/include" `
-    -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF `
-    -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF `
     ..
 make
 make install
