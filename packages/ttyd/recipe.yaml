@@ -15,7 +15,7 @@ requirements:
     - cxx-compiler
     - fonttools
     - json-c
-    - libwebsockets < 4
+    - libwebsockets
     - make
     - nodejs
     - zlib
