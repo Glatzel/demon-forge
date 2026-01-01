@@ -6,6 +6,9 @@ if ($IsWindows) {
     $env:CMAKE_GENERATOR_PLATFORM = "x64"
     $env:CMAKE_GENERATOR_TOOLSET = "v143"
 }
+if ($IsMacOS) {
+    $env:ENABLE_OPENMP = "OFF"
+}
 $version = get-current-version
 Set-Location $ROOT/temp/$name
 git clone https://github.com/LibRaw/LibRaw.git
