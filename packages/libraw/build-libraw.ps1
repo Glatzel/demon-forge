@@ -8,7 +8,7 @@ if ($IsWindows) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
 if ($IsMacOS) {
-    $env:ENABLE_OPENMP = "OFF"
+    $env:ENABLE_OPENMP = "NO"
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
 if ($IsLinux) {
