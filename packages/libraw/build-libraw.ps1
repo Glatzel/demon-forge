@@ -2,5 +2,18 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
-New-Item $env:PREFIX/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/installed/*" "$env:PREFIX/$name" -Recurse
+$version = get-current-version
+Set-Location $ROOT/temp/$name
+git clone https://github.com/LibRaw/LibRaw.git
+Set-Location $name
+git checkout tags/$version -b "branch-$version"
+git clone https://github.com/LibRaw/LibRaw-cmake.git
+
+mkdir build
+Set-Location build
+cmake `
+        -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
+        -DCMAKE_BUILD_TYPE="RELEASE" `
+        ..
+cmake --build .
+cmake --install .
