@@ -18,10 +18,10 @@ requirements:
     - Jasper
     - make
     - if: linux
-      then: 
+      then:
         - openmp
     - if: win
-      then: 
+      then:
         - openmp
 
 about:
