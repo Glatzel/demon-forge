@@ -14,18 +14,18 @@ get-content ./index.scss >> ./html/src/style/index.scss
 
 Set-Location ./html
 
-&$env:BUILD_PREFIX/bin/npm install -g corepack
-&$env:BUILD_PREFIX/bin/corepack enable
-&$env:BUILD_PREFIX/bin/corepack prepare yarn@stable --activate
-&$env:BUILD_PREFIX/bin/yarn install
-&$env:BUILD_PREFIX/bin/yarn run check
-&$env:BUILD_PREFIX/bin/yarn run build
+npm install -g corepack
+corepack enable
+corepack prepare yarn@stable --activate
+yarn install
+yarn run check
+yarn run build
 Set-Location ..
 mkdir build
 Set-Location build
 
 if ($IsMacOS) {
-    &$env:BUILD_PREFIX/bin/cmake `
+    cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
         -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
@@ -33,11 +33,12 @@ if ($IsMacOS) {
         ..
 }
 if ($IsLinux) {
-    &$env:BUILD_PREFIX/bin/cmake `
+    otool -L $BUILD_PREFIX/lib/libwebsockets.19.dylib
+    cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
         ..
 }
 
-&$env:BUILD_PREFIX/bin/make VERBOSE=1
-&$env:BUILD_PREFIX/bin/make install
+make VERBOSE=1
+make install
