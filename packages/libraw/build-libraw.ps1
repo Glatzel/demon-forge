@@ -16,4 +16,4 @@ cmake `
         -DCMAKE_BUILD_TYPE="RELEASE" `
         ..
 cmake --build .
-cmake --install .
+cmake --install . 
