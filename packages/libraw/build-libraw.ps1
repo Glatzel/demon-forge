@@ -1,7 +1,11 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
+if ($IsWindows) {
+    $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
+    $env:CMAKE_GENERATOR_PLATFORM = "x64"
+    $env:CMAKE_GENERATOR_TOOLSET = "v143"
+}
 $version = get-current-version
 Set-Location $ROOT/temp/$name
 git clone https://github.com/LibRaw/LibRaw.git
