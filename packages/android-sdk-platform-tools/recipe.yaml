@@ -7,10 +7,12 @@ package:
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-tests:
-  - script:
-      - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/adb${{'.exe' if win}} --help"
 
+tests:
+  - package_contents:
+      bin:
+        - adb
+  - script: adb --help
 about:
   homepage: https://developer.android.com/studio/releases/platform-tools
   license: Apache-2.0

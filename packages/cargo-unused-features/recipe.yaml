@@ -19,7 +19,10 @@ requirements:
         - openssl
 
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
 about:
   homepage: https://github.com/taiki-e/cargo-unused-features
   license: MIT
