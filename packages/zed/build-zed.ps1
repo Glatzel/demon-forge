@@ -26,18 +26,12 @@ Set-Location $ROOT/temp/$name
 git clone https://github.com/zed-industries/zed.git
 Set-Location zed
 git checkout tags/"v$version" -b "$version"
-if ($IsWindows) {
-    $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
-}
-else {
-    $cargo = "$env:BUILD_PREFIX/bin/cargo"
-}
 
 if ($env:DIST_BUILD) {
-    & $cargo build -r $env:PREFIX --package zed --package cli
+    cargo build -r $env:PREFIX --package zed --package cli
 }
 else {
-    & $cargo build --package zed --package cli
+    cargo build --package zed --package cli
 }
 
 if ($env:DIST_BUILD) {
@@ -51,7 +45,7 @@ Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/zed.exe" "$env:PREFIX/bi
 Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$name.json" "$env:PREFIX/Menu"
+Copy-Item "$env:RECIPE_DIR/$name.json" "$env:PREFIX/Menu"
 if ($IsWindows) {
     Copy-Item "$ROOT/temp/$name/$name.ico" "$env:PREFIX/Menu"
 }
