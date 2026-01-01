@@ -12,6 +12,11 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - pkg-config
+    - lcms2
+    - zlib
+    - openjpeg
+    - openmp
+    - Jasper
 
 about:
   homepage: https://www.libraw.org
