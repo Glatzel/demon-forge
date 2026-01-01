@@ -5,7 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 $version = get-current-version
 Set-Location $ROOT/temp/$name
 git clone https://github.com/LibRaw/LibRaw.git
-Set-Location $name
+Set-Location LibRaw
 git checkout tags/$version -b "branch-$version"
 git clone --depth 1 https://github.com/LibRaw/LibRaw-cmake.git
 

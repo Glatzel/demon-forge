@@ -76,7 +76,7 @@ function get-version-text {
 }
 function pre-build {
     param( $name)
-    Remove-Item $ROOT/temp/$name -Recurse -ErrorAction SilentlyContinue
+    Remove-Item $ROOT/temp/$name -Force -Recurse -ErrorAction SilentlyContinue
     New-Item  $ROOT/temp/$name -ItemType Directory
 }
 function build-cargo-package {
