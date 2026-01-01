@@ -31,7 +31,7 @@ if ($IsMacOS) {
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
-        -Dlibwebsockets_DIR="/opt/homebrew/lib/cmake/libwebsockets" `
+        -Dlibwebsockets_ROOT_DIR="/opt/homebrew" `
         ..
 }
 if ($IsLinux) {
