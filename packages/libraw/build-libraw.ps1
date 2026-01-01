@@ -13,7 +13,6 @@ if ($IsMacOS) {
 if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
-if($arch -eq "Arm64"){   $env:ENABLE_OPENMP = "NO" }
 $version = get-current-version
 Set-Location $ROOT/temp/$name
 git clone https://github.com/LibRaw/LibRaw.git
