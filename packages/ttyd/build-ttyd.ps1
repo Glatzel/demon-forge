@@ -27,11 +27,11 @@ Set-Location build
 if ($IsMacOS) {
     brew install libwebsockets
 #-Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
-#-DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX"
-    cmake `
+cmake
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
-        -Dlibwebsockets_ROOT_DIR="/opt/homebrew" `
+        -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
+        -Dlibwebsockets_ROOT_DIR="$env:BUILD_PREFIX" `
         ..
 }
 if ($IsLinux) {
