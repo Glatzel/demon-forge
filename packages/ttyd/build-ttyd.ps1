@@ -27,20 +27,16 @@ Set-Location build
 
 if ($IsMacOS) {
     brew install -v libwebsockets
-    # cmake `
-    #     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
-    #     -DCMAKE_BUILD_TYPE="RELEASE" `
-    #     -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
-    #     -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
-    #     -Dlibwebsockets_DIR="/opt/homebrew/Cellar/libwebsockets/lib/cmake" `
-    #     -DZLIB_ROOT="$env:BUILD_PREFIX" `
-    #     -DLIBUV_INCLUDE_DIR="$env:BUILD_PREFIX/include" `
-    #     -DLIBUV_LIBRARY="$env:BUILD_PREFIX/lib/libuv.dylib" `
-    #     ..
-        cmake `
+    # Copy-Item /opt/homebrew/Cellar/libwebsockets/* 
+    cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
-        -Dlibwebsockets_DIR="/opt/homebrew/Cellar/libwebsockets/lib/cmake" `
+        -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
+        -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
+        -Dlibwebsockets_DIR="/opt/homebrew/Cellar/libwebsockets/lib/cmake/libwebsockets" `
+        -DZLIB_ROOT="$env:BUILD_PREFIX" `
+        -DLIBUV_INCLUDE_DIR="$env:BUILD_PREFIX/include" `
+        -DLIBUV_LIBRARY="$env:BUILD_PREFIX/lib/libuv.dylib" `
         ..
 }
 if ($IsLinux) {
