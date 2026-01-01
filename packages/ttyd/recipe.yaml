@@ -31,6 +31,14 @@ requirements:
 
 tests:
   - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
+  - requirements:
+      run:
+        - curl
+    script:
+      - $PREFIX/bin/${{ name }}${{'.exe' if win}} --port 7681 pwsh
+      - curl -sI http://localhost:7681
+
+    
 about:
   homepage: https://github.com/tsl0922/ttyd
   license: MIT OR Apache-2.0
