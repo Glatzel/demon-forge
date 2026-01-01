@@ -25,6 +25,7 @@ mkdir build
 Set-Location build
 
 if ($IsMacOS) {
+    otool -L $BUILD_PREFIX/lib/libwebsockets.19.dylib
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
@@ -33,7 +34,6 @@ if ($IsMacOS) {
         ..
 }
 if ($IsLinux) {
-    otool -L $BUILD_PREFIX/lib/libwebsockets.19.dylib
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
