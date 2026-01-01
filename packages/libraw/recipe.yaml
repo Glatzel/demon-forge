@@ -23,6 +23,7 @@ requirements:
     - if: win
       then:
         - openmp
+        - vs2022_win-64
 
 about:
   homepage: https://www.libraw.org
