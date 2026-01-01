@@ -15,9 +15,9 @@ on:
           - macos-latest
           - ubuntu-latest
           - ubuntu-24.04-arm
-      debug_enabled_on_fail:
+      debug_on_fail:
         type: boolean
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        description: "Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)"
         required: false
         default: false
 
@@ -56,5 +56,5 @@ jobs:
           path: ./packages/${{inputs.name}}/output
 
       - name: Debug with tmate
-        if: failure()
+        if: ${{failure()&& inputs.debug_on_fail}}
         uses: mxschmitt/action-tmate@v3
