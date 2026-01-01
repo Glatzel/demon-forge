@@ -32,5 +32,4 @@ if ($IsLinux) {
         ..
 }
 
-make VERBOSE=1
-make install
+cmake --build . --config Release --target install

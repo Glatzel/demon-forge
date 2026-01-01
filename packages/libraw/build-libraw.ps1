@@ -1,6 +1,27 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
-New-Item $env:PREFIX/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/installed/*" "$env:PREFIX/$name" -Recurse
+if ($IsWindows) {
+    $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
+    $env:CMAKE_GENERATOR_PLATFORM = "x64"
+    $env:CMAKE_GENERATOR_TOOLSET = "v143"
+    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
+}
+if ($IsMacOS) {
+    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
+}
+if ($IsLinux) {
+    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
+}
+if($arch -eq "Arm64"){   $env:ENABLE_OPENMP = "NO" }
+$version = get-current-version
+Set-Location $ROOT/temp/$name
+git clone https://github.com/LibRaw/LibRaw.git
+git clone --depth 1 https://github.com/LibRaw/LibRaw-cmake.git
+Set-Location LibRaw
+git checkout tags/$version -b "branch-$version"
+Copy-Item ../LibRaw-cmake/* ./ -Recurse
+mkdir build
+Set-Location build
+cmake -DCMAKE_BUILD_TYPE="RELEASE" ..
+cmake --build . --config Release --target install
