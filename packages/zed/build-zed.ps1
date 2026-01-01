@@ -26,18 +26,12 @@ Set-Location $ROOT/temp/$name
 git clone https://github.com/zed-industries/zed.git
 Set-Location zed
 git checkout tags/"v$version" -b "$version"
-if ($IsWindows) {
-    $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
-}
-else {
-    $cargo = "$env:BUILD_PREFIX/bin/cargo"
-}
 
 if ($env:DIST_BUILD) {
-    & $cargo build -r $env:PREFIX --package zed --package cli
+    cargo build -r $env:PREFIX --package zed --package cli
 }
 else {
-    & $cargo build --package zed --package cli
+    cargo build --package zed --package cli
 }
 
 if ($env:DIST_BUILD) {
