@@ -15,6 +15,11 @@ on:
           - macos-latest
           - ubuntu-latest
           - ubuntu-24.04-arm
+      debug_enabled_on_fail:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref}}-${{inputs.name}}-${{inputs.machine}}
@@ -50,21 +55,6 @@ jobs:
           name: ${{inputs.name}}-${{inputs.machine}}
           path: ./packages/${{inputs.name}}/output
 
-      - name: publish
-        if: ${{ steps.main.outputs.update != 'true' && github.event_name != 'pull_request' && github.ref_name=='main'}}
-        run: |
-          ./scripts/publish.ps1 -pkg ${{inputs.name}}
-        shell: pwsh
-
-      - name: Create pull request
-        if: ${{ steps.main.outputs.update == 'true' && github.event_name != 'pull_request' && !cancelled()}}
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ github.token }}
-          commit-message: "chore: update `${{inputs.name}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-          title: "chore: update `${{inputs.name}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-          branch: update-${{inputs.name}}
-          base: main
-          delete-branch: true
-          assignees: Glatzel
-          draft: true
+      - name: Debug with tmate
+        if: failure()
+        uses: mxschmitt/action-tmate@v3
