@@ -33,7 +33,7 @@ if ($IsMacOS) {
         -Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
         -DZLIB_ROOT="$env:BUILD_PREFIX" `
         -DLIBUV_INCLUDE_DIR="$env:BUILD_PREFIX/include" `
-        -DLIBUV_LIBRARY="$env:BUILD_PREFIX/lib/libuv.lib" `
+        -DLIBUV_LIBRARY="$env:BUILD_PREFIX/lib/libuv.dylib" `
         ..
 }
 if ($IsLinux) {
