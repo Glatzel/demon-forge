@@ -17,7 +17,7 @@ requirements:
     - openjpeg
     - Jasper
     - make
-    - if: linux-64
+    - if: linux and x86_64
       then:
         - openmp
     - if: win
@@ -29,7 +29,7 @@ requirements:
     - lcms2
     - openjpeg
     - Jasper
-    - if: linux-64
+    - if: linux and x86_64
       then:
         - openmp
     - if: win
