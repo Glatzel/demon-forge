@@ -27,7 +27,7 @@ Set-Location build
 
 if ($IsMacOS) {
     brew install -v libwebsockets
-    # Copy-Item /opt/homebrew/Cellar/libwebsockets/* 
+    # Copy-Item /opt/homebrew/Cellar/libwebsockets/*
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
