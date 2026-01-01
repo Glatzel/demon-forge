@@ -38,7 +38,6 @@ cmake `
     -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
     -Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
     ..
-get-content CMakeCache.txt
 }
 if($IsLinux){
 cmake `
@@ -47,5 +46,5 @@ cmake `
     ..
 }
 
-make -v
+make VERBOSE=1
 make install
