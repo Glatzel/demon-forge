@@ -36,6 +36,7 @@ cmake `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
+-Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/libwebsockets" `
     ..
 }
 if($IsLinux){
