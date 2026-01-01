@@ -32,13 +32,13 @@ mkdir build
 Set-Location build
 
 if($IsMacOS){
-get-content CMakeCache.txt
 cmake `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
     -Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
     ..
+get-content CMakeCache.txt
 }
 if($IsLinux){
 cmake `
