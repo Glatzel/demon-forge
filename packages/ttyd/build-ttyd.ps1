@@ -25,14 +25,15 @@ mkdir build
 Set-Location build
 
 if ($IsMacOS) {
-cmake `
-      -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
+    nm /path/to/libwebsockets.19.dylib
+    cmake `
+        -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
-  -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
+        -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
         -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
--Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
--DZLIB_ROOT="$env:BUILD_PREFIX" `
--Dlibuv_ROOT="$env:BUILD_PREFIX" `
+        -Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
+        -DZLIB_ROOT="$env:BUILD_PREFIX" `
+        -Dlibuv_ROOT="$env:BUILD_PREFIX" `
         ..
 }
 if ($IsLinux) {
