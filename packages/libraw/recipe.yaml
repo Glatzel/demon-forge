@@ -16,25 +16,18 @@ requirements:
     - zlib
     - openjpeg
     - Jasper
-    - make
-    - if: linux and x86_64
-      then:
-        - openmp
+    - ma
     - if: win
-      then:
-        - openmp
+      then:
         - vs2022_win-64
   run:
     - zlib
     - lcms2
     - openjpeg
     - Jasper
-    - if: linux and x86_64
+    - if: osx
       then:
-        - openmp
-    - if: win
-      then:
-        - openmp
+        llvm-openmp
 
 tests:
   - package_contents:
