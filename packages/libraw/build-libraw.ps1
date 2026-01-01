@@ -9,11 +9,4 @@ git clone --depth 1 https://github.com/LibRaw/LibRaw-cmake.git
 Set-Location LibRaw
 git checkout tags/$version -b "branch-$version"
 Copy-Item ../LibRaw-cmake/* ./ -Recurse
-mkdir build
-Set-Location build
-cmake `
-    -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
-    -DCMAKE_BUILD_TYPE="RELEASE" `
-    ..
-cmake --build .
-cmake --install .
+cmake --build . --config Release --target install  -DCMAKE_INSTALL_PREFIX="$env:PREFIX"
