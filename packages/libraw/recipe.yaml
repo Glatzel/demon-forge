@@ -24,7 +24,24 @@ requirements:
       then:
         - openmp
         - vs2022_win-64
-
+tests:
+  - package_contents:
+      include: 
+        - libraw/libraw.h
+      lib:
+        - raw
+      bin:
+        - 4channels
+        - dcraw_emu
+        - raw-identify
+        - simple_dcraw
+  - requirements:
+      run:
+        - curl
+    script:
+      - curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
+      - raw-identify -u RAW_NIKON_D1.NEF
+      - simple_dcraw -v -T RAW_NIKON_D1.NEF
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause
