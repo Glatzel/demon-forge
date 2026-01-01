@@ -1,6 +1,13 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+
+if ($IsMacOS) {
+    brew install -v libwebsockets
+    ls /opt/homebrew/Cellar/libwebsockets
+    ls /opt/homebrew/Cellar/libwebsockets/4.5.2/
+}
+
 $version = get-current-version
 Set-Location $ROOT/temp/$name
 git clone https://github.com/tsl0922/ttyd.git
@@ -25,13 +32,12 @@ mkdir build
 Set-Location build
 
 if ($IsMacOS) {
-    brew install libwebsockets
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
         -DCMAKE_BUILD_TYPE="RELEASE" `
         -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
         -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
-        -Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
+        -Dlibwebsockets_DIR="/opt/homebrew/Cellar/libwebsockets/4.5.2/lib/cmake" `
         -DZLIB_ROOT="$env:BUILD_PREFIX" `
         -DLIBUV_INCLUDE_DIR="$env:BUILD_PREFIX/include" `
         -DLIBUV_LIBRARY="$env:BUILD_PREFIX/lib/libuv.dylib" `
