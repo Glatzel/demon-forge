@@ -31,6 +31,8 @@ cmake `
   -DCMAKE_PREFIX_PATH="$BUILD_PREFIX" `
         -DOPENSSL_ROOT_DIR="$env:BUILD_PREFIX" `
 -Dlibwebsockets_DIR="$env:BUILD_PREFIX/lib/cmake/libwebsockets" `
+-DZLIB_ROOT="$env:BUILD_PREFIX" `
+-DLIBUV_ROOT="$env:BUILD_PREFIX" `
         ..
 }
 if ($IsLinux) {
