@@ -10,9 +10,15 @@ if ($IsMacOS) {
 if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
+if ($env:DIST_BUILD) {$env:DCMAKE_BUILD_TYPE="RELEASE"}
 git clone --depth 1 https://github.com/LibRaw/LibRaw-cmake.git
 Copy-Item ./LibRaw-cmake/* ./ -Recurse
 mkdir build
 Set-Location build
-cmake -DCMAKE_BUILD_TYPE="RELEASE" ..
-cmake --build . --config Release --target install
+cmake ..
+if ($env:DIST_BUILD) {
+    cmake --build . --config Release --target install
+}
+else{
+    cmake --build . --target install
+}
