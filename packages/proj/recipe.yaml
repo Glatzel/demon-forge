@@ -4,25 +4,9 @@ context:
 package:
   version: ${{ version }}
   name: ${{ name }}
-source:
-  url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - cmake
-    - make
-  host:
-    - sqlite
-    - libtiff
-    - libcurl
-  run:
-    - sqlite
-    - libtiff
-    - libcurl
 tests:
   - package_contents:
       include:

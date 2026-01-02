@@ -4,27 +4,14 @@ $ROOT = git rev-parse --show-toplevel
 Set-Location $env:SRC_DIR
 
 if ($IsWindows) {
-    $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
-    $env:CMAKE_GENERATOR_PLATFORM = "x64"
-    $env:CMAKE_GENERATOR_TOOLSET = "v143"
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
-if ($IsMacOS) {
+else {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
-if ($IsLinux) {
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
-}
-mkdir build
-Set-Location build
-cmake -DCMAKE_BUILD_TYPE="RELEASE" `
-    -DBUILD_APPS=ON `
-    -DBUILD_SHARED_LIBS=ON `
-    -DBUILD_TESTING=OFF `
-    -DENABLE_IPO=ON `
-    -DENABLE_CURL=ON `
-    -DENABLE_TIFF=ON `
-    -DEMBED_PROJ_DATA_PATH=OFF `
-    -DEMBED_RESOURCE_FILES=ON `
-    ..
-cmake --build . --config Release --target install
+
+Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
+& $ROOT/temp/$name/vcpkg-setup.ps1
+& $ROOT/temp/$name/vcpkg-install.ps1
+New-Item $env:PREFIX/$name -ItemType Directory
+Copy-Item "$ROOT/temp/$name/installed/*" "$env:PREFIX/$name" -Recurse
