@@ -18,11 +18,8 @@ requirements:
     - curl
     - cxx-compiler
     - fonttools
-    - json-c
-    - libwebsockets
     - make
     - nodejs
-    - zlib
     - pkg-config
     - if: unix
       then:
@@ -32,6 +29,10 @@ requirements:
     - if: macos
       then:
         - openssl
+  host:
+    - json-c
+    - libwebsockets
+    - zlib
   run:
     - libwebsockets
     - json-c

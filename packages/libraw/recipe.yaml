@@ -16,14 +16,18 @@ requirements:
     - ${{ compiler('cxx') }}
     - cmake 3.*
     - pkg-config
-    - lcms2
-    - zlib
-    - openjpeg
-    - Jasper
     - make
     - if: win
       then:
         - vs2022_win-64
+  host: 
+    - zlib
+    - lcms2
+    - openjpeg
+    - Jasper
+    - if: osx
+      then:
+        llvm-openmp
   run:
     - zlib
     - lcms2

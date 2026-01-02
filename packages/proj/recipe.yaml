@@ -10,5 +10,20 @@ source:
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements: 
+  build:
+    - cmake
+    - make
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+  host:
+    - sqlite
+    - libtiff
+    - libcurl
+  run:
+    - sqlite
+    - libtiff
+    - libcurl
 about:
   repository: https://github.com/OSGeo/PROJ
