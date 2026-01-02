@@ -10,7 +10,7 @@ requirements:
   build:
     - ${{ compiler('rust') }}
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/cargo-size${{'.exe' if win}} --help"
+  - script: cargo-size --help
 
 about:
   homepage: https://github.com/rust-embedded/cargo-binutils

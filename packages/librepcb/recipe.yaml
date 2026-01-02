@@ -7,8 +7,9 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   number: 0
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/bin/${{ name }}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/bin/${{ name }}
 about:
   homepage: https://librepcb.org
   license: GPL-3.0-only

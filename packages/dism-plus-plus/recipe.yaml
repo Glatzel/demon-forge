@@ -7,8 +7,9 @@ build:
   number: 7
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/Dism++x64${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/Dism++x64
 about:
   homepage: https://www.chuyu.me/en/index.html
   summary: Advanced Windows system management and optimization tool

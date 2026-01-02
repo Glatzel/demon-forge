@@ -10,7 +10,7 @@ requirements:
   build:
     - ${{ compiler('rust') }}
 tests:
-  - script: pwsh -Command "&  ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} llvm-cov --help"
+  - script: llvm-cov --help
 about:
   homepage: https://github.com/taiki-e/cargo-llvm-cov
   license: MIT OR Apache-2.0

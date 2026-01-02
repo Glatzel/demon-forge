@@ -10,4 +10,6 @@ build:
 source:
   url: https://github.com/zed-industries/zed/archive/refs/tags/v${{ version }}.tar.gz
 tests:
-  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}

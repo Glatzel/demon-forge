@@ -11,8 +11,9 @@ requirements:
     - selenium
     - toolbox
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/${{ name }}
 about:
   homepage: https://geeks3d.com/furmark
   summary: GPU stress test and benchmarking tool

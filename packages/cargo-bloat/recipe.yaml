@@ -10,7 +10,9 @@ requirements:
   build:
     - ${{ compiler('rust') }}
 tests:
-  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/${{ name }}
 about:
   homepage: https://github.com/rylev/cargo-bloat
   license: MIT
