@@ -7,8 +7,10 @@ build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/${{ name }}-portable${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/${{ name }}-portable
+
 about:
   homepage: https://calibre-ebook.com
   license: GPL-3.0-or-later

@@ -10,5 +10,5 @@ requirements:
   run:
     - runc
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/nerdctl${{'.exe' if win}} --help"
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/runc${{'.exe' if win}} --help"
+  - script: nerdctl --help
+  - script: runc --help

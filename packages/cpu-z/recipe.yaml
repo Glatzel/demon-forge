@@ -11,8 +11,10 @@ requirements:
     - selenium
     - toolbox
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/cpuz_x64${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/cpuz_x64
+
 about:
   homepage: https://www.cpuid.com/softwares/cpu-z.html
   summary: System profiling and monitoring tool for Windows

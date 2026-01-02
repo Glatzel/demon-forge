@@ -11,8 +11,10 @@ requirements:
     - selenium
     - toolbox
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{name}}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/${{ name }}
+ 
 about:
   homepage: https://filezilla-project.org
   license: GPL-3.0-or-later

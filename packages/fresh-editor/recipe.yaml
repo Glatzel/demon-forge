@@ -10,4 +10,4 @@ requirements:
   build:
     - ${{ compiler('rust') }}
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/fresh${{'.exe' if win}} --help"
+  - script: fresh --help

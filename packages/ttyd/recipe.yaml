@@ -37,7 +37,9 @@ requirements:
     - json-c
 
 tests:
-  - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}
   - requirements:
       run:
         - curl
