@@ -20,7 +20,7 @@ requirements:
     - if: win
       then:
         - vs2022_win-64
-  host: 
+  host:
     - zlib
     - lcms2
     - openjpeg
