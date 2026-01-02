@@ -27,8 +27,6 @@ tests:
   - package_contents:
       include:
         - proj.h
-      lib:
-        - proj
       bin:
         - cs2cs
         - proj
