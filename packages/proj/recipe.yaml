@@ -28,7 +28,7 @@ tests:
       include:
         - proj.h
       lib:
-        - proj.lib
+        - proj
       bin:
         - cs2cs
         - proj
