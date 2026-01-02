@@ -17,5 +17,14 @@ if ($IsLinux) {
 }
 mkdir build
 Set-Location build
-cmake -DCMAKE_BUILD_TYPE="RELEASE" ..
+cmake -DCMAKE_BUILD_TYPE="RELEASE" `
+    -DBUILD_APPS=ON `
+    -BUILD_SHARED_LIBS=ON `
+    -DBUILD_TESTING=OFF `
+    -DENABLE_IPO=ON `
+    -DENABLE_CURL=ON `
+    -DENABLE_TIFF=ON `
+    -DEMBED_PROJ_DATA_PATH=OFF `
+    -DEMBED_RESOURCE_FILES=ON `
+    ..
 cmake --build . --config Release --target install
