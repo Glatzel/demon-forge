@@ -15,9 +15,10 @@ if ($IsMacOS) {
 if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
+if ($env:DIST_BUILD) {$env:DCMAKE_BUILD_TYPE="RELEASE"}
 mkdir build
 Set-Location build
-cmake -DCMAKE_BUILD_TYPE="RELEASE" `
+cmake `
     -DBUILD_APPS=ON `
     -DBUILD_SHARED_LIBS=ON `
     -DBUILD_TESTING=OFF `
@@ -27,4 +28,10 @@ cmake -DCMAKE_BUILD_TYPE="RELEASE" `
     -DEMBED_PROJ_DATA_PATH=OFF `
     -DEMBED_RESOURCE_FILES=ON `
     ..
-cmake --build . --config Release --target install
+if ($env:DIST_BUILD) {
+    cmake --build . --config Release --target install
+}
+else{
+    cmake --build . --target install
+}
+
