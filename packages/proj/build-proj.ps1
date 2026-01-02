@@ -34,4 +34,3 @@ if ($env:DIST_BUILD) {
 else{
     cmake --build . --target install
 }
-
