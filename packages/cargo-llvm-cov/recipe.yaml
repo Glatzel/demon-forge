@@ -10,7 +10,7 @@ requirements:
   build:
     - ${{ compiler('rust') }}
 tests:
-  - script: llvm-cov --help
+  - script: ${{ name }} llvm-cov --help
 about:
   homepage: https://github.com/taiki-e/cargo-llvm-cov
   license: MIT OR Apache-2.0

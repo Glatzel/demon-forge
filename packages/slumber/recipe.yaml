@@ -1,10 +1,10 @@
 context:
   name: slumber
 package:
-  version: "4.3.0"
+  version: "4.3.1"
   name: ${{ name }}
 build:
-  number: 3
+  number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:

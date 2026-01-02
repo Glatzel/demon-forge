@@ -1,10 +1,10 @@
 context:
   name: cargo-nextest
 package:
-  version: "0.9.116"
+  version: "0.9.117"
   name: ${{ name }}
 build:
-  number: 10
+  number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
