@@ -6,7 +6,7 @@ update-recipe -version $latest_version
 update-vcpkg-json -file $PSScriptRoot/build/vcpkg.json -name $name -version $latest_version
 
 if ($IsLinux) {
-    dnf update
+    dnf update -y
     dnf install -y gcc gcc-c++ make cmake python3
 }
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse

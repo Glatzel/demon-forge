@@ -5,7 +5,7 @@ $latest_version = get-version-vcpkg -name $name
 update-recipe -version $latest_version
 update-vcpkg-json -file $PSScriptRoot/build/vcpkg.json -name $name -version $latest_version
 if ($IsLinux) {
-    dnf update
+    dnf update -y
     dnf install -y gcc gcc-c++ make cmake
 }
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse

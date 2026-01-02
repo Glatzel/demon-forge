@@ -28,7 +28,7 @@ Write-Output "::endgroup::"
 
 write-output "::group::Install packages"
 Set-Location ..
-dnf update
+dnf update -y
 dnf install -y autoconf automake gcc gcc-c++ make cmake curl file libtool
 write-output  "::endgroup::"
 
