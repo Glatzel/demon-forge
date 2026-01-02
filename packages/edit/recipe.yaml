@@ -9,7 +9,7 @@ build:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/${{ name }}
+        - ${{ name }}
 
 about:
   homepage: https://github.com/microsoft/edit
