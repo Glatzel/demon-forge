@@ -23,5 +23,19 @@ requirements:
     - sqlite
     - libtiff
     - libcurl
+tests:
+  - package_contents:
+      include:
+        - proj.h
+      lib:
+        - proj.lib
+      bin:
+        - cs2cs
+        - proj
+        - cct
+        - geod
+        - gie
+        - invgeod
+        - invproj
 about:
   repository: https://github.com/OSGeo/PROJ
