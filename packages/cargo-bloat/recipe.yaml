@@ -12,7 +12,7 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/${{ name }}
+        - ${{ name }}
 about:
   homepage: https://github.com/rylev/cargo-bloat
   license: MIT
