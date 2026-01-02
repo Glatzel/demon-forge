@@ -19,12 +19,16 @@ yarn run build
 Set-Location ..
 mkdir build
 Set-Location build
-
+if ($env:DIST_BUILD) {$env:DCMAKE_BUILD_TYPE="RELEASE"}
 if ($IsLinux) {
     cmake `
         -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
-        -DCMAKE_BUILD_TYPE="RELEASE" `
         ..
 }
+if ($env:DIST_BUILD) {
+    cmake --build . --config Release --target install
+}
+else{
+    cmake --build . --target install
+}
 
-cmake --build . --config Release --target install
