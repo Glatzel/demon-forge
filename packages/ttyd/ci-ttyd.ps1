@@ -43,15 +43,15 @@ foreach ($t in "win32", "x86_64", "aarch64") {
     switch ($t) {
         "win32" {
             $env:TARGET_PLATFORM = 'win-64'
-            pixi run rattler-build build --target-platform 'win-64'
+            pixi run rattler-build build --target-platform 'win-64' --output-dir $ROOT/output
         }
         "x86_64" {
             $env:TARGET_PLATFORM = 'linux-64'
-            pixi run rattler-build build --target-platform 'linux-64'
+            pixi run rattler-build build --target-platform 'linux-64'  --output-dir $ROOT/output
         }
         "aarch64" {
             $env:TARGET_PLATFORM = 'linux-aarch64'
-            pixi run rattler-build build --target-platform 'linux-aarch64'
+            pixi run rattler-build build --target-platform 'linux-aarch64' --output-dir $ROOT/output
         }
     }
     Set-Location $ROOT/temp/$name/$name
