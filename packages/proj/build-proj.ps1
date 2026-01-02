@@ -19,7 +19,7 @@ mkdir build
 Set-Location build
 cmake -DCMAKE_BUILD_TYPE="RELEASE" `
     -DBUILD_APPS=ON `
-    -DBUILD_SHARED_LIBS=ON `
+    -DBUILD_SHARED_LIBS=OFF `
     -DBUILD_TESTING=OFF `
     -DENABLE_IPO=ON `
     -DENABLE_CURL=ON `
