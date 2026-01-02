@@ -1,31 +1,10 @@
 context:
   name: proj
-  version: "9.7.1"
 package:
-  version: ${{ version }}
+  version: "9.7.1"
   name: ${{ name }}
 build:
-  number: 4
+  number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - if: linux
-      then:
-        - c-compiler
-        - cxx-compiler
-tests:
-  - package_contents:
-      include:
-        - proj.h
-      bin:
-        - cs2cs
-        - proj
-        - cct
-        - geod
-        - gie
-        - invgeod
-        - invproj
-  - script: projinfo -s EPSG:2230 -t EPSG:26946
 about:
   repository: https://github.com/OSGeo/PROJ
-  documentation: https://proj.org/en/stable/
