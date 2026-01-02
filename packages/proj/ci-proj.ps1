@@ -6,9 +6,6 @@ update-recipe -version $latest_version
 update-vcpkg-json -file $PSScriptRoot/build/vcpkg.json -name $name -version $latest_version
 if ($IsLinux) {
     dnf groupinstall "Development Tools" -y
-    dnf update -y
-    dnf module enable gcc:10 -y
-    dnf install -t gcc
 }
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
 & $ROOT/temp/$name/vcpkg-setup.ps1
