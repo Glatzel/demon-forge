@@ -1,14 +1,9 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+Set-Location $env:SRC_DIR
 
-$version = get-current-version
-Set-Location $ROOT/temp/$name
-git clone https://github.com/tsl0922/ttyd.git
-Set-Location $name
-
-git checkout tags/$version -b "branch-$version"
-copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
+copy-item $PSScriptRoot/build/* ./ -recurse
 git apply config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1

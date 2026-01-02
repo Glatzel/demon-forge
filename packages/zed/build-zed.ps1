@@ -1,9 +1,8 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
-    $env:PATH = "$env:BUILD_PREFIX/bin;$env:BUILD_PREFIX/Library/bin;$env:PATH"
 $version = get-current-version
+Set-Location $env:SRC_DIR
 New-Item $env:PREFIX/bin -ItemType Directory
 #download icon
 if ($IsWindows) {
@@ -22,10 +21,6 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-Set-Location $ROOT/temp/$name
-git clone https://github.com/zed-industries/zed.git
-Set-Location zed
-git checkout tags/"v$version" -b "$version"
 
 if ($env:DIST_BUILD) {
     cargo build -r $env:PREFIX --package zed --package cli
@@ -41,8 +36,8 @@ else {
     $build_profile = 'debug'
 }
 
-Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
-Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
+Copy-Item "./target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
+Copy-Item "./target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "$env:RECIPE_DIR/$name.json" "$env:PREFIX/Menu"

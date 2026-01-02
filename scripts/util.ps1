@@ -177,7 +177,9 @@ function reset-build-code {
 
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
-    pixi run rattler-build --config-file $ROOT/rattler-config.toml build
+    pixi run rattler-build `
+        --config-file $ROOT/rattler-config.toml `
+        build --output-dir $ROOT/output
 }
 
 # Extract package name and current system architecture

@@ -1,8 +1,11 @@
 context:
   name: libraw
-package:
   version: "0.21.5"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/LibRaw/LibRaw/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
@@ -12,14 +15,18 @@ requirements:
     - ${{ compiler('cxx') }}
     - cmake 3.*
     - pkg-config
-    - lcms2
-    - zlib
-    - openjpeg
-    - Jasper
     - make
     - if: win
       then:
         - vs2022_win-64
+  host:
+    - zlib
+    - lcms2
+    - openjpeg
+    - Jasper
+    - if: osx
+      then:
+        llvm-openmp
   run:
     - zlib
     - lcms2

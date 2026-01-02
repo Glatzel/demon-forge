@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{inputs.name}}-${{inputs.machine}}
-          path: ./packages/${{inputs.name}}/output
+          path: ./output
 
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}

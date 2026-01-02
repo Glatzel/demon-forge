@@ -1,8 +1,11 @@
 context:
   name: ttyd
-package:
   version: "1.7.7"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 7
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
@@ -14,11 +17,8 @@ requirements:
     - curl
     - cxx-compiler
     - fonttools
-    - json-c
-    - libwebsockets
     - make
     - nodejs
-    - zlib
     - pkg-config
     - if: unix
       then:
@@ -28,6 +28,10 @@ requirements:
     - if: macos
       then:
         - openssl
+  host:
+    - json-c
+    - libwebsockets
+    - zlib
   run:
     - libwebsockets
     - json-c
