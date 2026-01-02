@@ -13,7 +13,6 @@ if ($IsMacOS) {
 if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
-$version = get-current-version
 git clone --depth 1 https://github.com/LibRaw/LibRaw-cmake.git
 Copy-Item ./LibRaw-cmake/* ./ -Recurse
 mkdir build
