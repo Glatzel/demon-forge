@@ -9,5 +9,5 @@ build:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/V2rayN
+        - ${{ name }}/v2rayN
 
