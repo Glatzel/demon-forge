@@ -1,8 +1,12 @@
 context:
   name: libraw
-package:
   version: "0.21.5"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  git: https://github.com/LibRaw/LibRaw
+  tag: ${{ version }}
 build:
   number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

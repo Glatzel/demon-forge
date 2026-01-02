@@ -1,8 +1,12 @@
 context:
   name: proj
-package:
   version: "9.7.1"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  git: https://github.com/OSGeo/PROJ.git
+  tag: ${{ version }}
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
