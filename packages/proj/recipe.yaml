@@ -5,7 +5,7 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 build:
-  number: 3
+  number: 4
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - package_contents:
