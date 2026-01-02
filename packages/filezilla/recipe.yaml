@@ -14,7 +14,7 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}/${{ name }}
- 
+
 about:
   homepage: https://filezilla-project.org
   license: GPL-3.0-or-later
