@@ -4,7 +4,7 @@ package:
   version: "1.7.7"
   name: ${{ name }}
 build:
-  number: 6
+  number: 8
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 
 tests:
