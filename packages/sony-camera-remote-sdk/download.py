@@ -26,14 +26,18 @@ match sys.platform:
         driver.close()
 
     case "linux":
-        log.info("linux arm64")
-        driver = init_driver(download_dir)
-        driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_64?fm=en-us")
-        download_waiter(download_dir, "*Linux64ARMv8.zip")
-        driver.close()
+        import os
 
-        log.info("linux x64")
-        driver = init_driver(download_dir)
-        driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_x86?fm=en-us")
-        download_waiter(download_dir, "*Linux64PC.zip")
-        driver.close()
+        match os.uname().machine:
+            case "x86_64":
+                log.info("linux arm64")
+                driver = init_driver(download_dir)
+                driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_64?fm=en-us")
+                download_waiter(download_dir, "*Linux64ARMv8.zip")
+                driver.close()
+            case "aarch64":
+                log.info("linux x64")
+                driver = init_driver(download_dir)
+                driver.get("https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_x86?fm=en-us")
+                download_waiter(download_dir, "*Linux64PC.zip")
+                driver.close()

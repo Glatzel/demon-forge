@@ -6,6 +6,10 @@ package:
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - selenium
+    - toolbox
 tests:
   - script:
       - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/benchmark-launcher-cli${{'.exe' if win}} --help"

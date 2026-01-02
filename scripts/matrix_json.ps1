@@ -12,7 +12,7 @@ foreach ($row in $csvData) {
                 $matrix += [PSCustomObject]@{
                     pkg       = $pkg
                     machine   = $machine
-                    container = "ghcr.io/glatzel/ghar-linux"
+                    container = "ghcr.io/glatzel/ghar-linux-release-cloud"
                 }
             }
             else {

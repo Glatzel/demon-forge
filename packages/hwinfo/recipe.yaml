@@ -6,8 +6,14 @@ package:
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - selenium
+    - toolbox
 tests:
-  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/HWiNFO64${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/HWiNFO64
 
 about:
   homepage: https://www.hwinfo.com

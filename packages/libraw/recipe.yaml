@@ -1,11 +1,59 @@
 context:
   name: libraw
-package:
   version: "0.21.5"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/LibRaw/LibRaw/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 1
+  number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - cmake 3.*
+    - pkg-config
+    - make
+    - if: win
+      then:
+        - vs2022_win-64
+  host:
+    - zlib
+    - lcms2
+    - openjpeg
+    - Jasper
+    - if: osx
+      then:
+        llvm-openmp
+  run:
+    - zlib
+    - lcms2
+    - openjpeg
+    - Jasper
+    - if: osx
+      then:
+        llvm-openmp
+
+tests:
+  - package_contents:
+      include:
+        - libraw/libraw.h
+      lib:
+        - raw
+      bin:
+        - 4channels
+        - dcraw_emu
+        - raw-identify
+        - simple_dcraw
+  - requirements:
+      run:
+        - curl
+    script:
+      - curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
+      - raw-identify -u RAW_NIKON_D1.NEF
+      - simple_dcraw -v -T RAW_NIKON_D1.NEF
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause

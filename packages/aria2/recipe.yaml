@@ -8,8 +8,10 @@ build:
   number: 7
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
-  - script:
-      - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}c${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - aria2c
+  - script: aria2c --help
 
 about:
   homepage: https://aria2.github.io

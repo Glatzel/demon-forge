@@ -6,9 +6,15 @@ package:
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - selenium
+    - toolbox
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path $env:PREFIX/bin/${{ name }}/cpuz_x64${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/cpuz_x64
+
 about:
   homepage: https://www.cpuid.com/softwares/cpu-z.html
   summary: System profiling and monitoring tool for Windows

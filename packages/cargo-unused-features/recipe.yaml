@@ -4,16 +4,25 @@ package:
   version: 0.2.0
   name: ${{ name }}
 build:
-  number: 4
+  number: 5
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - if: linux
+      then:
+        - pkg-config
+        - openssl
   run:
     - if: linux
       then:
-        - openssl >= 3
+        - openssl
 
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
 about:
   homepage: https://github.com/taiki-e/cargo-unused-features
   license: MIT

@@ -4,10 +4,16 @@ package:
   version: "0.4.45"
   name: ${{ name }}
 build:
-  number: 3
+  number: 9
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler('rust') }}
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
 about:
   homepage: https://github.com/kbknapp/cargo-llvm-lines
   license: MIT

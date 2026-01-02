@@ -6,9 +6,15 @@ package:
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - selenium
+    - toolbox
 tests:
-  - script:
-      - pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{name}}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}/${{ name }}
+
 about:
   homepage: https://filezilla-project.org
   license: GPL-3.0-or-later

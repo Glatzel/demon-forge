@@ -4,10 +4,16 @@ package:
   version: "0.40.3"
   name: ${{ name }}
 build:
-  number: 2
+  number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler('rust') }}
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
 about:
   homepage: https://ast-grep.github.io
   license: MIT

@@ -4,9 +4,4 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "Chuyu-Team/Dism-Multi-language"
 update-recipe -version $latest_version
-
-gh release download -R Chuyu-Team/Dism-Multi-language -p "Dism*.zip" `
-    -O  "$ROOT/temp/$name/$name.zip" --clobber
-7z x "$ROOT/temp/$name/$name.zip"  "-o$ROOT/temp/$name/$name"
-
 build-pkg
