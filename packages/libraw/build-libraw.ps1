@@ -1,6 +1,3 @@
-Set-Location $PSScriptRoot
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 if ($IsWindows) {
     $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
     $env:CMAKE_GENERATOR_PLATFORM = "x64"
