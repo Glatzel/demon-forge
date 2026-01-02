@@ -10,3 +10,4 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}/V2rayN
+ 
