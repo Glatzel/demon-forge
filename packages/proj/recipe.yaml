@@ -5,8 +5,7 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  git: https://github.com/OSGeo/PROJ.git
-  tag: ${{ version }}
+  url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
