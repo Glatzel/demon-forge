@@ -10,4 +10,3 @@ foreach ($pkg_file in Get-ChildItem "./output/*/$pkg-*.conda") {
     pixi run rattler-build upload prefix -s -c glatzel $pkg_file
     Write-Output "::endgroup::"
 }
-
