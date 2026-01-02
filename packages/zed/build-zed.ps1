@@ -23,7 +23,7 @@ if ($IsWindows) {
 }
 
 if ($env:DIST_BUILD) {
-    cargo build -r $env:PREFIX --package zed --package cli
+    cargo build -r --package zed --package cli
 }
 else {
     cargo build --package zed --package cli
