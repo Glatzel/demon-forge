@@ -7,7 +7,7 @@ package:
 build:
   number: 4
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements: 
+requirements:
   build:
     - if: linux
       then:
