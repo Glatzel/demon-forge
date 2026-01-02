@@ -1,15 +1,10 @@
 context:
   name: zed
-  version: "0.217.3"
 package:
-  version: ${{ version }}
+  version: "0.217.3"
   name: ${{ name }}
 build:
-  number: 2
+  number: 4
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-source:
-  url: https://github.com/zed-industries/zed/archive/refs/tags/v${{ version }}.tar.gz
 tests:
-  - package_contents:
-      bin:
-        - ${{ name }}
+  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}${{'.exe' if win}}"

@@ -2,7 +2,7 @@
 $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
-
+Remove-Item Alias:curl -ErrorAction SilentlyContinue
 # Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
     # On Windows, use semicolon as path separator
@@ -50,6 +50,17 @@ function get-version-crateio {
         }
     }
 }
+function get-version-vcpkg {
+    param($name)
+    for ($i = 0; $i -lt 5; $i++) {
+        $latest = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
+            jq -r '.version'
+        if ($latest) {
+            return $latest
+        }
+    }
+}
+
 function get-version-url {
     param($url, $pattern)
     for ($i = 0; $i -lt 5; $i++) {
@@ -73,6 +84,18 @@ function get-version-text {
         Sort-Object { [version]$_ } -Descending | `
         Select-Object -First 1
     return $latest
+}
+function update-vcpkg-json {
+    param($file, $name, $version)
+    $json = Get-Content $file -Raw | ConvertFrom-Json
+
+    # update the override
+    $json.overrides | Where-Object { $_.name -eq "$name" } | ForEach-Object {
+        $_.version = $version
+    }
+
+    # save formatted JSON
+    $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
 function pre-build {
     param( $name)
