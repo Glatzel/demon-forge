@@ -114,7 +114,7 @@ function build-cargo-package {
     param( $name, $crate_names)
     install-rust
     if ($env:DIST_BUILD) {
-        & $cargo install $crate_names --root $env:PREFIX --locked --force `
+        cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -122,7 +122,7 @@ function build-cargo-package {
             --config 'profile.release.strip=true'
     }
     else {
-        & $cargo install $crate_names --root $env:PREFIX --locked --force `
+        cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
