@@ -7,7 +7,7 @@ update-vcpkg-json -file $PSScriptRoot/build/vcpkg.json -name $name -version $lat
 
 if ($IsLinux) {
     dnf update -y
-    dnf install -y gcc gcc-c++
+    dnf install -y gcc gcc-c++ python3
 }
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
 & $ROOT/temp/$name//vcpkg-setup.ps1
