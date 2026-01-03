@@ -29,7 +29,7 @@ Write-Output "::endgroup::"
 write-output "::group::Install packages"
 Set-Location ..
 dnf update -y
-dnf install -y gcc gcc-c++ make automake autoconf file libtool
+dnf install -y gcc gcc-c++ make automake autoconf file libtool curl
 write-output  "::endgroup::"
 
 foreach ($t in "win32", "x86_64", "aarch64") {
