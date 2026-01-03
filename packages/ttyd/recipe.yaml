@@ -8,7 +8,9 @@ build:
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 
 tests:
-  - script: pwsh -Command "resolve-path $PREFIX/bin/${{ name }}${{'.exe' if win}}"
+  - package_contents:
+      bin:
+        - ${{ name }}
 about:
   homepage: https://github.com/tsl0922/ttyd
   license: MIT OR Apache-2.0
