@@ -1,8 +1,17 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-Set-Location $env:SRC_DIR
 
+New-Item $env:PREFIX/Menu -ItemType Directory
+Copy-Item "$env:RECIPE/$name.json" "$env:PREFIX/Menu"
+if ($IsWindows) {
+    $version=get-current-version
+    aria2c -c -x16 -s16 -d "$env:PREFIX/Menu" `
+        "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v$latest_version/crates/zed/resources/windows/app-icon.ico" `
+        -o "$name.ico"
+}
+
+Set-Location $env:SRC_DIR
 # enable long path
 if ($IsWindows) {
     git config --system core.longpaths true
@@ -27,13 +36,5 @@ else {
 }
 
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
-Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
-# shortcut
-New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$name.json" "$env:PREFIX/Menu"
-if ($IsWindows) {
-    aria2c -c -x16 -s16 -d "$env:PREFIX/Menu" `
-        "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v$latest_version/crates/zed/resources/windows/app-icon.ico" `
-        -o "$name.ico"
-}
+Copy-Item "./target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
+Copy-Item "./target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
