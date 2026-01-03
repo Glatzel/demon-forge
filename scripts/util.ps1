@@ -102,16 +102,20 @@ function pre-build {
     Remove-Item $ROOT/temp/$name -Force -Recurse -ErrorAction SilentlyContinue
     New-Item  $ROOT/temp/$name -ItemType Directory
 }
+function install-rust {
+    if ($IsLinux) {
+        dnf update -y
+        dnf install -y gcc gcc-c++
+        Remove-Item Alias:curl -ErrorAction SilentlyContinue
+        curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
+        $env:PATH = "${env:HOME}/.cargo/bin`:${env:PATH}"
+    }
+}
 function build-cargo-package {
     param( $name, $crate_names)
-    if ($IsWindows) {
-        $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
-    }
-    else {
-        $cargo = "$env:BUILD_PREFIX/bin/cargo"
-    }
+    install-rust
     if ($env:DIST_BUILD) {
-        & $cargo install $crate_names --root $env:PREFIX --locked --force `
+        cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -119,7 +123,7 @@ function build-cargo-package {
             --config 'profile.release.strip=true'
     }
     else {
-        & $cargo install $crate_names --root $env:PREFIX --locked --force `
+        cargo install $crate_names --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
@@ -129,14 +133,9 @@ function build-cargo-package {
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
-    if ($IsWindows) {
-        $cargo = "$env:BUILD_PREFIX/Library/bin/cargo.exe"
-    }
-    else {
-        $cargo = "$env:BUILD_PREFIX/bin/cargo"
-    }
+    install-rust
     if ($env:DIST_BUILD) {
-        & $cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -144,7 +143,7 @@ function build-cargo-package-github {
             --config 'profile.release.strip=true' $target
     }
     else {
-        & $cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
