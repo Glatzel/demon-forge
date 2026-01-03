@@ -7,6 +7,8 @@ update-vcpkg-json -file $PSScriptRoot/build/vcpkg.json -name $name -version $lat
 if ($IsLinux) {
     dnf update -y
     dnf install -y gcc-toolset-10-gcc gcc-toolset-10-gcc-c++
+    gcc --version
+    g++ --version
 }
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
 & $ROOT/temp/$name/vcpkg-setup.ps1
