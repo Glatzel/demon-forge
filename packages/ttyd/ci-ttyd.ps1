@@ -29,7 +29,7 @@ Write-Output "::endgroup::"
 write-output "::group::Install packages"
 Set-Location ..
 dnf update -y
-dnf install -y gcc gcc-c++ make
+dnf install -y gcc gcc-c++ make automake autoconfig file libtool
 write-output  "::endgroup::"
 
 foreach ($t in "win32", "x86_64", "aarch64") {
