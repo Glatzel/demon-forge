@@ -135,7 +135,7 @@ function build-cargo-package-github {
     param( $name, $url, $tag, $target)
     install-rust
     if ($env:DIST_BUILD) {
-        & $cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.codegen-units=1' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.lto="fat"' `
@@ -143,7 +143,7 @@ function build-cargo-package-github {
             --config 'profile.release.strip=true' $target
     }
     else {
-        & $cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
             --config 'profile.release.opt-level=0' `
             --config 'profile.release.debug=false' `
             --config 'profile.release.codegen-units=256' `
