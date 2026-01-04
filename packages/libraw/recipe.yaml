@@ -8,11 +8,9 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - c-compiler
-        - cxx-compiler
-        - python
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - python
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause
