@@ -5,7 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "$name.json" "$env:PREFIX/Menu"
 if ($IsWindows) {
-    $version=get-current-version
+    $version = get-current-version
     aria2c -c -x16 -s16 -d "$env:PREFIX/Menu" `
         "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v$version/crates/zed/resources/windows/app-icon.ico" `
         -o "$name.ico"
@@ -22,19 +22,7 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-if ($env:DIST_BUILD) {
-    cargo build -r --package zed --package cli
-}
-else {
-    cargo build --package zed --package cli
-}
-if ($env:DIST_BUILD) {
-    $build_profile = 'release'
-}
-else {
-    $build_profile = 'debug'
-}
-
+cargo build -r --package zed --package cli
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
-Copy-Item "./target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
+Copy-Item "./target/release/zed.exe" "$env:PREFIX/bin/zed.exe"
+Copy-Item "./target/release/cli.exe" "$env:PREFIX/bin/zed-cli.exe"

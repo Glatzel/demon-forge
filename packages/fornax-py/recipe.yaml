@@ -1,13 +1,18 @@
 context:
   name: fornax-py
+  version: "0.0.12"
 package:
-  version: "0.0.11"
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/Glatzel/fornax/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 
 requirements:
+  build:
+    - ${{ compiler("rust") }}
   host:
     - python 3.13.*
     - pip

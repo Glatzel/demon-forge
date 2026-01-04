@@ -1,12 +1,17 @@
 context:
   name: pyxis-py
+  version: "0.0.40"
 package:
-  version: "0.0.39"
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/Glatzel/pyxis/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
+  build:
+    - ${{ compiler("rust") }}
   host:
     - python 3.13.*
     - pip

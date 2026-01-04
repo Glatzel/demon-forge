@@ -1,10 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-if ($IsLinux) {
-    dnf update -y
-    dnf install -y gcc gcc-c++ python3.11
-}
+
 Copy-Item $PSScriptRoot/build/* $ROOT/temp/$name/ -Recurse
 & $ROOT/temp/$name//vcpkg-setup.ps1
 & $ROOT/temp/$name//vcpkg-install.ps1

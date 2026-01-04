@@ -10,6 +10,8 @@ requirements:
   build:
     - selenium
     - toolbox
+    - c-compiler
+    - cxx-compiler
 tests:
   - package_contents:
       bin:

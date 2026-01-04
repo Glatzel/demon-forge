@@ -2,16 +2,17 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
+if ($IsLinux) {
+    dnf update -y
+    dnf install -y systemd-devel
+}
+Set-Location $env:SRC_DIR/rust
+& ./scripts/setup.ps1
+cargo build --bin pyxis --release
 New-Item $env:PREFIX/bin -ItemType Directory
-if ($env:DIST_BUILD) {
-    $config = "release"
-}
-else {
-    $config = "debug"
-}
 if ($IsWindows) {
-    Copy-Item $ROOT/temp/$name/pyxis/rust/target/$config/pyxis.exe "$env:PREFIX/bin/"
+    Copy-Item ./target/release/pyxis.exe "$env:PREFIX/bin/"
 }
 else {
-    Copy-Item $ROOT/temp/$name/pyxis/rust/target/$config/pyxis "$env:PREFIX/bin/"
+    Copy-Item ./target/release/pyxis "$env:PREFIX/bin/"
 }

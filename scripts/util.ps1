@@ -102,54 +102,24 @@ function pre-build {
     Remove-Item $ROOT/temp/$name -Force -Recurse -ErrorAction SilentlyContinue
     New-Item  $ROOT/temp/$name -ItemType Directory
 }
-function install-rust {
-    if ($IsLinux) {
-        dnf update -y
-        dnf install -y gcc gcc-c++
-        Remove-Item Alias:curl -ErrorAction SilentlyContinue
-        curl https://sh.rustup.rs -sSf | bash -s -- -y --profile minimal --default-toolchain stable
-        $env:PATH = "${env:HOME}/.cargo/bin`:${env:PATH}"
-    }
-}
+
 function build-cargo-package {
     param( $name, $crate_names)
-    install-rust
-    if ($env:DIST_BUILD) {
-        cargo install $crate_names --root $env:PREFIX --locked --force `
-            --config 'profile.release.codegen-units=1' `
-            --config 'profile.release.debug=false' `
-            --config 'profile.release.lto="fat"' `
-            --config 'profile.release.opt-level=3' `
-            --config 'profile.release.strip=true'
-    }
-    else {
-        cargo install $crate_names --root $env:PREFIX --locked --force `
-            --config 'profile.release.opt-level=0' `
-            --config 'profile.release.debug=false' `
-            --config 'profile.release.codegen-units=256' `
-            --config 'profile.release.lto="off"' `
-            --config 'profile.release.strip=false'
-    }
+    cargo install $crate_names --root $env:PREFIX --locked --force `
+        --config 'profile.release.codegen-units=1' `
+        --config 'profile.release.debug=false' `
+        --config 'profile.release.lto="fat"' `
+        --config 'profile.release.opt-level=3' `
+        --config 'profile.release.strip=true'
 }
 function build-cargo-package-github {
     param( $name, $url, $tag, $target)
-    install-rust
-    if ($env:DIST_BUILD) {
-        cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
-            --config 'profile.release.codegen-units=1' `
-            --config 'profile.release.debug=false' `
-            --config 'profile.release.lto="fat"' `
-            --config 'profile.release.opt-level=3' `
-            --config 'profile.release.strip=true' $target
-    }
-    else {
-        cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
-            --config 'profile.release.opt-level=0' `
-            --config 'profile.release.debug=false' `
-            --config 'profile.release.codegen-units=256' `
-            --config 'profile.release.lto="off"' `
-            --config 'profile.release.strip=false' $target
-    }
+    cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        --config 'profile.release.codegen-units=1' `
+        --config 'profile.release.debug=false' `
+        --config 'profile.release.lto="fat"' `
+        --config 'profile.release.opt-level=3' `
+        --config 'profile.release.strip=true' $target
 }
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
@@ -179,7 +149,7 @@ function update-recipe {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; $env:DIST_BUILD = $true; "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
             { $env:GITHUB_EVENT_NAME -eq "pull_request" } { pre-build -name $name }
 
