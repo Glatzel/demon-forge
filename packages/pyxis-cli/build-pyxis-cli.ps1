@@ -19,11 +19,4 @@ if ($IsLinux -and ($(uname -m) -eq 'x86_64' )) {
 if ($IsLinux -and ($(uname -m) -eq 'aarch64' )) {
     $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-linux-release/lib/pkgconfig)`:/usr/lib/aarch64-linux-gnu/pkgconfig`:${env:PKG_CONFIG_PATH}"
 }
-cargo build --bin pyxis --release
-New-Item $env:PREFIX/bin -ItemType Directory
-if ($IsWindows) {
-    Copy-Item ./target/release/pyxis.exe "$env:PREFIX/bin/"
-}
-else {
-    Copy-Item ./target/release/pyxis "$env:PREFIX/bin/"
-}
+cargo install --bin pyxis --release --root ${PREFIX} --path .
