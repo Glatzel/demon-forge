@@ -4,7 +4,13 @@ package:
   version: "9.7.1"
   name: ${{ name }}
 build:
-  number: 4
+  number: 5
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements: 
+  build: 
+    - if: linux
+      then:
+        - c-compiler
+        - cxx-compiler
 about:
   repository: https://github.com/OSGeo/PROJ

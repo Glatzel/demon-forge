@@ -6,6 +6,12 @@ package:
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements: 
+  build: 
+    - if: linux
+      then:
+        - c-compiler
+        - cxx-compiler
 tests:
   - package_contents:
       bin:

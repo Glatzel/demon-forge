@@ -9,5 +9,11 @@ source:
 build:
   number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements: 
+  build: 
+    - if: linux
+      then:
+        - c-compiler
+        - cxx-compiler
 tests:
   - script: pyxis --help

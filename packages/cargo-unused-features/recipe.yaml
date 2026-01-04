@@ -10,6 +10,8 @@ requirements:
   build:
     - if: linux
       then:
+        - c-compiler
+        - cxx-compiler
         - pkg-config
         - openssl
   run:
