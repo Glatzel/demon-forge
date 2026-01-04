@@ -4,6 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 
 install-rust
 if ($IsLinux) {
+    dnf update -y
     dnf install -y systemd-devel
 }
 Set-Location $env:SRC_DIR/rust
