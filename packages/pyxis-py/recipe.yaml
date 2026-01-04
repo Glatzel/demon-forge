@@ -3,6 +3,8 @@ context:
 package:
   version: "0.0.40"
   name: ${{ name }}
+source:
+  url: https://github.com/Glatzel/pyxis/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

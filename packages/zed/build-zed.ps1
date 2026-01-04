@@ -5,7 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "$name.json" "$env:PREFIX/Menu"
 if ($IsWindows) {
-    $version=get-current-version
+    $version = get-current-version
     aria2c -c -x16 -s16 -d "$env:PREFIX/Menu" `
         "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v$version/crates/zed/resources/windows/app-icon.ico" `
         -o "$name.ico"
