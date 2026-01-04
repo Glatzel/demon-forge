@@ -9,11 +9,10 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
+    - ${{ compiler('go-nocgo') }}
     - cmake 3.30.*
     - nasm
-    - llvm
     - ninja
-    - go
 
 tests:
   - package_contents:
