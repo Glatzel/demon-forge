@@ -12,11 +12,6 @@ git checkout tags/"v$latest_version" -b "$latest_version-branch"
 Set-Location rust
 (Get-Content -Path "./scripts/setup.ps1") -replace "sudo ", "" | Set-Content -Path "./scripts/setup.ps1"
 & ./scripts/setup.ps1
-if ($env:DIST_BUILD) {
     cargo build --bin pyxis --release
-}
-else {
-    cargo build --bin pyxis
-}
 Set-Location $PSScriptRoot
 build-pkg

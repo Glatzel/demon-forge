@@ -10,12 +10,6 @@ gh repo clone Glatzel/pyxis
 Set-Location pyxis
 git checkout tags/"v$latest_version" -b "$latest_version-branch"
 Set-Location python
-if ($env:DIST_BUILD) {
     pixi run maturin build --out ./dist --profile release
-}
-else {
-    pixi run maturin build --out ./dist
-}
-
 Set-Location $PSScriptRoot
 build-pkg
