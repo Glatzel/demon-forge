@@ -14,9 +14,11 @@ requirements:
     - ${{ compiler("rust") }}
     - pkg-config
   host:
-    - libstdcxx
-    - libudev
     - proj
+    - if: linux
+      then:
+        - libstdcxx
+        - libudev
   run:
     - if: linux
       then:
