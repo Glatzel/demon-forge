@@ -5,6 +5,7 @@ $ROOT = git rev-parse --show-toplevel
 if ($IsLinux) {
     dnf update -y
     dnf install -y systemd-devel
+    $env:PKG_CONFIG_PATH = "/usr/lib64/pkgconfig`:$env:PKG_CONFIG_PATH"
 }
 Set-Location $env:SRC_DIR/rust
 & ./scripts/setup.ps1
