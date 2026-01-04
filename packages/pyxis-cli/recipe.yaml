@@ -15,11 +15,17 @@ requirements:
     - pkg-config
     - proj
   host:
+    - if: win
+      then:
+        - vc14_runtime
     - if: linux
       then:
         - libstdcxx
         - libudev
   run:
+    - if: win
+      then:
+        - vc14_runtime
     - if: linux
       then:
         - libstdcxx
