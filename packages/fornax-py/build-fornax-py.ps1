@@ -6,6 +6,6 @@ Set-Location $env:SRC_DIR
 & ./scripts/setup.ps1
 Set-Location ./crates/fornax-py
 pixi run maturin build --out ./dist --profile release
-foreach ($whl in Get-ChildItem "$ROOT/temp/$name/fornax/crates/fornax-py/dist/*.whl") {
+foreach ($whl in Get-ChildItem "./crates/fornax-py/dist/*.whl") {
     pip install "$whl" -v
 }

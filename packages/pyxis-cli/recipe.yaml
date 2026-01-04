@@ -9,5 +9,14 @@ source:
 build:
   number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  host:
+    if: linux
+    then:
+      - libudev
+  run:
+    if: linux
+    then:
+      - libudev
 tests:
   - script: pyxis --help
