@@ -13,10 +13,10 @@ requirements:
   build:
     - ${{ compiler("rust") }}
     - pkg-config
-    - proj
   host:
     - libstdcxx
     - libudev
+    - proj
   run:
     - if: linux
       then:
