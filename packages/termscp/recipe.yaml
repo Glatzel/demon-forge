@@ -13,6 +13,7 @@ requirements:
     - cmake 3.30.*
     - nasm
     - ninja
+    - make
 
 tests:
   - package_contents:
