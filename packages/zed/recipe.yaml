@@ -12,9 +12,6 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
-    - if: win
-      then:
-        - vs2022_win-64
 tests:
   - package_contents:
       bin:
