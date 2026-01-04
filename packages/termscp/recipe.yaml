@@ -10,6 +10,7 @@ requirements:
   build:
     - ${{ compiler("rust") }}
     - cmake 3.30.*
+    - make
 tests:
   - package_contents:
       bin:
