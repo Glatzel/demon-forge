@@ -15,7 +15,6 @@ tests:
       bin:
         - ${{name}}
   - script: ${{name}} --help
-
 about:
   homepage: https://termscp.veeso.dev
   license: MIT
