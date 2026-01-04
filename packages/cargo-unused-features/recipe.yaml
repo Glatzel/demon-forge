@@ -12,9 +12,6 @@ requirements:
     - if: linux
       then:
         - pkg-config
-  host:
-    - if: linux
-      then:
         - openssl
   run:
     - if: linux
