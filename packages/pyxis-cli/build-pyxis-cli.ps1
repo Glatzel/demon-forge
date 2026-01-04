@@ -6,7 +6,7 @@ install-rust
 if ($IsLinux) {
     dnf update -y
     dnf install -y systemd-devel
-    $env:RUSTFLAGS = "-C target-feature=+crt-static"
+    $env:PKG_CONFIG_PATH = "/usr/lib64/pkgconfig"
 }
 Set-Location $env:SRC_DIR/rust
 & ./scripts/setup.ps1
