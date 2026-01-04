@@ -14,8 +14,5 @@ requirements:
     - ${{ compiler("rust") }}
     - pkg-config
     - proj
-    - if: linux
-      then:
-        - libudev
 tests:
   - script: pyxis --help
