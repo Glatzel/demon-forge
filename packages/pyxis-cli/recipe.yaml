@@ -7,10 +7,28 @@ package:
 source:
   url: https://github.com/Glatzel/pyxis/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 2
+  number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
     - ${{ compiler("rust") }}
+    - pkg-config
+    - proj
+  host:
+    - if: win
+      then:
+        - vc14_runtime
+    - if: linux
+      then:
+        - libstdcxx
+        - libudev
+  run:
+    - if: win
+      then:
+        - vc14_runtime
+    - if: linux
+      then:
+        - libstdcxx
+        - libudev
 tests:
   - script: pyxis --help

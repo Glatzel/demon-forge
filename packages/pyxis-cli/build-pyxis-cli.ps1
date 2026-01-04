@@ -1,18 +1,17 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
-if ($IsLinux) {
-    dnf update -y
-    dnf install -y systemd-devel
-}
 Set-Location $env:SRC_DIR/rust
-& ./scripts/setup.ps1
-cargo build --bin pyxis --release
-New-Item $env:PREFIX/bin -ItemType Directory
 if ($IsWindows) {
-    Copy-Item ./target/release/pyxis.exe "$env:PREFIX/bin/"
+    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/x64-windows-static/lib/pkgconfig);${env:PKG_CONFIG_PATH}"
 }
-else {
-    Copy-Item ./target/release/pyxis "$env:PREFIX/bin/"
+if ($IsMacOS) {
+    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-osx-release/lib/pkgconfig)`:${env:PKG_CONFIG_PATH}"
 }
+if ($IsLinux -and ($(uname -m) -eq 'x86_64' )) {
+    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/x64-linux-release/lib/pkgconfig)`:${env:PKG_CONFIG_PATH}"
+}
+if ($IsLinux -and ($(uname -m) -eq 'aarch64' )) {
+    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-linux-release/lib/pkgconfig)`:${env:PKG_CONFIG_PATH}"
+}
+cargo install --bin pyxis --root $env:PREFIX --path ./crates/pyxis-cli
