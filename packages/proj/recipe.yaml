@@ -11,5 +11,6 @@ requirements:
     - ${{ compiler("c") }}
     - ${{ compiler("cxx") }}
     - pkg-config
+    - openssl
 about:
   repository: https://github.com/OSGeo/PROJ
