@@ -12,6 +12,7 @@ requirements:
     - cmake 3.30.*
     - nasm
     - llvm
+    -ninja
 
 tests:
   - package_contents:
