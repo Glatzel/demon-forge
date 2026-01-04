@@ -12,6 +12,7 @@ requirements:
     - ${{ compiler("cxx") }}
     - pkg-config
     - openssl
+    - make
     - if: Linux
       then:
         - ${{ stdlib('c') }}
