@@ -6,6 +6,7 @@ install-rust
 if ($IsLinux) {
     dnf update -y
     dnf install -y systemd-devel
+    $env:RUSTFLAGS = "-C link-arg=-Wl,-Bdynamic"
 }
 Set-Location $env:SRC_DIR/rust
 & ./scripts/setup.ps1
