@@ -11,6 +11,7 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
+    - rust
     - if: win
       then:
         - vs2022_win-64
