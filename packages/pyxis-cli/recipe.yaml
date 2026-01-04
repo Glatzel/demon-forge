@@ -14,9 +14,5 @@ requirements:
     if: linux
     then:
       - libudev
-  run:
-    if: linux
-    then:
-      - libudev
 tests:
   - script: pyxis --help
