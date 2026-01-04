@@ -10,10 +10,7 @@ requirements:
   build:
     - ${{ compiler("rust") }}
     - cmake 3.30.*
-  host:
-    - if: win
-      then:
-        - vc14_runtime
+    - nasm
 tests:
   - package_contents:
       bin:
