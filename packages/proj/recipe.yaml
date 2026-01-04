@@ -9,6 +9,6 @@ build:
 requirements:
   build:
     - ${{ compiler("c") }}
-    - ${{ compiler("cxx") }} 
+    - ${{ compiler("cxx") }}
 about:
   repository: https://github.com/OSGeo/PROJ
