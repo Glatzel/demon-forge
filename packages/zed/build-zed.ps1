@@ -23,4 +23,4 @@ if ($IsWindows) {
         -Force
 }
 cargo install --bin zed -bin cli --release --root $env:PREFIX --path .
-Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe 
+Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe
