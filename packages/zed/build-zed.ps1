@@ -22,7 +22,5 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-cargo build -r --package zed --package cli
-New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./target/release/zed.exe" "$env:PREFIX/bin/zed.exe"
-Copy-Item "./target/release/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
+cargo install --bin zed -bin cli --release --root $env:PREFIX --path .
+Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe 
