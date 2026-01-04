@@ -10,5 +10,6 @@ requirements:
   build:
     - ${{ compiler("c") }}
     - ${{ compiler("cxx") }}
+    - pkg-config
 about:
   repository: https://github.com/OSGeo/PROJ

@@ -11,6 +11,7 @@ requirements:
     - ${{ compiler("c") }}
     - ${{ compiler("cxx") }}
     - python
+    - pkg-config
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause
