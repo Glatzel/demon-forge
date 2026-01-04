@@ -1,7 +1,8 @@
 context:
   name: fornax-py
-package:
   version: "0.0.12"
+package:
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/fornax/archive/refs/tags/v${{ version }}.tar.gz
