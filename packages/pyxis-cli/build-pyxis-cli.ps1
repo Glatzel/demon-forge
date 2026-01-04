@@ -8,8 +8,6 @@ if ($IsLinux) {
     $env:PKG_CONFIG_PATH = "/usr/lib64/pkgconfig`:$env:PKG_CONFIG_PATH"
 }
 if ($IsWindows) {
-    $bin = Resolve-Path $PSScriptRoot/../.pixi/envs/default/Library/bin
-    $env:Path = "$bin" + ";" + "$env:Path"
     $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/x64-windows-static/lib/pkgconfig);${env:PKG_CONFIG_PATH}"
 }
 if ($IsMacOS) {
