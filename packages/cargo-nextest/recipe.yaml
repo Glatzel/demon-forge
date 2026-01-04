@@ -6,6 +6,9 @@ package:
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler("rust") }}
 tests:
   - package_contents:
       bin:

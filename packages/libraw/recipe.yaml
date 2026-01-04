@@ -6,6 +6,12 @@ package:
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - python
+    - pkg-config
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause

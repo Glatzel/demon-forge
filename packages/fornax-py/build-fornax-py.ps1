@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-install-rust
+
 Set-Location $env:SRC_DIR
 & ./scripts/setup.ps1
 Set-Location ./crates/fornax-py
