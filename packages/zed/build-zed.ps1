@@ -22,19 +22,7 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-if ($env:DIST_BUILD) {
-    cargo build -r --package zed --package cli
-}
-else {
-    cargo build --package zed --package cli
-}
-if ($env:DIST_BUILD) {
-    $build_profile = 'release'
-}
-else {
-    $build_profile = 'debug'
-}
-
+cargo build -r --package zed --package cli
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
-Copy-Item "./target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
+Copy-Item "./target/release/zed.exe" "$env:PREFIX/bin/zed.exe"
+Copy-Item "./target/release/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
