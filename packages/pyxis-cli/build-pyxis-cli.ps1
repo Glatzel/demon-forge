@@ -19,4 +19,4 @@ if ($IsLinux -and ($(uname -m) -eq 'x86_64' )) {
 if ($IsLinux -and ($(uname -m) -eq 'aarch64' )) {
     $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-linux-release/lib/pkgconfig)`:/usr/lib/aarch64-linux-gnu/pkgconfig`:${env:PKG_CONFIG_PATH}"
 }
-cargo install --bin pyxis --release --root $env:PREFIX --path .
+cargo install --bin pyxis --root $env:PREFIX --path .
