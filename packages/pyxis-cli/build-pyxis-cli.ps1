@@ -14,9 +14,9 @@ if ($IsMacOS) {
     $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-osx-release/lib/pkgconfig)`:${env:PKG_CONFIG_PATH}"
 }
 if ($IsLinux -and ($(uname -m) -eq 'x86_64' )) {
-    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/x64-linux-release/lib/pkgconfig)`:/usr/lib/x86_64-linux-gnu/pkgconfig`:${env:PKG_CONFIG_PATH}"
+    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/x64-linux-release/lib/pkgconfig)`:${env:PKG_CONFIG_PATH}"
 }
 if ($IsLinux -and ($(uname -m) -eq 'aarch64' )) {
-    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-linux-release/lib/pkgconfig)`:/usr/lib/aarch64-linux-gnu/pkgconfig`:${env:PKG_CONFIG_PATH}"
+    $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/arm64-linux-release/lib/pkgconfig)`:${env:PKG_CONFIG_PATH}"
 }
 cargo install --bin pyxis --root $env:PREFIX --path ./crates/pyxis-cli
