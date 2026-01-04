@@ -11,6 +11,7 @@ requirements:
     - ${{ compiler("rust") }}
     - cmake 3.30.*
     - nasm
+    - go
 tests:
   - package_contents:
       bin:
