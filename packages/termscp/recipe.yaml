@@ -13,6 +13,7 @@ requirements:
     - nasm
     - llvm
     - ninja
+    - go
 
 tests:
   - package_contents:
