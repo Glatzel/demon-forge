@@ -11,7 +11,6 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - rust
     - cmake 3.30.*
     - nasm
 tests:
