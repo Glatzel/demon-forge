@@ -22,5 +22,6 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-cargo install --bin zed -bin cli --release --root $env:PREFIX --path .
+cargo install --root $env:PREFIX --path ./crates/zed
+cargo install --root $env:PREFIX --path ./crates/cli
 Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe
