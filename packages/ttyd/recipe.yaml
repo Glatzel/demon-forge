@@ -1,16 +1,53 @@
 context:
   name: ttyd
-package:
   version: "1.7.7"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 8
-  script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - brotlipy
+    - c-compiler
+    - cmake 3.*
+    - curl
+    - cxx-compiler
+    - fonttools
+    - make
+    - nodejs
+    - pkg-config
+    - if: unix
+      then:
+        - autoconf
+        - automake
+        - file
+    - if: macos
+      then:
+        - openssl
+  host:
+    - json-c
+    - libwebsockets
+    - zlib
+  run:
+    - libwebsockets
+    - json-c
 
 tests:
   - package_contents:
       bin:
         - ${{ name }}
+  - requirements:
+      run:
+        - curl
+    script:
+      - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
+      - curl -sI http://localhost:7681
+      - pwsh -Command "Stop-Process -Name ttyd -Force"
+
 about:
   homepage: https://github.com/tsl0922/ttyd
   license: MIT OR Apache-2.0
