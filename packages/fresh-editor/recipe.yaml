@@ -1,10 +1,13 @@
 context:
   name: fresh-editor
 package:
-  version: "0.1.69"
+  version: "0.1.70"
   name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    ${{ compiler("rust") }}
 tests:
   - script: fresh --help
