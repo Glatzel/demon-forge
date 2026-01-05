@@ -25,13 +25,13 @@ requirements:
         - autoconf
         - automake
         - file
-    - if: macos
-      then:
-        - openssl
   host:
     - json-c
     - libwebsockets
     - zlib
+    - if: macos
+      then:
+        - openssl
   run:
     - libwebsockets
     - json-c
