@@ -35,6 +35,9 @@ requirements:
   run:
     - libwebsockets
     - json-c
+    - if: macos
+      then:
+        - openssl
 
 tests:
   - package_contents:
