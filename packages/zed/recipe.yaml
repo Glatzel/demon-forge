@@ -9,10 +9,6 @@ source:
 build:
   number: 6
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - cmake 3.30.*
-    - nasm
 tests:
   - package_contents:
       bin:
