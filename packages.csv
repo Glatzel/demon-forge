@@ -54,7 +54,7 @@ sony-camera-remote-sdk,true,true,true,,
 spek,true,,,,
 termscp,true,,,,true
 toolbox,,,true,,
-ttyd,,,true,,true
+ttyd,true,true,true,true,true
 upx,true,,,,
 v2rayn,true,,,,
 xray,true,true,true,true,
