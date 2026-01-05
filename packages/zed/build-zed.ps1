@@ -22,7 +22,8 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-$env:CARGO_TARGET_DIR="$env:SRC_DIR/target"
-cargo install --root $env:PREFIX --path ./crates/zed
-cargo install --root $env:PREFIX --path ./crates/cli
-Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe
+cargo build -r --package zed
+# $env:CARGO_TARGET_DIR="$env:SRC_DIR/target"
+# cargo install --root $env:PREFIX --path ./crates/zed
+# cargo install --root $env:PREFIX --path ./crates/cli
+# Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe
