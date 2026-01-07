@@ -26,6 +26,7 @@ mkdir build
 Set-Location build
 
 cmake `
+    -G "Ninja" `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     ..
