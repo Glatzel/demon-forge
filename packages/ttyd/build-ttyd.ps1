@@ -14,8 +14,7 @@ if ($IsWindows) {
 npm install -g corepack
 corepack enable
 corepack prepare yarn@stable --activate
-yarn install
-yarn lint --fix
+yarn install --fix
 yarn run check
 yarn run build
 Set-Location ..
