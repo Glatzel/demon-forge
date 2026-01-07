@@ -20,6 +20,9 @@ requirements:
     - make
     - nodejs
     - pkg-config
+    - if: win
+      then:
+        - vs2022_win-64
     - if: unix
       then:
         - autoconf
