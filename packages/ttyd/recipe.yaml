@@ -12,21 +12,18 @@ build:
 requirements:
   build:
     - brotlipy
-    - c-compiler
     - cmake 3.*
-    - curl
-    - cxx-compiler
     - fonttools
     - make
     - nodejs
     - pkg-config
     - if: win
       then:
-        - git
-        - vs2022_win-64
-        - getopt-win32
+        - gcc_win-64
     - if: unix
       then:
+        - c-compiler
+        - cxx-compiler
         - autoconf
         - automake
         - file
