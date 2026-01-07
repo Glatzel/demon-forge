@@ -9,8 +9,7 @@ get-content ./index.scss >> ./html/src/style/index.scss
 
 Set-Location ./html
 if ($IsWindows) {
-    $paths = $env:PATH -split ';' | Where-Object { $_ -notmatch 'nodejs' }
-    $env:PATH = ($paths -join ';')
+    $env:NPM_CONFIG_PREFIX="$env:BUILD_PREFIX"
 }
 npm install -g corepack
 corepack enable
