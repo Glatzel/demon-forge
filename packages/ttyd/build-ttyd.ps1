@@ -10,9 +10,11 @@ get-content ./index.scss >> ./html/src/style/index.scss
 Set-Location ./html
 if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX="$env:BUILD_PREFIX"
+
+(Get-Content ./webpack.config.js -Raw) -replace "`r`n", "`n" | Set-Content ./webpack.config.js -NoNewline
 }
+
 npm install -g corepack
-npm run lint --fix
 corepack enable
 corepack prepare yarn@stable --activate
 yarn install
