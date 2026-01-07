@@ -17,16 +17,13 @@ requirements:
     - make
     - nodejs
     - pkg-config
-    - ninja
-    - libwebsockets
+    - c-compiler
+    - cxx-compiler
     - if: win
       then:
-        - gcc_win-64
-        - gxx_win-64
+        - getopt-win32
     - if: unix
       then:
-        - c-compiler
-        - cxx-compiler
         - autoconf
         - automake
         - file

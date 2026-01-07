@@ -11,8 +11,6 @@ Set-Location ./html
 if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
     (Get-Content ./webpack.config.js -Raw) -replace "`r`n", "`n" | Set-Content ./webpack.config.js -NoNewline
-    $env:CMAKE_C_COMPILER = "x86_64-w64-mingw32-gcc"
-    $env:CMAKE_CXX_COMPILER = "x86_64-w64-mingw32-g++"
 }
 
 npm install -g corepack
@@ -26,7 +24,6 @@ mkdir build
 Set-Location build
 
 cmake `
-    -G "Ninja" `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     ..
