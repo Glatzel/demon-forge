@@ -4,8 +4,8 @@ $ROOT = git rev-parse --show-toplevel
 
 New-Item $env:PREFIX/bin -ItemType Directory
 
-Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/zed.exe" "$env:PREFIX/bin/zed.exe"
-Copy-Item "$ROOT/temp/$name/$name/target/$build_profile/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
+Copy-Item "$ROOT/temp/$name/$name/target/release/zed.exe" "$env:PREFIX/bin/zed.exe"
+Copy-Item "$ROOT/temp/$name/$name/target/release/cli.exe" "$env:PREFIX/bin/zed-cli.exe"
 
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
