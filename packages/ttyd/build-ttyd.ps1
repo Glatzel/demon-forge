@@ -24,12 +24,8 @@ yarn run build
 Set-Location ..
 
 if ($IsWindows) {
-    Set-Location $ROOT/temp/$name
-    git clone https://github.com/tsl0922/ttyd.git
-    Set-Location ttyd
-    git checkout tags/"1.5.2" -b "branch-1.5.2"
-    Copy-Item ./msys2 $env:SRC_DIR
-    Set-Location $env:SRC_DIR
+    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
+    Copy-Item $PSScriptRoot/msys2 ./
     pacman -S git binutils
     Set-Location msys2/json-c
     makepkg -s
