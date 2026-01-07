@@ -20,6 +20,7 @@ requirements:
     - if: win
       then:
         - gcc_win-64
+        - gxx_win-64
     - if: unix
       then:
         - c-compiler
