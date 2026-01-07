@@ -15,7 +15,7 @@ npm install -g corepack
 corepack enable
 corepack prepare yarn@stable --activate
 yarn install
-yarn run check --fix
+yarn lint --fix
 yarn run check
 yarn run build
 Set-Location ..
