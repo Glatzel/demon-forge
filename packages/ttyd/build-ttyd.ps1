@@ -32,10 +32,10 @@ if ($IsWindows) {
     Set-Location $env:SRC_DIR
     pacman -S git binutils
     Set-Location msys2/json-c
-    makepkg -s 
+    makepkg -s
     pacman -U *.pkg.tar.xz
     Set-Location ../libwebsockets
-    makepkg -s 
+    makepkg -s
     pacman -U *.pkg.tar.xz
     Set-Location ../ttyd
     makepkg --skipchecksums
@@ -49,4 +49,3 @@ else {
         ..
     cmake --build . --config Release --target install
 }
-
