@@ -10,7 +10,7 @@ get-content ./index.scss >> ./html/src/style/index.scss
 
 Set-Location ./html
 if ($IsWindows) {
-    Remove-Item   C:/npm/prefix/yarn/ -Recurse -Force
+    Remove-Item C:/npm/*
 }
 npm install -g corepack
 corepack enable
