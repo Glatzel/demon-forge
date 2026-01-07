@@ -18,6 +18,7 @@ requirements:
     - nodejs
     - pkg-config
     - ninja
+    - libwebsockets
     - if: win
       then:
         - gcc_win-64
