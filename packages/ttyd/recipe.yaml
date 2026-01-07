@@ -22,6 +22,7 @@ requirements:
     - pkg-config
     - if: win
       then:
+        - git
         - vs2022_win-64
     - if: unix
       then:
