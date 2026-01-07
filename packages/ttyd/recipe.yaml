@@ -19,9 +19,6 @@ requirements:
     - pkg-config
     - c-compiler
     - cxx-compiler
-    - if: win
-      then:
-        - getopt-win32
     - if: unix
       then:
         - autoconf
@@ -31,6 +28,9 @@ requirements:
     - json-c
     - libwebsockets
     - zlib
+    - if: win
+      then:
+        - getopt-win32
     - if: macos
       then:
         - openssl
