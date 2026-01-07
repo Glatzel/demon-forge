@@ -17,20 +17,24 @@ requirements:
     - make
     - nodejs
     - pkg-config
-    - c-compiler
-    - cxx-compiler
+    - ninja
+    - if: win
+      then:
+        - gcc_win-64
+        - gxx_win-64
     - if: unix
       then:
+        - c-compiler
+        - cxx-compiler
         - autoconf
         - automake
         - file
   host:
-    - json-c
-    - libwebsockets
-    - zlib
-    - if: win
+    - if: unix
       then:
-        - getopt-win32
+        - json-c
+        - libwebsockets
+        - zlib
     - if: macos
       then:
         - openssl

@@ -11,6 +11,8 @@ Set-Location ./html
 if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
     (Get-Content ./webpack.config.js -Raw) -replace "`r`n", "`n" | Set-Content ./webpack.config.js -NoNewline
+    $env:CMAKE_C_COMPILER = "x86_64-w64-mingw32-gcc"
+    $env:CMAKE_CXX_COMPILER = "x86_64-w64-mingw32-g++"
 }
 
 npm install -g corepack
@@ -20,12 +22,31 @@ yarn install
 yarn run check
 yarn run build
 Set-Location ..
-mkdir build
-Set-Location build
 
-cmake `
-    -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
-    -DCMAKE_BUILD_TYPE="RELEASE" `
-    ..
+if ($IsWindows) {
+    Set-Location $ROOT/temp/$name
+    git clone https://github.com/tsl0922/ttyd.git
+    Set-Location ttyd
+    git checkout tags/"1.5.2" -b "branch-1.5.2"
+    Copy-Item ./msys2 $env:SRC_DIR
+    Set-Location $env:SRC_DIR
+    pacman -S git binutils
+    Set-Location msys2/json-c
+    makepkg -s 
+    pacman -U *.pkg.tar.xz
+    Set-Location ../libwebsockets
+    makepkg -s 
+    pacman -U *.pkg.tar.xz
+    Set-Location ../ttyd
+    makepkg --skipchecksums
+}
+else {
+    mkdir build
+    Set-Location build
+    cmake `
+        -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
+        -DCMAKE_BUILD_TYPE="RELEASE" `
+        ..
+    cmake --build . --config Release --target install
+}
 
-cmake --build . --config Release --target install
