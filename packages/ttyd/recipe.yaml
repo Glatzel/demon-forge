@@ -12,23 +12,18 @@ build:
 requirements:
   build:
     - brotlipy
-    - cmake 3.*
     - fonttools
-    - make
     - nodejs
-    - pkg-config
-    - ninja
-    - if: win
-      then:
-        - gcc_win-64
-        - gxx_win-64
     - if: unix
       then:
+        - pkg-config
+        - make
         - c-compiler
         - cxx-compiler
         - autoconf
         - automake
         - file
+        - cmake 3.*
   host:
     - if: unix
       then:
@@ -39,8 +34,10 @@ requirements:
       then:
         - openssl
   run:
-    - libwebsockets
-    - json-c
+    - if: unix
+      then:
+        - libwebsockets
+        - json-c
     - if: macos
       then:
         - openssl
