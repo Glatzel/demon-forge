@@ -24,6 +24,7 @@ requirements:
       then:
         - git
         - vs2022_win-64
+        - getopt-win32
     - if: unix
       then:
         - autoconf
