@@ -12,10 +12,11 @@ if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX="$env:BUILD_PREFIX"
 }
 npm install -g corepack
+npm run lint --fix
 corepack enable
 corepack prepare yarn@stable --activate
 yarn install
-yarn run check --fix
+yarn run check
 yarn run build
 Set-Location ..
 mkdir build
