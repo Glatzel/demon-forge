@@ -2,14 +2,16 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 Set-Location $env:SRC_DIR
-Write-Output $env
 copy-item $PSScriptRoot/build/* ./ -recurse
 git apply --ignore-whitespace config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1
 
 Set-Location ./html
-Write-Output $env
+if ($IsWindows) {
+    $paths = $env:PATH -split ';' | Where-Object { $_ -notmatch 'nodejs' }
+    $env:PATH = ($paths -join ';')
+}
 npm install -g corepack
 corepack enable
 corepack prepare yarn@stable --activate
