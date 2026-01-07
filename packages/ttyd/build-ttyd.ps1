@@ -9,10 +9,9 @@ get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1
 
 Set-Location ./html
-if ($IsWindows) {
-    Remove-Item C:/npm/* -Recurse
+if (-not $IsWindows) {
+    npm install -g corepack
 }
-npm install -g corepack
 corepack enable
 corepack prepare yarn@stable --activate
 yarn install
