@@ -4,7 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 Set-Location $env:SRC_DIR
 
 copy-item $PSScriptRoot/build/* ./ -recurse
-git apply --verbose config.patch
+git apply --directory=. --verbose config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1
 
