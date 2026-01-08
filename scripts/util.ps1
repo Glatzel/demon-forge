@@ -171,6 +171,7 @@ function reset-build-code {
 function build-pkg {
     param($target_platform)
     if ($target_platform) {
+        $env:TARGET_PLATFORM = "win-64"
         $target_platform = ('--target-platform' , "$target_platform")
     }
     pixi run rattler-build `
