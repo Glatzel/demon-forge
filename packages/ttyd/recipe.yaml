@@ -5,31 +5,25 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
-
+  url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 8
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - brotlipy
-    - cmake 3.*
-    - fonttools
-    - make
-    - nodejs
-    - pkg-config
-    - ninja
-    - if: win
-      then:
-        - gcc_win-64
-        - gxx_win-64
     - if: unix
       then:
+        - brotlipy
+        - fonttools
+        - nodejs
+        - pkg-config
+        - make
         - c-compiler
         - cxx-compiler
         - autoconf
         - automake
         - file
+        - cmake 3.*
   host:
     - if: unix
       then:
@@ -42,8 +36,8 @@ requirements:
   run:
     - if: unix
       then:
-    - libwebsockets
-    - json-c
+        - libwebsockets
+        - json-c
     - if: macos
       then:
         - openssl
