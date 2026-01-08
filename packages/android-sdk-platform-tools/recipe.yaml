@@ -2,10 +2,10 @@ context:
   name: android-sdk-platform-tools
 
 package:
-  version: 36.0.0
+  version: "36.0.2"
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 
 tests:
