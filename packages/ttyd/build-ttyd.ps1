@@ -1,27 +1,26 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-Set-Location $env:SRC_DIR
-copy-item $PSScriptRoot/build/* ./ -recurse
-git apply --ignore-whitespace config.patch
-get-content ./index.scss >> ./html/src/style/index.scss
-& ./download-font.ps1
 
-Set-Location ./html
-npm install -g corepack
-corepack enable
-corepack prepare yarn@stable --activate
-yarn install
-yarn run check
-yarn run build
-Set-Location ..
 if ($env:TARGET_PLATFORM -eq "win-64") {
-    $env:BUILD_TARGET = "win32"
-    & bash ./scripts/cross-build.sh
     New-Item $env:PREFIX/bin -ItemType Directory
-    copy-item ./build/$name.exe $env:PREFIX/bin/$name.exe
+    copy-item $ROOT/temp/$name/$name/build/$name.exe $env:PREFIX/bin/$name.exe
 }
 else {
+    Set-Location $env:SRC_DIR
+    copy-item $PSScriptRoot/build/* ./ -recurse
+    git apply --ignore-whitespace config.patch
+    get-content ./index.scss >> ./html/src/style/index.scss
+    & ./download-font.ps1
+
+    Set-Location ./html
+    npm install -g corepack
+    corepack enable
+    corepack prepare yarn@stable --activate
+    yarn install
+    yarn run check
+    yarn run build
+    Set-Location ..
     mkdir build
     Set-Location build
     cmake `
