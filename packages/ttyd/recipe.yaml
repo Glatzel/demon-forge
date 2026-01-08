@@ -43,7 +43,7 @@ requirements:
 
 tests:
   if: unix
-  then: 
+  then:
     - package_contents:
         bin:
           - ${{ name }}
