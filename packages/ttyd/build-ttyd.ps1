@@ -29,4 +29,3 @@ cmake `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     ..
 cmake --build . --config Release --target install
-
