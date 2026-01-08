@@ -8,7 +8,6 @@ source:
   url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 8
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
     - brotlipy
