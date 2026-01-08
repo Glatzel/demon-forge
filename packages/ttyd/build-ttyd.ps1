@@ -19,7 +19,7 @@ if ($env:TARGET_PLATFORM -eq "win-64") {
     $env:BUILD_TARGET = "win32"
     & bash ./scripts/cross-build.sh
     New-Item $env:PREFIX/bin -ItemType Directory
-    copy-item $ROOT/temp/$name/$name/build/$name.exe $env:PREFIX/bin/$name.exe
+    copy-item ./build/$name.exe $env:PREFIX/bin/$name.exe
 }
 else {
     mkdir build
