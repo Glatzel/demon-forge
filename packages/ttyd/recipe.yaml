@@ -31,6 +31,7 @@ requirements:
     - zlib
     - if: win
       then:
+        - unistd
         - getopt-win32
     - if: macos
       then:
