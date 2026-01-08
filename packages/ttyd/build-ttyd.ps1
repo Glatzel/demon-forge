@@ -28,4 +28,7 @@ else {
         -DCMAKE_BUILD_TYPE="RELEASE" `
         ..
     cmake --build . --config Release --target install
+}if ($IsLinux -and $arch -eq 'X64') {
+    $env:BUILD_TARGET = "win32"
+    & bash ./scripts/cross-build.sh
 }
