@@ -9,7 +9,8 @@ get-content ./index.scss >> ./html/src/style/index.scss
 
 if ($IsWindows) {
     New-Item $env:PREFIX/bin -ItemType Directory
-    copy-item $PSScriptRoot/build-win.ps1 $env:SRC_DIR/build-win.ps1
+    (Get-Content ./html/webpack.config.js -Raw) -replace "`r`n", "`n" | Set-Content ./html/webpack.config.js -NoNewline
+    copy-item $PSScriptRoot/build-win.ps1 ./build-win.ps1
     docker run `
         -v "$env:SRC_DIR`:/work" `
         ghcr.io/glatzel/ghar-linux-release-cloud `
