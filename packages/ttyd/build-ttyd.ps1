@@ -7,6 +7,7 @@ git apply --ignore-whitespace config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
 
 if ($IsWindows) {
+    & $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon
     New-Item $env:PREFIX/bin -ItemType Directory
     (Get-Content ./html/webpack.config.js -Raw) -replace "`r`n", "`n" | Set-Content ./html/webpack.config.js -NoNewline
     copy-item $PSScriptRoot/build-win.ps1 ./build-win.ps1
