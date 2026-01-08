@@ -17,7 +17,6 @@ requirements:
     - make
     - nodejs
     - pkg-config
-    - ninja
     - c-compiler
     - cxx-compiler
     - if: unix
