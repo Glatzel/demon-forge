@@ -1,5 +1,5 @@
 Set-Location $PSScriptRoot
-pixi global install `
+pixi global install --environment build-ttyd `
     brotlipy `
     fonttools `
     nodejs `
