@@ -29,6 +29,7 @@ else {
         ..
     cmake --build . --config Release --target install
 }if ($IsLinux -and $arch -eq 'X64') {
+    Set-Location ..
     $env:BUILD_TARGET = "win32"
     & bash ./scripts/cross-build.sh
 }
