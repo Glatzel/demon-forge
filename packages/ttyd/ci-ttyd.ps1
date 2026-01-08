@@ -3,7 +3,9 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $latest_version = get-version-github -repo "tsl0922/$name"
 update-recipe -version $latest_version
-if ($IsWindows) {
+
+build-pkg
+if ($IsLinux -and $arch -eq 'X64') {
     pixi global install --environment build-ttyd `
         brotlipy  `
         cmake=3.* `
@@ -24,12 +26,7 @@ if ($IsWindows) {
     copy-item $PSScriptRoot/build/* $ROOT/temp/$name/$name -recurse
     git apply config.patch
     get-content ./index.scss >> ./html/src/style/index.scss
-
-    write-output "::group::font"
     & ./download-font.ps1
-    Write-Output "::endgroup::"
-
-    write-output "::group::Run yarn install, check and build"
     Set-Location ./html
     npm install -g corepack
     corepack enable
@@ -37,38 +34,12 @@ if ($IsWindows) {
     yarn install
     yarn run check
     yarn run build
-    Write-Output "::endgroup::"
-
-    write-output "::group::Install packages"
     Set-Location ..
     dnf update -y
     dnf install -y gcc gcc-c++ cmake make automake autoconf file libtool curl
-    write-output  "::endgroup::"
 
-    foreach ($t in "win32", "x86_64", "aarch64") {
-        Write-Output "::group::compile $t"
-        $env:BUILD_TARGET = $t
-        & bash ./scripts/cross-build.sh
-        Write-Output "::endgroup::"
+    $env:BUILD_TARGET = "win32"
+    & bash ./scripts/cross-build.sh
+    build-pkg --target_platform 'win-64'
 
-        Write-Output "::group::build $t"
-        Set-Location $PSScriptRoot
-        switch ($t) {
-            "win32" {
-                $env:TARGET_PLATFORM = 'win-64'
-                pixi run rattler-build build --target-platform 'win-64' --output-dir $ROOT/output
-            }
-            "x86_64" {
-                $env:TARGET_PLATFORM = 'linux-64'
-                pixi run rattler-build build --target-platform 'linux-64'  --output-dir $ROOT/output
-            }
-            "aarch64" {
-                $env:TARGET_PLATFORM = 'linux-aarch64'
-                pixi run rattler-build build --target-platform 'linux-aarch64' --output-dir $ROOT/output
-            }
-        }
-        Set-Location $ROOT/temp/$name/$name
-        Write-Output "::endgroup::"
-    }
 }
-build-pkg
