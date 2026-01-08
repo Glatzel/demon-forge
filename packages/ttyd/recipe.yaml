@@ -11,33 +11,37 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
+    - brotlipy
+    - cmake 3.*
+    - fonttools
+    - make
+    - nodejs
+    - pkg-config
+    - ninja
+    - c-compiler
+    - cxx-compiler
     - if: unix
       then:
-        - brotlipy
-        - fonttools
-        - nodejs
-        - pkg-config
-        - make
-        - c-compiler
-        - cxx-compiler
         - autoconf
         - automake
         - file
-        - cmake 3.*
   host:
-    - if: unix
+    - json-c
+    - libwebsockets
+    - zlib
+    - if: win
       then:
-        - json-c
-        - libwebsockets
-        - zlib
+        - getopt-win32
     - if: macos
       then:
         - openssl
   run:
-    - if: unix
+    - libwebsockets
+    - json-c
+    - zlib
+    - if: win
       then:
-        - libwebsockets
-        - json-c
+        - getopt-win32
     - if: macos
       then:
         - openssl
