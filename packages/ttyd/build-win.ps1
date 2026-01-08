@@ -1,4 +1,5 @@
 Set-Location $PSScriptRoot
+& ./download-font.ps1
 pixi global install --environment build-ttyd `
     brotlipy `
     fonttools `

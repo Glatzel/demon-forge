@@ -5,7 +5,6 @@ Set-Location $env:SRC_DIR
 copy-item $PSScriptRoot/build/* ./ -recurse
 git apply --ignore-whitespace config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
-& ./download-font.ps1
 
 if ($IsWindows) {
     New-Item $env:PREFIX/bin -ItemType Directory
@@ -18,6 +17,7 @@ if ($IsWindows) {
     copy-item $env:SRC_DIR/build/$name.exe $env:PREFIX/bin/$name.exe
 }
 else {
+    & ./download-font.ps1
     Set-Location ./html
     npm install -g corepack
     corepack enable
