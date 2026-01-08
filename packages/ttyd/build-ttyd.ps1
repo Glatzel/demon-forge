@@ -7,36 +7,24 @@ git apply --ignore-whitespace config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1
 
-Set-Location ./html
 if ($IsWindows) {
-    $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
-    (Get-Content ./webpack.config.js -Raw) -replace "`r`n", "`n" | Set-Content ./webpack.config.js -NoNewline
-    $env:CMAKE_C_COMPILER = "x86_64-w64-mingw32-gcc"
-    $env:CMAKE_CXX_COMPILER = "x86_64-w64-mingw32-g++"
-}
-
-npm install -g corepack
-corepack enable
-corepack prepare yarn@stable --activate
-yarn install
-yarn run check
-yarn run build
-Set-Location ..
-
-if ($IsWindows) {
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
-    Copy-Item $PSScriptRoot/msys2 ./
-    pacman -S git binutils
-    Set-Location msys2/json-c
-    makepkg -s
-    pacman -U *.pkg.tar.xz
-    Set-Location ../libwebsockets
-    makepkg -s
-    pacman -U *.pkg.tar.xz
-    Set-Location ../ttyd
-    makepkg --skipchecksums
+    New-Item $env:PREFIX/bin -ItemType Directory
+    copy-item $PSScriptRoot/build-win.ps1 $env:SRC_DIR/build-win.ps1
+    docker run `
+        -v "$env:SRC_DIR`:/work" `
+        ghcr.io/glatzel/ghar-linux-release-cloud `
+        pwsh -f "./build-win.ps1"
+    copy-item $env:SRC_DIR/build/$name.exe $env:PREFIX/bin/$name.exe
 }
 else {
+    Set-Location ./html
+    npm install -g corepack
+    corepack enable
+    corepack prepare yarn@stable --activate
+    yarn install
+    yarn run check
+    yarn run build
+    Set-Location ..
     mkdir build
     Set-Location build
     cmake `

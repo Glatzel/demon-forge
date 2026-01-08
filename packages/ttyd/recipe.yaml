@@ -11,11 +11,11 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - brotlipy
-    - fonttools
-    - nodejs
     - if: unix
       then:
+        - brotlipy
+        - fonttools
+        - nodejs
         - pkg-config
         - make
         - c-compiler
