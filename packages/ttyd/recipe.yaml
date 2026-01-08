@@ -25,23 +25,20 @@ requirements:
         - automake
         - file
   host:
-    - json-c
-    - libwebsockets
-    - zlib
-    - if: win
+    - if: unix
       then:
-        - unistd
-        - getopt-win32
+        - json-c
+        - libwebsockets
+        - zlib
     - if: macos
       then:
         - openssl
   run:
-    - libwebsockets
-    - json-c
-    - zlib
-    - if: win
+    - if: unix
       then:
-        - getopt-win32
+        - json-c
+        - libwebsockets
+        - zlib
     - if: macos
       then:
         - openssl
