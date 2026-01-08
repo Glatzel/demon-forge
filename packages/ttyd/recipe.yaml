@@ -19,11 +19,9 @@ requirements:
     - pkg-config
     - c-compiler
     - cxx-compiler
-    - if: unix
-      then:
-        - autoconf
-        - automake
-        - file
+    - autoconf
+    - automake
+    - file
   host:
     - if: unix
       then:
