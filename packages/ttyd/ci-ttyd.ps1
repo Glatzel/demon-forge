@@ -17,8 +17,8 @@ if ($IsLinux -and $arch -eq 'X64') {
         autoconf `
         automake `
         file
-    Get-ChildItem $env:USERPROFILE/.pixi/bin
-    $env:NPM_CONFIG_PREFIX = "$env:USERPROFILE/.pixi/envs/build-ttyd"
+    Get-ChildItem $env:HOME/.pixi/bin
+    $env:NPM_CONFIG_PREFIX = "$env:HOME/.pixi/envs/build-ttyd"
     Set-Location $ROOT/temp/$name
     git clone https://github.com/tsl0922/ttyd.git
     Set-Location $name
