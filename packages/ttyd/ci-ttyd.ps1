@@ -7,4 +7,3 @@ build-pkg
 if ($IsLinux -and $arch -eq 'X64') {
     build-pkg -target_platform "win-64"
 }
-
