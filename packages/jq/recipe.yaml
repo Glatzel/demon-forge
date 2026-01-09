@@ -6,7 +6,7 @@ package:
 build:
   number: 4
   script:
-    interpreter: powershell
+    interpreter: pwsh
     file: build.ps1
 tests:
   - package_contents:
