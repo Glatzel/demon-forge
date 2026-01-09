@@ -5,6 +5,9 @@ package:
   name: ${{ name }}
 build:
   number: 4
+  script:
+    interpreter: powershell
+    file: build.ps1
 tests:
   - package_contents:
       bin:
