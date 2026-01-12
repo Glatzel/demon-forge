@@ -1,7 +1,7 @@
 context:
   name: fresh-editor
 package:
-  version: "0.1.75"
+  version: "0.1.76"
   name: ${{ name }}
 build:
   number: 0
