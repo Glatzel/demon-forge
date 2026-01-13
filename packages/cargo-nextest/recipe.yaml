@@ -1,7 +1,7 @@
 context:
   name: cargo-nextest
 package:
-  version: "0.9.120"
+  version: "0.9.121"
   name: ${{ name }}
 build:
   number: 0
