@@ -1,6 +1,5 @@
 import logging
 import time
-from pathlib import Path
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -11,8 +10,7 @@ from lucifer import download_waiter, find_button, find_element, init_driver
 logging.basicConfig(level=logging.INFO, handlers=[clerk.rich_handler()])
 log = logging.getLogger(__name__)
 # config driver
-download_dir = Path(__file__).parents[2] / "temp" / "pureref"
-driver = init_driver(download_dir, windows_size=(2160, 4096))
+driver = init_driver(windows_size=(2160, 4096))
 
 # open web
 driver.get("https://www.pureref.com/download.php")
@@ -40,4 +38,4 @@ driver.execute_script("arguments[0].dispatchEvent(new Event('change'))", element
 # download
 element = find_button(driver, By.XPATH, """//*[@id="freeDownload"]/button""")
 element.click()
-download_waiter(download_dir, "*.zip")
+download_waiter("*.zip")
