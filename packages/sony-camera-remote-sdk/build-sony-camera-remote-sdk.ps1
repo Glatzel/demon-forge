@@ -1,4 +1,4 @@
-python download.py$zipfile = (Get-ChildItem "./*.zip")[0]
+python $env:RECIPE_DIR/download.py$zipfile = (Get-ChildItem "./*.zip")[0]
 $zipfile.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
 $platform = $Matches[4]
 foreach ($f in Get-ChildItem "./*.zip") {

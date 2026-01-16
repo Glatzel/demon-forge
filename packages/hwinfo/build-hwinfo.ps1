@@ -1,4 +1,4 @@
-python download.py
+python $env:RECIPE_DIR/download.py
 $zipfile = (Get-ChildItem "./hwi_*.zip")[0]
 7z x "$zipfile" "-o./${env:PKG_NAME}"
 New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
