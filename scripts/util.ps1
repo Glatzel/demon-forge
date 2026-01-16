@@ -104,7 +104,7 @@ function update-vcpkg-json {
 }
 
 function build-cargo-package {
-    param( $name, $crate_names)
+    param( $crate_names)
     cargo install $crate_names --root $env:PREFIX --locked --force `
         --config 'profile.release.codegen-units=1' `
         --config 'profile.release.debug=false' `
@@ -113,7 +113,7 @@ function build-cargo-package {
         --config 'profile.release.strip=true'
 }
 function build-cargo-package-github {
-    param( $name, $url, $tag, $target)
+    param( $url, $tag, $target)
     cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
         --config 'profile.release.codegen-units=1' `
         --config 'profile.release.debug=false' `

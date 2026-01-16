@@ -1,1 +1,1 @@
-build-cargo-package-github ${env:PKG_NAME} "https://github.com/EdJoPaTo/mqttui.git" "v${env:PKG_VERSION}"
+build-cargo-package-github "https://github.com/EdJoPaTo/mqttui.git" "v${env:PKG_VERSION}"
