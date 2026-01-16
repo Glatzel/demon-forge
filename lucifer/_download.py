@@ -12,7 +12,7 @@ log = logging.getLogger()
 
 
 def init_driver(windows_size: tuple[int, int] = (1920, 1080), headless: bool = True) -> Edge:
-    download_dir = Path(os.environ["RECIPE_DIR"])
+    download_dir = Path(os.environ["SRC_DIR"])
     options = EdgeOptions()
     options.add_experimental_option(
         "prefs",
@@ -41,7 +41,7 @@ def init_driver(windows_size: tuple[int, int] = (1920, 1080), headless: bool = T
 def download_waiter(pattern: str, timeout=600):
     log.info("Start download.")
 
-    download_dir = Path(os.environ["RECIPE_DIR"])
+    download_dir = Path(os.environ["SRC_DIR"])
     # Wait for file to appear
     waited = 0
     while waited < timeout:
