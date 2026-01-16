@@ -1,6 +1,6 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+
 
 $xml = [xml](Invoke-WebRequest -UseBasicParsing -Uri "https://www.kisssub.org/rss-bitcomet.xml").Content
 $latest = $xml.rss.channel.item[0]
@@ -12,13 +12,13 @@ if ($guid -match 'show-([0-9a-f]+)\.html$') {
 }
 $trackerList = (Invoke-WebRequest -UseBasicParsing -Uri 'http://github.itzmx.com/1265578519/OpenTracker/master/tracker.txt').Content
 $trackers = ($trackerList -split '\s+') -join ','
-aria2c --seed-time=0 --bt-tracker="$trackers" --dir "$ROOT/temp/$name" "$magnet"
-$zipfile = (Get-ChildItem "$ROOT/temp/$name/*.7z")[0]
-7z x "$zipfile" "-o$ROOT/temp/$name/$name"
-$folder = (Get-ChildItem "$ROOT/temp/$name/$name/*" -Directory)[0]
+aria2c --seed-time=0 --bt-tracker="$trackers" --dir "." "$magnet"
+$zipfile = (Get-ChildItem "./*.7z")[0]
+7z x "$zipfile" "-o./$name"
+$folder = (Get-ChildItem "./$name/*" -Directory)[0]
 Rename-Item $folder bitcomet
 New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name/$name/*" "$env:PREFIX/bin/$name" -Recurse
+Copy-Item "./$name/$name/$name/*" "$env:PREFIX/bin/$name" -Recurse
 
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory

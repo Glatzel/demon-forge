@@ -1,6 +1,6 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+
 if($IsLinux){
     $env:OPENSSL_DIR="$env:BUILD_PREFIX"
 }

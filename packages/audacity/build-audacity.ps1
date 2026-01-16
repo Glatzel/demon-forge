@@ -1,12 +1,12 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
+
 gh release download -R $name/$name -p "$name-win-*-64bit.zip" `
-    -O  $ROOT/temp/$name/$name.zip --clobber
-7z x "$ROOT/temp/$name/$name.zip" "-o$ROOT/temp/$name/$name"
+    -O  ./$name.zip --clobber
+7z x "./$name.zip" "-o./$name"
 New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name/$name*/*" "$env:PREFIX/bin/$name" -Recurse
+Copy-Item "./$name/$name/$name*/*" "$env:PREFIX/bin/$name" -Recurse
 
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory

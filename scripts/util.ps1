@@ -97,11 +97,6 @@ function update-vcpkg-json {
     # save formatted JSON
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
-function pre-build {
-    param( $name)
-    Remove-Item $ROOT/temp/$name -Force -Recurse -ErrorAction SilentlyContinue
-    New-Item  $ROOT/temp/$name -ItemType Directory
-}
 
 function build-cargo-package {
     param( $name, $crate_names)
@@ -151,15 +146,15 @@ function update-recipe {
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
             { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
-            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { pre-build -name $name }
+            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
-            { $env:WORKFLOW_NAME -eq 'manual-build' } { pre-build -name $name }
+            { $env:WORKFLOW_NAME -eq 'manual-build' } { }
             default { exit 0 }
         }
     }
-    else { pre-build -name $name }
+    else { }
 }
 
 # Function: Reset build number in recipe.yaml to 0

@@ -1,6 +1,6 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
+
 New-Item $env:PREFIX/bin -ItemType Directory
 if ($IsWindows) {
     gh release download -R "cloudflare/$name" -p "$name-windows-amd64.exe" `

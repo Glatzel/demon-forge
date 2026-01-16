@@ -1,8 +1,8 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "$ROOT/temp/$name" --clobber
-Get-ChildItem $ROOT/temp/$name | ForEach-Object {
+
+gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "." --clobber
+Get-ChildItem . | ForEach-Object {
     $n = $_.BaseName
     $ext = $_.Extension
 
@@ -13,4 +13,4 @@ Get-ChildItem $ROOT/temp/$name | ForEach-Object {
     }
 }
 New-Item $env:PREFIX/ocio -ItemType Directory
-Copy-Item "$ROOT/temp/$name/*" "$env:PREFIX/ocio/" -Recurse
+Copy-Item "./$name/*" "$env:PREFIX/ocio/" -Recurse
