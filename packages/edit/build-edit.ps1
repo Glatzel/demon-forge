@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 if ($isWindows) {
     gh release download -R "microsoft/${env:PKG_NAME}" -p "*x86_64-windows*" `
         -O  ./${env:PKG_NAME}.zip --clobber
