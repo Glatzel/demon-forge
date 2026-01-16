@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 python $env:RECIPE_DIR/download.py
 $zipfile = (Get-ChildItem "./FileZilla*win64.zip")[0]
 7z x "$zipfile" "-o."

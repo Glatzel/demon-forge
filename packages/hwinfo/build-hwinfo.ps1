@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 python $env:RECIPE_DIR/download.py
 $zipfile = (Get-ChildItem "./hwi_*.zip")[0]
 7z x "$zipfile" "-o./${env:PKG_NAME}"

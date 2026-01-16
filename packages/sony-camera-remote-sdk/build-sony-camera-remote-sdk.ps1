@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 python $env:RECIPE_DIR/download.py$zipfile = (Get-ChildItem "./*.zip")[0]
 $zipfile.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
 $platform = $Matches[4]
