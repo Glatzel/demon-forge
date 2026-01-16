@@ -1,5 +1,3 @@
-
-
 if ($IsWindows) {
     gh release download -R ${env:PKG_NAME}/${env:PKG_NAME} -p "*-win64.zip" `
         -O  ./${env:PKG_NAME}.zip --clobber

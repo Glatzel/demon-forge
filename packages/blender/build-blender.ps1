@@ -1,6 +1,3 @@
-
-
-
 $version = [Version]"$env:PKG_VERSION"
 $major = $version.Major
 $minor = $version.Minor

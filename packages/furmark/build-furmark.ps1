@@ -1,5 +1,3 @@
-
-
 python download.py
 $zipfile = (Get-ChildItem "./*.zip")[0]
 7z x "$zipfile" "-o."

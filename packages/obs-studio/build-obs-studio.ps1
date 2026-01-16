@@ -1,6 +1,3 @@
-
-
-
 gh release download -R obsproject/${env:PKG_NAME} -p "*-Windows-x64.zip" `
     -O  ./${env:PKG_NAME}.zip --clobber
 7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"

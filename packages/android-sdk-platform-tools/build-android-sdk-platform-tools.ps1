@@ -1,5 +1,3 @@
-
-
 aria2c -c -x16 -s16 -d ./ `
     "https://googledownloads.cn/android/repository/platform-tools-latest-windows.zip" `
     -o "${env:PKG_NAME}.zip"

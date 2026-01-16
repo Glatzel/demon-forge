@@ -1,6 +1,3 @@
-
-
-
 gh release download -R https://github.com/${env:PKG_NAME}/PeaZip -p "peazip_portable-*.WIN64.zip" `
     -O  ./${env:PKG_NAME}.zip --clobber
 7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"

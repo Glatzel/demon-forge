@@ -1,5 +1,3 @@
-
-
 aria2c -c -x16 -s16 -d ./ `
     "https://download.librepcb.org/releases/${env:PKG_VERSION}/librepcb-${env:PKG_VERSION}-windows-x86_64.zip" `
     -o "${env:PKG_NAME}.zip"

@@ -1,5 +1,3 @@
-
-
 Copy-Item $PSScriptRoot/build/* ./ -Recurse
 & ./vcpkg-setup.ps1
 & ./vcpkg-install.ps1

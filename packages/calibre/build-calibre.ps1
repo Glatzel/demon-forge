@@ -1,5 +1,3 @@
-
-
 gh release download -R https://github.com/kovidgoyal/${env:PKG_NAME} -p "${env:PKG_NAME}-portable*" `
     -O  ./${env:PKG_NAME}.exe --clobber
 Remove-Item C:/temp -Recurse -ErrorAction SilentlyContinue

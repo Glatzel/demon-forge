@@ -1,5 +1,3 @@
-
-
 python download.py
 $zipfile = (Get-ChildItem "./FileZilla*win64.zip")[0]
 7z x "$zipfile" "-o."

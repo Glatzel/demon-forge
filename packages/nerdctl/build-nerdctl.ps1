@@ -1,5 +1,3 @@
-
-
 if ($IsWindows) {
     gh release download -R "containerd/nerdctl" -p "nerdctl-*-windows-amd64.tar.gz" `
         -O  ./${env:PKG_NAME}.tar.gz --clobber

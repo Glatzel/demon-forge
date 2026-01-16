@@ -1,5 +1,3 @@
-
-
 & $env:BUILD_PREFIX/python download.py
 $zipfile = (Get-ChildItem "./*.zip")[0]
 7z x "$zipfile" "-o./${env:PKG_NAME}"

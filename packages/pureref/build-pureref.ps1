@@ -1,8 +1,5 @@
-
-
-
 python download.py
-$zipfile=(Get-ChildItem "./*.zip")[0]
+$zipfile = (Get-ChildItem "./*.zip")[0]
 7z x "$zipfile" "-o."
 New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
 Copy-Item "./${env:PKG_NAME}/Pureref*/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse

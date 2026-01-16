@@ -1,5 +1,3 @@
-
-
 if ($IsWindows) {
     gh release download -R "EasyTier/EasyTier" -p "${env:PKG_NAME}-windows-x86_64-*.zip" `
         -O  ./${env:PKG_NAME}.zip --clobber

@@ -1,5 +1,3 @@
-
-
 aria2c -c -x16 -s16 -d ./ `
     "https://dist.${env:PKG_NAME}.org/win-x86-commandline/latest/${env:PKG_NAME}.exe" `
     -o "${env:PKG_NAME}.exe"

@@ -1,5 +1,3 @@
-
-
 gh release download -R alexkay/${env:PKG_NAME} -p "${env:PKG_NAME}-*.zip" `
     -O  ./${env:PKG_NAME}.zip --clobber
 7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"

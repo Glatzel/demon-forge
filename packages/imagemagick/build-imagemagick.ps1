@@ -1,5 +1,3 @@
-
-
 gh release download `
     -R "ImageMagick/ImageMagick" `
     -p "ImageMagick-*-portable-Q16-HDRI-x64.7z" `

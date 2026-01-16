@@ -1,5 +1,3 @@
-
-
 gh release download -R "pbatard/${env:PKG_NAME}" -p "${env:PKG_NAME}-*.??.exe" `
     -O  ./${env:PKG_NAME}.exe --clobber
 New-Item $env:PREFIX/bin -ItemType Directory

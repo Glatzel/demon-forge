@@ -1,5 +1,3 @@
-
-
 /rust
 if ($IsWindows) {
     $env:PKG_CONFIG_PATH = "$(Resolve-Path $env:BUILD_PREFIX/proj/x64-windows-static/lib/pkgconfig);${env:PKG_CONFIG_PATH}"

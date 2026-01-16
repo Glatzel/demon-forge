@@ -1,6 +1,3 @@
-
-
-
 python download.py
 $zipfile = (Get-ChildItem "./hwi_*.zip")[0]
 7z x "$zipfile" "-o./${env:PKG_NAME}"

@@ -1,5 +1,3 @@
-
-
 Copy-Item $PSScriptRoot/build/* ./ -Recurse
 & ./scripts/pixi-setup.ps1
 & ./scripts/clone-repo.ps1

@@ -1,5 +1,3 @@
-
-
 if($IsLinux){
     $env:OPENSSL_DIR="$env:BUILD_PREFIX"
 }

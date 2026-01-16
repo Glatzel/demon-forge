@@ -1,5 +1,3 @@
-
-
 $version = $env:PKG_VERSION
 Set-Location .
 gh repo clone Glatzel/${env:PKG_NAME}
