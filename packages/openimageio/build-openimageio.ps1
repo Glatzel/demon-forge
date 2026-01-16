@@ -1,5 +1,4 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 Copy-Item $PSScriptRoot/build/* ./ -Recurse
 & ./scripts/pixi-setup.ps1
@@ -9,4 +8,4 @@ Copy-Item $PSScriptRoot/build/* ./ -Recurse
 & ./scripts/build-oiio.ps1
 & ./scripts/copy-item.ps1
 New-Item $env:PREFIX/bin/openimageio -ItemType Directory
-Copy-Item "./$name/dist/*" "$env:PREFIX/bin/$name"
+Copy-Item "./${env:PKG_NAME}/dist/*" "$env:PREFIX/bin/${env:PKG_NAME}"

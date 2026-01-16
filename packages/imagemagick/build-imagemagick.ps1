@@ -1,11 +1,10 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 gh release download `
     -R "ImageMagick/ImageMagick" `
     -p "ImageMagick-*-portable-Q16-HDRI-x64.7z" `
-    -O  ./$name.7z `
+    -O  ./${env:PKG_NAME}.7z `
     --clobber
-7z x "./$name.7z" "-o./$name"
-New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "$env:RECIPE_DIR/../../temp/$name/$name/*" "$env:PREFIX/bin/$name" -Recurse
+7z x "./${env:PKG_NAME}.7z" "-o./${env:PKG_NAME}"
+New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
+Copy-Item "$env:RECIPE_DIR/../../temp/${env:PKG_NAME}/${env:PKG_NAME}/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse

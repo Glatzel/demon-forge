@@ -1,13 +1,12 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 
 
-$version = get-current-version
+
+$version = $env:PKG_VERSION
 Set-Location .
-gh repo clone Glatzel/$name
-Set-Location $name
+gh repo clone Glatzel/${env:PKG_NAME}
+Set-Location ${env:PKG_NAME}
 git checkout tags/"v$version" -b "branch-$version"
 
     & ./scripts/build.ps1 -Release
-New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "./$name/$name/bin/Mason/*" "$env:PREFIX/bin/$name" -Recurse
+New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/bin/Mason/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse

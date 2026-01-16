@@ -1,8 +1,7 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 
 
-gh release download -R "jqlang/$name" -p "$name-windows-amd64.exe" `
-    -O  ./$name.exe --clobber
+
+gh release download -R "jqlang/${env:PKG_NAME}" -p "${env:PKG_NAME}-windows-amd64.exe" `
+    -O  ./${env:PKG_NAME}.exe --clobber
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./$name/$name.exe" "$env:PREFIX/bin/$name.exe"
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}.exe" "$env:PREFIX/bin/${env:PKG_NAME}.exe"

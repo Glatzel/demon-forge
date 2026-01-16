@@ -1,22 +1,21 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 if ($IsWindows) {
-    gh release download -R "EasyTier/EasyTier" -p "$name-windows-x86_64-*.zip" `
-        -O  ./$name.zip --clobber
+    gh release download -R "EasyTier/EasyTier" -p "${env:PKG_NAME}-windows-x86_64-*.zip" `
+        -O  ./${env:PKG_NAME}.zip --clobber
 }
 if ($IsLinux -and ($arch -eq "X64")) {
-    gh release download -R "EasyTier/EasyTier" -p "$name-linux-x86_64-*.zip" `
-        -O  ./$name.zip --clobber
+    gh release download -R "EasyTier/EasyTier" -p "${env:PKG_NAME}-linux-x86_64-*.zip" `
+        -O  ./${env:PKG_NAME}.zip --clobber
 }
 if ($IsLinux -and ($arch -eq "Arm64")) {
-    gh release download -R "EasyTier/EasyTier" -p "$name-linux-aarch64-*.zip" `
-        -O  ./$name.zip --clobber
+    gh release download -R "EasyTier/EasyTier" -p "${env:PKG_NAME}-linux-aarch64-*.zip" `
+        -O  ./${env:PKG_NAME}.zip --clobber
 }
 if ($IsMacOS) {
-    gh release download -R "EasyTier/EasyTier" -p "$name-macos-aarch64-*.zip" `
-        -O  ./$name.zip --clobber
+    gh release download -R "EasyTier/EasyTier" -p "${env:PKG_NAME}-macos-aarch64-*.zip" `
+        -O  ./${env:PKG_NAME}.zip --clobber
 }
-7z x "./$name.zip" "-o./$name"
+7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./$name/$name/$name*/*" "$env:PREFIX/bin/" -Recurse
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/${env:PKG_NAME}*/*" "$env:PREFIX/bin/" -Recurse

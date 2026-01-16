@@ -1,15 +1,14 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 if ($IsWindows) {
-    gh release download -R $name/$name -p "*-win64.zip" `
-        -O  ./$name.zip --clobber
-    7z x "./$name.zip" "-o./$name"
+    gh release download -R ${env:PKG_NAME}/${env:PKG_NAME} -p "*-win64.zip" `
+        -O  ./${env:PKG_NAME}.zip --clobber
+    7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 }
 # if ($IsLinux) {
-#     gh release download -R obsproject/$name -p "*-amd64-linux.tar.xz" `
-#         -O  ./$name.tar.xz --clobber
-#     7z x "./$name.tar.xz" "-o./$name"
+#     gh release download -R obsproject/${env:PKG_NAME} -p "*-amd64-linux.tar.xz" `
+#         -O  ./${env:PKG_NAME}.tar.xz --clobber
+#     7z x "./${env:PKG_NAME}.tar.xz" "-o./${env:PKG_NAME}"
 # }
-New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "./$name/$name/$name*/*" "$env:PREFIX/bin/$name" -Recurse
+New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/${env:PKG_NAME}*/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse

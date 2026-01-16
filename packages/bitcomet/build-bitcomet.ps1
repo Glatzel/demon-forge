@@ -1,5 +1,4 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 
 $xml = [xml](Invoke-WebRequest -UseBasicParsing -Uri "https://www.kisssub.org/rss-bitcomet.xml").Content
@@ -14,12 +13,12 @@ $trackerList = (Invoke-WebRequest -UseBasicParsing -Uri 'http://github.itzmx.com
 $trackers = ($trackerList -split '\s+') -join ','
 aria2c --seed-time=0 --bt-tracker="$trackers" --dir "." "$magnet"
 $zipfile = (Get-ChildItem "./*.7z")[0]
-7z x "$zipfile" "-o./$name"
-$folder = (Get-ChildItem "./$name/*" -Directory)[0]
+7z x "$zipfile" "-o./${env:PKG_NAME}"
+$folder = (Get-ChildItem "./${env:PKG_NAME}/*" -Directory)[0]
 Rename-Item $folder bitcomet
-New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "./$name/$name/$name/*" "$env:PREFIX/bin/$name" -Recurse
+New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/${env:PKG_NAME}/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse
 
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$name.json" "$env:PREFIX/Menu"
+Copy-Item "${env:PKG_NAME}.json" "$env:PREFIX/Menu"

@@ -1,13 +1,12 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 
 gh release download -R ZyperWave/ZyperWinOptimize -p "ZyperWin*.zip" `
-    -O  ./$name.zip --clobber
-7z x "./$name.zip" "-o./$name"
+    -O  ./${env:PKG_NAME}.zip --clobber
+7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./$name/$name/Release/*" "$env:PREFIX/bin" -Recurse
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/Release/*" "$env:PREFIX/bin" -Recurse
 
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$name.json" "$env:PREFIX/Menu"
+Copy-Item "${env:PKG_NAME}.json" "$env:PREFIX/Menu"

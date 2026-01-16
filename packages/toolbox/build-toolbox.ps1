@@ -1,9 +1,8 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 
-$version = get-current-version
+
+$version = $env:PKG_VERSION
 Set-Location .
-gh repo clone Glatzel/$name
-Set-Location $name
+gh repo clone Glatzel/${env:PKG_NAME}
+Set-Location ${env:PKG_NAME}
 git checkout tags/"v$version" -b "branch-$version"
-pip install ./$name/python -v
+pip install ./${env:PKG_NAME}/python -v

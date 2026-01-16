@@ -1,5 +1,4 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 python download.py
 
@@ -11,10 +10,10 @@ foreach ($f in Get-ChildItem "./*.zip") {
     $platform = $Matches[4]
     7z x "$f" "-o./unzip/$platform"
 }
-New-Item $env:PREFIX/$name -ItemType Directory
-Copy-Item "./$name/unzip/$platform/*" "$env:PREFIX/$name" -Recurse
+New-Item $env:PREFIX/${env:PKG_NAME} -ItemType Directory
+Copy-Item "./${env:PKG_NAME}/unzip/$platform/*" "$env:PREFIX/${env:PKG_NAME}" -Recurse
 
-Remove-Item $env:PREFIX/$name/app/*.h
-Remove-Item $env:PREFIX/$name/app/*.cpp
-Remove-Item $env:PREFIX/$name/*.zip
-Remove-Item $env:PREFIX/$name/external/opencv/ -Recurse
+Remove-Item $env:PREFIX/${env:PKG_NAME}/app/*.h
+Remove-Item $env:PREFIX/${env:PKG_NAME}/app/*.cpp
+Remove-Item $env:PREFIX/${env:PKG_NAME}/*.zip
+Remove-Item $env:PREFIX/${env:PKG_NAME}/external/opencv/ -Recurse

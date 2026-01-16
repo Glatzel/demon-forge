@@ -1,11 +1,10 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 
-gh release download -R alexkay/$name -p "$name-*.zip" `
-    -O  ./$name.zip --clobber
-7z x "./$name.zip" "-o./$name"
-New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "./$name/$name/Spek/*" "$env:PREFIX/bin/$name" -Recurse
+
+gh release download -R alexkay/${env:PKG_NAME} -p "${env:PKG_NAME}-*.zip" `
+    -O  ./${env:PKG_NAME}.zip --clobber
+7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
+New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/Spek/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$name.json" "$env:PREFIX/Menu"
+Copy-Item "${env:PKG_NAME}.json" "$env:PREFIX/Menu"

@@ -1,5 +1,4 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+
 
 gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "." --clobber
 Get-ChildItem . | ForEach-Object {
@@ -13,4 +12,4 @@ Get-ChildItem . | ForEach-Object {
     }
 }
 New-Item $env:PREFIX/ocio -ItemType Directory
-Copy-Item "./$name/*" "$env:PREFIX/ocio/" -Recurse
+Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/ocio/" -Recurse

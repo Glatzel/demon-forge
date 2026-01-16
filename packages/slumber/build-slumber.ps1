@@ -1,4 +1,3 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 
-build-cargo-package $name $name
+
+build-cargo-package ${env:PKG_NAME} ${env:PKG_NAME}
