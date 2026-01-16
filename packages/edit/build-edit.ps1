@@ -1,7 +1,7 @@
 if ($isWindows) {
     gh release download -R "microsoft/${env:PKG_NAME}" -p "*x86_64-windows*" `
         -O  ./${env:PKG_NAME}.zip --clobber
-    7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
+    7z x "${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 }
 if ($IsLinux -and ($arch -eq 'X64')) {
     gh release download -R "microsoft/${env:PKG_NAME}" -p "*x86_64-linux*" `
