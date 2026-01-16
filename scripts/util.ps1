@@ -27,8 +27,13 @@ function get-current-version {
 
 # Function: Extract the package name from recipe.yaml
 function get-name {
-    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
-    Write-Output $matched.Matches[0].Groups[1]
+    if (env:PKG_NAME) {
+        return env:PKG_NAME
+    }
+    else {
+        $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
+        Write-Output $matched.Matches[0].Groups[1]
+    }
 }
 
 # Function: Get the latest release tag from a GitHub repository
