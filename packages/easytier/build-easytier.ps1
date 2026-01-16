@@ -16,4 +16,4 @@ if ($IsMacOS) {
 }
 7z x "./${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/${env:PKG_NAME}*/*" "$env:PREFIX/bin/" -Recurse
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}*/*" "$env:PREFIX/bin/" -Recurse

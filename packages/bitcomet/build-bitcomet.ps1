@@ -14,6 +14,6 @@ $zipfile = (Get-ChildItem "./*.7z")[0]
 $folder = (Get-ChildItem "./${env:PKG_NAME}/*" -Directory)[0]
 Rename-Item $folder bitcomet
 New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
-Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/${env:PKG_NAME}/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse# shortcut
+Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse# shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "${env:RECIPE_DIR}/${env:PKG_NAME}.json" "$env:PREFIX/Menu"

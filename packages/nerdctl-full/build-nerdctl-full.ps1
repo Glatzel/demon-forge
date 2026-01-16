@@ -7,6 +7,6 @@ if ($IsLinux -and $arch -eq "Arm64") {
         -O  ./${env:PKG_NAME}.tar.gz --clobber
 }
 7z x ./${env:PKG_NAME}.tar.gz "-o./"
-7z x ./*.tar "-o./${env:PKG_NAME}"Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}/*" "$env:PREFIX/" -Recurse
+7z x ./*.tar "-o./${env:PKG_NAME}"Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/" -Recurse
 # do not use bundled runc
 Remove-Item "$env:PREFIX/bin/runc"
