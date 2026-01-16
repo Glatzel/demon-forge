@@ -6,13 +6,13 @@ if ($isWindows) {
 if ($IsLinux -and ($arch -eq 'X64')) {
     gh release download -R "microsoft/${env:PKG_NAME}" -p "*x86_64-linux*" `
         -O  ./${env:PKG_NAME}.tar.zst --clobber
-    tar  --zstd -xvf "./${env:PKG_NAME}.tar.zst" -C "."
+    tar  --zstd -xvf "${env:PKG_NAME}.tar.zst" -C "."
     Remove-Item "./${env:PKG_NAME}.tar.zst"
 }
 if ($IsLinux -and ($arch -eq 'Arm64')) {
     gh release download -R "microsoft/${env:PKG_NAME}" -p "*aarch64-linux*" `
         -O  ./${env:PKG_NAME}.tar.zst --clobber
-    tar  --zstd -xvf "./${env:PKG_NAME}.tar.zst" -C "."
+    tar  --zstd -xvf "${env:PKG_NAME}.tar.zst" -C "."
     Remove-Item "./${env:PKG_NAME}.tar.zst"
 }
 New-Item $env:PREFIX/bin -ItemType Directory
