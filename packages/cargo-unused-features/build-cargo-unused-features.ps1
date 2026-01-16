@@ -1,7 +1,7 @@
 if($IsLinux){
     $env:OPENSSL_DIR="$env:BUILD_PREFIX"
 }
-build-cargo-package ${env:PKG_NAME} ${env:PKG_NAME}
+build-cargo-package ${env:PKG_NAME}
 if ($IsWindows) {
     Rename-Item $env:PREFIX/bin/unused-features.exe $env:PREFIX/bin/${env:PKG_NAME}.exe
 }
