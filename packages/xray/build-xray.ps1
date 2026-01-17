@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 if ($IsWindows) {
     gh release download -R "XTLS/Xray-core" -p "Xray-windows-64.zip" `
         -O  ./${env:PKG_NAME}.zip --clobber
