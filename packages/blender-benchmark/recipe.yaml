@@ -12,7 +12,7 @@ requirements:
     - toolbox
 tests:
   - script:
-      - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/benchmark-launcher-cli${{'.exe' if win}} --help"
+      - benchmark-launcher-cli --help
 about:
   homepage: https://opendata.blender.org
   license: GPL-3.0-or-later
