@@ -20,4 +20,4 @@ cmake -S . -B build `
     -DOCIO_USE_HEADLESS=OFF `
     -DOCIO_WARNING_AS_ERROR=OFF `
     -DOCIO_BUILD_DOCS=OFF
-cmake --build build --config Release --target install
+cmake --build build --config Release --target install --verbose
