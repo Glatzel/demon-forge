@@ -1,5 +1,7 @@
 if ($IsWindows) {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/Library"
+    $env:CMAKE_C_FLAGS = "/utf-8"
+    $env:CMAKE_CXX_FLAGS = "/utf-8"
 }
 else {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
@@ -10,8 +12,6 @@ cmake -S . -B build `
     -DCMAKE_BUILD_TYPE=Release `
     -DBUILD_DOCS=0 `
     -DBUILD_SHARED_LIBS=1 `
-    -DCMAKE_C_FLAGS="/utf-8" `
-    -DCMAKE_CXX_FLAGS="/utf-8" `
     -DENABLE_DCMTK=0 `
     -DENABLE_FFmpeg=0 `
     -DENABLE_INSTALL_testtex=0 `
