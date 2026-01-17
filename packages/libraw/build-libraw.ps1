@@ -1,7 +1,4 @@
 if ($IsWindows) {
-    $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
-    $env:CMAKE_GENERATOR_PLATFORM = "x64"
-    $env:CMAKE_GENERATOR_TOOLSET = "v143"
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
 if ($IsMacOS) {

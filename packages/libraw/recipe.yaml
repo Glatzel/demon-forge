@@ -11,8 +11,8 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
+    - c-compiler
+    - cxx-compiler
     - cmake 3.*
     - pkg-config
     - make
