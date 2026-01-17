@@ -1,4 +1,4 @@
-gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "."
+gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio"
 Get-ChildItem . | ForEach-Object {
     $n = $_.BaseName
     $ext = $_.Extension    # Extract prefix before the first "-v"
@@ -8,4 +8,4 @@ Get-ChildItem . | ForEach-Object {
     }
 }
 New-Item $env:PREFIX/ocio -ItemType Directory
-Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/ocio/" -Recurse
+Copy-Item "./*" "$env:PREFIX/ocio/" -Recurse
