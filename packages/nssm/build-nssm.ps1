@@ -1,4 +1,4 @@
-aria2c --max-tries=5 --retry-wait=10 -c -x16 -s16 -d "./" `
+aria2c --max-tries=5 --retry-wait=10 -c -x16 -s16 `
     "https://nssm.cc/release/nssm-${env:PKG_VERSION}.zip" `
     -o "${env:PKG_NAME}.zip"
 7z x "${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
