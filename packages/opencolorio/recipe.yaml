@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 1
+  number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
@@ -19,20 +19,24 @@ requirements:
     - expat
     - yaml-cpp
     - imath
-    - minizip
     - zlib
+    - if: not osx
+      then:
+        - minizip
   run:
     - expat
     - yaml-cpp
     - imath
-    - minizip
     - zlib
+    - if: not osx
+      then:
+        - minizip
 tests:
   - package_contents:
       lib:
         - if: win
           then:
             - OpenColorIO*
-        - if: linux
+        - if: unix
           then:
             - libOpenColorIO
