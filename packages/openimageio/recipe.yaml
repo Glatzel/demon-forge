@@ -1,9 +1,10 @@
 context:
   name: openimageio
+  version: "3.1.9.0"
 
 package:
   name: ${{ name }}
-  version: "3.1.9.0"
+  version: ${{ version }}
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
