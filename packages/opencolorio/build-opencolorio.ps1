@@ -1,5 +1,5 @@
 if ($IsWindows) {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/bin"
+    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/Library"
 }
 else {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"

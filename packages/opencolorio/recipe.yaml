@@ -27,3 +27,7 @@ requirements:
     - imath
     - minizip
     - zlib
+tests:
+  package_contents:
+    lib:
+      - OpenColorIO.lib
