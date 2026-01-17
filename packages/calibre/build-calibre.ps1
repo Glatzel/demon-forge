@@ -1,5 +1,5 @@
 gh release download -R https://github.com/kovidgoyal/${env:PKG_NAME} -p "${env:PKG_NAME}-portable*" `
-    -O  ./${env:PKG_NAME}.exe --clobber
+    -O  ./${env:PKG_NAME}.exe
 Remove-Item C:/temp -Recurse -ErrorAction SilentlyContinue
 New-Item  C:/temp -ItemType Directory
 Start-Process -FilePath "./${env:PKG_NAME}.exe" -ArgumentList "C:/temp" -Wait

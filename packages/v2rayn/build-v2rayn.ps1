@@ -1,19 +1,19 @@
 New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
 if ($IsWindows) {
     gh release download -R 2dust/v2rayN -p "v2rayN-windows-64-SelfContained.zip" `
-        -O  ./${env:PKG_NAME}.zip --clobber
+        -O  ./${env:PKG_NAME}.zip
 }
 # if ($IsMacOS) {
 #     gh release download -R 2dust/v2rayN -p "v2rayN-macos-arm64.zip" `
-#         -O  ./${env:PKG_NAME}.zip --clobber
+#         -O  ./${env:PKG_NAME}.zip
 # }
 # if ($IsLinux -and $arch -eq "X64") {
 #     gh release download -R 2dust/v2rayN -p "v2rayN-linux-64.zip" `
-#         -O  ./${env:PKG_NAME}.zip --clobber
+#         -O  ./${env:PKG_NAME}.zip
 # }
 # if ($IsLinux -and $arch -eq "Arm64") {
 #     gh release download -R 2dust/v2rayN -p "v2rayN-linux-arm64.zip" `
-#         -O  ./${env:PKG_NAME}.zip --clobber# }
+#         -O  ./${env:PKG_NAME}.zip# }
 7z x "${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 if ($IsWindows) {
     Copy-Item "./${env:PKG_NAME}/v2rayN-windows-64-SelfContained/*" "$env:PREFIX/bin/${env:PKG_NAME}/" -Recurse

@@ -1,4 +1,4 @@
-gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "." --clobber
+gh release download -R "AcademySoftwareFoundation/OpenColorIO-Config-ACES" -p "*.ocio" --dir "."
 Get-ChildItem . | ForEach-Object {
     $n = $_.BaseName
     $ext = $_.Extension    # Extract prefix before the first "-v"
