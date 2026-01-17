@@ -1,4 +1,5 @@
-Set-Location $PSScriptRoot
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 New-Item $env:PREFIX/bin -ItemType Directory
 Copy-Item "$ROOT/temp/$env:PKG_NAME/$env:PKG_NAME/target/release/zed.exe" "$env:PREFIX/bin/zed.exe"
 Copy-Item "$ROOT/temp/$env:PKG_NAME/$env:PKG_NAME/target/release/cli.exe" "$env:PREFIX/bin/zed-cli.exe"# shortcut
