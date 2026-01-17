@@ -19,14 +19,18 @@ requirements:
     - expat
     - yaml-cpp
     - imath
-    - minizip
     - zlib
+    - if: not macos
+      then:
+        - minizip
   run:
     - expat
     - yaml-cpp
     - imath
-    - minizip
     - zlib
+    - if: not macos
+      then:
+        - minizip
 tests:
   - package_contents:
       lib:
