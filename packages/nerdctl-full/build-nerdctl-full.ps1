@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 if ($IsLinux -and $arch -eq "X64") {
     gh release download -R "containerd/nerdctl" -p "${env:PKG_NAME}-*.*.*-linux-amd64.tar.gz" `
         -O  ${env:PKG_NAME}.tar.gz --clobber
