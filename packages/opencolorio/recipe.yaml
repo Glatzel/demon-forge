@@ -33,6 +33,6 @@ tests:
         - if: win
           then:
             - OpenColorIO*
-        - if: linux
+        - if: unix
           then:
             - libOpenColorIO
