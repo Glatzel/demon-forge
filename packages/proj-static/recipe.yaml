@@ -1,5 +1,5 @@
 context:
-  name: proj
+  name: proj-static
 package:
   version: "9.7.1"
   name: ${{ name }}

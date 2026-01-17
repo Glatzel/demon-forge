@@ -1,5 +1,5 @@
 context:
-  name: libraw
+  name: libraw-static
 package:
   version: "0.22.0"
   name: ${{ name }}
