@@ -48,7 +48,4 @@ switch ($env:GITHUB_EVENT_NAME) {
 
 # Output matrix to GitHub Actions
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
-
-Write-Output "::group::json"
 $matrix | jq .
-Write-Output "::endgroup::"
