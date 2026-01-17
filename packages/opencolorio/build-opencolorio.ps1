@@ -1,8 +1,8 @@
-if ($IsWindows) { 
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/bin" 
+if ($IsWindows) {
+    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/bin"
 }
 else {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX" 
+    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
 }
 
 cmake -S . -B build `
@@ -19,5 +19,5 @@ cmake -S . -B build `
     -DOCIO_BUILD_GPU_TESTS=OFF `
     -DOCIO_USE_HEADLESS=OFF `
     -DOCIO_WARNING_AS_ERROR=ON `
-    -DOCIO_BUILD_DOCS=OFF 
+    -DOCIO_BUILD_DOCS=OFF
 cmake --build build --config Release --target install
