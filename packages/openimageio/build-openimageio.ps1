@@ -1,10 +1,16 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 if ($IsWindows) {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/Library"
     $env:CMAKE_C_FLAGS = "/utf-8"
     $env:CMAKE_CXX_FLAGS = "/utf-8"
+    $env:USE_SIMD = "sse4.2,avx2"
 }
-else {
+if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
+    if ($arch -eq "X64") {
+        $env:USE_SIMD = "sse4.2,avx2"
+    }
 }
 
 cmake -S . -B build `
