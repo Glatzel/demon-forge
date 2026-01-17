@@ -22,6 +22,6 @@ if ($IsWindows) {
     Copy-Item "./${env:PKG_NAME}/*/${env:PKG_NAME}.exe" "$env:PREFIX/bin/${env:PKG_NAME}.exe"
 }
 if ($IsLinux) {
-    Copy-Item "./${env:PKG_NAME}/${env:PKG_NAME}" "$env:PREFIX/bin/${env:PKG_NAME}"
+    Copy-Item "./${env:PKG_NAME}" "$env:PREFIX/bin/${env:PKG_NAME}"
     chmod +rwx "$env:PREFIX/bin/${env:PKG_NAME}"
 }
