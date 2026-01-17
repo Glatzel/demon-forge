@@ -32,7 +32,10 @@ if ($IsWindows) {
         "-DCMAKE_CXX_FLAGS=/utf-8"
     )
 }
-elseif ($IsLinux) {
+if ($IsMacOS) {
+    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
+}
+if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
 
     if ($arch -eq "X64") {
