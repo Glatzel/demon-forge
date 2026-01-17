@@ -1,8 +1,11 @@
 context:
   name: mason
+  version: "0.0.3"
 package:
   name: ${{ name }}
-  version: "0.0.3"
+  version: ${{ version }}
+source:
+  url: https://github.com/Glatzel/mason/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

@@ -1,5 +1,5 @@
 gh release download -R ZyperWave/ZyperWinOptimize -p "ZyperWin*.zip" `
-    -O  ./${env:PKG_NAME}.zip --clobber
+    -O  ./${env:PKG_NAME}.zip
 7z x "${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 New-Item $env:PREFIX/bin -ItemType Directory
 Copy-Item "./${env:PKG_NAME}/Release/*" "$env:PREFIX/bin" -Recurse
