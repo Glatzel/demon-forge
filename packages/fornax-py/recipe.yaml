@@ -13,7 +13,6 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
-    - maturin
   host:
     - python 3.13.*
     - pip
