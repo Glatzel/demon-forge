@@ -38,7 +38,7 @@ nerdctl-full,false,false,true,true,false
 nssm,true,false,false,false,false
 nuget,true,false,false,false,false
 obs-studio,true,false,false,false,false
-opencolorio,true,true,true,true,true
+opencolorio,true,false,true,true,true
 opencolorio-config-aces,false,false,true,false,false
 openimageio,true,false,false,false,false
 panda-cad,true,false,false,false,false
