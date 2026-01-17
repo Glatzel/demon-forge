@@ -5,7 +5,9 @@ else {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
 }
 
-cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
+cmake -S . -B build `
+    -DVERBOSE=ON `
+    -DCMAKE_BUILD_TYPE=Release `
     -DBUILD_DOCS=0 `
     -DBUILD_SHARED_LIBS=1 `
     -DCMAKE_C_FLAGS="/utf-8" `
