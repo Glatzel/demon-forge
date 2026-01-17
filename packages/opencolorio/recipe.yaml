@@ -20,7 +20,7 @@ requirements:
     - yaml-cpp
     - imath
     - zlib
-    - if: not macos
+    - if: not osx
       then:
         - minizip
   run:
@@ -28,7 +28,7 @@ requirements:
     - yaml-cpp
     - imath
     - zlib
-    - if: not macos
+    - if: not osx
       then:
         - minizip
 tests:
