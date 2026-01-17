@@ -29,5 +29,5 @@ requirements:
     - zlib
 tests:
   package_contents:
-    include:
-      - OpenColorIO/OpenColorIO.h
+    bin:
+      - OpenColorIO*
