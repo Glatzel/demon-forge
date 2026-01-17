@@ -1,11 +1,9 @@
 Set-Location $PSScriptRoot
 Set-Location ..
-
 $conda_pkg=Resolve-Path ./.pixi/envs/oiio/Library
 $conda_pkg = "$conda_pkg" -replace "\\", "/"
 $ocio_pkg=Resolve-Path ./ocio/vcpkg_installed/x64-windows
 $ocio_pkg = "$ocio_pkg" -replace "\\", "/"
-
 Write-Output "::group::Make oiio"
 Set-Location ./external/OpenImageIO
 # remove makecache
@@ -49,7 +47,6 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
   -DWebP_ROOT="$conda_pkg" `
   -DZLIB_ROOT="$conda_pkg"
 Write-Output "::endgroup::"
-
 Write-Output "::group::build oiio"
 cmake --build build --config Release --target install
 Write-Output "::endgroup::"

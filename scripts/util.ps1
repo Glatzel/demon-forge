@@ -27,8 +27,13 @@ function get-current-version {
 
 # Function: Extract the package name from recipe.yaml
 function get-name {
-    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
-    Write-Output $matched.Matches[0].Groups[1]
+    if ($env:PKG_NAME) {
+        return $env:PKG_NAME
+    }
+    else {
+        $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
+        Write-Output $matched.Matches[0].Groups[1]
+    }
 }
 
 # Function: Get the latest release tag from a GitHub repository
@@ -97,14 +102,9 @@ function update-vcpkg-json {
     # save formatted JSON
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
-function pre-build {
-    param( $name)
-    Remove-Item $ROOT/temp/$name -Force -Recurse -ErrorAction SilentlyContinue
-    New-Item  $ROOT/temp/$name -ItemType Directory
-}
 
 function build-cargo-package {
-    param( $name, $crate_names)
+    param( $crate_names)
     cargo install $crate_names --root $env:PREFIX --locked --force `
         --config 'profile.release.codegen-units=1' `
         --config 'profile.release.debug=false' `
@@ -113,7 +113,7 @@ function build-cargo-package {
         --config 'profile.release.strip=true'
 }
 function build-cargo-package-github {
-    param( $name, $url, $tag, $target)
+    param( $url, $tag, $target)
     cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
         --config 'profile.release.codegen-units=1' `
         --config 'profile.release.debug=false' `
@@ -151,15 +151,15 @@ function update-recipe {
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
             { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { pre-build -name $name; "action_publish=true" >> $env:GITHUB_OUTPUT }
 
-            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { pre-build -name $name }
+            { $env:GITHUB_EVENT_NAME -eq "pull_request" } { }
 
             { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "schedule" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
-            { $env:WORKFLOW_NAME -eq 'manual-build' } { pre-build -name $name }
+            { $env:WORKFLOW_NAME -eq 'manual-build' } { }
             default { exit 0 }
         }
     }
-    else { pre-build -name $name }
+    else { }
 }
 
 # Function: Reset build number in recipe.yaml to 0

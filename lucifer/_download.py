@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import time
 from pathlib import Path
 
@@ -10,8 +11,8 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 log = logging.getLogger()
 
 
-def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920, 1080), headless: bool = True) -> Edge:
-    download_dir = Path(download_dir)
+def init_driver(windows_size: tuple[int, int] = (1920, 1080), headless: bool = True) -> Edge:
+    download_dir = Path(os.environ["SRC_DIR"])
     options = EdgeOptions()
     options.add_experimental_option(
         "prefs",
@@ -37,10 +38,10 @@ def init_driver(download_dir: str | Path, windows_size: tuple[int, int] = (1920,
     return driver
 
 
-def download_waiter(download_dir: str | Path, pattern: str, timeout=600):
+def download_waiter(pattern: str, timeout=600):
     log.info("Start download.")
 
-    download_dir = Path(download_dir)
+    download_dir = Path(os.environ["SRC_DIR"])
     # Wait for file to appear
     waited = 0
     while waited < timeout:

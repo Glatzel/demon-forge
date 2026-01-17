@@ -4,6 +4,8 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github "zed-industries/$name"
 update-recipe -version $latest_version
 
+Remove-Item $ROOT/temp/$name -Force -Recurse -ErrorAction SilentlyContinue
+New-Item  $ROOT/temp/$name -ItemType Directory
 #download icon
 if ($IsWindows) {
     aria2c -c -x16 -s16 -d "$ROOT/temp/$name/" `

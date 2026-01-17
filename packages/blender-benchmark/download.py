@@ -1,5 +1,4 @@
 import logging
-from pathlib import Path
 
 from selenium.webdriver.common.by import By
 from toolbox import clerk
@@ -8,10 +7,7 @@ from lucifer import download_waiter, find_element, init_driver
 
 logging.basicConfig(level=logging.INFO, handlers=[clerk.rich_handler()])
 log = logging.getLogger(__name__)
-# config driver
-download_dir = Path(__file__).parents[2] / "temp" / "blender-benchmark"
-
-driver = init_driver(download_dir)
+driver = init_driver()
 
 # open web
 driver.get("https://opendata.blender.org/")
@@ -21,4 +17,4 @@ element = find_element(driver, By.XPATH, "//a[contains(@title,'Windows') and spa
 url = element.get_attribute("href")
 log.info(f"download url: {url}")
 driver.get(url)  # type: ignore
-download_waiter(download_dir, "*.zip")
+download_waiter("*.zip")
