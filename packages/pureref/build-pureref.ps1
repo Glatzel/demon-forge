@@ -1,8 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 python $env:RECIPE_DIR/download.py
-$zipfile = (Get-ChildItem "./*.zip")[0]
-7z x "$zipfile" "-o."
+7z x "*.zip"
 New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
 Copy-Item "./${env:PKG_NAME}/Pureref*/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse
 # shortcut
