@@ -12,9 +12,8 @@ build:
   number: 0
 requirements:
   build:
-    - c-compiler
-    - cxx-compiler
-    - cmake 3.*
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
     - make
   host:
     - opencolorio
