@@ -14,11 +14,13 @@ if ($IsMacOS) {
     gh release download -R "XTLS/Xray-core" -p "Xray-macos-arm64-v8a.zip" `
         -O  ./${env:PKG_NAME}.zip --clobber
 }
-New-Item $env:PREFIX/${env:PKG_NAME} -ItemType Directory
 7z x "${env:PKG_NAME}.zip" "-o$env:PREFIX/bin/${env:PKG_NAME}"
 if ($IsWindows) {
     Copy-Item $env:RECIPE_DIR/update-geofile.ps1 $env:PREFIX/bin/${env:PKG_NAME}/
 }
 else {
     Copy-Item $env:RECIPE_DIR/update-geofile.sh $env:PREFIX/bin/${env:PKG_NAME}/
+}
+if ($IsLinux) {
+    chmod +rwx "$env:PREFIX/bin/${env:PKG_NAME}/${env:PKG_NAME}"
 }
