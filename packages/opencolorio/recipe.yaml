@@ -14,6 +14,7 @@ requirements:
     - c-compiler
     - cxx-compiler
     - cmake 3.*
+    - make
   host:
     - expat
     - yaml-cpp
