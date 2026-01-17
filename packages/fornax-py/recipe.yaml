@@ -1,13 +1,13 @@
 context:
   name: fornax-py
-  version: "0.0.12"
+  version: "0.0.13"
 package:
-  version: ${{ version }}
+  version: "0.0.13"
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/fornax/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 1
+  number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 
 requirements:
