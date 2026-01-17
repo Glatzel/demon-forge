@@ -11,6 +11,6 @@ if ($IsLinux -and $arch -eq "Arm64") {
         -O  ./${env:PKG_NAME}.tar.gz --clobber
 }
 7z x "${env:PKG_NAME}.tar.gz"
-7z x "${env:PKG_NAME}.tar" "-o./${env:PKG_NAME}"
+7z x "${env:PKG_NAME}.tar" "-o${env:PKG_NAME}"
 New-Item $env:PREFIX/bin -ItemType Directory
 Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/bin/" -Recurse
