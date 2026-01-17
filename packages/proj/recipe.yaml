@@ -1,20 +1,41 @@
 context:
   name: proj
-package:
   version: "9.7.1"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 5
+  number: 6
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ compiler("c") }}
-    - ${{ compiler("cxx") }}
-    - pkg-config
-    - openssl
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - cmake
     - make
-    - if: Linux
-      then:
-        - ${{ stdlib('c') }}
+  host:
+    - sqlite
+    - libtiff
+    - libcurl
+  run:
+    - sqlite
+    - libtiff
+    - libcurl
+tests:
+  - package_contents:
+      include:
+        - proj.h
+      bin:
+        - cs2cs
+        - proj
+        - cct
+        - geod
+        - gie
+        - invgeod
+        - invproj
+  - script: projinfo -s EPSG:2230 -t EPSG:26946
 about:
   repository: https://github.com/OSGeo/PROJ
+  documentation: https://proj.org/en/stable/
