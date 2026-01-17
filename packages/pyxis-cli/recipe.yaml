@@ -15,6 +15,7 @@ requirements:
     - pkg-config
     - proj
   host:
+    - proj
     - if: win
       then:
         - vc14_runtime
@@ -23,6 +24,7 @@ requirements:
         - libstdcxx
         - libudev
   run:
+    - proj
     - if: win
       then:
         - vc14_runtime
