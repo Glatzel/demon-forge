@@ -12,9 +12,10 @@ build:
   number: 0
 requirements:
   build:
-    - ${{ compiler("c") }}
-    - ${{ compiler("cxx") }}
+    - c-compiler
+    - cxx-compiler
     - cmake 3.*
+    - make
   host:
     - opencolorio
     - bzip2
