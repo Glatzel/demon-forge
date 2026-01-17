@@ -30,4 +30,9 @@ requirements:
 tests:
   - package_contents:
       lib:
-        - OpenColorIO*
+        - if: win
+          then:
+            - OpenColorIO*
+        - if: linux
+          then:
+            - libOpenColorIO
