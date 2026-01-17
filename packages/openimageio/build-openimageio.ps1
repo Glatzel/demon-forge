@@ -31,6 +31,5 @@ cmake -S . -B build `
     -DLINKSTATIC=0 `
     -DOIIO_BUILD_TESTS=0 `
     -DUSE_PYTHON=0 `
-    -DUSE_QT=0 `
-    -DUSE_SIMD="sse4.2,avx2"
+    -DUSE_QT=0
 cmake --build build --config Release --target install
