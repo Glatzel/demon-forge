@@ -3,4 +3,4 @@ Copy-Item $PSScriptRoot/build/* ./ -Recurse
 & ./vcpkg-install.ps1
 Set-Location $PSScriptRoot
 New-Item $env:PREFIX/libraw -ItemType Directory
-Copy-Item "./libraw/installed/*" "$env:PREFIX/libraw" -Recurse
+Copy-Item "./installed/*" "$env:PREFIX/libraw" -Recurse

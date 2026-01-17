@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 3
+  number: 6
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
