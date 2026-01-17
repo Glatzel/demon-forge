@@ -1,0 +1,38 @@
+context:
+  name: opencolorio
+  version: "2.5.1"
+package:
+  version: "2.5.1"
+  name: ${{ name }}
+source:
+  url: https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - c-compiler
+    - cxx-compiler
+    - cmake 3.*
+    - make
+  host:
+    - expat
+    - yaml-cpp
+    - imath
+    - minizip
+    - zlib
+  run:
+    - expat
+    - yaml-cpp
+    - imath
+    - minizip
+    - zlib
+tests:
+  - package_contents:
+      lib:
+        - if: win
+          then:
+            - OpenColorIO*
+        - if: linux
+          then:
+            - libOpenColorIO
