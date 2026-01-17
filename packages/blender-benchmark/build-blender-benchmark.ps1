@@ -1,8 +1,7 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-&$env:BUILD_PREFIX/python download.py
-$zipfile = (Get-ChildItem "$ROOT/temp/$name/*.zip")[0]
-7z x "$zipfile" "-o$ROOT/temp/$name/$name"
-New-Item $env:PREFIX/bin/$name -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name*/*" "$env:PREFIX/bin/$name" -Recurse
+python $env:RECIPE_DIR/download.py
+$zipfile = (Get-ChildItem "./*.zip")[0]
+7z x "$zipfile" "-o./${env:PKG_NAME}"
+New-Item $env:PREFIX/bin -ItemType Directory
+Copy-Item "./${env:PKG_NAME}*/benchmark-launcher-cli.exe" "$env:PREFIX/bin" -Recurse

@@ -1,10 +1,5 @@
-Set-Location $PSScriptRoot
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
-gh release download -R "pbatard/$name" -p "$name-*.??.exe" `
-    -O  $ROOT/temp/$name/$name.exe --clobber
-New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name.exe" "$env:PREFIX/bin/$name.exe"
+gh release download -R "pbatard/${env:PKG_NAME}" -p "${env:PKG_NAME}-*.??.exe" `
+    -O  "$env:PREFIX/bin/${env:PKG_NAME}.exe"
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$name.json" "$env:PREFIX/Menu"
+Copy-Item "${env:RECIPE_DIR}/${env:PKG_NAME}.json" "$env:PREFIX/Menu"

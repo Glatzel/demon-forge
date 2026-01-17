@@ -1,12 +1,15 @@
 context:
   name: toolbox
-package:
   version: 0.0.33
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
   noarch: python
   number: 0
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script: pip install ./python -v
 
 requirements:
   host:

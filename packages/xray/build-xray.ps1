@@ -1,27 +1,28 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
 if ($IsWindows) {
     gh release download -R "XTLS/Xray-core" -p "Xray-windows-64.zip" `
-        -O  $ROOT/temp/$name/$name.zip --clobber
+        -O  ./${env:PKG_NAME}.zip
 }
 if ($IsLinux -and ($arch -eq "X64")) {
     gh release download -R "XTLS/Xray-core" -p "Xray-linux-64.zip" `
-        -O  $ROOT/temp/$name/$name.zip --clobber
+        -O  ./${env:PKG_NAME}.zip
 }
 if ($IsLinux -and ($arch -eq "Arm64")) {
     gh release download -R "XTLS/Xray-core" -p "Xray-linux-arm64-v8a.zip" `
-        -O  $ROOT/temp/$name/$name.zip --clobber
+        -O  ./${env:PKG_NAME}.zip
 }
 if ($IsMacOS) {
     gh release download -R "XTLS/Xray-core" -p "Xray-macos-arm64-v8a.zip" `
-        -O  $ROOT/temp/$name/$name.zip --clobber
+        -O  ./${env:PKG_NAME}.zip
 }
-7z x "$ROOT/temp/$name/$name.zip" "-o$env:PREFIX/bin/$name"
+7z x "${env:PKG_NAME}.zip" "-o$env:PREFIX/bin/${env:PKG_NAME}"
 if ($IsWindows) {
-    Copy-Item $PSScriptRoot/update-geofile.ps1 $env:PREFIX/bin/$name/
+    Copy-Item $env:RECIPE_DIR/update-geofile.ps1 $env:PREFIX/bin/${env:PKG_NAME}/
 }
 else {
-    Copy-Item $PSScriptRoot/update-geofile.sh $env:PREFIX/bin/$name/
+    Copy-Item $env:RECIPE_DIR/update-geofile.sh $env:PREFIX/bin/${env:PKG_NAME}/
+}
+if ($IsLinux) {
+    chmod +rwx "$env:PREFIX/bin/${env:PKG_NAME}/${env:PKG_NAME}"
 }

@@ -1,19 +1,18 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 if ($IsWindows) {
     gh release download -R "containerd/nerdctl" -p "nerdctl-*-windows-amd64.tar.gz" `
-        -O  $ROOT/temp/$name/$name.tar.gz --clobber
+        -O "${env:PKG_NAME}.tar.gz"
 }
 if ($IsLinux -and $arch -eq "X64") {
     gh release download -R "containerd/nerdctl" -p "nerdctl-?.*.*-linux-amd64.tar.gz" `
-        -O  $ROOT/temp/$name/$name.tar.gz --clobber
+        -O "${env:PKG_NAME}.tar.gz"
 }
 if ($IsLinux -and $arch -eq "Arm64") {
     gh release download -R "containerd/nerdctl" -p "nerdctl-?.*.*-linux-arm64.tar.gz" `
-        -O  $ROOT/temp/$name/$name.tar.gz --clobber
+        -O "${env:PKG_NAME}.tar.gz"
 }
-7z x $ROOT/temp/$name/$name.tar.gz "-o$ROOT/temp/$name/"
-7z x $ROOT/temp/$name/$name.tar "-o$ROOT/temp/$name/$name"
+7z x "${env:PKG_NAME}.tar.gz"
+7z x "${env:PKG_NAME}.tar" "-o${env:PKG_NAME}"
 New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "$ROOT/temp/$name/$name/*" "$env:PREFIX/bin/" -Recurse
+Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/bin/" -Recurse
