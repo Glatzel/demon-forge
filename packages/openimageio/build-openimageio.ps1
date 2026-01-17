@@ -15,6 +15,8 @@ cmake -S . -B build `
     -DVERBOSE=ON `
     -DCMAKE_BUILD_TYPE=Release `
     -DBUILD_DOCS=0 `
+    -DCMAKE_C_FLAGS_MSVC_INIT="/utf-8" `
+    -DCMAKE_CXX_FLAGS_MSVC_INIT="/utf-8" `
     -DBUILD_SHARED_LIBS=1 `
     -DENABLE_DCMTK=0 `
     -DENABLE_FFmpeg=0 `
