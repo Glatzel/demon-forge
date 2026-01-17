@@ -1,17 +1,60 @@
 context:
   name: openimageio
+  version: "3.1.9.0"
 
 package:
   name: ${{ name }}
-  version: "3.1.9.0"
-
+  version: ${{ version }}
+source:
+  url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   number: 0
-
+requirements:
+  build:
+    - c-compiler
+    - cxx-compiler
+    - cmake 3.*
+    - make
+  host:
+    - opencolorio
+    - bzip2
+    - fmt
+    - freetype
+    - giflib
+    - libheif
+    - libjpeg-turbo
+    - libjxl
+    - libpng
+    - libraw
+    - libtiff
+    - libwebp
+    - openexr
+    - openjpeg
+    - tbb-devel
+    - yaml-cpp
+    - zlib
+  run:
+    - opencolorio
+    - bzip2
+    - fmt
+    - freetype
+    - giflib
+    - libheif
+    - libjpeg-turbo
+    - libjxl
+    - libpng
+    - libraw
+    - libtiff
+    - libwebp
+    - openexr
+    - openjpeg
+    - tbb-devel
+    - yaml-cpp
+    - zlib
 tests:
   - script:
-      - pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/oiiotool${{'.exe' if win}} --help"
+      - oiiotool --help
 about:
   homepage: https://openimageio.org
   license: BSD-3-Clause
