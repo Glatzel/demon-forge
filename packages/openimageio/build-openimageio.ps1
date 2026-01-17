@@ -25,3 +25,4 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release `
     -DUSE_PYTHON=0 `
     -DUSE_QT=0 `
     -DUSE_SIMD="sse4.2,avx2"
+cmake --build build --config Release --target install
