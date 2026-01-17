@@ -2,8 +2,8 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 if ($IsWindows) {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/Library"
-    $env:CMAKE_C_FLAGS = "/utf-8"
-    $env:CMAKE_CXX_FLAGS = "/utf-8"
+    $env:CMAKE_C_FLAGS = "$env:CFLAGS /utf-8"
+    $env:CMAKE_CXX_FLAGS = "$env:CFLAGS /utf-8"
     $env:USE_SIMD = "sse4.2,avx2"
 }
 if ($IsLinux) {
