@@ -28,6 +28,6 @@ requirements:
     - minizip
     - zlib
 tests:
-  package_contents:
-    bin:
-      - OpenColorIO*
+  - package_contents:
+      bin:
+        - OpenColorIO*
