@@ -6,4 +6,4 @@ $JITTER = Get-ChildItem "$env:BUILD_PREFIX\.cargo\registry\src\index.crates.io-*
 Select-Object -First 1 -ExpandProperty FullName
 write-output $JITTER
 $env:CL = "/I`"$JITTER`""
-cargo install --root $env:PREFIX --path . cargo-arg
+cargo install --root $env:PREFIX --path . @(Get-Cargo-Arg)

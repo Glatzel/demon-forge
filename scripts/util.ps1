@@ -111,7 +111,7 @@ function build-cargo-package-github {
         --config 'profile.release.opt-level=3' `
         --config 'profile.release.strip=true' $target
 }
-function cargo-arg {
+function Get-Cargo-Arg {
     return @(
         '--locked'
         '--force'
