@@ -114,7 +114,7 @@ function update-recipe {
     Write-Output "latest version: <$version>"
     $HAS_NEW_VERSION = ("$current_version" -ne "$version")
     # update new version
-    if ($HAS_NEW_VERSION -and 
+    if ($HAS_NEW_VERSION -and
         (
             ($env:GITHUB_EVENT_NAME -eq "schedule") -or
             (
