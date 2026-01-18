@@ -159,15 +159,9 @@ function reset-build-code {
 
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
-    param($target_platform)
-    if ($target_platform) {
-        $env:TARGET_PLATFORM = "win-64"
-        $target_platform = ('--target-platform' , "$target_platform")
-    }
     pixi run rattler-build `
         --config-file $ROOT/rattler-config.toml `
-        build --output-dir $ROOT/output `
-        $target_platform
+        build --output-dir $ROOT/output
 }
 
 # Extract package name and current system architecture
