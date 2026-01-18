@@ -55,16 +55,6 @@ function get-version-crateio {
         }
     }
 }
-function get-version-vcpkg {
-    param($name)
-    for ($i = 0; $i -lt 5; $i++) {
-        $latest = curl -s https://raw.githubusercontent.com/microsoft/vcpkg/master/ports/$name/vcpkg.json | `
-            jq -r '.version'
-        if ($latest) {
-            return $latest
-        }
-    }
-}
 
 function get-version-url {
     param($url, $pattern)
