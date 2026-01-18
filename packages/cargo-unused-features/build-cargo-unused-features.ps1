@@ -2,7 +2,7 @@ if($IsLinux){
     $env:OPENSSL_DIR="$env:BUILD_PREFIX"
 }$ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-build-cargo-package ${env:PKG_NAME}
+cargo install $name @(Get-Cargo-Arg)
 if ($IsWindows) {
     Rename-Item $env:PREFIX/bin/unused-features.exe $env:PREFIX/bin/${env:PKG_NAME}.exe
 }
