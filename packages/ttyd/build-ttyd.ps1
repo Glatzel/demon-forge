@@ -7,7 +7,7 @@ if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
     & C:/msys64/usr/bin/pacman.exe -S --noconfirm mingw-w64-x86_64-json-c mingw-w64-x86_64-libwebsockets
     copy-item C:/msys64/mingw64/* $env:BUILD_PREFIX/Library -Recurse
-    copy-item C:/msys64/mingw64/* $env:PREFIX/Library -Recurse 
+    copy-item C:/msys64/mingw64/* $env:PREFIX/Library -Recurse
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX/Library"
 }
 else{
