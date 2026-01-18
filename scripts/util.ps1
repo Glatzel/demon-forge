@@ -94,6 +94,8 @@ function update-vcpkg-json {
 }
 function Get-Cargo-Arg {
     return @(
+        '--root'
+        "$env:PREFIX"
         '--locked'
         '--force'
         '--config', 'profile.release.codegen-units=1'
@@ -105,7 +107,7 @@ function Get-Cargo-Arg {
 }
 function build-cargo-package {
     param( $crate_names)
-    cargo install $crate_names --root $env:PREFIX @(Get-Cargo-Arg)
+    cargo install $crate_names @(Get-Cargo-Arg)
 }
 function build-cargo-package-github {
     param( $url, $tag, $target)
