@@ -92,25 +92,6 @@ function update-vcpkg-json {
     # save formatted JSON
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
-
-function build-cargo-package {
-    param( $crate_names)
-    cargo install $crate_names --root $env:PREFIX --locked --force `
-        --config 'profile.release.codegen-units=1' `
-        --config 'profile.release.debug=false' `
-        --config 'profile.release.lto="fat"' `
-        --config 'profile.release.opt-level=3' `
-        --config 'profile.release.strip=true'
-}
-function build-cargo-package-github {
-    param( $url, $tag, $target)
-    cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
-        --config 'profile.release.codegen-units=1' `
-        --config 'profile.release.debug=false' `
-        --config 'profile.release.lto="fat"' `
-        --config 'profile.release.opt-level=3' `
-        --config 'profile.release.strip=true' $target
-}
 function Get-Cargo-Arg {
     return @(
         '--locked'
@@ -122,6 +103,20 @@ function Get-Cargo-Arg {
         '--config', 'profile.release.strip=true'
     )
 }
+function build-cargo-package {
+    param( $crate_names)
+    cargo install $crate_names --root $env:PREFIX @(Get-Cargo-Arg)
+}
+function build-cargo-package-github {
+    param( $url, $tag, $target)
+    cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
+        --config 'profile.release.codegen-units=1' `
+        --config 'profile.release.debug=false' `
+        --config 'profile.release.lto="fat"' `
+        --config 'profile.release.opt-level=3' `
+        --config 'profile.release.strip=true' $target
+}
+
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)
