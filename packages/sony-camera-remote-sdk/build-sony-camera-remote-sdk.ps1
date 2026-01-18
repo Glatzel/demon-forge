@@ -1,30 +1,26 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-if ($IsWindows) {
-    aria2c -c -x16 -s16 -d ./ `
-        https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/win?fm=en-us `
-        -o "${env:PKG_NAME}.zip"
+
+$archUrls = @{
+    "Windows" = "win"
+    "MacOS"  = "mac"
+    "Linux"  = "linux_x86"
+    "MacArm64" = "linux_64"
 }
-if ($IsMacOS) {
-    aria2c -c -x16 -s16 -d ./ `
-        https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/mac?fm=en-us `
-        -o "${env:PKG_NAME}.zip"
-}
-if ($IsLinux -and $arch -eq "X64") {
-    aria2c -c -x16 -s16 -d ./ `
-        https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_x86?fm=en-us `
-        -o "${env:PKG_NAME}.zip"
-}
-if ($IsMacOS -and $arch -eq "Arm64") {
-    aria2c -c -x16 -s16 -d ./ `
-        https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_64?fm=en-us `
-        -o "${env:PKG_NAME}.zip"
-}
-7z x "$f" "-osdk"
+
+$archKey = if ($IsWindows) { "Windows" } 
+           elseif ($IsMacOS -and $arch -eq "Arm64") { "MacArm64" }
+           elseif ($IsMacOS) { "MacOS" }
+           elseif ($IsLinux -and $arch -eq "X64") { "Linux" }
+
+$downloadUrl = "https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/$($archUrls[$archKey])?fm=en-us"
+aria2c -c -x16 -s16 $downloadUrl -o "${env:PKG_NAME}.zip"
+
+7z x "${env:PKG_NAME}.zip" "-osdk"
 
 New-Item "$env:PREFIX/${env:PKG_NAME}" -ItemType Directory
 Copy-Item "./sdk/*" "$env:PREFIX/${env:PKG_NAME}" -Recurse
-Remove-Item $env:PREFIX/${env:PKG_NAME}/app/*.h
-Remove-Item $env:PREFIX/${env:PKG_NAME}/app/*.cpp
-Remove-Item $env:PREFIX/${env:PKG_NAME}/*.zip
-Remove-Item $env:PREFIX/${env:PKG_NAME}/external/opencv/ -Recurse
+
+# Cleanup
+Remove-Item "$env:PREFIX/${env:PKG_NAME}/app/*.h", "$env:PREFIX/${env:PKG_NAME}/app/*.cpp", "$env:PREFIX/${env:PKG_NAME}/*.zip"
+Remove-Item "$env:PREFIX/${env:PKG_NAME}/external/opencv/" -Recurse
