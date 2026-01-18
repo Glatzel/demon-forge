@@ -25,6 +25,5 @@ cmake -S . -B build `
     -DENABLE_CURL=ON `
     -DENABLE_TIFF=ON `
     -DEMBED_PROJ_DATA_PATH=OFF `
-    -DEMBED_RESOURCE_FILES=ON `
-    ..
+    -DEMBED_RESOURCE_FILES=ON
 cmake --build build --config Release --target install
