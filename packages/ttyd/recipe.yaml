@@ -13,14 +13,14 @@ build:
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
+    - brotlipy
+    - cmake 3.*
+    - nodejs
+    - make
+    - fonttools
+    - pkg-config
     - if: unix
       then:
-        - brotlipy
-        - cmake 3.*
-        - fonttools
-        - make
-        - nodejs
-        - pkg-config
         - c-compiler
         - cxx-compiler
         - autoconf
