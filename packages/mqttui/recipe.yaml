@@ -3,6 +3,8 @@ context:
 package:
   version: "0.22.1"
   name: ${{ name }}
+source:
+  url: https://github.com/EdJoPaTo/mqttui/refs/tags/v${{ version }}.tar.gz
 build:
   number: 4
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
