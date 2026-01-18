@@ -9,6 +9,8 @@ build:
 requirements:
   build:
     - rust
+    - c-compiler
+    - cxx-compiler
     - cmake 3.30.*
     - nasm
 
