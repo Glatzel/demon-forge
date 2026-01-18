@@ -14,6 +14,15 @@ requirements:
     - cmake 3.30.*
     - make
     - nasm
+  host: 
+    - if: unix
+      then:
+        - openssl
+  run: 
+    - if: unix
+      then:
+        - openssl
+        
 
 tests:
   - package_contents:
