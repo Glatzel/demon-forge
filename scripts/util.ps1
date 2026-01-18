@@ -112,11 +112,19 @@ function update-recipe {
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
-    if (-not ($version -cmatch '^\d+(\.\d+)+$')) {
-        throw "Invalid version"
-    }
     $HAS_NEW_VERSION = ("$current_version" -ne "$version")
-    if ($HAS_NEW_VERSION) {
+    # update new version
+    if ($HAS_NEW_VERSION -and 
+        (
+            ($env:GITHUB_EVENT_NAME -eq "schedule") -or
+            (
+                ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main")
+            )
+        )
+    ) {
+        if (-not ($version -cmatch '^\d+(\.\d+)+$')) {
+            throw "Invalid version"
+        }
         Write-Output "::group::update recipe"
         Write-Output "New version found."
         # Update version number and reset build number
@@ -124,9 +132,7 @@ function update-recipe {
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
         Write-Output "::endgroup::"
     }
-    else {
-        Write-Output "No new version."
-    }
+
     if ($env:CI) {
         "latest-version=$version" >> $env:GITHUB_OUTPUT
         "current-version=$current_version" >> $env:GITHUB_OUTPUT
