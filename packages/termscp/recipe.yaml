@@ -1,8 +1,11 @@
 context:
   name: termscp
-package:
   version: "0.19.1"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/veeso/termscp/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
