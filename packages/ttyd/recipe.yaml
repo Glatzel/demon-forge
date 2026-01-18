@@ -6,6 +6,8 @@ package:
   name: ${{ name }}
 source:
   url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
+  patches:
+    - config.path
 build:
   number: 8
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"

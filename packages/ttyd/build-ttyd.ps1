@@ -1,14 +1,13 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-Set-Location $env:SRC_DIR
-
 copy-item $PSScriptRoot/build/* ./ -recurse
-git apply config.patch
 get-content ./index.scss >> ./html/src/style/index.scss
 & ./download-font.ps1
 
 Set-Location ./html
-
+if ($IsWindows) {
+    $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
+}
 npm install -g corepack
 corepack enable
 corepack prepare yarn@stable --activate
