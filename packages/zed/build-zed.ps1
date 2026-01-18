@@ -2,7 +2,7 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$env:PREFIX/$name.json" "$env:PREFIX/Menu"
+Copy-Item "$env:RECIPE_DIR/$name.json" "$env:PREFIX/Menu"
 if ($IsWindows) {
     aria2c -c -x16 -s16 -d "$env:PREFIX/Menu" `
         "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v${env:PKG_VERSION}/crates/zed/resources/windows/app-icon.ico" `
