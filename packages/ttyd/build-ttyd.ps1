@@ -6,11 +6,11 @@ get-content ./index.scss >> ./html/src/style/index.scss
 if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
     $env:CMAKE_INSTALL_PREFIX="$env:BUILD_PREFIX/Library"
-    pacman -S mingw-w64-json-c
-    pacman -S mingw-w64-libwebsockets
+    & C:/msys64/bin/pacman -S mingw-w64-json-c
+    & C:/msys64/bin/pacman -S mingw-w64-libwebsockets
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX/Library"
-    pacman -S mingw-w64-json-c
-    pacman -S mingw-w64-libwebsockets
+    & C:/msys64/bin/pacman -S mingw-w64-json-c
+    & C:/msys64/bin/pacman -S mingw-w64-libwebsockets
 }
 else{
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX"
