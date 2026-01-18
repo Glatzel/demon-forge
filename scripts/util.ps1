@@ -161,6 +161,7 @@ function reset-build-code {
 function build-pkg {
     pixi run rattler-build `
         --config-file $ROOT/rattler-config.toml `
+        --color always `
         build --output-dir $ROOT/output
 }
 
