@@ -1,3 +1,4 @@
+cargo fetch
 $JITTER = Get-ChildItem "$env:BUILD_PREFIX\.cargo\registry\src\index.crates.io-*\" `
     -Recurse -Directory -Filter "jitterentropy-library" |
     Select-Object -First 1 -ExpandProperty FullName
