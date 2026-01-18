@@ -92,36 +92,37 @@ function update-vcpkg-json {
     # save formatted JSON
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
+function Get-Cargo-Arg {
+    return @(
+        '--root'
+        "$env:PREFIX"
+        '--locked'
+        '--force'
+        '--config', 'profile.release.codegen-units=1'
+        '--config', 'profile.release.debug=false'
+        '--config', 'profile.release.lto="fat"'
+        '--config', 'profile.release.opt-level=3'
+        '--config', 'profile.release.strip=true'
+    )
+}
 
-function build-cargo-package {
-    param( $crate_names)
-    cargo install $crate_names --root $env:PREFIX --locked --force `
-        --config 'profile.release.codegen-units=1' `
-        --config 'profile.release.debug=false' `
-        --config 'profile.release.lto="fat"' `
-        --config 'profile.release.opt-level=3' `
-        --config 'profile.release.strip=true'
-}
-function build-cargo-package-github {
-    param( $url, $tag, $target)
-    cargo install --bins --git $url --tag $tag --root $env:PREFIX --locked --force `
-        --config 'profile.release.codegen-units=1' `
-        --config 'profile.release.debug=false' `
-        --config 'profile.release.lto="fat"' `
-        --config 'profile.release.opt-level=3' `
-        --config 'profile.release.strip=true' $target
-}
 # Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
-    if (-not ($version -cmatch '^\d+(\.\d+)+$')) {
-        throw "Invalid version"
-    }
     $HAS_NEW_VERSION = ("$current_version" -ne "$version")
-    if ($HAS_NEW_VERSION) {
+    # update new version
+    if ($HAS_NEW_VERSION -and (
+            ($env:GITHUB_EVENT_NAME -eq "schedule") -or (
+                ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main")
+            )
+        )
+    ) {
+        if (-not ($version -cmatch '^\d+(\.\d+)+$')) {
+            throw "Invalid version"
+        }
         Write-Output "::group::update recipe"
         Write-Output "New version found."
         # Update version number and reset build number
@@ -129,9 +130,7 @@ function update-recipe {
         (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
         Write-Output "::endgroup::"
     }
-    else {
-        Write-Output "No new version."
-    }
+
     if ($env:CI) {
         "latest-version=$version" >> $env:GITHUB_OUTPUT
         "current-version=$current_version" >> $env:GITHUB_OUTPUT
@@ -161,6 +160,7 @@ function reset-build-code {
 function build-pkg {
     pixi run rattler-build `
         --config-file $ROOT/rattler-config.toml `
+        --color always `
         build --output-dir $ROOT/output
 }
 

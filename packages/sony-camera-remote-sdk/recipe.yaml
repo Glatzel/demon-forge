@@ -5,11 +5,7 @@ package:
   version: "2.0.0"
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-  number: 0
-requirements:
-  build:
-    - selenium
-    - toolbox
+  number: 1
 about:
   homepage: https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html
   summary: Software Development Kit for remote control of Sony cameras

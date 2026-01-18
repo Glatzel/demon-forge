@@ -1,17 +1,26 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-python $env:RECIPE_DIR/download.py
-$zipfile = (Get-ChildItem "./*.zip")[0]
-$zipfile.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
-$platform = $Matches[4]
-foreach ($f in Get-ChildItem "./*.zip") {
-    $f.BaseName -match "CrSDK_v(\d+)\.(\d+)\.(\d+).+_(\S+)"
-    $platform = $Matches[4]
-    7z x "$f" "-ounzip/$platform"
+
+$archUrls = @{
+    "Windows"    = "win"
+    "MacOS"      = "mac"
+    "Linux"      = "linux_x86"
+    "LinuxArm64" = "linux_64"
 }
+
+$archKey = if ($IsWindows) { "Windows" }
+elseif ($IsLinux -and $arch -eq "Arm64") { "LinuxArm64" }
+elseif ($IsMacOS) { "MacOS" }
+elseif ($IsLinux -and $arch -eq "X64") { "Linux" }
+
+$downloadUrl = "https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/$($archUrls[$archKey])?fm=en-us"
+aria2c -c -x16 -s16 $downloadUrl -o "${env:PKG_NAME}.zip"
+
+7z x "${env:PKG_NAME}.zip" "-osdk"
+
 New-Item "$env:PREFIX/${env:PKG_NAME}" -ItemType Directory
-Copy-Item "./unzip/$platform/*" "$env:PREFIX/${env:PKG_NAME}" -Recurse
-Remove-Item $env:PREFIX/${env:PKG_NAME}/app/*.h
-Remove-Item $env:PREFIX/${env:PKG_NAME}/app/*.cpp
-Remove-Item $env:PREFIX/${env:PKG_NAME}/*.zip
-Remove-Item $env:PREFIX/${env:PKG_NAME}/external/opencv/ -Recurse
+Copy-Item "./sdk/*" "$env:PREFIX/${env:PKG_NAME}" -Recurse
+
+# Cleanup
+Remove-Item "$env:PREFIX/${env:PKG_NAME}/app/*.h", "$env:PREFIX/${env:PKG_NAME}/app/*.cpp", "$env:PREFIX/${env:PKG_NAME}/*.zip"
+Remove-Item "$env:PREFIX/${env:PKG_NAME}/external/opencv/" -Recurse
