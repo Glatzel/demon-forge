@@ -8,7 +8,7 @@ $archUrls = @{
     "LinuxArm64" = "linux_64"
 }
 
-$archKey = if ($IsWindows) { "Windows" } 
+$archKey = if ($IsWindows) { "Windows" }
 elseif ($IsLinux -and $arch -eq "Arm64") { "LinuxArm64" }
 elseif ($IsMacOS) { "MacOS" }
 elseif ($IsLinux -and $arch -eq "X64") { "Linux" }
