@@ -9,6 +9,7 @@ if ($IsWindows) {
     copy-item C:/msys64/mingw64/* $env:BUILD_PREFIX/Library -Recurse -force
     copy-item C:/msys64/mingw64/* $env:PREFIX/Library -Recurse -force
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX/Library"
+    $env:LWS_WITH_LIBUV="OFF"
 }
 else{
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX"
