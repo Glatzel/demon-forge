@@ -4,12 +4,7 @@ $ROOT = git rev-parse --show-toplevel
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "$env:RECIPE_DIR/$name.json" "$env:PREFIX/Menu"
 if ($IsWindows) {
-    aria2c -c -x16 -s16 -d "$env:PREFIX/Menu" `
-        "https://raw.githubusercontent.com/zed-industries/zed/refs/tags/v${env:PKG_VERSION}/crates/zed/resources/windows/app-icon.ico" `
-        -o "$name.ico"
-}
-# enable long path
-if ($IsWindows) {
+    copy-item "./crates/zed/resources/windows/app-icon.ico" "$env:PREFIX/Menu/$name.ico"
     git config --system core.longpaths true
     New-ItemProperty `
         -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
