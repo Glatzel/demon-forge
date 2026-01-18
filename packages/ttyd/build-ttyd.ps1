@@ -5,8 +5,6 @@ get-content ./index.scss >> ./html/src/style/index.scss
 
 if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
-    build_libwebsockets
-    cd $env:SRC_DIR
     & C:/msys64/usr/bin/pacman.exe -S --noconfirm mingw-w64-x86_64-json-c
     copy-item C:/msys64/mingw64/* $env:BUILD_PREFIX/Library -Recurse -force
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX/Library"
