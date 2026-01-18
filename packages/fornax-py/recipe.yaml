@@ -13,14 +13,17 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
+    - libraw
   host:
     - python 3.13.*
     - pip
+    - libraw
   run:
     - python >= 3.13
     - lazy-loader
     - pydantic
     - msgspec
+    - libraw
 
 tests:
   - python:
