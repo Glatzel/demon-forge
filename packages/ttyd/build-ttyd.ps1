@@ -7,8 +7,8 @@ if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
     $env:CMAKE_INSTALL_PREFIX="$env:BUILD_PREFIX/Library"
     $env:BUILD_SHARED_LIBS="OFF"
-Get-ChildItem -Path "C:\msys64" -Recurse -Filter "pacman.exe"
-    & C:/msys64/usr/bin/pacman.exe -S mingw-w64-json-c mingw-w64-libwebsockets
+    & C:/msys64/usr/bin/pacman.exe -S mingw-w64-x86_64-json-c mingw-w64-x86_64-libwebsockets
+    & C:/msys64/usr/bin/pacman.exe -Ql mingw-w64-x86_64-json-c
     $env:CMAKE_INSTALL_PREFIX="$env:PREFIX/Library"
 }
 else{
