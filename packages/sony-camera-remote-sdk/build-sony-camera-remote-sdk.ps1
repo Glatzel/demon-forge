@@ -2,16 +2,16 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
 $archUrls = @{
-    "Windows" = "win"
-    "MacOS"  = "mac"
-    "Linux"  = "linux_x86"
-    "MacArm64" = "linux_64"
+    "Windows"    = "win"
+    "MacOS"      = "mac"
+    "Linux"      = "linux_x86"
+    "LinuxArm64" = "linux_64"
 }
 
-$archKey = if ($IsWindows) { "Windows" }
-           elseif ($IsMacOS -and $arch -eq "Arm64") { "MacArm64" }
-           elseif ($IsMacOS) { "MacOS" }
-           elseif ($IsLinux -and $arch -eq "X64") { "Linux" }
+$archKey = if ($IsWindows) { "Windows" } 
+elseif ($IsLinux -and $arch -eq "Arm64") { "LinuxArm64" }
+elseif ($IsMacOS) { "MacOS" }
+elseif ($IsLinux -and $arch -eq "X64") { "Linux" }
 
 $downloadUrl = "https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/$($archUrls[$archKey])?fm=en-us"
 aria2c -c -x16 -s16 $downloadUrl -o "${env:PKG_NAME}.zip"
