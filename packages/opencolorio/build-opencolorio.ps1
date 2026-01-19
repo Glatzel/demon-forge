@@ -5,7 +5,7 @@ else {
     $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
 }
 
-cmake -S . -B build `
+cmake -S . -B build -G Ninja `
     -DCMAKE_BUILD_TYPE=Release `
     -DOCIO_INSTALL_EXT_PACKAGES=MISSING `
     -DCMAKE_BUILD_TYPE=Release `
