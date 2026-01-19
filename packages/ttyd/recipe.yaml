@@ -12,9 +12,9 @@ source:
     then:
       - url: https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.4.1.tar.gz
         patches:
-          - 001-posix-layout.patch
-          - 002-cmake-remove-build-hash.patch
-        target_directory: external/libwebsockets/src
+          - patch/001-posix-layout.patch
+          - patch/002-cmake-remove-build-hash.patch
+        target_directory: external/libwebsockets/src/libwebsockets-4.4.1
 
 build:
   number: 8

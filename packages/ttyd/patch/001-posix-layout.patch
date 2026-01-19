@@ -1,5 +1,5 @@
---- libwebsockets-2.1.0/CMakeLists.txt.ORIG	2017-02-19 14:40:28.383595000 +0300
-+++ libwebsockets-2.1.0/CMakeLists.txt	2017-02-19 14:40:35.940027200 +0300
+--- CMakeLists.txt
++++ CMakeLists.txt
 @@ -1423,7 +1423,7 @@
  # Installation preparations.
  #
