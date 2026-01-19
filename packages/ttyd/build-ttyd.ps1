@@ -32,7 +32,7 @@ if ($IsWindows) {
         "-DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc"
         "-DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++"
         "-DCMAKE_FIND_LIBRARY_SUFFIXES=.a"
-"-DCMAKE_EXE_LINKER_FLAGS=""-static -no-pie -Wl,-s -Wl,-Bsymbolic -Wl,--gc-sections"""
+"-DCMAKE_EXE_LINKER_FLAGS=-static -no-pie -Wl,-s -Wl,-Bsymbolic -Wl,--gc-sections"
     )
 }
 
