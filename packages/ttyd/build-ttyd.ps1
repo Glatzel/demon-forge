@@ -31,7 +31,6 @@ if ($IsWindows) {
         "-DCMAKE_PREFIX_PATH=C:/msys64/mingw64;$env:CMAKE_PREFIX_PATH"
         "-DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc"
         "-DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++"
-        "-DCMAKE_FIND_LIBRARY_SUFFIXES=.a"
     )
 }
 else {
