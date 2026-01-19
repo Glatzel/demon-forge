@@ -10,14 +10,12 @@ source:
       - patch/config.patch
   - if: win
     then:
-      - url: https://raw.githubusercontent.com/msys2/MINGW-packages/refs/heads/master/mingw-w64-libwebsockets/001-posix-layout.patch
-        target_directory: external/libwebsockets
-      - url: https://raw.githubusercontent.com/msys2/MINGW-packages/refs/heads/master/mingw-w64-libwebsockets/002-cmake-remove-build-hash.patch
-        target_directory: external/libwebsockets
-      - url: https://raw.githubusercontent.com/msys2/MINGW-packages/refs/heads/master/mingw-w64-libwebsockets/PKGBUILD
-        target_directory: external/libwebsockets
+      - url: https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.4.1.tar.gz
         patches:
-          - patch/libwebsockets.patch
+          - 001-posix-layout.patch
+          - 002-cmake-remove-build-hash.patch
+        target_directory: external/libwebsockets/src
+
 build:
   number: 8
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

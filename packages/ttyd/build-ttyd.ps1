@@ -12,8 +12,9 @@ $cmakeArgs = @(
 if ($IsWindows) {
     # Install necessary dependencies and build libwebsockets
     Set-Location ./external/libwebsockets
+    Copy-Item $env:RECIPE_DIR/PKGBUILD ./
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm mingw-w64-x86_64-json-c"
-    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm binutils git patch && makepkg --noconfirm -s && pacman --noconfirm -U *.pkg.tar.zst"
+    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm binutils patch && makepkg --noconfirm -s && pacman --noconfirm -U *.pkg.tar.zst"
     Set-Location $env:SRC_DIR
     # Set up MinGW environment variables for Windows
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
@@ -22,9 +23,9 @@ if ($IsWindows) {
         "Ninja"
         "-DCMAKE_INSTALL_PREFIX=$env:PREFIX/Library"
         "-DCMAKE_PREFIX_PATH=$env:BUILD_PREFIX/Library;C:/msys64/mingw64;$env:CMAKE_PREFIX_PATH"
-        "-DCMAKE_C_COMPILER=gcc"
-        "-DCMAKE_CXX_COMPILER=g++"
     )
+    & $env:BUILD_PREFIX/etc/conda/activate.d/activate-gcc_win64.ps1
+    & $env:BUILD_PREFIX/etc/conda/activate.d/activate-gxx_win64.ps1
 }
 else {
     $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$env:PREFIX")
