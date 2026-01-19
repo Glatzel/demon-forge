@@ -6,7 +6,7 @@ get-content ./index.scss >> ./html/src/style/index.scss
 if ($IsWindows) {
     Set-Location ./external/libwebsockets
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -c "pacman -S --noconfirm mingw-w64-x86_64-json-c"
-    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -c "pacman -S --noconfirm mingw-w64-x86_64-binutils && makepkg -s && pacman -U *.pkg.tar.zst"
+    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -c "pacman -S --noconfirm binutils && makepkg -s && pacman -U *.pkg.tar.zst"
     copy-item C:/msys64/mingw64/* $env:BUILD_PREFIX/Library -Recurse -force
     Set-Location $env:SRC_DIR
 
