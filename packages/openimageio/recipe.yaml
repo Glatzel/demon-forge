@@ -15,7 +15,7 @@ requirements:
     - c-compiler
     - cxx-compiler
     - cmake 3.*
-    - make
+    - ninja
   host:
     - opencolorio
     - bzip2
