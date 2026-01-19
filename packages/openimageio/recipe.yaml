@@ -17,6 +17,7 @@ requirements:
     - cmake 3.*
     - pkg-config
     - ninja
+    - make
     - if: win
       then:
         - vs2022_win-64
