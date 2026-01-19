@@ -22,16 +22,13 @@ build:
 requirements:
   build:
     - brotlipy
-    - cmake 3.*
     - nodejs
-    - make
+    - ninja
     - fonttools
     - pkg-config
-    - if: win
-      then:
-        - ninja
     - if: unix
       then:
+        - cmake 3.*
         - c-compiler
         - cxx-compiler
         - autoconf
