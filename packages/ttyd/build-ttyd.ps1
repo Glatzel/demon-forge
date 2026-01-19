@@ -3,21 +3,37 @@ $ROOT = git rev-parse --show-toplevel
 copy-item $PSScriptRoot/build/* ./ -recurse
 get-content ./index.scss >> ./html/src/style/index.scss
 
+# Common CMake options
+$cmakeArgs = @(
+    "-DVERBOSE=ON"
+    "-DCMAKE_BUILD_TYPE=Release"
+)
+
 if ($IsWindows) {
+    # Install necessary dependencies and build libwebsockets
     Set-Location ./external/libwebsockets
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm mingw-w64-x86_64-json-c"
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm binutils git patch && makepkg --noconfirm -s && pacman --noconfirm -U *.pkg.tar.zst"
     Set-Location $env:SRC_DIR
-
+    # Set up MinGW environment variables for Windows
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
-    $env:CMAKE_PREFIX_PATH = "C:/msys64/mingw64;$env:CMAKE_PREFIX_PATH"
+    $cmakeArgs += @(
+        "-G"
+        "Ninja"
+        "-DCMAKE_INSTALL_PREFIX=$env:PREFIX/Library"
+        "-DCMAKE_PREFIX_PATH=C:/msys64/mingw64;$env:CMAKE_PREFIX_PATH"
+        "-DCMAKE_C_COMPILER=gcc"
+        "-DCMAKE_CXX_COMPILER=g++"
+    )
 }
 else {
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
+    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$env:PREFIX")
 }
 
+# Download and install fonts
 & ./download-font.ps1
+
+# Handle npm and yarn tasks for front-end
 Set-Location ./html
 npm install -g corepack
 corepack enable
@@ -26,5 +42,7 @@ yarn install
 yarn run check
 yarn run build
 Set-Location ..
-cmake -S . -B build -DCMAKE_BUILD_TYPE="RELEASE"
+
+# Final CMake install step
+cmake -S . -B build @cmakeArgs
 cmake --build build --config Release --target install

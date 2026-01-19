@@ -33,6 +33,7 @@ requirements:
       then:
         - gcc_win-64
         - gxx_win-64
+        - ninja
     - if: unix
       then:
         - c-compiler
