@@ -5,7 +5,7 @@ get-content ./index.scss >> ./html/src/style/index.scss
 
 if ($IsWindows) {
     Set-Location ./external/libwebsockets
-    & C:/msys64/usr/bin/makepkg.exe -s
+    & C:/msys64/usr/bin/makepkg -s
     & C:/msys64/usr/bin/pacman.exe -U *.pkg.tar.xz
     & C:/msys64/usr/bin/pacman.exe -S --noconfirm mingw-w64-x86_64-json-c
     Set-Location $env:SRC_DIR
