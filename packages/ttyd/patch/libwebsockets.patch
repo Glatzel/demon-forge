@@ -9,13 +9,6 @@
  makedepends=("${MINGW_PACKAGE_PREFIX}-cc"
               "${MINGW_PACKAGE_PREFIX}-cmake"
               "${MINGW_PACKAGE_PREFIX}-ninja")
-@@ -28,7 +28,7 @@
- prepare() {
--  tar -xzf "${_realname}-${pkgver}.tar.gz" || true
-+  bsdtar -xf "${_realname}-${pkgver}.tar.gz" || true
-   cd ${_realname}-${pkgver}
-   patch -p1 -i "${srcdir}"/001-posix-layout.patch
-   patch -p1 -i "${srcdir}"/002-cmake-remove-build-hash.patch
 @@ -48,6 +48,8 @@
    ${MINGW_PREFIX}/bin/cmake.exe \
      -G"Ninja" \
