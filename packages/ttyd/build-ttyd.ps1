@@ -4,13 +4,18 @@ copy-item $PSScriptRoot/build/* ./ -recurse
 get-content ./index.scss >> ./html/src/style/index.scss
 
 if ($IsWindows) {
-    $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
+    Set-Location ./external/libwebsockets
+    & C:/msys64/usr/bin/makepkg.exe -s 
+    & C:/msys64/usr/bin/pacman.exe -U *.pkg.tar.xz
     & C:/msys64/usr/bin/pacman.exe -S --noconfirm mingw-w64-x86_64-json-c
+    Set-Location $env:SRC_DIR
     copy-item C:/msys64/mingw64/* $env:BUILD_PREFIX/Library -Recurse -force
-    $env:CMAKE_INSTALL_PREFIX="$env:PREFIX/Library"
+
+    $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
+    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
-else{
-    $env:CMAKE_INSTALL_PREFIX="$env:PREFIX"
+else {
+    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
 
 & ./download-font.ps1

@@ -7,9 +7,17 @@ package:
 source:
   - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
     patches:
-      - config.patch
-  - url: https://github.com/msys2/MINGW-packages/archive/refs/heads/master.zip
-  
+      - patch/config.patch
+  - if: win
+    then:
+      - url: https://raw.githubusercontent.com/msys2/MINGW-packages/refs/heads/master/mingw-w64-libwebsockets/001-posix-layout.patch
+        target_directory: external/libwebsockets
+      - url: https://raw.githubusercontent.com/msys2/MINGW-packages/refs/heads/master/mingw-w64-libwebsockets/002-cmake-remove-build-hash.patch
+        target_directory: external/libwebsockets
+      - url: https://raw.githubusercontent.com/msys2/MINGW-packages/refs/heads/master/mingw-w64-libwebsockets/PKGBUILD
+        target_directory: external/libwebsockets
+        patches:
+          - patch/libwebsockets.patch
 build:
   number: 8
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

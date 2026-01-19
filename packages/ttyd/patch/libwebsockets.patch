@@ -1,0 +1,20 @@
+--- PKGBUILD
++++ PKGBUILD
+@@ -15,7 +15,7 @@
+ )
+ license=('spdx:MIT')
+ depends=("${MINGW_PACKAGE_PREFIX}-zlib"
+-         "${MINGW_PACKAGE_PREFIX}-openssl")
++         "${MINGW_PACKAGE_PREFIX}-mbedtls")
+ makedepends=("${MINGW_PACKAGE_PREFIX}-cc"
+              "${MINGW_PACKAGE_PREFIX}-cmake"
+              "${MINGW_PACKAGE_PREFIX}-ninja")
+@@ -48,6 +48,8 @@
+   ${MINGW_PREFIX}/bin/cmake.exe \
+     -G"Ninja" \
+     -DCMAKE_INSTALL_PREFIX=${MINGW_PREFIX} \
++    -DLWS_WITH_LIBUV=ON \
++    -DLWS_WITH_MBEDTLS=ON \
+     -DLWS_WITH_DIR=OFF \
+     -DLWS_WITHOUT_DAEMONIZE=ON \
+     -DLWS_WITHOUT_TESTAPPS=ON \
