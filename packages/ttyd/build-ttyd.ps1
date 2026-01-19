@@ -14,7 +14,7 @@ $cmakeArgs = @(
 
 if ($IsWindows) {
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
-  }  
+  }
 
 # Download and install fonts
 & ./download-font.ps1
