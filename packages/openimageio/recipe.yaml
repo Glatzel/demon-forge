@@ -15,7 +15,6 @@ requirements:
     - c-compiler
     - cxx-compiler
     - cmake 3.*
-    - pkg-config
     - ninja
     - make
     - if: win
