@@ -20,7 +20,7 @@ if ($IsWindows) {
     }
 }
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm mingw-w64-x86_64-json-c"
-    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "makepkg --noconfirm -s && pacman --noconfirm -U *.pkg.tar.zst"
+    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm binutils && makepkg --noconfirm -s && pacman --noconfirm -U *.pkg.tar.zst"
     Set-Location $env:SRC_DIR
     # Set up MinGW environment variables for Windows
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
