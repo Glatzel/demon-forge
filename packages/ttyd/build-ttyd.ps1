@@ -28,9 +28,9 @@ if ($IsWindows) {
         "-G"
         "Ninja"
         "-DCMAKE_INSTALL_PREFIX=$env:PREFIX/Library"
-        "-DCMAKE_PREFIX_PATH=$env:BUILD_PREFIX/Library;C:/msys64/mingw64;$env:CMAKE_PREFIX_PATH"
-        "-DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc"
-        "-DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++"
+        "-DCMAKE_PREFIX_PATH=C:/msys64/mingw64;$env:CMAKE_PREFIX_PATH"
+        "-DCMAKE_C_COMPILER=$env:BUILD_PREFIX/Library/bin/x86_64-w64-mingw32-gcc"
+        "-DCMAKE_CXX_COMPILER=$env:BUILD_PREFIX/Library/bin/x86_64-w64-mingw32-g++"
         "-DCMAKE_FIND_LIBRARY_SUFFIXES=.a"
     )
 }
