@@ -13,6 +13,12 @@ if ($IsWindows) {
     # Install necessary dependencies and build libwebsockets
     Set-Location ./external/libwebsockets
     Copy-Item $env:RECIPE_DIR/PKGBUILD ./
+    Get-ChildItem -Recurse -File | ForEach-Object {
+    $c = Get-Content $_.FullName -Raw
+    if ($c -match "`r`n") {
+        $c -replace "`r`n", "`n" | Set-Content $_.FullName -NoNewline
+    }
+}
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm mingw-w64-x86_64-json-c"
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -mingw64 -c "pacman -S --noconfirm binutils patch && makepkg --noconfirm -s && pacman --noconfirm -U *.pkg.tar.zst"
     Set-Location $env:SRC_DIR
