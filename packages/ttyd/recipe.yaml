@@ -8,13 +8,6 @@ source:
   - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
     patches:
       - patch/config.patch
-  - if: win
-    then:
-      - url: https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.4.1.tar.gz
-        patches:
-          - patch/001-posix-layout.patch
-          - patch/002-cmake-remove-build-hash.patch
-        target_directory: external/libwebsockets/src/libwebsockets-4.4.1
 
 build:
   number: 8
@@ -23,11 +16,11 @@ requirements:
   build:
     - brotlipy
     - nodejs
-    - ninja
     - fonttools
-    - pkg-config
     - if: unix
       then:
+        - ninja
+        - pkg-config
         - cmake 3.*
         - c-compiler
         - cxx-compiler
