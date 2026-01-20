@@ -60,7 +60,7 @@ tests:
       run:
         - curl
     script:
-      - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
+      - pwsh -Command "Start-Process ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
       - curl -sI http://localhost:7681
       - pwsh -Command "Stop-Process -Name ttyd -Force"
 
