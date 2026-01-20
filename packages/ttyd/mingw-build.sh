@@ -18,10 +18,6 @@ pacman -S --noconfirm \
     mingw-w64-ucrt-x86_64-mbedtls \
     mingw-w64-ucrt-x86_64-json-c
 build_libwebsockets
-
-# workaround for the lib name change
-cp ${MINGW_PREFIX}/lib/libuv_a.a ${MINGW_PREFIX}/lib/libuv.a
-
 rm -rf build && mkdir -p build && cd build
 cmake -G "Ninja" \
     -DCMAKE_BUILD_TYPE=RELEASE \
