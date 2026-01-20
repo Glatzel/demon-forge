@@ -12,5 +12,6 @@ requirements:
     - if: linux
       then:
         - clang
+        - libclang
 tests:
   - script: fresh --help
