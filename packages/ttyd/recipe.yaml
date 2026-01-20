@@ -8,7 +8,13 @@ source:
   - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
     patches:
       - patch/config.patch
-
+  - if: win
+    then:
+      - url: https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.4.1.tar.gz
+        patches:
+          - patch/001-posix-layout.patch
+          - patch/002-cmake-remove-build-hash.patch
+        target_directory: external/libwebsockets/src/libwebsockets-4.4.1
 build:
   number: 8
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"

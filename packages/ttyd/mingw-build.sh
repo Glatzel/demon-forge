@@ -3,14 +3,10 @@
 set -eo pipefail
 
 build_libwebsockets() {
-  svn co https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-libwebsockets
-  sed -i 's/openssl/mbedtls/' mingw-w64-libwebsockets/PKGBUILD
-  sed -i '/-DCMAKE_INSTALL_PREFIX=${MINGW_PREFIX}/a \    -DLWS_WITH_MBEDTLS=ON \\' mingw-w64-libwebsockets/PKGBUILD
-  sed -i '/-DCMAKE_INSTALL_PREFIX=${MINGW_PREFIX}/a \    -DLWS_WITH_LIBUV=ON \\' mingw-w64-libwebsockets/PKGBUILD
-  pushd mingw-w64-libwebsockets
+  cd external/libwebsockets
     makepkg-mingw --cleanbuild --syncdeps --force --noconfirm
     pacman -U *.pkg.tar.zst --noconfirm
-  popd
+  cd ../..
 }
 pacman -S --noconfirm \
     base-devel \

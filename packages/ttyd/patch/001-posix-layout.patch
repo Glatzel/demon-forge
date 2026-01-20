@@ -1,0 +1,11 @@
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -1423,7 +1423,7 @@
+ # Installation preparations.
+ #
+
+-if(WIN32 AND NOT CYGWIN)
++if(MSVC)
+   set(DEF_INSTALL_CMAKE_DIR cmake)
+ else()
+   set(DEF_INSTALL_CMAKE_DIR lib${LIB_SUFFIX}/cmake/libwebsockets)

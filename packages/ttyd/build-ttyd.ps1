@@ -15,7 +15,14 @@ yarn run check
 yarn run build
 Set-Location ..
 if ($IsWindows) {
+    Copy-Item $env:RECIPE_DIR/PKGBUILD ./external/libwebsockets
     Copy-Item $env:RECIPE_DIR/mingw-build.sh ./scripts/mingw-build.sh
+    Get-ChildItem -Recurse -File | ForEach-Object {
+        $c = Get-Content $_.FullName -Raw
+        if ($c -match "`r`n") {
+            $c -replace "`r`n", "`n" | Set-Content $_.FullName -NoNewline
+        }
+    }
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "./scripts/mingw-build.sh"
     New-Item $env:PREFIX/bin -ItemType Directory
     Copy-Item ./build/ttyd.exe $env:PREFIX/bin
