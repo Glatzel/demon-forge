@@ -15,8 +15,10 @@ yarn run check
 yarn run build
 Set-Location ..
 if ($IsWindows) {
-    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "pacman -S --noconfirm base-devel subversion mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-zlib mingw-w64-ucrt-x86_64-libuv mingw-w64-ucrt-x86_64-mbedtls mingw-w64-ucrt-x86_64-json-c"
+    Copy-Item $env:RECIPE_DIR/mingw-build.sh ./script/mingw-build.sh -Force
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "./scripts/mingw-build.sh"
+    New-Item $env:PREFIX/bin -ItemType Directory
+    Copy-Item ./build/ttyd.exe $env:PREFIX/bin
 }
 else {
     $cmakeArgs = @(
