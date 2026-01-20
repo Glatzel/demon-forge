@@ -30,7 +30,7 @@ if ($IsWindows) {
     # Install necessary dependencies and build libwebsockets
     Set-Location ./external/libwebsockets
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "pacman -S --noconfirm base-devel subversion mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-zlib mingw-w64-ucrt-x86_64-libuv mingw-w64-ucrt-x86_64-mbedtls mingw-w64-ucrt-x86_64-json-c"
-    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "./script.sh"
+    & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "./scripts/mingw-build.sh"
     Set-Location $env:SRC_DIR
     # Set up MinGW environment variables for Windows
     $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
