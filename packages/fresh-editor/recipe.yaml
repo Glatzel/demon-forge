@@ -11,6 +11,6 @@ requirements:
     - ${{ compiler("rust") }}
     - if: linux
       then:
-        - libclang
+        - clang
 tests:
   - script: fresh --help
