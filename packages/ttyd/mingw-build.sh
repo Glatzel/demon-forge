@@ -23,7 +23,8 @@ build_libwebsockets
 cp ${MINGW_PREFIX}/lib/libuv_a.a ${MINGW_PREFIX}/lib/libuv.a
 
 rm -rf build && mkdir -p build && cd build
-cmake -DCMAKE_BUILD_TYPE=RELEASE \
+cmake -G "Ninja" \
+    -DCMAKE_BUILD_TYPE=RELEASE \
     -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" \
     -DCMAKE_C_FLAGS="-Os -ffunction-sections -fdata-sections -fno-unwind-tables -fno-asynchronous-unwind-tables -flto" \
     -DCMAKE_EXE_LINKER_FLAGS="-static -no-pie -Wl,-s -Wl,-Bsymbolic -Wl,--gc-sections" \
