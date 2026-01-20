@@ -9,5 +9,8 @@ build:
 requirements:
   build:
     ${{ compiler("rust") }}
+    if: linux
+    then:
+      - clang
 tests:
   - script: fresh --help
