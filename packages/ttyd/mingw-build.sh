@@ -4,7 +4,7 @@ set -eo pipefail
 
 build_libwebsockets() {
   cd external/libwebsockets
-    makepkg-mingw --cleanbuild --syncdeps --force --noconfirm
+    makepkg-mingw --syncdeps --force --noconfirm
     pacman -U *.pkg.tar.zst --noconfirm
   cd ../..
 }
