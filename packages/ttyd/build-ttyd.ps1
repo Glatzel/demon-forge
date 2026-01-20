@@ -3,17 +3,6 @@ $ROOT = git rev-parse --show-toplevel
 copy-item $PSScriptRoot/build/* ./ -recurse
 get-content ./index.scss >> ./html/src/style/index.scss
 
-# Common CMake options
-$cmakeArgs = @(
-    "-G"
-    "Ninja"
-    "-DVERBOSE=ON"
-    "-DCMAKE_BUILD_TYPE=Release"
-    "-DCMAKE_INSTALL_PREFIX=$env:PREFIX"
-)
-
-
-
 # Download and install fonts
 & ./download-font.ps1
 $env:NPM_CONFIG_PREFIX = "$env:BUILD_PREFIX"
@@ -30,6 +19,13 @@ if ($IsWindows) {
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "./scripts/mingw-build.sh"
 }
 else {
+    $cmakeArgs = @(
+        "-G"
+        "Ninja"
+        "-DVERBOSE=ON"
+        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_INSTALL_PREFIX=$env:PREFIX"
+    )
     cmake -S . -B build @cmakeArgs
     cmake --build build --config Release --target install
 }
