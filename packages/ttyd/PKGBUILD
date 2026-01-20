@@ -21,7 +21,7 @@ makedepends=("${MINGW_PACKAGE_PREFIX}-cc"
              "${MINGW_PACKAGE_PREFIX}-ninja")
 
 prepare() {
-  cd ${_realname}-${pkgver}
+  cd src/${_realname}-${pkgver}
 }
 
 build() {
