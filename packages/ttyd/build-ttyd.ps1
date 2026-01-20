@@ -15,7 +15,7 @@ yarn run check
 yarn run build
 Set-Location ..
 if ($IsWindows) {
-    Copy-Item $env:RECIPE_DIR/mingw-build.sh ./script/mingw-build.sh -Force
+    Copy-Item $env:RECIPE_DIR/mingw-build.sh ./scripts/mingw-build.sh
     & "C:\msys64\msys2_shell.cmd" -here -no-start -defterm -ucrt64 -c "./scripts/mingw-build.sh"
     New-Item $env:PREFIX/bin -ItemType Directory
     Copy-Item ./build/ttyd.exe $env:PREFIX/bin
