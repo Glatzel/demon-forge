@@ -1,8 +1,8 @@
 context:
   name: toolbox
-  version: "0.0.34"
+  version: "0.0.37"
 package:
-  version: "0.0.34"
+  version: "0.0.37"
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
