@@ -113,7 +113,7 @@ function Get-Cargo-Arg {
 
             '--config', 'profile.release.opt-level=2'
             '--config', 'profile.release.lto="thin"'
-            '--config', 'profile.release.codegen-units=256'
+            '--config', 'profile.release.codegen-units=16'
             '--config', 'profile.release.strip=false'
         )
     }
