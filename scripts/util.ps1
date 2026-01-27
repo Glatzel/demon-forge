@@ -137,8 +137,7 @@ function update-recipe {
         switch ($true ) {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
-            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { $env:GITHUB_EVENT_NAME -eq "push" } { "action_publish=true" >> $env:GITHUB_OUTPUT; }
 
             { $env:GITHUB_EVENT_NAME -eq "pull_request" } { }
 
