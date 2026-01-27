@@ -110,7 +110,7 @@ function Get-Cargo-Arg {
     }
     else {
         $cargo_arg += @(
-           
+
             '--config', 'profile.release.opt-level=2'
             '--config', 'profile.release.lto="thin"'
             '--config', 'profile.release.codegen-units=256'
