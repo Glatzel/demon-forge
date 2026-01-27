@@ -1,10 +1,10 @@
 context:
   name: cargo-llvm-cov
 package:
-  version: "0.6.23"
+  version: "0.8.0"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
