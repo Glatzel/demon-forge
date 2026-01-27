@@ -117,7 +117,7 @@ function Get-Cargo-Arg {
             '--config', 'profile.release.strip=false'
         )
     }
-    return 
+    return $cargo_arg
 }
 
 # Function: Update the recipe.yaml file if a new version is detected
