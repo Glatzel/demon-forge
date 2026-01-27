@@ -93,17 +93,29 @@ function update-vcpkg-json {
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
 function Get-Cargo-Arg {
-    return @(
-        '--root'
-        "$env:PREFIX"
+    $cargo_arg = @(
+        '--root', "$env:PREFIX"
         '--locked'
-        '--force'
-        '--config', 'profile.release.codegen-units=1'
-        '--config', 'profile.release.debug=false'
-        '--config', 'profile.release.lto="fat"'
-        '--config', 'profile.release.opt-level=3'
-        '--config', 'profile.release.strip=true'
-    )
+        '--force')
+    if ($env:GITHUB_REF_NAME -eq "main") {
+        $cargo_arg += @(
+            '--config', 'profile.release.codegen-units=1'
+            '--config', 'profile.release.debug=false'
+            '--config', 'profile.release.lto="fat"'
+            '--config', 'profile.release.opt-level=3'
+            '--config', 'profile.release.strip=true'
+        )
+    }
+    else {
+        $cargo_arg += @(
+            '--config', 'profile.release.debug=false'
+            '--config', 'profile.release.opt-level=2'
+            '--config', 'profile.release.lto="thin"'
+            '--config', 'profile.release.codegen-units=256'
+            '--config', 'profile.release.strip=false'
+        )
+    }
+    return 
 }
 
 # Function: Update the recipe.yaml file if a new version is detected
