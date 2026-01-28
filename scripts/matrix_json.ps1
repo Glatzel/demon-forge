@@ -44,7 +44,7 @@ switch ($env:GITHUB_EVENT_NAME) {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
     default {
-        $matrix = $matrix | jq -c '{include: .include | map(.machine = ""ubuntu-slim"") | group_by(.pkg) | map(.[0])}'
+        $matrix = $matrix | jq -c '{include: .include | map(.machine = "ubuntu-slim") | group_by(.pkg) | map(.[0])}'
     }
 }
 
