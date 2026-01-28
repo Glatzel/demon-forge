@@ -60,6 +60,8 @@ jobs:
     runs-on: ${{ matrix.machine }}
     container:
       image: ${{matrix.container}}
+    env:
+      TARGET_PLATFORM: ${{ matrix.target_platform }}
     steps:
       - if: ${{matrix.container}}
         run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}

@@ -174,7 +174,8 @@ function build-pkg {
     pixi run rattler-build `
         --config-file $ROOT/rattler-config.toml `
         --color always `
-        build --output-dir $ROOT/output
+        build --output-dir $ROOT/output `
+        --target-platform $env:TARGET_PLATFORM
 }
 
 # Extract package name and current system architecture
