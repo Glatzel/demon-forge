@@ -19,11 +19,16 @@ requirements:
     - fonttools
     - pkg-config
     - cmake 3.*
-    - c-compiler
-    - cxx-compiler
     - autoconf
     - automake
     - file
+    - if: unix
+      then:
+        - c-compiler
+    - if: win
+      then:
+        - binutils
+        - gcc_win-64
   host:
     - if: unix
       then:

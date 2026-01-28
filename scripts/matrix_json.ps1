@@ -3,7 +3,7 @@ $matrix = @()
 
 foreach ($row in $csvData) {
     $pkg = $row.pkg
-    foreach ($target_platform in "win-64", "osx-aarch64", "linux-64", "linux-aarch64") {
+    foreach ($target_platform in "win-64", "osx-arm64", "linux-64", "linux-aarch64") {
         if ($row.$target_platform) {
             if (
                 (($env:GITHUB_EVENT_NAME -eq "pull_request") -or ($env:GITHUB_EVENT_NAME -eq "push")) `
