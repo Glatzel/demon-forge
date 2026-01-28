@@ -23,5 +23,14 @@ $cmakeArgs = @(
     "-DCMAKE_BUILD_TYPE=Release"
     "-DCMAKE_INSTALL_PREFIX=$env:PREFIX"
 )
-cmake -S . -B build @cmakeArgs
-cmake --build build --config Release --target install
+if ($env:TARGET_PLATFORM -eq "win-64") {
+    $env:BUILD_TARGET = "win32"
+    & bash ./scripts/cross-build.sh
+    New-Item $env:PREFIX/bin -ItemType Directory
+    copy-item ./build/$env:PKG_NAME.exe $env:PREFIX/bin/$env:PKG_NAME.exe
+}
+else {
+    cmake -S . -B build @cmakeArgs
+    cmake --build build --config Release --target install
+}
+
