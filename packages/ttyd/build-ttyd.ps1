@@ -26,7 +26,6 @@ $cmakeArgs = @(
 if ($env:TARGET_PLATFORM -eq "win-64") {
     $env:BUILD_TARGET = "win32"
     $env:CMAKE_C_FLAGS = "-Wno-error"
-    $env:CMAKE_CXX_FLAGS = "-Wno-error"
     & bash ./scripts/cross-build.sh
     New-Item $env:PREFIX/bin -ItemType Directory
     copy-item ./build/$env:PKG_NAME.exe $env:PREFIX/bin/$env:PKG_NAME.exe
