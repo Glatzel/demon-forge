@@ -6,7 +6,7 @@ package:
   name: ${{ name }}
 build:
   number: 7
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 tests:
   - package_contents:
       bin:
@@ -24,3 +24,4 @@ about:
     protocols, maximizing download speed and reliability.
   documentation: https://aria2.github.io/manual/en/html
   repository: https://github.com/aria2/aria2
+
