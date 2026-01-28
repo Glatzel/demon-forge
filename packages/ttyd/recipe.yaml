@@ -25,10 +25,12 @@ requirements:
     - if: unix
       then:
         - c-compiler
+        - cxx-compiler
     - if: win
       then:
         - binutils
         - gcc_win-64
+        - gxx_win-64
   host:
     - if: unix
       then:
