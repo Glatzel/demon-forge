@@ -10,7 +10,7 @@ source:
       - patch/config.patch
 build:
   number: 8
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script: pwsh -Command "& $env:RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
     - brotlipy
