@@ -25,7 +25,6 @@ requirements:
     - if: unix
       then:
         - c-compiler
-        - cxx-compiler
     - if: win
       then:
         - binutils
