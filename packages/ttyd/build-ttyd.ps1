@@ -33,4 +33,3 @@ else {
     cmake -S . -B build @cmakeArgs
     cmake --build build --config Release --target install
 }
-
