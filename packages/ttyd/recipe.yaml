@@ -29,6 +29,7 @@ requirements:
       then:
         - make
         - binutils
+        - libtool
         - gcc_win-64
   host:
     - if: unix
