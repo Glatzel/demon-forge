@@ -27,6 +27,7 @@ requirements:
         - c-compiler
     - if: win
       then:
+        - make
         - binutils
         - gcc_win-64
   host:
