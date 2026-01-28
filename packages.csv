@@ -18,7 +18,7 @@ cloudflared,windows-latest,,ubuntu-slim,ubuntu-24.04-arm
 cpu-z,windows-latest,,,
 dism-plus-plus,windows-latest,,,
 dufs,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
-easytier,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm
+easytier,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
 edit,windows-latest,,ubuntu-slim,ubuntu-24.04-arm
 esp-generate,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
 espflash,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
