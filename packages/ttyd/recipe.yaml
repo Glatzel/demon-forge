@@ -54,13 +54,15 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}
-  - requirements:
-      run:
-        - curl
-    script:
-      - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
-      - curl -sI http://localhost:7681
-      - pwsh -Command "Stop-Process -Name ttyd -Force"
+  - if: unix
+    then:
+      - requirements:
+          run:
+            - curl
+        script:
+          - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
+          - curl -sI http://localhost:7681
+          - pwsh -Command "Stop-Process -Name ttyd -Force"
 
 about:
   homepage: https://github.com/tsl0922/ttyd
