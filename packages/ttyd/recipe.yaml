@@ -8,6 +8,9 @@ source:
   - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
     patches:
       - patch/config.patch
+      - if: win
+        then:
+          - patch/cross-build.patch
 build:
   number: 8
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"

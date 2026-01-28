@@ -1,0 +1,10 @@
+--- scripts/cross-build.sh
++++ scripts/cross-build.sh
+@@ -50,6 +50,7 @@
+             -DCMAKE_BUILD_TYPE=RELEASE \
+             -DCMAKE_INSTALL_PREFIX="${STAGE_DIR}" \
+             -DENABLE_TESTING=OFF \
++            -DCMAKE_C_FLAGS_RELEASE="-Wno-error" \
+             ..
+         make -j"$(nproc)" install
+     popd
