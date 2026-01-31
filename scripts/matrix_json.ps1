@@ -23,7 +23,7 @@ foreach ($row in $csvData) {
                     }
                 }
             }
-        } 
+        }
     }
     else {
         $matrix += @{
