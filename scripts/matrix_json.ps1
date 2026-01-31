@@ -34,12 +34,6 @@ foreach ($row in $csvData) {
             machine = "ubuntu-slim"
         }
     }
-    else {
-        $matrix += @{
-            pkg     = $pkg
-            machine = "ubuntu-slim"
-        }
-    }
 }
 $matrix = $matrix |
 ConvertTo-Json -Depth 10 -Compress |
@@ -59,3 +53,4 @@ switch ($env:GITHUB_EVENT_NAME) {
 # Output matrix to GitHub Actions
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
 $matrix | jq .
+
