@@ -1,1 +1,2 @@
 default-channels = ["https://prefix.dev/glatzel", "conda-forge"]
+run-post-link-scripts = "insecure"
