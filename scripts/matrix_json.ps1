@@ -35,13 +35,11 @@ foreach ($row in $csvData) {
         }
     }
 }
-
 $matrix = $matrix |
 ConvertTo-Json -Depth 10 -Compress |
 jq '{include: .}'
 # Clean CHANGED_KEYS
 $env:CHANGED_KEYS = "${env:CHANGED_KEYS}".Replace("\", "")
-
 switch ($env:GITHUB_EVENT_NAME) {
     "push" {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
