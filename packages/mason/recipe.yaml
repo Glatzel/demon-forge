@@ -14,5 +14,3 @@ tests:
       bin:
         - ${{ name }}/install.ps1
         - ${{ name }}/*/Mason.dll
-  - script:
-      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/*/mason.addin"
