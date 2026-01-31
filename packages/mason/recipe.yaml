@@ -13,3 +13,12 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}/install.ps1
+  - script:
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2018/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2019/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2020/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2021/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2022/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2023/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2024/mason.addin"
+      - pwsh -Command "Resolve-Path C:/ProgramData/Autodesk/Revit/Addins/Revit2025/mason.addin"
