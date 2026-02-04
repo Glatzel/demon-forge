@@ -1,0 +1,41 @@
+context:
+  name: crsdk
+package:
+  name: ${{ name }}
+  version: "2.1.0"
+source:
+  - if: win
+    then:
+      - url: https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/win?fm=en-us
+        file_name: crsdk.zip
+  - if: osx
+    then:
+      - url: https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/mac?fm=en-us
+        file_name: crsdk.zip
+  - if: linux and x86_64
+    then:
+      - url: https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_x86?fm=en-us
+        file_name: crsdk.zip
+  - if: linux and aarch64
+    then:
+      - url: https://support.d-imaging.sony.co.jp/disoft_DL/SDK_DL/linux_64?fm=en-us
+        file_name: crsdk.zip
+build:
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  number: 1
+tests:
+  - package_contents:
+      include:
+        - CameraRemote_SDK.h
+      lib:
+        - if: win
+          then:
+            - Cr_Core.dll
+        - if: unix
+          then:
+            - Cr_Core
+about:
+  homepage: https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html
+  summary: Software Development Kit for remote control of Sony cameras
+  description: >
+    The Camera Remote SDK enables developers to integrate Sony cameras into custom software applications for remote control and data retrieval. It provides a high-level command system for efficient development, allowing operations such as shutter release, live view monitoring, and image transfer.
