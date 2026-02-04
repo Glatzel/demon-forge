@@ -1,8 +1,11 @@
 context:
   name: nssm
+  version: "2.24"
 package:
   name: ${{ name }}
-  version: "2.24"
+  version: ${{ version }}
+source: 
+  url: https://nssm.cc/release/nssm-${{ version }}.zip
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
