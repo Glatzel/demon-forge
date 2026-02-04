@@ -20,6 +20,6 @@ else {
     New-Item "$env:PREFIX/share/crsdk" -ItemType Directory
 
     Copy-Item "./RemoteCli/app/crsdk/*" "$env:PREFIX/include" -Recurse
-    Copy-Item "./RemoteCli/external/crsdk/*" "$env:PREFIX/bin" -Recurse
+    Copy-Item "./RemoteCli/external/crsdk/*" "$env:PREFIX/lib" -Recurse
     Copy-Item "./*" "$env:PREFIX/share/crsdk" -Recurse
 }
