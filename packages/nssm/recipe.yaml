@@ -4,7 +4,7 @@ context:
 package:
   name: ${{ name }}
   version: ${{ version }}
-source: 
+source:
   url: https://nssm.cc/release/nssm-${{ version }}.zip
 build:
   number: 0
