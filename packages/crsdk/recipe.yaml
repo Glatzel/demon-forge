@@ -1,5 +1,5 @@
 context:
-  name: sony-camera-remote-sdk
+  name: crsdk
 package:
   name: ${{ name }}
   version: "2.1.0"
