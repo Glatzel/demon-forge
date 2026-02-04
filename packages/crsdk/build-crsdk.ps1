@@ -3,8 +3,8 @@ $ROOT = git rev-parse --show-toplevel
 
 7z x "crsdk.zip" "-osdk"
 Set-Location sdk
-Remove-Item "*.zip" -Recurse -Force
 7z x "*.zip"
+Remove-Item "*.zip" -Recurse -Force
 if ($IsWindows) {
     New-Item "$env:PREFIX/Library/bin" -ItemType Directory
     New-Item "$env:PREFIX/Library/include" -ItemType Directory
