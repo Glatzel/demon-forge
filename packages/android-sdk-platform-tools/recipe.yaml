@@ -5,7 +5,15 @@ package:
   version: "36.0.2"
   name: ${{ name }}
 source:
-  url: https://googledownloads.cn/android/repository/platform-tools-latest-windows.zip
+  - if: win
+    then:
+      url: https://googledownloads.cn/android/repository/platform-tools-latest-windows.zip
+  - if: osx
+    then:
+      url: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip
+  - if: linux
+    then:
+      url: https://dl.google.com/android/repository/platform-tools-latest-linux.zip
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
