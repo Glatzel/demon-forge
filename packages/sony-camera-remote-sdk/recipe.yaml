@@ -2,7 +2,7 @@ context:
   name: sony-camera-remote-sdk
 package:
   name: ${{ name }}
-  version: "2.01.0"
+  version: "2.1.0"
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   number: 0
