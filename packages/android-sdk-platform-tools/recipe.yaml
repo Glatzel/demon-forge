@@ -4,6 +4,8 @@ context:
 package:
   version: "36.0.2"
   name: ${{ name }}
+source:
+  url: https://googledownloads.cn/android/repository/platform-tools-latest-windows.zip
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
