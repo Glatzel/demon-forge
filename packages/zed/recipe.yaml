@@ -9,11 +9,6 @@ source:
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - vs2022_win-64
-    - rust
-    - cmake 3.*
 tests:
   - package_contents:
       bin:

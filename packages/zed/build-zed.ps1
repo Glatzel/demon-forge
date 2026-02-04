@@ -13,6 +13,12 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
+$env:PKG_CONFIG_PATH=
+$env:CPPFLAGS=
+$env:CFLAGS=
+$env:CXXFLAGS=
+$env:LIB=
+$env:INCLUDE=
 cargo install --root $env:PREFIX --path ./crates/zed
 cargo install --root $env:PREFIX --path ./crates/cli
 Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe
