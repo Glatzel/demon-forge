@@ -26,7 +26,7 @@ build:
 tests:
   - package_contents:
       include:
-        - CameraRemote_SDK
+        - CameraRemote_SDK.h
       lib:
         - if: win
           then:
