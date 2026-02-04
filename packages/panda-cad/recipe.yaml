@@ -1,8 +1,12 @@
 context:
   name: panda-cad
-package:
   version: "5.0.1.8"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://www.intrsio.com/downloadFile.jsp?fileName=PandaCAD-x64-v${{ version }}-Setup.exe
+  file_name: ${{ name }}.exe
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
