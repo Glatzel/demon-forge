@@ -16,6 +16,7 @@ cargo-nextest,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-lin
 cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
 cloudflared,windows-latest,,ubuntu-slim,ubuntu-24.04-arm
 cpu-z,windows-latest,,,
+crsdk,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm
 dism-plus-plus,windows-latest,,,
 dufs,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
 easytier,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm
@@ -50,7 +51,6 @@ pyxis-py,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-re
 rufus,windows-latest,,,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ghcr.io/glatzel/ghar-linux-release-cloud
 slumber,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud
-sony-camera-remote-sdk,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm
 spek,windows-latest,,,
 termscp,windows-latest,,,
 toolbox,,,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,
