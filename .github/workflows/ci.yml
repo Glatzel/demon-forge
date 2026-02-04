@@ -92,8 +92,9 @@ jobs:
           token: ${{ github.token }}
           commit-message: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
           title: "chore: update `${{matrix.pkg}}` from `${{ steps.main.outputs.current-version}}` to `${{ steps.main.outputs.latest-version}}`"
-          branch: update-${{matrix.pkg}}
+          branch: update/${{matrix.pkg}}
           base: main
           delete-branch: true
           assignees: Glatzel
           draft: true
+
