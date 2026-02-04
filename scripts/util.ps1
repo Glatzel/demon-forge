@@ -171,12 +171,20 @@ function reset-build-code {
 
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
-    pixi run rattler-build `
-        --config-file $ROOT/rattler-config.toml `
-        --color always `
-        build --output-dir $ROOT/output
+    $rattler_build_args = @(
+        "--config-file", "$ROOT/rattler-config.toml"
+        "--color", "always"
+        "build", "--output-dir", "$ROOT/output"
+    )
+    if ($env:CI) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
+    if ($env:GITHUB_EVENT_NAME -eq "push") {
+        $rattler_build_args += ("--package-format", "conda:22")
+    }
+    else {
+        $rattler_build_args += ("--package-format", "conda:-7")
+    }
+    pixi run rattler-build $rattler_build_args
 }
-
 # Extract package name and current system architecture
 $name = get-name
 # Possible values:

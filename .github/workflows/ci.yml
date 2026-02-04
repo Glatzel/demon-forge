@@ -60,13 +60,15 @@ jobs:
     runs-on: ${{ matrix.machine }}
     container:
       image: ${{matrix.container}}
+    env:
+      TARGET_PLATFORM: ${{ matrix.target_platform }}
     steps:
       - if: ${{matrix.container}}
         run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
       - uses: actions/checkout@v6
 
       - name: Set up pixi
-        uses: prefix-dev/setup-pixi@v0.9.3
+        uses: prefix-dev/setup-pixi@v0.9.4
         with:
           run-install: false
 

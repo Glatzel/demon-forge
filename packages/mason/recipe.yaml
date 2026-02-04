@@ -1,15 +1,16 @@
 context:
   name: mason
-  version: "0.0.3"
+  version: "0.0.4"
 package:
   name: ${{ name }}
-  version: ${{ version }}
+  version: "0.0.4"
 source:
   url: https://github.com/Glatzel/mason/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 1
+  number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 tests:
   - package_contents:
       bin:
         - ${{ name }}/install.ps1
+        - ${{ name }}/*/Mason.dll
