@@ -99,24 +99,12 @@ function Get-Cargo-Arg {
         '--force'
         '--config'
         'profile.release.debug=false'
-    )
-    if ($env:GITHUB_REF_NAME -eq "main") {
-        $cargo_arg += @(
             '--config', 'profile.release.codegen-units=1'
             '--config', 'profile.release.lto="fat"'
             '--config', 'profile.release.opt-level=3'
             '--config', 'profile.release.strip=true'
         )
-    }
-    else {
-        $cargo_arg += @(
-
-            '--config', 'profile.release.opt-level=2'
-            '--config', 'profile.release.lto="thin"'
-            '--config', 'profile.release.codegen-units=16'
-            '--config', 'profile.release.strip=false'
-        )
-    }
+    
     return $cargo_arg
 }
 
