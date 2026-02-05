@@ -104,7 +104,7 @@ function Get-Cargo-Arg {
             '--config', 'profile.release.opt-level=3'
             '--config', 'profile.release.strip=true'
         )
-    
+
     return $cargo_arg
 }
 
