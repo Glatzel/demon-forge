@@ -15,3 +15,10 @@ requirements:
         - libclang
 tests:
   - script: fresh --help
+about:
+  homepage: https://github.com/sinelaw/fresh
+  summary: A fresh editor for Rust projects
+  description: >
+    fresh-editor is a lightweight editor designed for editing Rust projects. It provides a simple and fast editing experience tailored for Rust developers, with features like syntax highlighting, code completion, and integration with the Rust toolchain.
+  license: MIT
+  repository: https://github.com/sinelaw/fresh
