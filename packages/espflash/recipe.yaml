@@ -14,7 +14,7 @@ tests:
       bin:
         - ${{name}}
   - script: ${{name}} --help
-about: 
+about:
   homepage: https://github.com/esp-rs/espflash
   summary: A flashing tool for ESP32 and ESP8266 boards written in Rust
   description: >
