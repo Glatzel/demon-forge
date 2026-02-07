@@ -53,7 +53,7 @@ rumqttd,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-rel
 slumber,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud,
 spek,windows-latest,,,,
 termscp,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,,
-toolbox,,,,,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud
+toolbox,,,,,ubuntu-slim
 ttyd,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud,
 upx,windows-latest,,,,
 v2rayn,windows-latest,,,,
