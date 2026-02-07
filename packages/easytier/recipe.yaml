@@ -18,6 +18,9 @@ requirements:
         - cxx-compiler
         - clang
         - libclang
+    - if: win
+      then:
+        - clang
   host:
     - if: unix
       then:
