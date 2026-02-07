@@ -1,7 +1,7 @@
 context:
   name: yazi-full
 package:
-  version: "26.2.6"
+  version: "26.1.22"
   name: ${{ name }}
 requirements:
   run:
