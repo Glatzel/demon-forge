@@ -13,6 +13,10 @@ requirements:
   build:
     - rust
     - clang
+    - if: linux
+      then:
+        - c-compiler
+        - cxx-compiler
   host:
     - if: unix
       then:
