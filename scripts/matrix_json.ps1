@@ -1,7 +1,7 @@
 $csvData = Import-Csv "$PSScriptRoot/../packages.csv"
 $matrix = @()
 
-$platforms = "win-64", "osx-arm64", "linux-64", "linux-aarch64"
+$platforms = "win-64", "osx-arm64", "linux-64", "linux-aarch64", "noarch"
 
 foreach ($row in $csvData) {
     $pkg = $row.pkg
