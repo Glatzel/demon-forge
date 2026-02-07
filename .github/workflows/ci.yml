@@ -101,3 +101,5 @@ jobs:
     if: ${{ github.event_name == 'push' || cancelled() || success() }}
     needs: rattler-build
     runs-on: ubuntu-slim
+    steps:
+      - run: echo "success"
