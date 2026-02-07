@@ -17,6 +17,9 @@ requirements:
         - c-compiler
         - cxx-compiler
   host:
+    - if: linux
+      then:
+        - libclang
     - if: unix
       then:
         - libprotobuf
