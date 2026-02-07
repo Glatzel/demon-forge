@@ -2,7 +2,6 @@ Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 
-$latest_version = get-version-github -repo "sxyazi/yazi"
+$latest_version = get-version-text $(pixi search yazi) 'Version\s+([0-9]+\.[0-9]+\.[0-9]+)'
 update-recipe -version $latest_version
-
 build-pkg
