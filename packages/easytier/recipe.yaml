@@ -13,18 +13,19 @@ requirements:
   build:
     - rust
     - clang
+    - libclang
     - if: linux
       then:
         - c-compiler
         - cxx-compiler
-  host:
-    - if: unix
-      then:
-        - libprotobuf
-  run:
-    - if: unix
-      then:
-        - libprotobuf
+  # host:
+  #   - if: unix
+  #     then:
+  #       - libprotobuf
+  # run:
+  #   - if: unix
+  #     then:
+  #       - libprotobuf
 tests:
   - package_contents:
       bin:
