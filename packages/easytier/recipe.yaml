@@ -12,7 +12,7 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
-  host: 
+  host:
     - if: osx
       then:
         - protobuf
