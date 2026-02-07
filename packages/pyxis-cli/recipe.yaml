@@ -11,23 +11,25 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ compiler("rust") }}
     - pkg-config
     - proj
+    - if: linux
+      then:
+        - rust
   host:
     - proj
-    - if: win
+    - if: osx
       then:
-        - vc14_runtime
+        - libiconv
     - if: linux
       then:
         - libstdcxx
         - libudev
   run:
     - proj
-    - if: win
+    - if: osx
       then:
-        - vc14_runtime
+        - libiconv
     - if: linux
       then:
         - libstdcxx
