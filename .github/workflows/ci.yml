@@ -31,6 +31,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       matrix: ${{ steps.matrix_json.outputs.matrix }}
+      no_job: ${{ steps.matrix_json.outputs.no_job }}
     steps:
       - uses: actions/checkout@v6
       - name: packages_yaml
@@ -53,6 +54,7 @@ jobs:
         shell: pwsh
 
   rattler-build:
+    if: ${{needs.dispatch.outputs.no_job != 'true' }}
     needs: dispatch
     strategy:
       fail-fast: false
@@ -97,3 +99,9 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+  build-result:
+    if: ${{ github.event_name == 'push' || success() || needs.dispatch.outputs.no_job == 'true'}}
+    needs: [rattler-build, dispatch]
+    runs-on: ubuntu-slim
+    steps:
+      - run: echo "success"
