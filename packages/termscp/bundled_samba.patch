@@ -1,4 +1,0 @@
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -85,6 +85,7 @@
-+pavao = { version = "*", features = ["vendored"] }
