@@ -1,0 +1,28 @@
+context:
+  name: yazi-full
+package:
+  version: "26.2.6"
+  name: ${{ name }}
+requirements:
+  run:
+    - chafa
+    - fd-find
+    - ffmpeg
+    - fzf
+    - imagemagick
+    - jq
+    - resvg
+    - ripgrep
+    - yazi
+    - zoxide
+    - if: win
+      then:
+        - 7z
+    - if: unix
+      then:
+        - p7zip
+        - file
+        - xclip
+        - xsel
+tests:
+  - script: yazi --debug

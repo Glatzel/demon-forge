@@ -58,5 +58,6 @@ ttyd,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,macos-latest,ubuntu-
 upx,windows-latest,,,,
 v2rayn,windows-latest,,,,
 xray,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm,
+yazi-full,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm,
 zed,windows-latest,,,,
 zyperwin,windows-latest,,,,
