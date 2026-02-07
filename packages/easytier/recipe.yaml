@@ -7,6 +7,10 @@ build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
+  build:
+    - if: linux
+      then:
+        - python
   host:
     - if: osx
       then:
