@@ -12,11 +12,7 @@ build:
 requirements:
   build:
     - rust
-    - libclang
-    - if: linux
-      then:
-        - c-compiler
-        - cxx-compiler
+    - clang
   host:
     - if: unix
       then:
