@@ -1,6 +1,6 @@
 context:
   name: libraw
-  version: "0.22.0"
+  version: "0.21.5"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -9,7 +9,7 @@ source:
   - url: https://github.com/LibRaw/LibRaw-cmake/archive/refs/heads/master.zip
     target_directory: LibRaw-cmake
 build:
-  number: 3
+  number: 5
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
