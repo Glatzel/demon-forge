@@ -19,11 +19,11 @@ requirements:
         - clang
         - libclang
   host:
-    - if: osx
+    - if: unix
       then:
         - libprotobuf
   run:
-    - if: osx
+    - if: unix
       then:
         - libprotobuf
 tests:
