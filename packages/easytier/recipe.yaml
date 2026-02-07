@@ -5,7 +5,9 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
+  - url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
+  - url: https://npcap.com/dist/npcap-sdk-1.16.zip
+    target_directory: npcap
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
