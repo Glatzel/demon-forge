@@ -51,7 +51,7 @@ switch ($env:GITHUB_EVENT_NAME) {
     default {}
 }
 if ($($matrix | jq '.include | length == 0') -eq 'true') {
-    "no_job=true" >> $env:GITHUB_OUTPUT
+    $matrix = $null
 }
 # Output matrix to GitHub Actions
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
