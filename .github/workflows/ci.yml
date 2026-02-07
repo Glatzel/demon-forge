@@ -97,3 +97,7 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
+  build-result:
+    if: ${{ github.event_name == 'push' || cancelled() || success() }}
+    needs: rattler-build
+    runs-on: ubuntu-slim
