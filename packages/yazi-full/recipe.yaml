@@ -15,14 +15,11 @@ requirements:
     - ripgrep
     - yazi
     - zoxide
-    - if: win
-      then:
-        - 7z
+    - 7zip
     - if: unix
       then:
         - chafa
         - file
-        - p7zip
         - xclip
         - xsel
 tests:
