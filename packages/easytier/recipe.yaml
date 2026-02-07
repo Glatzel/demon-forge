@@ -28,12 +28,16 @@ requirements:
       then:
         - libprotobuf
 tests:
+  - package_contents:
+      bin:
+        - ${{ name }}-core
+        - ${{ name }}-cli
   - script: ${{ name }}-core --help
 about:
-  homepage: https://github.com/yourusername/easytier
+  homepage: https://github.com/EasyTier/EasyTier
   license: MIT OR Apache-2.0
   summary: EasyTier is a tool for managing storage tiers
   description: >
     EasyTier is a tool designed to help manage and optimize storage tiers in a system,
     providing efficient data placement and movement across different storage media.
-  repository: https://github.com/yourusername/easytier
+  repository: https://github.com/EasyTier/EasyTier
