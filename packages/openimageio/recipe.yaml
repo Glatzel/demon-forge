@@ -19,7 +19,7 @@ requirements:
     - make
     - if: win
       then:
-        - vs2022_win-64
+        - vs_win-64
   host:
     - opencolorio
     - bzip2

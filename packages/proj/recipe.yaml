@@ -17,7 +17,7 @@ requirements:
     - ninja
     - if: win
       then:
-        - vs2022_win-64
+        - vs_win-64
   host:
     - sqlite
     - libtiff
