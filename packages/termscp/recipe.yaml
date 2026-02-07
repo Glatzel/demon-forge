@@ -6,6 +6,8 @@ package:
   name: ${{ name }}
 source:
   url: https://github.com/veeso/termscp/archive/refs/tags/v${{ version }}.tar.gz
+  patches:
+    - bundled_samba.patch
 build:
   number: 3
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
@@ -26,7 +28,6 @@ requirements:
     - if: unix
       then:
         - openssl
-
 
 tests:
   - package_contents:
