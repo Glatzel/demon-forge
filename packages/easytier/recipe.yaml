@@ -17,13 +17,13 @@ requirements:
         - gcc 10.*
         - gxx 10.*
   host:
-    - if: osx
+    - if: unix
       then:
-        - protobuf
+        - libprotobuf
   run:
-    - if: osx
+    - if: unix
       then:
-        - protobuf
+        - libprotobuf
 tests:
   - script: ${{ name }}-core --help
 about:
