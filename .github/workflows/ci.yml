@@ -100,7 +100,7 @@ jobs:
           assignees: Glatzel
           draft: true
   build-result:
-    if: ${{ github.event_name == 'push' || success() || cancelled() }}
+    if: ${{ github.event_name == 'push' || success() }}
     needs: rattler-build
     runs-on: ubuntu-slim
     steps:
