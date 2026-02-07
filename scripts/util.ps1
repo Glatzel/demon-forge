@@ -3,18 +3,15 @@ $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
-# Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
-    # On Windows, use semicolon as path separator
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
+    if($env:CI){$env:CARGO_TARGET_DIR="c:/t"}
 }
 if ($IsMacOS) {
-    # On Unix-like systems, use colon as path separator
-    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 if ($IsLinux) {
-    # On Unix-like systems, use colon as path separator
-    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
 # Function: Extract the current version from recipe.yaml
