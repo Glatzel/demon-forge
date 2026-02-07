@@ -5,7 +5,7 @@ if ($IsLinux) {
     dnf install -y dnf-plugins-core
     dnf config-manager --set-enabled powertools
     dnf makecache
-    dnf install -y samba-devel
+    dnf install -y libsmbclient-devel
     $Env:PKG_CONFIG_PATH = "/usr/share/pkgconfig`:/usr/lib/pkgconfig`:/usr/lib64/pkgconfig`:$Env:PKG_CONFIG_PATH"
 }
 if ($IsMacOS) {
