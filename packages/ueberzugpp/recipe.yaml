@@ -13,7 +13,7 @@ requirements:
   build:
     - c-compiler
     - cxx-compiler
-    - cmake 3.*
+    - cmake 3.30.*
     - ninja
   host:
     - expat
@@ -27,7 +27,6 @@ requirements:
     - spdlog
     - fmt
     - range-v3
-    - libraw
   run:
     - expat
     - libvips
@@ -40,7 +39,6 @@ requirements:
     - spdlog
     - fmt
     - range-v3
-    - libraw
 
 tests:
   - package_contents:
