@@ -27,6 +27,7 @@ requirements:
     - spdlog
     - fmt
     - range-v3
+    - glib
   run:
     - expat
     - libvips
@@ -39,6 +40,7 @@ requirements:
     - spdlog
     - fmt
     - range-v3
+    - glib
 
 tests:
   - package_contents:
