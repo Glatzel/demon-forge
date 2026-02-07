@@ -5,7 +5,6 @@ package:
   name: ${{ name }}
 requirements:
   run:
-    - chafa
     - fd-find
     - ffmpeg
     - fzf
@@ -21,6 +20,7 @@ requirements:
         - 7z
     - if: unix
       then:
+        - chafa
         - file
         - p7zip
         - xclip
