@@ -19,16 +19,10 @@ requirements:
         - gcc 10.*
         - gxx 10.*
   host:
-    - if: win
-      then:
-        - libpcap
     - if: unix
       then:
         - libprotobuf
   run:
-    - if: win
-      then:
-        - libpcap
     - if: unix
       then:
         - libprotobuf
