@@ -16,6 +16,7 @@ requirements:
     - cmake 3.*
     - ninja
   host:
+    - expat
     - libvips
     - libsixel
     - chafa
@@ -27,6 +28,7 @@ requirements:
     - fmt
     - range-v3
   run:
+    - expat
     - libvips
     - libsixel
     - chafa
