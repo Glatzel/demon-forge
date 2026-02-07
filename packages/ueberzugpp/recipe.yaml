@@ -27,6 +27,7 @@ requirements:
     - spdlog
     - fmt
     - range-v3
+    - libraw
   run:
     - expat
     - libvips
@@ -39,6 +40,7 @@ requirements:
     - spdlog
     - fmt
     - range-v3
+    - libraw
 
 tests:
   - package_contents:
