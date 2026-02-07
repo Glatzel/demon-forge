@@ -25,11 +25,15 @@ requirements:
       then:
         - openssl
         - gnutls
+    - if: osx
+      then: libiconv
   run:
     - if: unix
       then:
         - openssl
         - gnutls
+    - if: osx
+      then: libiconv
 
 tests:
   - package_contents:
