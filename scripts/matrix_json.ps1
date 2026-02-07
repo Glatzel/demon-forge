@@ -53,4 +53,3 @@ switch ($env:GITHUB_EVENT_NAME) {
 # Output matrix to GitHub Actions
 "matrix=$matrix" >> $env:GITHUB_OUTPUT
 $matrix | jq .
-
