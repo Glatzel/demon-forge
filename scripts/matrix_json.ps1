@@ -46,7 +46,7 @@ switch ($env:GITHUB_EVENT_NAME) {
     }
     "pull_request" {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
-        
+
     }
     default {}
 }
