@@ -1,10 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 if ($IsWindows) {
-    copy-item ./npcap/* $env:BUILD_PREFIX/Library -Recurse -Force
+    $env:LIB = "$PWD/LIB/x64;$env:LIB"
+    $env:INCLUDE = "$PWD/Include;$env:INCLUDE"
 }
-# if ($IsLinux) {
-#     $env:CFLAGS = "-std=c11"
-#     $env:CXXFLAGS = "-std=c++11"
-# }
 cargo install @(Get-Cargo-Arg) easytier

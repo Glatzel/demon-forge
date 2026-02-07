@@ -7,7 +7,6 @@ package:
 source:
   # https://npcap.com/#download
   - url: https://npcap.com/dist/npcap-sdk-1.16.zip
-    target_directory: npcap
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
