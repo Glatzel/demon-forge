@@ -47,3 +47,5 @@ tests:
       bin:
         - ueberzug
   - script: ueberzug layer -h
+about:
+  repository: https://github.com/jstkdng/ueberzugpp
