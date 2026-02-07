@@ -1,0 +1,29 @@
+context:
+  name: yazi-full
+package:
+  version: "26.1.22"
+  name: ${{ name }}
+build:
+  number: 1
+requirements:
+  run:
+    - fd-find
+    - ffmpeg
+    - fzf
+    - imagemagick
+    - jq
+    - poppler
+    - resvg
+    - ripgrep
+    - yazi
+    - zoxide
+    - 7zip
+    - if: unix
+      then:
+        - chafa
+        - file
+        - ueberzugpp
+        - xclip
+        - xsel
+tests:
+  - script: yazi --debug
