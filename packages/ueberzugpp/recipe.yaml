@@ -20,7 +20,7 @@ requirements:
     - libsixel
     - chafa
     - openssl
-    - tbb
+    - tbb-devel
     - nlohmann_json
     - cli11
     - spdlog
