@@ -10,11 +10,10 @@ requirements:
   build:
     - if: linux
       then:
-        - rust
-    - if: linux
-      then:
         - clang
         - libclang
+        - c-compiler
+        - rust
 tests:
   - script: fresh --help
 about:

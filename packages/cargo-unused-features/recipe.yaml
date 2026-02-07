@@ -10,11 +10,10 @@ requirements:
   build:
     - if: linux
       then:
-        - rust
-    - if: linux
-      then:
         - pkg-config
         - openssl
+        - rust
+        - c-compiler
   run:
     - if: linux
       then:
