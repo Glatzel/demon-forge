@@ -3,6 +3,8 @@ context:
 package:
   version: "26.1.22"
   name: ${{ name }}
+build:
+  number: 1
 requirements:
   run:
     - fd-find
