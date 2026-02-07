@@ -12,14 +12,12 @@ build:
 requirements:
   build:
     - rust
+    - libclang
     - if: linux
       then:
         - c-compiler
         - cxx-compiler
   host:
-    - if: linux
-      then:
-        - libclang
     - if: unix
       then:
         - libprotobuf
