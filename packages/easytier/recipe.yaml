@@ -5,8 +5,7 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  # https://npcap.com/#download
-  - url: https://npcap.com/dist/npcap-sdk-1.16.zip
+  - url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
@@ -15,8 +14,8 @@ requirements:
     - rust
     - if: linux
       then:
-        - gcc 10.*
-        - gxx 10.*
+        - c-compiler
+        - cxx-compiler
   host:
     - if: unix
       then:

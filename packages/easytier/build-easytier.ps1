@@ -4,4 +4,4 @@ if ($IsWindows) {
     $env:LIB = "$PWD/LIB/x64;$env:LIB"
     $env:INCLUDE = "$PWD/Include;$env:INCLUDE"
 }
-cargo install @(Get-Cargo-Arg) easytier
+cargo install @(Get-Cargo-Arg) --path ./easytier
