@@ -20,6 +20,7 @@ requirements:
       then:
         - chafa
         - file
+        - ueberzugpp
         - xclip
         - xsel
 tests:
