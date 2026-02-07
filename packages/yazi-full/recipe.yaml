@@ -11,6 +11,7 @@ requirements:
     - fzf
     - imagemagick
     - jq
+    - poppler
     - resvg
     - ripgrep
     - yazi
@@ -20,8 +21,8 @@ requirements:
         - 7z
     - if: unix
       then:
-        - p7zip
         - file
+        - p7zip
         - xclip
         - xsel
 tests:
