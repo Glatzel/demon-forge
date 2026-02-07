@@ -12,9 +12,13 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
+  host: 
     - if: osx
       then:
         - protobuf
+    - if: linux
+      then:
+        - mimalloc
 tests:
   - script: ${{ name }}-core --help
 about:
