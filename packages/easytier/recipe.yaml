@@ -5,7 +5,6 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  - url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
   # https://npcap.com/#download
   - url: https://npcap.com/dist/npcap-sdk-1.16.zip
     target_directory: npcap
