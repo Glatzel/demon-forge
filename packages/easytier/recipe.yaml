@@ -11,7 +11,11 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ compiler("rust") }}
+    - rust
+    - if: linux
+      then:
+        - gcc 10.*
+        - gxx 10.*
   host:
     - if: osx
       then:
