@@ -1,7 +1,7 @@
 context:
   name: cloudflared
 package:
-  version: "2026.1.2"
+  version: "2026.2.0"
   name: ${{ name }}
 build:
   number: 0
