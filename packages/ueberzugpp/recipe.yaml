@@ -6,8 +6,6 @@ package:
   name: ${{ name }}
 source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
-    patches:
-      - patch/config.patch
 build:
   number: 8
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
