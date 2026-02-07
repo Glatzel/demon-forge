@@ -3,18 +3,16 @@ $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
-# Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
-    # On Windows, use semicolon as path separator
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
+    # avoid build error by long path
+    if($env:CI){$env:CARGO_TARGET_DIR="c:/t"}
 }
 if ($IsMacOS) {
-    # On Unix-like systems, use colon as path separator
-    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 if ($IsLinux) {
-    # On Unix-like systems, use colon as path separator
-    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
 # Function: Extract the current version from recipe.yaml
@@ -99,24 +97,12 @@ function Get-Cargo-Arg {
         '--force'
         '--config'
         'profile.release.debug=false'
-    )
-    if ($env:GITHUB_REF_NAME -eq "main") {
-        $cargo_arg += @(
             '--config', 'profile.release.codegen-units=1'
             '--config', 'profile.release.lto="fat"'
             '--config', 'profile.release.opt-level=3'
             '--config', 'profile.release.strip=true'
         )
-    }
-    else {
-        $cargo_arg += @(
 
-            '--config', 'profile.release.opt-level=2'
-            '--config', 'profile.release.lto="thin"'
-            '--config', 'profile.release.codegen-units=16'
-            '--config', 'profile.release.strip=false'
-        )
-    }
     return $cargo_arg
 }
 
@@ -171,13 +157,20 @@ function reset-build-code {
 
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
-    pixi run rattler-build `
-        --config-file $ROOT/rattler-config.toml `
-        --color always `
-        build --output-dir $ROOT/output `
-        --target-platform $env:TARGET_PLATFORM
+    $rattler_build_args = @(
+        "--config-file", "$ROOT/rattler-config.toml"
+        "--color", "always"
+        "build", "--output-dir", "$ROOT/output"
+    )
+    if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
+    if ($env:GITHUB_EVENT_NAME -eq "push") {
+        $rattler_build_args += ("--package-format", "conda:22")
+    }
+    else {
+        $rattler_build_args += ("--package-format", "conda:-7")
+    }
+    pixi run rattler-build $rattler_build_args
 }
-
 # Extract package name and current system architecture
 $name = get-name
 # Possible values:

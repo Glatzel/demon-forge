@@ -12,9 +12,20 @@ build:
 requirements:
   build:
     - rust
+    - c-compiler
+    - cxx-compiler
     - cmake 3.30.*
+    - make
     - nasm
-
+    - pkg-config
+  host:
+    - if: unix
+      then:
+        - openssl
+  run:
+    - if: unix
+      then:
+        - openssl
 tests:
   - package_contents:
       bin:
