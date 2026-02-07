@@ -9,4 +9,3 @@ cmake -S . -B build `
     -DENABLE_X11=OFF `
     -DENABLE_OPENCV=OFF
 cmake --build build --config Release --target install
-
