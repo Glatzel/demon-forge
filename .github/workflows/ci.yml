@@ -100,8 +100,9 @@ jobs:
           assignees: Glatzel
           draft: true
   build-result:
-    if: ${{ github.event_name == 'push' || success() || needs.dispatch.outputs.no_job == 'true'}}
+    if: ${{ github.event_name == 'pull_request' && (success() || needs.dispatch.outputs.no_job == 'true')}}
     needs: [rattler-build, dispatch]
     runs-on: ubuntu-slim
     steps:
       - run: echo "success"
+
