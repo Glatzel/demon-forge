@@ -12,6 +12,9 @@ build:
 requirements:
   build:
     - ${{ compiler("rust") }}
+    - if: osx
+      then:
+        - protobuf
 tests:
   - script: ${{ name }}-core --help
 about:
