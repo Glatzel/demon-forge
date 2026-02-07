@@ -3,18 +3,16 @@ $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
-# Configure PYTHONPATH differently depending on the platform
 if ($IsWindows) {
-    # On Windows, use semicolon as path separator
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
+    # avoid build error by long path
+    if($env:CI){$env:CARGO_TARGET_DIR="c:/t"}
 }
 if ($IsMacOS) {
-    # On Unix-like systems, use colon as path separator
-    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 if ($IsLinux) {
-    # On Unix-like systems, use colon as path separator
-    $env:PYTHONPATH = $ROOT + ':' + "$env:PYTHONPATH"
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
 # Function: Extract the current version from recipe.yaml
@@ -93,17 +91,19 @@ function update-vcpkg-json {
     $json | ConvertTo-Json -Depth 10 | Set-Content $file
 }
 function Get-Cargo-Arg {
-    return @(
-        '--root'
-        "$env:PREFIX"
+    $cargo_arg = @(
+        '--root', "$env:PREFIX"
         '--locked'
         '--force'
-        '--config', 'profile.release.codegen-units=1'
-        '--config', 'profile.release.debug=false'
-        '--config', 'profile.release.lto="fat"'
-        '--config', 'profile.release.opt-level=3'
-        '--config', 'profile.release.strip=true'
-    )
+        '--config'
+        'profile.release.debug=false'
+            '--config', 'profile.release.codegen-units=1'
+            '--config', 'profile.release.lto="fat"'
+            '--config', 'profile.release.opt-level=3'
+            '--config', 'profile.release.strip=true'
+        )
+
+    return $cargo_arg
 }
 
 # Function: Update the recipe.yaml file if a new version is detected
@@ -137,8 +137,7 @@ function update-recipe {
         switch ($true ) {
             { $HAS_NEW_VERSION -and ( $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
 
-            { $HAS_NEW_VERSION -and $env:GITHUB_EVENT_NAME -eq "push" } { "action_pr=true" >> $env:GITHUB_OUTPUT; exit 0 }
-            { (-not $HAS_NEW_VERSION) -and ($env:GITHUB_EVENT_NAME -eq "push" ) -and ($env:GITHUB_REF_NAME -eq "main") } { "action_publish=true" >> $env:GITHUB_OUTPUT }
+            { $env:GITHUB_EVENT_NAME -eq "push" } { "action_publish=true" >> $env:GITHUB_OUTPUT; }
 
             { $env:GITHUB_EVENT_NAME -eq "pull_request" } { }
 
@@ -158,12 +157,20 @@ function reset-build-code {
 
 # Function: Build the package using rattler-build inside Pixi
 function build-pkg {
-    pixi run rattler-build `
-        --config-file $ROOT/rattler-config.toml `
-        --color always `
-        build --output-dir $ROOT/output
+    $rattler_build_args = @(
+        "--config-file", "$ROOT/rattler-config.toml"
+        "--color", "always"
+        "build", "--output-dir", "$ROOT/output"
+    )
+    if ($env:CI) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
+    if ($env:GITHUB_EVENT_NAME -eq "push") {
+        $rattler_build_args += ("--package-format", "conda:22")
+    }
+    else {
+        $rattler_build_args += ("--package-format", "conda:-7")
+    }
+    pixi run rattler-build $rattler_build_args
 }
-
 # Extract package name and current system architecture
 $name = get-name
 # Possible values:

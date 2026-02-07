@@ -1,39 +1,45 @@
 $csvData = Import-Csv "$PSScriptRoot/../packages.csv"
 $matrix = @()
 
+$platforms = "win-64", "osx-arm64", "linux-64", "linux-aarch64"
+
 foreach ($row in $csvData) {
     $pkg = $row.pkg
-    foreach ($machine in "windows-latest", "macos-latest", "ubuntu-latest", "ubuntu-24.04-arm") {
-        if ($row.$machine -eq "true") {
-            if ((($env:GITHUB_EVENT_NAME -eq "pull_request") -or ($env:GITHUB_EVENT_NAME -eq "push")) `
-                    -and $machine -like "*ubuntu*" `
-                    -and $row.container -eq 'true'
-            ) {
-                $matrix += [PSCustomObject]@{
-                    pkg       = $pkg
-                    machine   = $machine
-                    container = "ghcr.io/glatzel/ghar-linux-release-cloud"
-                }
+
+    if ($env:GITHUB_EVENT_NAME -in @("pull_request", "push")) {
+        foreach ($platform in $platforms) {
+            $value = $row.$platform
+            if (-not $value) { continue }
+
+            $entry = @{
+                pkg             = $pkg
+                target_platform = $platform
+            }
+
+            if ($value -like "*+*") {
+                $machine, $container = $value -split '\+', 2
+                $entry.machine = $machine
+                $entry.container = $container
             }
             else {
-                $matrix += [PSCustomObject]@{
-                    pkg     = $pkg
-                    machine = $machine
-                }
-
+                $entry.machine = $value
             }
+
+            $matrix += $entry
+        }
+    }
+    else {
+        $matrix += @{
+            pkg     = $pkg
+            machine = "ubuntu-slim"
         }
     }
 }
-
-
 $matrix = $matrix |
 ConvertTo-Json -Depth 10 -Compress |
 jq '{include: .}'
-
 # Clean CHANGED_KEYS
 $env:CHANGED_KEYS = "${env:CHANGED_KEYS}".Replace("\", "")
-
 switch ($env:GITHUB_EVENT_NAME) {
     "push" {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
@@ -41,9 +47,7 @@ switch ($env:GITHUB_EVENT_NAME) {
     "pull_request" {
         $matrix = $matrix | jq -c --argjson pkgs "${env:CHANGED_KEYS}" '{include: .include | map(select(.pkg as $p | $pkgs | index($p)))}'
     }
-    default {
-        $matrix = $matrix | jq -c '{include: .include | map(.machine = "ubuntu-slim") | group_by(.pkg) | map(.[0])}'
-    }
+    default {}
 }
 
 # Output matrix to GitHub Actions

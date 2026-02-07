@@ -1,13 +1,24 @@
 context:
   name: fresh-editor
 package:
-  version: "0.1.77"
+  version: "0.1.99"
   name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    ${{ compiler("rust") }}
+    - ${{ compiler("rust") }}
+    - if: linux
+      then:
+        - clang
+        - libclang
 tests:
   - script: fresh --help
+about:
+  homepage: https://github.com/sinelaw/fresh
+  summary: A fresh editor for Rust projects
+  description: >
+    fresh-editor is a lightweight editor designed for editing Rust projects. It provides a simple and fast editing experience tailored for Rust developers, with features like syntax highlighting, code completion, and integration with the Rust toolchain.
+  license: MIT
+  repository: https://github.com/sinelaw/fresh

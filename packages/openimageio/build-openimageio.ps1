@@ -3,6 +3,8 @@ $ROOT = git rev-parse --show-toplevel
 
 # Common CMake options
 $cmakeArgs = @(
+    "-G"
+    "Ninja"
     "-DVERBOSE=ON"
     "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_DOCS=0"
@@ -24,22 +26,21 @@ $cmakeArgs = @(
 )
 
 if ($IsWindows) {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/Library"
-    $env:USE_SIMD = "sse4.2,avx2"
-
     $cmakeArgs += @(
         "-DCMAKE_C_FLAGS=/utf-8"
         "-DCMAKE_CXX_FLAGS=/utf-8"
+        "-DUSE_SIMD=sse4.2,avx2"
+        "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library"
     )
 }
 if ($IsMacOS) {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
+    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
 }
 if ($IsLinux) {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
+    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
 
     if ($arch -eq "X64") {
-        $env:USE_SIMD = "sse4.2,avx2"
+        $cmakeArgs += @( "-DUSE_SIMD=sse4.2,avx2")
     }
 }
 

@@ -1,21 +1,25 @@
 context:
   name: openimageio
-  version: "3.1.9.0"
+  version: "3.1.10.0"
 
 package:
   name: ${{ name }}
-  version: ${{ version }}
+  version: "3.1.10.0"
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-  number: 2
+  number: 0
 requirements:
   build:
     - c-compiler
     - cxx-compiler
     - cmake 3.*
+    - ninja
     - make
+    - if: win
+      then:
+        - vs2022_win-64
   host:
     - opencolorio
     - bzip2

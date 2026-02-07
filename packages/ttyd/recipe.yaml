@@ -1,16 +1,69 @@
 context:
   name: ttyd
-package:
   version: "1.7.7"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
+    patches:
+      - patch/config.patch
 build:
   number: 8
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
+requirements:
+  build:
+    - brotlipy
+    - nodejs
+    - ninja
+    - fonttools
+    - pkg-config
+    - cmake 3.*
+    - autoconf
+    - automake
+    - file
+    - if: unix
+      then:
+        - c-compiler
+    - if: win
+      then:
+        - make
+        - binutils
+        - libtool
+        - gcc_win-64 13.*
+  host:
+    - if: unix
+      then:
+        - json-c
+        - libwebsockets
+        - zlib
+    - if: macos
+      then:
+        - openssl
+  run:
+    - if: unix
+      then:
+        - json-c
+        - libwebsockets
+        - zlib
+    - if: macos
+      then:
+        - openssl
 
 tests:
   - package_contents:
       bin:
         - ${{ name }}
+  - if: unix
+    then:
+      - requirements:
+          run:
+            - curl
+        script:
+          - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
+          - curl -sI http://localhost:7681
+          - pwsh -Command "Stop-Process -Name ttyd -Force"
+
 about:
   homepage: https://github.com/tsl0922/ttyd
   license: MIT OR Apache-2.0

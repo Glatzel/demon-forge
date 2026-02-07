@@ -1,7 +1,7 @@
 context:
   name: bitcomet
 package:
-  version: "2.19.12.15"
+  version: "2.20.1.19"
   name: ${{ name }}
 build:
   number: 0
@@ -19,4 +19,3 @@ about:
     download client. It supports simultaneous downloads, download queue,
     selected downloads in torrent package, fast-resume, disk cache, proxy
     servers, IP filtering, port mapping, and more.
-  repository: https://www.bitcomet.com

@@ -4,7 +4,7 @@ package:
   version: "1.2.0"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
@@ -14,3 +14,14 @@ tests:
       bin:
         - ${{name}}
   - script: ${{name}} --help
+about:
+  homepage: https://github.com/esp-rs/esp-generate
+  summary: A code generator for ESP-IDF bindings in Rust
+  description: >
+    esp-generate is a code generation tool that simplifies the process of creating
+    Rust bindings for the ESP-IDF framework. It automates the generation of
+    boilerplate code, making it easier for developers to work with ESP-IDF in Rust.
+    By using esp-generate, developers can focus on writing application logic
+    rather than dealing with the intricacies of FFI and bindings.
+  license: MIT
+  repository: https://github.com/esp-rs/esp-generate
