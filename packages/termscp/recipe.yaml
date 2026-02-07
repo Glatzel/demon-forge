@@ -24,10 +24,12 @@ requirements:
     - if: unix
       then:
         - openssl
+        - gnutls
   run:
     - if: unix
       then:
         - openssl
+        - gnutls
 
 tests:
   - package_contents:
