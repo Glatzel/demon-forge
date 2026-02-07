@@ -1,7 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 if ($IsWindows) {
-    copy-item ./npcap/* $env:BUILD_PREFIX/Library -Recurse
+    copy-item ./npcap/* $env:BUILD_PREFIX/Library -Recurse -Force
 }
 # if ($IsLinux) {
 #     $env:CFLAGS = "-std=c11"
