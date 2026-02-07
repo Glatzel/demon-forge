@@ -5,4 +5,3 @@ $ROOT = git rev-parse --show-toplevel
 $latest_version = get-version-github -repo "$name/PeaZip"
 update-recipe -version $latest_version
 build-pkg
-
