@@ -1,18 +1,37 @@
 context:
   name: easytier
-package:
   version: "2.4.5"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  - url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - if: linux
+      then:
+        - c-compiler
+        - cxx-compiler
+        - clang
+        - libclang
+
+  host:
+    - if: unix
+      then:
+        - libprotobuf
+  run:
+    - if: unix
+      then:
+        - libprotobuf
 tests:
+  - package_contents:
+      bin:
+        - ${{ name }}-core
+        - ${{ name }}-cli
   - script: ${{ name }}-core --help
 about:
-  homepage: https://github.com/yourusername/easytier
-  license: MIT OR Apache-2.0
-  summary: EasyTier is a tool for managing storage tiers
-  description: >
-    EasyTier is a tool designed to help manage and optimize storage tiers in a system,
-    providing efficient data placement and movement across different storage media.
-  repository: https://github.com/yourusername/easytier
+  repository: https://github.com/EasyTier/EasyTier
