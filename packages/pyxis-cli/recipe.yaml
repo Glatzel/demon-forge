@@ -18,18 +18,18 @@ requirements:
         - rust
   host:
     - proj
-    - if: win
+    - if: osx
       then:
-        - vc14_runtime
+        - libiconv
     - if: linux
       then:
         - libstdcxx
         - libudev
   run:
     - proj
-    - if: win
+    - if: osx
       then:
-        - vc14_runtime
+        - libiconv
     - if: linux
       then:
         - libstdcxx
