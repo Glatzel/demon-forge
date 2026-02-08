@@ -79,7 +79,7 @@ jobs:
       - name: publish
         if: ${{ inputs.publish }}
         run: |
-          ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+          ./scripts/publish.ps1 -pkg ${{inputs.name}}
         shell: pwsh
 
       - name: Debug with tmate
