@@ -15,12 +15,32 @@ on:
           - macos-latest
           - ubuntu-latest
           - ubuntu-24.04-arm
+      target-platform:
+        description: "target-platform"
+        type: choice
+        required: true
+        options:
+          - win-64
+          - osx-arm64
+          - linux-64
+          - linux-aarch64
+          - noarch
+      upload:
+        type: boolean
+        description: "upload conda package"
+        required: true
+        default: false
+      publish:
+        type: boolean
+        description: "If publishing to prefix.dev"
+        required: true
+        default: false
       debug_on_fail:
         type: boolean
         description: "Run the build with tmate debugging enabled"
-        required: false
+        required: true
         default: false
-
+      
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref}}-${{inputs.name}}-${{inputs.machine}}
   cancel-in-progress: true
@@ -50,11 +70,18 @@ jobs:
         shell: pwsh
 
       - name: upload
+        if: ${{ inputs.upload }}
         uses: actions/upload-artifact@v6
         with:
           name: ${{inputs.name}}-${{inputs.machine}}
           path: ./output
 
+      - name: publish
+        if: ${{ inputs.publish }}
+        run: |
+          ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+        shell: pwsh
+  
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
         uses: mxschmitt/action-tmate@v3
