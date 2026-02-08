@@ -7,7 +7,7 @@
             "name": "dism++",
             "description": "Launch dism",
             "command": [
-                "{{ PREFIX }}/bin/dism-plus-plus/Dism++x64.exe"
+                "{{ PREFIX }}/bin/Dism++x64.exe"
             ],
             "platforms": {
                 "win": {
