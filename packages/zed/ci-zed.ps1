@@ -3,4 +3,3 @@ $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $latest_version = get-version-github "zed-industries/$name"
 update-recipe -version $latest_version
-build-pkg

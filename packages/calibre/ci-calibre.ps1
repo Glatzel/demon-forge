@@ -4,4 +4,3 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "kovidgoyal/$name"
 update-recipe -version $latest_version
-build-pkg

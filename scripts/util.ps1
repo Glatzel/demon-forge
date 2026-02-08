@@ -147,7 +147,7 @@ function update-recipe {
             default { exit 0 }
         }
     }
-    else { }
+    build-pkg
 }
 
 # Function: Reset build number in recipe.yaml to 0
@@ -173,9 +173,3 @@ function build-pkg {
 }
 # Extract package name and current system architecture
 $name = get-name
-# Possible values:
-# - X86 (32-bit)
-# - X64 (64-bit)
-# - Arm (ARM 32-bit)
-# - Arm64 (ARM 64-bit)
-$arch = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
