@@ -1,0 +1,12 @@
+context:
+  name: vs-buildtools
+package:
+  version: "17.0.0"
+  name: ${{ name }}
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+tests:
+  - package_contents:
+      bin:
+        - vs_BuildTools
