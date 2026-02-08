@@ -1,5 +1,5 @@
 pkg,win-64,osx-arm64,linux-64,linux-aarch64,noarch
-7z,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm,
+7-zip,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm,
 android-sdk-platform-tools,windows-latest,macos-latest,ubuntu-slim,,
 aria2,windows-latest,,,,
 ast-grep,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud,

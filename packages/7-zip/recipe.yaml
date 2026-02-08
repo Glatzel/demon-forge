@@ -1,5 +1,5 @@
 context:
-  name: 7z
+  name: 7-zip
 package:
   version: "25.1"
   name: ${{ name }}
