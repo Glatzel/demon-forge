@@ -1,4 +1,5 @@
 gh release download -R "ryanoasis/nerd-fonts" -p "CascadiaMono.zip" -O  ./temp/font.zip --clobber
+pixi global list
 which 7z
 7z --help
 7z x "./temp/font.zip" "-o./temp/font"
