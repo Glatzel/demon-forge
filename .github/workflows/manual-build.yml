@@ -73,7 +73,7 @@ jobs:
         if: ${{ inputs.upload }}
         uses: actions/upload-artifact@v6
         with:
-          name: ${{inputs.name}}-${{inputs.machine}}-${{inputs.target-platform}}
+          name: ${{inputs.name}}-${{inputs.target-platform}}
           path: ./output
 
       - name: publish
