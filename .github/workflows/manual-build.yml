@@ -40,7 +40,7 @@ on:
         description: "Run the build with tmate debugging enabled"
         required: true
         default: false
-      
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref}}-${{inputs.name}}-${{inputs.machine}}
   cancel-in-progress: true
@@ -81,7 +81,7 @@ jobs:
         run: |
           ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
         shell: pwsh
-  
+
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
         uses: mxschmitt/action-tmate@v3
