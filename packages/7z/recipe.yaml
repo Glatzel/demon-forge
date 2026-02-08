@@ -1,11 +1,14 @@
 context:
   name: 7z
 package:
-  version: 1.37.0
+  version: "25.1"
   name: ${{ name }}
 build:
   number: 7
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - 7zip
 tests:
   - package_contents:
       bin:
