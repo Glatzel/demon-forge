@@ -4,4 +4,4 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "Chuyu-Team/Dism-Multi-language"
 update-recipe -version $latest_version
-build-pkg
+

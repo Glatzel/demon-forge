@@ -4,11 +4,11 @@ if ($IsWindows) {
     gh release download -R "XTLS/Xray-core" -p "Xray-windows-64.zip" `
         -O  ./${env:PKG_NAME}.zip
 }
-if ($IsLinux -and ($arch -eq "X64")) {
+if ($env:TARGET_PLATFORM -eq 'linux-64') {
     gh release download -R "XTLS/Xray-core" -p "Xray-linux-64.zip" `
         -O  ./${env:PKG_NAME}.zip
 }
-if ($IsLinux -and ($arch -eq "Arm64")) {
+if ($env:TARGET_PLATFORM -eq 'linux-aarch64') {
     gh release download -R "XTLS/Xray-core" -p "Xray-linux-arm64-v8a.zip" `
         -O  ./${env:PKG_NAME}.zip
 }

@@ -4,4 +4,4 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-text $(pixi search yazi) 'Version\s+([0-9]+\.[0-9]+\.[0-9]+)'
 update-recipe -version $latest_version
-build-pkg
+

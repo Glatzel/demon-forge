@@ -6,7 +6,7 @@ Remove-Item Alias:curl -ErrorAction SilentlyContinue
 if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
     # avoid build error by long path
-    if($env:CI){$env:CARGO_TARGET_DIR="c:/t"}
+    if ($env:CI) { $env:CARGO_TARGET_DIR = "c:/t" }
 }
 if ($IsMacOS) {
     $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
@@ -97,11 +97,11 @@ function Get-Cargo-Arg {
         '--force'
         '--config'
         'profile.release.debug=false'
-            '--config', 'profile.release.codegen-units=1'
-            '--config', 'profile.release.lto="fat"'
-            '--config', 'profile.release.opt-level=3'
-            '--config', 'profile.release.strip=true'
-        )
+        '--config', 'profile.release.codegen-units=1'
+        '--config', 'profile.release.lto="fat"'
+        '--config', 'profile.release.opt-level=3'
+        '--config', 'profile.release.strip=true'
+    )
 
     return $cargo_arg
 }
@@ -173,9 +173,3 @@ function build-pkg {
 }
 # Extract package name and current system architecture
 $name = get-name
-# Possible values:
-# - X86 (32-bit)
-# - X64 (64-bit)
-# - Arm (ARM 32-bit)
-# - Arm64 (ARM 64-bit)
-$arch = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture

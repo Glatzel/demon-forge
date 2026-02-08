@@ -5,4 +5,4 @@ $latest_version = get-version-crateio -name $name
 update-recipe -version $latest_version
 
 
-build-pkg
+

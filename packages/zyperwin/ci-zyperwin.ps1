@@ -4,4 +4,4 @@ $ROOT = git rev-parse --show-toplevel
 
 $latest_version = get-version-github -repo "ZyperWave/ZyperWinOptimize"
 update-recipe -version $latest_version
-build-pkg
+
