@@ -27,17 +27,17 @@ on:
           - noarch
       upload:
         type: boolean
-        description: "upload conda package"
+        description: "upload"
         required: true
         default: false
       publish:
         type: boolean
-        description: "If publishing to prefix.dev"
+        description: "publish"
         required: true
         default: false
       debug_on_fail:
         type: boolean
-        description: "Run the build with tmate debugging enabled"
+        description: "debug on fail"
         required: true
         default: false
 
