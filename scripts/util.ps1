@@ -164,10 +164,5 @@ function dispatch-workflow {
     build-pkg
 }
 
-# Function: Reset build number in recipe.yaml to 0
-function reset-build-code {
-    (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
-}
-
 # Extract package name and current system architecture
 $name = get-name
