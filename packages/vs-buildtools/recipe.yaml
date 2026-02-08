@@ -1,7 +1,7 @@
 context:
   name: vs-buildtools
 package:
-  version: "17"
+  version: "16"
   name: ${{ name }}
 build:
   number: 0
