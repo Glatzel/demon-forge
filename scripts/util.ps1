@@ -106,7 +106,6 @@ function Get-Cargo-Arg {
     return $cargo_arg
 }
 
-# Function: Update the recipe.yaml file if a new version is detected
 function update-recipe {
     param($version)
     $current_version = get-current-version
