@@ -147,7 +147,7 @@ function update-recipe {
             default { exit 0 }
         }
     }
-    else { }
+    build-pkg
 }
 
 # Function: Reset build number in recipe.yaml to 0
