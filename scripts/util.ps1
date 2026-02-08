@@ -120,7 +120,7 @@ function update-recipe {
             )
         )
     ) {
-        if (-not ($version -cmatch '^\d+(\.\d+)+$')) {
+        if (-not ($version -cmatch '^\d+(\.[1-9]+\d?)?$')) {
             throw "Invalid version"
         }
         Write-Output "::group::update recipe"
