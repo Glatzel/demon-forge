@@ -9,7 +9,7 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   number: 0
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/magick${{'.exe' if win}} --help"
+  - script: magick --help
 about:
   homepage: https://imagemagick.org
   license: Apache-2.0
