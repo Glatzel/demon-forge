@@ -6,7 +6,7 @@ Remove-Item Alias:curl -ErrorAction SilentlyContinue
 if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
     # avoid build error by long path
-    if($env:CI){$env:CARGO_TARGET_DIR="c:/t"}
+    if ($env:CI) { $env:CARGO_TARGET_DIR = "c:/t" }
 }
 if ($IsMacOS) {
     $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
@@ -97,17 +97,16 @@ function Get-Cargo-Arg {
         '--force'
         '--config'
         'profile.release.debug=false'
-            '--config', 'profile.release.codegen-units=1'
-            '--config', 'profile.release.lto="fat"'
-            '--config', 'profile.release.opt-level=3'
-            '--config', 'profile.release.strip=true'
-        )
+        '--config', 'profile.release.codegen-units=1'
+        '--config', 'profile.release.lto="fat"'
+        '--config', 'profile.release.opt-level=3'
+        '--config', 'profile.release.strip=true'
+    )
 
     return $cargo_arg
 }
 
-# Function: Update the recipe.yaml file if a new version is detected
-function update-recipe {
+function dispatch-workflow {
     param($version)
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
@@ -147,35 +146,19 @@ function update-recipe {
             default { exit 0 }
         }
     }
-    else { }
+    function build-pkg {
+        $rattler_build_args = @(
+            "--config-file", "$ROOT/rattler-config.toml"
+            "--color", "always"
+            "build", "--output-dir", "$ROOT/output"
+        )
+        if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
+        if ($env:GITHUB_EVENT_NAME -eq "push") { $rattler_build_args += ("--package-format", "conda:22") }
+        else { $rattler_build_args += ("--package-format", "conda:-7") }
+        pixi run rattler-build $rattler_build_args
+    }
+    build-pkg
 }
 
-# Function: Reset build number in recipe.yaml to 0
-function reset-build-code {
-    (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
-}
-
-# Function: Build the package using rattler-build inside Pixi
-function build-pkg {
-    $rattler_build_args = @(
-        "--config-file", "$ROOT/rattler-config.toml"
-        "--color", "always"
-        "build", "--output-dir", "$ROOT/output"
-    )
-    if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
-    if ($env:GITHUB_EVENT_NAME -eq "push") {
-        $rattler_build_args += ("--package-format", "conda:22")
-    }
-    else {
-        $rattler_build_args += ("--package-format", "conda:-7")
-    }
-    pixi run rattler-build $rattler_build_args
-}
 # Extract package name and current system architecture
 $name = get-name
-# Possible values:
-# - X86 (32-bit)
-# - X64 (64-bit)
-# - Arm (ARM 32-bit)
-# - Arm64 (ARM 64-bit)
-$arch = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture

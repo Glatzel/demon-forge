@@ -39,7 +39,7 @@ if ($IsMacOS) {
 if ($IsLinux) {
     $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
 
-    if ($arch -eq "X64") {
+    if ($env:TARGET_PLATFORM -eq 'linux-64') {
         $cmakeArgs += @( "-DUSE_SIMD=sse4.2,avx2")
     }
 }
