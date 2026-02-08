@@ -22,6 +22,7 @@ requirements:
     - autoconf
     - automake
     - file
+    - 7zip
     - if: unix
       then:
         - c-compiler
