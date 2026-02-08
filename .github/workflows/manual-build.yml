@@ -15,10 +15,30 @@ on:
           - macos-latest
           - ubuntu-latest
           - ubuntu-24.04-arm
+      target-platform:
+        description: "target-platform"
+        type: choice
+        required: true
+        options:
+          - win-64
+          - osx-arm64
+          - linux-64
+          - linux-aarch64
+          - noarch
+      upload:
+        type: boolean
+        description: "upload"
+        required: true
+        default: false
+      publish:
+        type: boolean
+        description: "publish"
+        required: true
+        default: false
       debug_on_fail:
         type: boolean
-        description: "Run the build with tmate debugging enabled"
-        required: false
+        description: "debug on fail"
+        required: true
         default: false
 
 concurrency:
@@ -50,10 +70,17 @@ jobs:
         shell: pwsh
 
       - name: upload
+        if: ${{ inputs.upload }}
         uses: actions/upload-artifact@v6
         with:
-          name: ${{inputs.name}}-${{inputs.machine}}
+          name: ${{inputs.name}}-${{inputs.target-platform}}
           path: ./output
+
+      - name: publish
+        if: ${{ inputs.publish }}
+        run: |
+          ./scripts/publish.ps1 -pkg ${{inputs.name}}
+        shell: pwsh
 
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
