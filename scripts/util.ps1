@@ -106,7 +106,7 @@ function Get-Cargo-Arg {
     return $cargo_arg
 }
 
-function update-recipe {
+function dispatch-workflow {
     param($version)
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
