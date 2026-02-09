@@ -1,19 +1,12 @@
 context:
-  name: rumqttd
+  name: vs-buildtools
 package:
-  version: "0.20.0"
+  version: "18"
   name: ${{ name }}
 build:
-  number: 4
+  number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - if: linux
-      then:
-        - rust
-        - c-compiler
 tests:
   - package_contents:
       bin:
-        - ${{name}}
-  - script: ${{name}} --help
+        - vs_BuildTools

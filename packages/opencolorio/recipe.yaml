@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 3
+  number: 5
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
@@ -23,14 +23,8 @@ requirements:
     - if: not osx
       then:
         - minizip
-  run:
-    - expat
-    - yaml-cpp
-    - imath
-    - zlib
-    - if: not osx
-      then:
-        - minizip
+  run_exports:
+    - ${{ pin_subpackage('opencolorio', upper_bound='x.x') }}
 tests:
   - package_contents:
       lib:

@@ -9,7 +9,7 @@ build:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/Dism++x64
+        - Dism++x64
 about:
   homepage: https://www.chuyu.me/en/index.html
   summary: Advanced Windows system management and optimization tool

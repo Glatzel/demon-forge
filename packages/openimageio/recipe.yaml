@@ -9,7 +9,7 @@ source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-  number: 0
+  number: 3
 requirements:
   build:
     - c-compiler
@@ -19,7 +19,7 @@ requirements:
     - make
     - if: win
       then:
-        - vs2022_win-64
+        - vs_win-64
   host:
     - opencolorio
     - bzip2
@@ -38,24 +38,8 @@ requirements:
     - tbb-devel
     - yaml-cpp
     - zlib
-  run:
-    - opencolorio
-    - bzip2
-    - fmt
-    - freetype
-    - giflib
-    - libheif
-    - libjpeg-turbo
-    - libjxl
-    - libpng
-    - libraw
-    - libtiff
-    - libwebp
-    - openexr
-    - openjpeg
-    - tbb-devel
-    - yaml-cpp
-    - zlib
+  run_exports:
+    - ${{ pin_subpackage('openimageio', upper_bound='x.x') }}
 tests:
   - script:
       - oiiotool --help

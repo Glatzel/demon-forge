@@ -8,11 +8,12 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ compiler("rust") }}
     - if: linux
       then:
         - pkg-config
         - openssl
+        - rust
+        - c-compiler
   run:
     - if: linux
       then:

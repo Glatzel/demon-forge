@@ -1,10 +1,10 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-if ($IsLinux -and $arch -eq "X64") {
+if ($env:TARGET_PLATFORM -eq 'linux-64') {
     gh release download -R "containerd/nerdctl" -p "${env:PKG_NAME}-*.*.*-linux-amd64.tar.gz" `
         -O  "${env:PKG_NAME}.tar.gz"
 }
-if ($IsLinux -and $arch -eq "Arm64") {
+if ($env:TARGET_PLATFORM -eq 'linux-aarch64') {
     gh release download -R "containerd/nerdctl" -p "${env:PKG_NAME}-*.*.*-linux-arm64.tar.gz" `
         -O  "${env:PKG_NAME}.tar.gz"
 }
