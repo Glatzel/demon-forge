@@ -7,7 +7,7 @@ package:
 source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 8
+  number: 9
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
@@ -31,18 +31,6 @@ requirements:
     - fmt
     - range-v3
     - glib
-  run:
-    - libvips
-    - libsixel
-    - chafa
-    - openssl
-    - tbb
-    - nlohmann_json
-    - cli11
-    - spdlog
-    - fmt
-    - range-v3
-    - libglib
 
 tests:
   - package_contents:

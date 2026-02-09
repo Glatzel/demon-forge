@@ -23,14 +23,6 @@ requirements:
     - if: not osx
       then:
         - minizip
-  run:
-    - expat
-    - yaml-cpp
-    - imath
-    - libzlib
-    - if: not osx
-      then:
-        - minizip
 tests:
   - package_contents:
       lib:

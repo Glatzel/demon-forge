@@ -9,7 +9,7 @@ source:
   - url: https://github.com/LibRaw/LibRaw-cmake/archive/refs/heads/master.zip
     target_directory: LibRaw-cmake
 build:
-  number: 0
+  number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
@@ -29,15 +29,6 @@ requirements:
     - if: osx
       then:
         llvm-openmp
-  run:
-    - libzlib
-    - lcms2
-    - libjpeg-turbo
-    - jasper
-    - if: osx
-      then:
-        llvm-openmp
-
 tests:
   - package_contents:
       include:

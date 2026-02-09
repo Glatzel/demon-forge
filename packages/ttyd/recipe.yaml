@@ -9,7 +9,7 @@ source:
     patches:
       - patch/config.patch
 build:
-  number: 8
+  number: 9
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
@@ -37,15 +37,6 @@ requirements:
         - json-c
         - libwebsockets
         - zlib
-    - if: macos
-      then:
-        - openssl
-  run:
-    - if: unix
-      then:
-        - json-c
-        - libwebsockets
-        - libzlib
     - if: macos
       then:
         - openssl
