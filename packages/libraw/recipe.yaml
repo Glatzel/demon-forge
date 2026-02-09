@@ -25,15 +25,15 @@ requirements:
     - zlib
     - lcms2
     - openjpeg
-    - Jasper
+    - jasper
     - if: osx
       then:
         llvm-openmp
   run:
-    - zlib
+    - libzlib
     - lcms2
-    - openjpeg
-    - Jasper
+    - libjpeg-turbo
+    - jasper
     - if: osx
       then:
         llvm-openmp
