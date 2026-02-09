@@ -27,7 +27,7 @@ requirements:
     - expat
     - yaml-cpp
     - imath
-    - zlib
+    - libzlib
     - if: not osx
       then:
         - minizip
