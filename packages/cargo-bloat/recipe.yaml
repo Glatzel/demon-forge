@@ -23,4 +23,3 @@ about:
     space. It helps developers optimize binary size and performance.
   documentation: https://github.com/rylev/cargo-bloat#usage
   repository: https://github.com/rylev/cargo-bloat
-
