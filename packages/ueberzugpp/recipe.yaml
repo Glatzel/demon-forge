@@ -7,7 +7,7 @@ package:
 source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 8
+  number: 9
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
