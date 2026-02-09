@@ -45,7 +45,7 @@ requirements:
       then:
         - json-c
         - libwebsockets
-        - zlib
+        - libzlib
     - if: macos
       then:
         - openssl
