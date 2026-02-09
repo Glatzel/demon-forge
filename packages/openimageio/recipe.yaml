@@ -38,6 +38,8 @@ requirements:
     - tbb-devel
     - yaml-cpp
     - zlib
+  run_exports:
+    - ${{ pin_subpackage('openimageio', upper_bound='x.x') }}
 tests:
   - script:
       - oiiotool --help
