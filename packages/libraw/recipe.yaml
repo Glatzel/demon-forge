@@ -18,13 +18,13 @@ requirements:
     - cmake 3.*
     - pkg-config
     - ninja
-    - ${{ vs_win-64 if win }}
+    - ${{ 'vs_win-64' if win }}
   host:
     - zlib
     - lcms2
     - openjpeg
     - jasper
-    - ${{ llvm-openmp if osx }}
+    - ${{ 'llvm-openmp' if osx }}
   run_exports:
     - ${{ pin_subpackage('libraw', upper_bound='x.x') }}
 tests:
