@@ -19,7 +19,7 @@ requirements:
     - nasm
     - pkg-config
   host:
-    - ${{ openssl if unix }}
+    - ${{ 'openssl' if unix }}
 tests:
   - package_contents:
       bin:
