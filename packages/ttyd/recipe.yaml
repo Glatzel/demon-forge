@@ -22,7 +22,7 @@ requirements:
     - autoconf
     - automake
     - file
-    - ${{ c-compiler if unix }}
+    - ${{ 'c-compiler' if unix }}
     - if: win
       then:
         - make
