@@ -29,6 +29,8 @@ requirements:
     - if: osx
       then:
         llvm-openmp
+  run_exports:
+    - ${{ pin_subpackage('libraw', upper_bound='x.x') }}
 tests:
   - package_contents:
       include:

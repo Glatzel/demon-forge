@@ -23,6 +23,8 @@ requirements:
     - if: not osx
       then:
         - minizip
+  run_exports:
+    - ${{ pin_subpackage('opencolorio', upper_bound='x.x') }}
 tests:
   - package_contents:
       lib:

@@ -22,6 +22,8 @@ requirements:
     - sqlite
     - libtiff
     - libcurl
+  run_exports:
+    - ${{ pin_subpackage('proj', upper_bound='x.x') }}
 tests:
   - package_contents:
       include:
