@@ -22,9 +22,7 @@ requirements:
     - autoconf
     - automake
     - file
-    - if: unix
-      then:
-        - c-compiler
+    - ${{ 'c-compiler' if unix }}
     - if: win
       then:
         - make
@@ -37,9 +35,6 @@ requirements:
         - json-c
         - libwebsockets
         - zlib
-    - if: macos
-      then:
-        - openssl
 
 tests:
   - package_contents:

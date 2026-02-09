@@ -12,9 +12,7 @@ build:
 
 requirements:
   build:
-    - if: linux
-      then:
-        - rust
+    - ${{ 'rust' if linux}}
     - libraw
   host:
     - python 3.13.*

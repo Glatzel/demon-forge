@@ -17,9 +17,7 @@ requirements:
     - cmake 3.*
     - ninja
     - make
-    - if: win
-      then:
-        - vs_win-64
+    - ${{ 'vs_win-64' if win }}
   host:
     - opencolorio
     - bzip2

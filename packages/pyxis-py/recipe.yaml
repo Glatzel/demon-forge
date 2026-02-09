@@ -11,9 +11,7 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - rust
+    - ${{ 'rust' if linux }}
   host:
     - python 3.13.*
     - pip
