@@ -13,7 +13,7 @@ requirements:
   build:
     - pkg-config
     - proj
-    - ${{ rust if linux }}
+    - ${{ 'rust' if linux }}
   host:
     - proj
     - if: osx
