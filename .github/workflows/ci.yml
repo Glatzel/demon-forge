@@ -99,11 +99,8 @@ jobs:
           assignees: Glatzel
           draft: true
   build-result:
-    if: ${{ github.event_name == 'pull_request' && !cancelled()}}
+    if: always() && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) && github.event_name == 'pull_request'
     needs: [rattler-build, dispatch]
     runs-on: ubuntu-slim
     steps:
-      - if: ${{success() || needs.dispatch.outputs.matrix == ''}}
-        run: echo "success"
-      - if: ${{!(success() || needs.dispatch.outputs.matrix == '')}}
-        run: echo "fail" && exit 1
+      - run: exit 1
