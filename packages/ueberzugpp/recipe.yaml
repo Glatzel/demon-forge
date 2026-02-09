@@ -32,7 +32,6 @@ requirements:
     - range-v3
     - glib
   run:
-    - expat
     - libvips
     - libsixel
     - chafa
@@ -43,7 +42,7 @@ requirements:
     - spdlog
     - fmt
     - range-v3
-    - glib
+    - libglib
 
 tests:
   - package_contents:
