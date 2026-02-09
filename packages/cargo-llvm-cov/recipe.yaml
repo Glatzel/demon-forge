@@ -8,7 +8,7 @@ build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ rust if linux}}
+    - ${{ 'rust' if linux}}
 tests:
   - script: ${{ name }} llvm-cov --help
 about:
