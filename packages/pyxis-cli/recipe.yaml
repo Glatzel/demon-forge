@@ -25,14 +25,5 @@ requirements:
       then:
         - libstdcxx
         - libudev
-  run:
-    - proj
-    - if: osx
-      then:
-        - libiconv
-    - if: linux
-      then:
-        - libstdcxx
-        - libudev
 tests:
   - script: pyxis --help

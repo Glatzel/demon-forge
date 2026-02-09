@@ -31,18 +31,6 @@ requirements:
     - fmt
     - range-v3
     - glib
-  run:
-    - libvips
-    - libsixel
-    - chafa
-    - openssl
-    - tbb
-    - nlohmann_json
-    - cli11
-    - spdlog
-    - fmt
-    - range-v3
-    - libglib
 
 tests:
   - package_contents:

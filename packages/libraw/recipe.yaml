@@ -29,15 +29,6 @@ requirements:
     - if: osx
       then:
         llvm-openmp
-  run:
-    - libzlib
-    - lcms2
-    - libjpeg-turbo
-    - jasper
-    - if: osx
-      then:
-        llvm-openmp
-
 tests:
   - package_contents:
       include:

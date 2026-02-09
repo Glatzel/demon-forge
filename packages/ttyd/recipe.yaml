@@ -40,15 +40,6 @@ requirements:
     - if: macos
       then:
         - openssl
-  run:
-    - if: unix
-      then:
-        - json-c
-        - libwebsockets
-        - libzlib
-    - if: macos
-      then:
-        - openssl
 
 tests:
   - package_contents:

@@ -22,10 +22,6 @@ requirements:
     - sqlite
     - libtiff
     - libcurl
-  run:
-    - sqlite
-    - libtiff
-    - libcurl
 tests:
   - package_contents:
       include:
