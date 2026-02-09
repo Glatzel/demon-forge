@@ -15,7 +15,7 @@ requirements:
         - rust
         - c-compiler
   host:
-    - ${{ openssl if linux }}
+    - ${{ 'openssl' if linux }}
 
 tests:
   - package_contents:
