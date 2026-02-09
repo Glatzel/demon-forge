@@ -15,9 +15,7 @@ requirements:
     - cxx-compiler
     - cmake 3.*
     - ninja
-    - if: win
-      then:
-        - vs_win-64
+    - ${{ vs_win-64 if win }}
   host:
     - sqlite
     - libtiff

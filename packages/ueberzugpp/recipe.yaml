@@ -15,9 +15,7 @@ requirements:
     - cxx-compiler
     - cmake 3.*
     - ninja
-    - if: osx
-      then:
-        - clang-tools
+    - ${{ clang-tools if osx }}
   host:
     - expat
     - libvips
