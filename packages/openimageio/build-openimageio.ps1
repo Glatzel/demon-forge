@@ -3,8 +3,6 @@ $ROOT = git rev-parse --show-toplevel
 
 # Common CMake options
 $cmakeArgs = @(
-    "-G"
-    "Ninja"
     "-DVERBOSE=ON"
     "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_DOCS=0"
