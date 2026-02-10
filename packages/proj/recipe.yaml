@@ -7,15 +7,16 @@ package:
 source:
   url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 8
+  number: 9
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - c-compiler
-    - cxx-compiler
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
     - cmake 3.*
     - ninja
-    - ${{ 'vs_win-64' if win }}
+
   host:
     - sqlite
     - libtiff

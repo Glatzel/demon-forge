@@ -9,15 +9,16 @@ source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-  number: 3
+  number: 4
 requirements:
   build:
-    - c-compiler
-    - cxx-compiler
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
     - cmake 3.*
     - ninja
     - make
-    - ${{ 'vs_win-64' if win }}
+
   host:
     - opencolorio
     - bzip2
