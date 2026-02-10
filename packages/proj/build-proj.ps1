@@ -1,7 +1,5 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-Set-Location $env:SRC_DIR
 
 if ($IsWindows) {
     $env:CMAKE_GENERATOR_PLATFORM = "x64"
