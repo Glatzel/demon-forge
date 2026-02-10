@@ -9,10 +9,6 @@ source:
 build:
   number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
 tests:
   - package_contents:
       bin:
