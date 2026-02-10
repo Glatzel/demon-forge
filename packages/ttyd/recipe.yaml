@@ -9,7 +9,7 @@ source:
     patches:
       - patch/config.patch
 build:
-  number: 9
+  number: 10
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
@@ -22,7 +22,10 @@ requirements:
     - autoconf
     - automake
     - file
-    - ${{ 'c-compiler' if unix }}
+    - if: unix
+      then:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
     - if: win
       then:
         - make

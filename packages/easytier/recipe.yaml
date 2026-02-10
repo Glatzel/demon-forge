@@ -7,16 +7,16 @@ package:
 source:
   - url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 1
+  number: 2
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - ${{ 'vs_win-64' if win }}
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
     - if: linux
       then:
-        - rust
-        - c-compiler
-        - cxx-compiler
         - clang
         - libclang
   host:
