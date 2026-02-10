@@ -10,7 +10,6 @@ requirements:
   build:
     - rust
     - c-compiler
-    - sysroot_linux-64
 tests:
   - package_contents:
       bin:
