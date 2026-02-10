@@ -4,7 +4,6 @@ $ROOT = git rev-parse --show-toplevel
 Set-Location $env:SRC_DIR
 
 if ($IsWindows) {
-    $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
     $env:CMAKE_GENERATOR_PLATFORM = "x64"
     $env:CMAKE_GENERATOR_TOOLSET = "v143"
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
@@ -16,7 +15,7 @@ if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
 
-cmake -S . -B build `
+cmake -S . -B build -`
     -DCMAKE_BUILD_TYPE="RELEASE" `
     -DBUILD_APPS=ON `
     -DBUILD_SHARED_LIBS=ON `
