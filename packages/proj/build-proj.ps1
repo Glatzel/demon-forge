@@ -16,7 +16,7 @@ if ($IsLinux) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
 
-cmake -S . -B build -G Ninja `
+cmake -S . -B build `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     -DBUILD_APPS=ON `
     -DBUILD_SHARED_LIBS=ON `
