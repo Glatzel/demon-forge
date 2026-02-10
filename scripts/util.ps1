@@ -6,9 +6,9 @@ Remove-Item Alias:curl -ErrorAction SilentlyContinue
 if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
     # avoid build error by long path
-    if ($env:CI) { 
-        $env:CARGO_TARGET_DIR = "c:/t" 
-        $env:CARGO_HOME = "c:/c" 
+    if ($env:CI) {
+        $env:CARGO_TARGET_DIR = "c:/t"
+        $env:CARGO_HOME = "c:/c"
     }
 }
 if ($IsMacOS) {
