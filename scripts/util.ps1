@@ -155,6 +155,7 @@ function dispatch-workflow {
         if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
         if ($env:GITHUB_EVENT_NAME -eq "push") { $rattler_build_args += ("--package-format", "conda:22") }
         else { $rattler_build_args += ("--package-format", "conda:-7") }
+        if ($env:CI -and $IsLinux) { $rattler_build_args += ("--variant-config", "$ROOT/conda_build_config.yaml") }
         pixi run rattler-build $rattler_build_args
     }
     build-pkg
