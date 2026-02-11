@@ -122,7 +122,8 @@ function dispatch-workflow {
             )
         )
     ) {
-        if (-not ($version -cmatch '^\d+(\.[1-9]+\d?)?$')) {
+        if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))?$
+')) {
             throw "Invalid version"
         }
         Write-Output "::group::update recipe"
