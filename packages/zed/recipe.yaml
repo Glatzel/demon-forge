@@ -12,6 +12,8 @@ build:
 requirements:
   build:
     - rust
+  host:
+    - vs
 tests:
   - package_contents:
       bin:
