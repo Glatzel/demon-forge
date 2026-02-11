@@ -12,8 +12,8 @@ build:
 requirements:
   build:
     - rust
-  host:
-    - vs_win-64
+  run:
+    - vc
 tests:
   - package_contents:
       bin:
