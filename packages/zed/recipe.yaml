@@ -13,7 +13,7 @@ requirements:
   build:
     - rust
   host:
-    - vs
+    - vs_win-64
 tests:
   - package_contents:
       bin:
