@@ -160,7 +160,7 @@ function dispatch-workflow {
         if ($env:GITHUB_EVENT_NAME -eq "push") { $rattler_build_args += ("--package-format", "conda:22") }
         else { $rattler_build_args += ("--package-format", "conda:-7") }
         pixi run rattler-build $rattler_build_args
-        foreach ($pkg_file in Get-ChildItem "./output/*/$pkg-*.conda") {
+        foreach ($pkg_file in Get-ChildItem "$ROOT/output/*/$pkg-*.conda") {
             Write-Output "::group:: inspect $pkg"
             pixi run rattler-build package inspect --all $pkg_file
             Write-Output "::endgroup::"
