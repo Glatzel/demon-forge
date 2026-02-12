@@ -9,7 +9,7 @@ source:
   - url: https://github.com/LibRaw/LibRaw-cmake/archive/refs/heads/master.zip
     target_directory: LibRaw-cmake
 build:
-  number: 5
+  number: 6
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
