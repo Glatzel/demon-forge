@@ -170,4 +170,3 @@ function dispatch-workflow {
 }
 
 # Extract package name and current system architecture
-
