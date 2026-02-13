@@ -22,7 +22,7 @@ requirements:
   host:
     - opencolorio
     - bzip2
-    - ${{ 'dcmtk' if not osx}}
+  #  - ${{ 'dcmtk' if not osx}}
     - fmt
     - freetype
     - ffmpeg
