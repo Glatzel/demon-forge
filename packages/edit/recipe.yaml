@@ -1,16 +1,21 @@
 context:
   name: edit
-package:
   version: "1.2.1"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  url: https://github.com/microsoft/edit/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - ${{ compiler("rust") }}
 tests:
   - package_contents:
       bin:
         - ${{ name }}
-
 about:
   homepage: https://github.com/microsoft/edit
   license: MIT
