@@ -10,6 +10,7 @@ $cmakeArgs = @(
     "-DBUILD_DOCS=0"
     "-DBUILD_SHARED_LIBS=1"
     "-DENABLE_INSTALL_testtex=0"
+    "-DENABLE_DCMTK=0"
     "-DENABLE_libuhdr=0"
     "-DENABLE_Nuke=0"
     "-DENABLE_Ptex=0"
@@ -31,10 +32,7 @@ if ($IsWindows) {
     )
 }
 if ($IsMacOS) {
-    $cmakeArgs += @(
-    "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX"
-    "-DENABLE_DCMTK=0"
-    )
+    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
 }
 if ($IsLinux) {
     $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
