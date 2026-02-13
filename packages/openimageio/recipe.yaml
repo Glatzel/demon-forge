@@ -22,6 +22,7 @@ requirements:
   host:
     - opencolorio
     - bzip2
+    - dcmtk
     - fmt
     - freetype
     - giflib
