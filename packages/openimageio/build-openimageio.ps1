@@ -12,7 +12,6 @@ $cmakeArgs = @(
     "-DENABLE_INSTALL_testtex=0"
     "-DENABLE_libuhdr=0"
     "-DENABLE_Nuke=0"
-    "-DENABLE_OpenVDB=0"
     "-DENABLE_Ptex=0"
     "-DENABLE_Python3=0"
     "-DINSTALL_DOCS=0"
