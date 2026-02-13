@@ -36,7 +36,7 @@ requirements:
     - libwebp
     - openexr
     - openjpeg
-    - opencv
+    - libopencv
     - openvdb
     - tbb-devel
     - yaml-cpp
