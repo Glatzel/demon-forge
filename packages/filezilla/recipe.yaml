@@ -1,7 +1,7 @@
 context:
   name: filezilla
 package:
-  version: "3.69.5"
+  version: "3.69.6"
   name: ${{ name }}
 build:
   number: 0
