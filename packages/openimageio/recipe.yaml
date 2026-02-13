@@ -37,6 +37,7 @@ requirements:
     - openexr
     - openjpeg
     - opencv
+    - openvdb
     - tbb-devel
     - yaml-cpp
     - zlib
