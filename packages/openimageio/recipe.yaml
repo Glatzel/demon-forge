@@ -18,11 +18,12 @@ requirements:
     - cmake 3.*
     - ninja
     - make
+    - pkg-config
 
   host:
     - opencolorio
     - bzip2
-  #  - ${{ 'dcmtk' if not osx}}
+    - ${{ 'dcmtk' if not osx}}
     - fmt
     - freetype
     - ffmpeg
