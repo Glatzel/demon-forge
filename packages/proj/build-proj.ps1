@@ -1,16 +1,11 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-
 if ($IsWindows) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
-if ($IsMacOS) {
+else {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
-if ($IsLinux) {
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
-}
-
 cmake -S . -B build -G Ninja `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     -DBUILD_APPS=ON `
