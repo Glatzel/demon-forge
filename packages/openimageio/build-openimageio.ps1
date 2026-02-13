@@ -28,7 +28,7 @@ if ($IsWindows) {
         "-DCMAKE_CXX_FLAGS=/utf-8"
         "-DUSE_SIMD=sse4.2,avx2"
         "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library"
-        
+
     )
 }
 if ($IsMacOS) {
