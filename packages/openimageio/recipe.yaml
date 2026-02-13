@@ -22,9 +22,10 @@ requirements:
   host:
     - opencolorio
     - bzip2
-    - dcmtk
+    - ${{ 'dcmtk' if not macos}}
     - fmt
     - freetype
+    - ffmpeg
     - giflib
     - libheif
     - libjpeg-turbo
@@ -35,6 +36,7 @@ requirements:
     - libwebp
     - openexr
     - openjpeg
+    - opencv
     - tbb-devel
     - yaml-cpp
     - zlib
