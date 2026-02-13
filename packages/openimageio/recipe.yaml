@@ -9,7 +9,7 @@ source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-  number: 4
+  number: 5
 requirements:
   build:
     - ${{ compiler('c') }}
@@ -24,6 +24,7 @@ requirements:
     - bzip2
     - fmt
     - freetype
+    - ffmpeg
     - giflib
     - libheif
     - libjpeg-turbo
@@ -34,6 +35,8 @@ requirements:
     - libwebp
     - openexr
     - openjpeg
+    - libopencv
+    - openvdb
     - tbb-devel
     - yaml-cpp
     - zlib
