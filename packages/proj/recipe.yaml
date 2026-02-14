@@ -6,7 +6,6 @@ cache:
   source:
     url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
   build:
-    number: 9
     script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
   requirements:
     build:
@@ -22,6 +21,8 @@ cache:
 outputs:
   - package:
       name: proj
+    build: 
+      number: 10
     requirements:
       run_exports:
         - ${{ pin_subpackage('libproj', upper_bound='x.x') }}
@@ -48,6 +49,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('libproj', upper_bound='x.x') }}
     build:
+      number: 0
       files:
         - ${{'Library/bin/**' if win}}
         - ${{'Library/lib/**' if win}}
