@@ -21,7 +21,7 @@ cache:
 outputs:
   - package:
       name: proj
-    build: 
+    build:
       number: 10
     requirements:
       run_exports:
