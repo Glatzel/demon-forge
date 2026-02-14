@@ -1,41 +1,59 @@
-context:
+recipe:
   name: proj
   version: "9.7.1"
-package:
-  version: ${{ version }}
-  name: ${{ name }}
-source:
-  url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
-build:
-  number: 9
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - cmake 3.*
-    - ninja
 
-  host:
-    - sqlite
-    - libtiff
-    - libcurl
-  run_exports:
-    - ${{ pin_subpackage('proj', upper_bound='x.x') }}
-tests:
-  - package_contents:
-      include:
-        - proj.h
-      bin:
-        - cs2cs
-        - proj
-        - cct
-        - geod
-        - gie
-        - invgeod
-        - invproj
-  - script: projinfo -s EPSG:2230 -t EPSG:26946
+cache:
+  source:
+    url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
+  build:
+    number: 9
+    script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  requirements:
+    build:
+      - ${{ compiler('c') }}
+      - ${{ compiler('cxx') }}
+      - ${{ stdlib('c') }}
+      - cmake 3.*
+      - ninja
+    host:
+      - sqlite
+      - libtiff
+      - libcurl
+outputs:
+  - package:
+      name: proj
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('libproj', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          include:
+            - proj.h
+          bin:
+            - cs2cs
+            - proj
+            - cct
+            - geod
+            - gie
+            - invgeod
+            - invproj
+      - script: projinfo -s EPSG:2230 -t EPSG:26946
+  - package:
+      name: libproj
+    requirements:
+      host:
+        - sqlite
+        - libtiff
+        - libcurl
+      run_exports:
+        - ${{ pin_subpackage('libproj', upper_bound='x.x') }}
+    build:
+      files:
+        - ${{'Library/bin/**' if win}}
+        - ${{'Library/lib/**' if win}}
+        - ${{'Library/share/proj/**' if win}}
+        - ${{'lib/**' if unix}}
+        - ${{'share/proj/**' if unix}}
 about:
   repository: https://github.com/OSGeo/PROJ
   documentation: https://proj.org/en/stable/
