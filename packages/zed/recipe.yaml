@@ -1,8 +1,8 @@
 context:
   name: zed
-  version: "0.223.5"
+  version: "0.224.6"
 package:
-  version: "0.223.5"
+  version: "0.224.6"
   name: ${{ name }}
 source:
   url: https://github.com/zed-industries/zed/archive/refs/tags/v${{ version }}.tar.gz
