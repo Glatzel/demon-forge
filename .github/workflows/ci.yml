@@ -98,9 +98,10 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
-  build-result:
+  check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'
     needs: [rattler-build, dispatch]
     runs-on: ubuntu-slim
     steps:
       - run: exit 1
+
