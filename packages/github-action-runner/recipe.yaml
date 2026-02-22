@@ -1,0 +1,8 @@
+context:
+  name: github-action-runner
+package:
+  version: "2.2.1"
+  name: ${{ name }}
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
