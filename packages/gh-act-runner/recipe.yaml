@@ -1,0 +1,16 @@
+context:
+  name: gh-act-runner
+package:
+  version: "0.13.0"
+  name: ${{ name }}
+build:
+  number: 0
+  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  run: nodejs 20.*
+tests:
+  - package_contents:
+      bin:
+        - gh-act-runner
+about:
+  repository: https://github.com/ChristopherHX/github-act-runner
