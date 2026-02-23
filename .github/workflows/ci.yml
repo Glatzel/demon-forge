@@ -14,15 +14,12 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref=='refs/heads/main' && github.sha || github.ref}}
   cancel-in-progress: ${{ github.event_name != 'push'}}
-
-permissions:
-  contents: write
-  id-token: write
-  pull-requests: write
 env:
   GITHUB_EVENT_NAME: ${{ github.event_name }}
   GITHUB_REF_NAME: ${{github.ref_name}}
 jobs:
+  lefthook:
+    uses: ./.github/workflows/ci-lefthook.yml
   dispatch:
     runs-on: ubuntu-slim
     outputs:
@@ -49,6 +46,10 @@ jobs:
         shell: pwsh
 
   rattler-build:
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
     if: ${{needs.dispatch.outputs.matrix != '' }}
     needs: dispatch
     strategy:
@@ -100,4 +101,5 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - run: exit 1
+
 
