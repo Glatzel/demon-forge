@@ -97,7 +97,7 @@ jobs:
           draft: true
   check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'
-    needs: [rattler-build, dispatch]
+    needs: [lefthook, rattler-build, dispatch]
     runs-on: ubuntu-slim
     steps:
       - run: exit 1
