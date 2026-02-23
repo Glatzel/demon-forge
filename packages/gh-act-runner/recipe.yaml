@@ -7,9 +7,8 @@ build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
-  run:
-    nodejs 20.*
+  run: nodejs 20.*
 tests:
-  package_contents:
-    bin:
-      - gh-act-runner
+  - package_contents:
+      bin:
+        - gh-act-runner
