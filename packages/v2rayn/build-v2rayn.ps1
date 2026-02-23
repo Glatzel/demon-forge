@@ -16,7 +16,7 @@ if ($IsWindows) {
 #         -O  ./${env:PKG_NAME}.zip# }
 7z x "${env:PKG_NAME}.zip" "-o./${env:PKG_NAME}"
 if ($IsWindows) {
-    Copy-Item "./${env:PKG_NAME}/v2rayN-windows-64-desktop/*" "$env:PREFIX/bin/${env:PKG_NAME}/" -Recurse
+    Copy-Item "./v2rayN-windows-64-desktop/*" "$env:PREFIX/bin/${env:PKG_NAME}/" -Recurse
 }
 # if ($IsMacOS) {
 #     Copy-Item "./${env:PKG_NAME}/v2rayN-macos-arm64/*" "$env:PREFIX/bin/${env:PKG_NAME}/" -Recurse
