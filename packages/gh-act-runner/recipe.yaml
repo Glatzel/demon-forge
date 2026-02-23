@@ -12,3 +12,5 @@ tests:
   - package_contents:
       bin:
         - gh-act-runner
+about:
+  repository: https://github.com/ChristopherHX/github-act-runner
