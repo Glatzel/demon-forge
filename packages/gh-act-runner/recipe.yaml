@@ -9,7 +9,7 @@ build:
 requirements:
   run:
     nodejs 20.*
-tests: 
+tests:
   package_contents:
     bin:
       - gh-act-runner
