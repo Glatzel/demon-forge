@@ -1,21 +1,11 @@
-Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-Set-Location $env:SRC_DIR
-
 if ($IsWindows) {
-    $env:CMAKE_GENERATOR = "Visual Studio 17 2022"
-    $env:CMAKE_GENERATOR_PLATFORM = "x64"
-    $env:CMAKE_GENERATOR_TOOLSET = "v143"
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
-if ($IsMacOS) {
+else {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
-if ($IsLinux) {
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
-}
-
 cmake -S . -B build -G Ninja `
     -DCMAKE_BUILD_TYPE="RELEASE" `
     -DBUILD_APPS=ON `

@@ -1,14 +1,17 @@
 context:
   name: zed
-  version: "0.222.4"
+  version: "0.224.11"
 package:
-  version: "0.222.4"
+  version: "0.224.11"
   name: ${{ name }}
 source:
   url: https://github.com/zed-industries/zed/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+requirements:
+  build:
+    - rust
 tests:
   - package_contents:
       bin:

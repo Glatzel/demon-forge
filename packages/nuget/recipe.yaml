@@ -1,9 +1,9 @@
 context:
   name: nuget
-  version: "7.0.1"
+  version: "7.3.0"
 package:
   name: ${{ name }}
-  version: ${{ version }}
+  version: "7.3.0"
 source:
   url: https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 build:

@@ -7,17 +7,16 @@ package:
 source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 9
+  number: 10
   script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
-    - c-compiler
-    - cxx-compiler
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
     - cmake 3.*
     - ninja
-    - if: osx
-      then:
-        - clang-tools
+    - ${{ 'clang-tools' if osx }}
   host:
     - expat
     - libvips

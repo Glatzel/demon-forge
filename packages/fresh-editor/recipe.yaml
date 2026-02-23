@@ -1,22 +1,20 @@
 context:
   name: fresh-editor
 package:
-  version: "0.1.99"
+  version: "0.2.5"
   name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: win
-      then:
-        - vs_win-64
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
     - if: linux
       then:
         - clang
         - libclang
-        - c-compiler
-        - rust
 tests:
   - script: fresh --help
 about:

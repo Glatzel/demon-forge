@@ -7,14 +7,13 @@ package:
 source:
   url: https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 4
+  number: 5
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - rust
-        - c-compiler
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
 tests:
   - package_contents:
       bin:

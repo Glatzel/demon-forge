@@ -7,21 +7,19 @@ package:
 source:
   url: https://github.com/veeso/termscp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 4
+  number: 5
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - rust
-    - c-compiler
-    - cxx-compiler
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
     - cmake 3.30.*
     - make
     - nasm
     - pkg-config
   host:
-    - if: unix
-      then:
-        - openssl
+    - ${{ 'openssl' if unix }}
 tests:
   - package_contents:
       bin:

@@ -1,7 +1,7 @@
 context:
   name: calibre
 package:
-  version: "9.2.1"
+  version: "9.3.1"
   name: ${{ name }}
 build:
   number: 0

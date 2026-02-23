@@ -28,12 +28,8 @@ tests:
       include:
         - CameraRemote_SDK.h
       lib:
-        - if: win
-          then:
-            - Cr_Core.dll
-        - if: unix
-          then:
-            - Cr_Core
+        - ${{ 'Cr_Core.dll' if win }}
+        - ${{ 'Cr_Core' if unix}}
 about:
   homepage: https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html
   summary: Software Development Kit for remote control of Sony cameras

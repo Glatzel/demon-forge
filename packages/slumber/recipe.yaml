@@ -1,17 +1,16 @@
 context:
   name: slumber
 package:
-  version: "4.3.1"
+  version: "5.1.0"
   name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - rust
-        - c-compiler
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
 tests:
   - package_contents:
       bin:

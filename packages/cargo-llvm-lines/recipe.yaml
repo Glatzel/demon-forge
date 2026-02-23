@@ -4,13 +4,12 @@ package:
   version: "0.4.45"
   name: ${{ name }}
 build:
-  number: 10
+  number: 11
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - rust
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
 tests:
   - package_contents:
       bin:

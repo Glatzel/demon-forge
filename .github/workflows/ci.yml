@@ -3,30 +3,23 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore:
-      - "*.md"
   pull_request:
     types:
       - opened
       - synchronize
       - ready_for_review
-    paths-ignore:
-      - "*.md"
   schedule:
     - cron: 0 16 * * *
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref=='refs/heads/main' && github.sha || github.ref}}
   cancel-in-progress: ${{ github.event_name != 'push'}}
-
-permissions:
-  contents: write
-  id-token: write
-  pull-requests: write
 env:
   GITHUB_EVENT_NAME: ${{ github.event_name }}
   GITHUB_REF_NAME: ${{github.ref_name}}
 jobs:
+  lefthook:
+    uses: ./.github/workflows/ci-lefthook.yml
   dispatch:
     runs-on: ubuntu-slim
     outputs:
@@ -53,6 +46,10 @@ jobs:
         shell: pwsh
 
   rattler-build:
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
     if: ${{needs.dispatch.outputs.matrix != '' }}
     needs: dispatch
     strategy:
@@ -98,9 +95,9 @@ jobs:
           delete-branch: true
           assignees: Glatzel
           draft: true
-  build-result:
+  check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'
-    needs: [rattler-build, dispatch]
+    needs: [lefthook, rattler-build, dispatch]
     runs-on: ubuntu-slim
     steps:
       - run: exit 1

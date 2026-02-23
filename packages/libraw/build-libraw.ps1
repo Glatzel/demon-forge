@@ -1,12 +1,9 @@
 if ($IsWindows) {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
 }
-if ($IsMacOS) {
-    $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
-}
-if ($IsLinux) {
+else {
     $env:CMAKE_INSTALL_PREFIX = "$env:PREFIX"
 }
 Copy-Item ./LibRaw-cmake/* ./ -Recurse
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE="RELEASE"
+cmake -S . -G Ninja -B build -DCMAKE_BUILD_TYPE="RELEASE"
 cmake --build build --config Release --target install

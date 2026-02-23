@@ -1,16 +1,16 @@
 context:
-  name: 7-zip
+  name: gh-act-runner
 package:
-  version: "26.0"
+  version: "0.13.0"
   name: ${{ name }}
 build:
   number: 0
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
-  build:
-    - 7zip
+  run: nodejs 20.*
 tests:
   - package_contents:
       bin:
-        - 7z
-  - script: 7z --help
+        - gh-act-runner
+about:
+  repository: https://github.com/ChristopherHX/github-act-runner

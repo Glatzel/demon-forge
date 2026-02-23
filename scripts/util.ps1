@@ -6,7 +6,10 @@ Remove-Item Alias:curl -ErrorAction SilentlyContinue
 if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
     # avoid build error by long path
-    if ($env:CI) { $env:CARGO_TARGET_DIR = "c:/t" }
+    if ($env:CI) {
+        $env:CARGO_TARGET_DIR = "c:/t"
+        $env:CARGO_HOME = "c:/c"
+    }
 }
 if ($IsMacOS) {
     $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
@@ -119,7 +122,7 @@ function dispatch-workflow {
             )
         )
     ) {
-        if (-not ($version -cmatch '^\d+(\.[1-9]+\d?)?$')) {
+        if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$')) {
             throw "Invalid version"
         }
         Write-Output "::group::update recipe"
@@ -151,11 +154,17 @@ function dispatch-workflow {
             "--config-file", "$ROOT/rattler-config.toml"
             "--color", "always"
             "build", "--output-dir", "$ROOT/output"
+            "--variant-config", "$ROOT/conda_build_config.yaml"
         )
         if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
         if ($env:GITHUB_EVENT_NAME -eq "push") { $rattler_build_args += ("--package-format", "conda:22") }
         else { $rattler_build_args += ("--package-format", "conda:-7") }
         pixi run rattler-build $rattler_build_args
+        foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda") {
+            Write-Output "::group:: inspect $pkg"
+            pixi run rattler-build package inspect --all $pkg_file
+            Write-Output "::endgroup::"
+        }
     }
     build-pkg
 }

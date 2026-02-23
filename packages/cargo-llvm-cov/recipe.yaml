@@ -4,13 +4,12 @@ package:
   version: "0.8.4"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - if: linux
-      then:
-        - rust
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
 tests:
   - script: ${{ name }} llvm-cov --help
 about:

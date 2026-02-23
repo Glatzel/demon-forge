@@ -4,20 +4,19 @@ package:
   version: 0.2.0
   name: ${{ name }}
 build:
-  number: 6
+  number: 7
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
     - if: linux
       then:
         - pkg-config
         - openssl
-        - rust
-        - c-compiler
-  run:
-    - if: linux
-      then:
-        - openssl
+  host:
+    - ${{ 'openssl' if linux }}
 
 tests:
   - package_contents:

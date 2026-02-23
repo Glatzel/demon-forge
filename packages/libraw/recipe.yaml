@@ -9,26 +9,23 @@ source:
   - url: https://github.com/LibRaw/LibRaw-cmake/archive/refs/heads/master.zip
     target_directory: LibRaw-cmake
 build:
-  number: 4
+  number: 6
   script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
 requirements:
   build:
-    - c-compiler
-    - cxx-compiler
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
     - cmake 3.*
     - pkg-config
     - ninja
-    - if: win
-      then:
-        - vs_win-64
+
   host:
     - zlib
     - lcms2
     - openjpeg
     - jasper
-    - if: osx
-      then:
-        llvm-openmp
+    - ${{ 'llvm-openmp' if osx }}
   run_exports:
     - ${{ pin_subpackage('libraw', upper_bound='x.x') }}
 tests:
