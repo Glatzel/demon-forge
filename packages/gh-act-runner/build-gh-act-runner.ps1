@@ -23,3 +23,6 @@ else{
 7z x "${env:PKG_NAME}.tar.gz"
 7z x "${env:PKG_NAME}.tar" "-o$env:PREFIX/bin"
 }
+foreach($f in Get-ChildItem $env:PREFIX/bin/github-act-runner*){
+    Rename-Item $f "$f".Replace("github","gh")
+}
