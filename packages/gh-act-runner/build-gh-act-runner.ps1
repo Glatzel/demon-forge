@@ -1,7 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 if ($IsWindows) {
-    gh release download -R "ChristopherHX/github-act-runner" -p "binary-windows.tar.gz" `
+    gh release download -R "ChristopherHX/github-act-runner" -p "binary-windows-amd64.zip" `
         -O "${env:PKG_NAME}.zip"
 }
 if ($IsMacos) {
