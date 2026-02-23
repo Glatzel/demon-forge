@@ -3,15 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore:
-      - "*.md"
   pull_request:
     types:
       - opened
       - synchronize
       - ready_for_review
-    paths-ignore:
-      - "*.md"
   schedule:
     - cron: 0 16 * * *
 
@@ -104,3 +100,4 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - run: exit 1
+
