@@ -8,5 +8,5 @@ ForEach-Object {
 } |
 Sort-Object { [version]$_ } |
 Select-Object -Last 1
-$latest
-dispatch-workflow $latestTag
+
+dispatch-workflow $latest
