@@ -1,5 +1,12 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$latest_version = get-version-github 'rust-lang/rustup'
-dispatch-workflow $latest_version
+$repoUrl = "https://github.com/rust-lang/$name.git"
+$latest = git ls-remote --tags --refs $repoUrl |
+ForEach-Object {
+    ($_ -split "`t")[1] -replace '^refs/tags/', ''
+} |
+Sort-Object { [version]$_ } |
+Select-Object -Last 1
+$latest
+dispatch-workflow $latestTag
