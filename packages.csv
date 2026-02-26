@@ -60,6 +60,7 @@ toolbox,,,,,ubuntu-slim
 ttyd,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud,
 ueberzugpp,,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud,
 upx,windows-latest,,,,
+uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ghcr.io/glatzel/ghar-linux-release-cloud,ubuntu-24.04-arm+ghcr.io/glatzel/ghar-linux-release-cloud,
 v2rayn,windows-latest,,,,
 vs-buildtools,windows-latest,,,,
 xray,windows-latest,macos-latest,ubuntu-slim,ubuntu-24.04-arm,
