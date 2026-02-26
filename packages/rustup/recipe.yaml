@@ -23,5 +23,6 @@ tests:
   - package_contents:
       bin:
         - rustup
+        - rustup-init
 about:
   repository: https://github.com/rust-lang/rustup
