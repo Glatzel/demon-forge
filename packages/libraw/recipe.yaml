@@ -10,7 +10,9 @@ source:
     target_directory: LibRaw-cmake
 build:
   number: 6
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
 requirements:
   build:
     - ${{ compiler('c') }}

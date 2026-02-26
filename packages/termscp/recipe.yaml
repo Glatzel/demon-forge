@@ -8,7 +8,9 @@ source:
   url: https://github.com/veeso/termscp/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 5
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
 requirements:
   build:
     - ${{ compiler('rust') }}

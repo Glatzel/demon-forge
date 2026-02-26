@@ -8,7 +8,9 @@ package:
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
   number: 5
 requirements:
   build:

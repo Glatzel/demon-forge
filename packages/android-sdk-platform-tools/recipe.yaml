@@ -16,7 +16,9 @@ source:
       url: https://dl.google.com/android/repository/platform-tools-latest-linux.zip
 build:
   number: 0
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
 
 tests:
   - package_contents:
