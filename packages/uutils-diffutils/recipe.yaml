@@ -18,7 +18,8 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - diff
+        - diffutils
+  - script: diffutils --help
 about:
   license: MIT
   repository: https://github.com/uutils/diffutils
