@@ -15,9 +15,11 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
+  host:
+    - ${{ openssl if linux}}
 tests:
   - package_contents:
       bin:
-        - diffutils
+        - rustup
 about:
   repository: https://github.com/rust-lang/rustup
