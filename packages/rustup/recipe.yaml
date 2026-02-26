@@ -5,7 +5,7 @@ package:
   version: "1.28.2"
   name: ${{ name }}
 source:
-  url: https://github.com/rust-lang/rustup/archive/refs/tags/v${{ version }}.tar.gz
+  url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 2
   script:
