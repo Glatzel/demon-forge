@@ -5,13 +5,6 @@ c_compiler:
 c_compiler_version: # [unix]
   - 14 # [linux]
   - 19 # [osx]
-c_stdlib:
-  - sysroot # [linux]
-  - macosx_deployment_target # [osx]
-  - vs # [win]
-c_stdlib_version: # [unix]
-  - 2.28 # [linux]
-  - 11.0 # [osx and arm64]
 cxx_compiler:
   - gxx # [linux]
   - clangxx # [osx]
@@ -19,6 +12,12 @@ cxx_compiler:
 cxx_compiler_version: # [unix]
   - 14 # [linux]
   - 19 # [osx]
-# Rust Compiler Options
+c_stdlib:
+  - sysroot # [linux]
+  - macosx_deployment_target # [osx]
+  - vs # [win]
+c_stdlib_version: # [unix]
+  - 2.28 # [linux]
+  - 14.0 # [osx and arm64]
 rust_compiler:
   - rust
