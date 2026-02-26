@@ -5,7 +5,7 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  # script: 
+  # script:
   #   interpreter: powershell
   #   file: build.ps1
 requirements:
