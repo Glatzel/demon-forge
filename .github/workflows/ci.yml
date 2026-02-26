@@ -80,8 +80,7 @@ jobs:
 
       - name: publish
         if: ${{ steps.main.outputs.action_publish == 'true' }}
-        run: |
-          ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+        run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
         shell: pwsh
 
       - name: Create pull request
