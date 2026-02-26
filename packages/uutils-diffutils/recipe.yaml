@@ -1,0 +1,24 @@
+context:
+  name: uutils-diffutils
+  version: "0.5.0"
+package:
+  version: "0.5.0"
+  name: ${{ name }}
+source:
+  url: https://github.com/uutils/diffutils/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 2
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - diffutils
+about:
+  license: MIT
+  repository: https://github.com/uutils/diffutils
