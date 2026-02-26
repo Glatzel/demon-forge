@@ -19,7 +19,7 @@ foreach ($row in $csvData) {
             if ($value -like "*+*") {
                 $machine, $container = $value -split '\+', 2
                 $entry.machine = $machine
-                $entry.container = $container
+                $entry.container = 'ghcr.io/glatzel/' + $container
             }
             else {
                 $entry.machine = $value
