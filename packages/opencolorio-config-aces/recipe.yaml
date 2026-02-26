@@ -6,6 +6,8 @@ package:
 build:
   number: 1
   noarch: generic
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
 tests:
   - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/ocio/*.ocio"

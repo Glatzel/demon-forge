@@ -7,7 +7,9 @@ package:
 source:
   url: https://download.librepcb.org/releases/${{ version }}/librepcb-${{ version }}-windows-x86_64.zip
 build:
-  script: pwsh -Command "& ${{'$env:RECIPE_DIR' if win else '$RECIPE_DIR'}}/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
   number: 0
 tests:
   - package_contents:
