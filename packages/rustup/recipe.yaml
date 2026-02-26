@@ -1,0 +1,23 @@
+context:
+  name: rustup
+  version: "1.28.2"
+package:
+  version: "1.28.2"
+  name: ${{ name }}
+source:
+  url: https://github.com/rust-lang/rustup/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 2
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - diffutils
+about:
+  repository: https://github.com/rust-lang/rustup
