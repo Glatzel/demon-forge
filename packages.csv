@@ -53,7 +53,7 @@ pyxis-cli,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubu
 pyxis-py,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 rufus,windows-latest,,,,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
-rustup,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
+rustup-init,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 slumber,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 spek,windows-latest,,,,
 termscp,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,,

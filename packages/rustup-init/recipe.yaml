@@ -1,5 +1,5 @@
 context:
-  name: rustup
+  name: rustup-init
   version: "1.28.2"
 package:
   version: "1.28.2"
@@ -22,7 +22,6 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - rustup
-  - script: rustup --help
+        - rustup-init
 about:
   repository: https://github.com/rust-lang/rustup
