@@ -150,6 +150,7 @@ function dispatch-workflow {
         }
     }
     function build-pkg {
+        Write-Output "::group:: build $pkg"
         $rattler_build_args = @(
             "--config-file", "$ROOT/rattler-config.toml"
             "--color", "always"
@@ -160,6 +161,7 @@ function dispatch-workflow {
         if ($env:GITHUB_EVENT_NAME -eq "push") { $rattler_build_args += ("--package-format", "conda:22") }
         else { $rattler_build_args += ("--package-format", "conda:-7") }
         pixi run rattler-build $rattler_build_args
+        Write-Output "::endgroup::"
         foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda") {
             Write-Output "::group:: inspect $pkg"
             pixi run rattler-build package inspect --all $pkg_file
