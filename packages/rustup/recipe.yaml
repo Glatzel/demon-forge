@@ -22,6 +22,7 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - rustup-init
+        - rustup
+  - script: rustup --help
 about:
   repository: https://github.com/rust-lang/rustup
