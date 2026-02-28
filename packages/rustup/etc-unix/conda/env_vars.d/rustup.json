@@ -1,0 +1,4 @@
+{
+  "RUSTUP_HOME": "$PREFIX/.rustup",
+  "CARGO_HOME": "$PREFIX/.cargo"
+}
