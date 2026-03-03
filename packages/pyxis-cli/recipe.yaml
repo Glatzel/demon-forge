@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/Glatzel/pyxis/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
     file: build.ps1
@@ -17,8 +17,6 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - pkg-config
-    - proj
-  host:
     - proj
 tests:
   - script: pyxis --help
