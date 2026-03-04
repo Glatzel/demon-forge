@@ -8,10 +8,6 @@ build:
   script:
     interpreter: powershell
     file: build.ps1
-requirements:
-  build:
-    - selenium
-    - toolbox
 tests:
   - package_contents:
       bin:

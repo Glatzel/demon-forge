@@ -1,10 +1,10 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-python $env:RECIPE_DIR/download.py
-$zipfile = (Get-ChildItem "./hwi_*.zip")[0]
-7z x "$zipfile" "-o./${env:PKG_NAME}"
-New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
-Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/bin/${env:PKG_NAME}" -Recurse
+$version="$env:PKG_VERSION".Replace(".","")
+aria2c -c -x16 -s16 -d ./ `
+    "https://www.hwinfo.com/files/hwi_$version.zip" `
+    -o "${env:PKG_NAME}.zip"
+7z x "${env:PKG_NAME}.zip" "-o$env:PREFIX/bin/${env:PKG_NAME}"
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
 Copy-Item "${env:RECIPE_DIR}/${env:PKG_NAME}.json" "$env:PREFIX/Menu"
