@@ -1,7 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-python $env:RECIPE_DIR/download.py
-$zipfile = (Get-ChildItem "./*.zip")[0]
-7z x "$zipfile" "-o./${env:PKG_NAME}"
-New-Item $env:PREFIX/bin -ItemType Directory
-Copy-Item "./${env:PKG_NAME}*/benchmark-launcher-cli.exe" "$env:PREFIX/bin" -Recurse
+aria2c -c -x16 -s16 -d ./ `
+    "https://download.blender.org/release/BlenderBenchmark2.0/launcher/benchmark-launcher-cli-${env:PKG_VERSION}-windows.zip" `
+    -o "${env:PKG_NAME}.zip"
+
+7z x "$zipfile" "-o$env:PREFIX/bin"
