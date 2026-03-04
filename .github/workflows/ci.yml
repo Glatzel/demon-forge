@@ -12,13 +12,14 @@ on:
     - cron: 0 16 * * *
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref=='refs/heads/main' && github.sha || github.ref}}
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref}}
   cancel-in-progress: ${{ github.event_name != 'push'}}
 env:
   GITHUB_EVENT_NAME: ${{ github.event_name }}
   GITHUB_REF_NAME: ${{github.ref_name}}
 jobs:
   lefthook:
+    if: ${{ github.event_name == 'pull_request' }}
     uses: ./.github/workflows/ci-lefthook.yml
   dispatch:
     runs-on: ubuntu-slim
