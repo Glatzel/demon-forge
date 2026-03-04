@@ -7,7 +7,7 @@
             "name": "cpu-z",
             "description": "Launch cpu-z",
             "command": [
-                "{{ PREFIX }}/bin/cpu-z/cpuz_x64.exe"
+                "{{ PREFIX }}/bin/cpuz_x64.exe"
             ],
             "platforms": {
                 "win": {
