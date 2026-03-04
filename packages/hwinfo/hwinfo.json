@@ -7,7 +7,7 @@
             "name": "hwinfo",
             "description": "Launch hwinfo",
             "command": [
-                "{{ PREFIX }}/bin/hwinfo/HWiNFO64.exe"
+                "{{ PREFIX }}/bin/HWiNFO64.exe"
             ],
             "platforms": {
                 "win": {

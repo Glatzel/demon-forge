@@ -11,7 +11,7 @@ build:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/HWiNFO64
+        - HWiNFO64
 
 about:
   homepage: https://www.hwinfo.com
