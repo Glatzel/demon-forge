@@ -1,17 +1,13 @@
 context:
   name: hwinfo
 package:
-  version: "8.42"
+  version: "8.44"
   name: ${{ name }}
 build:
   number: 0
   script:
     interpreter: powershell
     file: build.ps1
-requirements:
-  build:
-    - selenium
-    - toolbox
 tests:
   - package_contents:
       bin:
