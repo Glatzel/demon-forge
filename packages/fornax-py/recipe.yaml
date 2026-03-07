@@ -27,7 +27,6 @@ requirements:
     - lazy-loader
     - pydantic
     - msgspec
-    - libraw
 
 tests:
   - python:
