@@ -48,7 +48,7 @@ outputs:
             - Library/share/proj/*
 
   - package:
-      name: proj-dev
+      name: proj
     inherit: proj-build
     requirements:
       host:
@@ -58,30 +58,24 @@ outputs:
     build:
       number: 1
       files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
-        - ${{ 'Library/' if win }}share/doc/*
+        exclude:
+          - if: osx
+            then:
+              - lib/*.dylib
+              - share/proj/*
+          - if: linux
+            then:
+              - lib/*.so*
+              - share/proj/*
+          - if: win
+            then:
+              - Library/*.lib
+              - Library/bin/*.dll
+              - Library/share/proj/*
     tests:
       - package_contents:
           include:
             - proj.h
-
-  - package:
-      name: proj-app
-    inherit: proj-build
-    requirements:
-      host:
-        - proj-rt
-    build:
-      number: 0
-      files:
-        - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
-        - ${{ 'Library/' if win }}share/bash-completion/*
-        - ${{ 'Library/' if win }}share/man/*
-    tests:
-      - package_contents:
           bin:
             - cs2cs
             - proj

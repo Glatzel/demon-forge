@@ -29,9 +29,11 @@ outputs:
       number: 0
       files:
         - if: osx
-          then: lib/*.dylib
+          then:
+            - lib/*.dylib
         - if: linux
-          then: lib/*.so*
+          then:
+            - lib/*.so*
         - if: win
           then:
             - Library/*.lib
@@ -45,12 +47,22 @@ outputs:
             - pystring
 
   - package:
-      name: pystring-dev
+      name: pystring
     inherit: pystring-build
     build:
       number: 0
       files:
-        - ${{ 'Library/' if win }}include/*
+        exclude:
+          - if: osx
+            then:
+              - lib/*.dylib
+          - if: linux
+            then:
+              - lib/*.so*
+          - if: win
+            then:
+              - Library/*.lib
+              - Library/bin/*.dll
     requirements:
       host:
         - pystring-rt

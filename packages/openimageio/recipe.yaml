@@ -23,7 +23,7 @@ outputs:
         - make
 
       host:
-        - opencolorio-dev
+        - opencolorio
         - bzip2
         - fmt
         - freetype
@@ -33,7 +33,7 @@ outputs:
         - libjpeg-turbo
         - libjxl
         - libpng
-        - libraw-dev
+        - libraw
         - libtiff
         - libwebp
         - openexr
@@ -64,7 +64,7 @@ outputs:
             - Library/bin/*.dll
 
   - package:
-      name: openimageio-dev
+      name: openimageio
     inherit: openimageio-build
     requirements:
       host:
@@ -74,24 +74,20 @@ outputs:
     build:
       number: 2
       files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
-
-  - package:
-      name: openimageio-app
-    inherit: openimageio-build
-    requirements:
-      host:
-        - openimageio-rt
-    build:
-      number: 2
-      files:
-        - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
+        exclude:
+          - ${{ 'Library/' if win }}share/*
+          - if: osx
+            then: lib/*.dylib
+          - if: linux
+            then: lib/*.so*
+          - if: win
+            then:
+              - Library/*.lib
+              - Library/bin/*.dll
     tests:
       - script:
           - oiiotool --help
+
 about:
   homepage: https://openimageio.org
   license: BSD-3-Clause
