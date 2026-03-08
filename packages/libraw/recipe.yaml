@@ -39,8 +39,9 @@ outputs:
         - ${{ pin_subpackage('libraw-lib') }}
     build:
       files:
-        - lib/*
-        - ${{ 'bin/*.dll' if unix }}
+        - ${{ 'Library' if win }}lib/*
+        - ${{ 'Library' if win }}include/*
+        - ${{ 'Library/bin/*.dll' if win }}
     tests:
       - package_contents:
           lib:
