@@ -22,10 +22,12 @@ outputs:
         - ninja
       host:
         - expat
-        - yaml-cpp
         - imath
+        - lcms2
+        - minizip
+        - pystring-dev
+        - yaml-cpp
         - zlib
-        - ${{ 'minizip' if not osx }}
 
   - package:
       name: opencolorio-rt
