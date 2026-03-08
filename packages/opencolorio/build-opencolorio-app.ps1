@@ -3,7 +3,7 @@ $cmakeArgs = @(
     "-B", "build"
     "-G", "Ninja"
     "-DCMAKE_BUILD_TYPE=Release"
-    "-DOCIO_INSTALL_EXT_PACKAGES=NONE"
+    "-DOCIO_INSTALL_EXT_PACKAGES=MISSING"
     "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_SHARED_LIBS=ON"
     "-DOCIO_BUILD_PYTHON=OFF"
@@ -15,7 +15,7 @@ $cmakeArgs = @(
     "-DOCIO_WARNING_AS_ERROR=OFF"
     "-DOCIO_BUILD_DOCS=OFF"
     "-DOCIO_BUILD_APPS=ON"
-    "-DOCIO_USE_OIIO_FOR_APPS=ON"
+    "-DOCIO_USE_OIIO_FOR_APPS=OFF"
 )
 if ($IsWindows) {
     $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library")
