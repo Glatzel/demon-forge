@@ -20,7 +20,6 @@ outputs:
         - ${{ stdlib('c') }}
         - cmake 3.*
         - ninja
-
       host:
         - sqlite
         - libtiff
@@ -59,9 +58,7 @@ outputs:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
         - ${{ 'Library/' if win }}lib/pkgconfig/*
-        - ${{ 'Library/' if win }}share/bash-completion/*
         - ${{ 'Library/' if win }}share/doc/*
-        - ${{ 'Library/' if win }}share/man/*
     tests:
       - package_contents:
           include:
@@ -77,6 +74,8 @@ outputs:
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'bin/*.exe' if unix }}
+        - ${{ 'Library/' if win }}share/bash-completion/*
+        - ${{ 'Library/' if win }}share/man/*
     tests:
       - package_contents:
           bin:
