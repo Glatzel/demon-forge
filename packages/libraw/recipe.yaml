@@ -77,7 +77,7 @@ outputs:
     inherit: libraw-build
     requirements:
       host:
-        - libraw-rt
+        - libraw-lib
     build:
       files:
         - include/*
