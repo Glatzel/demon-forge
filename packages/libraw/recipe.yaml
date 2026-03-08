@@ -42,10 +42,10 @@ outputs:
       files:
         - if: osx
           then:
-            lib/*.dylib
+            - lib/*.dylib
         - if: linux
           then:
-            lib/*.so*
+            - lib/*.so*
         - if: win
           then:
             - Library/*.lib
@@ -56,7 +56,7 @@ outputs:
             - raw
 
   - package:
-      name: libraw-dev
+      name: libraw
     inherit: libraw-build
     requirements:
       host:
@@ -64,27 +64,19 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
-      number: 1
-      files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
-    tests:
-      - package_contents:
-          include:
-            - libraw/libraw.h
-
-  - package:
-      name: libraw-app
-    inherit: libraw-build
-    requirements:
-      host:
-        - libraw-rt
-    build:
       number: 0
       files:
-        - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
+        exclude:
+          - if: osx
+            then:
+              - lib/*.dylib
+          - if: linux
+            then:
+              - lib/*.so*
+          - if: win
+            then:
+              - Library/*.lib
+              - Library/bin/*.dll
     tests:
       - package_contents:
           bin:
@@ -92,6 +84,8 @@ outputs:
             - dcraw_emu
             - raw-identify
             - simple_dcraw
+          include:
+            - libraw/libraw.h
       - requirements:
           run:
             - curl
@@ -99,7 +93,6 @@ outputs:
           - curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
           - raw-identify -u RAW_NIKON_D1.NEF
           - simple_dcraw -v -T RAW_NIKON_D1.NEF
-
 
 about:
   homepage: https://www.libraw.org

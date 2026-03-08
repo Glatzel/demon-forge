@@ -17,8 +17,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - pkg-config
-    - proj-dev
+    - proj
   host:
-    - proj-rt
+    - proj
 tests:
   - script: pyxis --help
