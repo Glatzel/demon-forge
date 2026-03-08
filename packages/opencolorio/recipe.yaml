@@ -1,4 +1,4 @@
-context:
+wcontext:
   name: opencolorio
   version: "2.5.1"
 recipe:
@@ -108,12 +108,10 @@ outputs:
             - ociobakelut
             - ocioconvert
             - ociocpuinfo
-            - ociodisplay
             - ociolutimage
             - ociomakeclf
             - ociomergeconfigs
             - ocioperf
-            - ocioview
             - ociowrite
       - script:
         - ocioarchive --help
@@ -122,10 +120,8 @@ outputs:
         - ociobakelut --help
         - ocioconvert --help
         - ociocpuinfo --help
-        - ociodisplay --help
         - ociolutimage --help
         - ociomakeclf --help
         - ociomergeconfigs --help
         - ocioperf --help
-        - ocioview --help
         - ociowrite --help
