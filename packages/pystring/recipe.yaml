@@ -1,28 +1,62 @@
 context:
   name: pystring
   version: "1.1.4"
-package:
+recipe:
   version: ${{ version }}
   name: ${{ name }}
 source:
   - url: https://github.com/imageworks/pystring/archive/refs/tags/v${{ version }}.tar.gz
     patches:
       - fix_cmake.patch
-build:
-  number: 10
-  script:
-    interpreter: powershell
-    file: build.ps1
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - cmake 3.*
-    - ninja
-tests:
-  package_contents:
-    lib:
-      - pystring
+outputs:
+  - staging:
+      name: pystring-build
+    build:
+      script:
+        interpreter: powershell
+        file: build.ps1
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake 3.*
+        - ninja
+  - package:
+      name: pystring-rt
+    inherit: pystring-build
+    build:
+      number: 0
+      files:
+        - if: osx
+          then: lib/*.dylib
+        - if: linux
+          then: lib/*.so*
+        - if: win
+          then:
+            - Library/*.lib
+            - Library/bin/*.dll
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('pystring-rt', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          lib:
+            - pystring
+
+  - package:
+      name: pystring-dev
+    inherit: pystring-build
+    build:
+      number: 0
+      files:
+        - ${{ 'Library/' if win }}include/*
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('pystring-rt', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          include:
+            - pystring.h
 about:
   repository: https://github.com/imageworks/pystring
