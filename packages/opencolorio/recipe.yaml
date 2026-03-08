@@ -21,7 +21,7 @@ outputs:
         - cmake 3.*
         - ninja
       host:
-        - pystring
+        - pystring-dev
         - expat
         - yaml-cpp
         - imath
@@ -85,7 +85,7 @@ outputs:
         - yaml-cpp
         - imath
         - zlib
-        - pystring
+        - pystring-dev
         - ${{ 'minizip' if not osx }}
         - openimageio-dev
   - package:
