@@ -52,6 +52,8 @@ outputs:
       files:
         - ${{ 'Library/' if win }}include/*
     requirements:
+      host:
+        pystring-rt
       run_exports:
         - ${{ pin_subpackage('pystring-rt', upper_bound='x.x') }}
     tests:
