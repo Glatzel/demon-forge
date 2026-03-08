@@ -36,8 +36,9 @@ outputs:
     inherit: libraw-build
     requirements:
       run_exports:
-        - ${{ pin_subpackage('libraw-rt') }}
+        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
+      number: 0
       files:
         - if: osx
           then:
@@ -61,6 +62,7 @@ outputs:
       host:
         - libraw-rt
     build:
+      number: 0
       files:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
@@ -77,6 +79,7 @@ outputs:
       host:
         - libraw-rt
     build:
+      number: 0
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*.exe' if win }}

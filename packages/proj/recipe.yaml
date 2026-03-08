@@ -54,6 +54,7 @@ outputs:
       host:
         - proj-rt
     build:
+      number: 0
       files:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
@@ -71,6 +72,7 @@ outputs:
       host:
         - proj-rt
     build:
+      number: 0
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*.exe' if win }}

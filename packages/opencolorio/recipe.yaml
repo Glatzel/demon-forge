@@ -34,6 +34,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
+      number: 0
       files:
         - if: osx
           then: lib/*.dylib
@@ -56,6 +57,7 @@ outputs:
       host:
         - opencolorio-rt
     build:
+      number: 0
       files:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
