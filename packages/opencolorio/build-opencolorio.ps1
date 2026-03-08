@@ -21,13 +21,13 @@ else {
 }
 
 
-if ($env:PKG_NAME -eq 'opencolorio-base') {
+if ($env:PKG_NAME -eq 'opencolorio-build') {
     $cmakeArgs += @(
         "-DOCIO_BUILD_APPS=OFF"
         "-DOCIO_USE_OIIO_FOR_APPS=OFF"
     )
 }
-if ($env:PKG_NAME -eq 'opencolorio-app') {
+if ($env:PKG_NAME -eq 'opencolorio-build-app') {
     $cmakeArgs += @(
         "-DOCIO_BUILD_APPS=ON"
         "-DOCIO_USE_OIIO_FOR_APPS=ON"
