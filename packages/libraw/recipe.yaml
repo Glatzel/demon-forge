@@ -74,7 +74,7 @@ outputs:
       name: libraw-app
     inherit: libraw-build
     requirements:
-      run:
+      host:
         - libraw-rt
     build:
       files:
