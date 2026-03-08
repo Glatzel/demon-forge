@@ -12,7 +12,7 @@ outputs:
     build:
       script:
         interpreter: powershell
-        file: build.ps1
+        file: build-proj.ps1
     requirements:
       build:
         - ${{ compiler('c') }}
