@@ -16,10 +16,10 @@ $cmakeArgs = @(
     "-DOCIO_BUILD_DOCS=OFF"
 )
 if ($IsWindows) {
-    $cmakeArgs += @("-CMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library")
+    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library")
 }
 else {
-    $cmakeArgs += @("-CMAKE_INSTALL_PREFIX=${ENV:PREFIX}")
+    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}")
 }
 
 if ($env:PKG_NAME -eq 'opencolorio-build') {
