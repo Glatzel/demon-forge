@@ -19,6 +19,7 @@ requirements:
     - ${{ stdlib('c') }}
     - libraw-dev
   host:
+    - python 3.13.*
     - pip
     - libraw-dev
   run:
