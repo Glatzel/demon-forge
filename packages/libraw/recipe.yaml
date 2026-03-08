@@ -32,7 +32,7 @@ outputs:
         - ${{ 'llvm-openmp' if osx }}
 
   - package:
-      name: libraw-rt
+      name: libraw-lib
     inherit: libraw-build
     requirements:
       run_exports:
@@ -71,6 +71,7 @@ outputs:
           - raw-identify -u RAW_NIKON_D1.NEF
           - simple_dcraw -v -T RAW_NIKON_D1.NEF
 
+<<<<<<< HEAD
   - package:
       name: libraw-dev
     inherit: libraw-build
@@ -84,6 +85,8 @@ outputs:
       - package_contents:
           include:
             - libraw/libraw.h
+=======
+>>>>>>> e164c2c (f)
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause
