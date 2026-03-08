@@ -99,3 +99,33 @@ outputs:
       files:
         - bin/*
         - Library/bin/*.exe
+    tests:
+      - package_contents:
+          bin:
+            - ocioarchive
+            - ociocheck
+            - ociochecklut
+            - ociobakelut
+            - ocioconvert
+            - ociocpuinfo
+            - ociodisplay
+            - ociolutimage
+            - ociomakeclf
+            - ociomergeconfigs
+            - ocioperf
+            - ocioview
+            - ociowrite
+      - scripts:
+        - ocioarchive --help
+        - ociocheck --help
+        - ociochecklut --help
+        - ociobakelut --help
+        - ocioconvert --help
+        - ociocpuinfo --help
+        - ociodisplay --help
+        - ociolutimage --help
+        - ociomakeclf --help
+        - ociomergeconfigs --help
+        - ocioperf --help
+        - ocioview --help
+        - ociowrite --help
