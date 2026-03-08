@@ -39,11 +39,9 @@ outputs:
       number: 1
       files:
         - if: osx
-          then:
-            - lib/*.dylib
+          then: lib/*.dylib
         - if: linux
-          then:
-            - lib/*.so*
+          then: lib/*.so*
         - if: win
           then:
             - Library/*.lib
@@ -55,7 +53,7 @@ outputs:
             - ${{ 'libOpenColorIO' if unix }}
 
   - package:
-      name: opencolorio
+      name: opencolorio-dev
     inherit: opencolorio-build
     requirements:
       host:
@@ -65,15 +63,6 @@ outputs:
     build:
       number: 2
       files:
-        exclude:
-          - if: osx
-            then:
-              - lib/*.dylib
-          - if: linux
-            then:
-              - lib/*.so*
-          - if: win
-
-            then:
-              - Library/*.lib
-              - Library/bin/*.dll
+        - ${{ 'Library/' if win }}include/*
+        - ${{ 'Library/' if win }}lib/cmake/*
+        - ${{ 'Library/' if win }}lib/pkgconfig/*
