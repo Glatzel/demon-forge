@@ -8,7 +8,9 @@ source:
   - url: https://github.com/imageworks/pystring/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 10
-  script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
+  script:
+    interpreter: powershell
+    file: build.ps1
 requirements:
   build:
     - ${{ compiler('c') }}
