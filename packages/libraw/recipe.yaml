@@ -44,7 +44,7 @@ outputs:
             lib/*.dylib
         - if: linux
           then:
-            lib/*.so
+            lib/*.so*
         - if: win
           then:
             - Library/*.lib
