@@ -14,7 +14,7 @@ outputs:
     build:
       script:
         interpreter: powershell
-        file: build.ps1
+        file: build-pystring.ps1
     requirements:
       build:
         - ${{ compiler('c') }}
