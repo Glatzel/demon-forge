@@ -85,6 +85,7 @@ outputs:
         - yaml-cpp
         - imath
         - zlib
+        - pystring
         - ${{ 'minizip' if not osx }}
         - openimageio-dev
   - package:
