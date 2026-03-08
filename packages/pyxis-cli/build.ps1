@@ -1,8 +1,8 @@
+Set-Location rust
 if ($IsWindows) {
-    $env:PROJ_ROOT = "$(Resolve-Path $SRC_DIR/../h_env/Library)"
+    $env:PROJ_ROOT = "$(Resolve-Path $env:BUILD_PREFIX/Library)"
 }
 else {
-    $env:PROJ_ROOT = "$(Resolve-Path $SRC_DIR/../h_env)"
+    $env:PROJ_ROOT = "$(Resolve-Path $env:BUILD_PREFIX)"
 }
-Set-Location rust
 cargo install --bin pyxis --root $env:PREFIX --path ./crates/pyxis-cli
