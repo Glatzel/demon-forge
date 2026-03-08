@@ -16,10 +16,10 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-  host:
+    - ${{ stdlib('c') }}    
     - python 3.13.*
     - pip
+  host:
     - libraw-dev
   run:
     - python >= 3.13
