@@ -73,7 +73,7 @@ outputs:
     build:
       files:
         - ${{ 'bin/*' if unix }}
-        - ${{ 'bin/*.exe' if win }}
+        - ${{ 'Library/bin/*.exe' if win }}
         - ${{ 'Library/' if win }}share/bash-completion/*
         - ${{ 'Library/' if win }}share/man/*
     tests:
