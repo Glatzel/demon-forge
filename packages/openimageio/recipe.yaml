@@ -62,12 +62,15 @@ outputs:
           then:
             - Library/*.lib
             - Library/bin/*.dll
+
   - package:
       name: openimageio-dev
     inherit: openimageio-build
     requirements:
       host:
         - openimageio-rt
+      run_exports:
+        - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
       files:
         - ${{ 'Library/' if win }}include/*
