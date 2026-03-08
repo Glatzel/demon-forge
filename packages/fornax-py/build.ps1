@@ -1,9 +1,9 @@
 $env:MACOSX_DEPLOYMENT_TARGET = "14.0"
 if ($IsWindows) {
-    $env:LIBRAW_ROOT = "$(Resolve-Path $env:BUILD_PREFIX/Library)"
+    $env:LIBRAW_ROOT = "$(Resolve-Path ./h_env/Library)"
 }
 else {
-    $env:LIBRAW_ROOT = "$(Resolve-Path $env:BUILD_PREFIX)"
+    $env:LIBRAW_ROOT = "$(Resolve-Path ./h_env)"
 }
 Set-Location ./crates/fornax-py
 pixi run maturin build --out ./dist --profile release

@@ -17,7 +17,6 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - libraw-dev
   host:
     - python 3.13.*
     - pip
