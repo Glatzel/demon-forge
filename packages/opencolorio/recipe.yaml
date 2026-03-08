@@ -1,34 +1,62 @@
 context:
   name: opencolorio
   version: "2.5.1"
-package:
+recipe:
   version: "2.5.1"
   name: ${{ name }}
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v${{ version }}.tar.gz
-build:
-  number: 6
-  script:
-    interpreter: powershell
-    file: build.ps1
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - cmake 3.*
-    - ninja
-  host:
-    - expat
-    - yaml-cpp
-    - imath
-    - zlib
-    - ${{ 'minizip' if not osx }}
+outputs:
+  - staging:
+      name: opencolorio-build
+    build:
+      script:
+        interpreter: powershell
+        file: build-opencolorio.ps1
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake 3.*
+        - ninja
+      host:
+        - expat
+        - yaml-cpp
+        - imath
+        - zlib
+        - ${{ 'minizip' if not osx }}
 
-  run_exports:
-    - ${{ pin_subpackage('opencolorio', upper_bound='x.x') }}
-tests:
-  - package_contents:
-      lib:
-        - ${{ 'OpenColorIO*' if win }}
-        - ${{ 'libOpenColorIO' if unix }}
+  - package:
+      name: opencolorio-rt
+    inherit: opencolorio-build
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
+    build:
+      files:
+        - if: osx
+          then: lib/*.dylib
+        - if: linux
+          then: lib/*.so*
+        - if: win
+          then:
+            - Library/*.lib
+            - Library/bin/*.dll
+    tests:
+      - package_contents:
+          lib:
+            - ${{ 'OpenColorIO*' if win }}
+            - ${{ 'libOpenColorIO' if unix }}
+
+  - package:
+      name: opencolorio-dev
+    inherit: opencolorio-build
+    requirements:
+      host:
+        - opencolorio-rt
+    build:
+      files:
+        - ${{ 'Library/' if win }}include/*
+        - ${{ 'Library/' if win }}lib/cmake/*
+        - ${{ 'Library/' if win }}lib/pkgconfig/*
