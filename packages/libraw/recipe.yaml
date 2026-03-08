@@ -37,8 +37,8 @@ outputs:
     requirements:
       run_exports:
         - ${{ pin_subpackage('libraw-rt') }}
-    build: 
-      files: 
+    build:
+      files:
         - lib/*
         - ${{ 'bin/*.dll' if unix }}
     tests:
@@ -52,8 +52,8 @@ outputs:
     requirements:
       host:
         - libraw-rt
-    build: 
-      files: 
+    build:
+      files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'bin/*.exe' if unix }}
     tests:
@@ -77,8 +77,8 @@ outputs:
     requirements:
       host:
         - libraw-rt
-    build: 
-      files: 
+    build:
+      files:
         - include/*
     tests:
       - package_contents:
