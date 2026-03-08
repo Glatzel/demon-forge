@@ -36,7 +36,7 @@ outputs:
     inherit: libraw-build
     requirements:
       run_exports:
-        - ${{ pin_subpackage('libraw-rt') }}
+        - ${{ pin_subpackage('libraw-lib') }}
     build:
       files:
         - lib/*
@@ -51,7 +51,7 @@ outputs:
     inherit: libraw-build
     requirements:
       host:
-        - libraw-rt
+        - libraw-lib
     build:
       files:
         - ${{ 'bin/*' if unix }}
