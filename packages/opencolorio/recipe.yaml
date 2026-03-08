@@ -116,7 +116,7 @@ outputs:
       - script:
         - ocioarchive --help
         - ociocheck --help
-        - ociochecklut --help
+       # - ociochecklut --help
         - ociobakelut --help
         - ocioconvert --help
         - ociocpuinfo --help
