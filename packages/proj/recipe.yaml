@@ -56,7 +56,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
     build:
-      number: 0
+      number: 1
       files:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
