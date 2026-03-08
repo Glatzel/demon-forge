@@ -25,7 +25,7 @@ outputs:
         - imath
         - lcms2
         - minizip
-        - pystring
+        - pystring-dev
         - yaml-cpp
         - zlib
 
