@@ -156,6 +156,7 @@ function dispatch-workflow {
             "--color", "always"
             "build", "--output-dir", "$ROOT/output"
             "--variant-config", "$ROOT/conda_build_config.yaml"
+            "--experimental"
         )
         if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) { $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM") }
         if ($env:GITHUB_EVENT_NAME -eq "push") { $rattler_build_args += ("--package-format", "conda:22") }

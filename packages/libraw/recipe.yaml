@@ -1,53 +1,89 @@
 context:
   name: libraw
   version: "0.22.0"
-package:
+recipe:
   version: "0.22.0"
   name: ${{ name }}
 source:
   - url: https://github.com/LibRaw/LibRaw/archive/refs/tags/${{ version }}.tar.gz
   - url: https://github.com/LibRaw/LibRaw-cmake/archive/refs/heads/master.zip
     target_directory: LibRaw-cmake
-build:
-  number: 6
-  script:
-    interpreter: powershell
-    file: build.ps1
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - cmake 3.*
-    - pkg-config
-    - ninja
+outputs:
+  - staging:
+      name: libraw-build
+    build:
+      script:
+        interpreter: powershell
+        file: build-libraw.ps1
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake 3.*
+        - pkg-config
+        - ninja
 
-  host:
-    - zlib
-    - lcms2
-    - openjpeg
-    - jasper
-    - ${{ 'llvm-openmp' if osx }}
-  run_exports:
-    - ${{ pin_subpackage('libraw', upper_bound='x.x') }}
-tests:
-  - package_contents:
-      include:
-        - libraw/libraw.h
-      lib:
-        - raw
-      bin:
-        - 4channels
-        - dcraw_emu
-        - raw-identify
-        - simple_dcraw
-  - requirements:
-      run:
-        - curl
-    script:
-      - curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
-      - raw-identify -u RAW_NIKON_D1.NEF
-      - simple_dcraw -v -T RAW_NIKON_D1.NEF
+      host:
+        - zlib
+        - lcms2
+        - openjpeg
+        - jasper
+        - ${{ 'llvm-openmp' if osx }}
+
+  - package:
+      name: libraw-rt
+    inherit: libraw-build
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('libraw-rt') }}
+    build: 
+      files: 
+        - lib/*
+        - ${{ 'bin/*.dll' if unix }}
+    tests:
+      - package_contents:
+          lib:
+            - raw
+
+  - package:
+      name: libraw-app
+    inherit: libraw-build
+    requirements:
+      host:
+        - libraw-rt
+    build: 
+      files: 
+        - ${{ 'bin/*' if unix }}
+        - ${{ 'bin/*.exe' if unix }}
+    tests:
+      - package_contents:
+          bin:
+            - 4channels
+            - dcraw_emu
+            - raw-identify
+            - simple_dcraw
+      - requirements:
+          run:
+            - curl
+        script:
+          - curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
+          - raw-identify -u RAW_NIKON_D1.NEF
+          - simple_dcraw -v -T RAW_NIKON_D1.NEF
+
+  - package:
+      name: libraw-dev
+    inherit: libraw-build
+    requirements:
+      host:
+        - libraw-rt
+    build: 
+      files: 
+        - include/*
+    tests:
+      - package_contents:
+          include:
+            - libraw/libraw.h
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause
