@@ -79,7 +79,7 @@ outputs:
     build:
       files:
         - ${{ 'bin/*' if unix }}
-        - ${{ 'bin/*.exe' if unix }}
+        - ${{ 'Library/bin/*.exe' if win }}
     tests:
       - package_contents:
           bin:
