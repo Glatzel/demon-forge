@@ -1,7 +1,7 @@
 $cmakeArgs = @(
-    "-S ."
-    "-B build"
-    "-G Ninja"
+    "-S", "." 
+    "-B", "build"
+    "-G", "Ninja"
     "-DCMAKE_BUILD_TYPE=Release"
     "-DOCIO_INSTALL_EXT_PACKAGES=NONE"
     "-DCMAKE_BUILD_TYPE=Release"
@@ -34,5 +34,5 @@ if ($env:PKG_NAME -eq 'opencolorio-build-app') {
         "-DOCIO_USE_OIIO_FOR_APPS=ON"
     )
 }
-cmake @cmakeArgs
+cmake  @cmakeArgs
 cmake --build build --config Release --target install
