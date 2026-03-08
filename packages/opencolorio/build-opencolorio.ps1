@@ -22,7 +22,6 @@ else {
     $cmakeArgs += @("-CMAKE_INSTALL_PREFIX=${ENV:PREFIX}")
 }
 
-
 if ($env:PKG_NAME -eq 'opencolorio-build') {
     $cmakeArgs += @(
         "-DOCIO_BUILD_APPS=OFF"
