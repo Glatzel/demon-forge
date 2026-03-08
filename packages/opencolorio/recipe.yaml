@@ -64,3 +64,35 @@ outputs:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
         - ${{ 'Library/' if win }}lib/pkgconfig/*
+
+  - staging:
+      name: opencolorio-build-app
+    build:
+      script:
+        interpreter: powershell
+        file: build-opencolorio.ps1
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake 3.*
+        - ninja
+      host:
+        - expat
+        - yaml-cpp
+        - imath
+        - zlib
+        - ${{ 'minizip' if not osx }}
+        - openimageio-dev
+  - package:
+      name: opencolorio-app
+    inherit: opencolorio-build-app
+    requirements:
+      host:
+        - libraw-rt
+    build:
+      number: 0
+      files:
+        - ${{ 'bin/*' if unix }}
+        - ${{ 'Library/bin/*.exe' if win }}
