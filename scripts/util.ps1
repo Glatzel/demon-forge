@@ -81,18 +81,7 @@ function get-version-text {
         Select-Object -First 1
     return $latest
 }
-function update-vcpkg-json {
-    param($file, $name, $version)
-    $json = Get-Content $file -Raw | ConvertFrom-Json
 
-    # update the override
-    $json.overrides | Where-Object { $_.name -eq "$name" } | ForEach-Object {
-        $_.version = $version
-    }
-
-    # save formatted JSON
-    $json | ConvertTo-Json -Depth 10 | Set-Content $file
-}
 function Get-Cargo-Arg {
     $cargo_arg = @(
         '--root', "$env:PREFIX"
@@ -129,7 +118,7 @@ function dispatch-workflow {
         Write-Output "New version found."
         # Update version number and reset build number
         (Get-Content -Path "./recipe.yaml") -replace '^  version: .*', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
-        (Get-Content -Path "./recipe.yaml") -replace '^  number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
+        (Get-Content -Path "./recipe.yaml") -replace '^\s+number: .*', "  number: 0" | Set-Content -Path "./recipe.yaml"
         Write-Output "::endgroup::"
     }
 
