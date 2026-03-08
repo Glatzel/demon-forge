@@ -1,4 +1,3 @@
-$env:MACOSX_DEPLOYMENT_TARGET = "14.0"
 if ($IsWindows) {
     $env:LIBRAW_ROOT = "$(Resolve-Path ../h_env/Library)"
 }
