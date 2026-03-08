@@ -23,6 +23,7 @@ outputs:
         - cmake 3.*
         - pkg-config
         - ninja
+        - fd-find
 
       host:
         - zlib
