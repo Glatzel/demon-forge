@@ -32,27 +32,50 @@ outputs:
         - ${{ 'llvm-openmp' if osx }}
 
   - package:
-      name: libraw-lib
+      name: libraw-rt
     inherit: libraw-build
     requirements:
       run_exports:
-        - ${{ pin_subpackage('libraw-lib') }}
+        - ${{ pin_subpackage('libraw-rt') }}
     build:
       files:
-        - ${{ 'Library/' if win }}lib/*
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/bin/*.dll' if win }}
+        - if: osx
+          then:
+            lib/*.dylib
+        - if: linux
+          then:
+            lib/*.so
+        - if: win
+          then:
+            - Library/*.lib
+            - Library/bin/*.dll
     tests:
       - package_contents:
           lib:
             - raw
 
   - package:
-      name: libraw-app
+      name: libraw-dev
     inherit: libraw-build
     requirements:
       host:
-        - libraw-lib
+        - libraw-rt
+    build:
+      files:
+        - ${{ 'Library/' if win }}include/*
+        - ${{ 'Library/' if win }}lib/cmake/*
+        - ${{ 'Library/' if win }}lib/pkgconfig/*
+    tests:
+      - package_contents:
+          include:
+            - libraw/libraw.h
+
+  - package:
+      name: libraw-app
+    inherit: libraw-build
+    requirements:
+      run:
+        - libraw-rt
     build:
       files:
         - ${{ 'bin/*' if unix }}
@@ -72,19 +95,7 @@ outputs:
           - raw-identify -u RAW_NIKON_D1.NEF
           - simple_dcraw -v -T RAW_NIKON_D1.NEF
 
-  - package:
-      name: libraw-dev
-    inherit: libraw-build
-    requirements:
-      host:
-        - libraw-lib
-    build:
-      files:
-        - include/*
-    tests:
-      - package_contents:
-          include:
-            - libraw/libraw.h
+
 about:
   homepage: https://www.libraw.org
   license: BSD-2-Clause
