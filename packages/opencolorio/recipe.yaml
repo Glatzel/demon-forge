@@ -24,7 +24,7 @@ outputs:
         - expat
         - imath
         - lcms2
-        - minizip
+        - ${{ 'minizip' if not osx }}
         - pystring-dev
         - yaml-cpp
         - zlib
