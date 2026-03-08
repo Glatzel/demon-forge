@@ -44,7 +44,7 @@ nuget,windows-latest,,,,
 obs-studio,windows-latest,,,,
 opencolorio,windows-latest,,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 opencolorio-config-aces,,,,,ubuntu-slim
-openimageio,windows-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
+openimageio,windows-latest,,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 panda-cad,windows-latest,,,,
 peazip,windows-latest,,,,
 proj,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
