@@ -20,5 +20,9 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake 3.*
     - ninja
+tests:
+  package_contents:
+    lib:
+      - pystring
 about:
   repository: https://github.com/imageworks/pystring
