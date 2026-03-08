@@ -6,6 +6,8 @@ package:
   name: ${{ name }}
 source:
   - url: https://github.com/imageworks/pystring/archive/refs/tags/v${{ version }}.tar.gz
+    patches:
+      - fix_cmake.patch
 build:
   number: 10
   script:
