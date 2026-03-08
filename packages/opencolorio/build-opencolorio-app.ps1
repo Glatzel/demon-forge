@@ -3,7 +3,7 @@ $cmakeArgs = @(
     "-B", "build"
     "-G", "Ninja"
     "-DCMAKE_BUILD_TYPE=Release"
-    "-DOCIO_INSTALL_EXT_PACKAGES=NONE"
+    "-DOCIO_INSTALL_EXT_PACKAGES=MISSING"
     "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_SHARED_LIBS=ON"
     "-DOCIO_BUILD_PYTHON=OFF"
