@@ -13,7 +13,6 @@ outputs:
       script:
         interpreter: powershell
         file: build-openimageio.ps1
-      number: 0
     requirements:
       build:
         - ${{ compiler('c') }}
@@ -24,7 +23,7 @@ outputs:
         - make
 
       host:
-        - opencolorio
+        - opencolorio-dev
         - bzip2
         - fmt
         - freetype
@@ -52,6 +51,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
+      number: 0
       files:
         - if: osx
           then: lib/*.dylib
@@ -80,6 +80,7 @@ outputs:
       host:
         - openimageio-rt
     build:
+      number: 0
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*.exe' if win }}
