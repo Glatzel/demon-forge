@@ -21,13 +21,13 @@ outputs:
         - cmake 3.*
         - ninja
       host:
-        - pystring-dev
         - expat
-        - yaml-cpp
         - imath
-        - zlib
         - lcms2
-        - ${{ 'minizip' if not osx }}
+        - minizip
+        - pystring-dev
+        - yaml-cpp
+        - zlib
 
   - package:
       name: opencolorio-rt
@@ -82,12 +82,12 @@ outputs:
         - ninja
       host:
         - expat
-        - yaml-cpp
         - imath
-        - zlib
-        - pystring-dev
-        - ${{ 'minizip' if not osx }}
+        - minizip
         - openimageio-dev
+        - pystring-dev
+        - yaml-cpp
+        - zlib
   - package:
       name: opencolorio-app
     inherit: opencolorio-build-app
