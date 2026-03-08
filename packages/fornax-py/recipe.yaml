@@ -17,11 +17,10 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - libraw
+    - libraw-dev
   host:
     - python 3.13.*
     - pip
-    - libraw
   run:
     - python >= 3.13
     - lazy-loader
