@@ -90,7 +90,7 @@ outputs:
     inherit: opencolorio-build-app
     requirements:
       host:
-        - libraw-rt
+        - opencolorio-rt
     build:
       number: 0
       files:
