@@ -21,6 +21,7 @@ requirements:
   host:
     - python 3.13.*
     - pip
+    - libraw-dev
   run:
     - python >= 3.13
     - lazy-loader
