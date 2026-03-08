@@ -1,52 +1,96 @@
 context:
   name: openimageio
   version: "3.1.11.0"
-
-package:
+recipe:
   name: ${{ name }}
   version: "3.1.11.0"
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
-build:
-  script:
-    interpreter: powershell
-    file: build.ps1
-  number: 0
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - cmake 3.*
-    - ninja
-    - make
+outputs:
+  - staging:
+      name: openimageio-build
+    build:
+      script:
+        interpreter: powershell
+        file: build-openimageio.ps1
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake 3.*
+        - ninja
+        - make
 
-  host:
-    - opencolorio
-    - bzip2
-    - fmt
-    - freetype
-    - ffmpeg
-    - giflib
-    - libheif
-    - libjpeg-turbo
-    - libjxl
-    - libpng
-    - libraw
-    - libtiff
-    - libwebp
-    - openexr
-    - openjpeg
-    - libopencv
-    - openvdb
-    - tbb-devel
-    - yaml-cpp
-    - zlib
-  run_exports:
-    - ${{ pin_subpackage('openimageio', upper_bound='x.x') }}
-tests:
-  - script:
-      - oiiotool --help
+      host:
+        - opencolorio-dev
+        - bzip2
+        - fmt
+        - freetype
+        - ffmpeg
+        - giflib
+        - libheif
+        - libjpeg-turbo
+        - libjxl
+        - libpng
+        - libraw
+        - libtiff
+        - libwebp
+        - openexr
+        - openjpeg
+        - libopencv
+        - openvdb
+        - tbb-devel
+        - yaml-cpp
+        - zlib
+
+  - package:
+      name: openimageio-rt
+    inherit: openimageio-build
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
+    build:
+      number: 0
+      files:
+        - ${{ 'Library/' if win }}share/*
+        - if: osx
+          then: lib/*.dylib
+        - if: linux
+          then: lib/*.so*
+        - if: win
+          then:
+            - Library/*.lib
+            - Library/bin/*.dll
+
+  - package:
+      name: openimageio-dev
+    inherit: openimageio-build
+    requirements:
+      host:
+        - openimageio-rt
+      run_exports:
+        - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
+    build:
+      files:
+        - ${{ 'Library/' if win }}include/*
+        - ${{ 'Library/' if win }}lib/cmake/*
+        - ${{ 'Library/' if win }}lib/pkgconfig/*
+
+  - package:
+      name: openimageio-app
+    inherit: openimageio-build
+    requirements:
+      host:
+        - openimageio-rt
+    build:
+      number: 0
+      files:
+        - ${{ 'bin/*' if unix }}
+        - ${{ 'Library/bin/*.exe' if win }}
+    tests:
+      - script:
+          - oiiotool --help
 about:
   homepage: https://openimageio.org
   license: BSD-3-Clause
