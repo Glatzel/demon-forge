@@ -21,10 +21,12 @@ outputs:
         - cmake 3.*
         - ninja
       host:
+        - pystring
         - expat
         - yaml-cpp
         - imath
         - zlib
+        - lcms2
         - ${{ 'minizip' if not osx }}
 
   - package:
