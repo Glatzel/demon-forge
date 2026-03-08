@@ -1,4 +1,4 @@
-wcontext:
+context:
   name: opencolorio
   version: "2.5.1"
 recipe:
