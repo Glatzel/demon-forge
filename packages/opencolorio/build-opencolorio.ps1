@@ -1,5 +1,6 @@
 $cmakeArgs = @(
-    "-B build -G Ninja"
+    "-B build"
+    "-G Ninja"
     "-DCMAKE_BUILD_TYPE=Release"
     "-DOCIO_INSTALL_EXT_PACKAGES=MISSING"
     "-DCMAKE_BUILD_TYPE=Release"
