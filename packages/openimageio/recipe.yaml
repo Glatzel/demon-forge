@@ -12,7 +12,7 @@ outputs:
     build:
       script:
         interpreter: powershell
-        file: build.ps1
+        file: build-openimageio.ps1
       number: 0
     requirements:
       build:
