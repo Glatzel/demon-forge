@@ -56,6 +56,8 @@ outputs:
     requirements:
       host:
         - opencolorio-rt
+      run_exports:
+        - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
       number: 0
       files:
