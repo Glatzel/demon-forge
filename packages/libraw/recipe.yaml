@@ -61,8 +61,10 @@ outputs:
     requirements:
       host:
         - libraw-rt
+      run_exports:
+        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
-      number: 0
+      number: 1
       files:
         - ${{ 'Library/' if win }}include/*
         - ${{ 'Library/' if win }}lib/cmake/*
