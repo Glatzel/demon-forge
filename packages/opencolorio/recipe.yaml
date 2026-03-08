@@ -115,7 +115,7 @@ outputs:
             - ocioperf
             - ocioview
             - ociowrite
-      - scripts:
+    - scripts:
         - ocioarchive --help
         - ociocheck --help
         - ociochecklut --help
