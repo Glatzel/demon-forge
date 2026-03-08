@@ -14,8 +14,8 @@ $cmakeArgs = @(
     "-DOCIO_USE_HEADLESS=OFF"
     "-DOCIO_WARNING_AS_ERROR=OFF"
     "-DOCIO_BUILD_DOCS=OFF"
-    "-DOCIO_BUILD_APPS=OFF"
-    "-DOCIO_USE_OIIO_FOR_APPS=OFF"
+    "-DOCIO_BUILD_APPS=ON"
+    "-DOCIO_USE_OIIO_FOR_APPS=ON"
 )
 if ($IsWindows) {
     $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library")

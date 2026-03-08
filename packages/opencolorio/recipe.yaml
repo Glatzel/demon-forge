@@ -72,7 +72,7 @@ outputs:
     build:
       script:
         interpreter: powershell
-        file: build-opencolorio.ps1
+        file: build-opencolorio-app.ps1
     requirements:
       build:
         - ${{ compiler('c') }}
