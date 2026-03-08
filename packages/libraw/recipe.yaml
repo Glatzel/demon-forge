@@ -36,7 +36,7 @@ outputs:
     inherit: libraw-build
     requirements:
       run_exports:
-        - ${{ pin_subpackage('libraw-rt') }}
+        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
       files:
         - if: osx
