@@ -4,6 +4,7 @@ $cmakeArgs = @(
     "-G"
     "Ninja"
     "-DCMAKE_BUILD_TYPE=Release"
+    "-DOPENVDB_BUILD_VDB_PRINT=OFF"
 
 )
 if ($IsWindows) {
