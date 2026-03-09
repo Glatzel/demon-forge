@@ -8,11 +8,11 @@ source:
   - url: https://github.com/AcademySoftwareFoundation/openvdb/archive/refs/tags/v${{ version }}.tar.gz
 outputs:
   - staging:
-      name: openvdb-build
+      name: ${{ name }}-build
     build:
       script:
         interpreter: powershell
-        file: build-openvdb.ps1
+        file: build-${{ name }}.ps1
     requirements:
       build:
         - ${{ compiler('c') }}
@@ -26,8 +26,8 @@ outputs:
         - boost
         - ${{'zlib' if win}}
   - package:
-      name: openvdb-rt
-    inherit: openvdb-build
+      name: ${{ name }}-rt
+    inherit: ${{ name }}-build
     build:
       number: 0
       files:
@@ -48,20 +48,38 @@ outputs:
             - pystring
 
   - package:
-      name: openvdb-dev
-    inherit: openvdb-build
+      name: ${{ name }}-dev
+    inherit: ${{ name }}-build
     build:
       number: 0
       files:
         - ${{ 'Library/' if win }}include/*
     requirements:
       host:
-        - pystring-rt
+        - ${{ name }}-rt
       run_exports:
         - ${{ pin_subpackage('openvdb-rt', upper_bound='x.x') }}
     tests:
       - package_contents:
           include:
             - openvdb.h
+  - package:
+      name: ${{ name }}-app
+    inherit: ${{ name }}-build
+    requirements:
+      host:
+        - ${{ name }}-rt
+    build:
+      number: 0
+      files:
+        - ${{ 'bin/*' if unix }}
+        - ${{ 'Library/bin/*.exe' if win }}
+    tests:
+      - package_contents:
+          bin:
+            - 4channels
+            - dcraw_emu
+            - raw-identify
+            - simple_dcraw
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
