@@ -19,12 +19,12 @@ outputs:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
         - ${{ "jemalloc" if linux }}
+        - ${{ "llvmdev" if unix }}
+        - ${{ "flex" if unix }}
+        - ${{ "bison" if unix }}
         - cmake 3.*
         - ninja
         - pkg-config
-        - llvmdev
-        - ${{ "flex" if unix }}
-        - ${{ "bison" if unix }}
       host:
         - tbb-devel
         - blosc
