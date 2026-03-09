@@ -19,9 +19,6 @@ outputs:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
         - ${{ "jemalloc" if linux }}
-        - ${{ "llvmdev" if unix }}
-        - ${{ "flex" if unix }}
-        - ${{ "bison" if unix }}
         - cmake 3.*
         - ninja
         - pkg-config
@@ -66,6 +63,6 @@ outputs:
     tests:
       - package_contents:
           include:
-            - openvdb.h
+            - openvdb/version.h
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
