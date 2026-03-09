@@ -15,7 +15,6 @@ if ($IsWindows) {
 else {
     $cmakeArgs += @(
         "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX"
-        "-DOPENVDB_BUILD_AX=ON"
     )
 }
 cmake -S . -B build @cmakeArgs
