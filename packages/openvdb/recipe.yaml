@@ -51,15 +51,13 @@ outputs:
     tests:
       - package_contents:
           lib:
-            - pystring
+            - openvdb
 
   - package:
       name: ${{ name }}-dev
     inherit: ${{ name }}-build
     build:
       number: 0
-      files:
-        - ${{ 'Library/' if win }}include/*
     requirements:
       host:
         - ${{ name }}-rt
