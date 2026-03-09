@@ -31,7 +31,7 @@ outputs:
         - glfw
         - libboost-devel
         - zlib
-        - ${{ "glew" if win }}
+        - glew
   - package:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
