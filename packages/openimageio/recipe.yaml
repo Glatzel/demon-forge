@@ -32,14 +32,15 @@ outputs:
         - libheif
         - libjpeg-turbo
         - libjxl
+        - openjph
         - libpng
         - libraw-dev
         - libtiff
         - libwebp
         - openexr
+        - openvdb-dev
         - openjpeg
         - libopencv
-        - openvdb
         - tbb-devel
         - yaml-cpp
         - zlib
@@ -51,7 +52,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
-      number: 2
+      number: 3
       files:
         - if: osx
           then: lib/*.dylib
@@ -68,7 +69,7 @@ outputs:
       host:
         - openimageio-rt
     build:
-      number: 2
+      number: 3
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*.exe' if win }}
@@ -86,7 +87,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
-      number: 2
+      number: 3
 
 about:
   homepage: https://openimageio.org
