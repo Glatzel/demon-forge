@@ -1,11 +1,5 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-if ($IsWindows) {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX/Library"
-}
-else {
-    $env:CMAKE_INSTALL_PREFIX = "$ENV:PREFIX"
-}
 $cmakeArgs = @(
     "-G"
     "Ninja"
