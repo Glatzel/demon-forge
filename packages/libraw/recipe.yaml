@@ -80,7 +80,7 @@ outputs:
       number: 0
       files:
         - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
+        - ${{ 'Library/bin/*' if win }}
     tests:
       - package_contents:
           bin:
