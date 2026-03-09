@@ -29,7 +29,7 @@ $cmakeArgs = @(
     "-DOPENVDB_BUILD_VDB_LOD=OFF"
     "-DOPENVDB_BUILD_VDB_PRINT=OFF"
     "-DOPENVDB_BUILD_VDB_RENDER=OFF"
-    "-DOPENVDB_BUILD_VDB_VIEW=OFF"   
+    "-DOPENVDB_BUILD_VDB_VIEW=OFF"
 )
 cmake -S . -B build @cmakeArgs
 cmake --build build --config Release --target install
