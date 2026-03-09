@@ -53,7 +53,6 @@ outputs:
     build:
       number: 2
       files:
-        - ${{ 'Library/' if win }}share/*
         - if: osx
           then: lib/*.dylib
         - if: linux
