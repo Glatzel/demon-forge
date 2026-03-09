@@ -62,36 +62,19 @@ outputs:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
       number: 2
-  - staging:
-      name: opencolorio-build-app
-    build:
-      script:
-        interpreter: powershell
-        file: build-opencolorio-app.ps1
-    requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ compiler('cxx') }}
-        - ${{ stdlib('c') }}
-        - cmake 3.*
-        - ninja
-      host:
-        - expat
-        - imath
-        - lcms2
-        - ${{ 'minizip' if not osx }}
-        - pystring-dev
-        - yaml-cpp
-        - zlib
-        - openexr
+
   - package:
       name: opencolorio-app
-    inherit: opencolorio-build-app
+    inherit: opencolorio-build
     requirements:
       host:
+        - openexr
         - opencolorio-dev
     build:
       number: 2
+      script:
+        interpreter: powershell
+        file: build-opencolorio-app.ps1
     tests:
       - package_contents:
           bin:
