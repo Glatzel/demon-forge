@@ -28,6 +28,7 @@ outputs:
       host:
         - tbb-devel
         - blosc
+        - glfw
         - libboost-devel
         - zlib
         - ${{ "glew" if win }}
