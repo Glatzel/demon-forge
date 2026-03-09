@@ -29,10 +29,6 @@ outputs:
       name: proj-rt
     inherit: ${{ name }}-build
     requirements:
-      host:
-        - sqlite
-        - libtiff
-        - libcurl
       run_exports:
         - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
     build:
