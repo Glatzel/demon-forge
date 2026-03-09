@@ -22,11 +22,16 @@ outputs:
         - cmake 3.*
         - ninja
         - pkg-config
+        - llvmdev
+        - ${{ "flex" if unix }}
+        - ${{ "bison" if unix }}
       host:
         - tbb-devel
         - blosc
+        - glfw
         - libboost-devel
         - zlib
+        - glew
   - package:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
@@ -65,25 +70,5 @@ outputs:
       - package_contents:
           include:
             - openvdb.h
-  - package:
-      name: ${{ name }}-app
-    inherit: ${{ name }}-build
-    requirements:
-      host:
-        - ${{ name }}-rt
-    build:
-      number: 0
-      files:
-        - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
-    tests:
-      - script:
-          - vdb_print --help
-          - vdb_lod --help
-          - vdb_render --help
-          - vdb_tool --help
-          - nanovdb_convert --help
-          - nanovdb_print --help
-          - nanovdb_validate --help
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
