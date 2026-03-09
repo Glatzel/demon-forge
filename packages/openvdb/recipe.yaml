@@ -23,6 +23,7 @@ outputs:
         - ninja
         - pkg-config
         - ${{ "flex" if unix }}
+        - ${{ "bison" if unix }}
       host:
         - tbb-devel
         - blosc
