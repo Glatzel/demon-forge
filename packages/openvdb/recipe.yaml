@@ -64,5 +64,22 @@ outputs:
       - package_contents:
           include:
             - openvdb/version.h
+
+  - package:
+      name: ${{ name }}-app
+    inherit: ${{ name }}-build
+    build:
+      number: 0
+      script:
+        interpreter: powershell
+        file: build-${{ name }}-app.ps1
+    requirements:
+      host:
+        - ${{ name }}-rt
+        - ${{ name }}-dev
+    tests:
+      - package_contents:
+          bin:
+            - print
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
