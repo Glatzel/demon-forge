@@ -18,6 +18,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
+        - ${{ "jemalloc" if linux }}
         - cmake 3.*
         - ninja
         - pkg-config
