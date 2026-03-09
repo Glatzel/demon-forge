@@ -27,8 +27,14 @@ outputs:
 
   - package:
       name: proj-rt
-    inherit: proj-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
+      host:
+        - sqlite
+        - libtiff
+        - libcurl
       run_exports:
         - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
     build:
@@ -47,7 +53,9 @@ outputs:
 
   - package:
       name: proj-data
-    inherit: proj-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       run_exports:
         - ${{ pin_subpackage('proj-data', upper_bound='x.x') }}
@@ -58,7 +66,9 @@ outputs:
 
   - package:
       name: proj-app
-    inherit: proj-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       host:
         - proj-rt
@@ -83,7 +93,9 @@ outputs:
 
   - package:
       name: proj-dev
-    inherit: proj-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       host:
         - proj-rt

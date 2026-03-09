@@ -46,8 +46,31 @@ outputs:
 
   - package:
       name: openimageio-rt
-    inherit: openimageio-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
+      host:
+        - opencolorio-dev
+        - bzip2
+        - fmt
+        - freetype
+        - ffmpeg
+        - giflib
+        - libheif
+        - libjpeg-turbo
+        - libjxl
+        - libpng
+        - libraw-dev
+        - libtiff
+        - libwebp
+        - openexr
+        - openjpeg
+        - libopencv
+        - openvdb
+        - tbb-devel
+        - yaml-cpp
+        - zlib
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
@@ -63,7 +86,9 @@ outputs:
             - Library/bin/*.dll
   - package:
       name: openimageio-app
-    inherit: openimageio-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       host:
         - openimageio-rt
@@ -77,7 +102,9 @@ outputs:
           - oiiotool --help
   - package:
       name: openimageio-dev
-    inherit: openimageio-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       host:
         - openimageio-rt

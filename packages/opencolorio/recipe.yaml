@@ -31,8 +31,18 @@ outputs:
 
   - package:
       name: opencolorio-rt
-    inherit: opencolorio-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
+      host:
+        - expat
+        - imath
+        - lcms2
+        - ${{ 'minizip' if not osx }}
+        - pystring-dev
+        - yaml-cpp
+        - zlib
       run_exports:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
@@ -54,7 +64,9 @@ outputs:
 
   - package:
       name: opencolorio-dev
-    inherit: opencolorio-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       host:
         - opencolorio-rt
@@ -65,7 +77,9 @@ outputs:
 
   - package:
       name: opencolorio-app
-    inherit: opencolorio-build
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     requirements:
       build:
         - ${{ compiler('c') }}
