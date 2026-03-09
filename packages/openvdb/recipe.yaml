@@ -24,9 +24,9 @@ outputs:
       host:
         - tbb-devel
         - blosc
-        - boost
+        - libboost-devel
         - ${{'zlib' if win }}
-        - ${{'bison' if unix }}
+        - ${{ "glew" if win }}
   - package:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
