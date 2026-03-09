@@ -22,7 +22,7 @@ outputs:
         - cmake 3.*
         - ninja
         - pkg-config
-        - llvm
+        - llvmdev
         - ${{ "flex" if unix }}
         - ${{ "bison" if unix }}
       host:
