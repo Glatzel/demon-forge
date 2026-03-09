@@ -46,14 +46,13 @@ outputs:
 
   - package:
       name: openimageio-rt
-    inherit: openimageio-build
+    inherit: ${{ name }}-build
     requirements:
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
       number: 2
       files:
-        - ${{ 'Library/' if win }}share/*
         - if: osx
           then: lib/*.dylib
         - if: linux
@@ -62,25 +61,9 @@ outputs:
           then:
             - Library/*.lib
             - Library/bin/*.dll
-
-  - package:
-      name: openimageio-dev
-    inherit: openimageio-build
-    requirements:
-      host:
-        - openimageio-rt
-      run_exports:
-        - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
-    build:
-      number: 2
-      files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
-
   - package:
       name: openimageio-app
-    inherit: openimageio-build
+    inherit: ${{ name }}-build
     requirements:
       host:
         - openimageio-rt
@@ -92,6 +75,19 @@ outputs:
     tests:
       - script:
           - oiiotool --help
+
+  - package:
+      name: openimageio-dev
+    inherit: ${{ name }}-build
+    requirements:
+      host:
+        - openimageio-rt
+        - openimageio-app
+      run_exports:
+        - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
+    build:
+      number: 2
+
 about:
   homepage: https://openimageio.org
   license: BSD-3-Clause

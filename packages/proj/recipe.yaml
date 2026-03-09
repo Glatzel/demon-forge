@@ -27,57 +27,45 @@ outputs:
 
   - package:
       name: proj-rt
-    inherit: proj-build
+    inherit: ${{ name }}-build
     requirements:
       run_exports:
         - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
     build:
+      number: 2
       files:
         - if: osx
           then:
             - lib/*.dylib
-            - share/proj/*
         - if: linux
           then:
             - lib/*.so*
-            - share/proj/*
         - if: win
           then:
             - Library/*.lib
             - Library/bin/*.dll
-            - Library/share/proj/*
 
   - package:
-      name: proj-dev
-    inherit: proj-build
-    requirements:
-      host:
-        - proj-rt
-      run_exports:
-        - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
+      name: proj-data
+    inherit:
+      from: ${{ name }}-build
+      run_exports: false
     build:
-      number: 1
+      number: 2
       files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
-        - ${{ 'Library/' if win }}share/doc/*
-    tests:
-      - package_contents:
-          include:
-            - proj.h
+        - ${{ 'Library/' if win }}share/proj
 
   - package:
       name: proj-app
-    inherit: proj-build
+    inherit: ${{ name }}-build
     requirements:
       host:
         - proj-rt
     build:
-      number: 0
+      number: 2
       files:
         - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
+        - ${{ 'Library/bin/*' if win }}
         - ${{ 'Library/' if win }}share/bash-completion/*
         - ${{ 'Library/' if win }}share/man/*
     tests:
@@ -91,6 +79,23 @@ outputs:
             - invgeod
             - invproj
       - script: projinfo -s EPSG:2230 -t EPSG:26946
+
+  - package:
+      name: proj-dev
+    inherit: ${{ name }}-build
+    requirements:
+      host:
+        - proj-rt
+        - proj-data
+        - proj-app
+      run_exports:
+        - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
+    build:
+      number: 2
+    tests:
+      - package_contents:
+          include:
+            - proj.h
 
 about:
   repository: https://github.com/OSGeo/PROJ

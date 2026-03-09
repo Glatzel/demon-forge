@@ -49,8 +49,6 @@ outputs:
     inherit: pystring-build
     build:
       number: 0
-      files:
-        - ${{ 'Library/' if win }}include/*
     requirements:
       host:
         - pystring-rt

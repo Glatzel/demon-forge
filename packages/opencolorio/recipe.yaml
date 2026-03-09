@@ -31,7 +31,7 @@ outputs:
 
   - package:
       name: opencolorio-rt
-    inherit: opencolorio-build
+    inherit: ${{ name }}-build
     requirements:
       run_exports:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
@@ -54,7 +54,7 @@ outputs:
 
   - package:
       name: opencolorio-dev
-    inherit: opencolorio-build
+    inherit: ${{ name }}-build
     requirements:
       host:
         - opencolorio-rt
@@ -62,16 +62,10 @@ outputs:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
       number: 2
-      files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
-  - staging:
-      name: opencolorio-build-app
-    build:
-      script:
-        interpreter: powershell
-        file: build-opencolorio-app.ps1
+
+  - package:
+      name: opencolorio-app
+    inherit: ${{ name }}-build
     requirements:
       build:
         - ${{ compiler('c') }}
@@ -88,17 +82,12 @@ outputs:
         - yaml-cpp
         - zlib
         - openexr
-  - package:
-      name: opencolorio-app
-    inherit: opencolorio-build-app
-    requirements:
-      host:
-        - opencolorio-rt
+        - opencolorio-dev
     build:
       number: 2
-      files:
-        - bin/*
-        - Library/bin/*.exe
+      script:
+        interpreter: powershell
+        file: build-opencolorio-app.ps1
     tests:
       - package_contents:
           bin:

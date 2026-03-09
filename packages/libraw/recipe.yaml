@@ -10,11 +10,11 @@ source:
     target_directory: LibRaw-cmake
 outputs:
   - staging:
-      name: libraw-build
+      name: ${{ name }}-build
     build:
       script:
         interpreter: powershell
-        file: build-libraw.ps1
+        file: build-${{ name }}.ps1
     requirements:
       build:
         - ${{ compiler('c') }}
@@ -32,8 +32,8 @@ outputs:
         - ${{ 'llvm-openmp' if osx }}
 
   - package:
-      name: libraw-rt
-    inherit: libraw-build
+      name: ${{ name }}-rt
+    inherit: ${{ name }}-build
     requirements:
       run_exports:
         - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
@@ -41,11 +41,9 @@ outputs:
       number: 0
       files:
         - if: osx
-          then:
-            lib/*.dylib
+          then: lib/*.dylib
         - if: linux
-          then:
-            lib/*.so*
+          then: lib/*.so*
         - if: win
           then:
             - Library/*.lib
@@ -56,35 +54,31 @@ outputs:
             - raw
 
   - package:
-      name: libraw-dev
-    inherit: libraw-build
+      name: ${{ name }}-dev
+    inherit: ${{ name }}-build
     requirements:
       host:
-        - libraw-rt
+        - ${{ name }}-rt
       run_exports:
         - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
       number: 1
-      files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
     tests:
       - package_contents:
           include:
             - libraw/libraw.h
 
   - package:
-      name: libraw-app
-    inherit: libraw-build
+      name: ${{ name }}-app
+    inherit: ${{ name }}-build
     requirements:
       host:
-        - libraw-rt
+        - ${{ name }}-rt
     build:
       number: 0
       files:
         - ${{ 'bin/*' if unix }}
-        - ${{ 'Library/bin/*.exe' if win }}
+        - ${{ 'Library/bin/*' if win }}
     tests:
       - package_contents:
           bin:
@@ -99,7 +93,6 @@ outputs:
           - curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
           - raw-identify -u RAW_NIKON_D1.NEF
           - simple_dcraw -v -T RAW_NIKON_D1.NEF
-
 
 about:
   homepage: https://www.libraw.org
