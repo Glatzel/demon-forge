@@ -62,8 +62,6 @@ outputs:
     requirements:
       host:
         - proj-rt
-      run_exports:
-        - ${{ pin_subpackage('proj-app', upper_bound='x.x') }}
     build:
       number: 2
       files:

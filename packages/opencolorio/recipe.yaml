@@ -62,10 +62,6 @@ outputs:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
       number: 2
-      files:
-        - ${{ 'Library/' if win }}include/*
-        - ${{ 'Library/' if win }}lib/cmake/*
-        - ${{ 'Library/' if win }}lib/pkgconfig/*
   - staging:
       name: opencolorio-build-app
     build:
