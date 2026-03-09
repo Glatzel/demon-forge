@@ -1,0 +1,68 @@
+context:
+  name: openvdb
+  version: "13.0.0"
+recipe:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/AcademySoftwareFoundation/openvdb/archive/refs/tags/v${{ version }}.tar.gz
+outputs:
+  - staging:
+      name: ${{ name }}-build
+    build:
+      script:
+        interpreter: powershell
+        file: build-${{ name }}.ps1
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - ${{ "jemalloc" if linux }}
+        - cmake 3.*
+        - ninja
+        - pkg-config
+      host:
+        - tbb-devel
+        - blosc
+        - libboost-devel
+        - zlib
+        - ${{ "glew" if win }}
+  - package:
+      name: ${{ name }}-rt
+    inherit: ${{ name }}-build
+    build:
+      number: 0
+      files:
+        - if: osx
+          then: lib/*.dylib
+        - if: linux
+          then: lib/*.so*
+        - if: win
+          then:
+            - Library/*.lib
+            - Library/bin/*.dll
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('openvdb-rt', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          lib:
+            - openvdb
+
+  - package:
+      name: ${{ name }}-dev
+    inherit: ${{ name }}-build
+    build:
+      number: 0
+    requirements:
+      host:
+        - ${{ name }}-rt
+      run_exports:
+        - ${{ pin_subpackage('openvdb-rt', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          include:
+            - openvdb/version.h
+about:
+  repository: https://github.com/AcademySoftwareFoundation/openvdb
