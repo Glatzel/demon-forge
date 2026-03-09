@@ -66,6 +66,6 @@ outputs:
     tests:
       - package_contents:
           include:
-            - openvdb.h
+            - openvdb/version.h
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
