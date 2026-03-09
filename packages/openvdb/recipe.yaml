@@ -22,6 +22,7 @@ outputs:
         - cmake 3.*
         - ninja
         - pkg-config
+        - ${{ "flex" if unix }}
       host:
         - tbb-devel
         - blosc
