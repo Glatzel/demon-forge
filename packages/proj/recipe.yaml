@@ -27,9 +27,7 @@ outputs:
 
   - package:
       name: proj-rt
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - sqlite

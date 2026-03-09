@@ -33,18 +33,10 @@ outputs:
 
   - package:
       name: ${{ name }}-rt
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       run_exports:
         - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
-      host:
-        - zlib
-        - lcms2
-        - openjpeg
-        - jasper
-        - ${{ 'llvm-openmp' if osx }}
     build:
       number: 0
       files:
