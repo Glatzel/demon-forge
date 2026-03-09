@@ -50,9 +50,6 @@ outputs:
     inherit:
       from: ${{ name }}-build
       run_exports: false
-    requirements:
-      run_exports:
-        - ${{ pin_subpackage('proj-data', upper_bound='x.x') }}
     build:
       number: 2
       files:
@@ -60,9 +57,7 @@ outputs:
 
   - package:
       name: proj-app
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - proj-rt
@@ -87,9 +82,7 @@ outputs:
 
   - package:
       name: proj-dev
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - proj-rt

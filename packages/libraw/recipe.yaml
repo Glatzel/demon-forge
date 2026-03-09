@@ -55,9 +55,7 @@ outputs:
 
   - package:
       name: ${{ name }}-dev
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - ${{ name }}-rt
@@ -72,9 +70,7 @@ outputs:
 
   - package:
       name: ${{ name }}-app
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - ${{ name }}-rt

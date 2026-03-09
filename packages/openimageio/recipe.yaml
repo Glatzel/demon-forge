@@ -63,9 +63,7 @@ outputs:
             - Library/bin/*.dll
   - package:
       name: openimageio-app
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - openimageio-rt
@@ -77,11 +75,10 @@ outputs:
     tests:
       - script:
           - oiiotool --help
+
   - package:
       name: openimageio-dev
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - openimageio-rt

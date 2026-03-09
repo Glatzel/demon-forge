@@ -54,9 +54,7 @@ outputs:
 
   - package:
       name: opencolorio-dev
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       host:
         - opencolorio-rt
@@ -67,9 +65,7 @@ outputs:
 
   - package:
       name: opencolorio-app
-    inherit:
-      from: ${{ name }}-build
-      run_exports: false
+    inherit: ${{ name }}-build
     requirements:
       build:
         - ${{ compiler('c') }}
