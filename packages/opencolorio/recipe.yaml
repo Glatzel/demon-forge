@@ -89,12 +89,9 @@ outputs:
     inherit: opencolorio-build-app
     requirements:
       host:
-        - opencolorio-rt
+        - opencolorio-dev
     build:
       number: 2
-      files:
-        - bin/*
-        - Library/bin/*.exe
     tests:
       - package_contents:
           bin:
