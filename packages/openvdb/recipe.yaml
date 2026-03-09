@@ -22,16 +22,11 @@ outputs:
         - cmake 3.*
         - ninja
         - pkg-config
-        - llvmdev
-        - ${{ "flex" if unix }}
-        - ${{ "bison" if unix }}
       host:
         - tbb-devel
         - blosc
-        - glfw
         - libboost-devel
         - zlib
-        - glew
   - package:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
