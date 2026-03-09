@@ -20,11 +20,13 @@ outputs:
         - ${{ stdlib('c') }}
         - cmake 3.*
         - ninja
+        - pkg-config
       host:
         - tbb-devel
         - blosc
         - boost
-        - ${{'zlib' if win}}
+        - ${{'zlib' if win }}
+        - ${{'bison' if unix }}
   - package:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
