@@ -78,11 +78,13 @@ outputs:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*.exe' if win }}
     tests:
-      - package_contents:
-          bin:
-            - 4channels
-            - dcraw_emu
-            - raw-identify
-            - simple_dcraw
+      - script:
+          - vdb_print --help
+          - vdb_lod --help
+          - vdb_render --help
+          - vdb_tool --help
+          - nanovdb_convert --help
+          - nanovdb_print --help
+          - nanovdb_validate --help
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
