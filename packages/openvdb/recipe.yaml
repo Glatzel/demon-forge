@@ -25,7 +25,7 @@ outputs:
         - tbb-devel
         - blosc
         - libboost-devel
-        - ${{'zlib' if win }}
+        - zlib
         - ${{ "glew" if win }}
   - package:
       name: ${{ name }}-rt
