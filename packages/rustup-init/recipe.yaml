@@ -1,13 +1,13 @@
 context:
   name: rustup-init
-  version: "1.28.2"
+  version: "1.29.0"
 package:
-  version: "1.28.2"
+  version: "1.29.0"
   name: ${{ name }}
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 2
+  number: 0
   script:
     interpreter: powershell
     file: build.ps1
