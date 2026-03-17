@@ -104,6 +104,7 @@ function dispatch-workflow {
     Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
     $HAS_NEW_VERSION = ("$current_version" -ne "$version")
+    if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$')) {throw "Invalid version"}
     # update new version
     if ($HAS_NEW_VERSION -and (
             ($env:GITHUB_EVENT_NAME -eq "schedule") -or (
@@ -111,9 +112,6 @@ function dispatch-workflow {
             )
         )
     ) {
-        if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$')) {
-            throw "Invalid version"
-        }
         Write-Output "::group::update recipe"
         Write-Output "New version found."
         # Update version number and reset build number
