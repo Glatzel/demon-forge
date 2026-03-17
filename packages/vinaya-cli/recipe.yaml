@@ -1,0 +1,18 @@
+context:
+  name: termscp
+  version: "2026.3.17"
+package:
+  version: "2026.3.17"
+  name: ${{ name }}
+source:
+  url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 5
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+tests:
+  - script: vinaya --help
