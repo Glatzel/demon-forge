@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
     file: build.ps1
