@@ -27,7 +27,7 @@ tests:
       interpreter: powershell
       content: |
         rustup-init -y --default-toolchain stable --profile minimal
-        & $HOME/rustup components add clippy
-        & $HOME/rustup targets add riscv32imc-unknown-none-elf
+        & $HOME/.cargo/rustup components add clippy
+        & $HOME/.cargo/rustup targets add riscv32imc-unknown-none-elf
 about:
   repository: https://github.com/rust-lang/rustup
