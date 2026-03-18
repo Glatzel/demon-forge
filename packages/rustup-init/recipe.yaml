@@ -26,6 +26,7 @@ tests:
   - script:
       interpreter: powershell
       content: |
+        remove-item $HOME/.cargo -recurse -force -ErrorAction SilentlyContinue
         rustup-init -y --default-toolchain stable --profile minimal
         & $HOME/.cargo/bin/rustup component add clippy
         & $HOME/.cargo/bin/rustup target add riscv32imc-unknown-none-elf
