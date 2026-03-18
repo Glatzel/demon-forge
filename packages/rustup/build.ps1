@@ -1,7 +1,7 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 cargo install --path . @(Get-Cargo-Arg)
-if ($IsWindows) { 
+if ($IsWindows) {
     Rename-Item $env:PREFIX/bin/rustup-init.exe $env:PREFIX/bin/rustup.exe
     Copy-Item $env:RECIPE_DIR/win/* $env:PREFIX
 }
