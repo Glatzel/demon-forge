@@ -1,4 +1,5 @@
 # https://github.com/conda-forge/conda-forge-pinning-feedstock/blob/main/recipe/conda_build_config.yaml
+
 c_compiler:
   - gcc # [linux]
   - clang # [osx]
@@ -33,7 +34,7 @@ cuda_compiler:
   - cuda-nvcc
 cuda_compiler_version:
   - None
-  - 12.9                       # [((linux and not ppc64le) or win64) and os.environ.get("CF_CUDA_ENABLED", "False") == "True"]
+  - 12.9                       # [((linux and not ppc64le) or win64)]
 cuda_compiler_version_min:
   - None                       # [osx or ppc64le]
   - 12.9                       # [(linux and not ppc64le) or win64]
