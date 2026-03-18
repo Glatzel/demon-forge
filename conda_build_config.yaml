@@ -28,7 +28,7 @@ MACOSX_DEPLOYMENT_TARGET:      # [osx]
   - 11.0                       # [osx and arm64]
 
 rust_compiler:
-  - rust
+  - rust # [os.environ.get("CI", "") == "True"]
 
 cuda_compiler:
   - cuda-nvcc
