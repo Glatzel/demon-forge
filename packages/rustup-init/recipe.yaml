@@ -18,6 +18,7 @@ requirements:
     - ${{ stdlib('c') }}
     - pkg-config
     - ${{'perl' if linux}}
+    - ${{'make' if linux}}
 tests:
   - package_contents:
       bin:
