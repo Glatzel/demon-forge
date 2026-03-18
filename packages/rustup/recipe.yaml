@@ -26,8 +26,7 @@ tests:
   - script:
       interpreter: powershell
       content: |
-        $env:CARGO_HOME="$HOME/.cargo"
-        remove-item $HOME/.cargo -recurse -force -ErrorAction SilentlyContinue
+        $env:CARGO_HOME=resolve-path .
         rustup toolchain install stable --profile minimal --component clippy --target riscv32imc-unknown-none-elf
 about:
   repository: https://github.com/rust-lang/rustup
