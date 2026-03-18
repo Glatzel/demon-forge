@@ -23,5 +23,10 @@ tests:
   - package_contents:
       bin:
         - rustup-init
+  - script:
+      interpreter: powershell
+      - rustup-init -y --default-toolchain stable --profile minimal
+      - rustup components add clippy
+      - rustup targets add riscv32imc-unknown-none-elf
 about:
   repository: https://github.com/rust-lang/rustup
