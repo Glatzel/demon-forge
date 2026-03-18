@@ -1,5 +1,5 @@
 context:
-  name: rustup-init
+  name: rustup
   version: "1.29.0"
 package:
   version: "1.29.0"
