@@ -1,3 +1,0 @@
-{
-  "RUSTUP_HOME": "${CONDA_PREFIX}/.rustup"
-}
