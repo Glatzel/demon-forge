@@ -22,11 +22,6 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - rustup
-  - script:
-      interpreter: powershell
-      content: |
-        $env:CARGO_HOME=resolve-path .
-        rustup toolchain install stable --profile minimal --component clippy --target riscv32imc-unknown-none-elf
+        - rustup-init
 about:
   repository: https://github.com/rust-lang/rustup
