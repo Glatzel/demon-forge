@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
     file: build.ps1
@@ -17,11 +17,20 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - pkg-config
-  host:
-    - ${{ 'openssl' if linux}}
+    - ${{'perl' if linux}}
+    - ${{'make' if linux}}
 tests:
   - package_contents:
       bin:
         - rustup-init
+  - script:
+      interpreter: powershell
+      content: |
+        $env:CARGO_HOME="$HOME/.cargo"
+        remove-item $HOME/.rustup -recurse -force -ErrorAction SilentlyContinue
+        remove-item $HOME/.cargo -recurse -force -ErrorAction SilentlyContinue
+        rustup-init -y --default-toolchain stable --profile minimal
+        & $HOME/.cargo/bin/rustup component add clippy
+        & $HOME/.cargo/bin/rustup target add riscv32imc-unknown-none-elf
 about:
   repository: https://github.com/rust-lang/rustup
