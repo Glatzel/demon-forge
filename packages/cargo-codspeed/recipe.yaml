@@ -1,0 +1,18 @@
+context:
+  name: cargo-codspeed
+package:
+  version: "4.4.1"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
