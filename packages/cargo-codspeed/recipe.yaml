@@ -15,4 +15,4 @@ tests:
   - package_contents:
       bin:
         - ${{name}}
-  - script: ${{name}} --help
+  - script: ${{name}} help
