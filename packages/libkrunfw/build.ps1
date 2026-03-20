@@ -6,5 +6,6 @@ if($IsMacOS)
     brew install krunvm
     sh ./build_on_krunvm.sh
 }
-make V=1
+$arch=uname -m
+make ARCH=$arch
 make PREFIX=$env:PREFIX install
