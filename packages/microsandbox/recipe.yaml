@@ -11,10 +11,15 @@ build:
     interpreter: powershell
     file: build.ps1
 requirements:
+  build:
+  - ${{ compiler("c") if linux }}
+  - ${{ stdlib("c") if linux }}
   host:
-    - ${{stdlib("c")}}
-    - openssl
-    - libgcc
+    - if: linux
+      then:
+        - openssl
+        - libgcc
+        - libcap
 tests:
   - package_contents:
       bin:
