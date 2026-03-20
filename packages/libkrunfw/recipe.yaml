@@ -19,6 +19,7 @@ requirements:
       then:
         - python
         - pyelftools
+        - patch
 
 tests:
   - package_contents:
