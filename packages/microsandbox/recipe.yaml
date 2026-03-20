@@ -26,8 +26,8 @@ tests:
         - msb
         - msbnet
   - script:
+      - msb --help
       - msb run --help
-      - msb server start --dev
-      - msb exe --image python
+      - msb run python:alpine -- python -c 'print("hello world")'
 about:
   repository: https://github.com/zerocore-ai/microsandbox
