@@ -10,6 +10,10 @@ build:
   script:
     interpreter: powershell
     file: build.ps1
+requirements:
+  host:
+    - ${{stdlib("c")}}
+    - openssl
 tests:
   - package_contents:
       bin:
