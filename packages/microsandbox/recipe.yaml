@@ -11,6 +11,8 @@ build:
     interpreter: powershell
     file: build.ps1
 requirements:
+  build:
+    - ${{compiler("c")}}
   host:
     - ${{stdlib("c")}}
     - openssl
