@@ -18,4 +18,4 @@ if($env:TARGET_PLATFORM -eq 'osx-arm64')
         -p "microsandbox-darwin-aarch64.tar.gz" `
         -O libkrunfw.tar.gz
 }
-7z x libkrunfw.tar.gz -so | 7z x -si -ttar -o$env:PREFIX/bin
+7z x libkrunfw.tar.gz -so | 7z x -si -ttar "-o$env:PREFIX/bin"
