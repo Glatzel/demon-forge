@@ -26,7 +26,7 @@ tests:
         - msb
         - msbnet
   - script:
-      - apt install libcap-ng0
+      - sudo apt install libcap-ng0
       - msb --help
       - msb run --help
       - msb run python:alpine -- python -c 'print("hello world")'
