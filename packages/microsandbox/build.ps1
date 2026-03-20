@@ -9,7 +9,7 @@ if($env:TARGET_PLATFORM -eq 'linux-64')
 if($env:TARGET_PLATFORM -eq 'linux-aarch64')
 {
     gh release download -R zerocore-ai/microsandbox `
-        -p "microsandbox-linux-aarch.tar.gz" `
+        -p "microsandbox-linux-aarch64.tar.gz" `
         -O libkrunfw.tar.gz
 }
 if($env:TARGET_PLATFORM -eq 'osx-arm64')
