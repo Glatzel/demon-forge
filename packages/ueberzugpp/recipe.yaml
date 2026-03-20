@@ -32,7 +32,8 @@ requirements:
     - fmt
     - range-v3
     - glib
-
+  run_exports:
+    - ${{ pin_subpackage('ueberzugpp', upper_bound='x.x') }}
 tests:
   - package_contents:
       bin:
