@@ -26,7 +26,8 @@ tests:
         - msb
         - msbnet
   - script:
+      - msb --help
       - msb server start --dev
-      - msb pull microsandbox/python
+      - msb exe --image python
 about:
   repository: https://github.com/zerocore-ai/microsandbox
