@@ -3,13 +3,13 @@ $ROOT = git rev-parse --show-toplevel
 if($env:TARGET_PLATFORM -eq 'linux-64')
 {
     gh release download -R zerocore-ai/microsandbox `
-        -p "libkrunfw-linux-x86_64.tar.gz" `
+        -p "microsandbox-linux-x86_64.tar.gz" `
         -O libkrunfw.tar.gz
 }
 if($env:TARGET_PLATFORM -eq 'linux-aarch64')
 {
     gh release download -R zerocore-ai/microsandbox `
-        -p "libkrunfw-linux-aarch.tar.gz" `
+        -p "microsandbox-linux-aarch.tar.gz" `
         -O libkrunfw.tar.gz
 }
 if($env:TARGET_PLATFORM -eq 'osx-arm64')
