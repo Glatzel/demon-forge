@@ -1,0 +1,19 @@
+context:
+  name: microsandbox
+  version: "0.3.0"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
+tests:
+  - package_contents:
+      bin:
+        - msb
+        - msbnet
+about:
+  repository: https://github.com/zerocore-ai/microsandbox
