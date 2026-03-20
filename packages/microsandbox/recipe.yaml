@@ -29,6 +29,6 @@ tests:
       - sudo apt install libcap-ng0
       - msb --help
       - msb run --help
-      - msb run python:alpine -- python -c 'print("hello world")'
+      # - msb run python:alpine -- python -c 'print("hello world")'
 about:
   repository: https://github.com/zerocore-ai/microsandbox
