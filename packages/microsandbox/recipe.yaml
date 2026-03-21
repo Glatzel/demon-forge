@@ -26,7 +26,6 @@ tests:
         - msb
         - msbnet
   - script:
-      - ls /
       - msb --help
       - msb run --help
       - msb run --detach python:alpine
