@@ -32,7 +32,6 @@ requirements:
     - fmt
     - range-v3
     - glib
-
 tests:
   - package_contents:
       bin:
