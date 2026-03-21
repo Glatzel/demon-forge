@@ -21,3 +21,8 @@ if($env:TARGET_PLATFORM -eq 'osx-arm64')
 7z x microsandbox.tar.gz -so | 7z x -si -ttar "-o$env:PREFIX/bin"
 chmod +x $PREFIX/bin/msb
 chmod +x $PREFIX/bin/msbnet
+if($IsLinux)
+{
+    New-Item -Path $env:PREFIX/etc/conda/activate.d -ItemType Directory -Force -ErrorAction SilentlyContinue
+    Copy-Item -Path $env:RECIPE_DIR/microsandbox-kvm.sh -Destination $env:PREFIX/etc/conda/activate.d
+}
