@@ -1,4 +1,8 @@
 set -e
+if $CI; then
+    echo "Running in CI environment, skipping KVM check."
+    exit 0  
+fi
 
 # Check CPU virtualization support
 if ! grep -Eq '(vmx|svm)' /proc/cpuinfo; then
