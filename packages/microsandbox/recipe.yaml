@@ -27,6 +27,6 @@ tests:
         - msbnet
   - script:
       - msb --help
-      - msb run --detach debian:slim -- ls
+      - msb run --detach debian:12-slim -- ls
 about:
   repository: https://github.com/zerocore-ai/microsandbox
