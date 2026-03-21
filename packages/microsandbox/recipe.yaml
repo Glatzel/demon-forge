@@ -28,6 +28,6 @@ tests:
   - script:
       - msb --help
       - msb run --help
-      - msb pull --detach python:alpine
+      - msb pull python:alpine
 about:
   repository: https://github.com/zerocore-ai/microsandbox
