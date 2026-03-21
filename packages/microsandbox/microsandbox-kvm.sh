@@ -1,7 +1,7 @@
 set -e
 if $CI; then
     echo "Running in CI environment, skipping KVM check."
-    exit 0
+    retrun 0  
 fi
 
 # Check CPU virtualization support
@@ -18,7 +18,7 @@ fi
 
 # Check access
 if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
-    exit 0
+    retrun 0
 fi
 
 # Try ACL method
@@ -29,14 +29,14 @@ fi
 # Re-check access
 if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
     echo "Access granted using ACL"
-    exit 0
+    retrun 0
 fi
 
 # Try kvm group method
 if [ "$(stat -c "%G" /dev/kvm)" = "kvm" ]; then
     sudo usermod -aG kvm "$USER"
     echo "User added to kvm group. Log out and log in again."
-    exit 0
+    retrun 0
 fi
 
 echo "Could not grant access. Try running with sudo."
