@@ -1,9 +1,4 @@
 set -e
-if $CI; then
-    echo "Running in CI environment, skipping KVM check."
-    return 0
-fi
-
 # Check if /dev/kvm exists
 if [ ! -e /dev/kvm ]; then
     echo "/dev/kvm not found. Load kvm modules first."
