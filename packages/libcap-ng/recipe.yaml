@@ -30,12 +30,11 @@ outputs:
     inherit: ${{ name }}-build
     requirements:
       run_exports:
-        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
+        - ${{ pin_subpackage('libcap-ng-rt', upper_bound='x.x') }}
     build:
       number: 0
       files:
-        - if: linux
-          then: lib/*
+        - lib/*
     tests:
       - package_contents:
           lib:
@@ -49,8 +48,7 @@ outputs:
     build:
       number: 0
       files:
-        - if: linux
-          then: bin/*
+        - bin/*
     tests:
       - package_contents:
           bin:
@@ -65,7 +63,7 @@ outputs:
         - ${{ name }}-rt
         - ${{ name }}-app
       run_exports:
-        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
+        - ${{ pin_subpackage('libcap-ng-rt', upper_bound='x.x') }}
     build:
       number: 0
     tests:
