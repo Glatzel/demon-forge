@@ -1,32 +1,77 @@
 context:
   name: libcap-ng
   version: "0.9.1"
-package:
+recipe:
   version: ${{ version }}
   name: ${{ name }}
 source:
   - url: https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v${{ version }}.tar.gz
-build:
-  number: 10
-  script:
-    - ./autogen.sh
-    - ./configure --prefix=$PREFIX
-    - make -j$(nproc)
-    - make install
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-    - make
-    - autoconf
-    - automake
-    - libtool
-    - diffutils
-    - pkg-config
-
-tests:
-  - package_contents:
-      lib:
-        - libcap-ng
+outputs:
+  - staging:
+      name: ${{ name }}-build
+    build:
+      number: 10
+      script:
+        - ./autogen.sh
+        - ./configure --prefix=$PREFIX
+        - make -j$(nproc)
+        - make install
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - make
+        - autoconf
+        - automake
+        - libtool
+        - diffutils
+        - pkg-config
+  - package:
+      name: ${{ name }}-rt
+    inherit: ${{ name }}-build
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
+    build:
+      number: 0
+      files:
+        - if: linux
+          then: lib/*
+    tests:
+      - package_contents:
+        lib:
+          - libcap-ng
+  - package:
+      name: ${{ name }}-app
+    inherit: ${{ name }}-build
+    requirements:
+      host:
+        - ${{ name }}-rt
+    build:
+      number: 0
+      files:
+        - if: linux
+          then: bin/*
+    tests:
+      - package_contents:
+        bin:
+          - filecap
+          - netcap
+          - pscap
+  - package:
+      name: ${{ name }}-dev
+    inherit: ${{ name }}-build
+    requirements:
+      host:
+        - ${{ name }}-rt
+        - ${{ name }}-app
+      run_exports:
+        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
+    build:
+      number: 0
+    tests:
+      - package_contents:
+        include:
+          - cap-ng.h
 about:
   repository: https://github.com/stevegrubb/libcap-ng
