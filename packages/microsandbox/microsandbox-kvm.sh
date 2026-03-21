@@ -15,6 +15,7 @@ if [ "$(stat -c "%G" /dev/kvm)" = "kvm" ]; then
     echo "Try add User to kvm group."
     sudo usermod -aG kvm "$USER"
     newgrp kvm
+    # Recheck access
     echo "User added to kvm group."
     if [ ! -e /dev/kvm ]; then
         echo "/dev/kvm still not found."
