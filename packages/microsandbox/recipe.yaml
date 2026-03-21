@@ -19,7 +19,7 @@ requirements:
       then:
         - openssl
         - libgcc
-        - libcap
+        - libcap-ng-dev
 tests:
   - package_contents:
       bin:
