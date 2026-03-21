@@ -1,0 +1,28 @@
+context:
+  name: libcap-ng
+  version: "0.9.1"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 10
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - make
+    - autoconf
+    - automake
+    - libtool
+
+tests:
+  - package_contents:
+      lib:
+        - libcap-ng
+about:
+  repository: https://github.com/stevegrubb/libcap-ng
