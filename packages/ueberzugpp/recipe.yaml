@@ -8,9 +8,16 @@ source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 10
-  script:
-    interpreter: powershell
-    file: build.ps1
+  script: |
+    cmake -S . -B build \
+        -G "Ninja" \
+        -DVERBOSE=ON \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=$env:PREFIX \
+        -DENABLE_X11=OFF \
+        ${{"-DCMAKE_CXX_COMPILER_CLANG_SCAN_DEPS=$BUILD_PREFIX/bin/clang-scan-deps" if osx}} \
+        -DENABLE_OPENCV=OFF
+    cmake --build build --config Release --target install
 requirements:
   build:
     - ${{ compiler('c') }}
