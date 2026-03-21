@@ -10,7 +10,9 @@ build:
   number: 0
   script:
     interpreter: powershell
-    file: build.ps1
+    contents: |
+      New-Item $env:PREFIX/bin -ItemType Directory
+      Copy-Item "./Win64/${env:PKG_NAME}.exe" "$env:PREFIX/bin/${env:PKG_NAME}.exe"
 tests:
   - package_contents:
       bin:
