@@ -9,8 +9,9 @@ source:
 build:
   number: 10
   script:
-    interpreter: powershell
-    file: build.ps1
+    - ./configure "--prefix=${PREFIX}"
+    - make -j$(nproc)
+    - make install
 requirements:
   build:
     - ${{ compiler('c') }}
