@@ -2,7 +2,7 @@ set -e
 # Check if /dev/kvm exists
 if [ ! -e /dev/kvm ]; then
     echo "/dev/kvm not found. Load kvm modules first."
-    exit 1
+    return 0
 fi
 
 # Check access
@@ -15,12 +15,6 @@ if [ "$(stat -c "%G" /dev/kvm)" = "kvm" ]; then
     echo "Try add User to kvm group."
     sudo usermod -aG kvm "$USER"
     newgrp kvm
-    # Recheck access
-    echo "User added to kvm group."
-    if [ ! -e /dev/kvm ]; then
-        echo "/dev/kvm still not found."
-    exit 1
-    fi
     return 0
 fi
 
