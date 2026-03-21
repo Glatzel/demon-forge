@@ -8,7 +8,6 @@ package:
 build:
   script:
     interpreter: powershell
-    file: build.ps1
   number: 0
 tests:
   - script: magick --help
