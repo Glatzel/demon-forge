@@ -4,12 +4,6 @@ if $CI; then
     return 0
 fi
 
-# Check CPU virtualization support
-if ! grep -Eq '(vmx|svm)' /proc/cpuinfo; then
-    echo "CPU virtualization not supported (vmx/svm missing)"
-    exit 1
-fi
-
 # Check if /dev/kvm exists
 if [ ! -e /dev/kvm ]; then
     echo "/dev/kvm not found. Load kvm modules first."
