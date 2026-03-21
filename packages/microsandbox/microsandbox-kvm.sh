@@ -1,7 +1,7 @@
 set -e
 if $CI; then
     echo "Running in CI environment, skipping KVM check."
-    return 0  
+    return 0
 fi
 
 # Check CPU virtualization support
