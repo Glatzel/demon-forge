@@ -13,7 +13,7 @@ build:
         -G "Ninja" \
         -DVERBOSE=ON \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=$env:PREFIX \
+        -DCMAKE_INSTALL_PREFIX=$PREFIX \
         -DENABLE_X11=OFF \
         ${{"-DCMAKE_CXX_COMPILER_CLANG_SCAN_DEPS=$BUILD_PREFIX/bin/clang-scan-deps" if osx}} \
         -DENABLE_OPENCV=OFF
