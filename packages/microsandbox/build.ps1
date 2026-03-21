@@ -19,3 +19,5 @@ if($env:TARGET_PLATFORM -eq 'osx-arm64')
         -O microsandbox.tar.gz
 }
 7z x microsandbox.tar.gz -so | 7z x -si -ttar "-o$env:PREFIX/bin"
+chmod +x $PREFIX/bin/msb
+chmod +x $PREFIX/bin/msbnet
