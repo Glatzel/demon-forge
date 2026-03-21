@@ -10,7 +10,6 @@ outputs:
   - staging:
       name: ${{ name }}-build
     build:
-      number: 10
       script:
         - ./autogen.sh
         - ./configure --prefix=$PREFIX
