@@ -38,8 +38,8 @@ outputs:
           then: lib/*
     tests:
       - package_contents:
-        lib:
-          - libcap-ng
+          lib:
+            - libcap-ng
   - package:
       name: ${{ name }}-app
     inherit: ${{ name }}-build
@@ -53,10 +53,10 @@ outputs:
           then: bin/*
     tests:
       - package_contents:
-        bin:
-          - filecap
-          - netcap
-          - pscap
+          bin:
+            - filecap
+            - netcap
+            - pscap
   - package:
       name: ${{ name }}-dev
     inherit: ${{ name }}-build
@@ -70,7 +70,7 @@ outputs:
       number: 0
     tests:
       - package_contents:
-        include:
-          - cap-ng.h
+          include:
+            - cap-ng.h
 about:
   repository: https://github.com/stevegrubb/libcap-ng
