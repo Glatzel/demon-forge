@@ -19,8 +19,10 @@ if($env:TARGET_PLATFORM -eq 'osx-arm64')
         -O microsandbox.tar.gz
 }
 7z x microsandbox.tar.gz -so | 7z x -si -ttar "-o$env:PREFIX/bin"
-chmod +x $PREFIX/bin/msb
-chmod +x $PREFIX/bin/msbnet
+chmod +x $env:PREFIX/bin/msb
+chmod +x $env:PREFIX/bin/msbnet
+strip $env:PREFIX/bin/msb*
+strip --strip-unneeded $env:PREFIX/bin/libkrun*
 if($IsLinux)
 {
     New-Item -Path $env:PREFIX/etc/conda/activate.d -ItemType Directory -Force -ErrorAction SilentlyContinue
