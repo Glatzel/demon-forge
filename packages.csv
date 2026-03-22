@@ -38,6 +38,7 @@ libcap-ng,,,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-r
 libraw,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 librepcb,windows-latest,,,,
 mason,windows-latest,,,,
+microsandbox,,macos-latest,ubuntu-slim,ubuntu-24.04-arm,
 mqttui,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 nerdctl,windows-latest,,ubuntu-slim,ubuntu-24.04-arm,
 nerdctl-full,,,ubuntu-slim,ubuntu-24.04-arm,
