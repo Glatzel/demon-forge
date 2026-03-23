@@ -7,9 +7,7 @@ build:
   number: 0
   script:
     interpreter: powershell
-    content: |
-      new-item $env:PREFIX/etc/conda/activate.d -itemType Directory -Force -ErrorAction SilentlyContinue
-      copy-item $env:RECIPE_DIR/dnc-init.ps1 $env:PREFIX/etc/conda/activate.d/
+    file: build.ps1
 requirements:
   run:
     - aria2

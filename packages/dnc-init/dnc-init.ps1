@@ -14,7 +14,6 @@ if ( $need_install) {
             -d "$env:PREFIX/temp" `
             "https://download.adobe.com/pub/adobe/dng/win/AdobeDNGConverter_x64_$version.exe" `
             -o "dnc$version.exe"
-
     }
     Write-Output "install dnc $version"
     Start-Process "./temp/dnc$version.exe" -ArgumentList "/silent" -Wait
