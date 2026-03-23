@@ -3,3 +3,4 @@ new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyCon
 Write-Output (Get-Content $env:PREFIX/Scripts/install-dnc.ps1)
 new-item $env:PREFIX/etc/conda/activate.d -itemType Directory -Force -ErrorAction SilentlyContinue
 Copy-Item $env:RECIPE_DIR/dnc-activate.bat $env:PREFIX/etc/conda/activate.d/
+Copy-Item $env:RECIPE_DIR/dnc.bat $env:PREFIX/Scripts/
