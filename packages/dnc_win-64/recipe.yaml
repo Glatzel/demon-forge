@@ -1,5 +1,5 @@
 context:
-  name: dnc_win-64
+  name: dnc
 package:
   version: "18.2.2"
   name: ${{ name }}
