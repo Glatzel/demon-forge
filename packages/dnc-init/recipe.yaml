@@ -1,0 +1,19 @@
+context:
+  name: dnc-init
+package:
+  version: "18.2.2"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    content: |
+      new-item $env:PREFIX/etc/conda/activate.d -itemType Directory -Force - -ErrorAction SilentlyContinue
+      copy-item $env:RECIPE_DIR/dnc-init.ps1 $env:PREFIX/etc/conda/activate.d/
+requirements:
+  run:
+    - aria2
+tests:
+  - script:
+      interpreter: pwsh
+      content: Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
