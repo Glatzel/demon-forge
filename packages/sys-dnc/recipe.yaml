@@ -1,5 +1,5 @@
 context:
-  name: dnc-init
+  name: sys-dnc
 package:
   version: "18.2.2"
   name: ${{ name }}
@@ -15,7 +15,7 @@ tests:
   - script:
       interpreter: powershell
       content: |
-        dnc-init
+        sys-install-dnc.ps1
         ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Resolve-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
         (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion

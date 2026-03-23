@@ -1,5 +1,5 @@
 context:
-  name: rhino-inside-revit-init
+  name: sys-rhino-inside-revit
 package:
   version: "1.35.9540.6370"
   name: ${{ name }}

@@ -1,0 +1,10 @@
+context:
+  name: sys-install
+package:
+  version: "1.0.0"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
