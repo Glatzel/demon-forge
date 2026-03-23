@@ -8,15 +8,15 @@ else {
     }
 }
 if ( $need_install) {
-    if (-not (Test-Path "$env:PREFIX/temp/dnc$version.exe")) {
+    if (-not (Test-Path "$PSScriptRoot/../temp/dnc$version.exe")) {
         $web_version = "$version".Replace(".", "_")
         Write-Output "download dnc $version"
-        & "$env:PREFIX/bin/aria2c.exe" -c -x16 -s16 `
-            -d "$env:PREFIX/temp" `
+        & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
+            -d "$PSScriptRoot/../temp" `
             "https://download.adobe.com/pub/adobe/dng/win/AdobeDNGConverter_x64_$web_version.exe" `
             -o "dnc-$version.exe"
     }
     Write-Output "install dnc $version"
-    Start-Process "$env:PREFIX/temp/dnc-$version.exe" -ArgumentList "/silent" -Wait
+    Start-Process "$PSScriptRoot/../temp/dnc-$version.exe" -ArgumentList "/silent" -Wait
     Write-Output "dnc installed"
 }
