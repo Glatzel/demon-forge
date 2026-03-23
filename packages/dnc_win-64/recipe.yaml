@@ -17,5 +17,6 @@ tests:
       content: |
         ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
+        (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion
         curl http://www.rawsamples.ch/raws/canon/RAW_CANON_EOS-M.CR2 -o RAW_CANON_EOS-M.CR2
         & "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe" -c RAW_CANON_EOS-M.CR2
