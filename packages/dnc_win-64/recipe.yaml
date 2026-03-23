@@ -18,4 +18,4 @@ tests:
         ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
         curl https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF -o RAW_NIKON_D1.NEF
-        & "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe" -c AW_NIKON_D1.NEF
+        & "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe" -c RAW_NIKON_D1.NEF
