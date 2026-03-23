@@ -6,6 +6,7 @@ else {
     if ((Get-Item "C:\Program Files\Rhino 8\System\Rhino.exe").VersionInfo.ProductVersion -ne "$version") {
         $need_install = $true
     }
+    else{Write-Output "rhino $version is already installed."}
 }
 if ( $need_install) {
     if (-not (Test-Path "$PSScriptRoot/../temp/rhino-$version.exe")) {
