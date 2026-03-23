@@ -57,6 +57,7 @@ pystring,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubun
 pyxis-cli,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 pyxis-py,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 rhino-init,windows-latest,,,,
+rhino-inside-revit-init,windows-latest,,,,
 rufus,windows-latest,,,,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
 rustup-init,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,
