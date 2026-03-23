@@ -13,9 +13,9 @@ if ( $need_install) {
         & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
             -d "$PSScriptRoot/../temp" `
             "https://files.mcneel.com/rhino.inside/revit/dujour/RhinoInside.Revit_$version.msi" `
-            -o "rhino-$version.exe"
+            -o "rhino-inside-revit-$version.msi"
     }
     Write-Output "install rhino $version"
-    Start-Process "$PSScriptRoot/../temp/rhino-$version.exe" -ArgumentList "/silent" -Wait
+    msiexec /i "rhino-inside-revit-$version.msi" /qn
     Write-Output "rhino installed"
 }
