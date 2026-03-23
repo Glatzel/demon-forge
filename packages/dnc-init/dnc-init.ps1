@@ -10,7 +10,7 @@ else {
 if ( $need_install) {
     if (-not (Test-Path "$env:PREFIX/temp/dnc$version.exe")) {
         Write-Output "download dnc $version"
-        aria2c -c -x16 -s16 `
+        & $env:PREFIX/bin/aria2c -c -x16 -s16 `
             -d "$env:PREFIX/temp" `
             "https://download.adobe.com/pub/adobe/dng/win/AdobeDNGConverter_x64_$version.exe" `
             -o "dnc$version.exe"
