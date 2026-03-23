@@ -1,4 +1,4 @@
-$version
+$template_version
 if (-not (Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe")) {
     $need_install = $true
 }
