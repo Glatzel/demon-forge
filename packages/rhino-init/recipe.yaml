@@ -15,5 +15,5 @@ tests:
   - script:
       interpreter: powershell
       content: |
-        rhino-inside-revit-init
+        rhino-init
         Resolve-Path "C:\Program Files\Rhino 8\System\Rhino.exe"
