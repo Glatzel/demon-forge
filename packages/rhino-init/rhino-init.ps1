@@ -3,7 +3,7 @@ if (-not (Test-Path "C:\Program Files\Rhino 8\System\Rhino.exe")) {
     $need_install = $true
 }
 else {
-    if ((Get-Item "C:\Program Files\Rhino 8\System\Rhino.exe").VersionInfo.ProductVersion -eq "$version") {
+    if ((Get-Item "C:\Program Files\Rhino 8\System\Rhino.exe").VersionInfo.ProductVersion -ne "$version") {
         $need_install = $true
     }
 }
