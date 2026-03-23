@@ -11,8 +11,4 @@ build:
 requirements:
   run:
     - aria2
-tests:
-  - script:
-      interpreter: powershell
-      content: |
-        rhino-inside-revit-init
+

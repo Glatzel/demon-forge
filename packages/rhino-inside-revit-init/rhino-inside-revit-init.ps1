@@ -19,4 +19,3 @@ if ( $need_install) {
     Start-Process "$PSScriptRoot/../temp/rhino-inside-revit-$version.msi"
     Write-Output "rhino.inside-revit installed"
 }
- 
