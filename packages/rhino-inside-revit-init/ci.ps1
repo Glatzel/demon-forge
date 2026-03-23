@@ -43,6 +43,6 @@ function Get-PreviousMinorLatestTag {
     Sort-Object Build, Rev -Descending |
     Select-Object -First 1
 
-    return "$result.Tag".Replace("v", "")
+    return "${result.Tag}".Replace("v", "")
 }
 dispatch-workflow $(Get-PreviousMinorLatestTag)
