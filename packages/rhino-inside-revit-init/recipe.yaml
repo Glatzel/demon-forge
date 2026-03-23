@@ -11,4 +11,3 @@ build:
 requirements:
   run:
     - aria2
-
