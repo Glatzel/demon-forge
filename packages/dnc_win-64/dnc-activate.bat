@@ -1,1 +1,1 @@
-pwsh -File "%PREFIX%/scripts/dnc-init.ps1"
+pwsh -File "%PREFIX%/scripts/download-dnc.ps1"
