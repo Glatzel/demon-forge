@@ -4,7 +4,7 @@ package:
   version: "18.2.2"
   name: ${{ name }}
 build:
-  number: 4
+  number: 5
   script:
     interpreter: powershell
     file: build.ps1
@@ -15,7 +15,7 @@ tests:
   - script:
       interpreter: powershell
       content: |
-        install-dnc
+        dnc-init
         ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Resolve-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
         (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion
