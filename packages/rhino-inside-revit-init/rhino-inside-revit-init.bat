@@ -1,1 +1,1 @@
-pwsh -f "%~dp0rhino-inside-revit.ps1"
+pwsh -f "%~dp0rhino-inside-revit-init.ps1"
