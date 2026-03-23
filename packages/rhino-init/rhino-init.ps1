@@ -6,6 +6,7 @@ else {
     if ((Get-Item "C:\Program Files\Rhino 8\System\Rhino.exe").VersionInfo.ProductVersion -ne "$version") {
         $need_install = $true
     }
+    else{Write-Output "rhino $version is already installed."}
 }
 if ( $need_install) {
     if (-not (Test-Path "$PSScriptRoot/../temp/rhino-$version.exe")) {
@@ -14,7 +15,7 @@ if ( $need_install) {
             "https://www.rhino3d.com/download/rhino-for-windows/8/latest/direct?email=users.noreply.github.com" `
             -o "rhino-$version.exe"
     }
-    Write-Output "install dnc $version"
+    Write-Output "install rhino $version"
     Start-Process "$PSScriptRoot/../temp/rhino-$version.exe" -ArgumentList "/silent" -Wait
     Write-Output "rhino installed"
 }

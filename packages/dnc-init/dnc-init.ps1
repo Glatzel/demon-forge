@@ -6,6 +6,7 @@ else {
     if ((Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion -ne "$version") {
         $need_install = $true
     }
+    else{Write-Output "rhino $version is already installed."}
 }
 if ( $need_install) {
     if (-not (Test-Path "$PSScriptRoot/../temp/dnc-$version.exe")) {
