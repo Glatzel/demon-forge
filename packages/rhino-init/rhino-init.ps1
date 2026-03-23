@@ -1,8 +1,9 @@
+$template_version
 if (-not (Test-Path "C:\Program Files\Rhino 8\System\Rhino.exe")) {
     $need_install = $true
 }
 else {
-    if ((Get-Item "C:\Program Files\Rhino 8\System\Rhino.exe").VersionInfo.ProductVersion -ccontains "$version") {
+    if ((Get-Item "C:\Program Files\Rhino 8\System\Rhino.exe").VersionInfo.ProductVersion -eq "$version") {
         $need_install = $true
     }
 }

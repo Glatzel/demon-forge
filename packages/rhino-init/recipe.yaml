@@ -11,3 +11,9 @@ build:
 requirements:
   run:
     - aria2
+tests:
+  - script:
+      interpreter: powershell
+      content: |
+        rhino-init
+        Resolve-Path "C:\Program Files\Rhino 8\System\Rhino.exe"
