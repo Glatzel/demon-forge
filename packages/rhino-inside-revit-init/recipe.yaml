@@ -4,7 +4,7 @@ package:
   version: "1.35.9540.6370"
   name: ${{ name }}
 build:
-  number: 8
+  number: 9
   script:
     interpreter: powershell
     file: build.ps1
