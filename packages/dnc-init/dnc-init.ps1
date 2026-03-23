@@ -15,6 +15,6 @@ if ( $need_install) {
             -o "dnc$version.exe"
     }
     Write-Output "install dnc $version"
-    Start-Process "./temp/dnc$version.exe" -ArgumentList "/silent" -Wait
+    Start-Process "$env:PREFIX/temp/dnc$version.exe" -ArgumentList "/silent" -Wait
     Write-Output "dnc installed"
 }
