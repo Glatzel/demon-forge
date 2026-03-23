@@ -16,6 +16,6 @@ if ( $need_install) {
             -o "rhino-inside-revit-$version.msi"
     }
     Write-Output "install rhino.inside-revit $version"
-    msiexec /i "rhino-inside-revit-$version.msi" /qn
+    Start-Process "$PSScriptRoot/../temp/rhino-inside-revit-$version.msi"
     Write-Output "rhino.inside-revit installed"
 }

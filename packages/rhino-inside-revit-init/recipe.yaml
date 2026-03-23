@@ -4,15 +4,10 @@ package:
   version: "1.35.9540.6370"
   name: ${{ name }}
 build:
-  number: 9
+  number: 10
   script:
     interpreter: powershell
     file: build.ps1
 requirements:
   run:
     - aria2
-tests:
-  - script:
-      interpreter: powershell
-      content: |
-        rhino-inside-revit-init
