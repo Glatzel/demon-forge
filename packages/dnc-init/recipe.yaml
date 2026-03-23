@@ -13,5 +13,5 @@ requirements:
     - aria2
 tests:
   - script:
-      interpreter: pwsh
+      interpreter: powershell
       content: Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
