@@ -1,4 +1,3 @@
-$version = "18.2.2"
 if (-not (Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe")) {
     $need_install = $true
 }
