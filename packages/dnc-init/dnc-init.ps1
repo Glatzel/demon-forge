@@ -8,7 +8,7 @@ else {
     }
 }
 if ( $need_install) {
-    if (-not (Test-Path "$PSScriptRoot/../temp/dnc$version.exe")) {
+    if (-not (Test-Path "$PSScriptRoot/../temp/dnc-$version.exe")) {
         $web_version = "$version".Replace(".", "_")
         Write-Output "download dnc $version"
         & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
