@@ -16,4 +16,3 @@ tests:
       interpreter: powershell
       content: |
         rhino-inside-revit-init
-        Resolve-Path "C:\ProgramData\Autodesk\Revit\Addins\*\RhinoInside.Revit\RhinoInside.Revit.Loader.dll"
