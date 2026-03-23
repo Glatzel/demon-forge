@@ -15,5 +15,5 @@ tests:
   - script:
       interpreter: powershell
       content: |
-        ls C:/Program Files/Adobe/Adobe DNG Converter/
+        ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
