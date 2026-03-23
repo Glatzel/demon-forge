@@ -1,6 +1,7 @@
-$content=Get-Content $env:RECIPE_DIR/dnc-init.ps1
-$content="`$version=`"$env:PKG_VERSION`"`n"+$content
+$content = Get-Content $env:RECIPE_DIR/dnc-init.ps1
+$content = $content -replace '$version', "`$version=`"$env:PKG_VERSION`""
 Write-Output $content
+new-item $env:PREFIX/scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+Set-Content $env:PREFIX/scripts/dnc-init.ps1 $content
 new-item $env:PREFIX/etc/conda/activate.d -itemType Directory -Force -ErrorAction SilentlyContinue
-Set-Content $env:PREFIX/etc/conda/activate.d/dnc-init.ps1 $content
-Copy-Item $env:RECIPE_DIR/dnc-init.ps1 $env:PREFIX/etc/conda/activate.d/
+Copy-Item $env:RECIPE_DIR/dnc-init.bat $env:PREFIX/etc/conda/activate.d/
