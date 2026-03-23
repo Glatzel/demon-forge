@@ -1,0 +1,19 @@
+context:
+  name: rhino-init
+package:
+  version: "8.29.26063.11001"
+  name: ${{ name }}
+build:
+  number: 6
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  run:
+    - aria2
+tests:
+  - script:
+      interpreter: powershell
+      content: |
+        rhino-init
+        Resolve-Path "C:\Program Files\Rhino 8\System\Rhino.exe"
