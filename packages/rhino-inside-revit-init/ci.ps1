@@ -45,4 +45,4 @@ function Get-PreviousMinorLatestTag {
 
     return "$result.Tag".Replace("v", "")
 }
-dispatch-workflow Get-PreviousMinorLatestTag
+dispatch-workflow $(Get-PreviousMinorLatestTag)
