@@ -1,0 +1,20 @@
+context:
+  name: dnc_win-64
+package:
+  version: "18.2.2"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  run:
+    - aria2
+tests:
+  - script:
+      interpreter: powershell
+      content: |
+        ls "C:/Program Files/Adobe/Adobe DNG Converter/"
+        Test-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
+        (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion
