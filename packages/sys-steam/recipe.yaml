@@ -13,6 +13,7 @@ build:
 requirements:
   run:
     - aria2
+    - sys-install
 tests:
   - script:
       interpreter: powershell
