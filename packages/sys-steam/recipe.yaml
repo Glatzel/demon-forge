@@ -1,0 +1,21 @@
+context:
+  name: sys-steam
+package:
+  version: "8.29.26063.11001"
+  name: ${{ name }}
+build:
+  number: 7
+  script:
+    interpreter: powershell
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      Copy-Item $env:RECIPE_DIR/sys-install-steam.ps1 $env:PREFIX/Scripts/
+requirements:
+  run:
+    - aria2
+tests:
+  - script:
+      interpreter: powershell
+      content: |
+        sys-install-steam.ps1
+        Resolve-Path "C:\Program Files (x86)\Steam\steam.exe"
