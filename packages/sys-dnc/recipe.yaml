@@ -4,18 +4,22 @@ package:
   version: "18.2.2"
   name: ${{ name }}
 build:
-  number: 6
+  number: 8
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      (Get-Content $env:RECIPE_DIR/install-${{name}}.ps1) -replace '\$template_version', "`$version=`"$env:PKG_VERSION`"" | Set-Content $env:PREFIX/Scripts/install-${{name}}.ps1
+      Write-Output (Get-Content $env:PREFIX/Scripts/install-${{name}}.ps1)
 requirements:
   run:
     - aria2
+    - sys-install
 tests:
   - script:
       interpreter: powershell
       content: |
-        sys-install-dnc.ps1
+        install-${{name}}.ps1
         ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Resolve-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
         (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion

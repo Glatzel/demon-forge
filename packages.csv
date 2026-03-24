@@ -64,6 +64,7 @@ sys-dnc,windows-latest,,,,
 sys-install,windows-latest,,,,
 sys-rhino,windows-latest,,,,
 sys-rhino-inside-revit,windows-latest,,,,
+sys-steam,windows-latest,,,,
 termscp,windows-latest,macos-latest,ubuntu-latest+ghar-linux-release-cloud,,
 toolbox,,,,,ubuntu-slim
 ttyd,ubuntu-latest+ghar-linux-release-cloud,macos-latest,ubuntu-latest+ghar-linux-release-cloud,ubuntu-24.04-arm+ghar-linux-release-cloud,

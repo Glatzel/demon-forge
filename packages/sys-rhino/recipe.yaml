@@ -4,16 +4,20 @@ package:
   version: "8.29.26063.11001"
   name: ${{ name }}
 build:
-  number: 7
+  number: 9
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      (Get-Content $env:RECIPE_DIR/install-${{name}}.ps1) -replace '\$template_version', "`$version=`"$env:PKG_VERSION`"" | Set-Content $env:PREFIX/Scripts/install-${{name}}.ps1
+      Write-Output (Get-Content $env:PREFIX/Scripts/install-${{name}}.ps1)
 requirements:
   run:
     - aria2
+    - sys-install
 tests:
   - script:
       interpreter: powershell
       content: |
-        sys-install-rhino.ps1
+        install-${{name}}.ps1
         Resolve-Path "C:\Program Files\Rhino 8\System\Rhino.exe"
