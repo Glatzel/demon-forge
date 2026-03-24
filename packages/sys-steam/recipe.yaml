@@ -4,12 +4,12 @@ package:
   version: "1.0.0"
   name: ${{ name }}
 build:
-  number: 7
+  number: 0
   script:
     interpreter: powershell
     content: |
       new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
-      Copy-Item $env:RECIPE_DIR/sys-install-steam.ps1 $env:PREFIX/Scripts/
+      Copy-Item $env:RECIPE_DIR/install-${{name}}.ps1 $env:PREFIX/Scripts/
 requirements:
   run:
     - aria2
@@ -17,5 +17,5 @@ tests:
   - script:
       interpreter: powershell
       content: |
-        sys-install-steam.ps1
+        install-${{name}}.ps1
         Resolve-Path "C:\Program Files (x86)\Steam\steam.exe"

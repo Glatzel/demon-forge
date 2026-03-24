@@ -1,13 +1,17 @@
 context:
   name: sys-rhino-inside-revit
+  version: "1.35.9540.6370"
 package:
   version: "1.35.9540.6370"
   name: ${{ name }}
 build:
-  number: 10
+  number: 11
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      (Get-Content $env:RECIPE_DIR/install-${{name}}.ps1) -replace '\$template_version', "`$version=`"$env:PKG_VERSION`"" | Set-Content $env:PREFIX/Scripts/install-${{name}}.ps1
+      Write-Output (Get-Content $env:PREFIX/Scripts/install-${{name}}.ps1)
 requirements:
   run:
     - aria2

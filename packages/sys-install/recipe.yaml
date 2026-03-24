@@ -4,7 +4,10 @@ package:
   version: "1.0.0"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      Copy-Item $env:RECIPE_DIR/install-sys.ps1 $env:PREFIX/Scripts/install-sys.ps1
+      Copy-Item $env:RECIPE_DIR/install-sys.bat $env:PREFIX/Scripts/install-sys.bat
