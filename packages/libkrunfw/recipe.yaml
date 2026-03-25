@@ -10,7 +10,8 @@ build:
   number: 0
   script:
     content: |
-      make
+      arch=$(uname- m)
+      make ARCH=$(arch)
       make install PREFIX=$PREFIX
 requirements:
   build:
