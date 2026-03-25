@@ -12,9 +12,7 @@ build:
   number: 0
   script:
     content: |
-      dnf update -y
-      dnf install -y 'dnf-command(builddep)' python3-pyelftools curl
-      dnf builddep -y kernel
+      sudo apt-get update && sudo apt-get install -y make gcc bc bison flex elfutils python3-pyelftools curl patch libelf-dev
       make -j$(nproc)
       make install PREFIX=$PREFIX
 requirements:
