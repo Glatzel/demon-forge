@@ -1,5 +1,5 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$latest_version = get-version-github -repo "jstkdng/ueberzugpp"
+$latest_version = get-version-github -repo "containers/libkrunfw"
 dispatch-workflow $latest_version
