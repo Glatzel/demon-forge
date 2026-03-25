@@ -1,8 +1,8 @@
 context:
   name: libcap-ng
-  version: "0.9.1"
+  version: "0.9.2"
 recipe:
-  version: ${{ version }}
+  version: "0.9.2"
   name: ${{ name }}
 source:
   - url: https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v${{ version }}.tar.gz
@@ -32,7 +32,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('libcap-ng-rt', upper_bound='x.x') }}
     build:
-      number: 0
+  number: 0
       files:
         - lib/*
     tests:
@@ -46,7 +46,7 @@ outputs:
       host:
         - ${{ name }}-rt
     build:
-      number: 0
+  number: 0
       files:
         - bin/*
     tests:
@@ -65,7 +65,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('libcap-ng-rt', upper_bound='x.x') }}
     build:
-      number: 0
+  number: 0
     tests:
       - package_contents:
           include:
