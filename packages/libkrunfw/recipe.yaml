@@ -16,8 +16,6 @@ build:
       make install PREFIX=$PREFIX
 requirements:
   host:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
     - libcap-ng-dev
 tests:
   - package_contents:
