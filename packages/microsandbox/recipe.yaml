@@ -20,6 +20,7 @@ requirements:
         - openssl
         - libgcc
         - libcap-ng-dev
+        - libkrunfw
 tests:
   - package_contents:
       bin:
