@@ -15,8 +15,6 @@ gh release download -R zerocore-ai/microsandbox `
 7z x microsandbox.tar.gz -so | 7z x -si -ttar "-o$env:PREFIX/bin"
 chmod +x "$env:PREFIX/bin/msb"
 chmod +x "$env:PREFIX/bin/msbnet"
-if ($IsLinux) {
-    Remove-Item $env:PREFIX/bin/libkrun*
-    New-Item -Path $env:PREFIX/etc/conda/activate.d -ItemType Directory -Force -ErrorAction SilentlyContinue
-    Copy-Item -Path $env:RECIPE_DIR/microsandbox-kvm.sh -Destination $env:PREFIX/etc/conda/activate.d
-}
+New-Item -Path $env:PREFIX/etc/conda/activate.d -ItemType Directory -Force -ErrorAction SilentlyContinue
+Copy-Item -Path $env:RECIPE_DIR/microsandbox-kvm.sh -Destination $env:PREFIX/etc/conda/activate.d
+
