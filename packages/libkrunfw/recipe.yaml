@@ -22,7 +22,7 @@ requirements:
     - pkg-config
     - python
     - pyelftools
-  host: 
+  host:
     - libcap-ng-dev
 tests:
   - package_contents:
