@@ -8,10 +8,12 @@ source:
   - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
-  script: |
-    $arch=$(uname -m)
-    make ARCH=$arch
-    make install PREFIX=$PREFIX
+  script: 
+    interpreter: powershell
+    content: |
+      $arch=uname -m
+      make ARCH=$arch
+      make install PREFIX=$PREFIX
 requirements:
   build:
     - ${{ compiler('c') }}
@@ -22,7 +24,6 @@ requirements:
     - pkg-config
     - python
     - pyelftools
-    - coreutils
   host:
     - libcap-ng-dev
 tests:
