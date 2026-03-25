@@ -1,5 +1,4 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-$arch = uname -m
-make ARCH=$arch CC="$env:CC"
+make
 make install PREFIX=$PREFIX
