@@ -5,4 +5,5 @@ if ($env:TARGET_PLATFORM -eq "linux-64") {
 }
 gh release download -R "containers/${env:PKG_NAME}" -p "${env:PKG_NAME}-$pattern.tgz" `
     -O  ./${env:PKG_NAME}.tgz
-7z x "${env:PKG_NAME}.tgz" "-o${env:PREFIX}/lib"
+7z x "${env:PKG_NAME}.tgz"
+7z x "${env:PKG_NAME}.tar" "-o${env:PREFIX}/lib"
