@@ -12,7 +12,7 @@ build:
   number: 0
   script:
     content: |
-      make -p
+      make -n
       make install PREFIX=$PREFIX
 requirements:
   build:
