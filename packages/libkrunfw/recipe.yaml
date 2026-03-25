@@ -9,9 +9,10 @@ source:
 build:
   number: 0
   script:
+    interpreter: powershell
     content: |
-      arch=$(uname- m)
-      make ARCH=$(arch)
+      $arch=uname- m
+      make ARCH=$arch
       make install PREFIX=$PREFIX
 requirements:
   build:
