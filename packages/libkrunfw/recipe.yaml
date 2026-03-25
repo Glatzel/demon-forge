@@ -16,6 +16,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - make
+    - diffutils
+    - patch
     - pkg-config
     - python
     - pyelftools
