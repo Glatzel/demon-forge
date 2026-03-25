@@ -14,9 +14,8 @@ build:
 requirements:
   host:
     - libcap-ng-dev
-  export:
-    run_exports:
-        - ${{ pin_subpackage('libcap-ng-rt', upper_bound='x.x.x') }}
+  run_exports:
+    - ${{ pin_subpackage('libcap-ng-rt', upper_bound='x.x.x') }}
 tests:
   - package_contents:
       lib:
