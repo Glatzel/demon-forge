@@ -1,0 +1,22 @@
+context:
+  name: libkrunfw
+  version: "5.2.1"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  host:
+    - libcap-ng-dev
+tests:
+  - package_contents:
+      lib:
+        - libkrunfw
+about:
+  repository: https://github.com/containers/libkrunfw
