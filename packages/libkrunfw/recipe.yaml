@@ -10,10 +10,7 @@ build:
   number: 0
   script:
     interpreter: powershell
-    content: |
-      $arch=uname- m
-      make ARCH=$arch
-      make install PREFIX=$PREFIX
+    file: build.ps1
 requirements:
   build:
     - ${{ compiler('c') }}
