@@ -9,7 +9,8 @@ source:
 build:
   number: 0
   script: |
-    make
+    $arch=uname -m
+    make ARCH=$arch
     make install PREFIX=$PREFIX
 requirements:
   build:
@@ -21,6 +22,8 @@ requirements:
     - pkg-config
     - python
     - pyelftools
+  host: 
+    - libcap-ng-dev
 tests:
   - package_contents:
       lib:
