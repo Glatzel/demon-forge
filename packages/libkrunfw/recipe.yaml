@@ -9,21 +9,13 @@ source:
 build:
   number: 0
   script:
-    interpreter: powershell
     content: |
-      $arch=uname -m
-      make ARCH=$arch
+      sudo apt-get update && sudo apt-get install -y make gcc bc bison flex elfutils python3-pyelftools curl patch libelf-dev
       make install PREFIX=$PREFIX
 requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - make
-    - diffutils
-    - patch
-    - pkg-config
-    - python
-    - pyelftools
   host:
     - libcap-ng-dev
 tests:
