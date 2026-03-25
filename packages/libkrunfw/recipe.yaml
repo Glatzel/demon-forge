@@ -11,8 +11,7 @@ build:
   script:
     interpreter: powershell
     content: |
-      $arch=uname -m
-      make ARCH=$arch CC=gcc
+      make
       make install PREFIX=$PREFIX
 requirements:
   build:
