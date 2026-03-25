@@ -6,7 +6,7 @@ package:
   name: ${{ name }}
 
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
     file: build.ps1
@@ -20,7 +20,6 @@ requirements:
         - openssl
         - libgcc
         - libcap-ng-dev
-        - libkrunfw
 tests:
   - package_contents:
       bin:
