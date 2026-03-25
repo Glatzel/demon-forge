@@ -17,4 +17,3 @@ chmod +x "$env:PREFIX/bin/msb"
 chmod +x "$env:PREFIX/bin/msbnet"
 New-Item -Path $env:PREFIX/etc/conda/activate.d -ItemType Directory -Force -ErrorAction SilentlyContinue
 Copy-Item -Path $env:RECIPE_DIR/microsandbox-kvm.sh -Destination $env:PREFIX/etc/conda/activate.d
-
