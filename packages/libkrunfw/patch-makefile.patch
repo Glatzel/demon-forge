@@ -7,10 +7,10 @@
 -KERNEL_PATCHES = $(shell find patches/ -name "0*.patch" | sort)
 +KERNEL_PATCHES = $(find patches/ -name "0*.patch" | sort)
  KERNEL_C_BUNDLE = kernel.c
-
+ 
  ABI_VERSION = 5
 @@ -15,15 +15,16 @@
-
+ 
  ifeq ($(SEV),1)
      VARIANT = -sev
 -    KERNEL_PATCHES += $(shell find patches-tee/ -name "0*.patch" | sort)
@@ -21,7 +21,7 @@
 -    KERNEL_PATCHES += $(shell find patches-tee/ -name "0*.patch" | sort)
 +    KERNEL_PATCHES += $(find patches-tee/ -name "0*.patch" | sort)
  endif
-
+ 
 -HOSTARCH = $(shell uname -m)
 -OS = $(shell uname -s)
 +HOSTARCH = $(uname -m)
