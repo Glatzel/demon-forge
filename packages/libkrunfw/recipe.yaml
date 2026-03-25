@@ -12,18 +12,9 @@ build:
     interpreter: powershell
     file: build.ps1
 requirements:
-  build:
+  host:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - make
-    - diffutils
-    - patch
-    - pkg-config
-    - python
-    - pyelftools
-    - coreutils
-    - curl
-  host:
     - libcap-ng-dev
 tests:
   - package_contents:
