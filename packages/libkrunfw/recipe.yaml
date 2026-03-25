@@ -6,10 +6,11 @@ package:
   name: ${{ name }}
 source:
   - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
+    patches:
+      - patch-makefile.patch
 build:
   number: 0
   script:
-    interpreter: powershell
     content: |
       make
       make install PREFIX=$PREFIX
@@ -23,6 +24,7 @@ requirements:
     - pkg-config
     - python
     - pyelftools
+    - coreutils
   host:
     - libcap-ng-dev
 tests:

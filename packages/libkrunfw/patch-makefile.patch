@@ -1,0 +1,32 @@
+--- C:\Users\Glatzel\Desktop\makefile.txt	2026-03-25 12:32:25.785892700 +0800
++++ C:\Users\Glatzel\Desktop\Makefile-b.txt	2026-03-25 12:34:22.410357500 +0800
+@@ -2,7 +2,7 @@
+ KERNEL_REMOTE = https://cdn.kernel.org/pub/linux/kernel/v6.x/$(KERNEL_VERSION).tar.xz
+ KERNEL_TARBALL = tarballs/$(KERNEL_VERSION).tar.xz
+ KERNEL_SOURCES = $(KERNEL_VERSION)
+-KERNEL_PATCHES = $(shell find patches/ -name "0*.patch" | sort)
++KERNEL_PATCHES = $(find patches/ -name "0*.patch" | sort)
+ KERNEL_C_BUNDLE = kernel.c
+ 
+ ABI_VERSION = 5
+@@ -15,15 +15,16 @@
+ 
+ ifeq ($(SEV),1)
+     VARIANT = -sev
+-    KERNEL_PATCHES += $(shell find patches-tee/ -name "0*.patch" | sort)
++    KERNEL_PATCHES += $(find patches-tee/ -name "0*.patch" | sort)
+ endif
+ ifeq ($(TDX),1)
+     VARIANT = -tdx
+-    KERNEL_PATCHES += $(shell find patches-tee/ -name "0*.patch" | sort)
++    KERNEL_PATCHES += $(find patches-tee/ -name "0*.patch" | sort)
+ endif
+ 
+-HOSTARCH = $(shell uname -m)
+-OS = $(shell uname -s)
++HOSTARCH = $(uname -m)
++OS = $(uname -s)
++ARCH=$(HOSTARCH)
+ ifeq ($(ARCH),)
+ 	GUESTARCH := $(HOSTARCH)
+ 	STRIP := strip
