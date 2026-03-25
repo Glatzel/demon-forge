@@ -8,7 +8,7 @@ source:
   - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
-  script: 
+  script:
     interpreter: powershell
     content: |
       $arch=uname -m
