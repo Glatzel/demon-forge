@@ -6,15 +6,26 @@ package:
   name: ${{ name }}
 source:
   - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
+    patches:
+      - makefile.patch
 build:
   number: 0
   script:
     content: |
-      sudo apt-get update
-      sudo apt-get install -y make gcc bc bison flex elfutils python3-pyelftools curl patch libelf-dev
       make -j$(nproc)
       make install PREFIX=$PREFIX
 requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - make
+    - diffutils
+    - patch
+    - pkg-config
+    - python
+    - pyelftools
+    - coreutils
+    - curl
   host:
     - libcap-ng-dev
 tests:
