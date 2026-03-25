@@ -7,5 +7,5 @@ gh release download -R "containers/${env:PKG_NAME}" -p "${env:PKG_NAME}-$pattern
     -O  ./${env:PKG_NAME}.tgz
 7z x "${env:PKG_NAME}.tgz"
 7z x "${env:PKG_NAME}.tar"
-New-Item $env:PREFIX/lib -ItemType Directory
+New-Item $env:PREFIX/lib -ItemType Directory -ErrorAction SilentlyContinue
 Copy-Item ./lib64/* $env:PREFIX/lib/
