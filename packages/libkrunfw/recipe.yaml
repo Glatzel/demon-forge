@@ -7,13 +7,13 @@ package:
 source:
   - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
     file: build.ps1
 requirements:
-  host:
-    - libcap-ng-dev
+  run_exports:
+    - ${{ pin_subpackage('libkrunfw', upper_bound='x.x.x') }}
 tests:
   - package_contents:
       lib:
