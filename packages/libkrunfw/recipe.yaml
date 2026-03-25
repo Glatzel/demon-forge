@@ -25,6 +25,7 @@ requirements:
     - python
     - pyelftools
     - coreutils
+    - curl
   host:
     - libcap-ng-dev
 tests:
