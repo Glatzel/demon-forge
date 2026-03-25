@@ -6,8 +6,8 @@ package:
   name: ${{ name }}
 source:
   - url: https://github.com/containers/libkrunfw/archive/refs/tags/v${{ version }}.tar.gz
-    patches:
-      - patch-makefile.patch
+    # patches:
+    #   - patch-makefile.patch
 build:
   number: 0
   script:
