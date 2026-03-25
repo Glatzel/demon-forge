@@ -12,20 +12,12 @@ build:
   number: 0
   script:
     content: |
+      dnf update -y
+      dnf install -y 'dnf-command(builddep)' python3-pyelftools curl
+      dnf builddep -y kernel
       make -j$(nproc)
       make install PREFIX=$PREFIX
 requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-    - make
-    - diffutils
-    - patch
-    - pkg-config
-    - python
-    - pyelftools
-    - coreutils
-    - curl
   host:
     - libcap-ng-dev
 tests:
