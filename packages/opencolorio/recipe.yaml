@@ -1,8 +1,9 @@
 context:
   name: opencolorio
   version: "2.5.1"
+  number: 10
 recipe:
-  version: "2.5.1"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v${{ version }}.tar.gz
@@ -36,7 +37,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
-      number: 1
+      number: ${{ number }}
       files:
         - if: osx
           then: lib/*.dylib
@@ -61,7 +62,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('opencolorio-rt', upper_bound='x.x') }}
     build:
-      number: 2
+      number: ${{ number }}
 
   - package:
       name: opencolorio-app
@@ -84,7 +85,7 @@ outputs:
         - openexr
         - opencolorio-dev
     build:
-      number: 2
+      number: ${{ number }}
       script:
         interpreter: powershell
         file: build-opencolorio-app.ps1

@@ -1,7 +1,7 @@
 context:
   name: dism-plus-plus
 package:
-  version: 10.1.1002.2
+  version: "10.1.1002.2"
   name: ${{ name }}
 build:
   number: 7

@@ -2,7 +2,7 @@ context:
   name: pyxis-cli
   version: "0.0.42"
 package:
-  version: "0.0.42"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/pyxis/archive/refs/tags/v${{ version }}.tar.gz

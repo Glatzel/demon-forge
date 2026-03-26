@@ -1,9 +1,10 @@
 context:
   name: openimageio
   version: "3.1.11.0"
+  number: 0
 recipe:
   name: ${{ name }}
-  version: "3.1.11.0"
+  version: ${{ version }}
 source:
   url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v${{ version }}.tar.gz
 outputs:
@@ -52,7 +53,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
-      number: 3
+      number: ${{ number }}
       files:
         - if: osx
           then: lib/*.dylib
@@ -69,7 +70,7 @@ outputs:
       host:
         - openimageio-rt
     build:
-      number: 3
+      number: ${{ number }}
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*.exe' if win }}
@@ -87,7 +88,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('openimageio-rt', upper_bound='x.x') }}
     build:
-      number: 3
+      number: ${{ number }}
 
 about:
   homepage: https://openimageio.org

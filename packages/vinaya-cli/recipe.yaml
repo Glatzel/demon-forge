@@ -2,7 +2,7 @@ context:
   name: vinaya-cli
   version: "2026.3.17"
 package:
-  version: "2026.3.17"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz

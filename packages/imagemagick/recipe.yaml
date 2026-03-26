@@ -6,8 +6,6 @@ package:
   version: "7.1.2.18"
 
 build:
-  script:
-    interpreter: powershell
   number: 0
 tests:
   - script: magick --help
