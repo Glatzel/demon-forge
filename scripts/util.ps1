@@ -115,7 +115,7 @@ function dispatch-workflow {
         Write-Output "::group::update recipe"
         Write-Output "New version found."
         # Update version number and reset build number
-        (Get-Content -Path "./recipe.yaml") -replace '^  version: "[0-9\.]+"', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
+        (Get-Content -Path "./recipe.yaml") -replace '^  version: "[\d\.]+"', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
         (Get-Content -Path "./recipe.yaml") -replace '  number: \d+', "  number: 0" | Set-Content -Path "./recipe.yaml"
         Write-Output "::endgroup::"
     }
