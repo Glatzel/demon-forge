@@ -1,8 +1,9 @@
 context:
   name: proj
   version: "9.8.0"
+  number: 2
 recipe:
-  version: "9.8.0"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
@@ -32,7 +33,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
     build:
-      number: 2
+      number: ${{ number }}
       files:
         - if: osx
           then:
@@ -51,7 +52,7 @@ outputs:
       from: ${{ name }}-build
       run_exports: false
     build:
-      number: 2
+      number: ${{ number }}
       files:
         - ${{ 'Library/' if win }}share/proj
 
@@ -62,7 +63,7 @@ outputs:
       host:
         - proj-rt
     build:
-      number: 2
+      number: ${{ number }}
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*' if win }}
@@ -91,7 +92,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('proj-rt', upper_bound='x.x') }}
     build:
-      number: 2
+      number: ${{ number }}
     tests:
       - package_contents:
           include:

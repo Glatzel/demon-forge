@@ -3,7 +3,7 @@ context:
   version: "0.0.4"
 package:
   name: ${{ name }}
-  version: "0.0.4"
+  version: ${{ version }}
 source:
   url: https://github.com/Glatzel/mason/archive/refs/tags/v${{ version }}.tar.gz
 build:

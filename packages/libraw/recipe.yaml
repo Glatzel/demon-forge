@@ -1,8 +1,9 @@
 context:
   name: libraw
   version: "0.22.0"
+  number: 0
 recipe:
-  version: "0.22.0"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   - url: https://github.com/LibRaw/LibRaw/archive/refs/tags/${{ version }}.tar.gz
@@ -38,7 +39,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
-      number: 0
+      number: ${{ number }}
       files:
         - if: osx
           then: lib/*.dylib
@@ -62,7 +63,7 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
     build:
-      number: 1
+      number: ${{ number }}
     tests:
       - package_contents:
           include:
@@ -75,7 +76,7 @@ outputs:
       host:
         - ${{ name }}-rt
     build:
-      number: 0
+      number: ${{ number }}
       files:
         - ${{ 'bin/*' if unix }}
         - ${{ 'Library/bin/*' if win }}

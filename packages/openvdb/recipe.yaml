@@ -1,6 +1,7 @@
 context:
   name: openvdb
   version: "13.0.0"
+  number: 0
 recipe:
   version: ${{ version }}
   name: ${{ name }}
@@ -32,7 +33,7 @@ outputs:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
     build:
-      number: 0
+      number: ${{ number }}
       files:
         - if: osx
           then: lib/*.dylib
@@ -54,7 +55,7 @@ outputs:
       name: ${{ name }}-dev
     inherit: ${{ name }}-build
     build:
-      number: 0
+      number: ${{ number }}
     requirements:
       host:
         - ${{ name }}-rt

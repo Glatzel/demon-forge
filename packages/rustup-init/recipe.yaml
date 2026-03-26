@@ -2,7 +2,7 @@ context:
   name: rustup-init
   version: "1.29.0"
 package:
-  version: "1.29.0"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
