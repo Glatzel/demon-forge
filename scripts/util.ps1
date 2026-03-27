@@ -150,14 +150,20 @@ function dispatch-workflow
             {
             }
 
-            { $HAS_NEW_VERSION -and (env:WORKFLOW_NAME -eq "update") }
+            {  (env:WORKFLOW_NAME -eq "update") }
             {
+                if(-not $HAS_NEW_VERSION)
+                {
+                    "|$name|$current_version|$version|🔵 No new version found|" >> $env:GITHUB_STEP_SUMMARY
+                    return
+                }
                 # skip if remote branch already exists
                 $update_branch = "update-$name"
                 $remoteExists = git ls-remote --heads origin $update_branch
                 if ($remoteExists)
                 {
                     Write-Output "::warning::Remote branch $update_branch already exists, skipping."
+                    "|$name|$current_version|$version|🟡 Remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
                     return
                 }
 
@@ -175,13 +181,16 @@ function dispatch-workflow
                 git add $folder
                 git commit -m "chore: update ``$name`` from ``$current_version`` to ``$version``"
                 git push -u origin $update_branch
-                gh pr create `
+                $pr_url = gh pr create `
                     --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
                     --base main `
-                    --head $update_branch
+                    --head $update_branch `
+                    --json url `
+                    --jq ".url"
                 git checkout $originalBranch
                 git reset --hard
                 git clean -fd
+                "|$name|$current_version|$version|🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
                 return
             }
 
