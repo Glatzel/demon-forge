@@ -1,10 +1,10 @@
 context:
   name: jq
 package:
-  version: "1.8.0"
+  version: "1.8.1"
   name: ${{ name }}
 build:
-  number: 5
+  number: 0
   script:
     interpreter: powershell
     content: |
