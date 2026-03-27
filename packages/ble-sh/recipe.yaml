@@ -1,5 +1,5 @@
 context:
-  name: akinomyoga/ble-sh
+  name: ble-sh
   version: "0.4.0"
 package:
   version: ${{ version }}
