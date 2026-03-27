@@ -186,7 +186,8 @@ function dispatch-workflow
                     --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
                     --body "" `
                     --base main `
-                    --head $update_branch
+                    --head $update_branch `
+                    --draft
                 git checkout $originalBranch
                 git reset --hard
                 git clean -fd
