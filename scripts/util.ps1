@@ -163,22 +163,23 @@ function dispatch-workflow
                 if ($remoteExists)
                 {
                     Write-Output "::warning::Remote branch $update_branch already exists, skipping."
-                    "|$name|$current_version|$version|🟡 Remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
+                    "|$name|$current_version|$version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
                     return
                 }
 
+
                 # Update version number and reset build number
+                $originalBranch = git rev-parse --abbrev-ref HEAD
+                git checkout -b $update_branch
                 Write-Output "New version found. Updating $name/recipe.yaml"
                 (Get-Content -Path "./recipe.yaml") -replace '^  version: "[\d\.]+"', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
                 (Get-Content -Path "./recipe.yaml") -replace '  number: \d+', "  number: 0" | Set-Content -Path "./recipe.yaml"
 
                 # create pr
                 Write-Output "creating new branch: $name"
-                $originalBranch = git rev-parse --abbrev-ref HEAD
-                $update_branch = "update-$name"
-                git checkout -b $update_branch
-                git checkout $env:GITHUB_SHA -- $folder
-                git add $folder
+                git config --global user.name "github-actions[bot]"
+                git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                git add -A
                 git commit -m "chore: update ``$name`` from ``$current_version`` to ``$version``"
                 git push -u origin $update_branch
                 $pr_url = gh pr create `
