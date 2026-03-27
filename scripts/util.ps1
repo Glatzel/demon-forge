@@ -162,7 +162,6 @@ function dispatch-workflow
                 $remoteExists = git ls-remote --heads origin $update_branch
                 if ($remoteExists)
                 {
-                    Write-Output "::warning::Remote branch $update_branch already exists, skipping."
                     "|$name|$current_version|$version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
                     return
                 }
