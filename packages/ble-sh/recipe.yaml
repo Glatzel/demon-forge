@@ -1,0 +1,21 @@
+context:
+  name: akinomyoga/ble-sh
+  version: "0.3.4"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/akinomyoga/ble.sh/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
+  script: make -C ble.sh install PREFIX=$PREFIX
+requirements:
+  build:
+    - make
+    - gawk
+tests:
+  - files:
+      exists:
+        - /share/blesh/ble.sh
+about:
+  repository: https://github.com/akinomyoga/ble.sh
