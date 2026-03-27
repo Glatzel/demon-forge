@@ -190,7 +190,7 @@ function dispatch-workflow
                 git checkout $originalBranch
                 git reset --hard
                 git clean -fd
-                "|$name|$current_version|$version|🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
+                "|$name|$current_version|**$version**|🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
                 return
             }
 
