@@ -13,7 +13,7 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
   run:
-    - ble-sh
+    - ${{'ble-sh' if linux}}
 tests:
   - package_contents:
       bin:
