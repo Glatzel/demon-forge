@@ -10,7 +10,7 @@ foreach ($row in $csvData)
     {
         $value = $row.$platform
         if (-not $value)
-        { continue 
+        { continue
         }
 
         $entry = @{
