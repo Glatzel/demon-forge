@@ -1,11 +1,11 @@
 context:
   name: akinomyoga/ble-sh
-  version: "0.3.4"
+  version: "0.4.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  - url: https://github.com/akinomyoga/ble.sh/archive/refs/tags/v${{ version }}.tar.gz
+  - url: https://github.com/akinomyoga/ble.sh/archive/refs/tags/v${{ version }}-devel3.tar.gz
 build:
   number: 0
   script: make -C ble.sh install PREFIX=$PREFIX
@@ -14,8 +14,9 @@ requirements:
     - make
     - gawk
 tests:
-  - files:
-      exists:
-        - /share/blesh/ble.sh
+  - package_contents:
+      files:
+        exists:
+          - /share/blesh/ble.sh
 about:
   repository: https://github.com/akinomyoga/ble.sh
