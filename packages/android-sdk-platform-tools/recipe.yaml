@@ -18,7 +18,9 @@ build:
   number: 0
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      New-Item $env:PREFIX/bin -ItemType Directory
+      Copy-Item "./*" "$env:PREFIX/bin" -recurse
 
 tests:
   - package_contents:

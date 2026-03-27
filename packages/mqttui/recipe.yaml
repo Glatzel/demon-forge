@@ -10,7 +10,10 @@ build:
   number: 5
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      $ROOT = git rev-parse --show-toplevel
+      . $ROOT/scripts/util.ps1
+      cargo install --path . @(Get-Cargo-Arg)
 requirements:
   build:
     - ${{ compiler('rust') }}

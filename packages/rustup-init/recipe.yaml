@@ -10,7 +10,10 @@ build:
   number: 1
   script:
     interpreter: powershell
-    file: build.ps1
+    content: |
+      $ROOT = git rev-parse --show-toplevel
+      . $ROOT/scripts/util.ps1
+      cargo install @(Get-Cargo-Arg) --path . --features vendored-openssl
 requirements:
   build:
     - ${{ compiler('rust') }}
