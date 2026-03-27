@@ -13,7 +13,7 @@ build:
     content: |
       $ROOT = git rev-parse --show-toplevel
       . $ROOT/scripts/util.ps1
-      cargo install $name @(Get-Cargo-Arg) --path . --features vendored-openssl
+      cargo install @(Get-Cargo-Arg) --path . --features vendored-openssl
 requirements:
   build:
     - ${{ compiler('rust') }}
