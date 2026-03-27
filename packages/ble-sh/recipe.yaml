@@ -17,6 +17,6 @@ tests:
   - package_contents:
       files:
         exists:
-          - /share/blesh/ble.sh
+          - share/blesh/ble.sh
 about:
   repository: https://github.com/akinomyoga/ble.sh
