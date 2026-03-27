@@ -2,7 +2,7 @@ context:
   name: android-sdk-platform-tools
 
 package:
-  version: "36.0.2"
+  version: "36.0.1"
   name: ${{ name }}
 source:
   - if: win
