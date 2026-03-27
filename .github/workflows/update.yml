@@ -1,0 +1,21 @@
+name: update
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 16 * * *
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+env:
+  WORKFLOW_NAME: ${{ github.workflow }}
+jobs:
+  update:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update
+        run: |
+          ./scripts/update.ps1
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{github.token}}
