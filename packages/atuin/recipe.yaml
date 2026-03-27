@@ -1,0 +1,22 @@
+context:
+  name: atuin
+package:
+  version: "18.13.5"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+  run:
+    - ${{'ble-sh' if linux}}
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
+about:
+  repository: https://github.com/atuinsh/atuin
