@@ -8,7 +8,7 @@ source:
   - url: https://github.com/akinomyoga/ble.sh/archive/refs/tags/v${{ version }}-devel3.tar.gz
 build:
   number: 0
-  script: make -C ble.sh install PREFIX=$PREFIX
+  script: make install PREFIX=$PREFIX
 requirements:
   build:
     - make
