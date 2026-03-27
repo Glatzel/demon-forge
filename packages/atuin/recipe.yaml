@@ -12,6 +12,8 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
+  run:
+    - ble-sh
 tests:
   - package_contents:
       bin:
