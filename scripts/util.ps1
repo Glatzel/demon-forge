@@ -184,9 +184,7 @@ function dispatch-workflow
                 $pr_url = gh pr create `
                     --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
                     --base main `
-                    --head $update_branch `
-                    --json url `
-                    --jq ".url"
+                    --head $update_branch
                 git checkout $originalBranch
                 git reset --hard
                 git clean -fd
