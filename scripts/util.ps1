@@ -128,7 +128,12 @@ function dispatch-workflow
     if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$'))
     {
         Write-Output "::error ::Invalid version format"
-        if(-not ($env:WORKFLOW_NAME -eq "update"))
+        if($env:WORKFLOW_NAME -eq "update")
+        {
+        "|$name|$current_version|$version|🔴 Invalid Version |" >> $env:GITHUB_STEP_SUMMARY
+        return
+        }
+        else
         {
             exit 1
         }
