@@ -4,11 +4,11 @@ context:
 package:
   version: ${{ version }}
   name: ${{ name }}
-source:
-  - url: https://github.com/akinomyoga/ble.sh/archive/refs/tags/v${{ version }}-devel3.tar.gz
 build:
   number: 0
-  script: make install PREFIX=$PREFIX
+  script: |
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+    make -C ble.sh install PREFIX=$PREFIX
 requirements:
   build:
     - make
