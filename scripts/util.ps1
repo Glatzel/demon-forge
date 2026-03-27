@@ -150,7 +150,7 @@ function dispatch-workflow
             {
             }
 
-            {  (env:WORKFLOW_NAME -eq "update") }
+            {  env:WORKFLOW_NAME -eq "update" }
             {
                 if(-not $HAS_NEW_VERSION)
                 {
