@@ -16,6 +16,7 @@ build:
       cd $env:RECIPE_DIR
       $ROOT = git rev-parse --show-toplevel
       . $ROOT/scripts/util.ps1
+      cd $env:SRC_DIR
       $env:RUSTC_BOOTSTRAP=1
       cargo install @(Get-Cargo-Arg) --path . --config .cargo/release-nightly.toml
 
