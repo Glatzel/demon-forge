@@ -18,7 +18,7 @@ build:
       . $ROOT/scripts/util.ps1
       cd $env:SRC_DIR
       $env:RUSTC_BOOTSTRAP=1
-      cargo build @(Get-Cargo-Arg) --config .cargo/release-nightly.toml
+      cargo install @(Get-Cargo-Arg) --path ./crates/edit --config .cargo/release-nightly.toml
 
 requirements:
   build:
