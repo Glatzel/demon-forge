@@ -13,6 +13,7 @@ build:
   script:
     interpreter: powershell
     content: |
+      cd $env:RECIPE_DIR
       $ROOT = git rev-parse --show-toplevel
       . $ROOT/scripts/util.ps1
       $env:RUSTC_BOOTSTRAP=1
