@@ -24,7 +24,6 @@ tests:
   - package_contents:
       bin:
         - msb
-        - msbnet
   - script:
       - msb --help
       - msb run --help
