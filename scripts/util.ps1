@@ -47,10 +47,23 @@ function get-name
 # Function: Get the latest release tag from a GitHub repository
 function get-version-github
 {
-    param($repo)for ($i = 0; $i -lt 5; $i++)
+    param($repo)
+    for ($i = 0; $i -lt 5; $i++)
     {
         $latest = gh release view -R $repo --json tagName -q .tagName
         $latest = "$latest".Replace("v", "")
+        if ($latest)
+        {
+            return $latest
+        }
+    }
+}
+function get-version-conda-forge
+{
+    param($pkg)
+    for ($i = 0; $i -lt 5; $i++)
+    {
+        $latest = curl -s "https://api.anaconda.org/package/conda-forge/$pkg" | jq -r '.latest_version'
         if ($latest)
         {
             return $latest
