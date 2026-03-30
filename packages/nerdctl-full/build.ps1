@@ -1,0 +1,15 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
+if ($env:TARGET_PLATFORM -eq 'linux-64') {
+    gh release download -R "containerd/nerdctl" -p "${env:PKG_NAME}-*.*.*-linux-amd64.tar.gz" `
+        -O  "${env:PKG_NAME}.tar.gz"
+}
+if ($env:TARGET_PLATFORM -eq 'linux-aarch64') {
+    gh release download -R "containerd/nerdctl" -p "${env:PKG_NAME}-*.*.*-linux-arm64.tar.gz" `
+        -O  "${env:PKG_NAME}.tar.gz"
+}
+7z x "${env:PKG_NAME}.tar.gz"
+7z x "*.tar" "-o${env:PKG_NAME}"
+Copy-Item "./${env:PKG_NAME}/*" "$env:PREFIX/" -Recurse
+# do not use bundled runc
+Remove-Item "$env:PREFIX/bin/runc"

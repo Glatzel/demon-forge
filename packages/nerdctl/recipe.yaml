@@ -1,0 +1,15 @@
+context:
+  name: nerdctl
+package:
+  version: "2.2.1"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    file: build.ps1
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
