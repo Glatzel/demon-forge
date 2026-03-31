@@ -1,45 +1,35 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
+cmake_args="
+-G Ninja
+-DVERBOSE=ON
+-DCMAKE_BUILD_TYPE=Release
+-DBUILD_DOCS=0
+-DBUILD_SHARED_LIBS=1
+-DENABLE_INSTALL_testtex=0
+-DENABLE_DCMTK=0
+-DENABLE_libuhdr=0
+-DENABLE_Nuke=0
+-DENABLE_Ptex=0
+-DENABLE_Python3=0
+-DINSTALL_DOCS=0
+-DLINKSTATIC=0
+-DOIIO_BUILD_TESTS=0
+-DUSE_PYTHON=0
+-DUSE_QT=0
+"
 
-# Common CMake options
-$cmakeArgs = @(
-    "-G"
-    "Ninja"
-    "-DVERBOSE=ON"
-    "-DCMAKE_BUILD_TYPE=Release"
-    "-DBUILD_DOCS=0"
-    "-DBUILD_SHARED_LIBS=1"
-    "-DENABLE_INSTALL_testtex=0"
-    "-DENABLE_DCMTK=0"
-    "-DENABLE_libuhdr=0"
-    "-DENABLE_Nuke=0"
-    "-DENABLE_Ptex=0"
-    "-DENABLE_Python3=0"
-    "-DINSTALL_DOCS=0"
-    "-DLINKSTATIC=0"
-    "-DOIIO_BUILD_TESTS=0"
-    "-DUSE_PYTHON=0"
-    "-DUSE_QT=0"
-)
+# macOS
+if [ "$(uname)" = "Darwin" ]; then
+    cmake_args="$cmake_args -DCMAKE_INSTALL_PREFIX=$PREFIX"
+fi
 
-if ($IsWindows) {
-    $cmakeArgs += @(
-        "-DCMAKE_C_FLAGS=/utf-8"
-        "-DCMAKE_CXX_FLAGS=/utf-8"
-        "-DUSE_SIMD=sse4.2,avx2"
-        "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library"
+# Linux
+if [ "$(uname)" = "Linux" ]; then
+    cmake_args="$cmake_args -DCMAKE_INSTALL_PREFIX=$PREFIX"
 
-    )
-}
-if ($IsMacOS) {
-    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
-}
-if ($IsLinux) {
-    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
-    if ($env:TARGET_PLATFORM -eq 'linux-64') {
-        $cmakeArgs += @( "-DUSE_SIMD=sse4.2,avx2")
-    }
-}
+    if [ "$TARGET_PLATFORM" = "linux-64" ]; then
+        cmake_args="$cmake_args -DUSE_SIMD=sse4.2,avx2"
+    fi
+fi
 
-cmake -S . -B build @cmakeArgs
-cmake --build build --config Release --target install
+cmake -S . -B build $cmake_args
+cmake --build build --target install

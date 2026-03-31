@@ -1,7 +1,3 @@
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
-
-# Common CMake options
 $cmakeArgs = @(
     "-G"
     "Ninja"
@@ -20,26 +16,10 @@ $cmakeArgs = @(
     "-DOIIO_BUILD_TESTS=0"
     "-DUSE_PYTHON=0"
     "-DUSE_QT=0"
+    "-DCMAKE_C_FLAGS=/utf-8"
+    "-DCMAKE_CXX_FLAGS=/utf-8"
+    "-DUSE_SIMD=sse4.2,avx2"
+    "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library"
 )
-
-if ($IsWindows) {
-    $cmakeArgs += @(
-        "-DCMAKE_C_FLAGS=/utf-8"
-        "-DCMAKE_CXX_FLAGS=/utf-8"
-        "-DUSE_SIMD=sse4.2,avx2"
-        "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library"
-
-    )
-}
-if ($IsMacOS) {
-    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
-}
-if ($IsLinux) {
-    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX")
-    if ($env:TARGET_PLATFORM -eq 'linux-64') {
-        $cmakeArgs += @( "-DUSE_SIMD=sse4.2,avx2")
-    }
-}
-
 cmake -S . -B build @cmakeArgs
 cmake --build build --config Release --target install

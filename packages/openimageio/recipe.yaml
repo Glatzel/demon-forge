@@ -10,10 +10,6 @@ source:
 outputs:
   - staging:
       name: openimageio-build
-    build:
-      script:
-        interpreter: powershell
-        file: build-openimageio.ps1
     requirements:
       build:
         - ${{ compiler('c') }}
