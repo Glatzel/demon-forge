@@ -1,12 +1,12 @@
 context:
   name: microsandbox
-  version: "0.3.6"
+  version: "0.3.7"
 package:
   version: ${{ version }}
   name: ${{ name }}
 
 build:
-  number: 1
+  number: 0
   script:
     interpreter: powershell
     file: build.ps1
