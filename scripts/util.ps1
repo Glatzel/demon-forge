@@ -20,16 +20,7 @@ if ($IsLinux) {
     $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
-# Function: Extract the package name from recipe.yaml
-function get-name {
-    if ($env:PKG_NAME) {
-        return $env:PKG_NAME
-    }
-    else {
-        $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
-        Write-Output $matched.Matches[0].Groups[1]
-    }
-}
+
 
 # Function: Extract the current version from recipe.yaml
 function get-current-version {
@@ -111,6 +102,10 @@ function Get-Cargo-Arg {
 }
 function update-recipe {
     param($version)
+    function get-name {
+        $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
+        Write-Output $matched.Matches[0].Groups[1]
+    }
     $name = get-name
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
