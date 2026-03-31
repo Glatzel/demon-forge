@@ -5,4 +5,4 @@ aria2c -c -x16 -s16 -d "$env:PREFIX/bin" `
     -o "vs_BuildTools.exe"
 # shortcut
 New-Item $env:PREFIX/Menu -ItemType Directory
-Copy-Item "$env:RECIPE_DIR/$name.json" "$env:PREFIX/Menu"
+Copy-Item "$env:RECIPE_DIR/$env:PKG_NAME.json" "$env:PREFIX/Menu"
