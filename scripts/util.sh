@@ -16,4 +16,3 @@ get_cargo_arg() {
         --config profile.release.opt-level=3 \
         --config profile.release.strip=true
 }
-name=$(get_name)
