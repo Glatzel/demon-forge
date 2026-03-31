@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 1
+  number: 2
 requirements:
   build:
     - ${{ compiler('rust') }}
@@ -20,7 +20,10 @@ tests:
   - package_contents:
       bin:
         - rustup-init
-  - script:
+  - requirements:
+      run:
+        - powershell
+    script:
       interpreter: powershell
       content: |
         $env:CARGO_HOME="$HOME/.cargo"
