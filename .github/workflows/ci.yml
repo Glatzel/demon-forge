@@ -93,7 +93,7 @@ jobs:
         run: |
           ROOT=$(git rev-parse --show-toplevel)
           . "$ROOT/scripts/util.sh"
-          build-recipe
+          build_recipe
         working-directory: ./packages/${{matrix.pkg}}
 
       - name: publish-unix
