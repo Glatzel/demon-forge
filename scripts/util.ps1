@@ -4,8 +4,6 @@ $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
 
-
-
 # avoid build error by long path
 if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
