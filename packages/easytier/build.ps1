@@ -3,4 +3,3 @@ $ROOT = git rev-parse --show-toplevel
 cargo install @(Get-Cargo-Arg) --path ./easytier
 Copy-Item ./easytier/third_party/Packet.dll $env:PREFIX/bin
 Copy-Item ./easytier/third_party/wintun.dll $env:PREFIX/bin
-
