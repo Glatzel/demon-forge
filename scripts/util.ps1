@@ -111,6 +111,7 @@ function Get-Cargo-Arg {
 }
 function update-recipe {
     param($version)
+    $name = get-name
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
@@ -194,6 +195,3 @@ function build-recipe {
         Write-Output "::endgroup::"
     }
 }
-
-# Extract package name and current system architecture
-$name = get-name
