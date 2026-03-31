@@ -12,8 +12,8 @@ outputs:
       name: opencolorio-build
     build:
       script:
-        interpreter: powershell
-        file: build-opencolorio.ps1
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-opencolorio.${{ "ps1" if win else "sh" }}
     requirements:
       build:
         - ${{ compiler('c') }}
@@ -87,8 +87,8 @@ outputs:
     build:
       number: ${{ number }}
       script:
-        interpreter: powershell
-        file: build-opencolorio-app.ps1
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-opencolorio-app.${{ "ps1" if win else "sh" }}
     tests:
       - package_contents:
           bin:

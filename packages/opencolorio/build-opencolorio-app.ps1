@@ -16,12 +16,7 @@ $cmakeArgs = @(
     "-DOCIO_BUILD_DOCS=OFF"
     "-DOCIO_BUILD_APPS=ON"
     "-DOCIO_USE_OIIO_FOR_APPS=OFF"
+    "-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library"
 )
-if ($IsWindows) {
-    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library")
-}
-else {
-    $cmakeArgs += @("-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}")
-}
 cmake  @cmakeArgs
 cmake --build build --config Release --target install

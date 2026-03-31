@@ -1,0 +1,18 @@
+cmake  -S . \
+    -B build \
+    -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DOCIO_INSTALL_EXT_PACKAGES=MISSING \
+    -DBUILD_SHARED_LIBS=ON \
+    -DOCIO_BUILD_PYTHON=OFF \
+    -DOCIO_BUILD_OPENFX=OFF \
+    -DOCIO_USE_SIMD=ON \
+    -DOCIO_BUILD_TESTS=OFF \
+    -DOCIO_BUILD_GPU_TESTS=OFF \
+    -DOCIO_USE_HEADLESS=OFF \
+    -DOCIO_WARNING_AS_ERROR=OFF \
+    -DOCIO_BUILD_DOCS=OFF \
+    -DOCIO_BUILD_APPS=OFF \
+    -DOCIO_USE_OIIO_FOR_APPS=OFF \
+    -DCMAKE_INSTALL_PREFIX="$PREFIX"
+cmake --build build --config Release --target install

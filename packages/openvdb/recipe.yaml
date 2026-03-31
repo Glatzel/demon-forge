@@ -12,8 +12,8 @@ outputs:
       name: ${{ name }}-build
     build:
       script:
-        interpreter: powershell
-        file: build-${{ name }}.ps1
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-${{ name }}.${{ "ps1" if win else "sh" }}
     requirements:
       build:
         - ${{ compiler('c') }}

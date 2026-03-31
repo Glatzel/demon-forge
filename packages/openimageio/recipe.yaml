@@ -12,8 +12,8 @@ outputs:
       name: openimageio-build
     build:
       script:
-        interpreter: powershell
-        file: build-openimageio.ps1
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-openimageio.${{ "ps1" if win else "sh" }}
     requirements:
       build:
         - ${{ compiler('c') }}

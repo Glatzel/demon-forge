@@ -3,6 +3,8 @@ $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
+
+# avoid build error by long path
 if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
     # avoid build error by long path
@@ -18,16 +20,7 @@ if ($IsLinux) {
     $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
-# Function: Extract the package name from recipe.yaml
-function get-name {
-    if ($env:PKG_NAME) {
-        return $env:PKG_NAME
-    }
-    else {
-        $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
-        Write-Output $matched.Matches[0].Groups[1]
-    }
-}
+
 
 # Function: Extract the current version from recipe.yaml
 function get-current-version {
@@ -107,8 +100,14 @@ function Get-Cargo-Arg {
 
     return $cargo_arg
 }
+function get-name {
+    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
+    Write-Output $matched.Matches[0].Groups[1]
+}
 function update-recipe {
     param($version)
+
+    $name = get-name
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
@@ -192,6 +191,3 @@ function build-recipe {
         Write-Output "::endgroup::"
     }
 }
-
-# Extract package name and current system architecture
-$name = get-name
