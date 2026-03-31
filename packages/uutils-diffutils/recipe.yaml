@@ -8,12 +8,6 @@ source:
   url: https://github.com/uutils/diffutils/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 2
-  script:
-    interpreter: powershell
-    content: |
-      $ROOT = git rev-parse --show-toplevel
-      . $ROOT/scripts/util.ps1
-      cargo install --path . @(Get-Cargo-Arg)
 requirements:
   build:
     - ${{ compiler('rust') }}
