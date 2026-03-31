@@ -14,8 +14,8 @@ outputs:
       name: pystring-build
     build:
       script:
-        interpreter: powershell
-        file: build-pystring.ps1
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-pystring.${{"ps1" if win else "sh"}}
     requirements:
       build:
         - ${{ compiler('c') }}
