@@ -8,9 +8,6 @@ source:
   - url: https://github.com/EasyTier/EasyTier/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 2
-  script:
-    interpreter: powershell
-    file: build.ps1
 requirements:
   build:
     - ${{ compiler('rust') }}
