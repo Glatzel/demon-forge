@@ -1,7 +1,7 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
 if [ "$(uname)" = "Linux" ]; then
-    OPENSSL_DIR="$BUILD_PREFIX"
+    export OPENSSL_DIR="$BUILD_PREFIX"
 fi
 set -- $(get_cargo_arg)
 cargo install "$PKG_NAME" "$@"
