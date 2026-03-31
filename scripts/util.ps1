@@ -165,36 +165,32 @@ function update-recipe {
     return
 }
 
-function dispatch-workflow {
-    # build package
-    function build-pkg {
-        Write-Output "::group:: build $pkg"
-        $rattler_build_args = @(
-            "--config-file", "$ROOT/rattler-config.toml"
-            "--color", "always"
-            "build", "--output-dir", "$ROOT/output"
-            "--variant-config", "$ROOT/conda_build_config.yaml"
-            "--experimental"
-        )
-        if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) {
-            $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM")
-        }
-        if ($env:GITHUB_EVENT_NAME -eq "push") {
-            $rattler_build_args += ("--package-format", "conda:22")
-        }
-        else {
-            $rattler_build_args += ("--package-format", "conda:-7")
-        }
-        pixi run rattler-build $rattler_build_args
-        Write-Output "::endgroup::"
-        foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda") {
-            Write-Output "::group:: inspect $pkg"
-            pixi run rattler-build package inspect --all $pkg_file
-            Write-Output "::endgroup::"
-        }
+function build-recipe {
+    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push")) { "action_publish=true" >> $env:GITHUB_OUTPUT}W
+    Write-Output "::group:: build $pkg"
+    $rattler_build_args = @(
+        "--config-file", "$ROOT/rattler-config.toml"
+        "--color", "always"
+        "build", "--output-dir", "$ROOT/output"
+        "--variant-config", "$ROOT/conda_build_config.yaml"
+        "--experimental"
+    )
+    if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) {
+        $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM")
     }
-    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push") { "action_publish=true" >> $env:GITHUB_OUTPUT;}
-    build-pkg
+    if ($env:GITHUB_EVENT_NAME -eq "push") {
+        $rattler_build_args += ("--package-format", "conda:22")
+    }
+    else {
+        $rattler_build_args += ("--package-format", "conda:-7")
+    }
+    pixi run rattler-build $rattler_build_args
+    Write-Output "::endgroup::"
+    foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda") {
+        Write-Output "::group:: inspect $pkg"
+        pixi run rattler-build package inspect --all $pkg_file
+        Write-Output "::endgroup::"
+    }
 }
 
 # Extract package name and current system architecture
