@@ -1,6 +1,3 @@
-ROOT=$(git rev-parse --show-toplevel)
-. "$ROOT/scripts/util.sh"
-export PYTHONPATH="$ROOT:$PYTHONPATH"
 get_cargo_arg() {
     printf '%s\n' \
         --root "$PREFIX" \
