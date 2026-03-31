@@ -1,7 +1,7 @@
 context:
   name: pystring
   version: "1.1.4"
-  number: 0
+  number: 1
 recipe:
   version: ${{ version }}
   name: ${{ name }}

@@ -4,7 +4,7 @@ package:
   version: "0.4.45"
   name: ${{ name }}
 build:
-  number: 11
+  number: 12
 requirements:
   build:
     - ${{ compiler('rust') }}
