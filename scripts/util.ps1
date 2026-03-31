@@ -13,9 +13,6 @@ if ($IsWindows) {
     }
 }
 
-
-
-
 # Function: Extract the current version from recipe.yaml
 function get-current-version {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
