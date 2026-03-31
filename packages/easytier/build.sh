@@ -1,8 +1,7 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
 if [ "$(uname)" = "Linux" ]; then
-    OPENSSL_DIR="$BUILD_PREFIX"
+    LIBCLANG_PATH="$BUILD_PREFIX/lib"
 fi
 set -- $(get_cargo_arg)
-cargo install "$PKG_NAME" "$@"
-mv -f "$PREFIX/bin/unused-features" "$PREFIX/bin/$PKG_NAME"
+cargo install --path ./easytier "$@"

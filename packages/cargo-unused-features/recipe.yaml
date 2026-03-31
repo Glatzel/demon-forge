@@ -5,9 +5,6 @@ package:
   name: ${{ name }}
 build:
   number: 7
-  script:
-    interpreter: powershell
-    file: build.ps1
 requirements:
   build:
     - ${{ compiler('rust') }}
