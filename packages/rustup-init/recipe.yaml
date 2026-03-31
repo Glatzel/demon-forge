@@ -20,9 +20,10 @@ tests:
   - package_contents:
       bin:
         - rustup-init
-  - script:
-      requirements:
+  - requirements:
+      run:
         - powershell
+    script:
       interpreter: powershell
       content: |
         $env:CARGO_HOME="$HOME/.cargo"
