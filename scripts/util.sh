@@ -1,3 +1,6 @@
+ROOT=$(git rev-parse --show-toplevel)
+. "$ROOT/scripts/util.sh"
+export PYTHONPATH="$ROOT:$PYTHONPATH"
 get_name() {
     if [ -n "$PKG_NAME" ]; then
         printf '%s\n' "$PKG_NAME"
