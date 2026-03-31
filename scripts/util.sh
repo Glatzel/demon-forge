@@ -1,3 +1,10 @@
+get_name() {
+    if [ -n "$PKG_NAME" ]; then
+        printf '%s\n' "$PKG_NAME"
+    else
+        sed -n 's/^  name: \(.*\)/\1/p' ./recipe.yaml | head -n 1
+    fi
+}
 get_cargo_arg() {
     printf '%s\n' \
         --root "$PREFIX" \

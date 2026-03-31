@@ -22,15 +22,6 @@ if ($IsLinux)
     $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
-# Function: Extract the current version from recipe.yaml
-function get-current-version
-{
-    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
-    $v = $matched.Matches[0].Groups[1]
-    $v = "$v".Replace("""", "")
-    Write-Output $v
-}
-
 # Function: Extract the package name from recipe.yaml
 function get-name
 {
@@ -42,6 +33,15 @@ function get-name
         $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
         Write-Output $matched.Matches[0].Groups[1]
     }
+}
+
+# Function: Extract the current version from recipe.yaml
+function get-current-version
+{
+    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
+    $v = $matched.Matches[0].Groups[1]
+    $v = "$v".Replace("""", "")
+    Write-Output $v
 }
 
 # Function: Get the latest release tag from a GitHub repository
