@@ -74,7 +74,10 @@ jobs:
         id: main
         env:
           GH_TOKEN: ${{github.token}}
-        run: ./ci.ps1
+        run: |
+            $ROOT = git rev-parse --show-toplevel
+            . $ROOT/scripts/util.ps1
+            dispatch-workflow
         shell: pwsh
         working-directory: ./packages/${{matrix.pkg}}
 
