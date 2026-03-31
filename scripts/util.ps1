@@ -166,7 +166,7 @@ function update-recipe {
 }
 
 function build-recipe {
-    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push")) { "action_publish=true" >> $env:GITHUB_OUTPUT}W
+    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push")) { "action_publish=true" >> $env:GITHUB_OUTPUT}
     Write-Output "::group:: build $pkg"
     $rattler_build_args = @(
         "--config-file", "$ROOT/rattler-config.toml"
