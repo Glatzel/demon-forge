@@ -3,9 +3,10 @@ $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
-$env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
+
 # avoid build error by long path
 if ($env:CI -and $IsWindows) {
+    $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
     $env:CARGO_TARGET_DIR = "c:/t"
     $env:CARGO_HOME = "c:/c"
 }
