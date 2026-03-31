@@ -8,12 +8,6 @@ source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 1
-  script:
-    interpreter: powershell
-    content: |
-      $ROOT = git rev-parse --show-toplevel
-      . $ROOT/scripts/util.ps1
-      cargo install @(Get-Cargo-Arg) --path . --features vendored-openssl
 requirements:
   build:
     - ${{ compiler('rust') }}
