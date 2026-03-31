@@ -166,25 +166,6 @@ function update-recipe {
 }
 
 function dispatch-workflow {
-    # dispatch
-    if ($env:CI) {
-        switch ($true ) {
-            { $env:GITHUB_EVENT_NAME -eq "push" } {
-                "action_publish=true" >> $env:GITHUB_OUTPUT;
-            }
-
-            { $env:GITHUB_EVENT_NAME -eq "pull_request" } {
-            }
-
-            { $env:WORKFLOW_NAME -eq 'manual-build' } {
-            }
-
-            default {
-                exit 0
-            }
-        }
-    }
-
     # build package
     function build-pkg {
         Write-Output "::group:: build $pkg"
@@ -212,6 +193,7 @@ function dispatch-workflow {
             Write-Output "::endgroup::"
         }
     }
+    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push") { "action_publish=true" >> $env:GITHUB_OUTPUT;}
     build-pkg
 }
 
