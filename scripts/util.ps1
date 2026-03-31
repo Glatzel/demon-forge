@@ -99,13 +99,14 @@ function Get-Cargo-Arg {
     )
 
     return $cargo_arg
+}    
+function get-name {
+    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
+    Write-Output $matched.Matches[0].Groups[1]
 }
 function update-recipe {
     param($version)
-    function get-name {
-        $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
-        Write-Output $matched.Matches[0].Groups[1]
-    }
+
     $name = get-name
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
