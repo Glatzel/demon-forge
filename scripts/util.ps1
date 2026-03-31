@@ -4,11 +4,22 @@ $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
 
+
+
 # avoid build error by long path
-if ($env:CI -and $IsWindows) {
+if ($IsWindows) {
     $env:PYTHONPATH = "$ROOT;$env:PYTHONPATH"
-    $env:CARGO_TARGET_DIR = "c:/t"
-    $env:CARGO_HOME = "c:/c"
+    # avoid build error by long path
+    if ($env:CI) {
+        $env:CARGO_TARGET_DIR = "c:/t"
+        $env:CARGO_HOME = "c:/c"
+    }
+}
+if ($IsMacOS) {
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
+}
+if ($IsLinux) {
+    $env:PYTHONPATH = "$ROOT`:$env:PYTHONPATH"
 }
 
 # Function: Extract the package name from recipe.yaml
