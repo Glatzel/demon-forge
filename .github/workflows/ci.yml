@@ -72,7 +72,7 @@ jobs:
 
       - name: build-recipe-win
         if: ${{ contains(matrix.machine, 'windows') }}
-        id: main
+        id: build-win
         env:
           GH_TOKEN: ${{github.token}}
         run: |
@@ -82,12 +82,12 @@ jobs:
         working-directory: ./packages/${{matrix.pkg}}
 
       - name: publish-win
-        if: ${{ steps.main.outputs.action_publish == 'true'&& contains(matrix.machine, 'windows')}}
+        if: ${{ steps.build-win.outputs.action_publish == 'true'&& contains(matrix.machine, 'windows')}}
         run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
 
       - name: build-recipe-unix
         if: ${{ !contains(matrix.machine, 'windows') }}
-        id: main
+        id: build-unix
         env:
           GH_TOKEN: ${{github.token}}
         run: |
@@ -97,7 +97,7 @@ jobs:
         working-directory: ./packages/${{matrix.pkg}}
 
       - name: publish-unix
-        if: ${{ steps.main.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
+        if: ${{ steps.build-unix.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
         run: ./scripts/publish.sh ${{matrix.pkg}}
 
   check-point:
