@@ -99,7 +99,7 @@ function Get-Cargo-Arg {
     )
 
     return $cargo_arg
-}    
+}
 function get-name {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
     Write-Output $matched.Matches[0].Groups[1]
