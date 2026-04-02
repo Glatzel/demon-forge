@@ -1,6 +1,6 @@
 context:
   name: microsandbox
-  version: "0.3.7"
+  version: "0.3.8"
 package:
   version: ${{ version }}
   name: ${{ name }}
