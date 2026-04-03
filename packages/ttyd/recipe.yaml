@@ -10,7 +10,6 @@ source:
       - patch/config.patch
 build:
   number: 10
-  script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
     - brotlipy
