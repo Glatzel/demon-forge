@@ -1,6 +1,6 @@
 ROOT=$(git rev-parse --show-toplevel)
 source "$ROOT/scripts/util.sh"
-cp -r "$RECIPE_DIR/../build/." ./
+cp -r "$RECIPE_DIR/build/." ./
 cat ./index.scss >> ./html/src/style/index.scss
 
 # Download and install fonts
