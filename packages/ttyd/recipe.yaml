@@ -30,8 +30,6 @@ requirements:
         - make
         - binutils
         - libtool
-        - gzip
-        - tar
   host:
     - if: unix
       then:
