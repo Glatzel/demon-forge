@@ -10,7 +10,6 @@ source:
       - patch/config.patch
 build:
   number: 10
-  script: pwsh -Command "& $RECIPE_DIR/build-${{ name }}.ps1"
 requirements:
   build:
     - brotlipy
@@ -31,7 +30,8 @@ requirements:
         - make
         - binutils
         - libtool
-        - gcc_win-64 13.*
+        - gzip
+        - tar
   host:
     - if: unix
       then:
@@ -48,6 +48,7 @@ tests:
       - requirements:
           run:
             - curl
+            - powershell
         script:
           - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
           - curl -sI http://localhost:7681
