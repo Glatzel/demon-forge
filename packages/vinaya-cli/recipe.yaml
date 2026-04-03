@@ -1,13 +1,13 @@
 context:
   name: vinaya-cli
-  version: "2026.3.17"
+  version: "2026.4.3"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 5
+  number: 0
   script:
     interpreter: powershell
     content: |
