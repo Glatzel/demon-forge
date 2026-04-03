@@ -49,6 +49,7 @@ opencolorio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24
 opencolorio-config-aces,,,,,ubuntu-slim
 openimageio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 openvdb,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
+orc,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 panda-cad,windows-latest,,,,
 peazip,windows-latest,,,,
 proj,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
