@@ -2,6 +2,6 @@ cd $RECIPE_DIR
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
 cd $SRC_DIR
-dnf install dbus-devel
+dnf install -y dbus-devel
 set -- $(get_cargo_arg)
 cargo install --path ./tools/shook "$@"
