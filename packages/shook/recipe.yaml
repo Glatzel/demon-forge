@@ -21,6 +21,7 @@ requirements:
     - libudev
     - sqlite
     - diffutils
+    - pkg-config
   host:
     - libcap-ng-dev
 tests:
