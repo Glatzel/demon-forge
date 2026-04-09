@@ -20,6 +20,7 @@ requirements:
     - pyelftools
     - libudev
     - sqlite
+    - diffutils
   host:
     - libcap-ng-dev
 tests:
