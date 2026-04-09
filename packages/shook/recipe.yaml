@@ -21,6 +21,6 @@ requirements:
     - libudev
     - sqlite
   host:
-    libcap-ng-dev
+    - libcap-ng-dev
 tests:
-  - script: orc --help
+  - script: shook --help
