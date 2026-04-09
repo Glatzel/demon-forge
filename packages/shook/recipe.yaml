@@ -22,7 +22,7 @@ requirements:
     - sqlite
     - diffutils
     - pkg-config
-  host:
-    - libcap-ng-dev
+#  host:
+#    - libcap-ng-dev
 tests:
   - script: shook --help
