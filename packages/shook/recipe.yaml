@@ -1,0 +1,17 @@
+context:
+  name: shook
+  version: "2026.4.3"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  # url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
+  git: https://github.com/Glatzel/toolbox.git
+  branch: shook-msb
+build:
+  number: 5
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+tests:
+  - script: orc --help
