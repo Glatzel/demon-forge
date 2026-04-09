@@ -13,5 +13,14 @@ build:
 requirements:
   build:
     - ${{ compiler('rust') }}
+    - make
+    - flex
+    - bison
+    - bc
+    - pyelftools
+    - libudev
+    - sqlite
+  host:
+    libcap-ng-dev
 tests:
   - script: orc --help
