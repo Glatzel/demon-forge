@@ -13,16 +13,9 @@ build:
 requirements:
   build:
     - ${{ compiler('rust') }}
-    - make
-    - flex
-    - bison
-    - bc
-    - pyelftools
-    - libudev
-    - sqlite
     - diffutils
     - pkg-config
-#  host:
-#    - libcap-ng-dev
+  host:
+    - libcap-ng-dev
 tests:
   - script: shook --help
