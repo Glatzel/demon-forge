@@ -1,3 +1,4 @@
+export LIBRARY_PATH="$PREFIX/lib"
 cd $RECIPE_DIR
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
