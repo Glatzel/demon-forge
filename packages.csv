@@ -59,7 +59,7 @@ pyxis-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04
 rufus,windows-latest,,,,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 rustup-init,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
-shook,,,ubuntu-latest+1ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
+shook,,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 sys-dnc,windows-latest,,,,
