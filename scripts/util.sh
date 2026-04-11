@@ -39,7 +39,7 @@ build_recipe() {
 
     echo "::endgroup::"
 
-    for pkg_file in "$ROOT/output/$TARGET_PLATFORM/$(get-name)"-*.conda; do
+    for pkg_file in "$ROOT/output/$TARGET_PLATFORM/*.conda"; do
         [ -e "$pkg_file" ] || continue
 
         echo "::group:: inspect $pkg"
