@@ -17,5 +17,8 @@ requirements:
     - pkg-config
   host:
     - libcap-ng-dev
+  ignore_run_exports:
+      from_package:
+        - libcap-ng-dev
 tests:
   - script: shook --help
