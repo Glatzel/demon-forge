@@ -56,6 +56,6 @@ outputs:
     tests:
       - package_contents:
           include:
-            - pystring.h
+            - pystring/pystring.h
 about:
   repository: https://github.com/imageworks/pystring
