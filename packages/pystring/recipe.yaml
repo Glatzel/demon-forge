@@ -7,8 +7,6 @@ recipe:
   name: ${{ name }}
 source:
   - url: https://github.com/imageworks/pystring/archive/refs/tags/v${{ version }}.tar.gz
-    patches:
-      - fix_cmake.patch
 outputs:
   - staging:
       name: pystring-build
