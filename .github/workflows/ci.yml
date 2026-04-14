@@ -60,7 +60,7 @@ jobs:
       TARGET_PLATFORM: ${{ matrix.target_platform }}
     steps:
       - if: ${{matrix.container}}
-        run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
+        run: git config --system --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up pixi
