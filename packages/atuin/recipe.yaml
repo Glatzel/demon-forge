@@ -1,10 +1,10 @@
 context:
   name: atuin
 package:
-  version: "18.13.6"
+  version: "18.14.1"
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
