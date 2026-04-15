@@ -6,7 +6,8 @@ package:
   name: ${{ name }}
 source:
   - url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
-    patch: vendored-dbus.patch
+    patches: 
+      - vendored-dbus.patch
 build:
   number: 0
 requirements:
