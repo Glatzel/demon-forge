@@ -12,6 +12,9 @@ build:
         - gh release download -R superradcompany/libkrunfw -p "libkrunfw-linux-x86_64.so.${{version}}" -O  $PREFIX/bin/libkrunfw.so.${{version}}
       else:
         - gh release download -R superradcompany/libkrunfw -p "libkrunfw-linux-aarch64.so.${{version}}" -O  $PREFIX/bin/libkrunfw.so.${{version}}
+requirements:
+  run_exports:
+    - ${{ pin_subpackage('microsandbox-libkrunfw', exact=True) }}
 tests:
   - package_contents:
       file:
