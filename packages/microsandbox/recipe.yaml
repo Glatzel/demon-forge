@@ -4,12 +4,10 @@ context:
 package:
   version: ${{ version }}
   name: ${{ name }}
-
+source:
+  https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 requirements:
   build:
     - ${{ compiler("c") if linux }}
@@ -18,7 +16,6 @@ requirements:
     - if: linux
       then:
         - openssl
-        - libgcc
         - libcap-ng-dev
 tests:
   - package_contents:
