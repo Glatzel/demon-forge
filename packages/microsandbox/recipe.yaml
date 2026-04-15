@@ -5,7 +5,7 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
+  url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
 requirements:
