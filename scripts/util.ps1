@@ -5,16 +5,19 @@ $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
 
 # avoid build error by long path
-if ($IsWindows) {
+if ($IsWindows)
+{
     # avoid build error by long path
-    if ($env:CI) {
+    if ($env:CI)
+    {
         $env:CARGO_TARGET_DIR = "c:/t"
         $env:CARGO_HOME = "c:/c"
     }
 }
 
 # Function: Extract the current version from recipe.yaml
-function get-current-version {
+function get-current-version
+{
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
     $v = $matched.Matches[0].Groups[1]
     $v = "$v".Replace("""", "")
@@ -22,61 +25,75 @@ function get-current-version {
 }
 
 # Function: Get the latest release tag from a GitHub repository
-function get-version-github {
+function get-version-github
+{
     param($repo)
-    for ($i = 0; $i -lt 5; $i++) {
+    for ($i = 0; $i -lt 5; $i++)
+    {
         $latest = gh release view -R $repo --json tagName -q .tagName
         $latest = "$latest".Replace("v", "")
-        if ($latest) {
+        if ($latest)
+        {
             return $latest
         }
     }
 }
-function get-version-conda-forge {
+function get-version-conda-forge
+{
     param($pkg)
-    for ($i = 0; $i -lt 5; $i++) {
+    for ($i = 0; $i -lt 5; $i++)
+    {
         $latest = curl -s "https://api.anaconda.org/package/conda-forge/$pkg" | jq -r '.latest_version'
-        if ($latest) {
+        if ($latest)
+        {
             return $latest
         }
     }
 }
-function get-version-crateio {
+function get-version-crateio
+{
     param($name)
-    for ($i = 0; $i -lt 5; $i++) {
+    for ($i = 0; $i -lt 5; $i++)
+    {
         $latest = curl -s -H "User-Agent: gh-actions-ci" https://crates.io/api/v1/crates/$name | jq -r '.crate.max_version'
-        if ($latest) {
+        if ($latest)
+        {
             return $latest
         }
     }
 }
 
-function get-version-url {
+function get-version-url
+{
     param($url, $pattern)
-    for ($i = 0; $i -lt 5; $i++) {
+    for ($i = 0; $i -lt 5; $i++)
+    {
         $html = curl -sL $url
         $versions = [regex]::Matches($html, $pattern) | `
-            ForEach-Object { $_.Groups[1].Value }
+                ForEach-Object { $_.Groups[1].Value }
         $latest = $versions | `
-            Sort-Object { [version]$_ } -Descending | `
-            Select-Object -First 1
-        if ($latest) {
+                Sort-Object { [version]$_ } -Descending | `
+                Select-Object -First 1
+        if ($latest)
+        {
             return $latest
         }
     }
 }
-function get-version-text {
+function get-version-text
+{
     param($text, $pattern)
 
     $versions = [regex]::Matches($text, $pattern) | `
-        ForEach-Object { $_.Groups[1].Value }
+            ForEach-Object { $_.Groups[1].Value }
     $latest = $versions | `
-        Sort-Object { [version]$_ } -Descending | `
-        Select-Object -First 1
+            Sort-Object { [version]$_ } -Descending | `
+            Select-Object -First 1
     return $latest
 }
 
-function Get-Cargo-Arg {
+function Get-Cargo-Arg
+{
     $cargo_arg = @(
         '--root', "$env:PREFIX"
         '--locked'
@@ -91,11 +108,13 @@ function Get-Cargo-Arg {
 
     return $cargo_arg
 }
-function get-name {
+function get-name
+{
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
     Write-Output $matched.Matches[0].Groups[1]
 }
-function update-recipe {
+function update-recipe
+{
     param($version)
 
     $name = get-name
@@ -105,25 +124,29 @@ function update-recipe {
     $HAS_NEW_VERSION = ("$current_version" -ne "$version")
 
     # validate version format
-    if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$')) {
+    if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$'))
+    {
         Write-Output "::error ::Invalid version format"
-        if ($env:WORKFLOW_NAME -eq "update") {
+        if ($env:WORKFLOW_NAME -eq "update")
+        {
             "|$name|$current_version|$version|🔴 Invalid Version |" >> $env:GITHUB_STEP_SUMMARY
             return
-        }
-        else {
+        } else
+        {
             exit 1
         }
     }
 
-    if (-not $HAS_NEW_VERSION) {
+    if (-not $HAS_NEW_VERSION)
+    {
         "|$name|$current_version|$version|🔵 No new version found|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
     # skip if remote branch already exists
     $update_branch = "update-$name"
     $remoteExists = git ls-remote --heads origin $update_branch
-    if ($remoteExists) {
+    if ($remoteExists)
+    {
         "|$name|$current_version|$version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
@@ -155,28 +178,35 @@ function update-recipe {
     return
 }
 
-function build-recipe {
-    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push")) { "action_publish=true" >> $env:GITHUB_OUTPUT}
+function build-recipe
+{
+    if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push"))
+    { "action_publish=true" >> $env:GITHUB_OUTPUT
+    }
     Write-Output "::group:: build $pkg"
     $rattler_build_args = @(
         "--config-file", "$ROOT/rattler-config.toml"
         "--color", "always"
         "build", "--output-dir", "$ROOT/output"
         "--variant-config", "$ROOT/conda_build_config.yaml"
+        "--env-isolation", "conda-build"
         "--experimental"
     )
-    if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch")) {
+    if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch"))
+    {
         $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM")
     }
-    if ($env:GITHUB_EVENT_NAME -eq "push") {
+    if ($env:GITHUB_EVENT_NAME -eq "push")
+    {
         $rattler_build_args += ("--package-format", "conda:22")
-    }
-    else {
+    } else
+    {
         $rattler_build_args += ("--package-format", "conda:-7")
     }
     pixi run rattler-build $rattler_build_args
     Write-Output "::endgroup::"
-    foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda") {
+    foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda")
+    {
         Write-Output "::group:: inspect $pkg"
         pixi run rattler-build package inspect --all $pkg_file
         Write-Output "::endgroup::"
