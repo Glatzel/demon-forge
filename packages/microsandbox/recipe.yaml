@@ -10,8 +10,9 @@ build:
   number: 0
 requirements:
   build:
-    - ${{ compiler("c") if linux }}
-    - ${{ stdlib("c") if linux }}
+    - ${{ compiler("rust") }}
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
   host:
     - if: linux
       then:
