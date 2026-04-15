@@ -3,7 +3,7 @@ context:
 
 package:
   name: ${{ name }}
-  version: "7.1.2.18"
+  version: "7.1.2.19"
 
 build:
   number: 0

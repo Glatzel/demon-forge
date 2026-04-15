@@ -4,22 +4,21 @@ context:
 package:
   version: ${{ version }}
   name: ${{ name }}
-
+source:
+  - url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
+    patches:
+      - vendored-dbus.patch
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 requirements:
   build:
-    - ${{ compiler("c") if linux }}
-    - ${{ stdlib("c") if linux }}
+    - ${{ compiler("rust") }}
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
+    - pkg-config
   host:
-    - if: linux
-      then:
-        - openssl
-        - libgcc
-        - libcap-ng-dev
+    - libcap-ng-dev
+    - microsandbox-libkrunfw
 tests:
   - package_contents:
       bin:

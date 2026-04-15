@@ -1,3 +1,5 @@
+ROOT=$(git rev-parse --show-toplevel)
+. "$ROOT/scripts/util.sh"
+set -- $(get_cargo_arg)
 cd rust
-export PROJ_ROOT="$(realpath "$BUILD_PREFIX")"
-cargo install --bin pyxis --root $PREFIX --path ./crates/pyxis-cli
+cargo install --bin pyxis --path ./crates/pyxis-cli "$@"

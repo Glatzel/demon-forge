@@ -1,3 +1,4 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 Set-Location rust
-$env:PROJ_ROOT = "$(Resolve-Path $env:BUILD_PREFIX/Library)"
-cargo install --bin pyxis --root $env:PREFIX --path ./crates/pyxis-cli
+cargo install --bin pyxis --path ./crates/pyxis-cli @(Get-Cargo-Arg)

@@ -1,6 +1,6 @@
 context:
   name: pyxis-cli
-  version: "0.0.42"
+  version: "0.0.43"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -13,9 +13,7 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - pkg-config
-    - proj-dev
   host:
-    - proj-rt
+    - proj-dev
 tests:
   - script: pyxis --help
