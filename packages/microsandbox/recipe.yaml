@@ -6,6 +6,7 @@ package:
   name: ${{ name }}
 source:
   url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
+  patch: vendored-dbus.patch
 build:
   number: 0
 requirements:
@@ -13,6 +14,7 @@ requirements:
     - ${{ compiler("rust") }}
     - ${{ compiler("c") }}
     - ${{ stdlib("c") }}
+    - pkg-config
   host:
     - if: linux
       then:
