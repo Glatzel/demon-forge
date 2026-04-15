@@ -17,5 +17,5 @@ requirements:
     - ${{ pin_subpackage('microsandbox-libkrunfw', exact=True) }}
 tests:
   - package_contents:
-      file:
+      files:
         - bin/libkrunfw.so.${{ version }}
