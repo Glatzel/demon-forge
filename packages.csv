@@ -40,6 +40,7 @@ libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-a
 librepcb,windows-latest,,,,
 mason,windows-latest,,,,
 microsandbox,,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
+microsandbox-libkrunfw,,,ubuntu-slim,ubuntu-24.04-arm,
 mqttui,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 nssm,windows-latest,,,,
 nuget,windows-latest,,,,
