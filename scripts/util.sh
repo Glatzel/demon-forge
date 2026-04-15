@@ -23,6 +23,7 @@ build_recipe() {
         --color always \
         build --output-dir "$ROOT/output" \
         --variant-config "$ROOT/conda_build_config.yaml" \
+        --env-isolation conda-build \
         --experimental
 
     if [ -n "$CI" ] && [ "$TARGET_PLATFORM" != "noarch" ]; then
