@@ -17,10 +17,9 @@ requirements:
     - ${{ stdlib("c") }}
     - pkg-config
   host:
-    - if: linux
-      then:
-        - openssl
-        - libcap-ng-dev
+    - openssl
+    - libcap-ng-dev
+    - microsandbox-libkrunfw
 tests:
   - package_contents:
       bin:
