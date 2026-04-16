@@ -4,7 +4,9 @@ package:
   version: "0.12.1"
   name: cargo-bloat
 build:
-  script: cargo install --root ${PREFIX} cargo-llvm-cov
+  script:
+    - env | sort
+    - cargo install --root ${PREFIX} cargo-llvm-cov
 requirements:
   build:
     - rust
