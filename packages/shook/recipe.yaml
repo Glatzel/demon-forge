@@ -1,13 +1,11 @@
 context:
   name: shook
-  version: "2026.4.3"
+  version: "2026.4.16"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  # url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
-  git: https://github.com/Glatzel/toolbox.git
-  branch: shook-msb
+  url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 5
 requirements:
