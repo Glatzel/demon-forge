@@ -15,6 +15,7 @@ requirements:
     - pkg-config
   host:
     - libcap-ng-dev
+    - microsandbox-libkrunfw
   ignore_run_exports:
       from_package:
         - libcap-ng-dev
