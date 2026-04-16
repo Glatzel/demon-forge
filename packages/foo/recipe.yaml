@@ -1,0 +1,14 @@
+context:
+  name: cargo-bloat
+package:
+  version: "0.12.1"
+  name: cargo-bloat
+build:
+  script: cargo install --root ${PREFIX} cargo-llvm-cov
+requirements:
+  build:
+    - rust
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
