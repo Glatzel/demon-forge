@@ -1,7 +1,7 @@
 context:
   name: atuin
 package:
-  version: "18.15.1"
+  version: "18.15.2"
   name: ${{ name }}
 build:
   number: 0
