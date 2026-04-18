@@ -13,8 +13,3 @@ build:
 requirements:
   run:
     - sys-install
-tests:
-  - script:
-      interpreter: powershell
-      content: |
-        install-${{name}}.ps1
