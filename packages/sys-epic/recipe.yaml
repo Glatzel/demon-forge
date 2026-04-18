@@ -1,5 +1,5 @@
 context:
-  name: sys-steam
+  name: sys-epic
 package:
   version: "2.10.91.91"
   name: ${{ name }}
@@ -18,4 +18,4 @@ tests:
       interpreter: powershell
       content: |
         install-${{name}}.ps1
-        Resolve-Path "C:\Program Files (x86)\Steam\steam.exe"
+        Resolve-Path "C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe"
