@@ -1,7 +1,7 @@
 context:
   name: v2rayn
 package:
-  version: "7.20.3"
+  version: "7.20.4"
   name: ${{ name }}
 build:
   number: 0
