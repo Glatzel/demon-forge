@@ -65,8 +65,7 @@ function get-version-crateio
 function get-version-winget
 {
     param($name)
-
-    gh api repos/microsoft/winget-pkgs/contents/manifests/$name | jq -r '[.[].name] | sort_by(split(".") | map(tonumber)) | last'
+    gh api repos/microsoft/winget-pkgs/contents/manifests/$name | jq -r '[.[].name| select(test("^[0-9]+(\\.[0-9]+)*$"))]| sort_by(split(".") | map(tonumber))| last'
 }
 function get-version-url
 {
