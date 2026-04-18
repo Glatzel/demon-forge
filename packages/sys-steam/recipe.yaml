@@ -1,7 +1,7 @@
 context:
   name: sys-steam
 package:
-  version: "1.0.0"
+  version: "2.10.91.91"
   name: ${{ name }}
 build:
   number: 0

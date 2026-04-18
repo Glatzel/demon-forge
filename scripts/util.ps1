@@ -62,7 +62,12 @@ function get-version-crateio
         }
     }
 }
+function get-version-winget
+{
+    param($name)
 
+    gh api repos/microsoft/winget-pkgs/contents/manifests/v/$name | jq -r '[.[].name] | sort_by(split(".") | map(tonumber)) | last'
+}
 function get-version-url
 {
     param($url, $pattern)
