@@ -1,0 +1,20 @@
+context:
+  name: sys-affinity
+package:
+  version: "2.10.91.91"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    interpreter: powershell
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      Copy-Item $env:RECIPE_DIR/install-${{name}}.ps1 $env:PREFIX/Scripts/
+requirements:
+  run:
+    - sys-install
+tests:
+  - script:
+      interpreter: powershell
+      content: |
+        install-${{name}}.ps1
