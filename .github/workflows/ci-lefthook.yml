@@ -52,9 +52,9 @@ jobs:
 
       # pre-commit
       - name: lefthook
+        run: pixi run --manifest-path ./lefthook/pixi.toml lefthook-run
+      - if: ${{!cancelled()}}
         run: |
-          pixi run --manifest-path ./lefthook/pixi.toml lefthook-run
-
           if ! git diff --quiet || ! git diff --cached --quiet; then
             echo "❌ Lefthook modified files. Please run lefthook locally and commit the fixes."
             git --no-pager diff
