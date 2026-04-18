@@ -8,7 +8,7 @@ if (-not (Test-Path "C:\ProgramData\Autodesk\Revit\Addins\*\RhinoInside.Revit\Rh
     {
         $need_install = $true
     } else
-    { Write-Output "rhino.inside-revit $version is already installed." 
+    { Write-Output "rhino.inside-revit $version is already installed."
     }
 }
 if ( $need_install)
