@@ -1,4 +1,4 @@
 Set-Location $PSScriptRoot
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-update-recipe $(get-version-winget "Valve/Steam")
+update-recipe $(get-version-winget "EpicGames/EpicGamesLauncher")

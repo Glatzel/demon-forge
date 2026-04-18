@@ -1,5 +1,5 @@
 context:
-  name: sys-steam
+  name: sys-klite-codec-pack-full
 package:
   version: "2.10.91.91"
   name: ${{ name }}
