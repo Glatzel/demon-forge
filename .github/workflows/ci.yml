@@ -18,6 +18,9 @@ jobs:
   lefthook:
     if: ${{ github.event_name == 'pull_request' }}
     uses: ./.github/workflows/ci-lefthook.yml
+    permissions:
+      contents: write
+      pull-requests: write
   dispatch:
     runs-on: ubuntu-slim
     outputs:
