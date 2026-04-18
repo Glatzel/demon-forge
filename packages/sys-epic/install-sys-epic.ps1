@@ -2,3 +2,6 @@ if (-not (Test-Path "C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\
 {
     winget install --source winget -i --id EpicGames.EpicGamesLauncher
 }
+else{
+    write-host "Epic Games Launcher is already installed."
+}
