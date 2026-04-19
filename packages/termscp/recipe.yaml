@@ -1,13 +1,13 @@
 context:
   name: termscp
-  version: "0.19.1"
+  version: "1.0.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/veeso/termscp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 5
+  number: 0
   script:
     interpreter: powershell
     file: build.ps1
