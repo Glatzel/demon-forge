@@ -1,16 +1,13 @@
 context:
   name: termscp
-  version: "0.19.1"
+  version: "1.0.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/veeso/termscp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 5
-  script:
-    interpreter: powershell
-    file: build.ps1
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
@@ -20,8 +17,6 @@ requirements:
     - make
     - nasm
     - pkg-config
-  host:
-    - ${{ 'openssl' if unix }}
 tests:
   - package_contents:
       bin:
