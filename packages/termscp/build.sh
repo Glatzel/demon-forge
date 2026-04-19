@@ -3,11 +3,11 @@ ROOT=$(git rev-parse --show-toplevel)
 OS="$(uname -s)"
 
 if [ "$OS" = "Linux" ]; then
-    sudo dnf update -y
-    sudo dnf install -y dnf-plugins-core
-    sudo dnf config-manager --set-enabled powertools
-    sudo dnf makecache
-    sudo dnf install -y libsmbclient-devel
+    dnf update -y
+    dnf install -y dnf-plugins-core
+    dnf config-manager --set-enabled powertools
+    dnf makecache
+    dnf install -y libsmbclient-devel
     export PKG_CONFIG_PATH="/usr/share/pkgconfig:/usr/lib/pkgconfig:/usr/lib64/pkgconfig:${PKG_CONFIG_PATH}"
 fi
 
