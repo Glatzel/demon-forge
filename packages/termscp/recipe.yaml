@@ -17,8 +17,6 @@ requirements:
     - make
     - nasm
     - pkg-config
-  host:
-    - ${{ 'openssl' if unix }}
 tests:
   - package_contents:
       bin:
