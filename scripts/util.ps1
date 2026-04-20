@@ -12,6 +12,7 @@ if ($IsWindows)
     {
         $env:CARGO_TARGET_DIR = "c:/t"
         $env:CARGO_HOME = "c:/c"
+        $env:PYTHONPATH="$(resolve-path $PSScriptRoot/..);$env:PYTHONPATH"
     }
 }
 
