@@ -1,7 +1,7 @@
 context:
   name: pureref
 package:
-  version: "2.1.1"
+  version: "2.1.2"
   name: ${{ name }}
 build:
   number: 0
