@@ -11,4 +11,5 @@ build:
       new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
       Copy-Item $env:RECIPE_DIR/install-fonts.ps1 $env:PREFIX/Scripts/install-fonts.ps1
 requirements:
-  - sys-install
+  run:
+    - sys-install
