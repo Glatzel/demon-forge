@@ -1,0 +1,15 @@
+context:
+  name: sys-fonts
+package:
+  version: "1.0.0"
+  name: ${{ name }}
+build:
+  number: 1
+  script:
+    interpreter: powershell
+    content: |
+      new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
+      Copy-Item $env:RECIPE_DIR/install-fonts.ps1 $env:PREFIX/Scripts/install-fonts.ps1
+requirements:
+  run:
+    - sys-install
