@@ -9,7 +9,7 @@ build:
     interpreter: powershell
     content: |
       new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
-      Copy-Item $env:RECIPE_DIR/install-fonts.ps1 $env:PREFIX/Scripts/install-fonts.ps1
+      Copy-Item $env:RECIPE_DIR/install-sys-fonts.ps1 $env:PREFIX/Scripts/install-sys-fonts.ps1
 requirements:
   run:
     - sys-install
