@@ -1,0 +1,24 @@
+context:
+  name: sys-font-hack
+package:
+  version: "1.8.1"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - fonttools
+    - brotlipy
+  run:
+    - sys-fonts
+  ignore_run_exports:
+    from_package:
+      - fonttools
+      - brotlipy
+tests:
+  - script:
+      interpreter: powershell
+      content: |
+        install-sys.ps1
+about:
+  repository: https://github.com/ryanoasis/nerd-fonts
