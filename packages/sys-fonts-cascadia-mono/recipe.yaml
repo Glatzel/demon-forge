@@ -1,7 +1,7 @@
 context:
   name: sys-font-cascadia-mono
 package:
-  version: "1.8.1"
+  version: "3.4.0"
   name: ${{ name }}
 build:
   number: 0
