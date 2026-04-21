@@ -14,5 +14,5 @@ requirements:
 tests:
   - script:
       interpreter: powershell
-      contents: |
+      content: |
         install-sys.ps1
