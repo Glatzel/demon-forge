@@ -1,5 +1,5 @@
 context:
-  name: sys-font-cascadia-mono
+  name: sys-font-hack
 package:
   version: "1.8.1"
   name: ${{ name }}
