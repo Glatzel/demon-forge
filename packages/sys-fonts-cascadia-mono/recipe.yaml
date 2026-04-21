@@ -11,6 +11,10 @@ requirements:
     - brotlipy
   run:
     - sys-fonts
+  ignore_run_exports:
+    from_package:
+      - fonttools
+      - brotlipy
 tests:
   - script:
       interpreter: powershell
