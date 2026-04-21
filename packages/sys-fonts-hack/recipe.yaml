@@ -39,17 +39,9 @@ outputs:
   - package:
       name: ${{ name }}-woff2
     inherit: ${{ name }}-build
-    requirements:
-      run:
-        - sys-fonts
     build:
       number: ${{ number }}
       files:
         - fonts/*.woff2
-    tests:
-      - script:
-          interpreter: powershell
-          content: |
-            install-sys.ps1
 about:
   repository: https://github.com/ryanoasis/nerd-fonts
