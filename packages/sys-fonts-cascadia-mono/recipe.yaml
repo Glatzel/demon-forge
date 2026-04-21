@@ -1,0 +1,18 @@
+context:
+  name: sys-font-cascadia-mono
+package:
+  version: "1.8.1"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - fonttools
+    - brotlipy
+  run:
+    - sys-fonts
+tests:
+  - script:
+    interpreter: powershell
+    contents: |
+      install-sys.ps1
