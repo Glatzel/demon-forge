@@ -1,24 +1,47 @@
 context:
-  name: sys-font-cascadia-mono
-package:
-  version: "1.8.1"
-  name: ${{ name }}
-build:
+  name: sys-fonts-cascadia-mono
   number: 0
-requirements:
-  build:
-    - fonttools
-    - brotlipy
-  run:
-    - sys-fonts
-  ignore_run_exports:
-    from_package:
-      - fonttools
-      - brotlipy
-tests:
-  - script:
-      interpreter: powershell
-      content: |
-        install-sys.ps1
+  version: "3.4.0"
+recipe:
+  version: ${{ version }}
+  name: ${{ name }}
+outputs:
+  - staging:
+      name: ${{ name }}-build
+    build:
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-${{ name }}.${{ "ps1" if win else "sh" }}
+    requirements:
+      build:
+        - fonttools
+        - brotlipy
+      ignore_run_exports:
+        from_package:
+          - fonttools
+          - brotlipy
+
+  - package:
+      name: ${{ name }}-ttf
+    inherit: ${{ name }}-build
+    requirements:
+      run:
+        - sys-fonts
+    build:
+      number: ${{ number }}
+      files:
+        - fonts/*.ttf
+    tests:
+      - script:
+          interpreter: powershell
+          content: |
+            install-sys.ps1
+  - package:
+      name: ${{ name }}-woff2
+    inherit: ${{ name }}-build
+    build:
+      number: ${{ number }}
+      files:
+        - fonts/*.woff2
 about:
   repository: https://github.com/ryanoasis/nerd-fonts
