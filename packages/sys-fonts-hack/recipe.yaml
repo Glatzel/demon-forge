@@ -1,5 +1,5 @@
 context:
-  name: sys-font-hack
+  name: sys-fonts-hack
   number: 0
   version: "3.4.0"
 recipe:
