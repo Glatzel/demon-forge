@@ -13,6 +13,6 @@ requirements:
     - sys-fonts
 tests:
   - script:
-    interpreter: powershell
-    contents: |
-      install-sys.ps1
+      interpreter: powershell
+      contents: |
+        install-sys.ps1
