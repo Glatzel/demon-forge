@@ -24,9 +24,6 @@ outputs:
   - package:
       name: ${{ name }}-ttf
     inherit: ${{ name }}-build
-    requirements:
-      run:
-        - sys-fonts
     build:
       noarch: generic
       number: ${{ number }}
