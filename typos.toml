@@ -1,2 +1,2 @@
 [default]
-extend-ignore-identifiers-re = ["LOD"]
+extend-ignore-identifiers-re = ["LOD", "Canva"]
