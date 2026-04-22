@@ -1,7 +1,7 @@
 context:
   name: sys-wecom
 package:
-  version: "5.0.7.6005"
+  version: "5.0.8.6006"
   name: ${{ name }}
 build:
   number: 0
