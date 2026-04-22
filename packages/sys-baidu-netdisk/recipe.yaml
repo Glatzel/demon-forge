@@ -1,7 +1,7 @@
 context:
   name: sys-baidu-netdisk
 package:
-  version: "3.2.0.4351"
+  version: "8.3.9"
   name: ${{ name }}
 build:
   number: 0
