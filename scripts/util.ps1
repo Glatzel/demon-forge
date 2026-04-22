@@ -194,7 +194,7 @@ function build-recipe
         "--color", "always"
         "build", "--output-dir", "$ROOT/output"
         "--variant-config", "$ROOT/conda_build_config.yaml"
-        "--experimental"
+        "--env-isolation", "none"
     )
     if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch"))
     {
