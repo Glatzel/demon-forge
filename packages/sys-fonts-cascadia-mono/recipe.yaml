@@ -31,9 +31,10 @@ outputs:
         - fonts/*.ttf
     tests:
       - script:
-          interpreter: powershell
-          content: |
-            install-sys.ps1
+          package_contents:
+            files:
+              - fonts/*.ttf
+
   - package:
       name: ${{ name }}-woff2
     inherit: ${{ name }}-build
@@ -42,5 +43,9 @@ outputs:
       number: ${{ number }}
       files:
         - fonts/*.woff2
+    test:
+      package_contents:
+        files:
+          - fonts/*.woff2
 about:
   repository: https://github.com/ryanoasis/nerd-fonts
