@@ -30,10 +30,9 @@ outputs:
       files:
         - fonts/*.ttf
     tests:
-      - script:
-          package_contents:
-            files:
-              - fonts/*.ttf
+      - package_contents:
+          files:
+            - fonts/*.ttf
 
   - package:
       name: ${{ name }}-woff2
@@ -43,9 +42,9 @@ outputs:
       number: ${{ number }}
       files:
         - fonts/*.woff2
-    test:
-      package_contents:
-        files:
-          - fonts/*.woff2
+    tests:
+      - package_contents:
+          files:
+            - fonts/*.woff2
 about:
   repository: https://github.com/ryanoasis/nerd-fonts
