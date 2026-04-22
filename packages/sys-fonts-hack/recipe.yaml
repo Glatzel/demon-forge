@@ -10,8 +10,8 @@ outputs:
       name: ${{ name }}-build
     build:
       script:
-        interpreter: ${{ "powershell" if win else "bash" }}
-        file: build-${{ name }}.${{ "ps1" if win else "sh" }}
+        interpreter: bash
+        file: build-${{ name }}.sh
     requirements:
       build:
         - fonttools
@@ -24,24 +24,26 @@ outputs:
   - package:
       name: ${{ name }}-ttf
     inherit: ${{ name }}-build
-    requirements:
-      run:
-        - sys-fonts
     build:
+      noarch: generic
       number: ${{ number }}
       files:
         - fonts/*.ttf
     tests:
-      - script:
-          interpreter: powershell
-          content: |
-            install-sys.ps1
+      - package_contents:
+          files:
+            - fonts/*.ttf
   - package:
       name: ${{ name }}-woff2
     inherit: ${{ name }}-build
     build:
+      noarch: generic
       number: ${{ number }}
       files:
         - fonts/*.woff2
+    tests:
+      - package_contents:
+          files:
+            - fonts/*.woff2
 about:
   repository: https://github.com/ryanoasis/nerd-fonts
