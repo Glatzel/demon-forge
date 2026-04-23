@@ -67,9 +67,8 @@ sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-epic,windows-latest,,,,
-sys-fonts,windows-latest,,,,
-sys-fonts-cascadia-mono,,,,,ubuntu-slim
-sys-fonts-hack,,,,,ubuntu-slim
+fonts-cascadia-mono,,,,,ubuntu-slim
+fonts-hack,,,,,ubuntu-slim
 sys-icaros,windows-latest,,,,
 sys-install,windows-latest,,,,
 sys-klite-codec-pack-full,windows-latest,,,,
