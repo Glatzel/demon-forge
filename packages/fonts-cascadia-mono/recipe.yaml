@@ -1,5 +1,5 @@
 context:
-  name: sys-fonts-hack
+  name: fonts-cascadia-mono
   number: 0
   version: "3.4.0"
 recipe:
@@ -33,6 +33,7 @@ outputs:
       - package_contents:
           files:
             - fonts/*.ttf
+
   - package:
       name: ${{ name }}-woff2
     inherit: ${{ name }}-build

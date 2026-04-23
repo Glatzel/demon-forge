@@ -27,6 +27,8 @@ easytier,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linu
 edit,windows-latest,,ubuntu-slim,ubuntu-24.04-arm,
 esp-generate,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 espflash,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
+fonts-cascadia-mono,,,,,ubuntu-slim
+fonts-hack,,,,,ubuntu-slim
 fornax-py,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 fresh-editor,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 furmark,windows-latest,,,,
@@ -67,9 +69,6 @@ sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-epic,windows-latest,,,,
-sys-fonts,windows-latest,,,,
-sys-fonts-cascadia-mono,,,,,ubuntu-slim
-sys-fonts-hack,,,,,ubuntu-slim
 sys-icaros,windows-latest,,,,
 sys-install,windows-latest,,,,
 sys-klite-codec-pack-full,windows-latest,,,,
