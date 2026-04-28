@@ -1,13 +1,11 @@
 context:
   name: microsandbox
-  version: "0.3.14"
+  version: "0.4.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   - url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
-    patches:
-      - vendored-dbus.patch
 build:
   number: 0
 requirements:
