@@ -24,7 +24,7 @@ crsdk,windows-latest,,ubuntu-slim,ubuntu-24.04-arm,
 dism-plus-plus,windows-latest,,,,
 dufs,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 easytier,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
-msedit,windows-latest,,ubuntu-slim,ubuntu-24.04-arm,
+msedit,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 esp-generate,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 espflash,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 fonts-cascadia-mono,,,,,ubuntu-slim
