@@ -1,8 +1,8 @@
-cat "$RECIPE_DIR/index.scss" >> ./html/src/style/index.scss
+cat "${RECIPE_DIR}/index.scss" >> ./html/src/style/index.scss
 
 # fonts
 mkdir ./html/src/style/webfont
-cp "$BUILD_PREFIX/fonts/*" ./html/src/style/webfont/
+cp "${BUILD_PREFIX}/fonts/*" ./html/src/style/webfont/
 
 # Handle npm and yarn tasks for front-end
 cd ./html
