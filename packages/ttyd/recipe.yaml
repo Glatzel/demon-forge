@@ -30,6 +30,7 @@ requirements:
         - make
         - binutils
         - libtool
+        - diffutils
   host:
     - if: unix
       then:
