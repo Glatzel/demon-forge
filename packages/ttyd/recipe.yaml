@@ -17,12 +17,14 @@ requirements:
     - ninja
     - pkg-config
     - cmake 3.*
-    - autoconf
     - automake
     - file
     - fonts-cascadia-mono-woff2
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
+    - if: unix
+      then:
+        - autoconf
   host:
     - json-c
     - libwebsockets
