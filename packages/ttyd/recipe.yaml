@@ -13,7 +13,7 @@ build:
   number: 10
 requirements:
   build:
-    - nodejs 24
+    - nodejs 24.*
     - ninja
     - pkg-config
     - cmake 3.*
