@@ -9,6 +9,20 @@ Copy-Item "$env:BUILD_PREFIX/fonts/*" -Destination "./html/src/style/webfont/" -
 
 # Frontend build
 Set-Location ./html
+Get-ChildItem -Path . -Recurse -File -Include *.js,*.ts,*.json,*.css,*.html |
+    ForEach-Object {
+        $path = $_.FullName
+        $content = Get-Content $path -Raw
+
+        # Normalize line endings
+        $normalized = $content -replace "`r`n", "`n"
+
+        # Only write if something changed (avoids touching timestamps unnecessarily)
+        if ($normalized -ne $content)
+        {
+            Set-Content -Path $path -Value $normalized -NoNewline -Encoding utf8
+        }
+    }
 $env:NPM_CONFIG_PREFIX="$env:BUILD_PREFIX"
 npm install -g corepack
 corepack enable
