@@ -1,7 +1,8 @@
 context:
   name: msedit
-package:
   version: "2.0.0"
+package:
+  version: ${{ version }}
   name: ${{ name }}
 source:
   - url: https://github.com/microsoft/edit/archive/refs/tags/v${{ version }}.tar.gz
