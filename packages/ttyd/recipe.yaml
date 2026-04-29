@@ -52,7 +52,6 @@ tests:
       requirements:
         run:
           - curl
-          - powershell
         script:
           - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
           - curl -sI http://localhost:7681
