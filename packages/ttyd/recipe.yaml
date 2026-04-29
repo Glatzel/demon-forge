@@ -20,6 +20,7 @@ requirements:
     - autoconf
     - automake
     - file
+    - fonts-cascadia-mono-woff2
     - if: unix
       then:
         - ${{ compiler('c') }}
