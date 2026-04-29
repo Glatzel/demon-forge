@@ -21,21 +21,12 @@ requirements:
     - automake
     - file
     - fonts-cascadia-mono-woff2
-    - if: unix
-      then:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-    - if: win
-      then:
-        - make
-        - binutils
-        - libtool
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
   host:
-    - if: unix
-      then:
-        - json-c
-        - libwebsockets
-        - zlib
+    - json-c
+    - libwebsockets
+    - zlib
 
 tests:
   - package_contents:
