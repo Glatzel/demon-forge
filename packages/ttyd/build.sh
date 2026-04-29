@@ -1,5 +1,5 @@
 cat "$RECIPE_DIR/index.scss" >> ./html/src/style/index.scss
-
+env | sort
 # fonts
 mkdir ./html/src/style/webfont
 cp "$BUILD_PREFIX/fonts/*" ./html/src/style/webfont/
