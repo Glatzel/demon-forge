@@ -5,22 +5,22 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
+  # - url: https://github.com/tsl0922/ttyd/archive/refs/tags/${{ version }}.tar.gz
+  - git: https://github.com/tsl0922/ttyd.git
     patches:
-      - patch/config.patch
+      - config.patch
 build:
-  number: 10
+  number: 11
 requirements:
   build:
-    - brotlipy
     - nodejs
     - ninja
-    - fonttools
     - pkg-config
     - cmake 3.*
+    - fonts-cascadia-mono-woff2
+    - file
     - autoconf
     - automake
-    - file
     - if: unix
       then:
         - ${{ compiler('c') }}
@@ -30,6 +30,7 @@ requirements:
         - make
         - binutils
         - libtool
+        - patch
   host:
     - if: unix
       then:
@@ -43,14 +44,16 @@ tests:
         - ${{ name }}
   - if: unix
     then:
-      - requirements:
-          run:
-            - curl
-            - powershell
-        script:
-          - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
-          - curl -sI http://localhost:7681
-          - pwsh -Command "Stop-Process -Name ttyd -Force"
+      requirements:
+        run:
+          - curl
+      script: |
+        "$PREFIX/bin/ttyd" --port 7681 bash &
+        TTYD_PID=$!
+        sleep 1
+        curl -sI http://localhost:7681
+        kill "$TTYD_PID"
+        wait "$TTYD_PID" 2>/dev/null
 
 about:
   homepage: https://github.com/tsl0922/ttyd

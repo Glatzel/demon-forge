@@ -1,20 +1,17 @@
-ROOT=$(git rev-parse --show-toplevel)
-source "$ROOT/scripts/util.sh"
-cp -r "$RECIPE_DIR/build/." ./
-cat ./index.scss >> ./html/src/style/index.scss
+cat "${RECIPE_DIR}/index.scss" >> ./html/src/style/index.scss
 
-# Download and install fonts
-bash ./download-font.sh
+# fonts
+mkdir ./html/src/style/webfont
+cp "${BUILD_PREFIX}/fonts/"* ./html/src/style/webfont/
 
 # Handle npm and yarn tasks for front-end
-export NPM_CONFIG_PREFIX="$BUILD_PREFIX"
 cd ./html
-npm install -g corepack
-corepack enable
-corepack prepare yarn@stable --activate
-yarn install
-yarn run check
-yarn run build
+# npm install -g corepack
+# corepack enable
+npx corepack prepare yarn@stable --activate
+npx corepack yarn install
+npx corepack yarn run check
+npx corepack yarn run build
 cd ..
 
 cmake_args=(
