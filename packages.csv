@@ -82,7 +82,7 @@ sys-vscode,windows-latest,,,,
 sys-wecom,windows-latest,,,,
 termscp,windows-latest,,,,
 toolbox,,,,,ubuntu-slim
-ttyd,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
+ttyd,ubuntu-latest+ci-linux-release,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 ueberzugpp,,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 upx,windows-latest,,,,
 uutils-diffutils,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,

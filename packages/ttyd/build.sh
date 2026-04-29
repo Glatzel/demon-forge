@@ -21,5 +21,13 @@ cmake_args=(
     "-DCMAKE_INSTALL_PREFIX=$PREFIX"
 )
 
-cmake -S . -B build "${cmake_args[@]}"
-cmake --build build --config Release --target install
+if [ "$TARGET_PLATFORM" = "win-64" ]; then
+    export BUILD_TARGET="win32"
+    export CMAKE_C_FLAGS="-Wno-error"
+    bash ./scripts/cross-build.sh
+    mkdir -p "$PREFIX/bin"
+    cp "./build/$PKG_NAME.exe" "$PREFIX/bin/$PKG_NAME.exe"
+else
+    cmake -S . -B build "${cmake_args[@]}"
+    cmake --build build --config Release --target install
+fi
