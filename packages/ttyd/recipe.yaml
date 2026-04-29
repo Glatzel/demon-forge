@@ -39,23 +39,23 @@ tests:
       requirements:
         run:
           - curl
-        script: |
-          "$PREFIX/bin/ttyd" --port 7681 bash &
-          TTYD_PID=$!
-          sleep 1
-          curl -sI http://localhost:7681
-          kill "$TTYD_PID"
-          wait "$TTYD_PID" 2>/dev/null
+      script: |
+        "$PREFIX/bin/ttyd" --port 7681 bash &
+        TTYD_PID=$!
+        sleep 1
+        curl -sI http://localhost:7681
+        kill "$TTYD_PID"
+        wait "$TTYD_PID" 2>/dev/null
 
   - if: win
     then:
       requirements:
         run:
           - curl
-        script:
-          - pwsh -Command "Start-Process $PREFIX/bin/${{ name }}${{'.exe' if win}} -ArgumentList '--port 7681 pwsh'"
-          - curl -sI http://localhost:7681
-          - pwsh -Command "Stop-Process -Name ttyd -Force"
+      script:
+        - pwsh -Command "Start-Process $PREFIX/bin/ttyd.exe -ArgumentList '--port 7681 pwsh'"
+        - curl -sI http://localhost:7681
+        - pwsh -Command "Stop-Process -Name ttyd -Force"
 
 about:
   homepage: https://github.com/tsl0922/ttyd
