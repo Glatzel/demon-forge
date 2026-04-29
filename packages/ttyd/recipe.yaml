@@ -22,10 +22,10 @@ requirements:
     - ${{ stdlib('c') }}
     - if: unix
       then:
+        - file
         - autoconf
         - automake
   host:
-    - file
     - json-c
     - libwebsockets
     - zlib
