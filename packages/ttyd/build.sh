@@ -1,11 +1,10 @@
 cat "$RECIPE_DIR/index.scss" >> ./html/src/style/index.scss
-env | sort
+
 # fonts
 mkdir ./html/src/style/webfont
 cp "$BUILD_PREFIX/fonts/*" ./html/src/style/webfont/
 
 # Handle npm and yarn tasks for front-end
-export NPM_CONFIG_PREFIX="$BUILD_PREFIX"
 cd ./html
 npm install -g corepack
 corepack enable
@@ -22,13 +21,5 @@ cmake_args=(
     "-DCMAKE_INSTALL_PREFIX=$PREFIX"
 )
 
-if [ "$TARGET_PLATFORM" = "win-64" ]; then
-    export BUILD_TARGET="win32"
-    export CMAKE_C_FLAGS="-Wno-error"
-    bash ./scripts/cross-build.sh
-    mkdir -p "$PREFIX/bin"
-    cp "./build/$PKG_NAME.exe" "$PREFIX/bin/$PKG_NAME.exe"
-else
-    cmake -S . -B build "${cmake_args[@]}"
-    cmake --build build --config Release --target install
-fi
+cmake -S . -B build "${cmake_args[@]}"
+cmake --build build --config Release --target install
