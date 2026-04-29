@@ -9,8 +9,8 @@ cd ./html
 # npm install -g corepack
 # corepack enable
 npx corepack prepare yarn@stable --activate
-yarn install
-yarn run build
+npx yarn install
+npx yarn run build
 cd ..
 
 cmake_args=(
