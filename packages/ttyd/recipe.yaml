@@ -25,6 +25,11 @@ requirements:
       then:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
+    - if: win
+      then:
+        - make
+        - binutils
+        - libtool
   host:
     - if: unix
       then:
