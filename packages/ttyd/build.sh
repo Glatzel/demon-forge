@@ -10,6 +10,7 @@ cd ./html
 # corepack enable
 npx corepack prepare yarn@stable --activate
 npx corepack yarn install
+npx corepack yarn run check
 npx corepack yarn run build
 cd ..
 
