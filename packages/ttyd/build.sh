@@ -6,8 +6,8 @@ cp "${BUILD_PREFIX}/fonts/"* ./html/src/style/webfont/
 
 # Handle npm and yarn tasks for front-end
 cd ./html
-npm install -g corepack
-corepack enable
+# npm install -g corepack
+# corepack enable
 corepack prepare yarn@stable --activate
 yarn install
 yarn run check
