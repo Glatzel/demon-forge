@@ -39,7 +39,6 @@ tests:
       requirements:
         run:
           - curl
-          - netcat
         script: |
           "$PREFIX/bin/ttyd" --port 7681 bash &
           TTYD_PID=$!
