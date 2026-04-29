@@ -17,7 +17,6 @@ requirements:
     - ninja
     - pkg-config
     - cmake 3.*
-    - file
     - fonts-cascadia-mono-woff2
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
@@ -26,6 +25,7 @@ requirements:
         - autoconf
         - automake
   host:
+    - file
     - json-c
     - libwebsockets
     - zlib
