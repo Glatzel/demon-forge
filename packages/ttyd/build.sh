@@ -1,10 +1,8 @@
-ROOT=$(git rev-parse --show-toplevel)
-source "$ROOT/scripts/util.sh"
-cp -r "$RECIPE_DIR/build/." ./
-cat ./index.scss >> ./html/src/style/index.scss
+cat "$RECIPE_DIR/index.scss" >> ./html/src/style/index.scss
 
-# Download and install fonts
-bash ./download-font.sh
+# fonts
+mkdir ./html/src/style/webfont
+cp "$BUILD_PREFIX/fonts/*" ./html/src/style/webfont/
 
 # Handle npm and yarn tasks for front-end
 export NPM_CONFIG_PREFIX="$BUILD_PREFIX"
