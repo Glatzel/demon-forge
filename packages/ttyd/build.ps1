@@ -9,7 +9,7 @@ Copy-Item "$env:BUILD_PREFIX/fonts/*" -Destination "./html/src/style/webfont/" -
 
 # Frontend build
 Set-Location ./html
-Get-ChildItem -Path . -Recurse -File -Include *.js,*.ts,*.json,*.css,*.html |
+Get-ChildItem -Path . -Recurse -File -Include *.js,*.ts,*.tsx,*.json,*.css,*.html |
     ForEach-Object {
         $path = $_.FullName
         $content = Get-Content $path -Raw
