@@ -41,19 +41,10 @@ tests:
           - curl
           - netcat
         script: |
-          # Start ttyd in background
           "$PREFIX/bin/ttyd" --port 7681 bash &
-
-          # Capture PID so we can stop it later
           TTYD_PID=$!
-
-          # Give it a moment to bind the port (important in CI)
           sleep 1
-
-          # Probe HTTP endpoint
           curl -sI http://localhost:7681
-
-          # Stop the process
           kill "$TTYD_PID"
           wait "$TTYD_PID" 2>/dev/null
 
