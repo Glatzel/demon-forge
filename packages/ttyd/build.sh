@@ -8,7 +8,7 @@ cp "${BUILD_PREFIX}/fonts/"* ./html/src/style/webfont/
 cd ./html
 # npm install -g corepack
 # corepack enable
-corepack prepare yarn@stable --activate
+npx corepack prepare yarn@stable --activate
 yarn install
 yarn run build
 cd ..
