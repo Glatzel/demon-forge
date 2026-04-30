@@ -103,8 +103,7 @@ function Get-Cargo-Arg
         '--root', "$env:PREFIX"
         '--locked'
         '--force'
-        '--config'
-        'profile.release.debug=false'
+        '--config', 'profile.release.debug=false'
         '--config', 'profile.release.codegen-units=1'
         '--config', 'profile.release.lto="fat"'
         '--config', 'profile.release.opt-level=3'
