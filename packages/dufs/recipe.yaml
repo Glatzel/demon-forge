@@ -16,13 +16,10 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://github.com/muesli/dufs
+  homepage: https://github.com/sigoden/dufs
   license: MIT
-  summary: Terminal-based disk usage/free space viewer
+  summary: A file server that supports static serving, uploading, searching, accessing control, webdav...
   description: >
-    dufs is a terminal-based utility to visualize disk usage
-    and free space. It provides a clear overview of file system
-    usage with colored bars and supports multiple file systems
-    in a single view.
-  documentation: https://github.com/muesli/dufs#usage
-  repository: https://github.com/muesli/dufs
+    Dufs is a distinctive utility file server that supports static serving, uploading, searching, accessing control, webdav...
+  documentation: https://github.com/sigoden/dufs
+  repository: https://github.com/sigoden/dufs
