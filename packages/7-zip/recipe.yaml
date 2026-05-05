@@ -8,10 +8,10 @@ build:
   script:
     interpreter: powershell
     content: |
-        New-Item $env:PREFIX/bin -ItemType Directory
-        $src = if ($IsWindows) { "7zz.exe" } else { "7zz" }
-        $dst = if ($IsWindows) { "7z.exe" } else { "7z" }
-        Copy-Item "$env:BUILD_PREFIX/bin/$src" "$env:PREFIX/bin/$dst"
+      New-Item $env:PREFIX/bin -ItemType Directory
+      $src = if ($IsWindows) { "7zz.exe" } else { "7zz" }
+      $dst = if ($IsWindows) { "7z.exe" } else { "7z" }
+      Copy-Item "$env:BUILD_PREFIX/bin/$src" "$env:PREFIX/bin/$dst"
 requirements:
   build:
     - 7zip
@@ -20,3 +20,8 @@ tests:
       bin:
         - 7z
   - script: 7z --help
+about:
+  license: LGPL-2.1-or-later AND LicenseRef-LGPL-2.1-or-later-with-unRAR-restriction
+  summary: 7-Zip is a file archiver with a high compression ratio.
+  homepage: https://www.7-zip.org/
+  repository: https://github.com/ip7z/7zip
