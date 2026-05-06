@@ -11,3 +11,6 @@ build:
       new-item $env:PREFIX/Scripts -itemType Directory -Force -ErrorAction SilentlyContinue
       Copy-Item $env:RECIPE_DIR/install-sys.ps1 $env:PREFIX/Scripts/install-sys.ps1
       Copy-Item $env:RECIPE_DIR/install-sys.bat $env:PREFIX/Scripts/install-sys.bat
+
+extra:
+  update: echo "1.0.0"

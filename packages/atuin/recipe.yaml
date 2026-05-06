@@ -17,3 +17,6 @@ tests:
         - ${{ name }}
 about:
   repository: https://github.com/atuinsh/atuin
+
+extra:
+  update: get-version-crateio -name $name

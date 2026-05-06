@@ -18,8 +18,13 @@ tests:
 about:
   homepage: https://github.com/sigoden/dufs
   license: MIT
-  summary: A file server that supports static serving, uploading, searching, accessing control, webdav...
+  summary: A file server that supports static serving, uploading, searching,
+    accessing control, webdav...
   description: >
-    Dufs is a distinctive utility file server that supports static serving, uploading, searching, accessing control, webdav...
+    Dufs is a distinctive utility file server that supports static serving,
+    uploading, searching, accessing control, webdav...
   documentation: https://github.com/sigoden/dufs
   repository: https://github.com/sigoden/dufs
+
+extra:
+  update: get-version-crateio -name $name

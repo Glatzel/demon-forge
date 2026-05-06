@@ -17,9 +17,12 @@ about:
   license: GPL-3.0-or-later
   summary: Utility to create bootable USB drives
   description: >
-    Rufus is a free and open-source utility that helps format
-    and create bootable USB drives, such as USB keys/pendrives,
-    memory sticks, etc. It is widely used for creating installation
-    media from ISO files for Windows, Linux, and other operating systems.
+    Rufus is a free and open-source utility that helps format and create
+    bootable USB drives, such as USB keys/pendrives, memory sticks, etc. It is
+    widely used for creating installation media from ISO files for Windows,
+    Linux, and other operating systems.
   documentation: https://rufus.ie/en/
   repository: https://github.com/pbatard/rufus
+
+extra:
+  update: get-version-github -repo "pbatard/$name"

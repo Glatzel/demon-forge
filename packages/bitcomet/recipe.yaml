@@ -21,3 +21,6 @@ about:
     download client. It supports simultaneous downloads, download queue,
     selected downloads in torrent package, fast-resume, disk cache, proxy
     servers, IP filtering, port mapping, and more.
+
+extra:
+  update: get-version-url -url "https://www.kisssub.org/rss-bitcomet.xml" -pattern 'build (\d+\.\d+\.\d+\.\d+)'

@@ -101,3 +101,6 @@ outputs:
 about:
   repository: https://github.com/OSGeo/PROJ
   documentation: https://proj.org/en/stable/
+
+extra:
+  update: get-version-github OSGeo/PROJ

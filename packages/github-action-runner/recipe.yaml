@@ -10,3 +10,6 @@ build:
     file: build.ps1
 about:
   repository: https://github.com/actions/runner
+
+extra:
+  update: get-version-github -repo "actions/runner"

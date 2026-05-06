@@ -12,3 +12,6 @@ tests:
   - package_contents:
       bin:
         - ${{name}}
+
+extra:
+  update: get-version-crateio -name $name

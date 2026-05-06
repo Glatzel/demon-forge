@@ -67,3 +67,6 @@ outputs:
             - openvdb/version.h
 about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
+
+extra:
+  update: get-version-github -repo "AcademySoftwareFoundation/openvdb"

@@ -20,3 +20,8 @@ tests:
           - share/blesh/ble.sh
 about:
   repository: https://github.com/akinomyoga/ble.sh
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "akinomyoga/ble.sh"
+    $latest_version.Split('-')[0]

@@ -16,5 +16,9 @@ about:
   license: MIT OR Apache-2.0
   summary: Cargo subcommands for LLVM coverage tools
   description: >
-    A collection of Cargo subcommands for working with LLVM coverage tools such as llvm-cov.
+    A collection of Cargo subcommands for working with LLVM coverage tools such
+    as llvm-cov.
   repository: https://github.com/taiki-e/cargo-llvm-cov
+
+extra:
+  update: get-version-crateio -name $name

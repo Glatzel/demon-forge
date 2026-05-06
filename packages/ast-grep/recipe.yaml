@@ -22,3 +22,6 @@ about:
   description: |
     ast-grep is a tool for searching and replacing code using Abstract Syntax Tree (AST) patterns. It supports multiple programming languages and allows developers to perform structural code analysis and transformations efficiently.
   repository: https://github.com/ast-grep/ast-grep
+
+extra:
+  update: get-version-crateio -name $name

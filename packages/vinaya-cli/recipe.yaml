@@ -21,3 +21,6 @@ requirements:
     - ${{ compiler('rust') }}
 tests:
   - script: vinaya --help
+
+extra:
+  update: get-version-github -repo "Glatzel/toolbox"

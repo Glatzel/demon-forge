@@ -13,3 +13,8 @@ build:
 requirements:
   run:
     - sys-install
+
+extra:
+  update: |
+    $latest_version=get-version-winget "x/Xanashi/Icaros"
+    "$latest_version".replace("000","0")

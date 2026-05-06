@@ -16,3 +16,6 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}/PandaCADViewer
+
+extra:
+  update: get-version-url -url "https://www.intrsio.com/producterDownload/producterDownloadIndex.do" -pattern '版本：(\d+\.\d+\.\d+\.\d+)'

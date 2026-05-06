@@ -21,8 +21,13 @@ about:
   license: MIT
   summary: A lightweight and flexible command-line JSON processor
   description: >
-    jq is a lightweight and flexible command-line JSON processor.
-    It allows you to slice, filter, map, and transform structured
-    JSON data with ease, directly from your shell.
+    jq is a lightweight and flexible command-line JSON processor. It allows you
+    to slice, filter, map, and transform structured JSON data with ease,
+    directly from your shell.
   documentation: https://jqlang.github.io/jq/manual
   repository: https://github.com/jqlang/jq
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "jqlang/$name"
+    "$latest_version".Replace("$name-", "")

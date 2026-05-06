@@ -17,9 +17,12 @@ about:
   homepage: https://www.hwinfo.com
   summary: Comprehensive hardware analysis and monitoring tool
   description: >
-    HWiNFO is a professional hardware information and diagnostic
-    tool for Windows. It provides detailed information about
-    system components, real-time monitoring of sensors, and
-    reporting features for troubleshooting and performance analysis.
+    HWiNFO is a professional hardware information and diagnostic tool for
+    Windows. It provides detailed information about system components, real-time
+    monitoring of sensors, and reporting features for troubleshooting and
+    performance analysis.
   documentation: https://www.hwinfo.com/documentation/
   repository: https://www.hwinfo.com/
+
+extra:
+  update: get-version-url -url "https://www.hwinfo.com/news.xml/" -pattern 'HWiNFO v(\d+\.\d+) released'

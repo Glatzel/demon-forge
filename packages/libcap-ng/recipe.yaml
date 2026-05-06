@@ -73,3 +73,6 @@ outputs:
             - cap-ng.h
 about:
   repository: https://github.com/stevegrubb/libcap-ng
+
+extra:
+  update: get-version-github -repo "stevegrubb/libcap-ng"

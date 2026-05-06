@@ -1,2 +1,0 @@
-$latest_version = get-version-url -url "https://www.kisssub.org/rss-bitcomet.xml" -pattern 'build (\d+\.\d+\.\d+\.\d+)'
-update-recipe $latest_version

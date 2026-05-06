@@ -12,3 +12,8 @@ tests:
   - package_contents:
       bin:
         - vs_BuildTools
+
+extra:
+  update: |
+    $latest_version = get-version-url  "https://learn.microsoft.com/en-us/visualstudio/releases/" 'Version (\d+\.\d+\.\d+)'
+    $([Version]"$latest_version").Major

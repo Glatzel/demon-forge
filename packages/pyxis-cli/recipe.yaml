@@ -17,3 +17,6 @@ requirements:
     - proj-dev
 tests:
   - script: pyxis --help
+
+extra:
+  update: get-version-github -repo "Glatzel/pyxis"

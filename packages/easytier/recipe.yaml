@@ -28,3 +28,6 @@ tests:
   - script: ${{ name }}-core --help
 about:
   repository: https://github.com/EasyTier/EasyTier
+
+extra:
+  update: get-version-github -repo "EasyTier/EasyTier"

@@ -27,3 +27,6 @@ requirements:
         - xsel
 tests:
   - script: yazi --debug
+
+extra:
+  update: get-version-conda-forge yazi

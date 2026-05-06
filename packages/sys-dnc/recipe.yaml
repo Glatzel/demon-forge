@@ -23,3 +23,6 @@ tests:
         ls "C:/Program Files/Adobe/Adobe DNG Converter/"
         Resolve-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
         (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion
+
+extra:
+  update: get-version-text "$(curl -sIL https://www.adobe.com/go/dng_converter_win)".Replace("_", ".") 'AdobeDNGConverter.x64.(.+)\.exe'

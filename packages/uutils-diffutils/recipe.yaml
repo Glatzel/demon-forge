@@ -19,3 +19,6 @@ tests:
 about:
   license: MIT
   repository: https://github.com/uutils/diffutils
+
+extra:
+  update: get-version-github 'uutils/diffutils'

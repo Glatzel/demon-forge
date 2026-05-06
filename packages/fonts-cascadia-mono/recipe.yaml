@@ -48,3 +48,6 @@ outputs:
             - fonts/*.woff2
 about:
   repository: https://github.com/ryanoasis/nerd-fonts
+
+extra:
+  update: get-version-github -repo "ryanoasis/nerd-fonts"

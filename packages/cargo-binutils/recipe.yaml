@@ -17,5 +17,9 @@ about:
   license: MIT OR Apache-2.0
   summary: Cargo subcommands for working with GNU binutils
   description: >
-    A collection of Cargo subcommands for working with GNU binutils tools such as objdump, nm, and size.
+    A collection of Cargo subcommands for working with GNU binutils tools such
+    as objdump, nm, and size.
   repository: https://github.com/rust-embedded/cargo-binutils
+
+extra:
+  update: get-version-crateio -name $name

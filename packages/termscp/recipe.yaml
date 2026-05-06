@@ -35,3 +35,6 @@ about:
     NetBSD, and Windows.
   documentation: https://termscp.veeso.dev/docs
   repository: https://github.com/veeso/termscp
+
+extra:
+  update: get-version-crateio -name $name

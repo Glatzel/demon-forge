@@ -20,9 +20,13 @@ about:
   license: Apache-2.0
   summary: Package manager for .NET
   description: >
-    NuGet is the package manager for .NET, providing tools to
-    create, share, and consume reusable code packages. It
-    simplifies dependency management and versioning for .NET
-    projects across multiple platforms.
+    NuGet is the package manager for .NET, providing tools to create, share, and
+    consume reusable code packages. It simplifies dependency management and
+    versioning for .NET projects across multiple platforms.
   documentation: https://docs.microsoft.com/en-us/nuget/
   repository: https://github.com/NuGet/NuGet.Client
+
+extra:
+  update: |
+    $latest_version = curl "https://dist.$name.org/index.json" | jq '.artifacts[0].versions[0].version'
+    "$latest_version".Replace("""", "")

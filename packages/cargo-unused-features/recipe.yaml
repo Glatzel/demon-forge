@@ -27,9 +27,11 @@ about:
   license: MIT
   summary: Detect unused Cargo features in Rust projects
   description: >
-    cargo-unused-features is a Cargo subcommand that analyzes
-    Rust projects to detect which Cargo features are unused.
-    This helps developers clean up feature flags and reduce
-    unnecessary compilation overhead.
+    cargo-unused-features is a Cargo subcommand that analyzes Rust projects to
+    detect which Cargo features are unused. This helps developers clean up
+    feature flags and reduce unnecessary compilation overhead.
   documentation: https://github.com/taiki-e/cargo-unused-features#usage
   repository: https://github.com/taiki-e/cargo-unused-features
+
+extra:
+  update: get-version-crateio -name $name

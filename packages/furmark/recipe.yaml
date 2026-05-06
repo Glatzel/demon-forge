@@ -20,10 +20,12 @@ about:
   homepage: https://geeks3d.com/furmark
   summary: GPU stress test and benchmarking tool
   description: >
-    FurMark is a lightweight but intensive GPU stress-testing and
-    benchmarking tool. It is designed to test the stability and
-    thermal performance of graphics cards by rendering a highly
-    demanding 3D scene, helping users identify potential issues
-    with cooling or overclocking.
+    FurMark is a lightweight but intensive GPU stress-testing and benchmarking
+    tool. It is designed to test the stability and thermal performance of
+    graphics cards by rendering a highly demanding 3D scene, helping users
+    identify potential issues with cooling or overclocking.
   documentation: https://geeks3d.com/furmark
   repository: https://geeks3d.com/furmark
+
+extra:
+  update: get-version-url -url "https://geeks3d.com/furmark/changelog/" -pattern 'version (\d+\.\d+\.\d+\.*\d*)'

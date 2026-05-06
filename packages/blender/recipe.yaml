@@ -17,9 +17,14 @@ about:
   license: GPL-3.0-or-later
   summary: Free and open source 3D creation suite
   description: >
-    Blender is the free and open source 3D creation suite.
-    It supports the entirety of the 3D pipeline including
-    modeling, rigging, animation, simulation, rendering,
-    compositing, motion tracking, and video editing.
+    Blender is the free and open source 3D creation suite. It supports the
+    entirety of the 3D pipeline including modeling, rigging, animation,
+    simulation, rendering, compositing, motion tracking, and video editing.
   documentation: https://docs.blender.org/manual/en/latest/
   repository: https://projects.blender.org/blender/blender
+
+extra:
+  update: |
+    $repoUrl = "https://github.com/$name/$name.git"
+    $latestTag = git ls-remote --tags $repoUrl | Where-Object { $_ -match "refs/tags/v\d+.\d+.\d+" } | ForEach-Object { $_ -replace '^.*refs/tags/v(.*)$', '$1' }| Select-Object -Last 1
+    [Version]"$latestTag"

@@ -13,3 +13,6 @@ requirements:
     - ${{ compiler('rust') }}
 tests:
   - script: ttyw --help
+
+extra:
+  update:  get-version-github -repo "Glatzel/toolbox"

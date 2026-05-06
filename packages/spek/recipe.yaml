@@ -17,9 +17,12 @@ about:
   license: GPL-3.0-or-later
   summary: Acoustic spectrum analyser for audio files
   description: >
-    Spek is an acoustic spectrum analyser written in C++.
-    It uses FFmpeg for audio decoding and wxWidgets for the GUI.
-    It works across *BSD, Linux, Windows, and macOS, allowing users
-    to view the spectrogram of audio files and analyze spectral content.
+    Spek is an acoustic spectrum analyser written in C++. It uses FFmpeg for
+    audio decoding and wxWidgets for the GUI. It works across *BSD, Linux,
+    Windows, and macOS, allowing users to view the spectrogram of audio files
+    and analyze spectral content.
   documentation: https://spek.cc
   repository: https://github.com/alexkay/spek
+
+extra:
+  update: get-version-github -repo "alexkay/$name"

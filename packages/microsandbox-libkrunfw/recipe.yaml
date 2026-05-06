@@ -19,3 +19,6 @@ tests:
   - package_contents:
       files:
         - bin/libkrunfw.so.${{ version }}
+
+extra:
+  update: get-version-github "superradcompany/libkrunfw"

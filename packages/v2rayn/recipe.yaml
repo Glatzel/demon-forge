@@ -12,3 +12,6 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}/v2rayN
+
+extra:
+  update: get-version-github -repo "2dust/v2rayN"

@@ -13,3 +13,6 @@ build:
 requirements:
   run:
     - sys-install
+
+extra:
+  update: get-version-winget "m/Microsoft/VisualStudioCode"

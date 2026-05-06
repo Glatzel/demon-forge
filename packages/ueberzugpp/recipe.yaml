@@ -46,3 +46,6 @@ tests:
   - script: ueberzug layer -h
 about:
   repository: https://github.com/jstkdng/ueberzugpp
+
+extra:
+  update:  get-version-github -repo "jstkdng/ueberzugpp"

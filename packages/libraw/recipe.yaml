@@ -100,9 +100,13 @@ about:
   license: BSD-2-Clause
   summary: Library for reading RAW files from digital cameras
   description: >
-    LibRaw is an open-source C/C++ library for reading RAW
-    files from digital cameras. It supports a wide range of
-    camera models and RAW formats, providing easy access
-    to image data for processing, conversion, or analysis.
+    LibRaw is an open-source C/C++ library for reading RAW files from digital
+    cameras. It supports a wide range of camera models and RAW formats,
+    providing easy access to image data for processing, conversion, or analysis.
   documentation: https://www.libraw.org/docs
   repository: https://github.com/LibRaw/LibRaw
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "LibRaw/LibRaw"
+    "$latest_version".Replace("b", "")
