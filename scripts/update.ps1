@@ -14,6 +14,6 @@ ForEach ($Row in $csvData)
     $name=$Row.pkg
     Write-Output "::group::update $name"
     Set-Location "$PSScriptRoot/../packages/$name"
-    & ([ScriptBlock]::Create($(yq '.extra.update' recipe.yaml)))
+    & ([ScriptBlock]::Create($(yq -r '.extra.update' recipe.yaml)))
     Write-Output "::endgroup::"
 }
