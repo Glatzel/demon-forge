@@ -31,12 +31,6 @@ function Get-Cargo-Arg
 
     return $cargo_arg
 }
-function get-name
-{
-    $matched = Select-String -Path "./recipe.yaml" -Pattern '^  name: (\w+\S+)'
-    Write-Output $matched.Matches[0].Groups[1]
-}
-
 function build-recipe
 {
     if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push"))
@@ -63,7 +57,7 @@ function build-recipe
     }
     pixi run rattler-build $rattler_build_args
     Write-Output "::endgroup::"
-    foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/$(get-name)-*.conda")
+    foreach ($pkg_file in Get-ChildItem "$ROOT/output/$env:TARGET_PLATFORM/*.conda")
     {
         Write-Output "::group:: inspect $pkg"
         pixi run rattler-build package inspect --all $pkg_file
