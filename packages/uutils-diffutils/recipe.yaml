@@ -2,7 +2,7 @@ context:
   name: uutils-diffutils
   version: "0.5.0"
 package:
-  version: "0.5.0"
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/uutils/diffutils/archive/refs/tags/v${{ version }}.tar.gz
