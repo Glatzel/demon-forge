@@ -30,7 +30,4 @@ tests:
         - fornax
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "Glatzel/fornax"
-    update-recipe $latest_version
-    
+  update: get-version-github -repo "Glatzel/fornax"

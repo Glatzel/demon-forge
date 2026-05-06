@@ -18,16 +18,14 @@ about:
   license: GPL-2.0-or-later
   summary: Free, open-source, cross-platform audio software
   description: >
-    Audacity is a free and open-source digital audio editor and recorder.
-    It allows users to record live audio, edit sound files, apply effects,
-    mix tracks, and analyze waveforms. Audacity supports a wide range of
-    audio formats and is available for Windows, macOS, and Linux.
+    Audacity is a free and open-source digital audio editor and recorder. It
+    allows users to record live audio, edit sound files, apply effects, mix
+    tracks, and analyze waveforms. Audacity supports a wide range of audio
+    formats and is available for Windows, macOS, and Linux.
   documentation: https://support.audacityteam.org/
   repository: https://github.com/audacity/audacity
 
 extra:
   update: |
     $latest_version = get-version-github -repo "$name/$name"
-    $latest_version = "$latest_version".Replace("Audacity-", "")
-    update-recipe $latest_version
-    
+    "$latest_version".Replace("Audacity-", "")

@@ -15,15 +15,12 @@ about:
   license: GPL-2.0-or-later
   summary: Ultimate Packer for Executables
   description: >
-    UPX (Ultimate Packer for Executables) is a free, portable,
-    extendable, high-performance executable packer. It compresses
-    and decompresses executable files for multiple platforms,
-    reducing file size while preserving functionality.
+    UPX (Ultimate Packer for Executables) is a free, portable, extendable,
+    high-performance executable packer. It compresses and decompresses
+    executable files for multiple platforms, reducing file size while preserving
+    functionality.
   documentation: https://upx.github.io/
   repository: https://github.com/upx/upx
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "$name/$name"
-    update-recipe $latest_version
-    
+  update:  get-version-github -repo "$name/$name"

@@ -49,7 +49,4 @@ about:
   repository: https://github.com/ryanoasis/nerd-fonts
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "ryanoasis/nerd-fonts"
-    update-recipe $latest_version
-    
+  update: get-version-github -repo "ryanoasis/nerd-fonts"

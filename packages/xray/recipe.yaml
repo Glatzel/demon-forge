@@ -21,7 +21,4 @@ about:
   repository: https://github.com/XTLS/xray-core
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "XTLS/Xray-core"
-    update-recipe $latest_version
-    
+  update:  get-version-github -repo "XTLS/Xray-core"

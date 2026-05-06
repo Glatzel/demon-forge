@@ -18,15 +18,12 @@ about:
   license: Apache-2.0
   summary: Cloudflare Tunnel client
   description: >
-    cloudflared is a command-line tool that establishes secure
-    tunnels to Cloudflare's network. It allows exposing local
-    services to the internet without opening firewall ports,
-    supporting features like Argo Tunnel and Zero Trust access.
+    cloudflared is a command-line tool that establishes secure tunnels to
+    Cloudflare's network. It allows exposing local services to the internet
+    without opening firewall ports, supporting features like Argo Tunnel and
+    Zero Trust access.
   documentation: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
   repository: https://github.com/cloudflare/cloudflared
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "cloudflare/$name"
-    update-recipe $latest_version
-    
+  update: get-version-github -repo "cloudflare/$name"

@@ -18,17 +18,12 @@ about:
   license: GPL-3.0-or-later
   summary: Comprehensive e-book management software
   description: >
-    Calibre is a powerful and easy-to-use e-book manager.
-    It supports organizing, converting, editing, and
-    transferring e-books to various devices. It also
-    includes a built-in e-book reader and server for
-    accessing your library remotely.
+    Calibre is a powerful and easy-to-use e-book manager. It supports
+    organizing, converting, editing, and transferring e-books to various
+    devices. It also includes a built-in e-book reader and server for accessing
+    your library remotely.
   documentation: https://manual.calibre-ebook.com
   repository: https://github.com/kovidgoyal/calibre
 
 extra:
-  update: |
-    
-    $latest_version = get-version-github -repo "kovidgoyal/$name"
-    update-recipe $latest_version
-    
+  update: get-version-github -repo "kovidgoyal/$name"

@@ -14,16 +14,14 @@ about:
   license: Apache-2.0
   summary: Command-line image processing and conversion tool
   description: >
-    ImageMagick is a free and open-source software suite for
-    creating, editing, composing, or converting bitmap images.
-    It supports over 200 image formats and provides tools for
-    resizing, cropping, drawing, filtering, and text annotation.
+    ImageMagick is a free and open-source software suite for creating, editing,
+    composing, or converting bitmap images. It supports over 200 image formats
+    and provides tools for resizing, cropping, drawing, filtering, and text
+    annotation.
   documentation: https://imagemagick.org/script/index.php
   repository: https://github.com/ImageMagick/ImageMagick
 
 extra:
   update: |
     $latest_version = get-version-github -repo "ImageMagick/ImageMagick"
-    $latest_version = "$latest_version".Replace("-", ".")
-    update-recipe $latest_version
-    
+    "$latest_version".Replace("-", ".")

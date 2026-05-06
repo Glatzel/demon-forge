@@ -32,11 +32,10 @@ about:
   license: Apache-2.0
   summary: Android SDK Platform-Tools
   description: >
-    Android SDK Platform-Tools includes adb and fastboot,
-    essential command-line tools for communicating with
-    Android devices during development and debugging.
+    Android SDK Platform-Tools includes adb and fastboot, essential command-line
+    tools for communicating with Android devices during development and
+    debugging.
   documentation: https://developer.android.com/studio/command-line
 extra:
   update: |
     $latest_version = get-version-url -url "https://developer.android.com/tools/releases/platform-tools" -pattern '([0-9]+\.[0-9]+\.[0-9]+)'
-    update-recipe $latest_version

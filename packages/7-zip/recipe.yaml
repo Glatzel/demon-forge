@@ -27,5 +27,4 @@ about:
   repository: https://github.com/ip7z/7zip
 extra:
   update: |
-    $latest_version = [Version](get-version-conda-forge 7zip)
-    update-recipe $latest_version
+    [Version](get-version-conda-forge 7zip)

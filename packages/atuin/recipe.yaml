@@ -19,7 +19,5 @@ about:
   repository: https://github.com/atuinsh/atuin
 
 extra:
-  update: |
-    $latest_version = get-version-crateio -name $name
-    update-recipe $latest_version
-    
+  update: get-version-crateio -name $name
+

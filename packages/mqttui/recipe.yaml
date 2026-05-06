@@ -20,7 +20,4 @@ tests:
   - script: ${{name}} --help
 
 extra:
-  update: |
-    $latest_version = get-version-github "EdJoPaTo/$name"
-    update-recipe $latest_version
-    
+  update: get-version-github "EdJoPaTo/$name"

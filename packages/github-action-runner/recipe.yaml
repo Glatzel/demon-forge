@@ -12,8 +12,4 @@ about:
   repository: https://github.com/actions/runner
 
 extra:
-  update: |
-    
-    $latest_version = get-version-github -repo "actions/runner"
-    update-recipe $latest_version
-    
+  update: get-version-github -repo "actions/runner"

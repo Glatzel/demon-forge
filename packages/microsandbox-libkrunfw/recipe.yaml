@@ -21,7 +21,4 @@ tests:
         - bin/libkrunfw.so.${{ version }}
 
 extra:
-  update: |
-    $latest_version = get-version-github "superradcompany/libkrunfw"
-    update-recipe $latest_version
-    
+  update: get-version-github "superradcompany/libkrunfw"

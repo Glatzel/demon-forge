@@ -21,16 +21,13 @@ about:
   homepage: https://www.pureref.com
   summary: Lightweight reference image organizer for artists
   description: >
-    PureRef is a lightweight application that allows artists
-    to organize and view reference images on an infinite canvas.
-    It helps creatives keep visual references accessible without
-    cluttering the desktop, supporting drag-and-drop, scaling,
-    grouping, and layering of images.
+    PureRef is a lightweight application that allows artists to organize and
+    view reference images on an infinite canvas. It helps creatives keep visual
+    references accessible without cluttering the desktop, supporting
+    drag-and-drop, scaling, grouping, and layering of images.
   documentation: https://www.pureref.com/help
   repository: https://www.pureref.com
 
 extra:
   update: |
     $latest_version = get-version-url -url "https://www.pureref.com/download.php" -pattern 'selected value="(\d+\.\d+\.\d+)"'
-    update-recipe $latest_version
-    

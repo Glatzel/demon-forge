@@ -48,7 +48,4 @@ about:
   repository: https://github.com/jstkdng/ueberzugpp
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "jstkdng/ueberzugpp"
-    update-recipe $latest_version
-    
+  update:  get-version-github -repo "jstkdng/ueberzugpp"
