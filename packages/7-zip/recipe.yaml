@@ -25,3 +25,7 @@ about:
   summary: 7-Zip is a file archiver with a high compression ratio.
   homepage: https://www.7-zip.org/
   repository: https://github.com/ip7z/7zip
+extra:
+  update: |
+    $latest_version = [Version](get-version-conda-forge 7zip)
+    update-recipe $latest_version

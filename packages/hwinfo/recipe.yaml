@@ -23,3 +23,9 @@ about:
     reporting features for troubleshooting and performance analysis.
   documentation: https://www.hwinfo.com/documentation/
   repository: https://www.hwinfo.com/
+
+extra:
+  update: |
+    $latest_version = get-version-url -url "https://www.hwinfo.com/news.xml/" -pattern 'HWiNFO v(\d+\.\d+) released'
+    update-recipe $latest_version
+    

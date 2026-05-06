@@ -23,3 +23,10 @@ about:
     media from ISO files for Windows, Linux, and other operating systems.
   documentation: https://rufus.ie/en/
   repository: https://github.com/pbatard/rufus
+
+extra:
+  update: |
+    
+    $latest_version = get-version-github -repo "pbatard/$name"
+    update-recipe $latest_version
+    

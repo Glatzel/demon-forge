@@ -23,3 +23,9 @@ about:
     space. It helps developers optimize binary size and performance.
   documentation: https://github.com/rylev/cargo-bloat#usage
   repository: https://github.com/rylev/cargo-bloat
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

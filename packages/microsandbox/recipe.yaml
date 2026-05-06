@@ -27,3 +27,9 @@ tests:
       - msb pull python:alpine
 about:
   repository: https://github.com/zerocore-ai/microsandbox
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "zerocore-ai/microsandbox"
+    update-recipe $latest_version
+    

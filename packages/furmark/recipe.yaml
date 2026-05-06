@@ -27,3 +27,9 @@ about:
     with cooling or overclocking.
   documentation: https://geeks3d.com/furmark
   repository: https://geeks3d.com/furmark
+
+extra:
+  update: |
+    $latest_version = get-version-url -url "https://geeks3d.com/furmark/changelog/" -pattern 'version (\d+\.\d+\.\d+\.*\d*)'
+    update-recipe $latest_version
+    

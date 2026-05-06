@@ -28,3 +28,9 @@ about:
     grouping, and layering of images.
   documentation: https://www.pureref.com/help
   repository: https://www.pureref.com
+
+extra:
+  update: |
+    $latest_version = get-version-url -url "https://www.pureref.com/download.php" -pattern 'selected value="(\d+\.\d+\.\d+)"'
+    update-recipe $latest_version
+    

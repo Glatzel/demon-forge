@@ -16,3 +16,9 @@ tests:
       bin:
         - ${{ name }}/install.ps1
         - ${{ name }}/*/Mason.dll
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "Glatzel/$name"
+    update-recipe $latest_version
+    

@@ -59,3 +59,9 @@ outputs:
             - pystring/pystring.h
 about:
   repository: https://github.com/imageworks/pystring
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "imageworks/pystring"
+    update-recipe $latest_version
+    

@@ -26,3 +26,9 @@ tests:
   - python:
       imports:
         - toolbox
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "Glatzel/$name"
+    update-recipe $latest_version
+    

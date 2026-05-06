@@ -21,3 +21,9 @@ requirements:
         - libcap-ng-dev
 tests:
   - script: shook --help
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "Glatzel/toolbox"
+    update-recipe $latest_version
+    

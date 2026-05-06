@@ -30,3 +30,9 @@ about:
     between different environments using profiles.
   documentation: https://slumber.readthedocs.io/
   repository: https://github.com/LucasPickering/slumber
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

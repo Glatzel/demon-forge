@@ -20,3 +20,10 @@ about:
     resizing, cropping, drawing, filtering, and text annotation.
   documentation: https://imagemagick.org/script/index.php
   repository: https://github.com/ImageMagick/ImageMagick
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "ImageMagick/ImageMagick"
+    $latest_version = "$latest_version".Replace("-", ".")
+    update-recipe $latest_version
+    

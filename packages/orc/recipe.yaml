@@ -13,3 +13,9 @@ requirements:
     - ${{ compiler('rust') }}
 tests:
   - script: orc --help
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "Glatzel/toolbox"
+    update-recipe $latest_version
+    

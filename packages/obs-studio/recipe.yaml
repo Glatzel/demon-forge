@@ -23,3 +23,9 @@ about:
     and stream to platforms like Twitch, YouTube, and Facebook Live.
   documentation: https://obsproject.com/wiki/
   repository: https://github.com/obsproject/obs-studio
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "obsproject/$name"
+    update-recipe $latest_version
+    

@@ -33,3 +33,9 @@ about:
     unnecessary compilation overhead.
   documentation: https://github.com/taiki-e/cargo-unused-features#usage
   repository: https://github.com/taiki-e/cargo-unused-features
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

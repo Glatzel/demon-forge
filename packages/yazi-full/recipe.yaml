@@ -27,3 +27,10 @@ requirements:
         - xsel
 tests:
   - script: yazi --debug
+
+extra:
+  update: |
+    
+    $latest_version = get-version-conda-forge yazi
+    update-recipe $latest_version
+    

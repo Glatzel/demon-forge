@@ -22,3 +22,10 @@ about:
     and maintain system health.
   documentation: https://www.chuyu.me/en/index.html
   repository: https://www.chuyu.me/
+
+extra:
+  update: |
+    
+    $latest_version = get-version-github -repo "Chuyu-Team/Dism-Multi-language"
+    update-recipe $latest_version
+    

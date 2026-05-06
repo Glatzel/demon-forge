@@ -15,3 +15,9 @@ tests:
       bin:
         - ${{name}}
   - script: ${{name}} --help
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

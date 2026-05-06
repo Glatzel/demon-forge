@@ -31,3 +31,9 @@ about:
     into the Windows environment.
   documentation: https://learn.microsoft.com/en-us/windows/edit/
   repository: https://github.com/microsoft/edit
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "microsoft/edit"
+    update-recipe $latest_version
+    

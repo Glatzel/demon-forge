@@ -28,3 +28,9 @@ tests:
   - python:
       imports:
         - fornax
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "Glatzel/fornax"
+    update-recipe $latest_version
+    

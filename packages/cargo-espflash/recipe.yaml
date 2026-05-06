@@ -26,3 +26,9 @@ about:
     for easy development and debugging.
   documentation: https://esp-rs.github.io/espflash
   repository: https://github.com/esp-rs/espflash
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

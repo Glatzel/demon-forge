@@ -26,3 +26,10 @@ about:
     projects across multiple platforms.
   documentation: https://docs.microsoft.com/en-us/nuget/
   repository: https://github.com/NuGet/NuGet.Client
+
+extra:
+  update: |
+    $latest_version = curl "https://dist.$name.org/index.json" | jq '.artifacts[0].versions[0].version'
+    $latest_version = "$latest_version".Replace("""", "")
+    update-recipe $latest_version
+    

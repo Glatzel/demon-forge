@@ -19,3 +19,9 @@ about:
     improve privacy and security. It supports multiple protocols and is highly
     configurable.
   repository: https://github.com/XTLS/xray-core
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "XTLS/Xray-core"
+    update-recipe $latest_version
+    

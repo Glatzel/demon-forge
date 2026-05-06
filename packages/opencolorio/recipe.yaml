@@ -103,3 +103,9 @@ outputs:
             - ociomergeconfigs
             - ocioperf
             - ociowrite
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "AcademySoftwareFoundation/OpenColorIO"
+    update-recipe $latest_version
+    

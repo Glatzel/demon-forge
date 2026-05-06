@@ -19,3 +19,9 @@ tests:
 about:
   license: MIT
   repository: https://github.com/uutils/diffutils
+
+extra:
+  update: |
+    $latest_version = get-version-github 'uutils/diffutils'
+    update-recipe $latest_version
+    

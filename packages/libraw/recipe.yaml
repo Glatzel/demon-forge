@@ -106,3 +106,11 @@ about:
     to image data for processing, conversion, or analysis.
   documentation: https://www.libraw.org/docs
   repository: https://github.com/LibRaw/LibRaw
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "LibRaw/LibRaw"
+    $latest_version = "$latest_version".Replace("b", "")
+    update-recipe $latest_version
+    Set-Location $PSScriptRoot
+    

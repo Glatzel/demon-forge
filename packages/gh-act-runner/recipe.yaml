@@ -16,3 +16,9 @@ tests:
         - gh-act-runner
 about:
   repository: https://github.com/ChristopherHX/github-act-runner
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "ChristopherHX/github-act-runner"
+    update-recipe $latest_version
+    

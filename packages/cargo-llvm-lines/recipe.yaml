@@ -25,3 +25,9 @@ about:
     binary size by identifying heavy functions.
   documentation: https://github.com/kbknapp/cargo-llvm-lines#usage
   repository: https://github.com/kbknapp/cargo-llvm-lines
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

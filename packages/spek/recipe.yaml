@@ -23,3 +23,10 @@ about:
     to view the spectrogram of audio files and analyze spectral content.
   documentation: https://spek.cc
   repository: https://github.com/alexkay/spek
+
+extra:
+  update: |
+    
+    $latest_version = get-version-github -repo "alexkay/$name"
+    update-recipe $latest_version
+    

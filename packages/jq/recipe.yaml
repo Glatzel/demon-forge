@@ -26,3 +26,10 @@ about:
     JSON data with ease, directly from your shell.
   documentation: https://jqlang.github.io/jq/manual
   repository: https://github.com/jqlang/jq
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "jqlang/$name"
+    $latest_version = "$latest_version".Replace("$name-", "")
+    update-recipe $latest_version
+    

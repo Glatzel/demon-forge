@@ -26,3 +26,8 @@ about:
     protocols, maximizing download speed and reliability.
   documentation: https://aria2.github.io/manual/en/html
   repository: https://github.com/aria2/aria2
+extra:
+  update: |
+    $latest_version = get-version-github -repo "$name/$name"
+    $latest_version = "$latest_version".Replace("release-", "")
+    update-recipe $latest_version

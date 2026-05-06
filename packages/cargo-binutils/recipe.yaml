@@ -19,3 +19,9 @@ about:
   description: >
     A collection of Cargo subcommands for working with GNU binutils tools such as objdump, nm, and size.
   repository: https://github.com/rust-embedded/cargo-binutils
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

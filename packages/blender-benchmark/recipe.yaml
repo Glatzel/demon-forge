@@ -22,3 +22,9 @@ about:
     helping users evaluate hardware performance for 3D workloads.
   documentation: https://opendata.blender.org/about
   repository: https://projects.blender.org/blender/blender-benchmark
+
+extra:
+  update: |
+    $latest_version = get-version-url -url "https://opendata.blender.org" -pattern 'benchmark-launcher-(\d+\.\d+\.\d+)'
+    update-recipe $latest_version
+    

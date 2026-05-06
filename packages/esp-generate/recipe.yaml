@@ -26,3 +26,9 @@ about:
     rather than dealing with the intricacies of FFI and bindings.
   license: MIT
   repository: https://github.com/esp-rs/esp-generate
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    

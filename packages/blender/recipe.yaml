@@ -23,3 +23,11 @@ about:
     compositing, motion tracking, and video editing.
   documentation: https://docs.blender.org/manual/en/latest/
   repository: https://projects.blender.org/blender/blender
+
+extra:
+  update: |
+    $repoUrl = "https://github.com/$name/$name.git"
+    $latestTag = git ls-remote --tags $repoUrl | Where-Object { $_ -match "refs/tags/v\d+.\d+.\d+" } | ForEach-Object { $_ -replace '^.*refs/tags/v(.*)$', '$1' }| Select-Object -Last 1
+    $latest_version = [Version]"$latestTag"
+    update-recipe $latest_version
+    

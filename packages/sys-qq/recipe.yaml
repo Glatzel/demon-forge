@@ -13,3 +13,8 @@ build:
 requirements:
   run:
     - sys-install
+
+extra:
+  update: |
+    update-recipe $(get-version-winget "t/Tencent/QQ/NT")
+    

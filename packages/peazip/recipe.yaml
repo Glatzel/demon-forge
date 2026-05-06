@@ -25,3 +25,10 @@ about:
     secure file deletion.
   documentation: https://peazip.github.io/peazip-help.html
   repository: https://github.com/peazip/PeaZip
+
+extra:
+  update: |
+    
+    $latest_version = get-version-github -repo "$name/PeaZip"
+    update-recipe $latest_version
+    

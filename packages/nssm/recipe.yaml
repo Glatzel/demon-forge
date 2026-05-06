@@ -17,3 +17,9 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}
+
+extra:
+  update: |
+    $latest_version = get-version-url -url "https://nssm.cc/download" -pattern 'nssm (\d+\.\d+)'
+    update-recipe $latest_version
+    

@@ -24,3 +24,9 @@ about:
     supporting features like Argo Tunnel and Zero Trust access.
   documentation: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
   repository: https://github.com/cloudflare/cloudflared
+
+extra:
+  update: |
+    $latest_version = get-version-github -repo "cloudflare/$name"
+    update-recipe $latest_version
+    

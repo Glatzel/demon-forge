@@ -25,3 +25,9 @@ about:
     advanced features such as parallel test execution, test filtering, and detailed
     reporting to enhance the testing experience for Rust developers.
   repository: https://github.com/nextest-rs/nextest
+
+extra:
+  update: |
+    $latest_version = get-version-crateio -name $name
+    update-recipe $latest_version
+    
