@@ -1,5 +1,4 @@
-function get-current-version
-{
+function get-current-version {
     $matched = Select-String -Path "./recipe.yaml" -Pattern '^  version: (\S+)'
     $v = $matched.Matches[0].Groups[1]
     $v = "$v".Replace("""", "")
@@ -7,110 +6,90 @@ function get-current-version
 }
 
 # Function: Get the latest release tag from a GitHub repository
-function get-version-github
-{
+function get-version-github {
     param($repo)
-    for ($i = 0; $i -lt 5; $i++)
-    {
+    for ($i = 0; $i -lt 5; $i++) {
         $latest = gh release view -R $repo --json tagName -q .tagName
         $latest = "$latest".Replace("v", "")
-        if ($latest)
-        {
+        if ($latest) {
             return $latest
         }
     }
 }
-function get-version-conda-forge
-{
+function get-version-conda-forge {
     param($pkg)
-    for ($i = 0; $i -lt 5; $i++)
-    {
+    for ($i = 0; $i -lt 5; $i++) {
         $latest = curl -s "https://api.anaconda.org/package/conda-forge/$pkg" | jq -r '.latest_version'
-        if ($latest)
-        {
+        if ($latest) {
             return $latest
         }
     }
 }
-function get-version-crateio
-{
+function get-version-crateio {
     param($name)
-    for ($i = 0; $i -lt 5; $i++)
-    {
+    for ($i = 0; $i -lt 5; $i++) {
         $latest = curl -s -H "User-Agent: gh-actions-ci" https://crates.io/api/v1/crates/$name | jq -r '.crate.max_version'
-        if ($latest)
-        {
+        if ($latest) {
             return $latest
         }
     }
 }
-function get-version-winget
-{
+function get-version-winget {
     param($name)
     gh api repos/microsoft/winget-pkgs/contents/manifests/$name | jq -r '[.[].name| select(test("^[0-9]+(\\.[0-9]+)*$"))]| sort_by(split(".") | map(tonumber))| last'
 }
-function get-version-url
-{
+function get-version-url {
     param($url, $pattern)
-    for ($i = 0; $i -lt 5; $i++)
-    {
+    for ($i = 0; $i -lt 5; $i++) {
         $html = curl -sL $url
         $versions = [regex]::Matches($html, $pattern) | `
-                ForEach-Object { $_.Groups[1].Value }
+            ForEach-Object { $_.Groups[1].Value }
         $latest = $versions | `
-                Sort-Object { [version]$_ } -Descending | `
-                Select-Object -First 1
-        if ($latest)
-        {
+            Sort-Object { [version]$_ } -Descending | `
+            Select-Object -First 1
+        if ($latest) {
             return $latest
         }
     }
 }
-function get-version-text
-{
+function get-version-text {
     param($text, $pattern)
 
     $versions = [regex]::Matches($text, $pattern) | `
-            ForEach-Object { $_.Groups[1].Value }
+        ForEach-Object { $_.Groups[1].Value }
     $latest = $versions | `
-            Sort-Object { [version]$_ } -Descending | `
-            Select-Object -First 1
+        Sort-Object { [version]$_ } -Descending | `
+        Select-Object -First 1
     return $latest
 }
-function update-recipe
-{
-    param($version)
+function update-recipe {
+    param($name, $version)
 
-    $name = get-name
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
     Write-Output "latest version: <$version>"
     $HAS_NEW_VERSION = ("$current_version" -ne "$version")
 
     # validate version format
-    if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$'))
-    {
+    if (-not ($version -cmatch '^(0|[1-9]\d*)(\.(0|[1-9]\d*))*$')) {
         Write-Output "::error ::Invalid version format"
-        if ($env:WORKFLOW_NAME -eq "update")
-        {
+        if ($env:WORKFLOW_NAME -eq "update") {
             "|$name|$current_version|$version|🔴 Invalid Version |" >> $env:GITHUB_STEP_SUMMARY
             return
-        } else
-        {
+        }
+        else {
             exit 1
         }
     }
 
-    if (-not $HAS_NEW_VERSION)
-    {
+    if (-not $HAS_NEW_VERSION) {
         "|$name|$current_version|$version|🔵 No new version found|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
     # skip if remote branch already exists
     $update_branch = "update-$name"
     $remoteExists = git ls-remote --heads origin $update_branch
-    if ($remoteExists)
-    {
+    if ($remoteExists) {
         "|$name|$current_version|$version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
@@ -151,14 +130,13 @@ $yamlFile = "$PSScriptRoot/../packages.yaml"
 Set-Content -Path $yamlFile -Value ""
 # Read CSV
 $csvData = Import-Csv $csvFile
-ForEach ($Row in $csvData)
-{
-    $name=$Row.pkg
+ForEach ($Row in $csvData) {
+    $name = $Row.pkg
     Write-Output "::group::update $name"
     Set-Location "$PSScriptRoot/../packages/$name"
     $code = & yq -r '.extra.update' recipe.yaml
     $code = $code -replace "`r?`n", "`n"
     $latest_version = & ([ScriptBlock]::Create(($code -join "`n")))
-    update-recipe $latest_version
+    update-recipe $name $latest_version
     Write-Output "::endgroup::"
 }
