@@ -27,6 +27,4 @@ about:
   repository: https://github.com/peazip/PeaZip
 
 extra:
-  update: |
-
-    $latest_version = get-version-github -repo "$name/PeaZip"
+  update: get-version-github -repo "$name/PeaZip"

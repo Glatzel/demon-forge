@@ -19,5 +19,4 @@ tests:
   - script: pyxis --help
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "Glatzel/pyxis"
+  update: get-version-github -repo "Glatzel/pyxis"

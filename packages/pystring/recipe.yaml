@@ -61,5 +61,4 @@ about:
   repository: https://github.com/imageworks/pystring
 
 extra:
-  update: |
-    $latest_version = get-version-github -repo "imageworks/pystring"
+  update: get-version-github -repo "imageworks/pystring"

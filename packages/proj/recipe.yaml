@@ -103,5 +103,4 @@ about:
   documentation: https://proj.org/en/stable/
 
 extra:
-  update: |
-    $latest_version = get-version-github OSGeo/PROJ
+  update: get-version-github OSGeo/PROJ

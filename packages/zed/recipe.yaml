@@ -20,5 +20,4 @@ tests:
         - ${{ name }}
 
 extra:
-  update: |
-    $latest_version = get-version-github "zed-industries/$name"
+  update: get-version-github "zed-industries/$name"

@@ -29,5 +29,4 @@ about:
   repository: https://www.pureref.com
 
 extra:
-  update: |
-    $latest_version = get-version-url -url "https://www.pureref.com/download.php" -pattern 'selected value="(\d+\.\d+\.\d+)"'
+  update: get-version-url -url "https://www.pureref.com/download.php" -pattern 'selected value="(\d+\.\d+\.\d+)"'
