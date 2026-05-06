@@ -15,7 +15,7 @@ ForEach ($Row in $csvData)
     Write-Output "::group::update $name"
     Set-Location "$PSScriptRoot/../packages/$name"
     $code = & yq -r '.extra.update' recipe.yaml
-    $code -replace "`r?`n", "`n"
+    $code = $code -replace "`r?`n", "`n"
     & ([ScriptBlock]::Create($code))
     Write-Output "::endgroup::"
 }
