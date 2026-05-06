@@ -26,4 +26,3 @@ tests:
 
 extra:
   update: get-version-text "$(curl -sIL https://www.adobe.com/go/dng_converter_win)".Replace("_", ".") 'AdobeDNGConverter.x64.(.+)\.exe'
-
