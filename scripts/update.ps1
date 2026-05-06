@@ -1,3 +1,5 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 "| Package | Current Version | Latest Version | Status |" >> $env:GITHUB_STEP_SUMMARY
 "|---|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
 # Input CSV
