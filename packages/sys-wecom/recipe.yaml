@@ -17,4 +17,3 @@ requirements:
 extra:
   update: |
     update-recipe $(get-version-winget "t/Tencent/WeCom")
-    

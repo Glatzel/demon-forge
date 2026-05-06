@@ -44,6 +44,5 @@ extra:
     } |
     Sort-Object { [version]$_ } |
     Select-Object -Last 1
-    
+
     update-recipe $latest
-    

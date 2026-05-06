@@ -28,5 +28,5 @@ about:
 
 extra:
   update: |
-    
+
     $latest_version = get-version-github -repo "$name/PeaZip"
