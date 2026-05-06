@@ -1,6 +1,3 @@
-Set-Location $PSScriptRoot
-$ROOT = git rev-parse --show-toplevel
-. $ROOT/scripts/util.ps1
 $repoUrl = "https://github.com/rust-lang/rustup.git"
 $latest = git ls-remote --tags --refs $repoUrl |
 ForEach-Object {
