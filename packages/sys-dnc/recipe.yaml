@@ -25,6 +25,5 @@ tests:
         (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion
 
 extra:
-  update: |
-    $version = get-version-text "$(curl -sIL https://www.adobe.com/go/dng_converter_win)".Replace("_", ".") 'AdobeDNGConverter.x64.(.+)\.exe'
-    update-recipe $version
+  update: get-version-text "$(curl -sIL https://www.adobe.com/go/dng_converter_win)".Replace("_", ".") 'AdobeDNGConverter.x64.(.+)\.exe'
+

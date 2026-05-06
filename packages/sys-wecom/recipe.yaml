@@ -15,5 +15,4 @@ requirements:
     - sys-install
 
 extra:
-  update: |
-    update-recipe $(get-version-winget "t/Tencent/WeCom")
+  update: get-version-winget "t/Tencent/WeCom"

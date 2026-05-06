@@ -15,5 +15,4 @@ requirements:
     - sys-install
 
 extra:
-  update: |
-    update-recipe $(get-version-winget "c/CodecGuide/K-LiteCodecPack/Full")
+  update: get-version-winget "c/CodecGuide/K-LiteCodecPack/Full"

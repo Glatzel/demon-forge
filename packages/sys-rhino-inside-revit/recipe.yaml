@@ -65,4 +65,4 @@ extra:
 
         return $result.Tag
     }
-    update-recipe "$(Get-PreviousMinorLatestTag)".Replace("v", "")
+    "$(Get-PreviousMinorLatestTag)".Replace("v", "")

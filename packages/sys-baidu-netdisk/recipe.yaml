@@ -15,5 +15,4 @@ requirements:
     - sys-install
 
 extra:
-  update: |
-    update-recipe $(get-version-winget "b/Baidu/BaiduNetdisk")
+  update: get-version-winget "b/Baidu/BaiduNetdisk"

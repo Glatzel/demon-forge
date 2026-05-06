@@ -15,5 +15,4 @@ requirements:
     - sys-install
 
 extra:
-  update: |
-    update-recipe $(get-version-winget "v/Valve/Steam")
+  update: get-version-winget "v/Valve/Steam"

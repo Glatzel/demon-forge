@@ -15,5 +15,4 @@ requirements:
     - sys-install
 
 extra:
-  update: |
-    update-recipe $(get-version-winget "m/Microsoft/VisualStudioCode")
+  update: get-version-winget "m/Microsoft/VisualStudioCode"
