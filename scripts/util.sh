@@ -1,6 +1,3 @@
-get_name() {
-    grep '^  name:' recipe.yaml | awk '{print $2}'
-}
 get_cargo_arg() {
     printf '%s\n' \
         --root "$PREFIX" \
