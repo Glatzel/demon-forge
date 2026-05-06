@@ -13,4 +13,4 @@ build:
       Copy-Item $env:RECIPE_DIR/install-sys.bat $env:PREFIX/Scripts/install-sys.bat
 
 extra:
-  update: "1.0.0"
+  update: echo "1.0.0"
