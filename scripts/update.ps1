@@ -145,7 +145,6 @@ function update-recipe
 "|---|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
 ForEach ($name in get-childitem $PSScriptRoot/../packages)
 {
-    $name = $Row.pkg
     Write-Output "::group::update $name"
     Set-Location "$PSScriptRoot/../packages/$name"
     $code = & yq -r '.extra.update' recipe.yaml
