@@ -1,7 +1,7 @@
 context:
   name: sys-klite-codec-pack-full
 package:
-  version: "19.6.8"
+  version: "19.7.0"
   name: ${{ name }}
 build:
   number: 0
