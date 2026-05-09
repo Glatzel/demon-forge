@@ -1,10 +1,10 @@
 context:
   name: cargo-llvm-cov
 package:
-  version: "0.8.5"
+  version: "0.8.6"
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
