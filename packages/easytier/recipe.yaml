@@ -20,8 +20,6 @@ requirements:
         - clang
         - libclang
         - binutils
-  host:
-    - libprotobuf
 tests:
   - package_contents:
       bin:
