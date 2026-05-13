@@ -19,7 +19,7 @@ requirements:
         - clang
         - libclang
   host:
-    - ${{ 'libprotobuf' if unix}}
+    - protobuf
 tests:
   - package_contents:
       bin:
