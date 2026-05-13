@@ -1,0 +1,13 @@
+--- a/.cargo/config.toml
++++ b/.cargo/config.toml
+@@ -1,11 +1,5 @@
+ # region Native
+
+-[target.x86_64-unknown-linux-gnu]
+-rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+-
+-[target.aarch64-unknown-linux-gnu]
+-rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+-
+ [target.'cfg(all(windows, target_env = "msvc"))']
+ rustflags = ["-C", "target-feature=+crt-static"]
