@@ -15,5 +15,5 @@ tests:
 
 extra:
   update: |
-    $latest_version = get-version-url  "https://learn.microsoft.com/en-us/visualstudio/releases/" 'Version (\d+\.\d+\.\d+)'
+    $latest_version = get-version-url  "https://learn.microsoft.com/en-us/visualstudio/releases/" 'Update (\d+\.\d+\.\d+)'
     $([Version]"$latest_version").Major
