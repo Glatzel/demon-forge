@@ -18,6 +18,7 @@ requirements:
       then:
         - clang
         - libclang
+        - binutils
   host:
     - protobuf
 tests:
