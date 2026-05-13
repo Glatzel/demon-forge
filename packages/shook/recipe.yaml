@@ -1,6 +1,6 @@
 context:
   name: shook
-  version: "2026.5.1"
+  version: "2026.5.13"
 package:
   version: ${{ version }}
   name: ${{ name }}
