@@ -20,5 +20,5 @@ tests:
         - ${{ name }}
 
 extra:
-  update: get-version-github "zed-industries/$name"
-  changelog: get-changelog-github -repo "zed-industries/$name"
+  update: get-version-github "zed-industries/zed"
+  changelog: get-changelog-github "zed-industries/zed"

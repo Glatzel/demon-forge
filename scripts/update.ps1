@@ -80,7 +80,7 @@ function get-version-text
 function get-changelog-github
 {
     param($repo)
-    gh release view $tag -R ip7z/7zip --json body | jq '.body'
+    gh release view $tag -R $repo --json body | jq '.body'
 }
 function update-recipe
 {
