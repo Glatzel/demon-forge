@@ -29,4 +29,3 @@ tests:
 
 extra:
   update: get-version-github -repo "Glatzel/$name"
-  changelog: get-changelog-github -repo "Glatzel/$name"

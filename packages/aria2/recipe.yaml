@@ -30,4 +30,3 @@ extra:
   update: |
     $latest_version = get-version-github -repo "$name/$name"
     "$latest_version".Replace("release-", "")
-  changelog: get-changelog-github aria2/aria2

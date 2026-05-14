@@ -106,4 +106,3 @@ outputs:
 
 extra:
   update: get-version-github "AcademySoftwareFoundation/OpenColorIO"
-  changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO"

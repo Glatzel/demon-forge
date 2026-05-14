@@ -38,4 +38,3 @@ about:
 
 extra:
   update: get-version-crateio $name
-  changelog: get-changelog-github "veeso/$name"

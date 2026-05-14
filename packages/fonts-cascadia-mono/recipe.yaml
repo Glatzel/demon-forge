@@ -51,4 +51,3 @@ about:
 
 extra:
   update: get-version-github -repo "ryanoasis/nerd-fonts"
-  changelog: get-changelog-github "ryanoasis/nerd-fonts"

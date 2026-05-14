@@ -110,4 +110,3 @@ extra:
   update: |
     $latest_version = get-version-github -repo "LibRaw/LibRaw"
     "$latest_version".Replace("b", "")
-  changelog: get-changelog-github "LibRaw/LibRaw"

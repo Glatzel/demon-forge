@@ -104,4 +104,3 @@ about:
 
 extra:
   update: get-version-github "AcademySoftwareFoundation/OpenImageIO"
-  changelog: get-changelog-github "AcademySoftwareFoundation/OpenImageIO"

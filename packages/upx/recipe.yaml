@@ -24,4 +24,3 @@ about:
 
 extra:
   update: get-version-github "$name/$name"
-  changelog: get-changelog-github "$name/$name"

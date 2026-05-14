@@ -26,4 +26,3 @@ about:
 
 extra:
   update: get-version-github -repo "alexkay/$name"
-  changelog: get-changelog-github -repo "alexkay/$name"
