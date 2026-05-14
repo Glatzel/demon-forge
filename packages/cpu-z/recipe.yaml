@@ -1,7 +1,7 @@
 context:
   name: cpu-z
 package:
-  version: "2.19"
+  version: "2.20"
   name: ${{ name }}
 build:
   number: 0
