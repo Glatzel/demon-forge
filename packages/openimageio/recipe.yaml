@@ -103,4 +103,5 @@ about:
   repository: https://github.com/OpenImageIO/oiio
 
 extra:
-  update: get-version-github -repo "AcademySoftwareFoundation/OpenImageIO"
+  update: get-version-github "AcademySoftwareFoundation/OpenImageIO"
+  changelog: get-changelog-github "AcademySoftwareFoundation/OpenImageIO"

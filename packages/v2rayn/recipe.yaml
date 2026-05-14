@@ -15,3 +15,4 @@ tests:
 
 extra:
   update: get-version-github -repo "2dust/v2rayN"
+  changelog: get-changelog-github -repo "2dust/v2rayN"

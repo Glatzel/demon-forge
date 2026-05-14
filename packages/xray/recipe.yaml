@@ -22,3 +22,4 @@ about:
 
 extra:
   update:  get-version-github -repo "XTLS/Xray-core"
+  changelog: get-changelog-github -repo "XTLS/Xray-core"

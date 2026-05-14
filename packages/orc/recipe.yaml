@@ -15,4 +15,5 @@ tests:
   - script: orc --help
 
 extra:
-  update: get-version-github -repo "Glatzel/toolbox"
+  update: get-version-github "Glatzel/toolbox"
+  changelog: get-changelog-github "Glatzel/toolbox"

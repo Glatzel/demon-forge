@@ -12,6 +12,9 @@ tests:
   - package_contents:
       bin:
         - ${{name}}
+about:
+  repository: https://github.com/CodSpeedHQ/codspeed
 
 extra:
   update: get-version-crateio -name $name
+  changelog: get-changelog-github CodSpeedHQ/codspeed

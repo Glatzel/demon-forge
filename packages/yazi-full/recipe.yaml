@@ -30,3 +30,4 @@ tests:
 
 extra:
   update: get-version-conda-forge yazi
+  changelog: get-changelog-github sxyazi/yazi

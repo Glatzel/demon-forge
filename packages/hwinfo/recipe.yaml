@@ -26,3 +26,4 @@ about:
 
 extra:
   update: get-version-url -url "https://www.hwinfo.com/news.xml/" -pattern 'HWiNFO v(\d+\.\d+) released'
+  changelog: "https://www.hwinfo.com/version-history/"

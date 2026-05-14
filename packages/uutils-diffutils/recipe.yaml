@@ -21,4 +21,5 @@ about:
   repository: https://github.com/uutils/diffutils
 
 extra:
-  update: get-version-github 'uutils/diffutils'
+  update: get-version-github uutils/diffutils
+  changelog: get-changelog-github uutils/diffutils

@@ -105,4 +105,5 @@ outputs:
             - ociowrite
 
 extra:
-  update: get-version-github -repo "AcademySoftwareFoundation/OpenColorIO"
+  update: get-version-github "AcademySoftwareFoundation/OpenColorIO"
+  changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO"

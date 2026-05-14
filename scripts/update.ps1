@@ -77,6 +77,11 @@ function get-version-text
             Select-Object -First 1
     return $latest
 }
+function get-changelog-github
+{
+    param($repo)
+    gh release view $tag -R ip7z/7zip --json body | jq '.body'
+}
 function update-recipe
 {
     param($name, $version)
@@ -114,6 +119,15 @@ function update-recipe
         return
     }
 
+    # Get changelog
+    $changelog = ""
+    $code = & yq -r '.extra.changelog' recipe.yaml
+    if ($code -ne "null")
+    {
+        $code = $code -replace "`r?`n", "`n"
+        $changelog = & ([ScriptBlock]::Create(($code -join "`n")))
+    }
+
     # Update version number and reset build number
     $originalBranch = git rev-parse --abbrev-ref HEAD
     git checkout -b $update_branch
@@ -130,7 +144,7 @@ function update-recipe
     git push -u origin $update_branch
     $pr_url = gh pr create `
         --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
-        --body "" `
+        --body "$changelog" `
         --base main `
         --head $update_branch `
         --draft

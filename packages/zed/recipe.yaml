@@ -21,3 +21,4 @@ tests:
 
 extra:
   update: get-version-github "zed-industries/$name"
+  changelog: get-changelog-github -repo "zed-industries/$name"
