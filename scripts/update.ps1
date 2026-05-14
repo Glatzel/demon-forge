@@ -126,6 +126,7 @@ function update-recipe
     {
         $code = $code -replace "`r?`n", "`n"
         $changelog = & ([ScriptBlock]::Create(($code -join "`n")))
+        $changelog =$changelog -replace "`r?`n", "`n"
     }
 
     # Update version number and reset build number
