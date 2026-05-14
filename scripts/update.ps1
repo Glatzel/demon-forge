@@ -111,7 +111,7 @@ function update-recipe
         return
     }
     # skip if remote branch already exists
-    $update_branch = "update-$name"
+    $update_branch = "update/$name"
     $remoteExists = git ls-remote --heads origin $update_branch
     if ($remoteExists)
     {
