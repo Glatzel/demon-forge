@@ -24,4 +24,3 @@ about:
 
 extra:
   update: get-version-github -repo "Chuyu-Team/Dism-Multi-language"
-  changelog: get-changelog-github "Chuyu-Team/Dism-Multi-language"

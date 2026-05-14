@@ -33,4 +33,3 @@ about:
 
 extra:
   update: get-version-crateio -name $name
-  changelog: get-changelog-github -repo "LucasPickering/slumber"

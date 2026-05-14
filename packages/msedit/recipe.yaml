@@ -33,4 +33,3 @@ about:
 
 extra:
   update: get-version-github -repo "microsoft/edit"
-  changelog: get-changelog-github "microsoft/edit"

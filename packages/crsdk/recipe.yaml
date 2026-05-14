@@ -46,4 +46,3 @@ extra:
   update: |
     $latest_version = get-version-url -url "https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html" -pattern 'CrSDK_v(\d+\.\d+\.\d+)_'
     [Version]"$latest_version"
-  changelog: echo "https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html"

@@ -27,4 +27,3 @@ about:
 
 extra:
   update: get-version-github -repo "LibrePCB/LibrePCB"
-  changelog: get-changelog-github "LibrePCB/LibrePCB"

@@ -70,4 +70,3 @@ about:
 
 extra:
   update: get-version-github "AcademySoftwareFoundation/openvdb"
-  changelog: get-changelog-github "AcademySoftwareFoundation/openvdb"

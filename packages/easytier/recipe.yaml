@@ -33,4 +33,3 @@ about:
 
 extra:
   update: get-version-github -repo "EasyTier/EasyTier"
-  changelog: get-changelog-github "EasyTier/EasyTier"

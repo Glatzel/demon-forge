@@ -28,4 +28,3 @@ about:
 
 extra:
   update: get-version-github "peazip/PeaZip"
-  changelog: get-changelog-github "peazip/PeaZip"

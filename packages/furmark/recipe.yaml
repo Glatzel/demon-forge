@@ -29,4 +29,3 @@ about:
 
 extra:
   update: get-version-url -url "https://geeks3d.com/furmark/changelog/" -pattern 'version (\d+\.\d+\.\d+\.*\d*)'
-  changelog: echo "https://geeks3d.com/furmark/changelog/"

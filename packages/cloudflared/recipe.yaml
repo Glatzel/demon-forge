@@ -27,4 +27,3 @@ about:
 
 extra:
   update: get-version-github -repo "cloudflare/$name"
-  changelog: get-changelog-github "cloudflare/$name"

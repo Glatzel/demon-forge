@@ -16,4 +16,3 @@ tests:
 
 extra:
   update: get-version-github "Glatzel/toolbox"
-  changelog: get-changelog-github "Glatzel/toolbox"

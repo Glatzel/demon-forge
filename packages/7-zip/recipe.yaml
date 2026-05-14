@@ -28,4 +28,3 @@ about:
 extra:
   update: |
     [Version](get-version-conda-forge 7zip)
-  changelog: get-changelog-github ip7z/7zip

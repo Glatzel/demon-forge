@@ -30,4 +30,3 @@ about:
 
 extra:
   update: get-version-github -repo "zerocore-ai/microsandbox"
-  changelog: get-changelog-github "zerocore-ai/microsandbox"

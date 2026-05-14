@@ -62,4 +62,3 @@ about:
 
 extra:
   update: get-version-github "imageworks/pystring"
-  changelog: get-changelog-github "imageworks/pystring"

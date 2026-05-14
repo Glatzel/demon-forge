@@ -25,4 +25,3 @@ extra:
   update: |
     $latest_version = get-version-github -repo "ImageMagick/ImageMagick"
     "$latest_version".Replace("-", ".")
-  changelog: get-changelog-github "ImageMagick/ImageMagick"

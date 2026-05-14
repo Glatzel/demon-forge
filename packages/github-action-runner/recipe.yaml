@@ -13,4 +13,3 @@ about:
 
 extra:
   update: get-version-github -repo "actions/runner"
-  changelog: get-changelog-github "actions/runner"
