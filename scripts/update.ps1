@@ -77,6 +77,11 @@ function get-version-text
             Select-Object -First 1
     return $latest
 }
+function get-changelog-github
+{
+    param($repo)
+    gh release view $tag -R $repo --json body | jq -r '.body'
+}
 function update-recipe
 {
     param($name, $version)
@@ -106,13 +111,23 @@ function update-recipe
         return
     }
     # skip if remote branch already exists
-    $update_branch = "update-$name"
+    $update_branch = "update/$name"
     $remoteExists = git ls-remote --heads origin $update_branch
     if ($remoteExists)
     {
         "|$name|$current_version|$version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
+
+    # Get changelog
+    $changelog = ""
+    $code = & yq -r '.extra.changelog' recipe.yaml
+    if ($code -ne "null")
+    {
+        $code = $code -replace "`r?`n", "`n"
+        $changelog = & ([ScriptBlock]::Create(($code -join "`n")))
+    }
+    $changelog > $PSScriptRoot/../../changelog.md
 
     # Update version number and reset build number
     $originalBranch = git rev-parse --abbrev-ref HEAD
@@ -130,7 +145,7 @@ function update-recipe
     git push -u origin $update_branch
     $pr_url = gh pr create `
         --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
-        --body "" `
+        --body-file "$PSScriptRoot/../../changelog.md" `
         --base main `
         --head $update_branch `
         --draft

@@ -28,4 +28,5 @@ tests:
         - pyxis
 
 extra:
-  update: get-version-github -repo "Glatzel/pyxis"
+  update: get-version-github "Glatzel/pyxis"
+  changelog: get-changelog-github "Glatzel/pyxis"

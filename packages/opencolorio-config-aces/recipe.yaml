@@ -13,4 +13,5 @@ tests:
   - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/ocio/*.ocio"
 
 extra:
-  update: get-version-github -repo "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
+  update: get-version-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
+  changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"

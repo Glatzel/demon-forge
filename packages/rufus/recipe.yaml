@@ -25,4 +25,5 @@ about:
   repository: https://github.com/pbatard/rufus
 
 extra:
-  update: get-version-github -repo "pbatard/$name"
+  update: get-version-github "pbatard/$name"
+  changelog: get-changelog-github "pbatard/$name"

@@ -49,3 +49,4 @@ about:
 
 extra:
   update:  get-version-github -repo "jstkdng/ueberzugpp"
+  changelog: get-changelog-github -repo "jstkdng/ueberzugpp"

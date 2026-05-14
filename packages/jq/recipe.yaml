@@ -31,3 +31,4 @@ extra:
   update: |
     $latest_version = get-version-github -repo "jqlang/$name"
     "$latest_version".Replace("$name-", "")
+  changelog: get-changelog-github "jqlang/$name"

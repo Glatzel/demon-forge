@@ -23,4 +23,5 @@ about:
   repository: https://github.com/upx/upx
 
 extra:
-  update:  get-version-github -repo "$name/$name"
+  update: get-version-github "$name/$name"
+  changelog: get-changelog-github "$name/$name"

@@ -37,4 +37,5 @@ about:
   repository: https://github.com/veeso/termscp
 
 extra:
-  update: get-version-crateio -name $name
+  update: get-version-crateio $name
+  changelog: get-changelog-github "veeso/$name"
