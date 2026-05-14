@@ -126,8 +126,8 @@ function update-recipe
     {
         $code = $code -replace "`r?`n", "`n"
         $changelog = & ([ScriptBlock]::Create(($code -join "`n")))
-        $changelog =$changelog -replace "`r?`n", "`n"
     }
+    $changelog > $PSScriptRoot/../../changelog.md
 
     # Update version number and reset build number
     $originalBranch = git rev-parse --abbrev-ref HEAD
@@ -145,7 +145,7 @@ function update-recipe
     git push -u origin $update_branch
     $pr_url = gh pr create `
         --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
-        --body "$changelog" `
+        --body-file "$PSScriptRoot/../../changelog.md" `
         --base main `
         --head $update_branch `
         --draft
