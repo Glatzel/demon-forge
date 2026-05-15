@@ -1,0 +1,60 @@
+context:
+  name: duckdb
+  version: "1.5.2"
+  number: 0
+recipe:
+  version: ${{version}}
+  name: ${{ name }}
+source:
+  - url: https://github.com/duckdb/duckdb/archive/refs/tags/v${{ version }}.tar.gz
+outputs:
+  - staging:
+      name: ${{name}}-build
+    build:
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-${{name}}.${{ "ps1" if win else "sh" }}
+    requirements:
+      build:
+        - ${{compiler("c")}}
+        - ${{compiler("cxx")}}
+        - ${{compiler("cxx")}}
+        - ${{ stdlib('c') }}
+        - ${{"make" if unix}}
+        - cmake
+        - ninja
+        - python
+  - package:
+      name: ${{name}}-cli
+    inherit: ${{ name }}-build
+    build:
+      number: ${{ number }}
+      files:
+        - if: linux
+          then: bin/*
+        - if: win
+          then: Library/bin/*.exe
+    test:
+      # - requirements:
+      #     run:
+      #       - polars
+      - scripts: |
+          duckdb test.duckdb -c "
+          CREATE TABLE t (v FLOAT[3]);
+          INSERT INTO t VALUES ([1,2,3]);
+          COPY t TO 'test.parquet' (FORMAT parquet);
+          "
+          python -c "
+          import polars as pl
+
+          df = pl.read_parquet('test.parquet')
+          print(df)
+          print(df.schema)
+          "
+
+about:
+  repository: https://github.com/duckdb/duckdb
+
+extra:
+  update: get-version-github -repo "duckdb/duckdb"
+  changelog: get-changelog-github "duckdb/duckdb"
