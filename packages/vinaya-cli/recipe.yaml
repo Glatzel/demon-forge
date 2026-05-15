@@ -24,3 +24,4 @@ tests:
 
 extra:
   update: get-version-github -repo "Glatzel/toolbox"
+  changelog: get-changelog-github -repo "Glatzel/toolbox"

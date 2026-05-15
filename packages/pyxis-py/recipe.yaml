@@ -29,3 +29,4 @@ tests:
 
 extra:
   update: get-version-github "Glatzel/pyxis"
+  changelog: get-changelog-github "Glatzel/pyxis"

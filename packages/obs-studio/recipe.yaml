@@ -26,3 +26,4 @@ about:
 
 extra:
   update: get-version-github "obsproject/$name"
+  changelog: get-changelog-github "obsproject/$name"

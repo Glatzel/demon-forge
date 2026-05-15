@@ -19,3 +19,4 @@ about:
 
 extra:
   update: get-version-github -repo "ChristopherHX/github-act-runner"
+  changelog: get-changelog-github "ChristopherHX/github-act-runner"
