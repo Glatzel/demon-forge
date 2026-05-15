@@ -1,1 +1,2 @@
-CMAKE_INSTALL_PREFIX="${PREFIX}" make release
+export CMAKE_INSTALL_PREFIX="${PREFIX}"
+make release

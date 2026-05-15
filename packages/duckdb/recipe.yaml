@@ -40,7 +40,7 @@ outputs:
             - duckdb
       - script:
           content: |
-            duckdb test.duckdb -c "
+            duckdb -c "
             CREATE TABLE t (v FLOAT[3]);
             INSERT INTO t VALUES ([1,2,3]);
             COPY t TO 'test.parquet' (FORMAT parquet);
