@@ -36,7 +36,8 @@ outputs:
           then: Library/bin/*.exe
     tests:
       - package_contents:
-          - bin: duckdb
+          - bin: 
+              - duckdb
       - script: |
           duckdb test.duckdb -c "
           CREATE TABLE t (v FLOAT[3]);
