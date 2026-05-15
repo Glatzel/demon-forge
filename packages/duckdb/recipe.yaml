@@ -35,9 +35,6 @@ outputs:
         - if: win
           then: Library/bin/*.exe
     tests:
-      - requirements:
-          run:
-            - polars
       - script: |
           duckdb test.duckdb -c "
           CREATE TABLE t (v FLOAT[3]);
@@ -46,11 +43,13 @@ outputs:
           "
           python -c "
           import polars as pl
-
           df = pl.read_parquet('test.parquet')
           print(df)
           print(df.schema)
           "
+        requirements:
+          run:
+            - polars
 
 about:
   repository: https://github.com/duckdb/duckdb
