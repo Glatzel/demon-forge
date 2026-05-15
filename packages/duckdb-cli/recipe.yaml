@@ -15,6 +15,7 @@ requirements:
     - ${{compiler("cxx")}}
     - ${{compiler("cxx")}}
     - ${{ stdlib('c') }}
+    - ${{"make" if unix}}
     - cmake
     - ninja
     - python
