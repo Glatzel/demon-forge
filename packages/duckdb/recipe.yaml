@@ -34,11 +34,11 @@ outputs:
           then: bin/*
         - if: win
           then: Library/bin/*.exe
-    test:
-      # - requirements:
-      #     run:
-      #       - polars
-      - scripts: |
+    tests:
+      - requirements:
+          run:
+            - polars
+      - script: |
           duckdb test.duckdb -c "
           CREATE TABLE t (v FLOAT[3]);
           INSERT INTO t VALUES ([1,2,3]);
