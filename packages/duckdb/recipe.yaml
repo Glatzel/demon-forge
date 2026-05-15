@@ -36,20 +36,21 @@ outputs:
           then: Library/bin/*.exe
     tests:
       - package_contents:
-          - bin: 
+          - bin:
               - duckdb
-      - script: |
-          duckdb test.duckdb -c "
-          CREATE TABLE t (v FLOAT[3]);
-          INSERT INTO t VALUES ([1,2,3]);
-          COPY t TO 'test.parquet' (FORMAT parquet);
-          "
-          python -c "
-          import polars as pl
-          df = pl.read_parquet('test.parquet')
-          print(df)
-          print(df.schema)
-          "
+      - script:
+          content: |
+            duckdb test.duckdb -c "
+            CREATE TABLE t (v FLOAT[3]);
+            INSERT INTO t VALUES ([1,2,3]);
+            COPY t TO 'test.parquet' (FORMAT parquet);
+            "
+            python -c "
+            import polars as pl
+            df = pl.read_parquet('test.parquet')
+            print(df)
+            print(df.schema)
+            "
         requirements:
           run:
             - polars
