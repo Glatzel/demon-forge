@@ -21,3 +21,4 @@ tests:
 
 extra:
   update: get-version-github "EdJoPaTo/$name"
+  changelog: get-changelog-github "EdJoPaTo/$name"

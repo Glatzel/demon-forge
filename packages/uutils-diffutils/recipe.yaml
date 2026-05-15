@@ -22,3 +22,4 @@ about:
 
 extra:
   update: get-version-github uutils/diffutils
+  changelog: get-changelog-github uutils/diffutils
