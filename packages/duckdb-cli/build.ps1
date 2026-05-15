@@ -1,6 +1,5 @@
 cmake -S . -B build -G Ninja `
     -DFORCE_COLORED_OUTPUT=1 `
-    -DBUILD_EXTENSIONS="autocomplete;icu;json;mysql;odbc;parquet;postgres;sqlite;" `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX" `
     -DCMAKE_BUILD_TYPE=Release `
     -DOVERRIDE_GIT_DESCRIBE=""
