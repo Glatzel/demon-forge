@@ -31,6 +31,10 @@ function Get-Cargo-Arg
 
     return $cargo_arg
 }
+function debug-recipe
+{
+    pixi run rattler-build debug setup --variant-config "$ROOT/conda_build_config.yaml"
+}
 function build-recipe
 {
     if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push"))
