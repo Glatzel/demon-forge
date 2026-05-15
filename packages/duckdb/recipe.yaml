@@ -36,8 +36,8 @@ outputs:
           then: Library/bin/*.exe
     tests:
       - package_contents:
-          - bin:
-              - duckdb
+          bin:
+            - duckdb
       - script:
           content: |
             duckdb test.duckdb -c "
