@@ -80,7 +80,7 @@ function get-version-text
 function get-changelog-github
 {
     param($repo)
-    gh release view $tag -R $repo --json body | jq -r '.body'
+    Write-Output "https://github.com/$repo/releases/latest"
 }
 function update-recipe
 {
