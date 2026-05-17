@@ -1,13 +1,13 @@
 context:
   name: mqttui
-  version: "0.22.1"
+  version: "0.23.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 5
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
