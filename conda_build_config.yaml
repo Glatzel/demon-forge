@@ -3,7 +3,7 @@
 c_compiler:
   - gcc # [linux]
   - clang # [osx]
-  - vs2022 # [win]
+  - vs2026 # [win]
 c_compiler_version: # [unix]
   - 14 # [linux]
   - 19 # [osx]
@@ -11,7 +11,7 @@ c_compiler_version: # [unix]
 cxx_compiler:
   - gxx # [linux]
   - clangxx # [osx]
-  - vs2022 # [win]
+  - vs2026 # [win]
 cxx_compiler_version: # [unix]
   - 14 # [linux]
   - 19 # [osx]
