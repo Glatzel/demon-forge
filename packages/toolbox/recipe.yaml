@@ -1,6 +1,6 @@
 context:
   name: toolbox
-  version: "2026.5.14"
+  version: "2026.5.18"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -13,12 +13,12 @@ build:
 
 requirements:
   host:
-    - python 3.13.*
+    - python 3.11.*
     - pip
     - setuptools
     - wheel
   run:
-    - python >= 3.13
+    - python >= 3.11
     - lazy-loader
     - rich
 
