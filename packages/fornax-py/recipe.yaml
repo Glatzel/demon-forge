@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/Glatzel/fornax/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -15,11 +15,11 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
   host:
-    - python 3.13.*
+    - python 3.11.*
     - pip
     - libraw-dev
   run:
-    - python >= 3.13
+    - python >= 3.11
     - lazy-loader
     - pydantic
     - msgspec
