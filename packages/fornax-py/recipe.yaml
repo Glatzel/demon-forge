@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/Glatzel/fornax/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
