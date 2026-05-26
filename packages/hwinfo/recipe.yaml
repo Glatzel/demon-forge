@@ -1,7 +1,7 @@
 context:
   name: hwinfo
 package:
-  version: "8.46"
+  version: "8.48"
   name: ${{ name }}
 build:
   number: 0
