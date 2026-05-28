@@ -1,7 +1,7 @@
 context:
   name: sys-vscode
 package:
-  version: "1.121.0"
+  version: "1.122.0"
   name: ${{ name }}
 build:
   number: 0
