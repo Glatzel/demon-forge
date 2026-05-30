@@ -61,14 +61,26 @@ jobs:
         with:
           run-install: false
 
-      - name: build
+      - name: build-win
+        if: ${{ contains(inputs.machine, 'windows') }}
         env:
           GH_TOKEN: ${{github.token}}
           TARGET_PLATFORM: ${{ inputs.target-platform }}
         run: |
-          ${{ contains(inputs.machine, 'windows') && '$' || null }}ROOT=$(git rev-parse --show-toplevel)
-          . "$ROOT/scripts/util.${{ contains(inputs.machine, 'windows') && 'ps1' || 'sh' }}"
+          $ROOT = git rev-parse --show-toplevel
+          . $ROOT/scripts/util.ps1
           build-recipe
+        working-directory: ./packages/${{inputs.name}}
+        
+      - name: build-unix
+        if: ${{ !contains(inputs.machine, 'windows') }}
+        env:
+          GH_TOKEN: ${{github.token}}
+          TARGET_PLATFORM: ${{ inputs.target-platform }}
+        run: |
+          ROOT=$(git rev-parse --show-toplevel)
+          . "$ROOT/scripts/util.sh"
+          build_recipe
         working-directory: ./packages/${{inputs.name}}
 
       - name: upload
@@ -77,10 +89,14 @@ jobs:
         with:
           name: ${{inputs.name}}-${{inputs.target-platform}}
           path: ./output
-
-      - name: publish
-        if: ${{ inputs.publish }}
-        run: ./scripts/publish.${{ contains(matrix.machine, 'windows') && 'ps1' || 'sh' }} -pkg ${{matrix.pkg}}
+          
+      - name: publish-win
+        if: ${{ inputs.publish && contains(matrix.machine, 'windows')}}
+        run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+        
+      - name: publish-unix
+        if: ${{ inputs.publish' && !contains(matrix.machine, 'windows') }}
+        run: ./scripts/publish.sh ${{matrix.pkg}}
 
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
