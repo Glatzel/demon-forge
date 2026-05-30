@@ -19,7 +19,7 @@ on:
       container:
         description: "container"
         type: choice
-        required: false
+        required: true
         options:
           - "null"
           - ghcr.io/glatzel/ci-linux-release
