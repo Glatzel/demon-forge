@@ -9,6 +9,6 @@ if (-not (Test-Path "./output/$env:TARGET_PLATFORM/*.conda" ))
 foreach ($pkg_file in Get-ChildItem "./output/$env:TARGET_PLATFORM/*.conda")
 {
     Write-Output "::group:: upload $pkg_file"
-    pixi run rattler-build upload prefix -s -c glatzel --generate-attestation $pkg_file
+    pixi run rattler-build upload prefix -s -c glatzel $pkg_file
     Write-Output "::endgroup::"
 }
