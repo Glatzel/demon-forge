@@ -21,6 +21,7 @@ on:
         type: choice
         required: false
         options:
+          - "null"
           - ghcr.io/glatzel/ci-linux-release
       target-platform:
         description: "target-platform"
@@ -60,7 +61,7 @@ jobs:
   rattler-build:
     runs-on: ${{inputs.machine}}
     container:
-      image: ${{inputs.container}}
+      image: ${{inputs.container=='null' && inputs.container || null}}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
