@@ -50,6 +50,7 @@ permissions:
   id-token: write
 env:
   WORKFLOW_NAME: ${{ github.workflow }}
+  TARGET_PLATFORM: ${{ inputs.target-platform }}
 jobs:
   rattler-build:
     runs-on: ${{inputs.machine}}
@@ -65,7 +66,6 @@ jobs:
         if: ${{ contains(inputs.machine, 'windows') }}
         env:
           GH_TOKEN: ${{github.token}}
-          TARGET_PLATFORM: ${{ inputs.target-platform }}
         run: |
           $ROOT = git rev-parse --show-toplevel
           . $ROOT/scripts/util.ps1
@@ -76,7 +76,6 @@ jobs:
         if: ${{ !contains(inputs.machine, 'windows') }}
         env:
           GH_TOKEN: ${{github.token}}
-          TARGET_PLATFORM: ${{ inputs.target-platform }}
         run: |
           ROOT=$(git rev-parse --show-toplevel)
           . "$ROOT/scripts/util.sh"
