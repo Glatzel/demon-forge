@@ -74,7 +74,7 @@ jobs:
           GH_TOKEN: ${{github.token}}
           TARGET_PLATFORM: ${{ inputs.target-platform }}
         run: |
-          ${{ contains(matrix.machine, 'windows' && '$' || null) }}ROOT = git rev-parse --show-toplevel
+          ${{ contains(matrix.machine, 'windows') && '$' || null }}ROOT = git rev-parse --show-toplevel
           . "$ROOT/scripts/util.${{ contains(matrix.machine, 'windows') && 'ps1' || 'sh' }}"
           build-recipe
         working-directory: ./packages/${{inputs.name}}
