@@ -71,36 +71,19 @@ jobs:
         with:
           run-install: false
 
-      - name: build-recipe-win
-        if: ${{ contains(matrix.machine, 'windows') }}
-        id: build-win
+      - name: build-recipe
+        id: build
         env:
           GH_TOKEN: ${{github.token}}
         run: |
-          $ROOT = git rev-parse --show-toplevel
-          . $ROOT/scripts/util.ps1
+          ${{ contains(matrix.machine, 'windows' && '$' || null) }}ROOT = git rev-parse --show-toplevel
+          . "$ROOT/scripts/util.${{ contains(matrix.machine, 'windows' && 'ps1' || 'sh') }}"
           build-recipe
-        shell: pwsh
         working-directory: ./packages/${{matrix.pkg}}
 
-      - name: publish-win
-        if: ${{ steps.build-win.outputs.action_publish == 'true'&& contains(matrix.machine, 'windows')}}
-        run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
-
-      - name: build-recipe-unix
-        if: ${{ !contains(matrix.machine, 'windows') }}
-        id: build-unix
-        env:
-          GH_TOKEN: ${{github.token}}
-        run: |
-          ROOT=$(git rev-parse --show-toplevel)
-          . "$ROOT/scripts/util.sh"
-          build_recipe
-        working-directory: ./packages/${{matrix.pkg}}
-
-      - name: publish-unix
-        if: ${{ steps.build-unix.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
-        run: ./scripts/publish.sh ${{matrix.pkg}}
+      - name: publish
+        if: ${{ steps.build.outputs.action_publish == 'true')}}
+        run: ./scripts/publish.${{ contains(matrix.machine, 'windows' && 'ps1' || 'sh') }} -pkg ${{matrix.pkg}}
 
   check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'

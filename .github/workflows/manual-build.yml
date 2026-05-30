@@ -61,13 +61,15 @@ jobs:
         with:
           run-install: false
 
-      - name: main
-        id: main
+      - name: build
         env:
           GH_TOKEN: ${{github.token}}
           TARGET_PLATFORM: ${{ inputs.target-platform }}
-        run: ./packages/${{inputs.name}}/ci.ps1
-        shell: pwsh
+        run: |
+          ${{ contains(matrix.machine, 'windows' && '$' || null) }}ROOT = git rev-parse --show-toplevel
+          . "$ROOT/scripts/util.${{ contains(matrix.machine, 'windows' && 'ps1' || 'sh') }}"
+          build-recipe
+        working-directory: ./packages/${{inputs.name}}
 
       - name: upload
         if: ${{ inputs.upload }}
@@ -78,9 +80,7 @@ jobs:
 
       - name: publish
         if: ${{ inputs.publish }}
-        run: |
-          ./scripts/publish.ps1 -pkg ${{inputs.name}}
-        shell: pwsh
+        run: ./scripts/publish.${{ contains(matrix.machine, 'windows' && 'ps1' || 'sh') }} -pkg ${{matrix.pkg}}
 
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
