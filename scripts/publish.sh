@@ -10,6 +10,6 @@ fi
 
 for pkg_file in "./output/$TARGET_PLATFORM/"*.conda; do
     echo "::group:: upload $pkg"
-    pixi run rattler-build upload prefix -s -c glatzel --generate-attestation "$pkg_file"
+    pixi run rattler-build upload prefix -s -c glatzel "$pkg_file"
     echo "::endgroup::"
 done
