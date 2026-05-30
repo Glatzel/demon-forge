@@ -93,7 +93,7 @@ jobs:
         working-directory: ./packages/${{matrix.pkg}}
       - name: publish-unix
         if: ${{ steps.build-unix.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
-        run: ./scripts/publish.sh ${{ matrix.pkg }}
+        run: ./scripts/publish.sh ${{matrix.pkg}}
 
   check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'
