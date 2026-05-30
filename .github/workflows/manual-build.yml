@@ -75,7 +75,7 @@ jobs:
           TARGET_PLATFORM: ${{ inputs.target-platform }}
         run: |
           ${{ contains(matrix.machine, 'windows' && '$' || null) }}ROOT = git rev-parse --show-toplevel
-          . "$ROOT/scripts/util.${{ contains(matrix.machine, 'windows' && 'ps1' || 'sh') }}"
+          . "$ROOT/scripts/util.${{ contains(matrix.machine, 'windows') && 'ps1' || 'sh' }}"
           build-recipe
         working-directory: ./packages/${{inputs.name}}
 
@@ -88,7 +88,7 @@ jobs:
 
       - name: publish
         if: ${{ inputs.publish }}
-        run: ./scripts/publish.${{ contains(matrix.machine, 'windows' && 'ps1' || 'sh') }} -pkg ${{matrix.pkg}}
+        run: ./scripts/publish.${{ contains(matrix.machine, 'windows') && 'ps1' || 'sh' }} -pkg ${{matrix.pkg}}
 
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
