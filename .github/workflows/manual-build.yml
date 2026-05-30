@@ -71,7 +71,7 @@ jobs:
           . $ROOT/scripts/util.ps1
           build-recipe
         working-directory: ./packages/${{inputs.name}}
-        
+
       - name: build-unix
         if: ${{ !contains(inputs.machine, 'windows') }}
         env:
@@ -88,11 +88,11 @@ jobs:
         with:
           name: ${{inputs.name}}-${{inputs.target-platform}}
           path: ./output
-          
+
       - name: publish-win
         if: ${{ inputs.publish && contains(inputs.machine, 'windows')}}
         run: ./scripts/publish.ps1 -pkg ${{inputs.name}}
-        
+
       - name: publish-unix
         if: ${{ inputs.publish && !contains(inputs.machine, 'windows') }}
         run: ./scripts/publish.sh ${{inputs.name}}
