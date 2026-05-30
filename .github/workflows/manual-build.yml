@@ -91,12 +91,12 @@ jobs:
           path: ./output
           
       - name: publish-win
-        if: ${{ inputs.publish && contains(matrix.machine, 'windows')}}
-        run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
+        if: ${{ inputs.publish && contains(inputs.machine, 'windows')}}
+        run: ./scripts/publish.ps1 -pkg ${{inputs.name}}
         
       - name: publish-unix
-        if: ${{ inputs.publish' && !contains(matrix.machine, 'windows') }}
-        run: ./scripts/publish.sh ${{matrix.pkg}}
+        if: ${{ inputs.publish' && !contains(inputs.machine, 'windows') }}
+        run: ./scripts/publish.sh ${{inputs.name}}
 
       - name: Debug with tmate
         if: ${{failure()&& inputs.debug_on_fail}}
