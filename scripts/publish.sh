@@ -9,7 +9,7 @@ if ! ls "./output/$TARGET_PLATFORM/"*.conda >/dev/null 2>&1; then
 fi
 
 for pkg_file in "./output/$TARGET_PLATFORM/"*.conda; do
-    echo "::group:: upload $pkg"
+    echo "::group:: upload $pkg_file"
     pixi run rattler-build upload prefix -s -c glatzel "$pkg_file"
     echo "::endgroup::"
 done

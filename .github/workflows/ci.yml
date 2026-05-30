@@ -48,9 +48,7 @@ jobs:
 
   rattler-build:
     permissions:
-      contents: write
       id-token: write
-      pull-requests: write
     if: ${{needs.dispatch.outputs.matrix != '' }}
     needs: dispatch
     strategy:
@@ -65,12 +63,10 @@ jobs:
       - if: ${{matrix.container}}
         run: git config --system --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-
       - name: Set up pixi
         uses: prefix-dev/setup-pixi@5185adfbffb4bd703da3010310260805d89ebb11 # v0.9.6
         with:
           run-install: false
-
       - name: build-recipe-win
         if: ${{ contains(matrix.machine, 'windows') }}
         id: build-win
@@ -82,11 +78,9 @@ jobs:
           build-recipe
         shell: pwsh
         working-directory: ./packages/${{matrix.pkg}}
-
       - name: publish-win
         if: ${{ steps.build-win.outputs.action_publish == 'true'&& contains(matrix.machine, 'windows')}}
         run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
-
       - name: build-recipe-unix
         if: ${{ !contains(matrix.machine, 'windows') }}
         id: build-unix
@@ -97,7 +91,6 @@ jobs:
           . "$ROOT/scripts/util.sh"
           build_recipe
         working-directory: ./packages/${{matrix.pkg}}
-
       - name: publish-unix
         if: ${{ steps.build-unix.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
         run: ./scripts/publish.sh ${{matrix.pkg}}
