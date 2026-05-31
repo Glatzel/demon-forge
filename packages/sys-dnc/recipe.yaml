@@ -1,7 +1,7 @@
 context:
   name: sys-dnc
 package:
-  version: "18.3.1"
+  version: "18.3.2"
   name: ${{ name }}
 build:
   number: 0
