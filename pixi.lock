@@ -20,7 +20,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.6.2-h35e630c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/patchelf-0.17.2-h58526e2_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.65.0-ha759004_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.4.22-hbd8a1cb_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.5.20-hbd8a1cb_0.conda
       linux-aarch64:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/libgcc-15.2.0-h8acb6b2_19.conda
@@ -31,16 +31,16 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/openssl-3.6.2-h546c87b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/patchelf-0.17.2-h884eca8_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/rattler-build-0.65.0-h1d7f6d8_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.4.22-hbd8a1cb_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.5.20-hbd8a1cb_0.conda
       osx-arm64:
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-22.1.5-h55c6f16_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-22.1.6-h55c6f16_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.65.0-h20b3172_0.conda
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.65.0-he94b42d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.26100.0-h57928b3_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-h1b7c187_36.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36231-h1b9f54f_36.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36231-h1b9f54f_36.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-h1b7c187_38.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36231-h1b9f54f_38.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36231-h1b9f54f_38.conda
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
@@ -237,23 +237,23 @@ packages:
   license_family: BSD
   size: 19665838
   timestamp: 1779302178061
-- conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.4.22-hbd8a1cb_0.conda
-  sha256: c9dbcc8039a52023660d6d1bbf87594a93dd69c6ac5a2a44323af2c92976728d
-  md5: e18ad67cf881dcadee8b8d9e2f8e5f73
+- conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.5.20-hbd8a1cb_0.conda
+  sha256: 9812a303a1395e1dafbd92e5bc8a1ff6013bcbba0a09c7f03a8d23e43560aa9b
+  md5: 489b8e97e666c93f68fdb35c3c9b957f
   depends:
   - __unix
   license: ISC
-  size: 131039
-  timestamp: 1776865545798
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-22.1.5-h55c6f16_1.conda
-  sha256: dddd01bd6b338221342a89530a1caffe6051a70cc8f8b1d8bb591d5447a3c603
-  md5: ff484b683fecf1e875dfc7aa01d19796
+  size: 129868
+  timestamp: 1779289852439
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-22.1.6-h55c6f16_0.conda
+  sha256: 3e2f8ad32ddab88c5114b9aa2160f8c129f515df0e551d0d86ef5744446afdbd
+  md5: 589cc6f6222fdc0eaf8e90bc38fcce7b
   depends:
   - __osx >=11.0
   license: Apache-2.0 WITH LLVM-exception
   license_family: Apache
-  size: 569359
-  timestamp: 1778191546305
+  size: 570038
+  timestamp: 1779253025527
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.65.0-h20b3172_0.conda
   sha256: c8ae8f99ac61c476b478b16fb60813d464529a5a9a126c38bab187ae5c5265c4
   md5: 26f52823c22d178e9775e46875c25e35
@@ -286,37 +286,37 @@ packages:
   license: LicenseRef-MicrosoftWindowsSDK10
   size: 694692
   timestamp: 1756385147981
-- conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-h1b7c187_36.conda
-  sha256: dbcbad366e38979ac8ca9efb0ec48e5fedf9ce76f9485120c131cab7315c681c
-  md5: 10eac3d81ceea1be614f1d90045c7e9b
+- conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-h1b7c187_38.conda
+  sha256: 61b68e5a4fc71a17f8d64b12e013a2f971ad980bd08e9c389d5e68efe1a67de0
+  md5: 774568633f3b26d7a4a6dd4f9ea6d3e1
   depends:
   - vc14_runtime >=14.51.36231
   track_features:
   - vc14
   license: BSD-3-Clause
   license_family: BSD
-  size: 20260
-  timestamp: 1779061872533
-- conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36231-h1b9f54f_36.conda
-  sha256: e6f48954124c4f9419e50b3de7cb4b88f3a6078bf3616e997ea60144d499aa30
-  md5: df9d8c15f117f28087b4aa6efa529a56
+  size: 20187
+  timestamp: 1780005880049
+- conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36231-h1b9f54f_38.conda
+  sha256: 957c7c65583c7107a5e76f39756c6361fcb7b0dc101ac7c0aea86e7ca09fe49c
+  md5: 2cdcd8ea1010920911bb2eacb4c61227
   depends:
   - ucrt >=10.0.20348.0
-  - vcomp14 14.51.36231 h1b9f54f_36
+  - vcomp14 14.51.36231 h1b9f54f_38
   constrains:
-  - vs2015_runtime 14.51.36231.* *_36
+  - vs2015_runtime 14.51.36231.* *_38
   license: LicenseRef-MicrosoftVisualCpp2015-2022Runtime
   license_family: Proprietary
-  size: 739707
-  timestamp: 1779061867466
-- conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36231-h1b9f54f_36.conda
-  sha256: bba3bcaf805eefd0aa14beb3d08a34a81d5d36e6890bd6ce33fcb968429a3bc7
-  md5: d929e2c56341be7ae1bd9a77a9b535c2
+  size: 740997
+  timestamp: 1780005875753
+- conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36231-h1b9f54f_38.conda
+  sha256: c645fdc1f0f47718431d973386e946754a10200e7ba2c32032560913a970cacd
+  md5: 63ee70d69d7540e821940dac5d4d9ba2
   depends:
   - ucrt >=10.0.20348.0
   constrains:
-  - vs2015_runtime 14.51.36231.* *_36
+  - vs2015_runtime 14.51.36231.* *_38
   license: LicenseRef-MicrosoftVisualCpp2015-2022Runtime
   license_family: Proprietary
-  size: 124124
-  timestamp: 1779061850036
+  size: 123561
+  timestamp: 1780005858779
