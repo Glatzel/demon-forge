@@ -1,7 +1,7 @@
 context:
   name: opencolorio
   version: "2.5.2"
-  number: 0
+  number: 1
 recipe:
   version: ${{ version }}
   name: ${{ name }}
