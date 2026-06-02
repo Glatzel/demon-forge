@@ -1,0 +1,24 @@
+context:
+  name: tombi
+  version: "0.58.1"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  url: https://github.com/prefix-dev/rattler-build//archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 11
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
+about:
+  repository: https://github.com/prefix-dev/rattler-build/
+
+extra:
+  update: get-version-github -repo "prefix-dev/rattler-build/"
+  changelog: get-changelog-github -repo "prefix-dev/rattler-build/"
