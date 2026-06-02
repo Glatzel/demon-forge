@@ -20,5 +20,5 @@ about:
   repository: https://github.com/prefix-dev/rattler-build/
 
 extra:
-  update: get-version-github -repo "prefix-dev/rattler-build/"
-  changelog: get-changelog-github -repo "prefix-dev/rattler-build/"
+  update: get-version-github -repo "prefix-dev/rattler-build"
+  changelog: get-changelog-github -repo "prefix-dev/rattler-build"
