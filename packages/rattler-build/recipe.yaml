@@ -1,5 +1,5 @@
 context:
-  name: tombi
+  name: rattler-build
   version: "0.58.1"
 package:
   version: ${{ version }}
@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/prefix-dev/rattler-build//archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 11
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
