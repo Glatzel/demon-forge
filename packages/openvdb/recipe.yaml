@@ -20,7 +20,7 @@ outputs:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
         - ${{ "jemalloc" if linux }}
-        - cmake 3.*
+        - cmake
         - ninja
         - pkg-config
       host:
