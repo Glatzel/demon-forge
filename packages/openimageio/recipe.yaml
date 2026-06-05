@@ -19,9 +19,9 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
-        - cmake
+        - cmake 3.*
         - ninja
-        - make 3.*
+        - make
 
       host:
         - opencolorio-dev
