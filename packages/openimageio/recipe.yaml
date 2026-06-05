@@ -21,7 +21,7 @@ outputs:
         - ${{ stdlib('c') }}
         - cmake
         - ninja
-        - make
+        - make 3.*
 
       host:
         - opencolorio-dev
