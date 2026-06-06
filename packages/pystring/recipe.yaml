@@ -19,7 +19,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
-        - cmake 3.*
+        - cmake
         - ninja
   - package:
       name: pystring-rt

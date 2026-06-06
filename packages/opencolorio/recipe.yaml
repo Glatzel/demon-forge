@@ -19,7 +19,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
-        - cmake 3.*
+        - cmake
         - ninja
       host:
         - expat
@@ -72,7 +72,7 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
-        - cmake 3.*
+        - cmake
         - ninja
       host:
         - expat
