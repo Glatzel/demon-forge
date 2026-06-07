@@ -1,0 +1,65 @@
+context:
+  name: robin-map
+  version: "1.4.1"
+  number: 0
+recipe:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/Tessil/robin-map/archive/refs/tags/v${{ version }}.tar.gz
+outputs:
+  - staging:
+      name: ${{ name }}-build
+    build:
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-${{ name }}.${{ "ps1" if win else "sh" }}
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake 3.*
+        - ninja
+  - package:
+      name: ${{ name }}-rt
+    inherit: ${{ name }}-build
+    build:
+      number: ${{ number }}
+      files:
+        - if: osx
+          then: lib/*.dylib
+        - if: linux
+          then: lib/*.so*
+        - if: win
+          then:
+            - Library/*.lib
+            - Library/bin/*.dll
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('robin-map-rt', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          lib:
+            - robin-map
+
+  - package:
+      name: ${{ name }}-dev
+    inherit: ${{ name }}-build
+    build:
+      number: ${{ number }}
+    requirements:
+      host:
+        - ${{ name }}-rt
+      run_exports:
+        - ${{ pin_subpackage('robin-map-rt', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          include:
+            - robin_map.h
+about:
+  repository: https://github.com/Tessil/robin-map
+
+extra:
+  update: get-version-github "Tessil/robin-map"
+  changelog: get-changelog-github "Tessil/robin-map"
