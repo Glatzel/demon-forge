@@ -45,6 +45,7 @@ outputs:
         - tbb-devel
         - yaml-cpp
         - zlib
+        - robin-map
 
   - package:
       name: openimageio-rt
