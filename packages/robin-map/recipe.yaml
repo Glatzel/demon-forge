@@ -56,7 +56,7 @@ outputs:
     tests:
       - package_contents:
           include:
-            - robin_map.h
+            - tsl/robin_map.h
 about:
   repository: https://github.com/Tessil/robin-map
 
