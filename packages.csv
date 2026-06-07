@@ -50,7 +50,7 @@ nuget,windows-latest,,,,
 obs-studio,windows-latest,,,,
 opencolorio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 opencolorio-config-aces,,,,,ubuntu-slim
-openimageio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
+openimageio,windows-2025-vs2026,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 openvdb,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 orc,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 panda-cad,windows-latest,,,,
