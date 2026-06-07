@@ -6,12 +6,9 @@ package:
 build:
   number: 1
   script:
-    interpreter: powershell
-    content: |
-      New-Item $env:PREFIX/bin -ItemType Directory
-      $src = if ($IsWindows) { "7zz.exe" } else { "7zz" }
-      $dst = if ($IsWindows) { "7z.exe" } else { "7z" }
-      Copy-Item "$env:BUILD_PREFIX/bin/$src" "$env:PREFIX/bin/$dst"
+    - if: win
+      then: mkdir "%PREFIX%\bin" && copy "%BUILD_PREFIX%\bin\7zz.exe" "%PREFIX%\bin\7z.exe"
+      else: mkdir $PREFIX/bin && cp "$BUILD_PREFIX/bin/7zz" "$PREFIX/bin/7z"
 requirements:
   build:
     - 7zip
