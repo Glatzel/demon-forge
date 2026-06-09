@@ -1,0 +1,23 @@
+context:
+  name: cargo-shear
+package:
+  version: "0.46.0"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
+about:
+  repository: https://github.com/Boshen/cargo-shear
+
+extra:
+  update: get-version-crateio -name $name
+  changelog: get-changelog-github "Boshen/cargo-shear"
