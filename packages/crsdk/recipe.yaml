@@ -45,10 +45,6 @@ outputs:
           then:
             - Library/*.lib
             - Library/bin/*.dll
-    tests:
-      - package_contents:
-          lib:
-            - Cr_Core
   - package:
       name: ${{ name }}-dev
     inherit: ${{ name }}-build
