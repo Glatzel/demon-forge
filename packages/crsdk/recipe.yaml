@@ -27,7 +27,7 @@ outputs:
     build:
       script:
         interpreter: powershell
-        file: build.ps1
+        file: build-${{ name }}.ps1
   - package:
       name: ${{ name }}-rt
     inherit: ${{ name }}-build
