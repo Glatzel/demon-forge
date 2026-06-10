@@ -1,7 +1,7 @@
 context:
   name: cargo-shear
 package:
-  version: "0.46.0"
+  version: "1.13.1"
   name: ${{ name }}
 build:
   number: 0
