@@ -1,6 +1,6 @@
 context:
   name: zed
-  version: "1.5.5"
+  version: "1.6.3"
 package:
   version: ${{ version }}
   name: ${{ name }}
