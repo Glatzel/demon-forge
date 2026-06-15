@@ -1,7 +1,7 @@
 context:
   name: sys-affinity
 package:
-  version: "3.2.1.4425"
+  version: "3.2.2.4557"
   name: ${{ name }}
 build:
   number: 0
