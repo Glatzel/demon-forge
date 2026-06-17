@@ -1,6 +1,6 @@
 context:
   name: duckdb
-  version: "1.5.3"
+  version: "1.5.4"
   number: 0
 recipe:
   version: ${{version}}
