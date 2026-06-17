@@ -11,17 +11,17 @@ environments:
     - url: https://conda.anaconda.org/conda-forge/
     packages:
       linux-64:
-      - conda: https://prefix.dev/glatzel/linux-64/rattler-build-0.65.1-ha709c6e_0.conda
+      - conda: https://prefix.dev/glatzel/linux-64/rattler-build-0.66.1-ha709c6e_0.conda
       linux-aarch64:
-      - conda: https://prefix.dev/glatzel/linux-aarch64/rattler-build-0.65.1-h46bec4a_0.conda
+      - conda: https://prefix.dev/glatzel/linux-aarch64/rattler-build-0.66.1-h46bec4a_0.conda
       osx-arm64:
-      - conda: https://prefix.dev/glatzel/osx-arm64/rattler-build-0.65.1-h45f102e_0.conda
+      - conda: https://prefix.dev/glatzel/osx-arm64/rattler-build-0.66.1-h45f102e_0.conda
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.26100.0-h57928b3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-h1b7c187_38.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36231-h1b9f54f_38.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36231-h1b9f54f_38.conda
-      - conda: https://prefix.dev/glatzel/win-64/rattler-build-0.65.1-h4c36245_0.conda
+      - conda: https://prefix.dev/glatzel/win-64/rattler-build-0.66.1-h4c36245_0.conda
 packages:
 - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.26100.0-h57928b3_0.conda
   sha256: 3005729dce6f3d3f5ec91dfc49fc75a0095f9cd23bab49efb899657297ac91a5
@@ -66,43 +66,43 @@ packages:
   license_family: Proprietary
   size: 123561
   timestamp: 1780005858779
-- conda: https://prefix.dev/glatzel/linux-64/rattler-build-0.65.1-ha709c6e_0.conda
-  sha256: 03f8ebc88cc846217a90c9cab3f918447eb71ddc3529274ce4f7388cc4390daa
-  md5: 8413b12a820636b496a4194da00790a6
+- conda: https://prefix.dev/glatzel/linux-64/rattler-build-0.66.1-ha709c6e_0.conda
+  sha256: 8c2023d32bcd57f957796cb150a62401f4ec8fccf26d4ca3e05650052e990324
+  md5: 4e3ebe83f10d5e2d89c363de3dfc0b53
   depends:
   - __glibc >=2.28,<3.0.a0
   constrains:
   - __glibc >=2.17
   run_exports: {}
-  size: 15814413
-  timestamp: 1780406243134
-- conda: https://prefix.dev/glatzel/linux-aarch64/rattler-build-0.65.1-h46bec4a_0.conda
-  sha256: 1ea94de9351c9c8d1145c5b902eeaeadb350b89bf48add4f85bc0447ce2e5219
-  md5: 06c440fe9e1af5778e1765ea524e373a
+  size: 15327178
+  timestamp: 1781360414398
+- conda: https://prefix.dev/glatzel/linux-aarch64/rattler-build-0.66.1-h46bec4a_0.conda
+  sha256: dfb7e7d2d5bab1657f9232fd7f7ae6b492b497fdc346370b4a3c23bbd9bde869
+  md5: beb6cd9d7cd53bf07670b5ac37e3aee1
   depends:
   - __glibc >=2.28,<3.0.a0
   constrains:
   - __glibc >=2.17
   run_exports: {}
-  size: 15179474
-  timestamp: 1780406251762
-- conda: https://prefix.dev/glatzel/osx-arm64/rattler-build-0.65.1-h45f102e_0.conda
-  sha256: c4e8dfc4f23a315ca3abda7d1bc8ffc242f4dc788553f21480fa73ace2f864da
-  md5: 81a0aaa85955bc9fb85189f755316a94
+  size: 14674518
+  timestamp: 1781360421107
+- conda: https://prefix.dev/glatzel/osx-arm64/rattler-build-0.66.1-h45f102e_0.conda
+  sha256: ff10b0863211226b24ab45ed35ffed79bfde963d19341b2142c6cd416e3a355f
+  md5: aa8dd2ec3e245b6478fac712323a1669
   depends:
   - __osx >=11.0
   constrains:
   - __osx >=11.0
   run_exports: {}
-  size: 13304750
-  timestamp: 1780406233053
-- conda: https://prefix.dev/glatzel/win-64/rattler-build-0.65.1-h4c36245_0.conda
-  sha256: ed7038560964a581ff175c490547a9a8e7ccf19a97afa646a9c3fe80df997b64
-  md5: 99ed4ad139e0c5f6a5bd346faf3865ef
+  size: 13286184
+  timestamp: 1781360404845
+- conda: https://prefix.dev/glatzel/win-64/rattler-build-0.66.1-h4c36245_0.conda
+  sha256: 349317615e1f9e86d3986e63fad3b84b73d5acdfb5e8439a828b3ea33a4f7b64
+  md5: e443480c19ea1b2a2e05bb30f2351041
   depends:
   - vc >=14.5,<15
   - vc14_runtime >=14.51.36231
   - ucrt >=10.0.20348.0
   run_exports: {}
-  size: 16090508
-  timestamp: 1780406244297
+  size: 16136152
+  timestamp: 1781360414666
