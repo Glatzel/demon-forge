@@ -147,8 +147,7 @@ function update-recipe
         --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
         --body-file "$PSScriptRoot/../../changelog.md" `
         --base main `
-        --head $update_branch `
-        --draft
+        --head $update_branch
     git checkout $originalBranch
     git reset --hard
     git clean -fd
