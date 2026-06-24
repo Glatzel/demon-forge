@@ -13,12 +13,12 @@ build:
 
 requirements:
   host:
-    - python 3.11.*
+    - python 3.13.*
     - pip
     - setuptools
     - wheel
   run:
-    - python >= 3.11
+    - python >= 3.13
     - lazy-loader
     - rich
 
