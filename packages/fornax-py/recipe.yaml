@@ -14,7 +14,7 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - patchelf
+    - ${{"patchelf" if unix}}
   host:
     - python 3.13.*
     - pip
