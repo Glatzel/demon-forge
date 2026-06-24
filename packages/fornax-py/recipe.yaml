@@ -15,11 +15,11 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
   host:
-    - python 3.11.*
+    - python 3.13.*
     - pip
     - libraw-dev
   run:
-    - python >= 3.11
+    - python >= 3.13
     - lazy-loader
     - pydantic
     - msgspec
