@@ -12,6 +12,9 @@ build:
 requirements:
   build:
     - clang-format
+  ignore_run_exports:
+    from_package:
+      - clang-format
 tests:
   - package_contents:
       bin:
