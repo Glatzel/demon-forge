@@ -8,15 +8,17 @@ build:
   script:
     - if: win
       then: mkdir "%PREFIX%\bin" && copy "%BUILD_PREFIX%\Library\bin\clang-format.exe" "%PREFIX%\bin\clang-format.exe"
-      else: cp "$BUILD_PREFIX/bin/clang-format" "$PREFIX/bin/clang-format"
+      else: mkdir $PREFIX/bin && cp "$BUILD_PREFIX/bin/clang-format" "$PREFIX/bin/clang-format"
 requirements:
   build:
     - clang-format
+  host:
+    - libclang
 tests:
   - package_contents:
       bin:
         - clang-format
-  - script: clang-format --help
+  - script: clang-format
 extra:
   update: |
     [Version](get-version-conda-forge clang-format)
