@@ -1,22 +1,28 @@
 context:
-  name: clang-format
+  name: 7-zip
 package:
-  version: "22.1.6"
+  version: "26.1"
   name: ${{ name }}
 build:
   number: 1
   script:
     - if: win
-      then: mkdir "%PREFIX%\bin" && copy "%BUILD_PREFIX%\Library\bin\clang-format.exe" "%PREFIX%\bin\clang-format.exe"
-      else: mkdir $PREFIX/bin && cp "$BUILD_PREFIX/bin/clang-format" "$PREFIX/bin/clang-format"
+      then: mkdir "%PREFIX%\bin" && copy "%BUILD_PREFIX%\bin\7zz.exe" "%PREFIX%\bin\7z.exe"
+      else: mkdir $PREFIX/bin && cp "$BUILD_PREFIX/bin/7zz" "$PREFIX/bin/7z"
 requirements:
   build:
-    - clang-format
+    - 7zip
 tests:
   - package_contents:
       bin:
-        - clang-format
+        - 7z
+  - script: 7z --help
+about:
+  license: LGPL-2.1-or-later AND LicenseRef-LGPL-2.1-or-later-with-unRAR-restriction
+  summary: 7-Zip is a file archiver with a high compression ratio.
+  homepage: https://www.7-zip.org/
+  repository: https://github.com/ip7z/7zip
 extra:
   update: |
-    [Version](get-version-conda-forge clang-format)
-  changelog: get-changelog-github llvm/llvm-project
+    [Version](get-version-conda-forge 7zip)
+  changelog: get-changelog-github ip7z/7zip
