@@ -12,6 +12,8 @@ build:
 requirements:
   build:
     - clang-format
+  host:
+    - clang-format
 tests:
   - package_contents:
       bin:
