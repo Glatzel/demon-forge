@@ -1,6 +1,6 @@
 context:
   name: sys-rhino-inside-autocad
-  version: "1.2.24"
+  version: "1.2.25"
 package:
   version: ${{ version }}
   name: ${{ name }}
