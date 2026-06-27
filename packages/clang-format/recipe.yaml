@@ -12,12 +12,11 @@ build:
 requirements:
   build:
     - clang-format
-  host:
-    - libclang
 tests:
   - package_contents:
       bin:
         - clang-format
+  - script: clang-format --help
 extra:
   update: |
     [Version](get-version-conda-forge clang-format)
