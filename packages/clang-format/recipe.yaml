@@ -12,6 +12,8 @@ build:
 requirements:
   build:
     - clang-format
+  run:
+    - libclang
   ignore_run_exports:
     from_package:
       - clang-format
