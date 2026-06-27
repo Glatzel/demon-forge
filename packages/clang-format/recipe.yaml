@@ -13,7 +13,7 @@ requirements:
   build:
     - clang-format
   host:
-    - clang-format
+    - libclang
 tests:
   - package_contents:
       bin:
