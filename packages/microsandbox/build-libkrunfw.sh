@@ -1,1 +1,1 @@
-mkdir $PREFIX/bin && cp "./libkrunfw*" "$PREFIX/bin/"
+mkdir $PREFIX/bin && ls &&cp "./libkrunfw*" "$PREFIX/bin/"

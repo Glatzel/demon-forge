@@ -29,7 +29,7 @@ outputs:
     tests:
       - package_contents:
           files:
-            - bin/libkrunfw
+            - bin/libkrunfw*
   - package:
       name: microsandbox
     source:
