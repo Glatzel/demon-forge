@@ -11,11 +11,14 @@ outputs:
       name: microsandbox-libkrunfw
     source:
       - if: osx
-        then: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-darwin-aarch64.tar.gz
+        then:
+          - url: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-darwin-aarch64.tar.gz
       - if: linux and x86_64
-        then: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-linux-x86_64.tar.gz
+        then:
+          - url: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-linux-x86_64.tar.gz
       - if: linux and aarch64
-        then: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-linux-aarch64.tar.gz
+        then:
+          - url: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-linux-aarch64.tar.gz
     build:
       script:
         interpreter: ${{ "powershell" if win else "bash" }}
