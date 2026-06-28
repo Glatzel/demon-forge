@@ -65,7 +65,6 @@ rattler-build,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-
 robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 rustup-init,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
-shook,,,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-24.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 sys-affinity,windows-latest,,,,
