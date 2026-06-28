@@ -1,29 +1,62 @@
 context:
   name: microsandbox
-  version: "0.5.10"
-package:
+  version: "0.6.0"
+  number: 0
+recipe:
   version: ${{ version }}
   name: ${{ name }}
-source:
-  - url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
-build:
-  number: 0
-requirements:
-  build:
-    - ${{ compiler("rust") }}
-    - ${{ compiler("c") }}
-    - ${{ stdlib("c") }}
-    - pkg-config
-  host:
-    - libcap-ng-dev
-    - microsandbox-libkrunfw
-tests:
-  - package_contents:
-      bin:
-        - msb
-  - script:
-      - msb --help
-      - msb run --help
+
+outputs:
+  - package:
+      name: microsandbox-libkrunfw
+    source:
+      - if: osx
+        then:
+          - url: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-darwin-aarch64.tar.gz
+      - if: linux and x86_64
+        then:
+          - url: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-linux-x86_64.tar.gz
+      - if: linux and aarch64
+        then:
+          - url: https://github.com/superradcompany/microsandbox/releases/download/v${{ version }}/microsandbox-linux-aarch64.tar.gz
+    build:
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-libkrunfw.${{ "ps1" if win else "sh" }}
+    requirements:
+      build:
+        - ${{"patchelf" if linux}}
+      run_exports:
+        - ${{ pin_subpackage('microsandbox-libkrunfw', upper_bound='x.x') }}
+    tests:
+      - package_contents:
+          files:
+            - bin/libkrunfw*
+  - package:
+      name: microsandbox
+    source:
+      - url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
+    build:
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-msb.${{ "ps1" if win else "sh" }}
+
+    requirements:
+      build:
+        - ${{ compiler("rust") }}
+        - ${{ compiler("c") }}
+        - ${{ stdlib("c") }}
+        - pkg-config
+      host:
+        - ${{ "libcap-ng-dev" if linux }}
+        - microsandbox-libkrunfw
+    tests:
+      - package_contents:
+          bin:
+            - msb
+      - script:
+          - msb --help
+          - msb run --help
 about:
   repository: https://github.com/zerocore-ai/microsandbox
 
