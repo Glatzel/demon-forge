@@ -24,6 +24,8 @@ outputs:
         interpreter: ${{ "powershell" if win else "bash" }}
         file: build-libkrunfw.${{ "ps1" if win else "sh" }}
     requirements:
+      build:
+        - ${{"patchelf" if linux}}
       run_exports:
         - ${{ pin_subpackage('microsandbox-libkrunfw', upper_bound='x.x') }}
     tests:
