@@ -1,7 +1,7 @@
 context:
   name: sys-tailscale
 package:
-  version: "1.98.4"
+  version: "1.98.8"
   name: ${{ name }}
 build:
   number: 0
