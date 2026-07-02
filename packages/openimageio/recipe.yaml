@@ -41,7 +41,7 @@ outputs:
         - openexr
         - openvdb-dev
         - openjpeg
-        - libopencv
+        - libopencv 4.*
         - tbb-devel
         - yaml-cpp
         - zlib
