@@ -86,7 +86,7 @@ sys-wecom,windows-latest,,,,
 termscp,windows-latest,,,,
 tombi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 toolbox,,,,,ubuntu-slim
-ttyw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+ttyw,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ueberzugpp,,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 upx,windows-latest,,,,
 uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
