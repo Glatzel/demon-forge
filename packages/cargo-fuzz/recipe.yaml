@@ -28,10 +28,9 @@ tests:
         - rustup-init -y --default-toolchain nightly --profile minimal
         - if: unix
           then: . "$HOME/.cargo/env"
-          else: . "$env:HOME/.cargo/env.ps1"
         - if: win
-          then: cp $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
-          else: cp $GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
+          then: copy-item $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./ -recurse
+          else: cp -r $GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
         - cargo +nightly fuzz run fuzz_target_1
 
 about:
