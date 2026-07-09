@@ -22,14 +22,16 @@ tests:
       run:
         - rustup-init
         - ${{"gcc" if linux}}
-        - powershell
     script:
-      interpreter: powershell
+      interpreter: ${{"powershell" if win else "bash"}}
       content:
         - rustup-init -y --default-toolchain nightly --profile minimal
         - if: unix
-          then: . "$env:HOME/.cargo/env"
-        - cp $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
+          then: . "$HOME/.cargo/env"
+          else: . "$env:HOME/.cargo/env.ps1"
+        - if: win
+          then: cp $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
+          else: cp $GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
         - cargo +nightly fuzz run fuzz_target_1
 
 about:
