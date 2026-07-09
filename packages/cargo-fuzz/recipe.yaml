@@ -29,7 +29,7 @@ tests:
         - rustup-init -y --default-toolchain nightly --profile minimal
         - if: unix
           then: . "$HOME/.cargo/env"
-        - cp $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/ ./
+        - cp $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
         - cargo +nightly fuzz run fuzz_target_1
 
 about:
