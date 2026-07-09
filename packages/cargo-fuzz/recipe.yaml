@@ -29,7 +29,10 @@ tests:
         - if: win
           then: . "$HOME/.cargo/env.ps1"
           else: . "$HOME/.cargo/env"
-        - cargo fuzz run --fuzz-dir ${{ "$env:RECIPE_DIR/test-files" if win else "$RECIPE_DIR/test-files" }} fuzz_target_1
+        - if: win
+          then: cd "$env:RECIPE_DIR/test-files"
+          else: cd "${RECIPE_DIR}/test-files"
+        - cargo fuzz run fuzz_target_1
 
 about:
   repository: https://github.com/rust-fuzz/cargo-fuzz
