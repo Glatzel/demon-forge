@@ -22,8 +22,13 @@ tests:
       run:
         - rustup-init
     script:
-      - rustup-init -y --default-toolchain nightly --profile minimal
-      - cargo ${{name}} run --fuzz-dir ${{ "%RECIPE_DIR%/test-files" if win else "$RECIPE_DIR/test-files" }} fuzz_target_1
+      interpreter: ${{"powershell" if win else "bash"}}
+      content:
+        - rustup-init -y --default-toolchain nightly --profile minimal
+        - if: win
+          then: . "$HOME/.cargo/env.ps1"
+          else: . "$HOME/.cargo/env"
+        - cargo fuzz run --fuzz-dir ${{ "$env:RECIPE_DIR/test-files" if win else "$RECIPE_DIR/test-files" }} fuzz_target_1
 
 about:
   repository: https://github.com/rust-fuzz/cargo-fuzz
