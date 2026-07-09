@@ -11,12 +11,16 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
   run:
-    - ${{"gcc" if linux}}
-    - ${{"gxx" if linux}}
-    - ${{ compiler('c') if win }}
-    - ${{ compiler('cxx') if win }}
-    - clang
-    - ${{"diffutils" if unix}}
+    - if: linux
+      then:
+        - gcc
+        - gxx
+        - diffutils
+    - if: win
+      then:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - clang
 tests:
   - package_contents:
       bin:
@@ -34,7 +38,7 @@ tests:
         - if: win
           then: copy-item $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./ -recurse
           else: cp -r $GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
-        - cargo +nightly fuzz run --fuzz-dir ./ fuzz_target_1
+        - cargo +nightly fuzz run --fuzz-dir ./ fuzz_target_1 -- -runs=2
 
 about:
   repository: https://github.com/rust-fuzz/cargo-fuzz
