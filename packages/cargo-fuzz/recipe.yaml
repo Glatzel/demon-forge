@@ -24,7 +24,7 @@ tests:
         - ${{"gcc" if linux}}
         - powershell
     script:
-      interpreter: ${{"powershell" if win else "bash"}}
+      interpreter: powershell
       content:
         - rustup-init -y --default-toolchain nightly --profile minimal
         - cp $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files ./
