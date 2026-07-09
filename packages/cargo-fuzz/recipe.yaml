@@ -13,8 +13,8 @@ requirements:
   run:
     - ${{"gcc" if linux}}
     - ${{"gxx" if linux}}
-    - ${{ compiler('c') if win or osx }}
-    - ${{ compiler('cxx') if win or osx }}
+    - ${{ compiler('c') if win }}
+    - ${{ compiler('cxx') if win }}
     - clang
     - ${{"diffutils" if unix}}
 tests:
