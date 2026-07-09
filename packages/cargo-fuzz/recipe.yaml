@@ -12,11 +12,19 @@ requirements:
     - ${{ stdlib('c') }}
   run:
     - ${{ compiler('c') if win }}
+    - clang
 tests:
   - package_contents:
       bin:
         - ${{name}}
   - script: ${{name}} --help
+  - requirements:
+      run:
+        - rustup-init
+    script:
+      - rustup-init -y --default-toolchain nightly --profile minimal
+      - cargo ${{name}} run --fuzz-dir ${{ "%RECIPE_DIR%/test-files" if win else "$RECIPE_DIR/test-files" }} fuzz_target_1
+
 about:
   repository: https://github.com/rust-fuzz/cargo-fuzz
 
