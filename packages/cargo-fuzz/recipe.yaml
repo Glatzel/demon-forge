@@ -21,6 +21,7 @@ tests:
   - requirements:
       run:
         - rustup-init
+        - ${{"gcc" if linux}}
     script:
       interpreter: ${{"powershell" if win else "bash"}}
       content:
