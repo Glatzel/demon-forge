@@ -11,7 +11,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
   run:
-    - ${{ compiler('c') if win }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
     - clang
 tests:
   - package_contents:
@@ -21,7 +22,6 @@ tests:
   - requirements:
       run:
         - rustup-init
-        - ${{"gcc" if linux}}
     script:
       interpreter: ${{"powershell" if win else "bash"}}
       content:
