@@ -27,7 +27,7 @@ tests:
       content:
         - rustup-init -y --default-toolchain nightly --profile minimal
         - if: win
-          then: . "$HOME/.cargo/env.ps1"
+          then: . "$env:HOME/.cargo/env.ps1"
           else: . "$HOME/.cargo/env"
         - if: win
           then: cd "$env:RECIPE_DIR/test-files"
