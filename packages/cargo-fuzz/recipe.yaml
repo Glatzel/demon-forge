@@ -1,7 +1,7 @@
 context:
   name: cargo-fuzz
 package:
-  version: "0.9.138"
+  version: "0.13.2"
   name: ${{ name }}
 build:
   number: 0
@@ -11,12 +11,35 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
   run:
-    - ${{ compiler('c') if win }}
+    - if: linux
+      then:
+        - gcc
+        - gxx
+        - diffutils
+    - if: win
+      then:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - clang
 tests:
   - package_contents:
       bin:
         - ${{name}}
   - script: ${{name}} --help
+  - requirements:
+      run:
+        - rustup-init
+    script:
+      interpreter: ${{"powershell" if win else "bash"}}
+      content:
+        - rustup-init -y --default-toolchain nightly --profile minimal
+        - if: unix
+          then: . "$HOME/.cargo/env"
+        - if: win
+          then: copy-item $env:GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./ -recurse
+          else: cp -r $GITHUB_WORKSPACE/packages/cargo-fuzz/test-files/* ./
+        - cargo +nightly fuzz run --fuzz-dir ./ fuzz_target_1 -- -runs=2
+
 about:
   repository: https://github.com/rust-fuzz/cargo-fuzz
 
