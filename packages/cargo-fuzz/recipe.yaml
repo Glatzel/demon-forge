@@ -1,7 +1,7 @@
 context:
   name: cargo-fuzz
 package:
-  version: "0.9.138"
+  version: "0.13.2"
   name: ${{ name }}
 build:
   number: 0
