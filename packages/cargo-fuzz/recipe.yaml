@@ -14,7 +14,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - clang
-    - diffutils
+    - ${{"diffutils" if unix}}
 tests:
   - package_contents:
       bin:
