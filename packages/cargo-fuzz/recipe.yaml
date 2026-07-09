@@ -1,0 +1,25 @@
+context:
+  name: cargo-fuzz
+package:
+  version: "0.9.138"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+  run:
+    - ${{ compiler('c') if win }}
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
+about:
+  repository: https://github.com/rust-fuzz/cargo-fuzz
+
+extra:
+  update: get-version-crateio -name cargo-fuzz
+  changelog: get-changelog-github rust-fuzz/cargo-fuzz

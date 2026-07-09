@@ -14,6 +14,7 @@ cargo-binutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu
 cargo-bloat,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-codspeed,,,ubuntu-latest+ci-linux-release,,
 cargo-espflash,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+cargo-fuzz,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-llvm-cov,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-llvm-lines,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-nextest,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
