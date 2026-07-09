@@ -1,6 +1,6 @@
 context:
   name: vinaya-cli
-  version: "2026.5.29"
+  version: "2026.7.6"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -13,7 +13,7 @@ build:
     content: |
       $ROOT = git rev-parse --show-toplevel
       . $ROOT/scripts/util.ps1
-      Set-Location ./tools/vinaya
+      Set-Location ./tools/vinaya/crates/vinaya-cli
       cargo install --path . @(Get-Cargo-Arg)
 
 requirements:
