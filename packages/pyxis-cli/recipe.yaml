@@ -1,13 +1,13 @@
 context:
   name: pyxis-cli
-  version: "0.0.43"
+  version: "0.0.44"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/pyxis/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 2
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
