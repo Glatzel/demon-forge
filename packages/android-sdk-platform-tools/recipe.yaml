@@ -14,6 +14,9 @@ source:
   - if: linux
     then:
       url: https://dl.google.com/android/repository/platform-tools-latest-linux.zip?hl=zh-cn
+requirements:
+  build:
+    - powershell
 build:
   number: 0
   script:
