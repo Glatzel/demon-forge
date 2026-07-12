@@ -18,7 +18,7 @@ if ( $need_install)
     {
         & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
             -d "$PSScriptRoot/../temp" `
-            "https://github.com/mcneel/rhino.inside-autocad/releases/download/v$version/Rhino.Inside.AutoCAD.Installer.V$version.msi" `
+            "https://github.com/mcneel/rhino.inside-autocad/releases/download/v1.2.28/Rhino.Inside.AutoCAD.and.Civil3D.Installer.V$version.msi" `
             -o "rhino-inside-autocad-$version.msi"
     }
     Write-Output "install rhino.inside-autocad $version"
