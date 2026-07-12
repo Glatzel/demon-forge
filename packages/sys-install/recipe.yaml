@@ -1,7 +1,7 @@
 context:
   name: sys-install
 package:
-  version: "1.0.0"
+  version: "1.1.0"
   name: ${{ name }}
 build:
   number: 1
@@ -13,4 +13,4 @@ build:
       Copy-Item $env:RECIPE_DIR/install-sys.bat $env:PREFIX/Scripts/install-sys.bat
 
 extra:
-  update: echo "1.0.0"
+  update: echo "1.1.0"
