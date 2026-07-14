@@ -1,4 +1,4 @@
-mkdir -f "$PREFIX/csharpier"
+mkdir "$PREFIX/csharpier"
 dotnet tool install csharpier --tool-path "$PREFIX/csharpier"
 
 tee ${PREFIX}/bin/csharpier << EOF
