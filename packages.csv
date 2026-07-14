@@ -23,6 +23,7 @@ cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ci-linux-release
 cloudflared,windows-latest,,ubuntu-slim,ubuntu-26.04-arm,
 cpu-z,windows-latest,,,,
 crsdk,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
+csharpier,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
 dism-plus-plus,windows-latest,,,,
 duckdb,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 dufs,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,

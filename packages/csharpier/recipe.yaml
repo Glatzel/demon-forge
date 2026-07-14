@@ -1,0 +1,23 @@
+context:
+  name: csharpier
+package:
+  version: "26.2"
+  name: ${{ name }}
+build:
+  number: 0
+  script:
+    - mkdir
+    - dotnet tool install csharpier --tool-path
+requirements:
+  build:
+    - dotnet
+  run:
+    - dotnet
+tests:
+  - script: csharpier --help
+
+about:
+  repository: https://github.com/belav/csharpier
+extra:
+  update: get-version-github -repo "belav/csharpier"
+  changelog: get-changelog-github belav/csharpier
