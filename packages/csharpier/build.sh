@@ -1,3 +1,6 @@
+mkdir -p ${PREFIX}/bin
+mkdir -p ${PREFIX}/${PKG_NAME}
+
 rm -rf global.json
 rm -rf .config/dotnet-tools.json
 framework_version="$(dotnet --version | sed -e 's/\..*//g').0"
