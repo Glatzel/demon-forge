@@ -1,8 +1,11 @@
 context:
   name: csharpier
-package:
   version: "1.3.0"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  - url: https://github.com/belav/csharpier/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 0
 requirements:
