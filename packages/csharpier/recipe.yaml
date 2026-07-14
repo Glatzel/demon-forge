@@ -1,13 +1,10 @@
 context:
   name: csharpier
 package:
-  version: "26.2"
+  version: "1.3.0"
   name: ${{ name }}
 build:
   number: 0
-  script:
-    - mkdir
-    - dotnet tool install csharpier --tool-path
 requirements:
   build:
     - dotnet
