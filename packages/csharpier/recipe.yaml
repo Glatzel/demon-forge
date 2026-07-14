@@ -8,9 +8,11 @@ source:
   - url: https://github.com/belav/csharpier/archive/refs/tags/${{ version }}.tar.gz
 build:
   number: 0
+  noarch: generic
 requirements:
   build:
     - dotnet
+    - git
   run:
     - dotnet
 tests:
