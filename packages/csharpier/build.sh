@@ -1,4 +1,5 @@
-mkdir "$PREFIX/csharpier"
+rm -rf global.json
+rm -rf .config/dotnet-tools.json
 framework_version="$(dotnet --version | sed -e 's/\..*//g').0"
 dotnet publish --no-self-contained Src/CSharpier.Cli/CSharpier.Cli.csproj --output ${PREFIX}/${PKG_NAME} \
     --framework net${framework_version} -p:TreatWarningAsErrors=false
