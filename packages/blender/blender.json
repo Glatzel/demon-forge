@@ -7,7 +7,7 @@
             "name": "blender",
             "description": "Launch blender",
             "command": [
-                "{{ PREFIX }}/bin/blender/blender.exe"
+                "{{ PREFIX }}/blender/blender.exe"
             ],
             "platforms": {
                 "win": {
