@@ -10,8 +10,8 @@ build:
     file: build.ps1
 tests:
   - package_contents:
-      bin:
-        - ${{ name }}/${{ name }}
+      files:
+        - ${{ name }}/${{ name }}*
 about:
   homepage: https://www.blender.org
   license: GPL-3.0-or-later
