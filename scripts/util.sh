@@ -8,11 +8,6 @@ case "$(uname -s)-$(uname -m)" in
         # Modern Linux x64 servers/desktops
         export RUSTFLAGS="-C target-cpu=x86-64-v3"
         ;;
-
-    *)
-        echo "Unsupported platform: $(uname -s)-$(uname -m)"
-        exit 1
-        ;;
 esac
 get_cargo_arg() {
     printf '%s\n' \
