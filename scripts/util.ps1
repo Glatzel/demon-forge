@@ -18,7 +18,7 @@ if ($IsWindows)
 
 function Get-Cargo-Arg
 {
-    RUSTFLAGS="-C target-cpu=x86-64-v3"
+    $env:RUSTFLAGS="-C target-cpu=x86-64-v3"
     $cargo_arg = @(
         '--root', "$env:PREFIX"
         '--locked'
