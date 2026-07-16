@@ -1,3 +1,19 @@
+case "$(uname -s)-$(uname -m)" in
+    Darwin-arm64)
+        # Apple Silicon
+        export RUSTFLAGS="-C target-cpu=apple-m1"
+        ;;
+
+    Linux-x86_64)
+        # Modern Linux x64 servers/desktops
+        export RUSTFLAGS="-C target-cpu=x86-64-v3"
+        ;;
+
+    *)
+        echo "Unsupported platform: $(uname -s)-$(uname -m)"
+        exit 1
+        ;;
+esac
 get_cargo_arg() {
     printf '%s\n' \
         --root "$PREFIX" \
