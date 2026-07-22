@@ -3,14 +3,8 @@ context:
 package:
   version: "2.336.0"
   name: ${{ name }}
-requirements:
-  build:
-    - powershell
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 about:
   repository: https://github.com/actions/runner
 
