@@ -18,7 +18,6 @@ if ($IsWindows)
 
 function Get-Cargo-Arg
 {
-    $env:RUSTFLAGS="-C target-cpu=x86-64-v3"
     $cargo_arg = @(
         '--root', "$env:PREFIX"
         '--locked'
@@ -28,6 +27,7 @@ function Get-Cargo-Arg
         '--config', 'profile.release.lto="fat"'
         '--config', 'profile.release.opt-level=3'
         '--config', 'profile.release.strip=true'
+        '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
 
     return $cargo_arg
