@@ -1,19 +1,18 @@
 get_cargo_arg() {
+    local rustflags_config=""
+
     case "$(uname -s)-$(uname -m)" in
         Darwin-arm64)
             # Apple Silicon
-            RUSTC_EXTRA_ARGS=(-- -C target-cpu=apple-m1)
+            rustflags_config='target.aarch64-apple-darwin.rustflags=["-C","target-cpu=apple-m1"]'
             ;;
 
         Linux-x86_64)
             # Modern Linux x64 servers/desktops
-            RUSTC_EXTRA_ARGS=(-- -C target-cpu=x86-64-v3)
-            ;;
-
-        *)
-            RUSTC_EXTRA_ARGS=()
+            rustflags_config='target.x86_64-unknown-linux-gnu.rustflags=["-C","target-cpu=x86-64-v3"]'
             ;;
     esac
+
     printf '%s\n' \
         --root "$PREFIX" \
         --locked \
@@ -23,7 +22,7 @@ get_cargo_arg() {
         --config 'profile.release.lto="fat"' \
         --config profile.release.opt-level=3 \
         --config profile.release.strip=true \
-        "${RUSTC_EXTRA_ARGS[@]}"
+        ${rustflags_config:+--config "$rustflags_config"}
 }
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
