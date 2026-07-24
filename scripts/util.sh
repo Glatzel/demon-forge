@@ -4,12 +4,12 @@ get_cargo_arg() {
     case "$(uname -s)-$(uname -m)" in
         Darwin-arm64)
             # Apple Silicon
-            rustflags_config='target.aarch64-apple-darwin.rustflags=["-C","target-cpu=apple-m1"]'
+            rustflags_config='rustflags=["-C","target-cpu=apple-m1"]'
             ;;
 
         Linux-x86_64)
             # Modern Linux x64 servers/desktops
-            rustflags_config='target.x86_64-unknown-linux-gnu.rustflags=["-C","target-cpu=x86-64-v3"]'
+            rustflags_config='rustflags=["-C","target-cpu=x86-64-v3"]'
             ;;
     esac
 
