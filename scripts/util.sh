@@ -1,14 +1,19 @@
 case "$(uname -s)-$(uname -m)" in
     Darwin-arm64)
         # Apple Silicon
-        export RUSTFLAGS="-C target-cpu=apple-m1"
+        RUSTC_EXTRA_ARGS=(-- -C target-cpu=apple-m1)
         ;;
 
     Linux-x86_64)
         # Modern Linux x64 servers/desktops
-        export RUSTFLAGS="-C target-cpu=x86-64-v3"
+        RUSTC_EXTRA_ARGS=(-- -C target-cpu=x86-64-v3)
+        ;;
+
+    *)
+        RUSTC_EXTRA_ARGS=()
         ;;
 esac
+
 get_cargo_arg() {
     printf '%s\n' \
         --root "$PREFIX" \
@@ -18,7 +23,8 @@ get_cargo_arg() {
         --config profile.release.codegen-units=1 \
         --config 'profile.release.lto="fat"' \
         --config profile.release.opt-level=3 \
-        --config profile.release.strip=true
+        --config profile.release.strip=true \
+        "${RUSTC_EXTRA_ARGS[@]}"
 }
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
