@@ -47,6 +47,7 @@ jobs:
         shell: pwsh
 
   rattler-build:
+    timeout-minutes: 720
     permissions:
       id-token: write
     if: ${{needs.dispatch.outputs.matrix != '' }}
