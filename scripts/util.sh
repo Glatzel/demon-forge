@@ -1,20 +1,19 @@
-case "$(uname -s)-$(uname -m)" in
-    Darwin-arm64)
-        # Apple Silicon
-        RUSTC_EXTRA_ARGS=(-- -C target-cpu=apple-m1)
-        ;;
-
-    Linux-x86_64)
-        # Modern Linux x64 servers/desktops
-        RUSTC_EXTRA_ARGS=(-- -C target-cpu=x86-64-v3)
-        ;;
-
-    *)
-        RUSTC_EXTRA_ARGS=()
-        ;;
-esac
-
 get_cargo_arg() {
+    case "$(uname -s)-$(uname -m)" in
+        Darwin-arm64)
+            # Apple Silicon
+            RUSTC_EXTRA_ARGS=(-- -C target-cpu=apple-m1)
+            ;;
+
+        Linux-x86_64)
+            # Modern Linux x64 servers/desktops
+            RUSTC_EXTRA_ARGS=(-- -C target-cpu=x86-64-v3)
+            ;;
+
+        *)
+            RUSTC_EXTRA_ARGS=()
+            ;;
+    esac
     printf '%s\n' \
         --root "$PREFIX" \
         --locked \
