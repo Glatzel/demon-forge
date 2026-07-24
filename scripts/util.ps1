@@ -27,6 +27,7 @@ function Get-Cargo-Arg
         '--config', 'profile.release.lto="fat"'
         '--config', 'profile.release.opt-level=3'
         '--config', 'profile.release.strip=true'
+        '--config', 'build.rustflags=["target-cpu=x86-64-v3"]'
     )
 
     return $cargo_arg
