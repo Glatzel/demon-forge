@@ -1,5 +1,3 @@
-$ErrorActionPreference = "Stop"
-$PSNativeCommandUseErrorActionPreference = $true
 foreach ($f in Get-ChildItem $PSScriptRoot/install-sys-*.ps1)
 {
     $pkg_name = ([System.IO.Path]::GetFileNameWithoutExtension($f)).Replace("install-sys-", "")
