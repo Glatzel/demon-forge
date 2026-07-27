@@ -1,0 +1,21 @@
+context:
+  name: bottom
+package:
+  version: "0.14.6"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
+about:
+  repository: https://github.com/ClementTsang/bottom
+
+extra:
+  update: get-version-crateio -name $name
+  changelog: get-changelog-github ClementTsang/bottom
