@@ -15,7 +15,7 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}
+        - btm
 about:
   repository: https://github.com/XAMPPRocky/tokei/
 
