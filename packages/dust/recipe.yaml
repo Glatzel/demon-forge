@@ -1,0 +1,21 @@
+context:
+  name: dust
+package:
+  version: "1.2.4"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
+about:
+  repository: https://github.com/ClementTsang/bottom
+
+extra:
+  update: get-version-crateio -name du-dust
+  changelog: get-changelog-github bootandy/dust
