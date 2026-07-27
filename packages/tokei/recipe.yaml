@@ -1,0 +1,24 @@
+context:
+  name: tokei
+  version: "14.0.0"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  url: https://github.com/XAMPPRocky/tokei/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
+about:
+  repository: https://github.com/XAMPPRocky/tokei/
+
+extra:
+  update: get-version-github -repo "XAMPPRocky/tokei"
+  changelog: get-changelog-github -repo "XAMPPRocky/tokei"

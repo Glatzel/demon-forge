@@ -86,6 +86,7 @@ sys-tencent-docs,windows-latest,,,,
 sys-vscode,windows-latest,,,,
 sys-wecom,windows-latest,,,,
 termscp,windows-latest,,,,
+tokei,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 tombi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 toolbox,,,,,ubuntu-slim
 ttyw,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
