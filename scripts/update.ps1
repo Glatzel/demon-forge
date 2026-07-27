@@ -107,7 +107,7 @@ function update-recipe
 
     if (-not $HAS_NEW_VERSION)
     {
-        "|$name|$current_version|$version|🔵 Already up-to-date|" >> $env:GITHUB_STEP_SUMMARY
+        "|$name|$current_version |🔵 Already up-to-date|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
     # skip if remote branch already exists
@@ -115,7 +115,7 @@ function update-recipe
     $remoteExists = git ls-remote --heads origin $update_branch
     if ($remoteExists)
     {
-        "|$name|$current_version|$version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
+        "|$name|$current_version -> $version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
 
@@ -151,12 +151,12 @@ function update-recipe
     git checkout $originalBranch
     git reset --hard
     git clean -fd
-    "| $name | $current_version | ✨ **$version** | 🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
+    "| $name | $current_version -> ✨ **$version** | 🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
     return
 }
 
-"| Package | Current Version | Latest Version | Status |" >> $env:GITHUB_STEP_SUMMARY
-"|---|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
+"| Package | Version | Status |" >> $env:GITHUB_STEP_SUMMARY
+"|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
 ForEach ($name in get-childitem $PSScriptRoot/../packages)
 {
     $name=$name.Name
