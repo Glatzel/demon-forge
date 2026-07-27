@@ -107,7 +107,7 @@ function update-recipe
 
     if (-not $HAS_NEW_VERSION)
     {
-        "|$name|$current_version|$version|🔵 No new version found|" >> $env:GITHUB_STEP_SUMMARY
+        "|$name|$current_version|$version|🔵 Already up-to-date|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
     # skip if remote branch already exists
