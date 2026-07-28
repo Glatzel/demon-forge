@@ -9,6 +9,7 @@ source:
 build:
   number: 0
   script: |
+    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
     cmake -S . -B build \
         -G "Ninja" \
         -DVERBOSE=ON \
@@ -26,10 +27,9 @@ requirements:
     - cmake
     - ninja
     - ${{'diffutils' if linux }}
-    - ${{ 'pkg-config' if linux }}
+    - pkg-config
     - ${{ 'clang-tools' if osx }}
   host:
-    - libxml2
     - expat
     - libvips
     - libsixel
