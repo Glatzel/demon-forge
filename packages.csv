@@ -93,7 +93,7 @@ tokei,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-ar
 tombi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 toolbox,,,,,ubuntu-slim
 ttyw,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-ueberzugpp,,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+ueberzugpp,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 upx,windows-latest,,,,
 uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 v2rayn,windows-latest,,,,
