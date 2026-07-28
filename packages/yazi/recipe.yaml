@@ -11,6 +11,10 @@ outputs:
       name: ${{ name }}
     source:
       - url: https://github.com/sxyazi/yazi/archive/refs/tags/v${{ version }}.tar.gz
+    requirements:
+      build:
+        - ${{ compiler('rust') }}
+        - ${{ stdlib('c') }}
     build:
       number: ${{ number }}
       script:
