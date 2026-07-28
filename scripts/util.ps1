@@ -19,6 +19,7 @@ if ($IsWindows)
 function Get-Cargo-Arg
 {
     $cargo_arg = @(
+        '--verbose'
         '--root', "$env:PREFIX"
         '--locked'
         '--force'
