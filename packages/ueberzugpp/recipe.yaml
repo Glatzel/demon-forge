@@ -7,7 +7,7 @@ package:
 source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 1
+  number: 0
   script: |
     cmake -S . -B build \
         -G "Ninja" \
