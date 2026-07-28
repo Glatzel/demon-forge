@@ -40,7 +40,6 @@ requirements:
     - fmt
     - range-v3
     - glib
-    - libxml2
 tests:
   - package_contents:
       bin:
