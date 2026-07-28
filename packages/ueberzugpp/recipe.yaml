@@ -20,7 +20,6 @@ build:
     cmake --build build --config Release --target install
 requirements:
   build:
-    - libxml2
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
@@ -30,6 +29,7 @@ requirements:
     - ${{ 'pkg-config' if linux }}
     - ${{ 'clang-tools' if osx }}
   host:
+    - libxml2
     - expat
     - libvips
     - libsixel
