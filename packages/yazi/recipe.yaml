@@ -1,0 +1,60 @@
+context:
+  name: yazi
+  version: "26.5.6"
+  number: 0
+recipe:
+  version: ${{ version }}
+  name: ${{ name }}
+
+outputs:
+  - package:
+      name: ${{ name }}
+    source:
+      - url: https://github.com/sxyazi/yazi/archive/refs/tags/v${{ version }}.tar.gz
+    requirements:
+      build:
+        - ${{ compiler('rust') }}
+        - ${{ stdlib('c') }}
+        - ${{ "make" if unix}}
+    build:
+      number: ${{ number }}
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-${{ name }}.${{ "ps1" if win else "sh" }}
+    tests:
+      - package_contents:
+          bin:
+            - yazi
+            - ya
+      - script: yazi --debug
+  - package:
+      name: yazi-full
+    build:
+      number: ${{ number }}
+    requirements:
+      run:
+        - ${{ name }}
+        - fd-find
+        - ffmpeg
+        - fzf
+        - imagemagick
+        - jq
+        - poppler
+        - resvg
+        - ripgrep
+        - yazi
+        - zoxide
+        - 7zip
+        - if: unix
+          then:
+            - chafa
+            - file
+            - ueberzugpp
+            - xclip
+            - xsel
+    tests:
+      - script: yazi --debug
+
+extra:
+  update: get-version-conda-forge yazi
+  changelog: get-changelog-github sxyazi/yazi
