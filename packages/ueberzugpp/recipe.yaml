@@ -25,7 +25,7 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake
     - ninja
-    - pkg-config
+    - ${{ 'pkg-config' if linux}}
     - ${{ 'clang-tools' if osx }}
   host:
     - expat
