@@ -25,6 +25,7 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake
     - ninja
+    - ${{'diffutils' if linux }}
     - ${{ 'pkg-config' if linux }}
     - ${{ 'clang-tools' if osx }}
   host:
