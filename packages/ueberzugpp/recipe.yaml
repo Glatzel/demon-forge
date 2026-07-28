@@ -9,6 +9,7 @@ source:
 build:
   number: 0
   script: |
+    pkg-config --debug --libs vips-cpp
     cmake -S . -B build \
         -G "Ninja" \
         -DVERBOSE=ON \
