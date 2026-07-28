@@ -20,5 +20,5 @@ about:
   repository: https://github.com/tombi-toml/tombi
 
 extra:
-  update: get-version-github -repo "tombi-toml/tombi"
+  update: get-version-github "tombi-toml/tombi"
   changelog: get-changelog-github -repo "tombi-toml/tombi"
