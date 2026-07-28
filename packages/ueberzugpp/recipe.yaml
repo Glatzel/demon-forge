@@ -23,7 +23,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
-    - cmake 3.*
+    - cmake
     - ninja
     - pkg-config
     - ${{ 'clang-tools' if osx }}
