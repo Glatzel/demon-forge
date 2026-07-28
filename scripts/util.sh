@@ -29,7 +29,7 @@ get_cargo_arg() {
             --config profile.release.opt-level=2
         )
     fi
-    printf '%q\n' "${args[@]}"
+    printf '%s\n' "${args[@]}"
 }
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
