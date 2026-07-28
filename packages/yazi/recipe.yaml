@@ -15,7 +15,7 @@ outputs:
       build:
         - ${{ compiler('rust') }}
         - ${{ stdlib('c') }}
-        - ${{ "make" if linux}}
+        - ${{ "make" if unix}}
     build:
       number: ${{ number }}
       script:
