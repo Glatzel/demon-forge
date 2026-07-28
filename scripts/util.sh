@@ -1,6 +1,5 @@
 get_cargo_arg() {
     args=(
-        --verbose
         --root "$PREFIX"
         --locked
         --force
