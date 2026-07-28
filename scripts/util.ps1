@@ -29,7 +29,7 @@ function Get-Cargo-Arg
         '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
     if ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch"){
-        $cargo_arg+=(       '--config', 'profile.release.codegen-units=1')
+        $cargo_arg+=('--config', 'profile.release.codegen-units=1')
     }
     return $cargo_arg
 }
