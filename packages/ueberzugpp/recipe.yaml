@@ -23,7 +23,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
-    - cmake 4.3.*
+    - cmake
     - ninja
     - ${{'diffutils' if linux }}
     - ${{ 'pkg-config' if linux }}
