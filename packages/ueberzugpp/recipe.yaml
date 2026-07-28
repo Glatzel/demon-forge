@@ -30,6 +30,7 @@ requirements:
     - pkg-config
     - ${{ 'clang-tools' if osx }}
   host:
+    - libxml2-devel
     - expat
     - libvips
     - libsixel
