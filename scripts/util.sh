@@ -1,12 +1,10 @@
 get_cargo_arg() {
-    args=(    
-        --root "$PREFIX" 
-        --locked 
-        --force 
-        --config profile.release.debug=false 
-        --config 'profile.release.lto="fat"'
-        --config profile.release.opt-level=3
-        --config profile.release.strip=true
+    args=(
+        --root "$PREFIX"
+        --locked
+        --force
+        --config profile.release.debug=false
+
     )
     case "$(uname -s)-$(uname -m)" in
         Darwin-arm64)
@@ -20,9 +18,18 @@ get_cargo_arg() {
             ;;
     esac
     if [ "$GITHUB_EVENT_NAME" = "push" ]; then
-        args+=(--config profile.release.codegen-units=1)
+        args+=(
+            --config profile.release.codegen-units=1
+            --config profile.release.strip=true
+            --config 'profile.release.lto="fat"'
+            --config profile.release.opt-level=3
+        )
+    else
+        args+=(
+            --config profile.release.opt-level=2
+        )
     fi
-    printf '%s\n' "${args[@]}"
+    printf '%q\n' "${args[@]}"
 }
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
