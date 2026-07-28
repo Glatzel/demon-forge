@@ -9,7 +9,6 @@ source:
 build:
   number: 0
   script: |
-    pkg-config --debug --libs vips-cpp
     cmake -S . -B build \
         -G "Ninja" \
         -DVERBOSE=ON \
@@ -21,6 +20,7 @@ build:
     cmake --build build --config Release --target install
 requirements:
   build:
+    - libxml2
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
