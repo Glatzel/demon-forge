@@ -23,13 +23,19 @@ function Get-Cargo-Arg
         '--locked'
         '--force'
         '--config', 'profile.release.debug=false'
-        '--config', 'profile.release.codegen-units=1'
-        '--config', 'profile.release.lto="fat"'
-        '--config', 'profile.release.opt-level=3'
-        '--config', 'profile.release.strip=true'
         '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
-
+    if ($env:GITHUB_EVENT_NAME -eq "push"){
+        $cargo_arg+=@(
+            '--config', 'profile.release.codegen-units=1'
+            '--config', 'profile.release.lto="fat"'
+            '--config', 'profile.release.opt-level=3'
+            '--config', 'profile.release.strip=true'
+        )
+    }
+    else{
+        $cargo_arg+=@('--config', 'profile.release.opt-level=2')
+    }
     return $cargo_arg
 }
 function debug-recipe
@@ -53,7 +59,7 @@ function build-recipe
     {
         $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM")
     }
-    if (($env:GITHUB_EVENT_NAME -eq "push") -or ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch"))
+    if ($env:GITHUB_EVENT_NAME -eq "push")
     {
         $rattler_build_args += ("--package-format", "conda:22")
     } else

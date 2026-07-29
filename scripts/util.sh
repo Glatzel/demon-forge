@@ -1,28 +1,35 @@
 get_cargo_arg() {
-    local rustflags_config=""
+    args=(
+        --root "$PREFIX"
+        --locked
+        --force
+        --config profile.release.debug=false
 
+    )
     case "$(uname -s)-$(uname -m)" in
         Darwin-arm64)
             # Apple Silicon
-            rustflags_config='build.rustflags=["-C","target-cpu=apple-m1"]'
+            args+=(--config 'build.rustflags=["-C","target-cpu=apple-m1"]')
             ;;
 
         Linux-x86_64)
             # Modern Linux x64 servers/desktops
-            rustflags_config='build.rustflags=["-C","target-cpu=x86-64-v3"]'
+            args+=(--config 'build.rustflags=["-C","target-cpu=x86-64-v3"]')
             ;;
     esac
-
-    printf '%s\n' \
-        --root "$PREFIX" \
-        --locked \
-        --force \
-        --config profile.release.debug=false \
-        --config profile.release.codegen-units=1 \
-        --config 'profile.release.lto="fat"' \
-        --config profile.release.opt-level=3 \
-        --config profile.release.strip=true \
-        ${rustflags_config:+--config "$rustflags_config"}
+    if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+        args+=(
+            --config profile.release.codegen-units=1
+            --config profile.release.strip=true
+            --config 'profile.release.lto="fat"'
+            --config profile.release.opt-level=3
+        )
+    else
+        args+=(
+            --config profile.release.opt-level=2
+        )
+    fi
+    printf '%s\n' "${args[@]}"
 }
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
@@ -41,7 +48,7 @@ build_recipe() {
         set -- "$@" --target-platform "$TARGET_PLATFORM"
     fi
 
-    if [ "$GITHUB_EVENT_NAME" = "push" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] ; then
+    if [ "$GITHUB_EVENT_NAME" = "push" ] ; then
         set -- "$@" --package-format conda:22
     else
         set -- "$@" --package-format conda:-7
