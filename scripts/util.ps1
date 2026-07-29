@@ -25,7 +25,7 @@ function Get-Cargo-Arg
         '--config', 'profile.release.debug=false'
         '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
-    if ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch"){
+    if ($env:GITHUB_EVENT_NAME -eq "push"){
         $cargo_arg+=@(
             '--config', 'profile.release.codegen-units=1'
             '--config', 'profile.release.lto="fat"'
