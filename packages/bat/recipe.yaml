@@ -1,7 +1,7 @@
 context:
   name: bat
 package:
-  version: "0.23.5"
+  version: "0.26.1"
   name: ${{ name }}
 build:
   number: 0
