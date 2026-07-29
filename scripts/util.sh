@@ -48,7 +48,7 @@ build_recipe() {
         set -- "$@" --target-platform "$TARGET_PLATFORM"
     fi
 
-    if [ "$GITHUB_EVENT_NAME" = "push" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] ; then
+    if [ "$GITHUB_EVENT_NAME" = "push" ] ; then
         set -- "$@" --package-format conda:22
     else
         set -- "$@" --package-format conda:-7
