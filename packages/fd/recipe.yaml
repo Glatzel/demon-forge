@@ -10,6 +10,7 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
+    - make
 tests:
   - package_contents:
       bin:
