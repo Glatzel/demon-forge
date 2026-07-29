@@ -59,7 +59,7 @@ function build-recipe
     {
         $rattler_build_args += ("--target-platform", "$env:TARGET_PLATFORM")
     }
-    if (($env:GITHUB_EVENT_NAME -eq "push") -or ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch"))
+    if ($env:GITHUB_EVENT_NAME -eq "push")
     {
         $rattler_build_args += ("--package-format", "conda:22")
     } else
