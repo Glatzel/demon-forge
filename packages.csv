@@ -26,7 +26,7 @@ cpu-z,windows-latest,,,,
 crsdk,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
 csharpier,,,,,ubuntu-latest+ci-linux-release
 dism-plus-plus,windows-latest,,,,
-dua,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+dua,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 duckdb,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 dufs,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 dust,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
