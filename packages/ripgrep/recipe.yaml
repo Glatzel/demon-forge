@@ -1,0 +1,23 @@
+context:
+  name: ripgrep
+package:
+  version: "15.2.0"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - rg
+  - script: rg --help
+about:
+  repository: https://github.com/burntsushi/ripgrep
+
+extra:
+  update: get-version-crateio -name ${{name}}
+  changelog: get-changelog-github "burntsushi/ripgrep"
