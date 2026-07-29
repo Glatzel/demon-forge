@@ -35,6 +35,7 @@ easytier,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04
 esp-generate,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 espflash,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 eza,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+fd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 fonts-cascadia-mono,,,,,ubuntu-slim
 fonts-hack,,,,,ubuntu-slim
 fornax-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
