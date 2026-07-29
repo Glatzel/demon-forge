@@ -19,5 +19,5 @@ about:
   repository: https://github.com/eza-community/eza
 
 extra:
-  update: get-version-crateio -name ${{name}}
+  update: get-version-crateio -name $name
   changelog: get-changelog-github "eza-community/eza"
