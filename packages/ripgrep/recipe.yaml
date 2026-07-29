@@ -13,8 +13,8 @@ requirements:
 tests:
   - package_contents:
       bin:
-        - ${{name}}
-  - script: ${{name}} --help
+        - rg
+  - script: rg --help
 about:
   repository: https://github.com/burntsushi/ripgrep
 
