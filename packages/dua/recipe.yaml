@@ -1,7 +1,7 @@
 context:
   name: dua
 package:
-  version: "2.40.0"
+  version: "2.40.1"
   name: ${{ name }}
 build:
   number: 0
