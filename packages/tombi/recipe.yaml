@@ -1,6 +1,6 @@
 context:
   name: tombi
-  version: "1.2.0"
+  version: "1.2.5"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -20,5 +20,5 @@ about:
   repository: https://github.com/tombi-toml/tombi
 
 extra:
-  update: get-version-github -repo "tombi-toml/tombi"
+  update: get-version-github "tombi-toml/tombi"
   changelog: get-changelog-github -repo "tombi-toml/tombi"

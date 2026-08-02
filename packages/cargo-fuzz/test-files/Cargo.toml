@@ -13,4 +13,4 @@ path = "fuzz_targets/fuzz_target_1.rs"
 test = false
 
 [dependencies]
-libfuzzer-sys = "0.4"
+libfuzzer-sys = "0.4.13"

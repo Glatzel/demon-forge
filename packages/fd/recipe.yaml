@@ -1,0 +1,24 @@
+context:
+  name: fd
+package:
+  version: "10.4.2"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - make
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
+about:
+  repository: https://github.com/sharkdp/fd
+
+extra:
+  update: get-version-crateio -name fd-find
+  changelog: get-changelog-github "sharkdp/fd"

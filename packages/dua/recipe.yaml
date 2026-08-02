@@ -1,0 +1,21 @@
+context:
+  name: dua
+package:
+  version: "2.40.1"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') if unix }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{ name }}
+about:
+  repository: https://github.com/ClementTsang/bottom
+
+extra:
+  update: get-version-crateio -name dua-cli
+  changelog: get-changelog-github byron/dua-cli

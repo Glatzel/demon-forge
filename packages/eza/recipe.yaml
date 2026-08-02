@@ -1,0 +1,23 @@
+context:
+  name: eza
+package:
+  version: "0.23.5"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
+about:
+  repository: https://github.com/eza-community/eza
+
+extra:
+  update: get-version-crateio -name $name
+  changelog: get-changelog-github "eza-community/eza"
