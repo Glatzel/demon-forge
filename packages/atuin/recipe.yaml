@@ -9,7 +9,7 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
-    - pkg-config‘
+    - pkg-config
   host:
     - ${{'openssl' if linux}}
   run:
