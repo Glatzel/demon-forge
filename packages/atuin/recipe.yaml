@@ -1,7 +1,7 @@
 context:
   name: atuin
 package:
-  version: "18.18.1"
+  version: "18.19.0"
   name: ${{ name }}
 build:
   number: 0
@@ -9,6 +9,9 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
+    - pkg-config
+  host:
+    - ${{'openssl' if linux}}
   run:
     - ${{'ble-sh' if linux}}
 tests:
