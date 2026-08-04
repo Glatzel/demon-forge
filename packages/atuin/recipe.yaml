@@ -9,6 +9,9 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
+    - pkg-config‘
+  host:
+    - ${{'openssl' if linux}}
   run:
     - ${{'ble-sh' if linux}}
 tests:
