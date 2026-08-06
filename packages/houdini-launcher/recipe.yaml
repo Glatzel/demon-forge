@@ -13,7 +13,7 @@ requirements:
 tests:
   - script:
       - if: linux
-        then: install_houdini_launcher houdini houdini_launcher
+        then: install_houdini_launcher.sh houdini houdini_launcher
 
   - package_contents:
       files:
