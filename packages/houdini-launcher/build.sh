@@ -10,6 +10,6 @@ url=$(vinaya sidefx \
     --platform linux \
     | jq -r '.download_url')
 aria2c -c -x16 -s16 "$url" -o install_houdini_launcher.sh
-mkdir -p $PREFIX/houdini-launcher
+mkdir -p $PREFIX/bin
 chmod +x install_houdini_launcher.sh
-mv install_houdini_launcher.sh $PREFIX/houdini-launcher/
+mv install_houdini_launcher.sh $PREFIX/bin/

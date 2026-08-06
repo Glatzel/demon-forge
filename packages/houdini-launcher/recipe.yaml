@@ -4,16 +4,20 @@ package:
   version: "22.0"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
 requirements:
   build:
     - aria2
     - vinaya-cli
     - jq
 tests:
+  - script:
+      - if: linux
+        then: install_houdini_launcher.sh houdini houdini_launcher
+
   - package_contents:
       files:
-        - houdini-launcher/*houdini_launcher*
+        - ${{"houdini-launcher/bin/houdini_launcher.exe" if win}}
 
 extra:
   update: echo "22.0"
