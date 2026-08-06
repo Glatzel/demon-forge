@@ -13,6 +13,3 @@ aria2c -c -x16 -s16 "$url" -o install_houdini_launcher.sh
 mkdir -p $PREFIX/houdini-launcher
 chmod +x install_houdini_launcher.sh
 mv install_houdini_launcher.sh $PREFIX/houdini-launcher/
-cd $PREFIX/houdini-launcher
-./install_houdini_launcher.sh houdini_launcher
-rm install_houdini_launcher.sh

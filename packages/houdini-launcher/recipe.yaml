@@ -13,7 +13,7 @@ requirements:
 tests:
   - package_contents:
       files:
-        - houdini-launcher/bin/houdini_launcher*
+        - houdini-launcher/*houdini_launcher*
 
 extra:
   update: echo "22.0"
