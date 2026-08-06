@@ -10,5 +10,4 @@ $url = &vinaya.exe sidefx `
 Write-Output $url
 aria2c -c -x16 -s16 "$url" -o houdini-launcher.exe
 new-item -itemtype directory -path $env:PREFIX/houdini-launcher
-& ./houdini-launcher.exe /S /D=$(Resolve-Path ./)
-copy-item -path ./$version/* -destination $env:PREFIX/houdini-launcher -Recurse
+& ./houdini-launcher.exe /S /D=$(Resolve-Path $env:PREFIX/houdini-launcher)
