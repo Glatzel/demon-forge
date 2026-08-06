@@ -4,7 +4,7 @@ package:
   version: "22.0"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
 requirements:
   build:
     - aria2
@@ -12,8 +12,10 @@ requirements:
     - jq
 tests:
   - package_contents:
+      bin:
+        - ${{"install_houdini_launcher" if linux}}
       files:
-        - houdini-launcher/*houdini_launcher*
+        - ${{"houdini-launcher/bin/houdini_launcher.exe" if win}}
 
 extra:
   update: echo "22.0"
