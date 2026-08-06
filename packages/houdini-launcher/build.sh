@@ -1,5 +1,5 @@
 IFS=',' read -r major minor patch <<EOF
-$str
+$PKG_VERSION
 EOF
 url=$(vinaya sidefx \
     download.get-daily-build-download \
