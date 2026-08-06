@@ -8,14 +8,6 @@ source:
   url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 2
-  script:
-    interpreter: powershell
-    content: |
-      $ROOT = git rev-parse --show-toplevel
-      . $ROOT/scripts/util.ps1
-      Set-Location ./tools/vinaya/crates/vinaya-cli
-      cargo install --path . @(Get-Cargo-Arg)
-
 requirements:
   build:
     - ${{ compiler('rust') }}
