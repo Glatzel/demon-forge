@@ -13,9 +13,7 @@ requirements:
 tests:
   - package_contents:
       files:
-        - houdini-launcher/houdini-launcher*
-about:
-  repository: https://github.com/CodSpeedHQ/codspeed
+        - houdini-launcher/bin/houdini-launcher*
 
 extra:
   update: get-version-crateio -name $name
