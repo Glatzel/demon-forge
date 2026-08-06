@@ -7,7 +7,7 @@ url=$(vinaya sidefx \
     --major $major \
     --minor $minor \
     --build production \
-    --platform win64 \
+    --platform linux \
     | jq -r '.download_url')
 aria2c -c -x16 -s16 "$url" -o install_houdini_launcher.sh
 mkdir -p $PREFIX/houdini-launcher
