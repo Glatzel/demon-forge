@@ -102,7 +102,7 @@ ueberzugpp,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linu
 upx,windows-latest,,,,
 uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 v2rayn,windows-latest,,,,
-vinaya-cli,windows-latest,,,,
+vinaya-cli,windows-latest,,ubuntu-latest+ci-linux-release,,
 vs-buildtools,windows-latest,,,,
 xray,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
 yazi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
