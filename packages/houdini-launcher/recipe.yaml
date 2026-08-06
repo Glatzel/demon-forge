@@ -11,9 +11,11 @@ requirements:
     - vinaya-cli
     - jq
 tests:
+  - scripts:
+      - if: linux
+        then: install_houdini_launcher houdini houdini_launcher
+      
   - package_contents:
-      bin:
-        - ${{"install_houdini_launcher" if linux}}
       files:
         - ${{"houdini-launcher/bin/houdini_launcher.exe" if win}}
 
