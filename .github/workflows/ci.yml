@@ -57,8 +57,13 @@ jobs:
     runs-on: ${{ matrix.machine }}
     container:
       image: ${{matrix.container}}
+    environment:
+      name: ${{ matrix.pkg }}
+      deployment: false
     env:
       TARGET_PLATFORM: ${{ matrix.target_platform }}
+      SIDEFX_CLIENT_ID: ${{ secrets.SIDEFX_CLIENT_ID }}
+      SIDEFX_CLIENT_SECRET: ${{ secrets.SIDEFX_CLIENT_SECRET }}
     steps:
       - if: ${{matrix.container}}
         run: git config --system --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
