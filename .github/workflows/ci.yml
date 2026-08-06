@@ -59,6 +59,7 @@ jobs:
       image: ${{matrix.container}}
     environment:
       name: ${{ matrix.pkg }}
+      deployment: false
     env:
       TARGET_PLATFORM: ${{ matrix.target_platform }}
       SIDEFX_CLIENT_ID: ${{ secrets.SIDEFX_CLIENT_ID }}
