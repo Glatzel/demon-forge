@@ -1,7 +1,7 @@
 context:
   name: houdini-launcher
 package:
-  version: "22.0.368"
+  version: "22.0"
   name: ${{ name }}
 build:
   number: 0
@@ -16,5 +16,5 @@ tests:
         - houdini-launcher/bin/houdini_launcher*
 
 extra:
-  update: get-version-url -url "https://www.hwinfo.com/news.xml/" -pattern 'HWiNFO v(\d+\.\d+) released'
+  update: echo "22.0"
   changelog: echo "https://www.sidefx.com/changelog/"
