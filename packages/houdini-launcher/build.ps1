@@ -2,7 +2,7 @@ $version=[version]"$env:PKG_VERSION"
 $url = &vinaya.exe sidefx `
     download.get-daily-build-download `
     houdini-launcher `
-    "${version.Major}.${version.Minor}" `
+    "$($version.Major).$($version.Minor)" `
     production `
     win64 `
     | jq -r '.download_url'

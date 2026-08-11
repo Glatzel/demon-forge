@@ -5,7 +5,6 @@ url=$(vinaya sidefx \
     download.get-daily-build-download \
     houdini-launcher \
     "$major.$minor" \
-    $minor \
     production \
     linux \
     | jq -r '.download_url')
