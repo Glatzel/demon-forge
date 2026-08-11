@@ -4,4 +4,3 @@ foreach ($f in Get-ChildItem $PSScriptRoot/install-sys-*.ps1)
     Write-Output "===================Install $pkg_name=========================="
     & $f
 }
-remove-item $PSScriptRoot/../temp/ -recurse -force -ErrorAction SilentlyContinue

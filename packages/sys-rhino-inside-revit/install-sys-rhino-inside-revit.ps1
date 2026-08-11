@@ -13,13 +13,10 @@ if (-not (Test-Path "C:\ProgramData\Autodesk\Revit\Addins\*\RhinoInside.Revit\Rh
 }
 if ( $need_install)
 {
-    if (-not (Test-Path "$PSScriptRoot/../temp/rhino-$version.exe"))
-    {
-        & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
-            -d "$PSScriptRoot/../temp" `
-            "https://files.mcneel.com/rhino.inside/revit/dujour/RhinoInside.Revit_$version.msi" `
-            -o "rhino-inside-revit-$version.msi"
-    }
+    & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
+        -d "$PSScriptRoot/../temp" `
+        "https://files.mcneel.com/rhino.inside/revit/dujour/RhinoInside.Revit_$version.msi" `
+        -o "rhino-inside-revit-$version.msi"
     Write-Output "install rhino.inside-revit $version"
     Start-Process "$PSScriptRoot/../temp/rhino-inside-revit-$version.msi"
     Write-Output "rhino.inside-revit installed"
