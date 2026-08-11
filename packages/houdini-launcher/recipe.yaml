@@ -17,5 +17,5 @@ tests:
         - ${{"houdini-launcher/bin/houdini_launcher.exe" if win}}
 
 extra:
-  update: echo "22.0"
+  update: gh api repos/sideeffects/SideFXLabs/tags --jq '.[0].name'
   changelog: echo "https://www.sidefx.com/changelog/"
