@@ -4,7 +4,7 @@ package:
   version: "8.33.26188.13001"
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   script:
     interpreter: powershell
     content: |
