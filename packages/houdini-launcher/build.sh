@@ -1,4 +1,4 @@
-'.' read -r major minor patch <<EOF
+IFS='.' read -r major minor patch <<EOF
 $PKG_VERSION
 EOF
 url=$(vinaya sidefx \
