@@ -14,13 +14,10 @@ if (-not (Test-Path "$env:USERPROFILE\AppData\Roaming\Autodesk\ApplicationPlugin
 }
 if ( $need_install)
 {
-    if (-not (Test-Path "$PSScriptRoot/../temp/rhino-$version.exe"))
-    {
-        & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
-            -d "$PSScriptRoot/../temp" `
-            "https://github.com/mcneel/rhino.inside-autocad/releases/download/v$version/Rhino.Inside.AutoCAD.and.Civil3D.Installer.V$version.msi" `
-            -o "rhino-inside-autocad-$version.msi"
-    }
+    & "$PSScriptRoot/../bin/aria2c.exe" -c -x16 -s16 `
+        -d "$PSScriptRoot/../temp" `
+        "https://github.com/mcneel/rhino.inside-autocad/releases/download/v$version/Rhino.Inside.AutoCAD.and.Civil3D.Installer.V$version.msi" `
+        -o "rhino-inside-autocad-$version.msi"
     Write-Output "install rhino.inside-autocad $version"
     Start-Process "$PSScriptRoot/../temp/rhino-inside-autocad-$version.msi"
     Write-Output "rhino.inside-autocad installed"
