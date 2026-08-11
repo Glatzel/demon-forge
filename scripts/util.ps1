@@ -54,6 +54,7 @@ function build-recipe
         "build", "--output-dir", "$ROOT/output"
         "--variant-config", "$ROOT/conda_build_config.yaml"
         "--env-isolation", "none"
+        "--allow-symlinks-on-windows"
     )
     if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch"))
     {

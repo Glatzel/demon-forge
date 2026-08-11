@@ -1,10 +1,10 @@
 context:
   name: houdini-launcher
 package:
-  version: "22.0"
+  version: "22.0.408"
   name: ${{ name }}
 build:
-  number: 1
+  number: 2
 requirements:
   build:
     - aria2
@@ -17,5 +17,5 @@ tests:
         - ${{"houdini-launcher/bin/houdini_launcher.exe" if win}}
 
 extra:
-  update: echo "22.0"
+  update: gh api repos/sideeffects/SideFXLabs/tags --jq '.[0].name'
   changelog: echo "https://www.sidefx.com/changelog/"

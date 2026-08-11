@@ -1,13 +1,19 @@
 $version=[version]"$env:PKG_VERSION"
 $url = &vinaya.exe sidefx `
     download.get-daily-build-download `
-    --product houdini-launcher `
-    --major $version.Major `
-    --minor $version.Minor `
-    --build production `
-    --platform win64 `
+    houdini-launcher `
+    "$($version.Major).$($version.Minor)" `
+    production `
+    win64 `
     | jq -r '.download_url'
 Write-Output $url
 aria2c -c -x16 -s16 "$url" -o houdini-launcher.exe
 new-item -itemtype directory -path $env:PREFIX/houdini-launcher
 & ./houdini-launcher.exe /S /D=$(Resolve-Path $env:PREFIX/houdini-launcher)
+
+new-item -itemtype directory -path $env:PREFIX/bin
+new-item -Path $env:PREFIX/bin/houdini_launcher.exe -Target "../houdini-launcher/bin/houdini_launcher.exe" -ItemType SymbolicLink
+
+# shortcut
+New-Item $env:PREFIX/Menu -ItemType Directory
+Copy-Item "${env:RECIPE_DIR}/${env:PKG_NAME}.json" "$env:PREFIX/Menu"
