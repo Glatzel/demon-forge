@@ -1,7 +1,10 @@
+'.' read -r major minor patch <<EOF
+$PKG_VERSION
+EOF
 url=$(vinaya sidefx \
     download.get-daily-build-download \
     houdini-launcher \
-    $PKG_VERSION \
+    "$major.$minor" \
     $minor \
     production \
     linux \
