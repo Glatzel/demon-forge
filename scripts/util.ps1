@@ -23,6 +23,7 @@ function Get-Cargo-Arg
         '--locked'
         '--force'
         '--config', 'profile.release.debug=false'
+        '--config', 'target.x86_64-pc-windows-msvc.linker="rust-lld"'
         '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
     if ($env:GITHUB_EVENT_NAME -eq "push"){
