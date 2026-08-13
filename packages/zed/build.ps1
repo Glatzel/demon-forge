@@ -13,6 +13,6 @@ if ($IsWindows) {
         -Value 1 `
         -Force
 }
-cargo install --path ./crates/zed @(Get-Cargo-Arg)
-cargo install --path ./crates/cli @(Get-Cargo-Arg)
+cargo install --path ./crates/zed
+cargo install --path ./crates/cli
 Rename-Item $env:PREFIX/bin/cli.exe $env:PREFIX/bin/zed-cli.exe
