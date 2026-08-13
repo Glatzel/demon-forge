@@ -43,7 +43,7 @@ fresh-editor,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-2
 furmark,windows-latest,,,,
 gh-act-runner,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
 github-action-runner,windows-latest,,ubuntu-slim,ubuntu-26.04-arm,
-houdini-launcher,windows-latest,,ubuntu-latest+ci-linux-release,,
+houdini-launcher,windows-latest,,ubuntu-latest+ci-linux-release,release,ubuntu-26.04-arm+ci-linux-release,
 hwinfo,windows-latest,,,,
 imagemagick,windows-latest,,,,
 jq,windows-latest,,,,
