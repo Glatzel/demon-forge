@@ -15,12 +15,6 @@ env:
   GITHUB_EVENT_NAME: ${{ github.event_name }}
   GITHUB_REF_NAME: ${{github.ref_name}}
 jobs:
-  lefthook:
-    if: ${{ github.event_name == 'pull_request' }}
-    uses: ./.github/workflows/ci-lefthook.yml
-    permissions:
-      contents: write
-      pull-requests: write
   dispatch:
     runs-on: ubuntu-latest
     outputs:
@@ -104,7 +98,7 @@ jobs:
 
   check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'
-    needs: [lefthook, rattler-build, dispatch]
+    needs: [ rattler-build, dispatch]
     runs-on: ubuntu-slim
     steps:
       - run: exit 1
