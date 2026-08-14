@@ -16,13 +16,13 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
-    - ${{ 'mold' if unix}}
     - libprotobuf
     - if: linux
       then:
         - clang
         - libclang
         - binutils
+        - mold
 tests:
   - package_contents:
       bin:
