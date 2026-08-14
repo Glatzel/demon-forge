@@ -16,6 +16,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
+    - ${{ 'mold' if unix}}
     - libprotobuf
     - if: linux
       then:
