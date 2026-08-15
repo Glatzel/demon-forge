@@ -1,7 +1,7 @@
 context:
   name: yazi
-  version: "26.5.6"
-  number: 1
+  version: "26.8.15"
+  number: 0
 recipe:
   version: ${{ version }}
   name: ${{ name }}
