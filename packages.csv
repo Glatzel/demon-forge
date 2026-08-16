@@ -1,6 +1,6 @@
 pkg,win-64,osx-arm64,linux-64,linux-aarch64,noarch
-7-zip,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
-android-sdk-platform-tools,windows-latest,macos-latest,ubuntu-slim,,
+7-zip,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
+android-sdk-platform-tools,windows-latest,macos-latest,ubuntu-latest,,
 aria2,windows-latest,,,,
 ast-grep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 atuin,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -22,9 +22,9 @@ cargo-llvm-lines,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubun
 cargo-nextest,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-shear,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-cloudflared,windows-latest,,ubuntu-slim,ubuntu-26.04-arm,
+cloudflared,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 cpu-z,windows-latest,,,,
-crsdk,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
+crsdk,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 csharpier,,,,,ubuntu-latest+ci-linux-release
 dism-plus-plus,windows-latest,,,,
 dua,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -36,13 +36,13 @@ esp-generate,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-2
 espflash,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 eza,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 fd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-fonts-cascadia-mono,,,,,ubuntu-slim
-fonts-hack,,,,,ubuntu-slim
+fonts-cascadia-mono,,,,,ubuntu-latest
+fonts-hack,,,,,ubuntu-latest
 fornax-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 fresh-editor,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 furmark,windows-latest,,,,
-gh-act-runner,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
-github-action-runner,windows-latest,,ubuntu-slim,ubuntu-26.04-arm,
+gh-act-runner,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
+github-action-runner,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 houdini-launcher,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 hwinfo,windows-latest,,,,
 imagemagick,windows-latest,,,,
@@ -58,7 +58,7 @@ nssm,windows-latest,,,,
 nuget,windows-latest,,,,
 obs-studio,windows-latest,,,,
 opencolorio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-opencolorio-config-aces,,,,,ubuntu-slim
+opencolorio-config-aces,,,,,ubuntu-latest
 openimageio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 openvdb,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 orc,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -96,7 +96,7 @@ sys-wecom,windows-latest,,,,
 termscp,windows-latest,,,,
 tokei,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 tombi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-toolbox,,,,,ubuntu-slim
+toolbox,,,,,ubuntu-latest
 ttyw,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ueberzugpp,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 upx,windows-latest,,,,
@@ -104,6 +104,6 @@ uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubun
 v2rayn,windows-latest,,,,
 vinaya-cli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 vs-buildtools,windows-latest,,,,
-xray,windows-latest,macos-latest,ubuntu-slim,ubuntu-26.04-arm,
+xray,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 yazi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 zed,windows-latest,,,,
