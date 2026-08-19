@@ -1,7 +1,7 @@
 context:
   name: cargo-llvm-lines
 package:
-  version: "0.4.46"
+  version: "0.4.48"
   name: ${{ name }}
 build:
   number: 0
