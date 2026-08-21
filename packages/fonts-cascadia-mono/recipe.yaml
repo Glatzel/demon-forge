@@ -1,7 +1,7 @@
 context:
   name: fonts-cascadia-mono
   number: 0
-  version: "3.5.0"
+  version: "3.5.1"
 recipe:
   version: ${{ version }}
   name: ${{ name }}
