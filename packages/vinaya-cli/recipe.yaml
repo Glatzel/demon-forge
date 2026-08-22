@@ -1,13 +1,13 @@
 context:
   name: vinaya-cli
-  version: "2026.8.4"
+  version: "2026.8.22"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 8
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
