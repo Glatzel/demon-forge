@@ -1,7 +1,7 @@
 context:
   name: sys-qq
 package:
-  version: "9.9.33.51802"
+  version: "9.9.33.52230"
   name: ${{ name }}
 build:
   number: 0
