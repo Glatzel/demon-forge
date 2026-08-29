@@ -1,6 +1,6 @@
 context:
   name: microsandbox
-  version: "0.6.15"
+  version: "0.6.16"
   number: 0
 recipe:
   version: ${{ version }}
