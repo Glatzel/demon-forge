@@ -13,7 +13,7 @@ build:
     interpreter: bash
     content:
       - if: win
-        then: 
+        then:
           - rm $BUILD_PREFIX/Library/usr/bin/link.exe
           - ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX
       - if: osx
