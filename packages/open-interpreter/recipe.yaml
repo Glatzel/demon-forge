@@ -1,10 +1,11 @@
 context:
   name: open-interpreter
+  version: "0.0.40"
 
 package:
-  version: "0.0.40"
+  version: ${{ version }}
   name: ${{ name }}
-source: 
+source:
   url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
   number: 7
