@@ -13,7 +13,9 @@ build:
     interpreter: bash
     content:
       - if: win
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX
+        then: 
+          - rm $BUILD_PREFIX/Library/usr/bin/link.exe
+          - ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX
       - if: osx
         then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX
       - if: linux and x86_64
