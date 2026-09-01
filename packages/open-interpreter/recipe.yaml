@@ -12,6 +12,7 @@ build:
   dynamic_linking:
     binary_relocation:
       - bin/**
+      - .openinterpreter/bin/**
   script:
     interpreter: bash
     content:
