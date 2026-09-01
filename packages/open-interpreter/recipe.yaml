@@ -9,10 +9,6 @@ source:
   url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
   number: 7
-  dynamic_linking:
-    binary_relocation:
-      - bin/**
-      - .openinterpreter/bin/**
   script:
     interpreter: bash
     content:
