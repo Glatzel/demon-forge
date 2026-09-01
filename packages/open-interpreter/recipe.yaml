@@ -14,6 +14,7 @@ build:
     content: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
 requirements: 
   build:
+    - git
     - python
 tests:
   - package_contents:
