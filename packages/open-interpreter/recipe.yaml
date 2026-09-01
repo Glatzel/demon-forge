@@ -11,7 +11,7 @@ build:
   number: 7
   script:
     interpreter: bash
-    file: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
+    content: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
 tests:
   - package_contents:
       bin:
