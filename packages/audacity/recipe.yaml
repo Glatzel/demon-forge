@@ -1,7 +1,7 @@
 context:
   name: audacity
 package:
-  version: "3.7.8"
+  version: "3.7.9"
   name: ${{ name }}
 build:
   number: 0
