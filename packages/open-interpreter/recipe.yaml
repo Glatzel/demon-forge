@@ -12,6 +12,9 @@ build:
   script:
     interpreter: bash
     content: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
+requirements: 
+  build:
+    - python
 tests:
   - package_contents:
       bin:
