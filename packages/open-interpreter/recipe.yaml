@@ -1,0 +1,25 @@
+context:
+  name: open-interpreter
+
+package:
+  version: "0.0.40"
+  name: ${{ name }}
+source: 
+  url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
+build:
+  number: 7
+  script:
+    interpreter: bash
+    file: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
+tests:
+  - package_contents:
+      bin:
+        - interpreter
+
+about:
+  repository: https://github.com/openinterpreter/openinterpreter
+extra:
+  update: |
+    $latest_version = get-version-github -repo "openinterpreter/openinterpreter"
+    "$latest_version".Replace("rust-v", "")
+  changelog: get-changelog-github openinterpreter/openinterpreter
