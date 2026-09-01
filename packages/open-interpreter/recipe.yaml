@@ -17,9 +17,9 @@ build:
       - if: osx
         then: INTERPRETER_HOME=$PREFIX/openinterpreter ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin
       - if: linux and x86_64
-        then: INTERPRETER_HOME=$PREFIX/openinterpreter --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
+        then: INTERPRETER_HOME=$PREFIX/openinterpreter ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin
       - if: linux and aarch64
-        then: INTERPRETER_HOME=$PREFIX/openinterpreter --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
+        then: INTERPRETER_HOME=$PREFIX/openinterpreter ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin
 
 requirements:
   build:
