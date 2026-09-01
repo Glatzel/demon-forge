@@ -26,6 +26,7 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
     - ${{ "git"  if win }}
+    - ${{"pkg-config" if linux}}
     - python
 tests:
   - package_contents:
