@@ -1,6 +1,6 @@
 context:
   name: openimageio
-  version: "3.1.16.0"
+  version: "3.1.17.0"
   number: 0
 recipe:
   name: ${{ name }}
