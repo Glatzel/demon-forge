@@ -11,12 +11,21 @@ build:
   number: 7
   script:
     interpreter: bash
-    content: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
+    content: 
+      - if: win
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
+      - if: osx
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX
+      - if: linux and x86_64
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX --target x86_64-unknown-linux-gnu
+      - if: linux and aarch64
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX --target aarch64-unknown-linux-gnu
+      
 requirements: 
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
-    - git
+    - ${{ "git"  if win }}
     - python
 tests:
   - package_contents:
