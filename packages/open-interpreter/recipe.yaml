@@ -28,6 +28,7 @@ requirements:
     - ${{ "git"  if win }}
     - ${{ "pkg-config" if linux }}
     - python
+    - ${{ "patchelf"  if linux }}
   host:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
