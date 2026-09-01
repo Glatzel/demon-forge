@@ -13,13 +13,13 @@ build:
     interpreter: bash
     content:
       - if: win
-        then: OPEN_INTERPRETER_INSTALL_DIR=$PREFIX ./scripts/build-interpreter-release.sh
+        then: OPEN_INTERPRETER_INSTALL_DIR=$PREFIX --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
       - if: osx
-        then: OPEN_INTERPRETER_INSTALL_DIR=$PREFIX ./scripts/build-interpreter-release.sh
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
       - if: linux and x86_64
-        then: OPEN_INTERPRETER_INSTALL_DIR=$PREFIX ./scripts/build-interpreter-release.sh --target x86_64-unknown-linux-gnu
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
       - if: linux and aarch64
-        then: OPEN_INTERPRETER_INSTALL_DIR=$PREFIX ./scripts/build-interpreter-release.sh --target aarch64-unknown-linux-gnu
+        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
 
 requirements:
   build:
