@@ -15,11 +15,11 @@ build:
       - if: win
         then: OPEN_INTERPRETER_INSTALL_DIR=$PREFIX --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
       - if: osx
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
+        then: INTERPRETER_HOME=$PREFIX/openinterpreter ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin
       - if: linux and x86_64
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
+        then: INTERPRETER_HOME=$PREFIX/openinterpreter --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
       - if: linux and aarch64
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
+        then: INTERPRETER_HOME=$PREFIX/openinterpreter --install-dir $PREFIX/bin --home $PREFIX/openinterpreter
 
 requirements:
   build:
