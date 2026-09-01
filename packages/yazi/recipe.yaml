@@ -26,7 +26,7 @@ outputs:
           bin:
             - yazi
             - ya
-      - script: yazi --debug
+      - script: yazi --help
   - package:
       name: yazi-full
     build:
@@ -53,7 +53,7 @@ outputs:
             - xclip
             - xsel
     tests:
-      - script: yazi --debug
+      - script: yazi --help
 
 extra:
   update: get-version-github sxyazi/yazi
