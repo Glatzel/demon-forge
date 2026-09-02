@@ -5,5 +5,5 @@ python scripts/build_codex_package.py `
     --package-dir "$env:PREFIX" `
     --force
 llvm-strip "$env:PREFIX/bin/interpreter.exe"
-llvm-strip "$env:PREFIX/bin/i.exe"
+Remove-Item "$env:PREFIX/bin/i.exe"
 llvm-strip "$env:PREFIX/bin/codex-code-mode-host.exe"

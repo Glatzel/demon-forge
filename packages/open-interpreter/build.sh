@@ -20,5 +20,5 @@ python scripts/build_codex_package.py \
     --package-dir "$PREFIX" \
     --force
 strip "$PREFIX/bin/interpreter"
-strip "$PREFIX/bin/i"
+rm "$PREFIX/bin/i"
 strip "$PREFIX/bin/codex-code-mode-host"
