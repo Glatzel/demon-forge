@@ -9,20 +9,6 @@ source:
   url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
   number: 7
-  script:
-    interpreter: bash
-    content:
-      - if: win
-        then:
-          - rm $BUILD_PREFIX/Library/usr/bin/link.exe
-          - ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX
-      - if: osx
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX
-      - if: linux and x86_64
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX --target x86_64-unknown-linux-gnu
-      - if: linux and aarch64
-        then: ./scripts/build-interpreter-release.sh --install-dir $PREFIX/bin --home $PREFIX --target aarch64-unknown-linux-gnu
-
 requirements:
   build:
     - ${{ compiler('rust') }}
