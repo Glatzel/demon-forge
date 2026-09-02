@@ -16,7 +16,7 @@ requirements:
     - ${{ "pkg-config" if linux }}
     - python
     - ${{ "patchelf"  if linux }}
-    - ${{ "llvm-tools"  if win }}- 
+    - ${{ "llvm-tools"  if win }}
   host:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
