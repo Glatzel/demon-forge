@@ -13,8 +13,8 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
-    - ${{ "pkg-config" if linux }}
     - python
+    - ${{ "pkg-config" if linux }}
     - ${{ "patchelf"  if linux }}
     - ${{ "llvm-tools"  if win }}
   host:
