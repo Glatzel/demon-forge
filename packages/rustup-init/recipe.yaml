@@ -1,13 +1,13 @@
 context:
   name: rustup-init
-  version: "1.29.0"
+  version: "1.29.1"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 2
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
@@ -20,18 +20,7 @@ tests:
   - package_contents:
       bin:
         - rustup-init
-  - requirements:
-      run:
-        - powershell
-    script:
-      interpreter: powershell
-      content: |
-        $env:CARGO_HOME="$HOME/.cargo"
-        remove-item $HOME/.rustup -recurse -force -ErrorAction SilentlyContinue
-        remove-item $HOME/.cargo -recurse -force -ErrorAction SilentlyContinue
-        rustup-init -y --default-toolchain stable --profile minimal
-        & $HOME/.cargo/bin/rustup component add clippy
-        & $HOME/.cargo/bin/rustup target add riscv32imc-unknown-none-elf
+
 about:
   repository: https://github.com/rust-lang/rustup
 

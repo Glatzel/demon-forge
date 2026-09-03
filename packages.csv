@@ -57,6 +57,7 @@ msedit,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-a
 nssm,windows-latest,,,,
 nuget,windows-latest,,,,
 obs-studio,windows-latest,,,,
+open-interpreter,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 opencolorio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 opencolorio-config-aces,,,,,ubuntu-latest
 openimageio,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,

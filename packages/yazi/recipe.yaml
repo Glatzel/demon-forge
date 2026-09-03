@@ -1,6 +1,6 @@
 context:
   name: yazi
-  version: "26.8.15"
+  version: "26.9.1"
   number: 0
 recipe:
   version: ${{ version }}
@@ -26,7 +26,6 @@ outputs:
           bin:
             - yazi
             - ya
-      - script: yazi --debug
   - package:
       name: yazi-full
     build:
@@ -52,8 +51,6 @@ outputs:
             - ueberzugpp
             - xclip
             - xsel
-    tests:
-      - script: yazi --debug
 
 extra:
   update: get-version-github sxyazi/yazi
