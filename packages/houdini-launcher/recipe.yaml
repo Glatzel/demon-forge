@@ -1,7 +1,7 @@
 context:
   name: houdini-launcher
 package:
-  version: "22.0.417"
+  version: "22.0.431"
   name: ${{ name }}
 build:
   number: 0
