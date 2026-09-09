@@ -1,6 +1,6 @@
 context:
   name: libcap-ng
-  version: "0.9.5"
+  version: "0.9.6"
   number: 0
 recipe:
   version: ${{ version }}
