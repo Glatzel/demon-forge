@@ -30,5 +30,5 @@ about:
 extra:
   update: |
     $latest_version = get-version-github -repo "openinterpreter/openinterpreter"
-    "$latest_version".Replace("rust-v", "")
+    "$latest_version".Replace("rust-", "")
   changelog: get-changelog-github openinterpreter/openinterpreter
