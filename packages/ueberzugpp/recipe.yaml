@@ -42,6 +42,7 @@ requirements:
     - chafa
     - openssl
     - tbb-devel
+    - glib
 tests:
   - package_contents:
       bin:
