@@ -35,6 +35,7 @@ requirements:
     - fmt
     - range-v3
   host:
+    - expat
     - libxml2-devel
     - libvips
     - libsixel
