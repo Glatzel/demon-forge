@@ -7,7 +7,7 @@ package:
 source:
   - url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${{ version }}.tar.gz
 build:
-  number: 1
+  number: 2
   script: |
     pkg-config --debug --exists libxml-2.0
     cmake -S . -B build \
@@ -29,20 +29,17 @@ requirements:
     - ${{'diffutils' if linux }}
     - pkg-config
     - ${{ 'clang-tools' if osx }}
-  host:
-    - libxml2-devel
-    - expat
-    - libvips
-    - libsixel
-    - chafa
-    - openssl
-    - tbb-devel
     - nlohmann_json
     - cli11
     - spdlog
     - fmt
     - range-v3
-    - glib
+  host:
+    - libvips
+    - libsixel
+    - chafa
+    - openssl
+    - tbb-devel
 tests:
   - package_contents:
       bin:
