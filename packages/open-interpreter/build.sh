@@ -13,6 +13,7 @@ case "$target_platform" in
         exit 1
         ;;
 esac
+export CODEX_REPO_ROOT=$(pwd)
 python scripts/build_codex_package.py \
     --target "$target" \
     --variant open-interpreter \
