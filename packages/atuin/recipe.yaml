@@ -11,7 +11,7 @@ requirements:
     - ${{ stdlib('c') }}
     - pkg-config
   host:
-    - ${{'openssl' if linux}}
+    - ${{'openssl 3.*' if linux}}
   run:
     - ${{'ble-sh' if linux}}
 tests:
