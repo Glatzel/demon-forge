@@ -29,11 +29,6 @@ requirements:
     - ${{'diffutils' if linux }}
     - pkg-config
     - ${{ 'clang-tools' if osx }}
-    - nlohmann_json
-    - cli11
-    - spdlog
-    - fmt
-    - range-v3
   host:
     - expat
     - libxml2-devel
@@ -43,6 +38,12 @@ requirements:
     - openssl
     - tbb-devel
     - glib
+  run:
+    - nlohmann_json
+    - cli11
+    - spdlog
+    - fmt
+    - range-v3
 tests:
   - package_contents:
       bin:
