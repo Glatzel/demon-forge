@@ -34,8 +34,8 @@ requirements:
     - spdlog
     - fmt
     - range-v3
-    - libxml2-devel
   host:
+    - libxml2-devel
     - libvips
     - libsixel
     - chafa
