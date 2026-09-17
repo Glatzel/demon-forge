@@ -1,7 +1,7 @@
 context:
   name: dust
 package:
-  version: "1.2.5"
+  version: "1.2.6"
   name: ${{ name }}
 build:
   number: 0
