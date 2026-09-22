@@ -1,6 +1,6 @@
 context:
   name: panda-cad
-  version: "6.3.0.2"
+  version: "6.3.0.3"
 package:
   version: ${{ version }}
   name: ${{ name }}
