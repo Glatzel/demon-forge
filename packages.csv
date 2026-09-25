@@ -52,6 +52,7 @@ libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-a
 librepcb,windows-latest,,,,
 mason,windows-latest,,,,
 microsandbox,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+mold,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 mqttui,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 msedit,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 nssm,windows-latest,,,,
