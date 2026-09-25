@@ -1,6 +1,6 @@
 context:
   name: mold
-  version: "2.41.1"
+  version: "2.42.1"
 package:
   version: ${{ version }}
   name: ${{ name }}
