@@ -1,0 +1,24 @@
+context:
+  name: mold
+  version: "2.42.1"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  url: https://github.com/rui314/mold/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+  - script: ${{name}} --help
+
+extra:
+  update: get-version-github "rui314/mold"
+  changelog: get-changelog-github "rui314/mold"
