@@ -30,7 +30,7 @@ outputs:
     build:
       number: ${{ number }}
       files:
-        - if: linux
+        - if: unix
           then: bin/*
         - if: win
           then: Library/bin/*.exe
