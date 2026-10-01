@@ -1,7 +1,7 @@
 context:
   name: audacity
 package:
-  version: "3.7.9"
+  version: "4.0.1"
   name: ${{ name }}
 build:
   number: 0
@@ -11,7 +11,7 @@ build:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/Audacity
+        - ${{ name }}/Audacity4
 
 about:
   homepage: https://www.audacityteam.org
