@@ -11,7 +11,7 @@ build:
 tests:
   - package_contents:
       bin:
-        - ${{ name }}/Audacity
+        - ${{ name }}/Audacity4
 
 about:
   homepage: https://www.audacityteam.org
