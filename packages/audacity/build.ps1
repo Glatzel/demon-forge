@@ -1,4 +1,4 @@
-gh release download -R ${env:PKG_NAME}/${env:PKG_NAME} -p "${env:PKG_NAME}-win-*-64bit.7z" `
+gh release download -R ${env:PKG_NAME}/${env:PKG_NAME} -p "${env:PKG_NAME}-win-*-x86_64.7z" `
     -O  ./${env:PKG_NAME}.7z
 7z x "${env:PKG_NAME}.7z" "-o./${env:PKG_NAME}"
 New-Item $env:PREFIX/bin/${env:PKG_NAME} -ItemType Directory
