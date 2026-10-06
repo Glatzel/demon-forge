@@ -1,6 +1,6 @@
 context:
   name: vinaya-cli
-  version: "2026.9.14"
+  version: "2026.10.5"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -10,6 +10,7 @@ build:
   number: 0
 requirements:
   build:
+    - ${{ compiler('c') }}
     - ${{ compiler('rust') }}
 tests:
   - script: vinaya --help
