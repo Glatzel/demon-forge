@@ -7,7 +7,7 @@
             "name": "audacity",
             "description": "Launch audacity",
             "command": [
-                "{{ PREFIX }}/bin/audacity/Audacity.exe"
+                "{{ PREFIX }}/audacity/Audacity4.exe"
             ],
             "platforms": {
                 "win": {
