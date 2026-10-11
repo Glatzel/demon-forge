@@ -1,0 +1,20 @@
+context:
+  name: hyperfine
+package:
+  version: "2.0.0"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - script: hyperfine --help
+
+about:
+  repository: https://github.com/sharkdp/hyperfine
+
+extra:
+  update: get-version-crateio -name $name
+  changelog: get-changelog-github sharkdp/hyperfine
