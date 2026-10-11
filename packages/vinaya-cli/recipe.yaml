@@ -1,6 +1,6 @@
 context:
   name: vinaya-cli
-  version: "2026.10.5"
+  version: "2026.10.11"
 package:
   version: ${{ version }}
   name: ${{ name }}
