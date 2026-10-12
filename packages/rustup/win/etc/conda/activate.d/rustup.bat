@@ -1,1 +1,0 @@
-@SET "PATH=%CARGO_HOME%\bin;%PATH%"
