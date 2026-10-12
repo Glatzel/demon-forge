@@ -19,5 +19,7 @@ foreach($i in @(
         "rustfmt"
     ))
 {
-    copy-item $env:PREFIX/bin/rustup.exe $env:PREFIX/bin/$i.exe
+    New-Item -ItemType SymbolicLink `
+         -Path "$env:PREFIX/bin/$i.exe" `
+         -Target "rustup.exe"
 }
