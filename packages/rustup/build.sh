@@ -3,3 +3,7 @@ ROOT=$(git rev-parse --show-toplevel)
 set -- $(get_cargo_arg)
 cargo install --path . --features vendored-openssl "$@"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
+export RUSTUP_HOME= "${PREFIX}/.rustup"
+export CARGO_HOME= "${PREFIX}/.cargo"
+$PREFIX/rustup-init -y --default-toolchain stable --profile complete
+rm -rf $PREFIX/.cargo

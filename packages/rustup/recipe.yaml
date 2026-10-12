@@ -20,8 +20,6 @@ tests:
   - package_contents:
       bin:
         - rustup-init
-  - script:
-      - rustup-init -y --default-toolchain stable --profile minimal
 
 about:
   repository: https://github.com/rust-lang/rustup
