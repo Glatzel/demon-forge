@@ -1,10 +1,25 @@
-rustup self uninstall -y
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 cargo install --path . --features vendored-openssl @(Get-Cargo-Arg)
 Copy-Item $env:RECIPE_DIR/win/etc/ $env:PREFIX/ -recurse
-$env:RUSTUP_HOME= "$env:PREFIX/.rustup"
-$env:CARGO_HOME= "$env:PREFIX/"
-& $env:PREFIX/bin/rustup-init -y --default-toolchain stable --profile complete
-Remove-Item $env:PREFIX/.rustup -Recurse -force
-Remove-Item $env:PREFIX/bin/rustup-init*
+Rename-Item $env:PREFIX/bin/rustup-init.exe $env:PREFIX/bin/rustup.exe
+foreach($i in @(
+        "cargo"
+        "cargo-clippy"
+        "cargo-fmt"
+        "cargo-miri"
+        "clippy-driver"
+        "rls"
+        "rust-analyzer"
+        "rust-gdb"
+        "rust-gdbgui"
+        "rust-lldb"
+        "rustc"
+        "rustdoc"
+        "rustfmt"
+    ))
+{
+    New-Item -ItemType SymbolicLink `
+         -Path "$env:PREFIX/bin/$i.exe" `
+         -Target "rustup.exe"
+}
