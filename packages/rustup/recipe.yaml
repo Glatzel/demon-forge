@@ -20,6 +20,8 @@ tests:
   - package_contents:
       bin:
         - rustup-init
+  - script:
+    - rustup install stable
 
 about:
   repository: https://github.com/rust-lang/rustup
