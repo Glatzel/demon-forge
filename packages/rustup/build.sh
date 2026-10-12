@@ -3,8 +3,23 @@ ROOT=$(git rev-parse --show-toplevel)
 set -- $(get_cargo_arg)
 cargo install --path . --features vendored-openssl "$@"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
-export RUSTUP_HOME="${PREFIX}/.rustup"
-export CARGO_HOME="${PREFIX}"
-$PREFIX/bin/rustup-init -y --default-toolchain stable --profile complete
-rm -rf $PREFIX/.rustup
-rm $PREFIX/bin/rustup-init*
+mkdir -p "$PREFIX/.cargo/bin"
+mv "$PREFIX/bin/rustup-init" "$PREFIX/.cargo/bin/rustup"
+for i in \
+    cargo \
+    cargo-clippy \
+    cargo-fmt \
+    cargo-miri \
+    clippy-driver \
+    rls \
+    rust-analyzer \
+    rust-gdb \
+    rust-gdbgui \
+    rust-lldb \
+    rustc \
+    rustdoc \
+    rustfmt \
+    rustup
+do
+    ln -s "../.cargo/bin/rustup" "$PREFIX/bin/$i"
+done

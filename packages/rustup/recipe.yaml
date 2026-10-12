@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 4
+  number: 5
 requirements:
   build:
     - ${{ compiler('rust') }}
@@ -18,8 +18,9 @@ requirements:
     - ${{'make' if linux}}
 tests:
   - package_contents:
-      bin:
-        - rustup
+      files:
+        - .cargo/bin/rustup*
+
   - script:
     - rustup install stable
     - cargo --help
