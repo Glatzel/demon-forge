@@ -3,6 +3,6 @@ $ROOT = git rev-parse --show-toplevel
 cargo install --path . --features vendored-openssl @(Get-Cargo-Arg)
 Copy-Item $env:RECIPE_DIR/win/etc $env:PREFIX/
 $env:RUSTUP_HOME= "$PREFIX/.rustup"
-$env:CARGO_HOME= "$PREFIX/.cargo"
+$env:CARGO_HOME= "$PREFIX/"
 & $env:PREFIX/rustup-init -y --default-toolchain stable --profile complete
-Remove-Item $PREFIX/.cargo -Recurse -force
+Remove-Item $PREFIX/.rustup -Recurse -force
