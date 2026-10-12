@@ -21,5 +21,5 @@ for i in \
     rustfmt \
     rustup
 do
-    ln -s "../.cargo/bin/rustup.exe" "$PREFIX/bin/$i.exe"
+    ln -s "../.cargo/bin/rustup" "$PREFIX/bin/$i"
 done
