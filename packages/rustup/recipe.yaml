@@ -1,5 +1,5 @@
 context:
-  name: rustup-init
+  name: rustup
   version: "1.29.1"
 package:
   version: ${{ version }}
@@ -20,6 +20,8 @@ tests:
   - package_contents:
       bin:
         - rustup-init
+  - script:
+      - rustup-init -y --default-toolchain stable --profile minimal
 
 about:
   repository: https://github.com/rust-lang/rustup

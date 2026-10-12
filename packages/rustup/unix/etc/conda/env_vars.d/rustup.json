@@ -1,0 +1,4 @@
+{
+  "RUSTUP_HOME": "${CONDA_PREFIX}/.rustup",
+  "CARGO_HOME": "${CONDA_PREFIX}/.cargo"
+}

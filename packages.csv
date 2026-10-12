@@ -78,7 +78,7 @@ ripgrep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-
 robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rufus,windows-latest,,,,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-rustup-init,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 sys-affinity,windows-latest,,,,
