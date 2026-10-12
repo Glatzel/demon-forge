@@ -1,4 +1,3 @@
-
 $ErrorActionPreference = "Stop"
 
 $bin = Join-Path $env:PREFIX "bin"
