@@ -1,6 +1,8 @@
 @echo off
 setlocal
 
+if not exist "%PREFIX%\bin" mkdir "%PREFIX%\bin"
+
 for %%I in (
     cargo
     cargo-clippy
