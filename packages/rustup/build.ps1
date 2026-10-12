@@ -21,5 +21,5 @@ foreach($i in @(
          "rustup"
      ))
  {
-     Copy-Item "env:PREFIX/.cargo/bin/rustup.exe" "$env:PREFIX/bin/$i.exe"
+     Copy-Item "$env:PREFIX/.cargo/bin/rustup.exe" "$env:PREFIX/bin/$i.exe"
  }
