@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $bin = Join-Path $env:PREFIX "bin"
 $rustup = Join-Path $env:PREFIX ".cargo\bin\rustup.exe"
 
-New-Item -ItemType Directory -Path $bin -Force | Out-Null
+New-Item -ItemType Directory -Path $bin -Force -erroraction SilentlyContinue
 
 $commands = @(
     "cargo"
