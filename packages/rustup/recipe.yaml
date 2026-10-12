@@ -22,6 +22,7 @@ tests:
         - rustup-init
   - script:
     - rustup install stable
+    - cargo --help
 
 about:
   repository: https://github.com/rust-lang/rustup
