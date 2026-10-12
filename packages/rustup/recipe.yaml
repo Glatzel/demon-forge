@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 2
+  number: 3
 requirements:
   build:
     - ${{ compiler('rust') }}
