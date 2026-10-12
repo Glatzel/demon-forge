@@ -77,7 +77,7 @@ rattler-build,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-
 ripgrep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-rustup-init,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 sys-affinity,windows-latest,,,,
