@@ -31,6 +31,7 @@ get_cargo_arg() {
     fi
     printf '%s\n' "${args[@]}"
 }
+
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
         echo "action_publish=true" >> "$GITHUB_OUTPUT"
@@ -38,11 +39,11 @@ build_recipe() {
     ROOT=$(git rev-parse --show-toplevel)
     echo "::group:: build $pkg"
     set -- \
-        --config-file "$ROOT/rattler-config.toml" \
-        --color always \
-        build --output-dir "$ROOT/output" \
-        --variant-config "$ROOT/conda_build_config.yaml" \
-        --env-isolation none
+        --config-file            "$ROOT/rattler-config.toml" \
+        --color                  always \
+        build --output-dir       "$ROOT/output" \
+        --variant-config         "$ROOT/conda_build_config.yaml" \
+        --env-isolation          none
 
     if [ -n "$CI" ] && [ "$TARGET_PLATFORM" != "noarch" ]; then
         set -- "$@" --target-platform "$TARGET_PLATFORM"
