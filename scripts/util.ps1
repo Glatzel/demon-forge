@@ -5,16 +5,13 @@ $PSNativeCommandUseErrorActionPreference = $true
 Remove-Item Alias:curl -ErrorAction SilentlyContinue
 
 # avoid build error by long path
-if ($IsWindows)
+if ($env:CI)
 {
-    # avoid build error by long path
-    if ($env:CI)
-    {
-        $env:CARGO_TARGET_DIR = "c:/t"
-        $env:CARGO_HOME = "c:/c"
-        $env:PYTHONPATH="$(resolve-path $PSScriptRoot/..);$env:PYTHONPATH"
-    }
+    $env:CARGO_TARGET_DIR = "c:/t"
+    $env:CARGO_HOME = "c:/c"
+    $env:PYTHONPATH="$(resolve-path $PSScriptRoot/..);$env:PYTHONPATH"
 }
+
 
 function Get-Cargo-Arg
 {

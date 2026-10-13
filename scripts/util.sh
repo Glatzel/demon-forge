@@ -1,4 +1,5 @@
 get_cargo_arg() {
+    export AWS_LC_SYS_NO_JITTER_ENTROPY=1 # fix aws-lc-rs compile error
     args=(
         --root "$PREFIX"
         --locked
