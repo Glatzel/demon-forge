@@ -22,15 +22,16 @@ function Get-Cargo-Arg
         '--config', 'profile.release.debug=false'
         '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
-    if ($env:GITHUB_EVENT_NAME -eq "push"){
+    if ($env:GITHUB_EVENT_NAME -eq "push")
+    {
         $cargo_arg+=@(
             '--config', 'profile.release.codegen-units=1'
             '--config', 'profile.release.lto="fat"'
             '--config', 'profile.release.opt-level=3'
             '--config', 'profile.release.strip=true'
         )
-    }
-    else{
+    } else
+    {
         $cargo_arg+=@('--config', 'profile.release.opt-level=2')
     }
     return $cargo_arg
@@ -46,11 +47,11 @@ function build-recipe
     }
     Write-Output "::group:: build $pkg"
     $rattler_build_args = @(
-        "--config-file", "$ROOT/rattler-config.toml"
-        "--color", "always"
-        "build", "--output-dir", "$ROOT/output"
+        "--config-file",    "$ROOT/rattler-config.toml"
+        "--color",          "always"
+        "build",            "--output-dir", "$ROOT/output"
         "--variant-config", "$ROOT/conda_build_config.yaml"
-        "--env-isolation", "none"
+        "--env-isolation",  "none"
         "--allow-symlinks-on-windows"
     )
     if ($env:CI -and ($env:TARGET_PLATFORM -ne "noarch"))
