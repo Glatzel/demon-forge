@@ -40,11 +40,11 @@ build_recipe() {
     ROOT=$(git rev-parse --show-toplevel)
     echo "::group:: build $pkg"
     set -- \
-        --config-file "$ROOT/rattler-config.toml" \
-        --color always \
-        build --output-dir "$ROOT/output" \
-        --variant-config "$ROOT/conda_build_config.yaml" \
-        --env-isolation none
+        --config-file            "$ROOT/rattler-config.toml" \
+        --color                  always \
+        build --output-dir       "$ROOT/output" \
+        --variant-config         "$ROOT/conda_build_config.yaml" \
+        --env-isolation          none
 
     if [ -n "$CI" ] && [ "$TARGET_PLATFORM" != "noarch" ]; then
         set -- "$@" --target-platform "$TARGET_PLATFORM"
