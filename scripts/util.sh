@@ -32,6 +32,7 @@ get_cargo_arg() {
     fi
     printf '%s\n' "${args[@]}"
 }
+
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
         echo "action_publish=true" >> "$GITHUB_OUTPUT"
