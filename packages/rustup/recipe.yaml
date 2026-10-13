@@ -1,5 +1,5 @@
 context:
-  name: rustup-init
+  name: rustup
   version: "1.29.1"
 package:
   version: ${{ version }}
@@ -7,7 +7,7 @@ package:
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 0
+  number: 7
 requirements:
   build:
     - ${{ compiler('rust') }}
@@ -18,8 +18,12 @@ requirements:
     - ${{'make' if linux}}
 tests:
   - package_contents:
-      bin:
-        - rustup-init
+      files:
+        - .cargo/bin/rustup*
+
+  - script:
+    - rustup install stable
+    - cargo --help
 
 about:
   repository: https://github.com/rust-lang/rustup
