@@ -16,4 +16,4 @@ for f in ./*.ocio; do
 done
 
 mkdir -p "$PREFIX/ocio"
-cp -r ./* "$PREFIX/ocio/"
+cp -r ./*.ocio "$PREFIX/ocio/"
