@@ -41,7 +41,6 @@ fonts-hack,,,,,ubuntu-latest
 fornax-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 fresh-editor,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 furmark,windows-latest,,,,
-gh-act-runner,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 github-action-runner,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 hexyl,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 houdini-launcher,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,

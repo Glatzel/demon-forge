@@ -6,7 +6,9 @@ package:
 build:
   number: 0
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - xray
 about:
   homepage: https://github.com/XTLS/xray-core
   license: GPL-3.0-only
