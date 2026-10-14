@@ -3,13 +3,19 @@ context:
 package:
   version: "5.2.1"
   name: ${{ name }}
-build:
-  number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
+source:
+  url: https://github.com/upx/upx/archive/refs/tags/v${{ version }}.tar.gz
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - cmake
+    - ninja
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - upx
+
 about:
   homepage: https://upx.github.io
   license: GPL-2.0-or-later
