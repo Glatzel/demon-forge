@@ -1,6 +1,3 @@
-ROOT=$(git rev-parse --show-toplevel)
-. "$ROOT/scripts/util.sh"
-
 case "${TARGET_PLATFORM:-}" in
     linux-64)
         ASSET="Xray-linux-64.zip"
@@ -25,13 +22,6 @@ gh release download \
 mkdir -p "$PREFIX/bin/${PKG_NAME}"
 
 7z x "./${PKG_NAME}.zip" "-o$PREFIX/bin/${PKG_NAME}"
-
-if [ "${TARGET_PLATFORM}" = "windows-64" ]; then
-    :
-else
-    cp "$RECIPE_DIR/update-geofile.sh" \
-       "$PREFIX/bin/${PKG_NAME}/"
-fi
 
 if [ -f "$PREFIX/bin/${PKG_NAME}/${PKG_NAME}" ]; then
     chmod +rwx "$PREFIX/bin/${PKG_NAME}/${PKG_NAME}"
