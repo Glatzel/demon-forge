@@ -1,15 +1,27 @@
 context:
   name: upx
-package:
   version: "5.2.1"
+package:
+  version: ${{ version }}
   name: ${{ name }}
+source:
+  - git: https://github.com/upx/upx.git
+    tag: v${{ version }}
+
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - cmake
+    - ninja
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - upx
+
 about:
   homepage: https://upx.github.io
   license: GPL-2.0-or-later

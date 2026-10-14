@@ -9,9 +9,6 @@ source:
   file_name: ${{ name }}.exe
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
   - package_contents:
       bin:
