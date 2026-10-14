@@ -7,9 +7,6 @@ package:
 source:
   url: https://download.librepcb.org/releases/${{ version }}/librepcb-${{ version }}-windows-x86_64.zip
 build:
-  script:
-    interpreter: powershell
-    file: build.ps1
   number: 0
 tests:
   - package_contents:
