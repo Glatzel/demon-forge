@@ -19,9 +19,9 @@ gh release download \
     -p "$ASSET" \
     -O "./${PKG_NAME}.zip"
 
-mkdir -p "$PREFIX/bin/${PKG_NAME}"
+mkdir -p "$PREFIX/bin"
 
-7z x "./${PKG_NAME}.zip" "-o$PREFIX/bin/${PKG_NAME}"
+7z x "./${PKG_NAME}.zip" "-o$PREFIX/bin"
 
 if [ -f "$PREFIX/bin/${PKG_NAME}/${PKG_NAME}" ]; then
     chmod +rwx "$PREFIX/bin/${PKG_NAME}/${PKG_NAME}"
