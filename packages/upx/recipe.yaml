@@ -5,7 +5,8 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  - url: https://github.com/upx/upx/archive/refs/tags/v${{ version }}.tar.gz
+  - git: https://github.com/upx/upx.git
+    tag: v${{ version }}
 
 build:
   number: 0

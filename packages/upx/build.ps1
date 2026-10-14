@@ -1,4 +1,3 @@
-git submodule update --init
 cmake -S . -B build -G Ninja `
     -DCMAKE_BUILD_TYPE=Release `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX"
