@@ -4,11 +4,12 @@ package:
   version: "4.0.0"
   name: ${{ name }}
 build:
-  number: 1
+  number: 2
   noarch: generic
 tests:
-  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/ocio/*.ocio"
-
+  - package_contents:
+      files:
+        - ocio/*.ocio
 extra:
   update: get-version-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
   changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
