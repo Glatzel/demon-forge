@@ -1,10 +1,13 @@
 context:
   name: upx
-package:
   version: "5.2.1"
+package:
+  version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/upx/upx/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
 requirements:
   build:
     - ${{ compiler('c') }}
