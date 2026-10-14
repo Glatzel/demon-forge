@@ -5,7 +5,7 @@ case "${TARGET_PLATFORM:-}" in
     linux-aarch64)
         ASSET="Xray-linux-arm64-v8a.zip"
         ;;
-    macos-arm64)
+    osx-arm64)
         ASSET="Xray-macos-arm64-v8a.zip"
         ;;
     *)
