@@ -14,5 +14,13 @@ tests:
       bin:
         - ${{ name }}/PandaCADViewer
 
+about:
+  homepage: https://www.intrsio.com
+  summary: CAD drawing viewer and editor for Windows
+  description: >
+    PandaCAD displays and converts CAD drawings from different CAD versions. It
+    provides measurement, alignment, and annotation tools and supports
+    lightweight editing of text, dimensions, and geometry.
+
 extra:
   update: get-version-url -url "https://www.intrsio.com/producterDownload/producterDownloadIndex.do" -pattern '版本：(\d+\.\d+\.\d+\.\d+)'

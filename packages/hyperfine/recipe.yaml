@@ -13,6 +13,11 @@ tests:
   - script: hyperfine --help
 
 about:
+  summary: A command-line benchmarking tool
+  description: >
+    Hyperfine is a benchmarking tool for the command line. It runs commands
+    repeatedly and performs statistical analysis of their execution time, and
+    can export measurements to formats such as CSV, JSON, and Markdown.
   repository: https://github.com/sharkdp/hyperfine
 
 extra:

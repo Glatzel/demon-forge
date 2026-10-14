@@ -24,5 +24,14 @@ tests:
         Resolve-Path "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"
         (Get-Item "C:/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe").VersionInfo.ProductVersion
 
+about:
+  homepage: https://helpx.adobe.com/camera-raw/using/adobe-dng-converter.html
+  summary: Utility to convert camera raw files to DNG
+  description: >
+    Adobe DNG Converter is a utility that converts camera raw files from
+    supported digital cameras into the Digital Negative (DNG) format. DNG is
+    an openly documented raw image format developed by Adobe that is intended
+    to provide a consistent format for raw image data.
+
 extra:
   update: get-version-text "$(curl -sIL https://www.adobe.com/go/dng_converter_win)".Replace("_", ".") 'AdobeDNGConverter.x64.(.+)\.exe'

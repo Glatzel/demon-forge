@@ -6,6 +6,12 @@ package:
 build:
   number: 0
 about:
+  summary: The application that runs jobs from GitHub Actions workflows
+  description: >
+    The GitHub Actions runner is the application that executes a job from a
+    GitHub Actions workflow. It runs jobs in GitHub-hosted virtual
+    environments or in self-hosted environments that you deploy and manage.
+  documentation: https://docs.github.com/en/actions/hosting-your-own-runners
   repository: https://github.com/actions/runner
 
 extra:

@@ -14,5 +14,13 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://store.epicgames.com/
+  summary: Launcher for the Epic Games Store and Unreal Engine
+  description: >
+    The Epic Games Launcher is the client application for the Epic Games
+    Store and Unreal Engine. It is used to purchase, download, install and
+    update games and applications, and to manage Unreal Engine versions.
+
 extra:
   update: get-version-winget "e/EpicGames/EpicGamesLauncher"

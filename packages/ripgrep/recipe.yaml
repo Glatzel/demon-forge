@@ -16,7 +16,12 @@ tests:
         - rg
   - script: rg --help
 about:
-  repository: https://github.com/burntsushi/ripgrep
+  summary: Recursive search tool for regular expression patterns
+  description: >
+    ripgrep recursively searches directories while respecting ignore files such
+    as .gitignore. It matches regular expression patterns across files and
+    compressed archives, and is written in Rust.
+  repository: https://github.com/BurntSushi/ripgrep
 
 extra:
   update: get-version-crateio -name $name

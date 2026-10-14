@@ -41,6 +41,13 @@ tests:
         - cargo +nightly fuzz run --fuzz-dir ./ fuzz_target_1 -- -runs=2
 
 about:
+  summary: A Cargo subcommand for fuzzing with libFuzzer
+  description: >
+    cargo-fuzz is a Cargo subcommand for fuzzing Rust code with libFuzzer. It
+    creates and manages a fuzzing directory for a crate, handles corpus and
+    artifact directories, and runs fuzz targets using a nightly Rust toolchain
+    with sanitizer support.
+  documentation: https://rust-fuzz.github.io/book/cargo-fuzz.html
   repository: https://github.com/rust-fuzz/cargo-fuzz
 
 extra:

@@ -10,6 +10,15 @@ tests:
       bin:
         - vs_BuildTools
 
+about:
+  homepage: https://visualstudio.microsoft.com/downloads/
+  summary: Build tools, compilers, and libraries for Visual Studio
+  description: >
+    Visual Studio Build Tools provides the MSBuild toolchain, compilers, and
+    libraries needed to build applications without the Visual Studio IDE. It is
+    distributed by Microsoft for Windows.
+  documentation: https://learn.microsoft.com/visualstudio/
+
 extra:
   update: |
     $latest_version = get-version-url  "https://learn.microsoft.com/en-us/visualstudio/releases/" 'Update (\d+\.\d+\.\d+)'

@@ -16,6 +16,11 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
+  homepage: https://eza.rocks
+  summary: Modern replacement for ls
+  description: >
+    eza is a command-line tool for listing files. It displays file metadata with
+    colour and icons, tracks Git status, and can render directories as a tree.
   repository: https://github.com/eza-community/eza
 
 extra:

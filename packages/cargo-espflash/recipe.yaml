@@ -16,13 +16,13 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://esp-rs.github.io/espflash
   license: MIT
-  summary: Flash and monitor ESP32/ESP8266 microcontrollers via Cargo
+  summary: Cargo subcommand for flashing and monitoring Espressif devices
   description: >
-    cargo-espflash is a Cargo subcommand that allows flashing and monitoring
-    ESP32 and ESP8266 microcontrollers directly from the command line. It
-    integrates with Rust embedded projects for easy development and debugging.
+    cargo-espflash is a Cargo subcommand for flashing and monitoring Espressif
+    microcontrollers from the command line. It supports the ESP32 family of
+    devices and is part of the espflash project, which also provides a
+    standalone command-line tool and a library.
   documentation: https://esp-rs.github.io/espflash
   repository: https://github.com/esp-rs/espflash
 

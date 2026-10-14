@@ -27,6 +27,13 @@ tests:
       imports:
         - pyxis
 
+about:
+  summary: Python bindings for the Pyxis coordinate library
+  description: >
+    Pyxis is a library for coordinate conversion and processing. This package
+    provides the Python bindings for transforming and processing coordinates.
+  repository: https://github.com/Glatzel/pyxis
+
 extra:
   update: get-version-github "Glatzel/pyxis"
   changelog: get-changelog-github "Glatzel/pyxis"

@@ -16,5 +16,14 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 
+about:
+  summary: MQTT broker written in Rust
+  description: >
+    rumqttd is a message broker that implements the MQTT protocol and is
+    written in Rust. It is lightweight and embeddable, so it can run as a
+    standalone broker or as a library inside another application. It is
+    developed as part of the rumqtt project.
+  repository: https://github.com/bytebeamio/rumqtt
+
 extra:
   update: get-version-crateio -name $name

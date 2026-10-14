@@ -17,7 +17,13 @@ tests:
       bin:
         - ${{ name }}
 about:
-  repository: https://github.com/XAMPPRocky/tokei/
+  summary: Counts lines of code, comments, and blanks across many languages
+  description: >
+    Tokei is a program that displays statistics about source code. It reports
+    the number of files, lines, code, comments, and blank lines grouped by
+    language, and can output results in JSON, YAML, or CBOR. It supports over
+    150 languages and is written in Rust.
+  repository: https://github.com/XAMPPRocky/tokei
 
 extra:
   update: get-version-github -repo "XAMPPRocky/tokei"

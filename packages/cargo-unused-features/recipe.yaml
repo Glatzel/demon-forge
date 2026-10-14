@@ -23,15 +23,13 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://github.com/taiki-e/cargo-unused-features
   license: MIT
-  summary: Detect unused Cargo features in Rust projects
+  summary: Find unused enabled Cargo features and prune them
   description: >
-    cargo-unused-features is a Cargo subcommand that analyzes Rust projects to
-    detect which Cargo features are unused. This helps developers clean up
-    feature flags and reduce unnecessary compilation overhead.
-  documentation: https://github.com/taiki-e/cargo-unused-features#usage
-  repository: https://github.com/taiki-e/cargo-unused-features
+    cargo-unused-features is a Cargo subcommand that finds enabled Cargo feature
+    flags that are not used by a Rust project. It reports these features and can
+    generate a pruned manifest with the unused flags removed.
+  repository: https://github.com/TimonPost/cargo-unused-features
 
 extra:
   update: get-version-crateio -name $name

@@ -18,9 +18,14 @@ tests:
         - 7z
   - script: 7z --help
 about:
-  license: LGPL-2.1-or-later AND LicenseRef-LGPL-2.1-or-later-with-unRAR-restriction
-  summary: 7-Zip is a file archiver with a high compression ratio.
   homepage: https://www.7-zip.org/
+  license: LGPL-2.1-or-later AND LicenseRef-LGPL-2.1-or-later-with-unRAR-restriction
+  summary: 7-Zip is a file archiver with a high compression ratio
+  description: >
+    7-Zip is a file archiver for compressing and extracting files in the 7z,
+    ZIP, and several other archive formats. It provides both a graphical user
+    interface and a command-line interface, and supports AES-256 encryption
+    and multi-threaded compression.
   repository: https://github.com/ip7z/7zip
 extra:
   update: |

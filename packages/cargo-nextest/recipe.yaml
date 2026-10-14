@@ -18,13 +18,13 @@ tests:
 about:
   homepage: https://nexte.st
   license: MIT OR Apache-2.0
-  summary: Next-generation test runner for Rust
+  summary: Test runner for Rust projects
   description: >
-    Cargo Nextest is a next-generation test runner for Rust that aims to be
-    faster, more reliable, and more feature-rich than the default Cargo test
-    runner. It provides advanced features such as parallel test execution, test
-    filtering, and detailed reporting to enhance the testing experience for Rust
-    developers.
+    cargo-nextest is a test runner for Rust that executes each test in its own
+    process. It runs tests in parallel, supports filtersets for selecting which
+    tests to run, and produces detailed per-test reports for local development
+    and continuous integration.
+  documentation: https://nexte.st/docs/
   repository: https://github.com/nextest-rs/nextest
 
 extra:

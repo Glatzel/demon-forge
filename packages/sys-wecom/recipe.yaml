@@ -14,5 +14,13 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://work.weixin.qq.com/
+  summary: Business communication and collaboration platform from Tencent
+  description: >
+    WeCom is Tencent's communication and collaboration platform for
+    businesses. It provides messaging, video meetings, document collaboration,
+    and tools for connecting with WeChat users and customers.
+
 extra:
   update: get-version-winget "t/Tencent/WeCom"

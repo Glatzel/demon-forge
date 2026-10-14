@@ -14,5 +14,17 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://tailscale.com/
+  license: BSD-3-Clause
+  summary: WireGuard-based mesh VPN
+  description: >
+    Tailscale is a mesh VPN built on WireGuard that connects computers and
+    other devices directly to each other. It sets up encrypted point-to-point
+    connections and can be used to reach devices and services across
+    networks without opening ports or configuring a central gateway.
+  documentation: https://tailscale.com/kb/
+  repository: https://github.com/tailscale/tailscale
+
 extra:
   update: get-version-winget "t/Tailscale/Tailscale"

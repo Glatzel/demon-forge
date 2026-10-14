@@ -16,6 +16,12 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
+  summary: A cat clone with syntax highlighting and Git integration
+  description: >
+    bat is a cat(1) clone that adds syntax highlighting, line numbers, and Git
+    integration to file display. It supports a large number of programming and
+    markup languages, works as a pager, and can be used as a drop-in
+    replacement for cat with colorized output.
   repository: https://github.com/sharkdp/bat
 
 extra:

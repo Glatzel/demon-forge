@@ -14,5 +14,13 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://www.affinity.studio/
+  summary: Design, photo editing and desktop publishing software
+  description: >
+    Affinity is a suite of design applications developed by Canva. It combines
+    vector design, photo editing and desktop publishing tools in an integrated
+    workflow, and is available for Windows, macOS and iPad.
+
 extra:
   update: get-version-winget "c/Canva/Affinity"

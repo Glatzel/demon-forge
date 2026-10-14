@@ -17,14 +17,14 @@ tests:
   - script: ${{name}} --help
 
 about:
-  homepage: https://jqlang.github.io/jq
+  homepage: https://jqlang.org
   license: MIT
   summary: A lightweight and flexible command-line JSON processor
   description: >
-    jq is a lightweight and flexible command-line JSON processor. It allows you
-    to slice, filter, map, and transform structured JSON data with ease,
-    directly from your shell.
-  documentation: https://jqlang.github.io/jq/manual
+    jq is a processor for JSON data that runs from the command line, written
+    in portable C with no runtime dependencies. It can slice, filter, map,
+    and transform structured JSON directly within a shell pipeline or script.
+  documentation: https://jqlang.org/manual/
   repository: https://github.com/jqlang/jq
 
 extra:

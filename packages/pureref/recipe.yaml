@@ -16,14 +16,12 @@ tests:
 
 about:
   homepage: https://www.pureref.com
-  summary: Lightweight reference image organizer for artists
+  summary: Reference image viewer and mood board tool
   description: >
-    PureRef is a lightweight application that allows artists to organize and
-    view reference images on an infinite canvas. It helps creatives keep visual
-    references accessible without cluttering the desktop, supporting
-    drag-and-drop, scaling, grouping, and layering of images.
-  documentation: https://www.pureref.com/help
-  repository: https://www.pureref.com
+    PureRef presents reference images on an infinite canvas for artists and
+    designers. It supports drag-and-drop, scaling, grouping, and layering, and
+    keeps references accessible while working in other applications.
+  documentation: https://www.pureref.com/handbook
 
 extra:
   update: get-version-url -url "https://www.pureref.com/download.php" -pattern 'selected value="(\d+\.\d+\.\d+)"'
