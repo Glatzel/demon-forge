@@ -12,12 +12,12 @@ tests:
         - ${{ name }}/BitComet
 about:
   homepage: https://www.bitcomet.com
-  summary: A powerful BitTorrent/HTTP/FTP download client
+  summary: BitTorrent, HTTP, and FTP download client
   description: >
-    BitComet is a powerful, clean, fast, and easy-to-use BitTorrent/HTTP/FTP
-    download client. It supports simultaneous downloads, download queue,
-    selected downloads in torrent package, fast-resume, disk cache, proxy
-    servers, IP filtering, port mapping, and more.
+    BitComet is a download client that supports the BitTorrent, HTTP, and FTP
+    protocols. It offers simultaneous downloads, a download queue, selective
+    downloading of files inside a torrent, disk caching, proxy support, IP
+    filtering, and port mapping.
 
 extra:
   update: get-version-url -url "https://www.kisssub.org/rss-bitcomet.xml" -pattern 'build (\d+\.\d+\.\d+\.\d+)'

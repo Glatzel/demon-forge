@@ -26,6 +26,14 @@ tests:
     - cargo --help
 
 about:
+  homepage: https://rustup.rs
+  summary: Installer and updater for the Rust toolchain
+  description: >
+    rustup is the installer and version management tool for the Rust
+    programming language. It installs and updates the Rust toolchain, manages
+    multiple toolchains and targets, and provides the standard Rust tools such
+    as cargo and rustc.
+  documentation: https://rust-lang.github.io/rustup/
   repository: https://github.com/rust-lang/rustup
 
 extra:

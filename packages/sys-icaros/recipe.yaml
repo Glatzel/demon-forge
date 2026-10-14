@@ -14,6 +14,16 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://github.com/Xanashi/Icaros
+  summary: Windows shell extensions for thumbnails and file properties
+  description: >
+    Icaros is a collection of Windows Shell Extensions developed by Tabibito
+    Technology. It provides Windows Explorer thumbnails for video formats
+    supported by FFmpeg and uses custom parsers to generate cover art
+    thumbnails for formats such as MKV, FLAC and APE. It also provides
+    Explorer file properties for a range of media file types.
+
 extra:
   update: |
     $latest_version=get-version-winget "x/Xanashi/Icaros"

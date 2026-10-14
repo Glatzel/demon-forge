@@ -13,11 +13,10 @@ about:
   homepage: https://www.cpuid.com/softwares/cpu-z.html
   summary: System profiling and monitoring tool for Windows
   description: >
-    CPU-Z is a freeware system profiling tool that gathers information on your
-    CPU, motherboard, memory, and other hardware components. It provides
-    real-time monitoring and detailed technical specifications.
-  documentation: https://www.cpuid.com/softwares/cpu-z.html
-  repository: https://www.cpuid.com/
+    CPU-Z is a utility that gathers information about a computer's processor,
+    motherboard, memory, and other hardware components. It reports technical
+    specifications and monitors values such as core voltage, clock speed, and
+    temperature in real time.
 
 extra:
   update: get-version-url -url "https://www.cpuid.com/softwares/cpu-z.html" -pattern 'cpu-z_(\d+(?:\.\d+)+)-en.zip'

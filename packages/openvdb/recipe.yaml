@@ -66,6 +66,13 @@ outputs:
           include:
             - openvdb/version.h
 about:
+  homepage: https://www.openvdb.org
+  summary: C++ library for sparse volumetric data and tools
+  description: >
+    OpenVDB is a C++ library providing a hierarchical data structure for
+    efficient storage and manipulation of sparse volumetric data, together with
+    tools for simulation, rendering, and processing of volumes.
+  documentation: https://www.openvdb.org/documentation/
   repository: https://github.com/AcademySoftwareFoundation/openvdb
 
 extra:

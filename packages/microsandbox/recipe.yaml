@@ -58,6 +58,13 @@ outputs:
           - msb --help
           - msb run --help
 about:
+  homepage: https://microsandbox.dev
+  summary: A microVM runtime for running untrusted workloads
+  description: >
+    Microsandbox is a local-first runtime and library that runs workloads in
+    hardware-isolated microVMs, each with its own kernel. It is intended for
+    executing untrusted code and AI agent workloads, and supports OCI images.
+  documentation: https://docs.microsandbox.dev/
   repository: https://github.com/zerocore-ai/microsandbox
 
 extra:

@@ -52,6 +52,16 @@ outputs:
             - xclip
             - xsel
 
+about:
+  homepage: https://yazi-rs.github.io
+  summary: Terminal file manager written in Rust
+  description: >
+    Yazi is a terminal file manager written in Rust. It performs file
+    operations asynchronously, supports image previews, and can be extended
+    with plugins. It also ships a companion command-line program named ya.
+  documentation: https://yazi-rs.github.io/docs/
+  repository: https://github.com/sxyazi/yazi
+
 extra:
   update: get-version-github sxyazi/yazi
   changelog: get-changelog-github sxyazi/yazi

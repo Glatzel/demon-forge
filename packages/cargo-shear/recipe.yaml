@@ -16,6 +16,12 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
+  summary: Remove unused dependencies in a Rust project
+  description: >
+    cargo-shear is a Cargo subcommand that detects dependencies declared in a
+    Cargo.toml but not used by the crate. It helps keep a Rust project's
+    dependency list accurate and can be run as a check in continuous
+    integration.
   repository: https://github.com/Boshen/cargo-shear
 
 extra:

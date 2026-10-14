@@ -19,6 +19,13 @@ tests:
         exists:
           - share/blesh/ble.sh
 about:
+  summary: A line editor for interactive Bash sessions
+  description: >
+    ble.sh is a line editor written in pure Bash that adds syntax highlighting,
+    auto suggestions, and vi editing modes to interactive Bash sessions. It
+    replaces the default GNU Readline line editor and also provides completion
+    and other command-line editing utilities.
+  documentation: https://github.com/akinomyoga/ble.sh/wiki
   repository: https://github.com/akinomyoga/ble.sh
 
 extra:

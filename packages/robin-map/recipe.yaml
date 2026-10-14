@@ -20,6 +20,11 @@ tests:
       include:
         - tsl/robin_map.h
 about:
+  summary: C++ hash map and hash set using robin hood hashing
+  description: >
+    robin-map implements an open addressing hash table with robin hood hashing,
+    offering fast lookup and insertion. It is distributed as a header-only
+    library.
   repository: https://github.com/Tessil/robin-map
 
 extra:

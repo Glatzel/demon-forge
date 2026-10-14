@@ -99,8 +99,15 @@ outputs:
             - proj.h
 
 about:
-  repository: https://github.com/OSGeo/PROJ
+  homepage: https://proj.org
+  summary: Coordinate transformation library and tools for geospatial data
+  description: >
+    PROJ transforms geospatial coordinates from one coordinate reference system
+    to another, including cartographic projections and geodetic datum
+    transformations. It provides command-line applications and an API for use in
+    other software.
   documentation: https://proj.org/en/stable/
+  repository: https://github.com/OSGeo/PROJ
 
 extra:
   update: get-version-github OSGeo/PROJ

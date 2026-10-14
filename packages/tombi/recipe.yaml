@@ -17,6 +17,12 @@ tests:
       bin:
         - ${{ name }}
 about:
+  homepage: https://tombi-toml.github.io/tombi/
+  summary: TOML formatter, linter, and language server
+  description: >
+    Tombi is a toolkit for working with TOML files. It provides a formatter, a
+    linter, and a language server, and can validate and format TOML using JSON
+    schemas. It is written in Rust.
   repository: https://github.com/tombi-toml/tombi
 
 extra:

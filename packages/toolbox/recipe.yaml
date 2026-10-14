@@ -27,6 +27,15 @@ tests:
       imports:
         - toolbox
 
+about:
+  summary: Collection of reusable Python and Rust utilities
+  description: >
+    Toolbox is a workspace of small, focused libraries and command-line tools
+    for systems development, data processing, and developer tooling. Its
+    components are written mainly in Rust and Python and are designed to be
+    reusable building blocks.
+  repository: https://github.com/Glatzel/toolbox
+
 extra:
   update: get-version-github -repo "Glatzel/$name"
   changelog: get-changelog-github -repo "Glatzel/$name"

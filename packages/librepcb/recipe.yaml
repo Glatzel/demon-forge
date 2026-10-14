@@ -15,11 +15,13 @@ tests:
 about:
   homepage: https://librepcb.org
   license: GPL-3.0-only
-  summary: LibrePCB is a free EDA software to develop printed circuit boards
+  summary: A free EDA suite for developing printed circuit boards
   description: >
-    LibrePCB is a free EDA software to develop printed circuit boards. It
-    features an easy-to-use interface, a powerful library concept, and is
-    designed to be extensible.
+    LibrePCB is a free electronic design automation suite for developing
+    printed circuit boards on Windows, Linux, and macOS. It is built around an
+    integrated library concept and a project file format shared across
+    platforms.
+  documentation: https://librepcb.org/docs/
   repository: https://github.com/LibrePCB/LibrePCB
 
 extra:

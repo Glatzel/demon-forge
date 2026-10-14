@@ -14,6 +14,14 @@ tests:
         - ${{ name }}/install.ps1
         - ${{ name }}/*/Mason.dll
 
+about:
+  summary: A Revit plugin for automating repetitive tasks
+  description: >
+    Mason is a Revit plugin that provides one-click tools for common modeling
+    tasks. It is built around an extensible command architecture so that
+    additional tools can be added.
+  repository: https://github.com/Glatzel/mason
+
 extra:
   update: get-version-github -repo "Glatzel/$name"
   changelog: get-changelog-github "Glatzel/$name"
