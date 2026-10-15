@@ -80,6 +80,7 @@ rumqttd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
+skill-duckdb,,,,,ubuntu-latest
 sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
 sys-dnc,windows-latest,,,,

@@ -67,3 +67,29 @@ build_recipe() {
         echo "::endgroup::"
     done
 }
+process_skills() {
+    local src_dir="$1"
+    local name="${PKG_NAME#skill-}"
+    local skill_dir dest_dir skill_name
+
+    for skill_dir in "$src_dir"/*/; do
+        [[ -d "$skill_dir" ]] || continue
+
+        skill_name="${skill_dir%/}"
+        skill_name="${skill_name##*/}"
+
+        if [[ "$skill_name" == "$name" || "$skill_name" == "$name"-* ]]; then
+            dest_dir="$skill_name"
+        else
+            dest_dir="$name-$skill_name"
+        fi
+
+        mkdir -p "$PREFIX/skills/$dest_dir"
+        cp -r "$skill_dir". "$PREFIX/skills/$dest_dir/"
+
+        if [[ "$dest_dir" != "$skill_name" ]]; then
+            sed -i "s/^name: $skill_name$/name: $dest_dir/" \
+                "$PREFIX/skills/$dest_dir/SKILL.md"
+        fi
+    done
+}
