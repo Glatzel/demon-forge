@@ -12,12 +12,14 @@ requirements:
 tests:
   - script: ${{ name }} llvm-cov --help
 about:
-  homepage: https://github.com/taiki-e/cargo-llvm-cov
   license: MIT OR Apache-2.0
-  summary: Cargo subcommands for LLVM coverage tools
+  summary: Cargo subcommand for LLVM source-based code coverage
   description: >
-    A collection of Cargo subcommands for working with LLVM coverage tools such
-    as llvm-cov.
+    cargo-llvm-cov is a Cargo subcommand that generates LLVM source-based code
+    coverage data for Rust projects. It wraps rustc's -C instrument-coverage
+    option and provides line, region, and branch coverage for tests, binaries,
+    and documentation tests, with output compatible with common coverage report
+    formats.
   repository: https://github.com/taiki-e/cargo-llvm-cov
 
 extra:

@@ -19,6 +19,14 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 
+about:
+  summary: A terminal user interface for MQTT
+  description: >
+    mqttui is a terminal user interface for interacting with MQTT brokers. It
+    can subscribe to topics and display incoming messages, and can publish
+    messages to a broker from the command line.
+  repository: https://github.com/EdJoPaTo/mqttui
+
 extra:
   update: get-version-github "EdJoPaTo/$name"
   changelog: get-changelog-github "EdJoPaTo/$name"

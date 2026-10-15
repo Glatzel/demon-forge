@@ -14,6 +14,13 @@ tests:
       bin:
         - btm
 about:
+  summary: A cross-platform graphical process and system monitor for the terminal
+  description: >
+    bottom is a cross-platform graphical process and system monitor that runs
+    in the terminal. It displays CPU, memory, disk, network, and temperature
+    usage in customizable widgets, and supports searching, sorting, and sending
+    signals to processes on Linux, macOS, and Windows.
+  documentation: https://bottom.pages.dev
   repository: https://github.com/ClementTsang/bottom
 
 extra:

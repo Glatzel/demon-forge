@@ -18,6 +18,11 @@ tests:
         - diffutils
 about:
   license: MIT
+  summary: Rust reimplementation of the diffutils file comparison tools
+  description: >
+    uutils diffutils is a Rust reimplementation of the GNU diffutils commands,
+    including diff, cmp, diff3, and sdiff. It compares files and reports their
+    differences, and aims to be compatible with the GNU tools.
   repository: https://github.com/uutils/diffutils
 
 extra:

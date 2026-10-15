@@ -50,6 +50,11 @@ tests:
         - ueberzug
   - script: ueberzug layer -h
 about:
+  summary: Drop-in replacement for ueberzug that draws images in terminals
+  description: >
+    Ueberzugpp is a utility that displays images in terminal emulators using
+    graphics protocols. It is a drop-in replacement for ueberzug and can render
+    images alongside terminal applications. It is written in C++.
   repository: https://github.com/jstkdng/ueberzugpp
 
 extra:

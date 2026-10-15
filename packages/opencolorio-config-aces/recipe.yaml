@@ -4,11 +4,21 @@ package:
   version: "4.0.0"
   name: ${{ name }}
 build:
-  number: 1
+  number: 2
   noarch: generic
 tests:
-  - script: pwsh -Command "Resolve-Path ${{'$env:PREFIX' if win else '$PREFIX'}}/ocio/*.ocio"
-
+  - package_contents:
+      files:
+        - ocio/*.ocio
+about:
+  homepage: https://opencolorio.org
+  summary: ACES color configurations for OpenColorIO
+  description: >
+    The project provides a Python package that generates OpenColorIO
+    configurations implementing the Academy Color Encoding System (ACES)
+    transforms. The generated configurations are used for ACES reference and
+    output workflows.
+  repository: https://github.com/AcademySoftwareFoundation/OpenColorIO-Config-ACES
 extra:
   update: get-version-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
   changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"

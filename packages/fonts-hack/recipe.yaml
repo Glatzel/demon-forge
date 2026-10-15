@@ -46,7 +46,13 @@ outputs:
           files:
             - fonts/*.woff2
 about:
-  repository: https://github.com/ryanoasis/nerd-fonts
+  homepage: https://sourcefoundry.org/hack/
+  summary: A typeface designed for source code
+  description: >
+    Hack is an open-source typeface designed for source code. It is derived
+    from the Bitstream Vera and DejaVu font projects and is designed for
+    legibility at commonly used source code text sizes.
+  repository: https://github.com/source-foundry/Hack
 
 extra:
   update: get-version-github -repo "ryanoasis/nerd-fonts"

@@ -13,12 +13,14 @@ tests:
   - script: cargo-size --help
 
 about:
-  homepage: https://github.com/rust-embedded/cargo-binutils
   license: MIT OR Apache-2.0
-  summary: Cargo subcommands for working with GNU binutils
+  summary: Cargo subcommands for the LLVM tools shipped with Rust
   description: >
-    A collection of Cargo subcommands for working with GNU binutils tools such
-    as objdump, nm, and size.
+    cargo-binutils provides Cargo subcommands that invoke the LLVM tools
+    shipped with the Rust toolchain, such as llvm-objdump, llvm-nm, and
+    llvm-size. Rust symbols in the output are automatically demangled, and the
+    artifact path can be omitted when using the tools in build-and-inspect
+    mode.
   repository: https://github.com/rust-embedded/cargo-binutils
 
 extra:

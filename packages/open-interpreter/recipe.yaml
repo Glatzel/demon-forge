@@ -26,6 +26,13 @@ tests:
         - interpreter
 
 about:
+  homepage: https://openinterpreter.com
+  summary: Coding agent that runs in the terminal
+  description: >
+    Open Interpreter is a coding agent for the terminal. It reads and edits
+    files and runs commands on the user's behalf, with configurable sandbox and
+    approval controls, and works with a range of model providers.
+  documentation: https://docs.openinterpreter.com/
   repository: https://github.com/openinterpreter/openinterpreter
 extra:
   update: |

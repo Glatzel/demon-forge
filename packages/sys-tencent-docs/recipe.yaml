@@ -14,5 +14,14 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://docs.qq.com/
+  summary: Online document and collaboration platform from Tencent
+  description: >
+    Tencent Docs is an online document platform from Tencent for creating,
+    editing, and sharing documents, spreadsheets, and presentations. It
+    supports real-time collaboration and access from desktop and mobile
+    devices.
+
 extra:
   update: get-version-winget "t/Tencent/TencentDocs"
