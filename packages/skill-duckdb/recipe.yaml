@@ -10,6 +10,7 @@ tests:
   - package_contents:
       files:
         - skills/*/SKILL.md
+  - script: cat $PREFIX/skills/duckdb-query/SKILL.md
 
 about:
   repository: https://github.com/duckdb/duckdb-skills
