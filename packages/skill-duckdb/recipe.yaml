@@ -4,7 +4,7 @@ package:
   version: ${{version}}
   name: skill-duckdb
 source:
-  - url: https://github.com/duckdb/duckdb-skills/archive/refs/tags/v${{ version }}.tar.gz
+  - git: https://github.com/duckdb/duckdb-skills.git
 build:
   number: 0
   noarch: generic
