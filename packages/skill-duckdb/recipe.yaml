@@ -1,7 +1,5 @@
-context:
-  version: "0.0.1"
 package:
-  version: ${{version}}
+  version: "0.0.1"
   name: skill-duckdb
 source:
   - git: https://github.com/duckdb/duckdb-skills.git
