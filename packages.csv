@@ -81,6 +81,7 @@ rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-a
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 skill-duckdb,,,,,ubuntu-latest
+skill-superpowers,,,,,ubuntu-latest
 sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
 sys-dnc,windows-latest,,,,
