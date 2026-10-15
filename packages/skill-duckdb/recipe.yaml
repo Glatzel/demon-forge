@@ -2,7 +2,7 @@ package:
   version: "0.0.1"
   name: skill-duckdb
 source:
-  - git: https://github.com/duckdb/duckdb-skills.git
+  - url: https://github.com/duckdb/duckdb-skills/archive/refs/heads/main.zip
 build:
   number: 0
   noarch: generic
