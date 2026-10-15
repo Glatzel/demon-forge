@@ -16,15 +16,7 @@ tests:
         - skills/*/SKILL.md
 
 about:
-  homepage: https://duckdb.org
-  summary: In-process analytical SQL database management system
-  description: >
-    DuckDB is an in-process SQL database management system designed for
-    analytical workloads. It runs embedded in the host process, supports the
-    PostgreSQL SQL dialect, and can read and write file formats such as CSV,
-    Parquet, and JSON.
-  documentation: https://duckdb.org/docs/
-  repository: https://github.com/duckdb/duckdb
+  repository: https://github.com/duckdb/duckdb-skills
 
 extra:
   update: echo "0.0.1"
