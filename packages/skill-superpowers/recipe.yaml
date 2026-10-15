@@ -1,5 +1,7 @@
-package:
+context:
   version: "7.0.0"
+package:
+  version: ${{ version }}
   name: skill-superpowers
 source:
   - url: https://github.com/obra/superpowers/archive/refs/tags/v${{ version }}.tar.gz
