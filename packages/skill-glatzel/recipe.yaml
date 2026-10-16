@@ -1,0 +1,12 @@
+package:
+  version: "0.0.1"
+  name: skill-glatzel
+build:
+  number: 0
+  noarch: generic
+tests:
+  - package_contents:
+      files:
+        - skills/*/SKILL.md
+extra:
+  update: echo "0.0.1"
