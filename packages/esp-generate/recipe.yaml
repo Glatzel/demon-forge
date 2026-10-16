@@ -16,16 +16,13 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://github.com/esp-rs/esp-generate
-  summary: A code generator for ESP-IDF bindings in Rust
-  description: >
-    esp-generate is a code generation tool that simplifies the process of
-    creating Rust bindings for the ESP-IDF framework. It automates the
-    generation of boilerplate code, making it easier for developers to work with
-    ESP-IDF in Rust. By using esp-generate, developers can focus on writing
-    application logic rather than dealing with the intricacies of FFI and
-    bindings.
   license: MIT
+  summary: Template generator for no_std applications targeting Espressif chips
+  description: >
+    esp-generate is a project template generator for no_std Rust applications
+    targeting Espressif SoCs and modules. It provides a terminal interface and,
+    with the --headless flag, a command-line interface for selecting a target
+    chip and configuration options, and it can check the generated templates.
   repository: https://github.com/esp-rs/esp-generate
 
 extra:

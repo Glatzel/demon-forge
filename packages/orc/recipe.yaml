@@ -14,6 +14,14 @@ requirements:
 tests:
   - script: orc --help
 
+about:
+  summary: Scans Windows executables and DLLs for missing dependencies
+  description: >
+    orc inspects a Windows PE executable or DLL and reports its dependency tree,
+    making it possible to see which linked libraries are missing or resolved at
+    a given depth.
+  repository: https://github.com/Glatzel/toolbox
+
 extra:
   update: get-version-github "Glatzel/toolbox"
   changelog: get-changelog-github "Glatzel/toolbox"

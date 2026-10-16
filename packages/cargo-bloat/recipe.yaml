@@ -14,6 +14,12 @@ tests:
       bin:
         - ${{ name }}
 about:
+  summary: A tool to find what takes up space in an executable
+  description: >
+    cargo-bloat is a Cargo subcommand that analyzes the size of an executable
+    and reports which functions and sections take up the most space. It
+    supports ELF, Mach-O, and PE binaries and can filter results by crate or
+    with regular expressions.
   repository: https://github.com/RazrFalcon/cargo-bloat
 
 extra:

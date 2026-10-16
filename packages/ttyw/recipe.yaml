@@ -14,6 +14,15 @@ requirements:
 tests:
   - script: ttyw --help
 
+about:
+  summary: Web terminal server that runs a shell in the browser
+  description: >
+    ttyw is a web-based terminal server that serves an interactive shell in the
+    browser. It connects a pseudoterminal to a WebSocket endpoint and embeds
+    its frontend, with options for the listening port, working directory, and
+    command to run.
+  repository: https://github.com/Glatzel/toolbox
+
 extra:
   update:  get-version-github -repo "Glatzel/toolbox"
   changelog: get-changelog-github -repo "Glatzel/toolbox"

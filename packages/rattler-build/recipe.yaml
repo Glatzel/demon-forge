@@ -17,7 +17,14 @@ tests:
       bin:
         - ${{ name }}
 about:
-  repository: https://github.com/prefix-dev/rattler-build/
+  homepage: https://rattler.build
+  summary: Conda package builder
+  description: >
+    rattler-build builds conda packages from a recipe. It creates relocatable
+    packages across platforms, produces standard conda packages that can be
+    installed with pixi, mamba, or conda, and is implemented in Rust without a
+    dependency on conda-build or Python.
+  repository: https://github.com/prefix-dev/rattler-build
 
 extra:
   update: get-version-github -repo "prefix-dev/rattler-build"

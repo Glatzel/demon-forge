@@ -18,6 +18,13 @@ requirements:
 tests:
   - script: pyxis --help
 
+about:
+  summary: Command-line interface for the Pyxis coordinate library
+  description: >
+    Pyxis is a library for coordinate conversion and processing. This package
+    provides its command-line tools for transforming and processing coordinates.
+  repository: https://github.com/Glatzel/pyxis
+
 extra:
   update: get-version-github "Glatzel/pyxis"
   changelog: get-changelog-github "Glatzel/pyxis"

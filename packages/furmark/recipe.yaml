@@ -5,9 +5,6 @@ package:
   name: ${{ name }}
 build:
   number: 1
-  script:
-    interpreter: powershell
-    file: build.ps1
 requirements:
   build:
     - selenium
@@ -17,15 +14,12 @@ tests:
       bin:
         - ${{ name }}/${{ name }}
 about:
-  homepage: https://geeks3d.com/furmark
-  summary: GPU stress test and benchmarking tool
+  homepage: https://geeks3d.com/furmark/
+  summary: A GPU stress-testing and benchmarking tool
   description: >
-    FurMark is a lightweight but intensive GPU stress-testing and benchmarking
-    tool. It is designed to test the stability and thermal performance of
-    graphics cards by rendering a highly demanding 3D scene, helping users
-    identify potential issues with cooling or overclocking.
-  documentation: https://geeks3d.com/furmark
-  repository: https://geeks3d.com/furmark
+    FurMark is a graphics card stress test and benchmarking tool developed by
+    Geeks3D. It renders a demanding 3D workload to measure performance and to
+    test the stability and thermal behavior of a GPU under load.
 
 extra:
   update: get-version-url -url "https://geeks3d.com/furmark/changelog/" -pattern 'version (\d+\.\d+\.\d+\.*\d*)'

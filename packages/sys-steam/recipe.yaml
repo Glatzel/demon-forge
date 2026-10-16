@@ -14,5 +14,14 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://store.steampowered.com/
+  summary: Digital distribution platform for video games
+  description: >
+    Steam is a digital distribution service and storefront for video games
+    operated by Valve. The client application is used to purchase, download
+    and install games, keep them up to date, and access community features
+    such as friends, chat and the workshop.
+
 extra:
   update: get-version-winget "v/Valve/Steam"

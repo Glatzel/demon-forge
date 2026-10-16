@@ -1,7 +1,7 @@
 context:
   name: houdini-launcher
 package:
-  version: "22.0.466"
+  version: "22.0.470"
   name: ${{ name }}
 build:
   number: 0
@@ -14,7 +14,15 @@ tests:
   - package_contents:
       files:
         - ${{"bin/install_houdini_launcher.sh" if linux}}
-        - ${{"houdini-launcher/bin/houdini_launcher.exe" if win}}
+        - ${{ "houdini-launcher/bin/houdini_launcher.exe" if win}}
+
+about:
+  homepage: https://www.sidefx.com/products/houdini/
+  summary: An installer and updater for SideFX Houdini
+  description: >
+    The Houdini Launcher is a utility from SideFX for installing and updating
+    Houdini and its related products. It downloads releases, configures
+    licenses, and manages which versions are installed on a system.
 
 extra:
   update: gh api repos/sideeffects/SideFXLabs/tags --jq '.[0].name'

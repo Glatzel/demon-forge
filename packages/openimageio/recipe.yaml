@@ -1,6 +1,6 @@
 context:
   name: openimageio
-  version: "3.2.1.1"
+  version: "3.2.1.2"
   number: 0
 recipe:
   name: ${{ name }}
@@ -94,14 +94,14 @@ outputs:
 about:
   homepage: https://openimageio.org
   license: BSD-3-Clause
-  summary: Library for reading and writing images
+  summary: Image I/O and processing library
   description: >
-    OpenImageIO (OIIO) is an open-source library for reading, writing, and
-    processing images. It supports a wide variety of image formats and provides
-    utilities for image manipulation, texture processing, and metadata handling,
-    commonly used in visual effects and animation pipelines.
-  documentation: https://openimageio.org/documentation/
-  repository: https://github.com/OpenImageIO/oiio
+    OpenImageIO (OIIO) reads, writes, and processes images in a wide variety of
+    file formats through a format-agnostic API. It is aimed at professional
+    visual effects and feature animation and includes command-line utilities
+    such as oiiotool.
+  documentation: https://openimageio.readthedocs.io/
+  repository: https://github.com/AcademySoftwareFoundation/OpenImageIO
 
 extra:
   update: get-version-github "AcademySoftwareFoundation/OpenImageIO"

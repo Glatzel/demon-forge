@@ -5,9 +5,6 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
   - package_contents:
       bin:
@@ -16,13 +13,14 @@ tests:
 about:
   homepage: https://calibre-ebook.com
   license: GPL-3.0-or-later
-  summary: Comprehensive e-book management software
+  summary: E-book management software
   description: >
-    Calibre is a powerful and easy-to-use e-book manager. It supports
-    organizing, converting, editing, and transferring e-books to various
-    devices. It also includes a built-in e-book reader and server for accessing
-    your library remotely.
-  documentation: https://manual.calibre-ebook.com
+    calibre is an e-book manager that can view, convert, edit, and catalog
+    e-books in the major e-book formats. It can also transfer books to e-book
+    reader devices, fetch metadata from the internet, download news sources as
+    e-books, and run a content server for remote access. It runs on Linux,
+    Windows, and macOS.
+  documentation: https://manual.calibre-ebook.com/
   repository: https://github.com/kovidgoyal/calibre
 
 extra:

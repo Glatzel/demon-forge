@@ -17,6 +17,18 @@ requirements:
     - aria2
     - sys-install
 
+about:
+  homepage: https://www.rhino3d.com/inside/revit/
+  license: MIT
+  summary: Embed Rhino and Grasshopper inside Autodesk Revit
+  description: >
+    Rhino.Inside.Revit embeds the Rhinoceros 3D geometry engine and the
+    Grasshopper visual programming environment inside Autodesk Revit. It
+    allows Rhino and Grasshopper geometry and workflows to be used directly
+    within the Revit environment. Rhino.Inside is a technology for embedding
+    Rhino and its add-ons within other applications.
+  repository: https://github.com/mcneel/rhino.inside-revit
+
 extra:
   update: |
     function Get-PreviousMinorLatestTag

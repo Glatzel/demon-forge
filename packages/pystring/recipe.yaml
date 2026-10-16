@@ -58,6 +58,11 @@ outputs:
           include:
             - pystring/pystring.h
 about:
+  summary: Python-style string functions for C++
+  description: >
+    pystring provides a set of string manipulation functions for C++ that mirror
+    Python's string methods, operating on std::string. It is intended for code
+    that needs Python-like text handling in C++.
   repository: https://github.com/imageworks/pystring
 
 extra:

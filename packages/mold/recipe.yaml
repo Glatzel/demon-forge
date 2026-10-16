@@ -19,6 +19,15 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 
+about:
+  summary: A linker for Unix-like operating systems
+  description: >
+    mold is a linker for Unix-like operating systems designed as a drop-in
+    replacement for existing linkers, with a focus on link speed. It supports
+    architectures including x86-64, ARM, RISC-V, PowerPC, s390x, and
+    LoongArch.
+  repository: https://github.com/rui314/mold
+
 extra:
   update: get-version-github "rui314/mold"
   changelog: get-changelog-github "rui314/mold"

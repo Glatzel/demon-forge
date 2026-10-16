@@ -15,15 +15,14 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://github.com/kbknapp/cargo-llvm-lines
   license: MIT
-  summary: Analyze Rust binaries to see LLVM IR code size per function
+  summary: Count lines of LLVM IR per generic function
   description: >
-    cargo-llvm-lines is a Cargo subcommand that analyzes Rust binaries at the
-    LLVM IR level, showing which functions contribute most to code size. It
-    helps developers optimize binary size by identifying heavy functions.
-  documentation: https://github.com/kbknapp/cargo-llvm-lines#usage
-  repository: https://github.com/kbknapp/cargo-llvm-lines
+    cargo-llvm-lines is a Cargo subcommand that measures the amount of LLVM IR
+    generated for each generic function in a Rust program. It reports the
+    functions that produce the most LLVM IR, which helps identify where
+    monomorphization increases compile time and binary size.
+  repository: https://github.com/dtolnay/cargo-llvm-lines
 
 extra:
   update: get-version-crateio -name $name

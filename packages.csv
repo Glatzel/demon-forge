@@ -41,7 +41,6 @@ fonts-hack,,,,,ubuntu-latest
 fornax-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 fresh-editor,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 furmark,windows-latest,,,,
-gh-act-runner,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 github-action-runner,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 hexyl,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 houdini-launcher,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -79,10 +78,13 @@ robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.0
 rufus,windows-latest,,,,
 rumqttd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+skill-duckdb,,,,,ubuntu-latest
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
+skill-superpowers,,,,,ubuntu-latest
 sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
+sys-chatgpt,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-epic,windows-latest,,,,
 sys-icaros,windows-latest,,,,
@@ -103,7 +105,7 @@ tombi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-ar
 toolbox,,,,,ubuntu-latest
 ttyw,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ueberzugpp,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-upx,windows-latest,,,,
+upx,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 v2rayn,windows-latest,,,,
 vinaya-cli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,

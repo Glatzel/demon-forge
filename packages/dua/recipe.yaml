@@ -1,7 +1,7 @@
 context:
   name: dua
 package:
-  version: "2.45.1"
+  version: "2.46.0"
   name: ${{ name }}
 build:
   number: 0
@@ -14,7 +14,12 @@ tests:
       bin:
         - ${{ name }}
 about:
-  repository: https://github.com/ClementTsang/bottom
+  summary: View disk space usage and delete unwanted data
+  description: >
+    dua is a command-line tool for reporting disk usage. It shows the size of
+    directories and files and provides an interactive mode for selecting and
+    deleting data to free space.
+  repository: https://github.com/Byron/dua-cli
 
 extra:
   update: get-version-crateio -name dua-cli

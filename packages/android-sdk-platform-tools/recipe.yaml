@@ -31,14 +31,16 @@ tests:
         - adb
   - script: adb --help
 about:
-  homepage: https://developer.android.com/studio/releases/platform-tools
+  homepage: https://developer.android.com/tools/releases/platform-tools
   license: Apache-2.0
-  summary: Android SDK Platform-Tools
+  summary: Android SDK command-line tools for communicating with Android devices
   description: >
-    Android SDK Platform-Tools includes adb and fastboot, essential command-line
-    tools for communicating with Android devices during development and
-    debugging.
-  documentation: https://developer.android.com/studio/command-line
+    Android SDK Platform-Tools is a component of the Android SDK that includes
+    adb and fastboot, command-line tools for communicating with Android devices
+    from a computer. adb installs and debugs apps, runs shell commands, and
+    transfers files, while fastboot flashes firmware images to devices booted
+    into fastboot mode.
+  documentation: https://developer.android.com/tools/adb
 extra:
   update: get-version-url -url "https://developer.android.com/tools/releases/platform-tools" -pattern '([0-9]+\.[0-9]+\.[0-9]+)'
   changelog: echo "https://developer.android.com/tools/releases/platform-tools"

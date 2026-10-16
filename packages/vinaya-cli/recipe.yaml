@@ -1,6 +1,6 @@
 context:
   name: vinaya-cli
-  version: "2026.9.14"
+  version: "2026.10.11"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -10,9 +10,19 @@ build:
   number: 0
 requirements:
   build:
+    - ${{ compiler('c') }}
     - ${{ compiler('rust') }}
 tests:
   - script: vinaya --help
+
+about:
+  summary: Command-line helper for managing SideFX Houdini installations
+  description: >
+    Vinaya is a command-line tool for managing SideFX Houdini installations. It
+    lists installed Houdini versions, enables and disables Houdini packages,
+    manages preferences, and queries the SideFX website for daily builds,
+    download links, and non-commercial licenses.
+  repository: https://github.com/Glatzel/toolbox
 
 extra:
   update: get-version-github -repo "Glatzel/toolbox"

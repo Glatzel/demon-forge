@@ -31,6 +31,7 @@ get_cargo_arg() {
     fi
     printf '%s\n' "${args[@]}"
 }
+
 build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
         echo "action_publish=true" >> "$GITHUB_OUTPUT"
@@ -38,11 +39,11 @@ build_recipe() {
     ROOT=$(git rev-parse --show-toplevel)
     echo "::group:: build $pkg"
     set -- \
-        --config-file "$ROOT/rattler-config.toml" \
-        --color always \
-        build --output-dir "$ROOT/output" \
-        --variant-config "$ROOT/conda_build_config.yaml" \
-        --env-isolation none
+        --config-file            "$ROOT/rattler-config.toml" \
+        --color                  always \
+        build --output-dir       "$ROOT/output" \
+        --variant-config         "$ROOT/conda_build_config.yaml" \
+        --env-isolation          none
 
     if [ -n "$CI" ] && [ "$TARGET_PLATFORM" != "noarch" ]; then
         set -- "$@" --target-platform "$TARGET_PLATFORM"
@@ -64,5 +65,31 @@ build_recipe() {
         echo "::group:: inspect $pkg"
         pixi run rattler-build package inspect --all "$pkg_file"
         echo "::endgroup::"
+    done
+}
+process_skills() {
+    local src_dir="$1"
+    local name="${PKG_NAME#skill-}"
+    local skill_dir dest_dir skill_name
+
+    for skill_dir in "$src_dir"/*/; do
+        [[ -d "$skill_dir" ]] || continue
+
+        skill_name="${skill_dir%/}"
+        skill_name="${skill_name##*/}"
+
+        if [[ "$skill_name" == "$name" || "$skill_name" == "$name"-* ]]; then
+            dest_dir="$skill_name"
+        else
+            dest_dir="$name-$skill_name"
+        fi
+
+        mkdir -p "$PREFIX/skills/$dest_dir"
+        cp -r "$skill_dir". "$PREFIX/skills/$dest_dir/"
+
+        if [[ "$dest_dir" != "$skill_name" ]]; then
+            sed -i "s/^name: $skill_name$/name: $dest_dir/" \
+                "$PREFIX/skills/$dest_dir/SKILL.md"
+        fi
     done
 }

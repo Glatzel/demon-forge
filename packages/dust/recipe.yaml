@@ -14,7 +14,12 @@ tests:
       bin:
         - ${{ name }}
 about:
-  repository: https://github.com/ClementTsang/bottom
+  summary: Intuitive version of the du command
+  description: >
+    dust is a command-line tool that reports disk usage in a directory tree. It
+    displays directory sizes as a sorted tree with a bar chart, making it easier
+    to see which entries take up the most space.
+  repository: https://github.com/bootandy/dust
 
 extra:
   update: get-version-crateio -name du-dust

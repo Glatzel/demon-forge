@@ -5,22 +5,18 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
   - script:
       - benchmark-launcher-cli --help
 about:
   homepage: https://opendata.blender.org
   license: GPL-3.0-or-later
-  summary: Blender Benchmark tool for measuring 3D rendering performance
+  summary: Benchmark tool for measuring Blender rendering performance
   description: >
-    Blender Benchmark is a performance testing tool that uses Blender to measure
-    the rendering speed of your system. Results can be compared and shared on
-    Blender Open Data, helping users evaluate hardware performance for 3D
-    workloads.
-  documentation: https://opendata.blender.org/about
+    Blender Benchmark measures the rendering speed of a system by running
+    Blender scenes and reporting the results. Scores can be compared and
+    uploaded to Blender Open Data, allowing hardware performance to be
+    evaluated for 3D rendering workloads.
   repository: https://projects.blender.org/blender/blender-benchmark
 
 extra:

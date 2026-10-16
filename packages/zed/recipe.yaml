@@ -1,6 +1,6 @@
 context:
   name: zed
-  version: "1.23.3"
+  version: "1.24.2"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -8,9 +8,6 @@ source:
   url: https://github.com/zed-industries/zed/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 requirements:
   build:
     - rust
@@ -18,6 +15,16 @@ tests:
   - package_contents:
       bin:
         - ${{ name }}
+
+about:
+  homepage: https://zed.dev
+  summary: Collaborative code editor from the creators of Atom and Tree-sitter
+  description: >
+    Zed is a code editor for macOS, Linux, and Windows developed by the creators
+    of Atom and Tree-sitter. It supports collaborative editing, AI-assisted
+    coding, and multiple programming languages, and is written in Rust.
+  documentation: https://zed.dev/docs
+  repository: https://github.com/zed-industries/zed
 
 extra:
   update: get-version-github "zed-industries/zed"

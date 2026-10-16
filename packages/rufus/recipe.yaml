@@ -5,9 +5,6 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
   - package_contents:
       bin:
@@ -17,11 +14,10 @@ about:
   license: GPL-3.0-or-later
   summary: Utility to create bootable USB drives
   description: >
-    Rufus is a free and open-source utility that helps format and create
-    bootable USB drives, such as USB keys/pendrives, memory sticks, etc. It is
-    widely used for creating installation media from ISO files for Windows,
-    Linux, and other operating systems.
-  documentation: https://rufus.ie/en/
+    Rufus is a utility for formatting and creating bootable USB drives, such
+    as USB flash drives and memory sticks. It is commonly used to write ISO
+    images to USB media to create installation media for Windows, Linux and
+    other operating systems.
   repository: https://github.com/pbatard/rufus
 
 extra:

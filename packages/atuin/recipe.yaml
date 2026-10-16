@@ -1,7 +1,7 @@
 context:
   name: atuin
 package:
-  version: "18.23.0"
+  version: "18.24.0"
   name: ${{ name }}
 build:
   number: 0
@@ -19,6 +19,15 @@ tests:
       bin:
         - ${{ name }}
 about:
+  homepage: https://atuin.sh
+  summary: Shell history tool with a searchable database and optional sync
+  description: >
+    Atuin records shell command history in a searchable SQLite database and can
+    synchronize it across machines with end-to-end encryption. It captures
+    additional context for each command, including exit code, duration, and
+    working directory, and provides a full-screen search interface for
+    recalling previous commands.
+  documentation: https://docs.atuin.sh/
   repository: https://github.com/atuinsh/atuin
 
 extra:

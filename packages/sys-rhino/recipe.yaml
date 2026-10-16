@@ -22,5 +22,14 @@ tests:
         install-${{name}}.ps1
         Resolve-Path "C:\Program Files\Rhino 8\System\Rhino.exe"
 
+about:
+  homepage: https://www.rhino3d.com/
+  summary: NURBS-based 3D modeling software
+  description: >
+    Rhinoceros 3D, commonly known as Rhino, is a 3D modeling application
+    developed by Robert McNeel & Associates. It is used to create and edit
+    free-form NURBS curves, surfaces and solids, and is applied in industrial
+    design, architecture, marine design and other fields.
+
 extra:
   update: get-version-text "$(curl -sIL https://www.rhino3d.com/download/rhino-for-windows/8/latest/direct?email=users.noreply.github.com)"'rhino_en-us_(\d+\.\d+\.\d+\.\d+).exe'

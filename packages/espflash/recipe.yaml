@@ -16,16 +16,13 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://github.com/esp-rs/espflash
-  summary: A flashing tool for ESP32 and ESP8266 boards written in Rust
-  description: >
-    espflash is a command-line tool designed for flashing firmware onto ESP32
-    and ESP8266 microcontroller boards. Written in Rust, it offers a fast and
-    reliable way to upload compiled code to these popular IoT devices. espflash
-    supports various features such as automatic detection of connected boards,
-    configuration of flash parameters, and verification of flashed data, making
-    it an essential tool for developers working with ESP-based projects.
   license: MIT
+  summary: Serial flasher utility for Espressif SoCs and modules
+  description: >
+    espflash is a command-line tool for flashing firmware to Espressif SoCs and
+    modules. It supports automatic detection of connected boards, configuration
+    of flash parameters, and verification of flashed data.
+  documentation: https://esp-rs.github.io/espflash/
   repository: https://github.com/esp-rs/espflash
 
 extra:
