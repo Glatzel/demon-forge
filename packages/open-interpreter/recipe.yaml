@@ -11,7 +11,7 @@ build:
   number: 0
 requirements:
   build:
-    - ${{ compiler('rust') }}
+    - rust 1.95.*
     - ${{ stdlib('c') }}
     - python
     - ${{ "pkg-config" if linux }}
