@@ -82,6 +82,7 @@ skill-duckdb,,,,,ubuntu-latest
 slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 skill-superpowers,,,,,ubuntu-latest
+skill-glatzel,,,,,ubuntu-latest
 sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
 sys-chatgpt,windows-latest,,,,
