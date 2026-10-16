@@ -47,7 +47,12 @@ outputs:
           files:
             - fonts/*.woff2
 about:
-  repository: https://github.com/ryanoasis/nerd-fonts
+  summary: Monospaced font for programming and terminals
+  description: >
+    Cascadia Code is a monospaced font from Microsoft designed for terminals and
+    code editors, and it includes programming ligatures. Cascadia Mono is the
+    variant of the same typeface without programming ligatures.
+  repository: https://github.com/microsoft/cascadia-code
 
 extra:
   update: get-version-github -repo "ryanoasis/nerd-fonts"

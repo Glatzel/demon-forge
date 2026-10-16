@@ -72,6 +72,11 @@ outputs:
           include:
             - cap-ng.h
 about:
+  summary: A library for using POSIX capabilities on Linux
+  description: >
+    libcap-ng is a library that simplifies programming with POSIX capabilities
+    on Linux. It includes utilities such as netcap, pscap, and filecap for
+    inspecting running processes and files for excessive privileges.
   repository: https://github.com/stevegrubb/libcap-ng
 
 extra:

@@ -17,6 +17,11 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
+  summary: Command-line program to find entries in the filesystem
+  description: >
+    fd is a command-line program to search for files and directories. It uses
+    regular expressions by default, runs searches in parallel, and provides a
+    simpler syntax than the find utility.
   repository: https://github.com/sharkdp/fd
 
 extra:

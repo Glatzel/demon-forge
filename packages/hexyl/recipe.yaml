@@ -13,6 +13,11 @@ tests:
   - script: hexyl --help
 
 about:
+  summary: A command-line hex viewer
+  description: >
+    Hexyl is a hex viewer for the command line. It displays file contents as
+    hexadecimal bytes and uses color to distinguish byte categories, such as
+    null bytes, printable ASCII characters, and whitespace.
   repository: https://github.com/sharkdp/hexyl
 
 extra:

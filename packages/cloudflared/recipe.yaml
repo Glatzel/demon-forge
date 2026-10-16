@@ -1,7 +1,7 @@
 context:
   name: cloudflared
 package:
-  version: "2026.10.0"
+  version: "2026.10.1"
   name: ${{ name }}
 build:
   number: 0
@@ -11,15 +11,13 @@ tests:
         - ${{name}}
   - script: ${{name}} --help
 about:
-  homepage: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
   license: Apache-2.0
   summary: Cloudflare Tunnel client
   description: >
-    cloudflared is a command-line tool that establishes secure tunnels to
-    Cloudflare's network. It allows exposing local services to the internet
-    without opening firewall ports, supporting features like Argo Tunnel and
-    Zero Trust access.
-  documentation: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
+    cloudflared is the client for Cloudflare Tunnel. It creates outbound-only
+    connections from a private network to Cloudflare, allowing services to be
+    reached over the internet without opening inbound firewall ports.
+  documentation: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
   repository: https://github.com/cloudflare/cloudflared
 
 extra:

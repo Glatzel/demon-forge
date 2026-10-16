@@ -30,6 +30,15 @@ tests:
       imports:
         - fornax
 
+about:
+  summary: A raw image processing library with Rust and Python APIs
+  description: >
+    Fornax is a raw image processing library that provides high-level and
+    low-level APIs for decoding and post-processing camera RAW files. It
+    supports built-in and custom decoders through a Rust backend and can be
+    used from both Rust and Python.
+  repository: https://github.com/Glatzel/fornax
+
 extra:
   update: get-version-github -repo "Glatzel/fornax"
   changelog: get-changelog-github "Glatzel/fornax"

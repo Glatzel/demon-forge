@@ -14,5 +14,13 @@ requirements:
   run:
     - sys-install
 
+about:
+  homepage: https://im.qq.com/
+  summary: Instant messaging client from Tencent
+  description: >
+    QQ is an instant messaging client developed by Tencent. It supports text
+    chat, voice and video calls, file transfer and group conversations across
+    desktop and mobile devices.
+
 extra:
   update: get-version-winget "t/Tencent/QQ/NT"

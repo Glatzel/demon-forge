@@ -1,6 +1,6 @@
 context:
   name: sys-rhino-inside-autocad
-  version: "1.3.6"
+  version: "1.3.7"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -16,6 +16,17 @@ requirements:
   run:
     - aria2
     - sys-install
+
+about:
+  license: MIT
+  summary: Embed Rhino and Grasshopper inside Autodesk AutoCAD and Civil 3D
+  description: >
+    Rhino.Inside.AutoCAD embeds the Rhinoceros 3D geometry engine and the
+    Grasshopper visual programming environment inside Autodesk AutoCAD and
+    Civil 3D. It allows geometry to be exchanged between the applications
+    without file exports, so Rhino and Grasshopper workflows can be used
+    directly within the host CAD application.
+  repository: https://github.com/mcneel/rhino.inside-autocad
 
 extra:
   update: get-version-github -repo "mcneel/rhino.inside-autocad"

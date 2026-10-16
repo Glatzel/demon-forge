@@ -1,7 +1,7 @@
 context:
   name: sys-baidu-netdisk
 package:
-  version: "8.8.8"
+  version: "8.9.2"
   name: ${{ name }}
 build:
   number: 0
@@ -13,6 +13,14 @@ build:
 requirements:
   run:
     - sys-install
+
+about:
+  homepage: https://pan.baidu.com/
+  summary: Cloud storage and file sharing client from Baidu
+  description: >
+    Baidu Netdisk is a personal cloud storage service from Baidu. The desktop
+    client synchronises files between a computer and the cloud and supports
+    uploading, downloading, sharing and online preview of files.
 
 extra:
   update: get-version-winget "b/Baidu/BaiduNetdisk"

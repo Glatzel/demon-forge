@@ -5,13 +5,19 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
   - package_contents:
       bin:
         - vs_BuildTools
+
+about:
+  homepage: https://visualstudio.microsoft.com/downloads/
+  summary: Build tools, compilers, and libraries for Visual Studio
+  description: >
+    Visual Studio Build Tools provides the MSBuild toolchain, compilers, and
+    libraries needed to build applications without the Visual Studio IDE. It is
+    distributed by Microsoft for Windows.
+  documentation: https://learn.microsoft.com/visualstudio/
 
 extra:
   update: |

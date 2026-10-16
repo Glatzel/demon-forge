@@ -1,0 +1,21 @@
+context:
+  version: "7.0.0"
+package:
+  version: ${{ version }}
+  name: skill-superpowers
+source:
+  - url: https://github.com/obra/superpowers/archive/refs/tags/v${{ version }}.tar.gz
+build:
+  number: 0
+  noarch: generic
+tests:
+  - package_contents:
+      files:
+        - skills/*/SKILL.md
+
+about:
+  repository: https://github.com/obra/superpowers
+
+extra:
+  update: get-version-github -repo "obra/superpowers"
+  changelog: get-changelog-github "obra/superpowers"

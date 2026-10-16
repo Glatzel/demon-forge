@@ -1,17 +1,23 @@
 context:
   name: v2rayn
 package:
-  version: "7.25.4"
+  version: "7.25.6"
   name: ${{ name }}
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
   - package_contents:
       bin:
         - ${{ name }}/v2rayN
+
+about:
+  homepage: https://v2rayn.2dust.link
+  summary: GUI client for Xray and sing-box proxy cores
+  description: >
+    v2rayN is a graphical client for Windows, Linux, and macOS that manages
+    proxy cores such as Xray and sing-box. It provides server configuration,
+    subscription management, and routing features for these cores.
+  repository: https://github.com/2dust/v2rayN
 
 extra:
   update: get-version-github -repo "2dust/v2rayN"

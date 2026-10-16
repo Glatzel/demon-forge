@@ -104,6 +104,17 @@ outputs:
             - ocioperf
             - ociowrite
 
+about:
+  homepage: https://opencolorio.org
+  summary: Color management framework for visual effects and animation
+  description: >
+    OpenColorIO (OCIO) provides a consistent way to describe and apply color
+    transforms across applications and pipelines. It is used in visual effects
+    and animation production and is integrated into many content creation
+    tools.
+  documentation: https://opencolorio.readthedocs.io/
+  repository: https://github.com/AcademySoftwareFoundation/OpenColorIO
+
 extra:
   update: get-version-github "AcademySoftwareFoundation/OpenColorIO"
   changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO"

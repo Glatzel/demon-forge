@@ -59,13 +59,12 @@ outputs:
             - CameraRemote_SDK.h
 about:
   homepage: https://support.d-imaging.sony.co.jp/app/sdk/licenseagreement_d/en-US.html
-  summary: Software Development Kit for remote control of Sony cameras
+  summary: Software development kit for remote control of Sony cameras
   description: >
-    The Camera Remote SDK enables developers to integrate Sony cameras into
-    custom software applications for remote control and data retrieval. It
-    provides a high-level command system for efficient development, allowing
-    operations such as shutter release, live view monitoring, and image
-    transfer.
+    The Camera Remote SDK lets developers integrate Sony cameras into custom
+    applications for remote control and data retrieval. It provides a command
+    system for operations such as shutter release, live view monitoring, and
+    image transfer.
 
 extra:
   update: |

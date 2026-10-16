@@ -1,7 +1,7 @@
 context:
   name: sys-vscode
 package:
-  version: "1.141.0"
+  version: "1.142.0"
   name: ${{ name }}
 build:
   number: 0
@@ -13,6 +13,16 @@ build:
 requirements:
   run:
     - sys-install
+
+about:
+  homepage: https://code.visualstudio.com/
+  summary: Source code editor from Microsoft
+  description: >
+    Visual Studio Code is a source code editor from Microsoft for Windows,
+    macOS, and Linux. It provides syntax highlighting, debugging, Git
+    integration, an integrated terminal, and extension support.
+  documentation: https://code.visualstudio.com/docs
+  repository: https://github.com/microsoft/vscode
 
 extra:
   update: get-version-winget "m/Microsoft/VisualStudioCode"

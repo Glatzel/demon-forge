@@ -1,7 +1,7 @@
 context:
   name: cargo-codspeed
 package:
-  version: "5.0.2"
+  version: "5.0.3"
   name: ${{ name }}
 build:
   number: 0
@@ -13,6 +13,14 @@ tests:
       bin:
         - ${{name}}
 about:
+  homepage: https://codspeed.io
+  summary: Cargo subcommand for building benchmark executables for CodSpeed
+  description: >
+    cargo-codspeed is a Cargo extension for building benchmarks that run on the
+    CodSpeed performance testing platform. It compiles benchmark targets into
+    executables that CodSpeed measures to detect performance regressions,
+    typically in continuous integration.
+  documentation: https://docs.codspeed.io/
   repository: https://github.com/CodSpeedHQ/codspeed
 
 extra:

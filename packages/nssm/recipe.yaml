@@ -18,5 +18,13 @@ tests:
       bin:
         - ${{ name }}
 
+about:
+  homepage: https://nssm.cc
+  summary: Utility for running programs as Windows services
+  description: >
+    NSSM (the Non-Sucking Service Manager) wraps an arbitrary program so it can
+    run as a native Windows service. It monitors the managed process, restarts
+    it if it exits, and can redirect its output to files.
+
 extra:
   update: get-version-url -url "https://nssm.cc/download" -pattern 'nssm (\d+\.\d+)'

@@ -5,20 +5,20 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  script:
-    interpreter: powershell
-    file: build.ps1
 tests:
-  - script: pwsh -Command "& ${{'$env:PREFIX' if win else '$PREFIX'}}/bin/${{ name }}/${{ name }}${{'.exe' if win}} --help"
+  - package_contents:
+      bin:
+        - xray
 about:
-  homepage: https://github.com/XTLS/xray-core
+  homepage: https://xtls.github.io
   license: GPL-3.0-only
-  summary: Xray is a platform for building proxies to bypass network restrictions
+  summary: Platform for building proxy and network tools
   description: >
-    Xray is a platform for building proxies to bypass network restrictions and
-    improve privacy and security. It supports multiple protocols and is highly
-    configurable.
-  repository: https://github.com/XTLS/xray-core
+    Xray-core is a platform for building proxy and networking tools based on
+    the XTLS protocol. It supports multiple protocols and transports and is
+    used to route and forward network traffic. It is the core engine behind
+    several proxy clients.
+  repository: https://github.com/XTLS/Xray-core
 
 extra:
   update:  get-version-github -repo "XTLS/Xray-core"

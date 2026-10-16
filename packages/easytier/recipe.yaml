@@ -28,6 +28,14 @@ tests:
         - ${{ name }}-cli
   - script: ${{ name }}-core --help
 about:
+  homepage: https://easytier.cn
+  summary: Decentralized mesh VPN with WireGuard support
+  description: >
+    EasyTier is a mesh VPN that connects machines into a virtual network. It
+    supports WireGuard and several routing topologies, and nodes can connect
+    across NAT and firewalls using a command line, a configuration file, or a
+    web interface.
+  documentation: https://easytier.cn/en/
   repository: https://github.com/EasyTier/EasyTier
 
 extra:
