@@ -1,1 +1,1 @@
-cp $RECIPE_DIR/skills/ $PREFIX
+cp -r $RECIPE_DIR/skills/ $PREFIX
