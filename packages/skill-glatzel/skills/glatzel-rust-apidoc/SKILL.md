@@ -63,6 +63,7 @@ Cover semantics, constraints, units, and dimensions where relevant.
 **Notes / References.** Short. Notes for important details that fit nowhere else; References for papers, standards, or authoritative algorithm descriptions.
 
 **Examples.** Small, executable, using the real public API, covering the primary use case.
+
 - Include only needed imports and setup; hide boilerplate with `#` lines.
 - To use `?`, end with `# Ok::<(), ErrorType>(())`.
 - Use `compile_fail` to demonstrate rejected code; use `no_run` or `ignore` only when justified.
@@ -88,7 +89,7 @@ Placement: put a convention under `# Arguments` or `# Returns` when it describes
 
 ## Workflow
 
-1. Read the signature, then the implementation, tests, and related APIs as needed to establish *intended* behavior (see the unspecified-behavior rule).
+1. Read the signature, then the implementation, tests, and related APIs as needed to establish _intended_ behavior (see the unspecified-behavior rule).
 2. Write the summary, then add only useful sections in order.
 3. Verify names, return semantics, errors, panics, and safety obligations against the code.
 4. Run checks when practical, following workspace and feature requirements:
