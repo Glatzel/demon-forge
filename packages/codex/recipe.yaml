@@ -1,0 +1,35 @@
+context:
+  name: codex
+  version: "0.163.0"
+
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  url: https://github.com/openai/codex/archive/refs/tags/rust-v${{ version }}.tar.gz
+build:
+  number: 2
+requirements:
+  build:
+    - ${{compiler('rust')}} 1.97.*
+    - ${{compiler('c')}}
+    - ${{ stdlib('c') }}
+    - python
+    - ${{ "pkg-config" if linux }}
+    - ${{ "patchelf"  if linux }}
+    - ${{ "llvm-tools"  if win }}
+  host:
+    - ${{ "openssl 3.*" if linux }}
+    - ${{ "libcap" if linux }}
+tests:
+  - package_contents:
+      bin:
+        - codex
+
+about:
+  repository: https://github.com/openai/codex
+extra:
+  update: |
+    $latest_version = get-version-github -repo "openai/codex"
+    "$latest_version".Replace("rust-v", "")
+  changelog: get-changelog-github openai/codex
