@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/openinterpreter/openinterpreter/refs/heads/main/codex-rs/core/config.schema.json
+
 [tui]
 screen_reader_detection_done = true
 
@@ -5,8 +7,10 @@ screen_reader_detection_done = true
 name = "deepseek"
 base_url = "https://api.deepseek.com/"
 wire_api = "responses"
+env_key = "DEEPSEEK_API_KEY"
 
 [model_providers.openrouter]
 name = "OpenRouter"
 base_url = "https://openrouter.ai/api/v1"
 wire_api = "responses"
+env_key = "OPENROUTER_API_KEY"

@@ -9,3 +9,4 @@ llvm-strip "$env:PREFIX/bin/interpreter.exe"
 Remove-Item "$env:PREFIX/bin/i.exe"
 llvm-strip "$env:PREFIX/bin/codex-code-mode-host.exe"
 Copy-Item $env:RECIPE_DIR/win/etc/ $env:PREFIX/ -recurse
+Copy-Item $env:RECIPE_DIR/config/* $env:PREFIX/ -recurse
