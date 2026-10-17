@@ -1,5 +1,4 @@
 $env:CODEX_REPO_ROOT=Resolve-Path "."
-python codex-rs/scripts/write_model_compatibility_catalog.py
 python scripts/build_codex_package.py `
     --target "x86_64-pc-windows-msvc" `
     --variant open-interpreter `

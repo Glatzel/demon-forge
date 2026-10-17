@@ -1,0 +1,12 @@
+model = "deepseek-flash"
+model_provider = "deepseek"
+preferred_auth_method = "apikey"
+forced_login_method = "api"
+model_reasoning_effort = "low"
+web_search = "disabled"
+show_raw_agent_reasoning = true
+model_catalog_json = "deepseek.model.json"
+harness="deepseek-tui"
+
+[desktop]
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]

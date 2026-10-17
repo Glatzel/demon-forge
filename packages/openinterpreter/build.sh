@@ -14,7 +14,6 @@ case "$target_platform" in
         ;;
 esac
 export CODEX_REPO_ROOT=$(pwd)
-python codex-rs/scripts/write_model_compatibility_catalog.py
 python scripts/build_codex_package.py \
     --target "$target" \
     --variant open-interpreter \
