@@ -1,7 +1,7 @@
 $env:CODEX_REPO_ROOT=Resolve-Path "."
 python scripts/build_codex_package.py `
     --target "x86_64-pc-windows-msvc" `
-    --variant open-interpreter `
+    --variant codex `
     --cargo-profile release `
     --package-dir "$env:PREFIX" `
     --force
