@@ -6,7 +6,9 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 build:
-  number: 2
+  number: 0
+source: 
+   url: https://github.com/codewhale-hq/CodeWhale/archive/refs/tags/rust-v${{ version }}.tar.gz
 requirements:
   build:
     - ${{compiler('rust')}}
@@ -23,5 +25,5 @@ tests:
 about:
   repository: https://github.com/codewhale-hq/CodeWhale
 extra:
-  update: get-version-crateio -name codewhale-cli
+  update: get-version-github codewhale-hq/CodeWhale
   changelog: get-changelog-github codewhale-hq/CodeWhale
