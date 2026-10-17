@@ -1,0 +1,33 @@
+context:
+  name: codewhale
+  version: "0.10.1"
+
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
+build:
+  number: 2
+requirements:
+  build:
+    - ${{compiler('rust')}}
+    - ${{compiler('c')}}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - codewhale
+
+about:
+  homepage: https://openinterpreter.com
+  summary: Coding agent that runs in the terminal
+  description: >
+    Open Interpreter is a coding agent for the terminal. It reads and edits
+    files and runs commands on the user's behalf, with configurable sandbox and
+    approval controls, and works with a range of model providers.
+  documentation: https://docs.openinterpreter.com/
+  repository: https://github.com/openinterpreter/openinterpreter
+extra:
+  update: get-version-crateio -name codewhale-cli
+  changelog: get-changelog-github codewhale-hq/CodeWhale
