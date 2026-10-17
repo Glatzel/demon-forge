@@ -1,6 +1,6 @@
 #:schema https://raw.githubusercontent.com/openinterpreter/openinterpreter/refs/heads/main/codex-rs/core/config.schema.json
 
-model = "deepseek-flash"
+model = "deepseek-v4-pro"
 model_provider = "deepseek"
 forced_login_method = "api"
 model_reasoning_effort = "low"
