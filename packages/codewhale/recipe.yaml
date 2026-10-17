@@ -12,6 +12,9 @@ requirements:
     - ${{compiler('rust')}}
     - ${{compiler('c')}}
     - ${{ stdlib('c') }}
+    - ${{ "pkg-config" if linux }}
+  host:
+    - ${{ "dbus" if linux }}
 tests:
   - package_contents:
       bin:
