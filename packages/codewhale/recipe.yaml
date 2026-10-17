@@ -1,0 +1,29 @@
+context:
+  name: codewhale
+  version: "0.10.1"
+
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+build:
+  number: 0
+source: 
+   url: https://github.com/codewhale-hq/CodeWhale/archive/refs/tags/rust-v${{ version }}.tar.gz
+requirements:
+  build:
+    - ${{compiler('rust')}}
+    - ${{compiler('c')}}
+    - ${{ stdlib('c') }}
+    - ${{ "pkg-config" if linux }}
+  host:
+    - ${{ "dbus" if linux }}
+tests:
+  - package_contents:
+      bin:
+        - codewhale
+
+about:
+  repository: https://github.com/codewhale-hq/CodeWhale
+extra:
+  update: get-version-github codewhale-hq/CodeWhale
+  changelog: get-changelog-github codewhale-hq/CodeWhale
