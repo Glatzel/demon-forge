@@ -1,3 +1,3 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-cargo install codewhale @(Get-Cargo-Arg)
+cargo install --path crates/cli @(Get-Cargo-Arg)
