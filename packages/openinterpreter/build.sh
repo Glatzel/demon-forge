@@ -14,6 +14,7 @@ case "$target_platform" in
         ;;
 esac
 export CODEX_REPO_ROOT=$(pwd)
+python codex-rs/scripts/write_model_compatibility_catalog.py
 python scripts/build_codex_package.py \
     --target "$target" \
     --variant open-interpreter \
@@ -23,3 +24,4 @@ python scripts/build_codex_package.py \
 strip "$PREFIX/bin/interpreter"
 rm "$PREFIX/bin/i"
 strip "$PREFIX/bin/codex-code-mode-host"
+cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
