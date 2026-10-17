@@ -5,8 +5,6 @@ context:
 package:
   version: ${{ version }}
   name: ${{ name }}
-source:
-  url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
   number: 2
 requirements:
