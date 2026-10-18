@@ -86,7 +86,6 @@ slumber,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-
 spek,windows-latest,,,,
 sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
-sys-chatgpt,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-epic,windows-latest,,,,
 sys-icaros,windows-latest,,,,
