@@ -22,7 +22,7 @@ cargo-llvm-lines,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubun
 cargo-nextest,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-shear,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-codewhale,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_codewhale,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cloudflared,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 cpu-z,windows-latest,,,,
 crsdk,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
