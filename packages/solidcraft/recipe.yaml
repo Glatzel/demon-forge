@@ -18,6 +18,7 @@ tests:
   - package_contents:
       bin:
         - solidcraft
+        - solidcraft-cli 
 
 about:
   repository: https://github.com/tangency-labs/solidcraft
