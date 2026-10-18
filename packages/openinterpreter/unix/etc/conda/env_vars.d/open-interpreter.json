@@ -1,0 +1,3 @@
+{
+  "INTERPRETER_HOME": "${CONDA_PREFIX}"
+}

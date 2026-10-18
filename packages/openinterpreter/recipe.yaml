@@ -1,5 +1,5 @@
 context:
-  name: open-interpreter
+  name: openinterpreter
   version: "0.0.56"
 
 package:
@@ -8,10 +8,10 @@ package:
 source:
   url: https://github.com/openinterpreter/openinterpreter/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
-  number: 0
+  number: 2
 requirements:
   build:
-    - rust 1.95.*
+    - ${{compiler('rust')}} 1.97.*
     - ${{compiler('c')}}
     - ${{ stdlib('c') }}
     - python

@@ -23,3 +23,5 @@ python scripts/build_codex_package.py \
 strip "$PREFIX/bin/interpreter"
 rm "$PREFIX/bin/i"
 strip "$PREFIX/bin/codex-code-mode-host"
+cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
+cp $RECIPE_DIR/config/* "$PREFIX/"
