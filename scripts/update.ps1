@@ -157,9 +157,13 @@ function update-recipe
 
 "| Package | Version | Status |" >> $env:GITHUB_STEP_SUMMARY
 "|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
-ForEach ($name in get-childitem $PSScriptRoot/../packages)
+ForEach ($Row in Import-Csv $PSScriptRoot/../packages.csv)
 {
-    $name=$name.Name
+    $name=$Row.pkg
+    if($name.StartsWith("_"))
+    {
+        continue
+    }
     Write-Output "::group::update $name"
     Set-Location "$PSScriptRoot/../packages/$name"
     $code = & yq -r '.extra.update' recipe.yaml
