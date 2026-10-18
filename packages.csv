@@ -34,6 +34,7 @@ cargo-llvm-lines,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubun
 cargo-nextest,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-shear,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_codewhale,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cloudflared,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 crsdk,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 csharpier,,,,,ubuntu-latest+ci-linux-release
@@ -86,6 +87,7 @@ skill-superpowers,,,,,ubuntu-latest
 spek,windows-latest,,,,
 sys-affinity,windows-latest,,,,
 sys-baidu-netdisk,windows-latest,,,,
+sys-chatgpt,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-epic,windows-latest,,,,
 sys-icaros,windows-latest,,,,
