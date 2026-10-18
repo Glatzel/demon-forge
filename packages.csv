@@ -23,6 +23,7 @@ bat,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+
 bitcomet,windows-latest,,,,
 ble-sh,,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 bottom,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_codex,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 calibre,windows-latest,,,,
 cargo-binutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-bloat,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
