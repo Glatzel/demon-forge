@@ -1,0 +1,27 @@
+context:
+  name: solidcraft
+  version: "0.15.0"
+
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+build:
+  number: 0
+source:
+   url: https://github.com/tangency-labs/solidcraft/archive/refs/tags/v${{ version }}.tar.gz
+requirements:
+  build:
+    - ${{compiler('rust')}}
+    - ${{compiler('c')}}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - solidcraft
+        - solidcraft-cli
+
+about:
+  repository: https://github.com/tangency-labs/solidcraft
+extra:
+  update: get-version-github tangency-labs/solidcraft
+  changelog: get-changelog-github tangency-labs/solidcraft
