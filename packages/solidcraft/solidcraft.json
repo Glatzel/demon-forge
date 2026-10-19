@@ -7,7 +7,7 @@
             "name": "solidcraft",
             "description": "Launch solidcraft",
             "command": [
-                "{{ PREFIX }}/bin/solidcraft.exe"
+                "{{ PREFIX }}/bin/solidcraft"
             ],
             "platforms": {
                 "win": {
