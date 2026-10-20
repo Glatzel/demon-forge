@@ -58,8 +58,8 @@ esp-generate,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-2
 espflash,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 eza,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 fd,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-fonts-cascadia-mono,,,,,ubuntu-latest
-fonts-hack,,,,,ubuntu-latest
+font-cascadia-mono,,,,,ubuntu-latest
+font-hack,,,,,ubuntu-latest
 fornax-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 github-action-runner,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 hexyl,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,

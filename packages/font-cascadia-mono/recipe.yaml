@@ -1,5 +1,5 @@
 context:
-  name: fonts-cascadia-mono
+  name: font-cascadia-mono
   number: 0
   version: "3.5.1"
 recipe:
