@@ -1,7 +1,7 @@
 context:
   name: sys-rhino
 package:
-  version: "8.35.26251.13001"
+  version: "8.36.26293.11001"
   name: ${{ name }}
 build:
   number: 0
