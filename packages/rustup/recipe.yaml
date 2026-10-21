@@ -1,13 +1,13 @@
 context:
   name: rustup
-  version: "1.29.1"
+  version: "1.29.2"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   url: https://github.com/rust-lang/rustup/archive/refs/tags/${{ version }}.tar.gz
 build:
-  number: 7
+  number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
