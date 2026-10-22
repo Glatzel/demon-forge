@@ -1,7 +1,7 @@
-cmake -S . -B build -G Ninja `
+ROOT=$(git rev-parse --show-toplevel)
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
+. "$ROOT/scripts/util.sh"
+cmake-build `
     -DFORCE_COLORED_OUTPUT=1 `
-    -DCMAKE_INSTALL_PREFIX="$env:PREFIX/Library" `
-    -DCMAKE_BUILD_TYPE=Release `
     -DOVERRIDE_GIT_DESCRIBE=""
-
-cmake --build build --config Release --target install

@@ -1,7 +1,6 @@
-cmake  -S . \
-    -B build \
-    -G Ninja \
-    -DCMAKE_BUILD_TYPE=Release \
+ROOT=$(git rev-parse --show-toplevel)
+. "$ROOT/scripts/util.sh"
+cmake_build \
     -DOCIO_INSTALL_EXT_PACKAGES=MISSING \
     -DBUILD_SHARED_LIBS=ON \
     -DOCIO_BUILD_PYTHON=OFF \
@@ -13,6 +12,4 @@ cmake  -S . \
     -DOCIO_WARNING_AS_ERROR=OFF \
     -DOCIO_BUILD_DOCS=OFF \
     -DOCIO_BUILD_APPS=ON \
-    -DOCIO_USE_OIIO_FOR_APPS=OFF \
-    -DCMAKE_INSTALL_PREFIX="$PREFIX"
-cmake --build build --config Release --target install
+    -DOCIO_USE_OIIO_FOR_APPS=OFF
