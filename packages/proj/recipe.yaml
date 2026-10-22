@@ -7,8 +7,8 @@ recipe:
   name: ${{ name }}
 source:
   url: https://github.com/OSGeo/PROJ/archive/refs/tags/${{ version }}.tar.gz
-  patch:
-    - remove-debug-postfix.patch
+  patches:
+      - remove-debug-postfix.patch
 outputs:
   - staging:
       name: proj-build
