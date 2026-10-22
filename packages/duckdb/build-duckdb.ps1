@@ -1,3 +1,4 @@
+python scripts/windows_ci.py
 cmake -S . -B build -G Ninja `
     -DFORCE_COLORED_OUTPUT=1 `
     -DCMAKE_INSTALL_PREFIX="$env:PREFIX/Library" `
