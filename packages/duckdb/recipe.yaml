@@ -24,6 +24,7 @@ outputs:
         - cmake
         - ninja
         - python
+        - ${{ "clang" if win}}
   - package:
       name: ${{name}}-cli
     inherit: ${{ name }}-build
