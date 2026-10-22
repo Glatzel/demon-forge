@@ -1,4 +1,4 @@
-$env:CMAKE_INSTALL_PREFIX = "$env:PREFIX/Library"
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 Copy-Item ./LibRaw-cmake/* ./ -Recurse
-cmake -S . -G Ninja -B build -DCMAKE_BUILD_TYPE="RELEASE"
-cmake --build build --config Release --target install
+cmake-build

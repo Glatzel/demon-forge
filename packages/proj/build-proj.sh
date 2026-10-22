@@ -1,5 +1,6 @@
-cmake -S . -B build -G Ninja \
-    -DCMAKE_BUILD_TYPE="RELEASE" \
+ROOT=$(git rev-parse --show-toplevel)
+. "$ROOT/scripts/util.sh"
+cmake_build \
     -DBUILD_APPS=ON \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_TESTING=OFF \
@@ -7,6 +8,4 @@ cmake -S . -B build -G Ninja \
     -DENABLE_CURL=ON \
     -DENABLE_TIFF=ON \
     -DEMBED_PROJ_DATA_PATH=OFF \
-    -DEMBED_RESOURCE_FILES=ON \
-    -DCMAKE_INSTALL_PREFIX="$PREFIX"
-cmake --build build --config Release --target install
+    -DEMBED_RESOURCE_FILES=ON

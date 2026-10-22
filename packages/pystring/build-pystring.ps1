@@ -1,7 +1,4 @@
-cmake -S . -B build "-G" `
-    "Ninja" `
-    "-DVERBOSE=ON" `
-    "-DCMAKE_BUILD_TYPE=Release" `
-    "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library" `
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
+cmake-build `
     "-DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
-cmake --build build --config Release --target install

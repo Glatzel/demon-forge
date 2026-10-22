@@ -93,3 +93,23 @@ process_skills() {
         fi
     done
 }
+cmake_build() {
+    local -a cmake_args=(
+        -S .
+        -B build
+        -G Ninja
+        "-DCMAKE_INSTALL_PREFIX=${PREFIX}"
+    )
+
+    if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
+        cmake_args+=(-DCMAKE_BUILD_TYPE=Release)
+    fi
+
+    cmake "${cmake_args[@]}" "$@" || return $?
+
+    if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
+        cmake --build build --config Release --target install
+    else
+        cmake --build build --target install
+    fi
+}

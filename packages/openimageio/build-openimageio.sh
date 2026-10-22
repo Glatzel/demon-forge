@@ -1,7 +1,4 @@
 cmake_args="
--G Ninja
--DVERBOSE=ON
--DCMAKE_BUILD_TYPE=Release
 -DBUILD_DOCS=0
 -DBUILD_SHARED_LIBS=1
 -DENABLE_INSTALL_testtex=0
@@ -17,19 +14,11 @@ cmake_args="
 -DUSE_QT=0
 "
 
-# macOS
-if [ "$(uname)" = "Darwin" ]; then
-    cmake_args="$cmake_args -DCMAKE_INSTALL_PREFIX=$PREFIX"
-fi
-
 # Linux
 if [ "$(uname)" = "Linux" ]; then
-    cmake_args="$cmake_args -DCMAKE_INSTALL_PREFIX=$PREFIX"
-
     if [ "$TARGET_PLATFORM" = "linux-64" ]; then
         cmake_args="$cmake_args -DUSE_SIMD=sse4.2,avx2"
     fi
 fi
 
-cmake -S . -B build $cmake_args
-cmake --build build --target install
+cmake_build $cmake_args
