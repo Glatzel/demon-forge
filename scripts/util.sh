@@ -1,4 +1,4 @@
-get-cargo-arg() {
+get_cargo_arg() {
     args=(
         --root "$PREFIX"
         --locked
@@ -32,7 +32,7 @@ get-cargo-arg() {
     printf '%s\n' "${args[@]}"
 }
 
-build-recipe() {
+build_recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
         echo "action_publish=true" >> "$GITHUB_OUTPUT"
     fi
@@ -67,7 +67,7 @@ build-recipe() {
         echo "::endgroup::"
     done
 }
-process-skills() {
+process_skills() {
     local src_dir="$1"
     local name="${PKG_NAME#skill-}"
     local skill_dir dest_dir skill_name
@@ -93,7 +93,7 @@ process-skills() {
         fi
     done
 }
-cmake-build() {
+cmake_build() {
     local -a cmake_args=(
         -S .
         -B build

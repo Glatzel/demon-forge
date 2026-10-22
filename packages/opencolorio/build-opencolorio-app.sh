@@ -1,6 +1,6 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-cmake-build \
+cmake_build \
     -DOCIO_INSTALL_EXT_PACKAGES=MISSING \
     -DBUILD_SHARED_LIBS=ON \
     -DOCIO_BUILD_PYTHON=OFF \

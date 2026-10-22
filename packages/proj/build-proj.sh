@@ -1,6 +1,6 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-cmake-build \
+cmake_build \
     -DBUILD_APPS=ON \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_TESTING=OFF \
