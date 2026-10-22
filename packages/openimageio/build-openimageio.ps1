@@ -1,7 +1,6 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 $cmakeArgs = @(
-    "-DVERBOSE=ON"
     "-DBUILD_DOCS=0"
     "-DBUILD_SHARED_LIBS=1"
     "-DENABLE_INSTALL_testtex=0"
