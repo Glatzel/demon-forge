@@ -98,7 +98,7 @@ cmake_build() {
         -S .
         -B build
         -G Ninja
-        "-DCMAKE_INSTALL_PREFIX=${PREFIX}/Library"
+        "-DCMAKE_INSTALL_PREFIX=${PREFIX}"
     )
 
     if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
