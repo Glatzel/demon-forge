@@ -1,10 +1,7 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 $cmakeArgs = @(
-    "-S", "."
-    "-B", "build"
-    "-G", "Ninja"
-    "-DCMAKE_BUILD_TYPE=Release"
     "-DOCIO_INSTALL_EXT_PACKAGES=MISSING"
-    "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_SHARED_LIBS=ON"
     "-DOCIO_BUILD_PYTHON=OFF"
     "-DOCIO_BUILD_OPENFX=OFF"
@@ -16,7 +13,5 @@ $cmakeArgs = @(
     "-DOCIO_BUILD_DOCS=OFF"
     "-DOCIO_BUILD_APPS=ON"
     "-DOCIO_USE_OIIO_FOR_APPS=OFF"
-    "-DCMAKE_INSTALL_PREFIX=${ENV:PREFIX}/Library"
 )
-cmake  @cmakeArgs
-cmake --build build --config Release --target install
+cmake-build @cmakeArgs

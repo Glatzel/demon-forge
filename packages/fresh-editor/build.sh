@@ -3,5 +3,5 @@ ROOT=$(git rev-parse --show-toplevel)
 if [ "$(uname)" = "Linux" ]; then
     LIBCLANG_PATH="$BUILD_PREFIX/lib"
 fi
-set -- $(get_cargo_arg)
+set -- $(get-cargo-arg)
 cargo install "$PKG_NAME" "$@"

@@ -1,4 +1,4 @@
-get_cargo_arg() {
+get-cargo-arg() {
     args=(
         --root "$PREFIX"
         --locked
@@ -32,7 +32,7 @@ get_cargo_arg() {
     printf '%s\n' "${args[@]}"
 }
 
-build_recipe() {
+build-recipe() {
     if [ -n "$CI" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
         echo "action_publish=true" >> "$GITHUB_OUTPUT"
     fi
@@ -67,7 +67,7 @@ build_recipe() {
         echo "::endgroup::"
     done
 }
-process_skills() {
+process-skills() {
     local src_dir="$1"
     local name="${PKG_NAME#skill-}"
     local skill_dir dest_dir skill_name
@@ -92,4 +92,24 @@ process_skills() {
                 "$PREFIX/skills/$dest_dir/SKILL.md"
         fi
     done
+}
+cmake-build() {
+    local -a cmake_args=(
+        -S .
+        -B build
+        -G Ninja
+        "-DCMAKE_INSTALL_PREFIX=${PREFIX}/Library"
+    )
+
+    if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
+        cmake_args+=(-DCMAKE_BUILD_TYPE=Release)
+    fi
+
+    cmake "${cmake_args[@]}" "$@" || return $?
+
+    if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
+        cmake --build build --config Release --target install
+    else
+        cmake --build build --target install
+    fi
 }

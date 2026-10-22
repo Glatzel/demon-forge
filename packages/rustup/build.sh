@@ -1,6 +1,6 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-set -- $(get_cargo_arg)
+set -- $(get-cargo-arg)
 cargo install --path . --features vendored-openssl "$@"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 mkdir -p "$PREFIX/.cargo/bin"

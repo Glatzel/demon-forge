@@ -13,7 +13,7 @@ if ($env:CI)
 }
 
 
-function Get-Cargo-Arg
+function get-cargo-arg
 {
     $cargo_arg = @(
         '--root', "$env:PREFIX"
@@ -36,10 +36,41 @@ function Get-Cargo-Arg
     }
     return $cargo_arg
 }
+
+function cmake-build {
+    $cmakeArgs = @(
+        "-S", "."
+        "-B", "build"
+        "-G", "Ninja"
+        "-DCMAKE_INSTALL_PREFIX=$env:PREFIX/Library"
+    )
+
+    $isRelease = $env:GITHUB_EVENT_NAME -eq "push"
+
+    if ($isRelease) {
+        $cmakeArgs += "-DCMAKE_BUILD_TYPE=Release"
+    }
+
+    cmake @cmakeArgs @args
+    if ($LASTEXITCODE -ne 0) {
+        return $LASTEXITCODE
+    }
+
+    if ($isRelease) {
+        cmake --build build --config Release --target install
+    }
+    else {
+        cmake --build build --target install
+    }
+
+    return $LASTEXITCODE
+}
+
 function debug-recipe
 {
     pixi run rattler-build debug setup --variant-config "$ROOT/conda_build_config.yaml"
 }
+
 function build-recipe
 {
     if ($env:CI -and ($env:GITHUB_EVENT_NAME -eq "push"))

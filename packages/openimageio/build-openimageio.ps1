@@ -1,8 +1,7 @@
+$ROOT = git rev-parse --show-toplevel
+. $ROOT/scripts/util.ps1
 $cmakeArgs = @(
-    "-G"
-    "Ninja"
     "-DVERBOSE=ON"
-    "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_DOCS=0"
     "-DBUILD_SHARED_LIBS=1"
     "-DENABLE_INSTALL_testtex=0"
@@ -19,7 +18,5 @@ $cmakeArgs = @(
     "-DCMAKE_C_FLAGS=/utf-8"
     "-DCMAKE_CXX_FLAGS=/utf-8"
     "-DUSE_SIMD=sse4.2,avx2"
-    "-DCMAKE_INSTALL_PREFIX=$ENV:PREFIX/Library"
 )
-cmake -S . -B build @cmakeArgs
-cmake --build build --config Release --target install
+cmake-build @cmakeArgs
