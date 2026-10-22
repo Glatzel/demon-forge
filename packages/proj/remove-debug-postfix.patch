@@ -1,0 +1,33 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1782957..da7918a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -332,12 +332,6 @@ if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+   set(CMAKE_BUILD_TYPE Release)
+ endif()
+ 
+-if(MSVC OR CMAKE_CONFIGURATION_TYPES)
+-  # For multi-config systems and for Visual Studio, the debug version of
+-  # the library has _d appended.
+-  set(CMAKE_DEBUG_POSTFIX _d)
+-endif()
+-
+ # Put the libraries and binaries that get built into directories at the
+ # top of the build tree rather than in hard-to-find leaf
+ # directories. This simplifies manual testing and the use of the build
+diff --git a/src/apps/CMakeLists.txt b/src/apps/CMakeLists.txt
+index d338988..a8e1839 100644
+--- a/src/apps/CMakeLists.txt
++++ b/src/apps/CMakeLists.txt
+@@ -88,11 +88,3 @@ if(BUILD_PROJSYNC)
+ endif()
+ 
+ # global configurations for all apps
+-
+-if(MSVC OR CMAKE_CONFIGURATION_TYPES)
+-  if(BIN_TARGETS)
+-    # Add _d suffix for debug versions of the apps
+-    set_target_properties(${BIN_TARGETS} PROPERTIES
+-      DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+-  endif()
+-endif()
