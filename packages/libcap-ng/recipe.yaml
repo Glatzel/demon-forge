@@ -80,5 +80,5 @@ about:
   repository: https://github.com/stevegrubb/libcap-ng
 
 extra:
-  update: get-version-github -repo "stevegrubb/libcap-ng"
-  changelog: get-changelog-github "stevegrubb/libcap-ng"
+  update: get-version-github stevegrubb/$pkg_name
+  changelog: get-changelog-github stevegrubb/$pkg_name v

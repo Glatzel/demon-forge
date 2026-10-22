@@ -68,5 +68,5 @@ about:
   repository: https://github.com/zerocore-ai/microsandbox
 
 extra:
-  update: get-version-github -repo "zerocore-ai/microsandbox"
-  changelog: get-changelog-github "zerocore-ai/microsandbox"
+  update: get-version-github superradcompany/$pkg_name
+  changelog: get-changelog-github superradcompany/$pkg_name v

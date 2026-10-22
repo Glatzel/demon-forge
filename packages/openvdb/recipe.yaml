@@ -76,5 +76,5 @@ about:
   repository: https://github.com/AcademySoftwareFoundation/openvdb
 
 extra:
-  update: get-version-github "AcademySoftwareFoundation/openvdb"
-  changelog: get-changelog-github "AcademySoftwareFoundation/openvdb"
+  update: get-version-github AcademySoftwareFoundation/$pkg_name
+  changelog: get-changelog-github AcademySoftwareFoundation/$pkg_name v

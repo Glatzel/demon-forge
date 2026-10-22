@@ -23,5 +23,5 @@ about:
   repository: https://github.com/taiki-e/cargo-llvm-cov
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github taiki-e/cargo-llvm-cov
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github taiki-e/$pkg_name v

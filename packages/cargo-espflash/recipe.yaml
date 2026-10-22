@@ -27,5 +27,5 @@ about:
   repository: https://github.com/esp-rs/espflash
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github esp-rs/espflash
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github esp-rs/espflash v

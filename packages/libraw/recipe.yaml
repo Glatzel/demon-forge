@@ -108,6 +108,6 @@ about:
 
 extra:
   update: |
-    $latest_version = get-version-github -repo "LibRaw/LibRaw"
+    $latest_version = get-version-github LibRaw/LibRaw
     "$latest_version".Replace("b", "")
-  changelog: get-changelog-github "LibRaw/LibRaw"
+  changelog: get-changelog-github LibRaw/LibRaw

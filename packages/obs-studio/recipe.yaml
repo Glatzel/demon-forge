@@ -22,5 +22,5 @@ about:
   repository: https://github.com/obsproject/obs-studio
 
 extra:
-  update: get-version-github "obsproject/$name"
-  changelog: get-changelog-github "obsproject/$name"
+  update: get-version-github obsproject/$pkg_name
+  changelog: get-changelog-github obsproject/$pkg_name

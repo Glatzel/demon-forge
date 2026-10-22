@@ -22,5 +22,5 @@ about:
   repository: https://github.com/bootandy/dust
 
 extra:
-  update: get-version-crateio -name du-dust
-  changelog: get-changelog-github bootandy/dust
+  update: get-version-crateio du-dust
+  changelog: get-changelog-github bootandy/$pkg_name v

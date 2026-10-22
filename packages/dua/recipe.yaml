@@ -22,5 +22,5 @@ about:
   repository: https://github.com/Byron/dua-cli
 
 extra:
-  update: get-version-crateio -name dua-cli
-  changelog: get-changelog-github byron/dua-cli
+  update: get-version-crateio dua-cli
+  changelog: get-changelog-github byron/dua-cli v

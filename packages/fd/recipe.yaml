@@ -25,5 +25,5 @@ about:
   repository: https://github.com/sharkdp/fd
 
 extra:
-  update: get-version-crateio -name fd-find
-  changelog: get-changelog-github "sharkdp/fd"
+  update: get-version-crateio $pkg_name-find
+  changelog: get-changelog-github sharkdp/$pkg_name v

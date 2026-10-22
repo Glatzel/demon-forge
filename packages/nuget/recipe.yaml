@@ -28,5 +28,5 @@ about:
 
 extra:
   update: |
-    $latest_version = curl "https://dist.$name.org/index.json" | jq '.artifacts[0].versions[0].version'
+    $latest_version = curl "https://dist.$pkg_name.org/index.json" | jq '.artifacts[0].versions[0].version'
     "$latest_version".Replace("""", "")

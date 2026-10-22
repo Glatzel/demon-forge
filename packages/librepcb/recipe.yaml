@@ -25,5 +25,5 @@ about:
   repository: https://github.com/LibrePCB/LibrePCB
 
 extra:
-  update: get-version-github -repo "LibrePCB/LibrePCB"
-  changelog: get-changelog-github "LibrePCB/LibrePCB"
+  update: get-version-github LibrePCB/LibrePCB
+  changelog: get-changelog-github LibrePCB/LibrePCB

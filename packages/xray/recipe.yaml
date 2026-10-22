@@ -21,5 +21,5 @@ about:
   repository: https://github.com/XTLS/Xray-core
 
 extra:
-  update:  get-version-github -repo "XTLS/Xray-core"
-  changelog: get-changelog-github -repo "XTLS/Xray-core"
+  update:  get-version-github XTLS/Xray-core
+  changelog: get-changelog-github XTLS/Xray-core v

@@ -15,5 +15,5 @@ about:
   repository: https://github.com/actions/runner
 
 extra:
-  update: get-version-github -repo "actions/runner"
-  changelog: get-changelog-github "actions/runner"
+  update: get-version-github actions/runner
+  changelog: get-changelog-github actions/runner v

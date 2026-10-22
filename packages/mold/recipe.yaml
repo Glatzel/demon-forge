@@ -29,5 +29,5 @@ about:
   repository: https://github.com/rui314/mold
 
 extra:
-  update: get-version-github "rui314/mold"
-  changelog: get-changelog-github "rui314/mold"
+  update: get-version-github rui314/$pkg_name
+  changelog: get-changelog-github rui314/$pkg_name v

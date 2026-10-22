@@ -32,5 +32,5 @@ about:
   repository: https://github.com/TimonPost/cargo-unused-features
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github taiki-e/cargo-unused-features
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github taiki-e/$pkg_name

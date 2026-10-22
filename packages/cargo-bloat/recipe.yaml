@@ -23,5 +23,5 @@ about:
   repository: https://github.com/RazrFalcon/cargo-bloat
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github RazrFalcon/cargo-bloat
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github RazrFalcon/$pkg_name v

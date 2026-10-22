@@ -21,5 +21,5 @@ about:
   repository: https://github.com/sharkdp/hyperfine
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github sharkdp/hyperfine
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github sharkdp/hyperfine v

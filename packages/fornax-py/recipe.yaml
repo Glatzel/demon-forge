@@ -40,5 +40,5 @@ about:
   repository: https://github.com/Glatzel/fornax
 
 extra:
-  update: get-version-github -repo "Glatzel/fornax"
-  changelog: get-changelog-github "Glatzel/fornax"
+  update: get-version-github Glatzel/fornax
+  changelog: get-changelog-github Glatzel/fornax v

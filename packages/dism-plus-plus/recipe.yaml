@@ -19,5 +19,5 @@ about:
   repository: https://github.com/Chuyu-Team/Dism-Multi-language
 
 extra:
-  update: get-version-github -repo "Chuyu-Team/Dism-Multi-language"
-  changelog: get-changelog-github "Chuyu-Team/Dism-Multi-language"
+  update: get-version-github Chuyu-Team/Dism-Multi-language
+  changelog: get-changelog-github Chuyu-Team/Dism-Multi-language v

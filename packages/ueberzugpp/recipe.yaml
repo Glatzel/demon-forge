@@ -54,5 +54,5 @@ about:
   repository: https://github.com/jstkdng/ueberzugpp
 
 extra:
-  update: get-version-github -repo "jstkdng/ueberzugpp"
-  changelog: get-changelog-github -repo "jstkdng/ueberzugpp"
+  update: get-version-github jstkdng/$pkg_name
+  changelog: get-changelog-github jstkdng/$pkg_name v
