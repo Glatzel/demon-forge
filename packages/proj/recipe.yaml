@@ -113,4 +113,4 @@ about:
 
 extra:
   update: get-version-github OSGeo/PROJ
-  changelog: get-changelog-github "OSGeo/PROJ"
+  changelog: get-changelog-github OSGeo/PROJ

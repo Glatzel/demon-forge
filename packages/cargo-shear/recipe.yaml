@@ -25,5 +25,5 @@ about:
   repository: https://github.com/Boshen/cargo-shear
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github "Boshen/cargo-shear"
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github Boshen/$pkg_name v

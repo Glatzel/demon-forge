@@ -29,5 +29,5 @@ about:
   repository: https://github.com/mcneel/rhino.inside-autocad
 
 extra:
-  update: get-version-github -repo "mcneel/rhino.inside-autocad"
-  changelog: get-changelog-github -repo "mcneel/rhino.inside-autocad"
+  update: get-version-github mcneel/rhino.inside-autocad
+  changelog: get-changelog-github mcneel/rhino.inside-autocad v

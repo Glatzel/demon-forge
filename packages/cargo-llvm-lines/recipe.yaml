@@ -25,5 +25,5 @@ about:
   repository: https://github.com/dtolnay/cargo-llvm-lines
 
 extra:
-  update: get-version-crateio -name $name
+  update: get-version-crateio $pkg_name
   changelog: get-changelog-github kbknapp/cargo-llvm-lines

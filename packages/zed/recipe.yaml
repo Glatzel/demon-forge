@@ -27,5 +27,5 @@ about:
   repository: https://github.com/zed-industries/zed
 
 extra:
-  update: get-version-github "zed-industries/zed"
-  changelog: get-changelog-github "zed-industries/zed"
+  update: get-version-github ${pkg_name}-industries/zed
+  changelog: get-changelog-github ${pkg_name}-industries/zed v

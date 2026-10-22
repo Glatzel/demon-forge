@@ -27,5 +27,5 @@ about:
   documentation: https://csharpier.com/docs/About
   repository: https://github.com/belav/csharpier
 extra:
-  update: get-version-github -repo "belav/csharpier"
-  changelog: get-changelog-github belav/csharpier
+  update: get-version-github belav/$pkg_name
+  changelog: get-changelog-github belav/$pkg_name

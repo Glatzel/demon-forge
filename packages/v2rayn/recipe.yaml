@@ -20,5 +20,5 @@ about:
   repository: https://github.com/2dust/v2rayN
 
 extra:
-  update: get-version-github -repo "2dust/v2rayN"
-  changelog: get-changelog-github -repo "2dust/v2rayN"
+  update: get-version-github 2dust/v2rayN
+  changelog: get-changelog-github 2dust/v2rayN

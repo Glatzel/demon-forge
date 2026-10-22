@@ -30,6 +30,6 @@ about:
   repository: https://github.com/openai/codex
 extra:
   update: |
-    $latest_version = get-version-github -repo "openai/codex"
+    $latest_version = get-version-github openai/$pkg_name
     "$latest_version".Replace("rust-v", "")
-  changelog: get-changelog-github openai/codex
+  changelog: get-changelog-github openai/codex rust-v

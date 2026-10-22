@@ -35,5 +35,5 @@ about:
   repository: https://github.com/Glatzel/pyxis
 
 extra:
-  update: get-version-github "Glatzel/pyxis"
-  changelog: get-changelog-github "Glatzel/pyxis"
+  update: get-version-github Glatzel/pyxis v
+  changelog: get-changelog-github Glatzel/pyxis v

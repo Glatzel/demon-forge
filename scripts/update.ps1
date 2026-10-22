@@ -79,12 +79,18 @@ function get-version-text
 }
 function get-changelog-github
 {
-    param($repo)
-    Write-Output "https://github.com/$repo/releases/latest"
+    param($repo, $prefix="")
+    if ($prefix)
+    {
+        Write-Output "https://github.com/$repo/releases/tag/$prefix$current_version"
+    } else
+    {
+        Write-Output "https://github.com/$repo/releases/latest"
+    }
 }
 function update-recipe
 {
-    param($name, $version)
+    param($pkg_name, $version)
 
     $current_version = get-current-version
     Write-Output "current version: <$current_version>"
@@ -97,7 +103,7 @@ function update-recipe
         Write-Output "::error ::Invalid version format"
         if ($env:WORKFLOW_NAME -eq "update")
         {
-            "|$name|$current_version|$version|🔴 Invalid Version |" >> $env:GITHUB_STEP_SUMMARY
+            "|$pkg_name|$current_version|$version|🔴 Invalid Version |" >> $env:GITHUB_STEP_SUMMARY
             return
         } else
         {
@@ -107,15 +113,15 @@ function update-recipe
 
     if (-not $HAS_NEW_VERSION)
     {
-        "|$name|$current_version |🔵 Already up-to-date|" >> $env:GITHUB_STEP_SUMMARY
+        "|$pkg_name|$current_version |🔵 Already up-to-date|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
     # skip if remote branch already exists
-    $update_branch = "update/$name"
+    $update_branch = "update/$pkg_name"
     $remoteExists = git ls-remote --heads origin $update_branch
     if ($remoteExists)
     {
-        "|$name|$current_version -> $version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
+        "|$pkg_name|$current_version -> $version|🟡 New version found, but remote branch already exists|" >> $env:GITHUB_STEP_SUMMARY
         return
     }
 
@@ -132,26 +138,26 @@ function update-recipe
     # Update version number and reset build number
     $originalBranch = git rev-parse --abbrev-ref HEAD
     git checkout -b $update_branch
-    Write-Output "New version found. Updating $name/recipe.yaml"
+    Write-Output "New version found. Updating $pkg_name/recipe.yaml"
     (Get-Content -Path "./recipe.yaml") -replace '^  version: "[\d\.]+"', "  version: ""$version""" | Set-Content -Path "./recipe.yaml"
     (Get-Content -Path "./recipe.yaml") -replace '  number: \d+', "  number: 0" | Set-Content -Path "./recipe.yaml"
 
     # create pr
-    Write-Output "creating new branch: $name"
+    Write-Output "creating new branch: $pkg_name"
     git config --global user.name "github-actions[bot]"
     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
     git add -A
-    git commit -m "chore: update ``$name`` from ``$current_version`` to ``$version``"
+    git commit -m "chore: update ``$pkg_name`` from ``$current_version`` to ``$version``"
     git push -u origin $update_branch
     $pr_url = gh pr create `
-        --title "chore: update ``$name`` from ``$current_version`` to ``$version``" `
+        --title "chore: update ``$pkg_name`` from ``$current_version`` to ``$version``" `
         --body-file "$PSScriptRoot/../../changelog.md" `
         --base main `
         --head $update_branch
     git checkout $originalBranch
     git reset --hard
     git clean -fd
-    "| $name | $current_version -> ✨ **$version** | 🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
+    "| $pkg_name | $current_version -> ✨ **$version** | 🟢 [PR]($pr_url) created |" >> $env:GITHUB_STEP_SUMMARY
     return
 }
 
@@ -159,16 +165,16 @@ function update-recipe
 "|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
 ForEach ($Row in Import-Csv $PSScriptRoot/../packages.csv)
 {
-    $name=$Row.pkg
-    if($name.StartsWith("_"))
+    $pkg_name=$Row.pkg
+    if($pkg_name.StartsWith("_"))
     {
         continue
     }
-    Write-Output "::group::update $name"
-    Set-Location "$PSScriptRoot/../packages/$name"
+    Write-Output "::group::update $pkg_name"
+    Set-Location "$PSScriptRoot/../packages/$pkg_name"
     $code = & yq -r '.extra.update' recipe.yaml
     $code = $code -replace "`r?`n", "`n"
     $latest_version = & ([ScriptBlock]::Create(($code -join "`n")))
-    update-recipe $name $latest_version
+    update-recipe $pkg_name $latest_version
     Write-Output "::endgroup::"
 }

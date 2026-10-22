@@ -26,4 +26,4 @@ about:
   repository: https://github.com/bytebeamio/rumqtt
 
 extra:
-  update: get-version-crateio -name $name
+  update: get-version-crateio $pkg_name

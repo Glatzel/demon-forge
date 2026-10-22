@@ -26,5 +26,5 @@ about:
   repository: https://github.com/esp-rs/esp-generate
 
 extra:
-  update: get-version-crateio -name $name
+  update: get-version-crateio $pkg_name
   changelog: get-changelog-github "esp-rs/esp-generate"

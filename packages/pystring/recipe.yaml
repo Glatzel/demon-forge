@@ -66,5 +66,5 @@ about:
   repository: https://github.com/imageworks/pystring
 
 extra:
-  update: get-version-github "imageworks/pystring"
-  changelog: get-changelog-github "imageworks/pystring"
+  update: get-version-github imageworks/$pkg_name
+  changelog: get-changelog-github imageworks/$pkg_name v

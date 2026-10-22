@@ -28,5 +28,5 @@ about:
   repository: https://github.com/sinelaw/fresh
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github sinelaw/fresh
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github sinelaw/fresh v

@@ -23,5 +23,5 @@ about:
   repository: https://github.com/Glatzel/mason
 
 extra:
-  update: get-version-github -repo "Glatzel/$name"
-  changelog: get-changelog-github "Glatzel/$name"
+  update: get-version-github Glatzel/$pkg_name
+  changelog: get-changelog-github Glatzel/$pkg_name v

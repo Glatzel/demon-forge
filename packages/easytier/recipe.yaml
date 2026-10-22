@@ -39,5 +39,5 @@ about:
   repository: https://github.com/EasyTier/EasyTier
 
 extra:
-  update: get-version-github -repo "EasyTier/EasyTier"
-  changelog: get-changelog-github "EasyTier/EasyTier"
+  update: get-version-github EasyTier/EasyTier
+  changelog: get-changelog-github EasyTier/EasyTier v

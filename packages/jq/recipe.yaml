@@ -29,6 +29,6 @@ about:
 
 extra:
   update: |
-    $latest_version = get-version-github -repo "jqlang/$name"
-    "$latest_version".Replace("$name-", "")
-  changelog: get-changelog-github "jqlang/$name"
+    $latest_version = get-version-github jqlang/$pkg_name
+    "$latest_version".Replace("$pkg_name-", "")
+  changelog: get-changelog-github jqlang/$pkg_name jq-

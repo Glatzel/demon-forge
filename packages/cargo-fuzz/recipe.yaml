@@ -51,5 +51,5 @@ about:
   repository: https://github.com/rust-fuzz/cargo-fuzz
 
 extra:
-  update: get-version-crateio -name cargo-fuzz
-  changelog: get-changelog-github rust-fuzz/cargo-fuzz
+  update: get-version-crateio cargo-fuzz
+  changelog: get-changelog-github rust-fuzz/$pkg_name

@@ -28,5 +28,5 @@ about:
   repository: https://github.com/EdJoPaTo/mqttui
 
 extra:
-  update: get-version-github "EdJoPaTo/$name"
-  changelog: get-changelog-github "EdJoPaTo/$name"
+  update: get-version-github EdJoPaTo/$pkg_name
+  changelog: get-changelog-github EdJoPaTo/$pkg_name v

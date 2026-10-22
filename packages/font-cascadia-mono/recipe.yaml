@@ -55,5 +55,5 @@ about:
   repository: https://github.com/microsoft/cascadia-code
 
 extra:
-  update: get-version-github -repo "ryanoasis/nerd-fonts"
-  changelog: get-changelog-github "ryanoasis/nerd-fonts"
+  update: get-version-github ryanoasis/nerd-fonts
+  changelog: get-changelog-github ryanoasis/nerd-fonts v

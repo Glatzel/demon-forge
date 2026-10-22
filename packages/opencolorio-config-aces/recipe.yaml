@@ -20,5 +20,5 @@ about:
     output workflows.
   repository: https://github.com/AcademySoftwareFoundation/OpenColorIO-Config-ACES
 extra:
-  update: get-version-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
-  changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO-Config-ACES"
+  update: get-version-github AcademySoftwareFoundation/OpenColorIO-Config-ACES
+  changelog: get-changelog-github AcademySoftwareFoundation/OpenColorIO-Config-ACES v

@@ -32,5 +32,5 @@ about:
   repository: https://github.com/microsoft/edit
 
 extra:
-  update: get-version-github -repo "microsoft/edit"
-  changelog: get-changelog-github "microsoft/edit"
+  update: get-version-github microsoft/edit
+  changelog: get-changelog-github microsoft/edit v

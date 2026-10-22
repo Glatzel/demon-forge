@@ -26,4 +26,4 @@ about:
   repository: https://github.com/codewhale-hq/CodeWhale
 extra:
   update: get-version-github codewhale-hq/CodeWhale
-  changelog: get-changelog-github codewhale-hq/CodeWhale
+  changelog: get-changelog-github codewhale-hq/CodeWhale v

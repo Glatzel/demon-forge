@@ -23,5 +23,5 @@ tests:
 about:
   repository: https://github.com/tangency-labs/solidcraft
 extra:
-  update: get-version-github tangency-labs/solidcraft
-  changelog: get-changelog-github tangency-labs/solidcraft
+  update: get-version-github tangency-labs/$pkg_name
+  changelog: get-changelog-github tangency-labs/$pkg_name v

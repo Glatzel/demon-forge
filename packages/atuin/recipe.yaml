@@ -31,5 +31,5 @@ about:
   repository: https://github.com/atuinsh/atuin
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github atuinsh/atuin
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github atuinsh/atuin v

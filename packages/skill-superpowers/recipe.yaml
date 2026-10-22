@@ -17,5 +17,5 @@ about:
   repository: https://github.com/obra/superpowers
 
 extra:
-  update: get-version-github -repo "obra/superpowers"
-  changelog: get-changelog-github "obra/superpowers"
+  update: get-version-github obra/superpowers
+  changelog: get-changelog-github obra/superpowers v

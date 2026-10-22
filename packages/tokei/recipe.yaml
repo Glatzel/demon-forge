@@ -26,5 +26,5 @@ about:
   repository: https://github.com/XAMPPRocky/tokei
 
 extra:
-  update: get-version-github -repo "XAMPPRocky/tokei"
-  changelog: get-changelog-github -repo "XAMPPRocky/tokei"
+  update: get-version-github XAMPPRocky/$pkg_name
+  changelog: get-changelog-github XAMPPRocky/$pkg_name v

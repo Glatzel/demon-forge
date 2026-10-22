@@ -21,5 +21,5 @@ about:
   repository: https://github.com/alexkay/spek
 
 extra:
-  update: get-version-github -repo "alexkay/$name"
-  changelog: get-changelog-github -repo "alexkay/$name"
+  update: get-version-github alexkay/$pkg_name
+  changelog: get-changelog-github alexkay/$pkg_name v

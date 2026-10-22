@@ -37,6 +37,6 @@ about:
   repository: https://github.com/openinterpreter/openinterpreter
 extra:
   update: |
-    $latest_version = get-version-github -repo "openinterpreter/openinterpreter"
+    $latest_version = get-version-github $pkg_name/$pkg_name
     "$latest_version".Replace("rust-", "")
-  changelog: get-changelog-github openinterpreter/openinterpreter
+  changelog: get-changelog-github openinterpreter/$pkg_name rust-

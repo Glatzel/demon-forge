@@ -30,6 +30,6 @@ about:
 
 extra:
   update: |
-    $latest_version = get-version-github -repo "akinomyoga/ble.sh"
+    $latest_version = get-version-github "akinomyoga/ble.sh"
     $latest_version.Split('-')[0]
   changelog: get-changelog-github akinomyoga/ble.sh

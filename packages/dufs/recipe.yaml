@@ -25,5 +25,5 @@ about:
   repository: https://github.com/sigoden/dufs
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github "sigoden/dufs"
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github sigoden/$pkg_name v

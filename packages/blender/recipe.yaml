@@ -22,6 +22,6 @@ about:
 
 extra:
   update: |
-    $repoUrl = "https://github.com/$name/$name.git"
+    $repoUrl = "https://github.com/$pkg_name/$pkg_name.git"
     $latestTag = git ls-remote --tags $repoUrl | Where-Object { $_ -match "refs/tags/v\d+.\d+.\d+" } | ForEach-Object { $_ -replace '^.*refs/tags/v(.*)$', '$1' }| Select-Object -Last 1
     [Version]"$latestTag"

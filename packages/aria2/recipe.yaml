@@ -25,6 +25,6 @@ about:
   repository: https://github.com/aria2/aria2
 extra:
   update: |
-    $latest_version = get-version-github -repo "$name/$name"
+    $latest_version = get-version-github $pkg_name/$pkg_name
     "$latest_version".Replace("release-", "")
-  changelog: get-changelog-github aria2/aria2
+  changelog: get-changelog-github aria2/aria2 release-

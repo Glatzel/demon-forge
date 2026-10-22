@@ -116,5 +116,5 @@ about:
   repository: https://github.com/AcademySoftwareFoundation/OpenColorIO
 
 extra:
-  update: get-version-github "AcademySoftwareFoundation/OpenColorIO"
-  changelog: get-changelog-github "AcademySoftwareFoundation/OpenColorIO"
+  update: get-version-github AcademySoftwareFoundation/OpenColorIO
+  changelog: get-changelog-github AcademySoftwareFoundation/OpenColorIO v

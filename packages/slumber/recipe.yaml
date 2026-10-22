@@ -30,5 +30,5 @@ about:
   repository: https://github.com/LucasPickering/slumber
 
 extra:
-  update: get-version-crateio -name $name
-  changelog: get-changelog-github -repo "LucasPickering/slumber"
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github LucasPickering/$pkg_name v
