@@ -3,4 +3,6 @@ $ROOT = git rev-parse --show-toplevel
 python scripts/windows_ci.py
 cmake-build `
     -DFORCE_COLORED_OUTPUT=1 `
-    -DOVERRIDE_GIT_DESCRIBE=""
+    -DOVERRIDE_GIT_DESCRIBE="" `
+    -DBUILD_UNITTESTS=OFF `
+    ENABLE_UNITTEST_CPP_TESTS=OFF
