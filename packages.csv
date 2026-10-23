@@ -4,7 +4,7 @@ _ast-grep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.0
 _blender,windows-latest,,,,
 _blender-benchmark,windows-latest,,,,
 _codewhale,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-_codex,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
+codex,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 _cpu-z,windows-latest,,,,
 _fresh-editor,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 _furmark,windows-latest,,,,
@@ -81,7 +81,7 @@ mold,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-rele
 msedit,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 obs-studio,windows-latest,,,,
 opencolorio-config-aces,,,,,ubuntu-latest
-openinterpreter,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_openinterpreter,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 orc,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 panda-cad,windows-latest,,,,
 peazip,windows-latest,,,,
