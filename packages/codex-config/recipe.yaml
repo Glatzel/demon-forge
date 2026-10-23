@@ -1,0 +1,15 @@
+context:
+  name: codex-config
+  version: "0.0.1"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+build:
+  number: 0
+  noarch: generic
+tests:
+  - package_contents:
+      files:
+        - '*.toml'
+extra:
+  update: echo "0.0.1"
