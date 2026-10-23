@@ -10,6 +10,6 @@ build:
 tests:
   - package_contents:
       files:
-        - *.toml
+        - '*.toml'
 extra:
   update: echo "0.0.1"
