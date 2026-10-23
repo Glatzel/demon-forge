@@ -1,3 +1,3 @@
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
-cargo-install --path ./rust/tombi-cli@(get-cargo-arg)
+cargo-install --path ./rust/tombi-cli
