@@ -20,6 +20,7 @@ function get-version-github
         }
     }
 }
+
 function get-version-conda-forge
 {
     param($pkg)
@@ -32,6 +33,7 @@ function get-version-conda-forge
         }
     }
 }
+
 function get-version-crateio
 {
     param($name)
@@ -44,6 +46,7 @@ function get-version-crateio
         }
     }
 }
+
 function get-version-winget
 {
     param($name)
@@ -66,6 +69,7 @@ function get-version-url
         }
     }
 }
+
 function get-version-text
 {
     param($text, $pattern)
@@ -77,12 +81,13 @@ function get-version-text
             Select-Object -First 1
     return $latest
 }
+
 function get-changelog-github
 {
     param($repo, $prefix="")
     if ($prefix)
     {
-        Write-Output "https://github.com/$repo/releases/tag/$prefix$current_version"
+        Write-Output "https://github.com/$repo/releases/tag/$prefix$version"
     } else
     {
         Write-Output "https://github.com/$repo/releases/latest"
