@@ -4,7 +4,7 @@ python scripts/build_codex_package.py `
     --variant codex `
     --cargo-profile release `
     --package-dir "$env:PREFIX" `
-    --force
-llvm-strip "$env:PREFIX/bin/codex.exe"
-llvm-strip "$env:PREFIX/bin/codex-code-mode-host.exe"
+    --force `
+    --strip all `
+    --strip-tool llvm-strip
 Copy-Item $env:RECIPE_DIR/win/etc/ $env:PREFIX/ -recurse

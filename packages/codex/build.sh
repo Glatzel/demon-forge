@@ -19,7 +19,7 @@ python scripts/build_codex_package.py \
     --variant codex \
     --cargo-profile release \
     --package-dir "$PREFIX" \
-    --force
-strip "$PREFIX/bin/codex"
-strip "$PREFIX/bin/codex-code-mode-host"
+    --force \
+    --strip all \
+    --strip-tool strip
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
