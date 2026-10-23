@@ -32,7 +32,7 @@ function get-cargo-arg
         )
     } else
     {
-        $cargo_arg+=@('--config', 'profile.release.opt-level=2')
+        $cargo_arg+=@('--config', 'profile.release.opt-level=1')
     }
     return $cargo_arg
 }
