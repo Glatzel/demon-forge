@@ -31,5 +31,5 @@ about:
 extra:
   update: |
     $latest_version = get-version-github openai/$pkg_name
-    "$latest_version".Replace("rust-v", "")
+    "$latest_version".Replace("rust-", "")
   changelog: get-changelog-github openai/codex rust-v

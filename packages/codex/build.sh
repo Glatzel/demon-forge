@@ -4,6 +4,7 @@ case "$target_platform" in
         ;;
     linux-aarch64)
         target="aarch64-unknown-linux-gnu"
+        export CARGO_BUILD_JOBS=1
         ;;
     osx-arm64)
         target="aarch64-apple-darwin"
@@ -19,7 +20,7 @@ python scripts/build_codex_package.py \
     --variant codex \
     --cargo-profile release \
     --package-dir "$PREFIX" \
-    --force
-strip "$PREFIX/bin/codex"
-strip "$PREFIX/bin/codex-code-mode-host"
+    --force \
+    --strip all \
+    --strip-tool strip
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
