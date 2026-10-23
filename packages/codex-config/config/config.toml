@@ -3,6 +3,10 @@
 [tui]
 screen_reader_detection_done = true
 
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
+
 [model_providers.deepseek]
 name = "deepseek"
 base_url = "https://api.deepseek.com/"

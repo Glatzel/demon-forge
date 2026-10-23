@@ -1,6 +1,6 @@
 context:
   name: codex-config
-  version: "0.0.1"
+  version: "0.0.2"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -12,4 +12,4 @@ tests:
       files:
         - '*.toml'
 extra:
-  update: echo "0.0.1"
+  update: echo "0.0.2"
