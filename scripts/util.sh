@@ -26,7 +26,7 @@ get_cargo_arg() {
         )
     else
         args+=(
-            --config profile.release.opt-level=2
+            --config profile.release.opt-level=1
         )
     fi
     printf '%s\n' "${args[@]}"
