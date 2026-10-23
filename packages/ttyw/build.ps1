@@ -3,4 +3,4 @@ $ROOT = git rev-parse --show-toplevel
 Set-Location ./tools/ttyw
 pixi run install
 pixi run build
-cargo-install --path .@(get-cargo-arg)
+cargo-install --path .
