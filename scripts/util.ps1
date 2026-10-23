@@ -13,7 +13,7 @@ if ($env:CI)
 }
 
 
-function get-cargo-arg
+function cargo-build
 {
     $cargo_arg = @(
         '--root', "$env:PREFIX"
@@ -34,7 +34,7 @@ function get-cargo-arg
     {
         $cargo_arg+=@('--config', 'profile.release.opt-level=1')
     }
-    return $cargo_arg
+    cargo-install @cargo_arg @args
 }
 
 function cmake-build {

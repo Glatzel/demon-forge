@@ -1,4 +1,3 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-set -- $(get_cargo_arg)
-cargo install --path ./rust/tombi-cli "$@"
+cargo_build --path ./rust/tombi-cli

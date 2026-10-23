@@ -1,4 +1,3 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-set -- $(get_cargo_arg)
-cargo install fd-find "$@"
+cargo_build fd-find

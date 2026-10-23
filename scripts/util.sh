@@ -1,4 +1,4 @@
-get_cargo_arg() {
+cargo_build() {
     args=(
         --root "$PREFIX"
         --locked
@@ -29,7 +29,7 @@ get_cargo_arg() {
             --config profile.release.opt-level=1
         )
     fi
-    printf '%s\n' "${args[@]}"
+    cargo install "${args[@]}" "$@" || return $?
 }
 
 build_recipe() {
