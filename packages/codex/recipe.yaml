@@ -9,7 +9,6 @@ source:
   url: https://github.com/openai/codex/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
   number: 2
-  noarch: generic
 requirements:
   build:
     - ${{compiler('rust')}} 1.97.*
