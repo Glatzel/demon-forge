@@ -95,7 +95,7 @@ Model examples on the Rust standard library: small, readable at a glance, and ve
 ```
 
 - Lead-ins: "Basic usage:", "Handling the error case:", "Out-of-range input returns `None`:". Skip the lead-in when there is only one example and it is obviously basic usage.
-- Put `use` lines first and visible only when they teach the import path; hide repeated setup with `# ` in later blocks.
+- Put `use` lines first and visible only when they teach the import path; hide repeated setup with `#` in later blocks.
 
 ### What to cover
 
