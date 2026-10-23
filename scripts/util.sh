@@ -20,7 +20,7 @@ cargo_build() {
     if [ "$GITHUB_EVENT_NAME" = "push" ]; then
         args+=(
             --config profile.release.codegen-units=1
-            --config 'profile.release.lto="fat"'
+            --config 'profile.release.lto=true'
             --config profile.release.opt-level=3
         )
     else

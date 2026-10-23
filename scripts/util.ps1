@@ -27,7 +27,7 @@ function cargo-build
     {
         $cargo_arg+=@(
             '--config', 'profile.release.codegen-units=1'
-            '--config', 'profile.release.lto="fat"'
+            '--config', 'profile.release.lto=true'
             '--config', 'profile.release.opt-level=3'
         )
     } else
