@@ -38,7 +38,7 @@ function cargo-build
             '--config', 'profile.release.opt-level=0'
         )
     }
-    cargo-install @cargo_arg @args
+    cargo install @cargo_arg @args
 }
 
 function cmake-build
