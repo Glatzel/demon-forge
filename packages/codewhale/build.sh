@@ -1,4 +1,3 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-set -- $(get_cargo_arg)
-cargo install --path crates/cli "$@"
+cargo_build --path crates/cli

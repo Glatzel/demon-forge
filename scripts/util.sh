@@ -1,10 +1,10 @@
-get_cargo_arg() {
+cargo_build() {
     args=(
         --root "$PREFIX"
         --locked
         --force
         --config profile.release.debug=false
-
+        --config profile.release.strip=true
     )
     case "$(uname -s)-$(uname -m)" in
         Darwin-arm64)
@@ -20,16 +20,17 @@ get_cargo_arg() {
     if [ "$GITHUB_EVENT_NAME" = "push" ]; then
         args+=(
             --config profile.release.codegen-units=1
-            --config profile.release.strip=true
-            --config 'profile.release.lto="fat"'
+            --config 'profile.release.lto=true'
             --config profile.release.opt-level=3
         )
     else
         args+=(
-            --config profile.release.opt-level=1
+            --config profile.release.codegen-units=256
+            --config profile.release.lto=false
+            --config profile.release.opt-level=0
         )
     fi
-    printf '%s\n' "${args[@]}"
+    cargo install "${args[@]}" "$@" || return $?
 }
 
 build_recipe() {

@@ -1,7 +1,6 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-set -- $(get_cargo_arg)
-cargo install --path . --features vendored-openssl "$@"
+cargo_build --path . --features vendored-openssl
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 mkdir -p "$PREFIX/.cargo/bin"
 mv "$PREFIX/bin/rustup-init" "$PREFIX/.cargo/bin/rustup"

@@ -13,31 +13,36 @@ if ($env:CI)
 }
 
 
-function get-cargo-arg
+function cargo-build
 {
     $cargo_arg = @(
         '--root', "$env:PREFIX"
         '--locked'
         '--force'
         '--config', 'profile.release.debug=false'
+        '--config', 'profile.release.strip=true'
         '--config', 'build.rustflags=["-C","target-cpu=x86-64-v3"]'
     )
     if ($env:GITHUB_EVENT_NAME -eq "push")
     {
         $cargo_arg+=@(
             '--config', 'profile.release.codegen-units=1'
-            '--config', 'profile.release.lto="fat"'
+            '--config', 'profile.release.lto=true'
             '--config', 'profile.release.opt-level=3'
-            '--config', 'profile.release.strip=true'
         )
     } else
     {
-        $cargo_arg+=@('--config', 'profile.release.opt-level=1')
+        $cargo_arg+=@(
+            '--config', 'profile.release.codegen-units=256'
+            '--config', 'profile.release.lto=false'
+            '--config', 'profile.release.opt-level=0'
+        )
     }
-    return $cargo_arg
+    cargo-install @cargo_arg @args
 }
 
-function cmake-build {
+function cmake-build
+{
     $cmakeArgs = @(
         "-S", "."
         "-B", "build"
@@ -47,19 +52,22 @@ function cmake-build {
 
     $isRelease = $env:GITHUB_EVENT_NAME -eq "push"
 
-    if ($isRelease) {
+    if ($isRelease)
+    {
         $cmakeArgs += "-DCMAKE_BUILD_TYPE=Release"
     }
 
     cmake @cmakeArgs @args
-    if ($LASTEXITCODE -ne 0) {
+    if ($LASTEXITCODE -ne 0)
+    {
         return $LASTEXITCODE
     }
 
-    if ($isRelease) {
+    if ($isRelease)
+    {
         cmake --build build --config Release --target install
-    }
-    else {
+    } else
+    {
         cmake --build build --target install
     }
 
