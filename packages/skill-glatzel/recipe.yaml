@@ -1,5 +1,5 @@
 package:
-  version: "0.0.2"
+  version: "0.0.3"
   name: skill-glatzel
 build:
   number: 0
@@ -9,4 +9,4 @@ tests:
       files:
         - skills/*/SKILL.md
 extra:
-  update: echo "0.0.2"
+  update: echo "0.0.3"
