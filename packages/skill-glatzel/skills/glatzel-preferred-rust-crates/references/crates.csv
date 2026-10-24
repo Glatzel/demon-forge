@@ -1,0 +1,82 @@
+Field,Crates,Description
+Async,async-trait,
+Async,futures,
+Async,tokio,Asynchronous runtime for Rust.
+Async,tokio-util,
+Benchmark,criterion,Statistical benchmarking harness.
+CLI,bpaf,Composable command chains (alternative to clap).
+CLI,clap,Command-line argument parser.
+CLI,clap-verbosity-flag,Standard verbosity flags with tracing integration.
+CLI,comfy-table,
+CLI,ratatui,tui
+Collections,fixed,Fixed-capacity collections.
+Collections,heapless,Fixed-capacity collections without heap allocation; no_std (alternative to fixed).
+Configuration,dirs,
+Cryptography,hmac,
+Cryptography,sha2,
+Data processing,arrow,Apache Arrow columnar in-memory data format.
+Data processing,arrow-array,
+Data processing,parquet,
+Data processing,polars,
+Date/time,jiff,Modern date/time library.
+Encoding,hex,
+Engineering,solidcore,Rust port of NVIDIA's SMLib (B-rep solid modeling kernel)
+Enums,num_enum,Enum <-> primitive conversions.
+Enums,strum,Enum iteration and string conversion.
+Errors,backtrace,
+Errors,thiserror,
+FFI,bindgen,Generates Rust bindings from C/C++ headers.
+FFI,libc,
+GPU kernels,CubeCL,Portable GPU kernel framework.
+GPU kernels,cuda-oxide,Low-level CUDA programming from Rust.
+GPU kernels,cutile-rs,Higher-level CUDA tensor-kernel programming.
+GUI,slint,Declarative native UI toolkit.
+Getters,derive-getters,
+Images,image,
+Logging,defmt,Deferred formatting for embedded/no_std logging.
+Logging,tracing,
+Logging,tracing-core,
+Logging,tracing-subscriber,
+Macros,paste,Token-pasting macro for identifier concatenation.
+Macros,quote,Generates Rust token streams from quasi-quoted code (for proc macros).
+Macros,syn,Parses Rust source into a syntax tree (for proc macros).
+Math,PhastFT,High-performance CPU FFT implementation (alternative to rustfft realfft fftw).
+Math,symbolica,
+Memory,bytemuck,Zero-copy typed/byte conversions.
+Memory,mimalloc,Alternative high-performance memory allocator.
+Numeric,num-traits,
+PTY,portable-pty,
+Parallelism,rayon,Data-parallelism library (parallel iterators).
+Plot,charming,Interactive web plotting (Apache ECharts)
+Plot,plotly,Interactive web plotting (Plotly.js)
+Plot,plotters,General-purpose
+Python,numpy,Rust bindings for Python NumPy arrays.
+Python,pyo3,Rust/Python interoperability and extension modules.
+Random,rand,
+Random,uuid,
+Serial I/O,serialport,
+Serialization,fory,High-performance cross-language serialization.
+Serialization,rmp-serde,MessagePack serialization through Serde.
+Serialization,schemars,Generates JSON Schema from Rust types.
+Serialization,serde,Core serialize/deserialize framework underlying serde_json etc.
+Serialization,serde_json,
+Serialization,serde_with,Additional Serde adapters and helpers.
+Serialization,toml,
+Static assets,rust-embed,
+Terminal,owo-colors,Terminal color/styling crate.
+Terminal,terminal_size,
+Terminal,textwrap,Your no_std fork of textwrap.
+Test,assert_cmd,
+Test,float-cmp,
+Test,insta,Snapshot testing.
+Test,libfuzzer-sys,
+Test,proptest,
+Test,rstest,Fixtures and parameterized tests.
+Test,tempfile,
+Thread,parking_lot,Fast synchronization primitives for Rust.
+Verification,flux,Refinement-type / Liquid Rust verification.
+Verification,kani,Bit-precise model checker for Rust.
+Verification,validator,
+Verification,verus,SMT-based formal verification (alternative to flux/kani).
+Web,axum,Web application framework built on tokio.
+Web,mime_guess,
