@@ -1,3 +1,0 @@
-model = "openrouter/free"
-model_provider = "openrouter"
-model_reasoning_effort = "medium"
