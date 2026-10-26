@@ -1,6 +1,6 @@
 context:
   name: libraw
-  version: "0.22.2"
+  version: "0.22.3"
   number: 0
 recipe:
   version: ${{ version }}
