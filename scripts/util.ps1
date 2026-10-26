@@ -1,4 +1,4 @@
-l# Get the root directory of the current Git repository
+# Get the root directory of the current Git repository
 $ROOT = git rev-parse --show-toplevel
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
