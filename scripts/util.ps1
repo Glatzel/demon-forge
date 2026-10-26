@@ -48,6 +48,10 @@ function cmake-build
         "-B", "build"
         "-G", "Ninja"
         "-DCMAKE_INSTALL_PREFIX=$env:PREFIX/Library"
+        "-DCMAKE_DEBUG_POSTFIX="
+        "-DCMAKE_RELEASE_POSTFIX="
+        "-DCMAKE_RELWITHDEBINFO_POSTFIX="
+        "-DCMAKE_MINSIZEREL_POSTFIX="
     )
 
     $isRelease = $env:GITHUB_EVENT_NAME -eq "push"
