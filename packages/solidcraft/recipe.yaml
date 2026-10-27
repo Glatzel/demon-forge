@@ -1,6 +1,6 @@
 context:
   name: solidcraft
-  version: "0.23.1"
+  version: "0.24.0"
 
 package:
   version: ${{ version }}
