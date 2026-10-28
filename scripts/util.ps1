@@ -86,12 +86,11 @@ cmake_language(DEFER CALL disable_postfixes "${CMAKE_SOURCE_DIR}")
     $cmakeArgs += "-DCMAKE_BUILD_TYPE=Debug"
     $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
 
-
-
     if ($isRelease)
     {
         $cmakeArgs += "-DCMAKE_BUILD_TYPE=Release"
-    } else
+    }
+    else
     {
         $scriptPath = Join-Path $PWD "disable-postfixes.cmake"
         @'
