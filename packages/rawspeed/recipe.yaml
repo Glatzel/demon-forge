@@ -43,7 +43,9 @@ outputs:
       number: ${{ number }}
       files:
         - if: osx
-          then: lib/*.dylib
+          then:
+            - lib/*.dylib
+            - lib/*.a
         - if: linux
           then:
             - lib/*.so*
@@ -54,8 +56,15 @@ outputs:
             - Library/bin/*.dll
     tests:
       - package_contents:
-          lib:
-            - rawspeed
+          files:
+            - if: osx
+              then: lib/*.dylib
+            - if: linux
+              then:
+                - lib/rawspeed.a
+            - if: win
+              then:
+                - Library/rawspeed.lib
 
   - package:
       name: ${{ name }}-dev
