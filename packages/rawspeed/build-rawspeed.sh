@@ -14,6 +14,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     platform_args+=(
         -DCMAKE_PREFIX_PATH="${PREFIX}"
         -DOpenMP_ROOT="${PREFIX}"
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=13.5
     )
 fi
 
