@@ -29,7 +29,7 @@ outputs:
         - pugixml
         - libjpeg-turbo
         - zlib
-        - llvm-openmp
+        - ${{ 'llvm-openmp' if osx }}
 
   - package:
       name: ${{ name }}-rt
