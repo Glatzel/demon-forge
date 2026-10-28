@@ -59,10 +59,10 @@ function cmake-build
     if ($isRelease)
     {
         $cmakeArgs += "-DCMAKE_BUILD_TYPE=Release"
-    }
-    else{
-    $scriptPath = Join-Path $PWD "disable-postfixes.cmake"
-    @'
+    } else
+    {
+        $scriptPath = Join-Path $PWD "disable-postfixes.cmake"
+        @'
 function(disable_postfixes dir)
     get_property(targets DIRECTORY "${dir}" PROPERTY BUILDSYSTEM_TARGETS)
 
@@ -83,11 +83,7 @@ endfunction()
 
 cmake_language(DEFER CALL disable_postfixes "${CMAKE_SOURCE_DIR}")
 '@ | Set-Content -Path $scriptPath -Encoding utf8
-
-    $cmakeArgs += "-DCMAKE_BUILD_TYPE=Debug"
-    $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
-
-
+        $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
     }
 
     cmake @cmakeArgs @args
