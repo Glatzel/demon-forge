@@ -60,11 +60,9 @@ outputs:
             - if: osx
               then: lib/rawspeed.a
             - if: linux
-              then:
-                - lib/rawspeed.a
+              then: lib/librawspeed.a
             - if: win
-              then:
-                - Library/lib/rawspeed.lib
+              then: Library/lib/rawspeed.lib
 
   - package:
       name: ${{ name }}-dev
