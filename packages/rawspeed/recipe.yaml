@@ -26,6 +26,7 @@ outputs:
         - pkg-config
         - ninja
         - ${{ 'tree' if unix}}
+        - ${{ 'clang' if win}}
 
       host:
         - pugixml

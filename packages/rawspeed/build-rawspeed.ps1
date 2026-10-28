@@ -5,6 +5,8 @@ Set-Location $env:SRC_DIR
 git submodule update --init --recursive --depth 1 -- src/external/rawspeed
 Set-Location src/external
 Copy-Item $env:RECIPE_DIR/CMakeLists.txt ./CMakeLists.txt
+$env:CC="clang-cl"
+$env:CXX="clang-cl"
 cmake-build `
     -DBINARY_PACKAGE_BUILD=ON `
     -DWITH_OPENMP=ON `

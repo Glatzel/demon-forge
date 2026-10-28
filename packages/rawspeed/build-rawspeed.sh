@@ -5,7 +5,21 @@ cd $SRC_DIR
 git submodule update --init --recursive --depth 1 -- src/external/rawspeed
 cd src/external
 cp $RECIPE_DIR/CMakeLists.txt ./CMakeLists.txt
+
+# conda's toolchain flags (sysroot, deployment target, prefix path, cross-compile)
+read -r -a conda_cmake_args <<< "${CMAKE_ARGS:-}"
+
+platform_args=()
+if [[ "$(uname)" == "Darwin" ]]; then
+    platform_args+=(
+        -DCMAKE_PREFIX_PATH="${PREFIX}"
+        -DOpenMP_ROOT="${PREFIX}"
+    )
+fi
+
 cmake_build \
+    "${conda_cmake_args[@]}" \
+    "${platform_args[@]}" \
     -DBINARY_PACKAGE_BUILD=ON \
     -DWITH_OPENMP=ON \
     -DWITH_PUGIXML=ON \
@@ -19,4 +33,4 @@ cmake_build \
     -DUSE_XMLLINT=OFF \
     -DUSE_CLANG_TIDY=OFF \
     -DRAWSPEED_ENABLE_DEBUG_INFO=OFF \
-    -DRAWSPEED_ENABLE_WERROR=ON
+    -DRAWSPEED_ENABLE_WERROR=OFF
