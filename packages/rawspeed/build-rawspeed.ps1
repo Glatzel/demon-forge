@@ -19,4 +19,7 @@ cmake-build `
     -DUSE_XMLLINT=OFF `
     -DUSE_CLANG_TIDY=OFF `
     -DRAWSPEED_ENABLE_DEBUG_INFO=OFF `
-    -DRAWSPEED_ENABLE_WERROR=ON
+    -DRAWSPEED_ENABLE_WERROR=ON `
+    "-DZLIB_ROOT=$env:PREFIX/Library" `
+    "-DZLIB_INCLUDE_DIR=$env:PREFIX/Library/include" `
+    "-DZLIB_LIBRARY=$env:PREFIX/Library/lib/z.lib"

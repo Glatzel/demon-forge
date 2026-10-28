@@ -25,7 +25,6 @@ outputs:
         - cmake
         - pkg-config
         - ninja
-        - ${{ 'tree' if unix}}
 
       host:
         - pugixml
@@ -58,7 +57,7 @@ outputs:
       - package_contents:
           files:
             - if: osx
-              then: lib/rawspeed.a
+              then: lib/librawspeed.a
             - if: linux
               then: lib/librawspeed.a
             - if: win
