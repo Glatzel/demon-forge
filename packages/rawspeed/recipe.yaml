@@ -58,13 +58,13 @@ outputs:
       - package_contents:
           files:
             - if: osx
-              then: lib/*.dylib
+              then: lib/rawspeed.a
             - if: linux
               then:
                 - lib/rawspeed.a
             - if: win
               then:
-                - Library/rawspeed.lib
+                - Library/lib/rawspeed.lib
 
   - package:
       name: ${{ name }}-dev
