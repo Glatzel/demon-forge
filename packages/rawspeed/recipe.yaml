@@ -8,6 +8,7 @@ recipe:
 source:
   git: https://github.com/darktable-org/darktable.git
   tag: "release-${{ version }}"
+  depth: 1
 outputs:
   - staging:
       name: ${{ name }}-build
