@@ -9,6 +9,7 @@ source:
   git: https://github.com/darktable-org/darktable.git
   tag: "release-${{ version }}"
   depth: 1
+  submodules: false
 outputs:
   - staging:
       name: ${{ name }}-build

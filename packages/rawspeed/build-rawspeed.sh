@@ -2,6 +2,7 @@ cd $RECIPE_DIR
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
 cd $SRC_DIR
+git submodule update --init --recursive --depth 1 -- src/external/rawspeed
 cd src/external/rawspeed
 cmake_build \
     -DBINARY_PACKAGE_BUILD=ON \

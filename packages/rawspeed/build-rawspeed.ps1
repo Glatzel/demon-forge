@@ -2,6 +2,7 @@ Set-Location $env:RECIPE_DIR
 $ROOT = git rev-parse --show-toplevel
 . $ROOT/scripts/util.ps1
 Set-Location $env:SRC_DIR
+git submodule update --init --recursive --depth 1 -- src/external/rawspeed
 Set-Location src/external/rawspeed
 cmake-build `
     -DBINARY_PACKAGE_BUILD=ON `
