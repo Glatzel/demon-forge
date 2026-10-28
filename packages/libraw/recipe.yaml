@@ -30,7 +30,7 @@ outputs:
         - lcms2
         - openjpeg
         - jasper
-        - ${{ 'llvm-openmp' if osx }}
+        - ${{ 'llvm-openmp' if osx or win}}
 
   - package:
       name: ${{ name }}-rt
