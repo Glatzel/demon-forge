@@ -45,7 +45,9 @@ outputs:
         - if: osx
           then: lib/*.dylib
         - if: linux
-          then: lib/*.so*
+          then:
+            - lib/*.so*
+            - lib/*.a
         - if: win
           then:
             - Library/*.lib
@@ -68,7 +70,7 @@ outputs:
     tests:
       - package_contents:
           include:
-            - rawspeed/rawspeed.h
+            - rawspeed/RawSpeed-API.h
 
 about:
   repository: https://github.com/darktable-org/rawspeed
