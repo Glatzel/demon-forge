@@ -26,6 +26,10 @@ outputs:
         - ninja
 
       host:
+        - pugixml
+        - libjpeg-turbo
+        - zlib
+        - llvm-openmp
 
   - package:
       name: ${{ name }}-rt
