@@ -3,7 +3,8 @@ ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
 cd $SRC_DIR
 git submodule update --init --recursive --depth 1 -- src/external/rawspeed
-cd src/external/rawspeed
+cd src/external
+cp $RECIPE_DIR/CMakeLists.txt ./CMakeLists.txt
 cmake_build \
     -DBINARY_PACKAGE_BUILD=ON \
     -DWITH_OPENMP=ON \
