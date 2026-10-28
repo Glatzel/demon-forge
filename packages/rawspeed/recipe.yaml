@@ -25,6 +25,7 @@ outputs:
         - cmake
         - pkg-config
         - ninja
+        - ${{ 'clang' if win}}
 
       host:
         - pugixml
