@@ -28,7 +28,3 @@ install(DIRECTORY rawspeed/src/librawspeed/
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/rawspeed/src/
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rawspeed
         FILES_MATCHING PATTERN "rawspeedconfig.h")
-
-# Camera database, needed at runtime
-install(FILES rawspeed/data/cameras.xml
-        DESTINATION ${CMAKE_INSTALL_DATADIR}/rawspeed)
