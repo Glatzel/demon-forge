@@ -1,5 +1,5 @@
 context:
-  name: libraw
+  name: rawspeed
   version: "5.6.2"
   number: 0
 recipe:
@@ -31,7 +31,7 @@ outputs:
     inherit: ${{ name }}-build
     requirements:
       run_exports:
-        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
+        - ${{ pin_subpackage('rawspeed-rt', upper_bound='x.x') }}
     build:
       number: ${{ number }}
       files:
@@ -46,7 +46,7 @@ outputs:
     tests:
       - package_contents:
           lib:
-            - raw
+            - rawspeed
 
   - package:
       name: ${{ name }}-dev
@@ -55,13 +55,13 @@ outputs:
       host:
         - ${{ name }}-rt
       run_exports:
-        - ${{ pin_subpackage('libraw-rt', upper_bound='x.x') }}
+        - ${{ pin_subpackage('rawspeed-rt', upper_bound='x.x') }}
     build:
       number: ${{ number }}
     tests:
       - package_contents:
           include:
-            - libraw/libraw.h
+            - rawspeed/rawspeed.h
 
 about:
   repository: https://github.com/darktable-org/rawspeed
