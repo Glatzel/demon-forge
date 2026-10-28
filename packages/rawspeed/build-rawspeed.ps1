@@ -5,6 +5,7 @@ Set-Location $env:SRC_DIR
 git submodule update --init --recursive --depth 1 -- src/external/rawspeed
 Set-Location src/external
 Copy-Item $env:RECIPE_DIR/CMakeLists.txt ./CMakeLists.txt
+$prefix = (Resolve-Path $env:CONDA_PREFIX).Path.Replace('\', '/')
 cmake-build `
     -DBINARY_PACKAGE_BUILD=ON `
     -DWITH_OPENMP=ON `
@@ -20,6 +21,6 @@ cmake-build `
     -DUSE_CLANG_TIDY=OFF `
     -DRAWSPEED_ENABLE_DEBUG_INFO=OFF `
     -DRAWSPEED_ENABLE_WERROR=ON `
-    "-DZLIB_ROOT=$env:PREFIX/Library" `
-    "-DZLIB_INCLUDE_DIR=$env:PREFIX/Library/include" `
-    "-DZLIB_LIBRARY=$env:PREFIX/Library/lib/z.lib"
+    "-DZLIB_ROOT=$prefix/Library" `
+    "-DZLIB_INCLUDE_DIR=$prefix/Library/include" `
+    "-DZLIB_LIBRARY=$prefix/Library/lib/z.lib"
