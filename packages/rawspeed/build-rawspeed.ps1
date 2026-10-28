@@ -14,6 +14,7 @@ $prefix      = (Resolve-Path $env:PREFIX).Path.Replace('\', '/')
 $buildPrefix = (Resolve-Path $env:BUILD_PREFIX).Path.Replace('\', '/')
 
 cmake-build `
+    -DCMAKE_BUILD_TYPE=Release `
     -DBINARY_PACKAGE_BUILD=ON `
     -DWITH_OPENMP=ON `
     -DWITH_PUGIXML=ON `
