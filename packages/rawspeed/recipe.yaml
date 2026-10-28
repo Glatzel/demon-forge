@@ -24,13 +24,13 @@ outputs:
         - cmake
         - pkg-config
         - ninja
+        - ${{ 'tree' if unix}}
 
       host:
         - pugixml
         - libjpeg-turbo
         - zlib
         - ${{ 'llvm-openmp' if osx or win}}
-
 
   - package:
       name: ${{ name }}-rt
