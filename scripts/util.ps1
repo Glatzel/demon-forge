@@ -52,16 +52,17 @@ function cmake-build
         "-DCMAKE_RELEASE_POSTFIX="
         "-DCMAKE_RELWITHDEBINFO_POSTFIX="
         "-DCMAKE_MINSIZEREL_POSTFIX="
-        "-DCMAKE_DEBUG_POSTFIX="
-        "-DCMAKE_RELEASE_POSTFIX="
-        "-DCMAKE_RELWITHDEBINFO_POSTFIX="
-        "-DCMAKE_MINSIZEREL_POSTFIX="
     )
 
     $isRelease = $env:GITHUB_EVENT_NAME -eq "push"
-} else{
-    $scriptPath = Join-Path $PWD "disable-postfixes.cmake"
-    @'
+
+    if ($isRelease)
+    {
+        $cmakeArgs += "-DCMAKE_BUILD_TYPE=Release"
+    } else
+    {
+        $scriptPath = Join-Path $PWD "disable-postfixes.cmake"
+        @'
 function(disable_postfixes dir)
     get_property(targets DIRECTORY "${dir}" PROPERTY BUILDSYSTEM_TARGETS)
 
@@ -82,25 +83,24 @@ endfunction()
 
 cmake_language(DEFER CALL disable_postfixes "${CMAKE_SOURCE_DIR}")
 '@ | Set-Content -Path $scriptPath -Encoding utf8
+        $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
+    }
 
-    $cmakeArgs += "-DCMAKE_BUILD_TYPE=Debug"
-    $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
-}
-cmake @cmakeArgs @args
-if ($LASTEXITCODE -ne 0)
-{
+    cmake @cmakeArgs @args
+    if ($LASTEXITCODE -ne 0)
+    {
+        return $LASTEXITCODE
+    }
+
+    if ($isRelease)
+    {
+        cmake --build build --config Release --target install
+    } else
+    {
+        cmake --build build --target install
+    }
+
     return $LASTEXITCODE
-}
-
-if ($isRelease)
-{
-    cmake --build build --config Release --target install
-} else
-{
-    cmake --build build --target install
-}
-
-return $LASTEXITCODE
 }
 
 function debug-recipe
