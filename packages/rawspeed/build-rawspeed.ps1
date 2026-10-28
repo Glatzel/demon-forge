@@ -6,8 +6,8 @@ git submodule update --init --recursive --depth 1 -- src/external/rawspeed
 Set-Location src/external
 Copy-Item $env:RECIPE_DIR/CMakeLists.txt ./CMakeLists.txt
 
-# $env:CC  = "clang-cl"
-# $env:CXX = "clang-cl"
+$env:CC  = "clang-cl"
+$env:CXX = "clang-cl"
 
 # Host env (where zlib/jpeg/pugixml live), NOT the build env
 $prefix      = (Resolve-Path $env:PREFIX).Path.Replace('\', '/')
