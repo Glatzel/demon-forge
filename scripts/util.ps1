@@ -85,55 +85,22 @@ cmake_language(DEFER CALL disable_postfixes "${CMAKE_SOURCE_DIR}")
 
     $cmakeArgs += "-DCMAKE_BUILD_TYPE=Debug"
     $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
-
-    if ($isRelease)
-    {
-        $cmakeArgs += "-DCMAKE_BUILD_TYPE=Release"
-    }
-    else
-    {
-        $scriptPath = Join-Path $PWD "disable-postfixes.cmake"
-        @'
-function(disable_postfixes dir)
-    get_property(targets DIRECTORY "${dir}" PROPERTY BUILDSYSTEM_TARGETS)
-
-    foreach(target IN LISTS targets)
-        set_target_properties("${target}" PROPERTIES
-            DEBUG_POSTFIX ""
-            RELEASE_POSTFIX ""
-            RELWITHDEBINFO_POSTFIX ""
-            MINSIZEREL_POSTFIX ""
-        )
-    endforeach()
-
-    get_property(subdirs DIRECTORY "${dir}" PROPERTY SUBDIRECTORIES)
-    foreach(subdir IN LISTS subdirs)
-        disable_postfixes("${subdir}")
-    endforeach()
-endfunction()
-
-cmake_language(DEFER CALL disable_postfixes "${CMAKE_SOURCE_DIR}")
-'@ | Set-Content -Path $scriptPath -Encoding utf8
-
-        $cmakeArgs += "-DCMAKE_BUILD_TYPE=Debug"
-        $cmakeArgs += "-DCMAKE_PROJECT_INCLUDE=$scriptPath"
-    }
-
-    cmake @cmakeArgs @args
-    if ($LASTEXITCODE -ne 0)
-    {
-        return $LASTEXITCODE
-    }
-
-    if ($isRelease)
-    {
-        cmake --build build --config Release --target install
-    } else
-    {
-        cmake --build build --target install
-    }
-
+}
+cmake @cmakeArgs @args
+if ($LASTEXITCODE -ne 0)
+{
     return $LASTEXITCODE
+}
+
+if ($isRelease)
+{
+    cmake --build build --config Release --target install
+} else
+{
+    cmake --build build --target install
+}
+
+return $LASTEXITCODE
 }
 
 function debug-recipe
