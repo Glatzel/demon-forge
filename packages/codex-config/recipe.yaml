@@ -5,8 +5,11 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 build:
-  number: 0
+  number: 1
   noarch: generic
+requirements:
+  run:
+    - codex
 tests:
   - package_contents:
       files:

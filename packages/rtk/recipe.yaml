@@ -1,0 +1,42 @@
+context:
+  name: rtk
+  version: "1.1.0"
+
+recipe:
+  version: ${{ version }}
+  name: ${{ name }}
+outputs:
+  - staging:
+      name: ${{ name }}-build
+    build:
+      script:
+        interpreter: ${{ "powershell" if win else "bash" }}
+        file: build-${{ name }}.${{ "ps1" if win else "sh" }}
+    requirements:
+      build:
+        - ${{compiler('rust')}} 1.97.*
+        - ${{compiler('c')}}
+        - ${{ stdlib('c') }}
+  - package:
+      name: ${{ name }}
+    build:
+      number: 0
+    tests:
+      - package_contents:
+          bin:
+            - rtk
+  - package:
+      name: codex-rtk
+    build:
+      scirpt: rtk init -g --codex
+    requirements:
+      host:
+        - codex
+      run:
+        - codex
+
+about:
+  repository: https://github.com/rtk-ai/rtk
+extra:
+  update: get-version-github rtk-ai/rtk
+  changelog: get-changelog-github rtk-ai/rtk v
