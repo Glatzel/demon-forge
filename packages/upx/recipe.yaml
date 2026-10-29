@@ -1,12 +1,13 @@
 context:
   name: upx
-  version: "5.2.1"
+  version: "5.3.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
 source:
   - git: https://github.com/upx/upx.git
     tag: v${{ version }}
+    depth: 1
 
 build:
   number: 0
