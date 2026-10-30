@@ -84,9 +84,6 @@ jobs:
           build-recipe
         shell: pwsh
         working-directory: ./packages/${{matrix.pkg}}
-      - name: publish-win
-        if: ${{ steps.build-win.outputs.action_publish == 'true'&& contains(matrix.machine, 'windows')}}
-        run: ./scripts/publish.ps1 -pkg ${{matrix.pkg}}
       - name: build-recipe-unix
         if: ${{ !contains(matrix.machine, 'windows') }}
         id: build-unix
@@ -97,9 +94,9 @@ jobs:
           . "$ROOT/scripts/util.sh"
           build_recipe
         working-directory: ./packages/${{matrix.pkg}}
-      - name: publish-unix
+      - name: publish
         if: ${{ steps.build-unix.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
-        run: ./scripts/publish.sh ${{matrix.pkg}}
+        run: ./scripts/publish.${{ matrix.machine=='windows-latest' &&'ps1' || 'sh'}} ${{matrix.pkg}}
 
   check-point:
     if: ( cancelled() || failure() ) && github.event_name == 'pull_request'
