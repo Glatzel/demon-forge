@@ -95,7 +95,7 @@ jobs:
           build_recipe
         working-directory: ./packages/${{matrix.pkg}}
       - name: publish
-        if: ${{ steps.build-unix.outputs.action_publish == 'true' && !contains(matrix.machine, 'windows') }}
+        if: ${{ steps.build-unix.outputs.action_publish == 'true' || steps.build-win.outputs.action_publish == 'true'}}
         run: ./scripts/publish.${{ matrix.machine=='windows-latest' &&'ps1' || 'sh'}} ${{matrix.pkg}}
 
   check-point:
