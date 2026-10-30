@@ -34,8 +34,6 @@ outputs:
             - bin/libkrunfw*
   - package:
       name: microsandbox
-    source:
-      - url: https://github.com/zerocore-ai/microsandbox/archive/refs/tags/v${{ version }}.tar.gz
     build:
       script:
         interpreter: ${{ "powershell" if win else "bash" }}
@@ -65,7 +63,7 @@ about:
     hardware-isolated microVMs, each with its own kernel. It is intended for
     executing untrusted code and AI agent workloads, and supports OCI images.
   documentation: https://docs.microsandbox.dev/
-  repository: https://github.com/zerocore-ai/microsandbox
+  repository: https://github.com/superradcompany/microsandbox
 
 extra:
   update: get-version-github superradcompany/$pkg_name

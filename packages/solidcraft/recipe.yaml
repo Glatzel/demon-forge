@@ -1,14 +1,12 @@
 context:
   name: solidcraft
-  version: "0.26.0"
+  version: "0.26.1"
 
 package:
   version: ${{ version }}
   name: ${{ name }}
 build:
   number: 0
-source:
-   url: https://github.com/tangency-labs/solidcraft/archive/refs/tags/v${{ version }}.tar.gz
 requirements:
   build:
     - ${{compiler('rust')}}
