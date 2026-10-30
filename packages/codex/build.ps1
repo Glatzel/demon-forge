@@ -1,3 +1,4 @@
+$env:CARGO_BUILD_JOBS=1
 $env:CODEX_REPO_ROOT=Resolve-Path "."
 python scripts/build_codex_package.py `
     --target "x86_64-pc-windows-msvc" `
