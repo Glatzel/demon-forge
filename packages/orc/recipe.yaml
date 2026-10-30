@@ -4,8 +4,6 @@ context:
 package:
   version: ${{ version }}
   name: ${{ name }}
-source:
-  url: https://github.com/Glatzel/toolbox/archive/refs/tags/v${{ version }}.tar.gz
 build:
   number: 0
 requirements:

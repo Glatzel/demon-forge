@@ -7,8 +7,6 @@ package:
   name: ${{ name }}
 build:
   number: 0
-source:
-   url: https://github.com/tangency-labs/solidcraft/archive/refs/tags/v${{ version }}.tar.gz
 requirements:
   build:
     - ${{compiler('rust')}}
