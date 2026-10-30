@@ -28,7 +28,7 @@ outputs:
   - package:
       name: codex-rtk
     build:
-      scirpt: rtk init -g --codex
+      script: rtk init -g --codex
     requirements:
       host:
         - codex
