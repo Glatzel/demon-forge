@@ -1,6 +1,6 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-cargo_build --path . --features vendored-openssl
+cargo_build --features vendored-openssl --git https://github.com/rust-lang/rustup --tag "$PKG_VERSION" rustup
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 mkdir -p "$PREFIX/.cargo/bin"
 mv "$PREFIX/bin/rustup-init" "$PREFIX/.cargo/bin/rustup"
