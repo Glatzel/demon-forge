@@ -142,3 +142,38 @@ function build-recipe
         Write-Output "::endgroup::"
     }
 }
+function Process-Skills {
+    param(
+        [Parameter(Mandatory)]
+        [string]$SrcDir
+    )
+
+    $name = $env:PKG_NAME -replace '^skill-', ''
+
+    Get-ChildItem -Path $SrcDir -Directory | ForEach-Object {
+        $skillDir = $_.FullName
+        $skillName = $_.Name
+
+        if ($skillName -eq $name -or $skillName.StartsWith("$name-")) {
+            $destDir = $skillName
+        }
+        else {
+            $destDir = "$name-$skillName"
+        }
+
+        $destination = Join-Path $env:PREFIX "skills/$destDir"
+
+        New-Item -ItemType Directory -Path $destination -Force | Out-Null
+        Copy-Item -Path "$skillDir/*" -Destination $destination -Recurse -Force
+
+        if ($destDir -ne $skillName) {
+            $skillFile = Join-Path $destination "SKILL.md"
+
+            if (Test-Path $skillFile) {
+                $content = Get-Content -Path $skillFile -Raw
+                $content = $content -replace "(?m)^name: $([regex]::Escape($skillName))$", "name: $destDir"
+                Set-Content -Path $skillFile -Value $content -NoNewline
+            }
+        }
+    }
+}

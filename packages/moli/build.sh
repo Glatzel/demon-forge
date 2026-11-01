@@ -5,5 +5,5 @@ if [ "$(uname)" = "Linux" ]; then
     PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig" pkg-config --debug --libs --cflags fontconfig 2>&1 | tail -30
     export LIBCLANG_PATH="$BUILD_PREFIX/lib"
 fi
-cp -r ./skills $PREFIX/skills
+process_skills ./skills
 cargo_build --path ./moli
