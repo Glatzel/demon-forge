@@ -10,6 +10,10 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
     - cmake
+    - if: linux
+      then:
+        - clang
+        - libclang
 tests:
   - package_contents:
       bin:
