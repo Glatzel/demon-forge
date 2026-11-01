@@ -18,9 +18,14 @@ requirements:
         - clang
         - libclang
         - make
+        - pkg-config
     - if: win
       then:
         - clang
+  host:
+    - if: linux
+      then:
+        - fontconfig
 tests:
   - package_contents:
       bin:
