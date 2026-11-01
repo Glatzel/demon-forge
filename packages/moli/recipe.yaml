@@ -9,6 +9,7 @@ requirements:
   build:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
+    - cmake
 tests:
   - package_contents:
       bin:
