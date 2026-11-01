@@ -1,0 +1,21 @@
+context:
+  name: moli
+package:
+  version: "1.1.20"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+about:
+  repository: https://github.com/lexmount/moli
+
+extra:
+  update: get-version-github lexmount/moli
+  changelog: get-changelog-github lexmount/moli v
