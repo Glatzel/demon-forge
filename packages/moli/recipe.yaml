@@ -5,6 +5,8 @@ package:
   name: ${{ name }}
 build:
   number: 0
+source:
+  url: https://github.com/lexmount/moli/archive/refs/tags/v${{ version }}.tar.gz
 requirements:
   build:
     - ${{ compiler('rust') }}
@@ -31,6 +33,8 @@ tests:
   - package_contents:
       bin:
         - ${{name}}
+      files:
+        - skills/**/SKILL.md
 about:
   repository: https://github.com/lexmount/moli
 
