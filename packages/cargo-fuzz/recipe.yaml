@@ -28,7 +28,7 @@ tests:
   - script: ${{name}} --help
   - requirements:
       run:
-        - rustup-init
+        - rustup
     script:
       interpreter: ${{"powershell" if win else "bash"}}
       content:
