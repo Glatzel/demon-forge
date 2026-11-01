@@ -32,7 +32,7 @@ tests:
     script:
       interpreter: ${{"powershell" if win else "bash"}}
       content:
-        - rustup-init -y --default-toolchain nightly --profile minimal
+        - rustup toolchain install nightly --profile minimal
         - if: unix
           then: . "$HOME/.cargo/env"
         - if: win
