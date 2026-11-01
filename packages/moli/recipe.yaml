@@ -26,6 +26,7 @@ requirements:
     - if: linux
       then:
         - fontconfig
+        - freetype
 tests:
   - package_contents:
       bin:
