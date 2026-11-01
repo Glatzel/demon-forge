@@ -1,0 +1,45 @@
+context:
+  name: moli
+  version: "1.1.20"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+build:
+  number: 0
+source:
+  url: https://github.com/lexmount/moli/archive/refs/tags/v${{ version }}.tar.gz
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - cmake
+    - python
+    - if: linux
+      then:
+        - clang
+        - libclang
+        - make
+        - pkg-config
+    - if: win
+      then:
+        - clang
+  host:
+    - if: linux
+      then:
+        - fontconfig
+        - freetype
+        - expat
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+      files:
+        - skills/**/SKILL.md
+about:
+  repository: https://github.com/lexmount/moli
+
+extra:
+  update: get-version-github lexmount/moli
+  changelog: get-changelog-github lexmount/moli v

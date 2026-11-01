@@ -80,6 +80,7 @@ libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-a
 mason,windows-latest,,,,
 microsandbox,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 mold,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+moli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 msedit,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 obs-studio,windows-latest,,,,
 opencolorio-config-aces,,,,,ubuntu-latest
@@ -94,6 +95,7 @@ rattler-build,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-
 rawspeed,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ripgrep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+rtk,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rufus,windows-latest,,,,
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 skill-duckdb,,,,,ubuntu-latest
@@ -119,4 +121,3 @@ vs-buildtools,windows-latest,,,,
 xray,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 yazi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 zed,windows-latest,,,,
-rtk,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
