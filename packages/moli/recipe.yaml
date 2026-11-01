@@ -30,7 +30,7 @@ requirements:
       then:
         - fontconfig
         - freetype
-        - libexpat
+        - expat
         - libuuid
 tests:
   - package_contents:
