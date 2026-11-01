@@ -133,6 +133,35 @@ matrix because CI detects package changes through `packages/<pkg>/**`. If a
 matrix-only fix needs validation, explain that situation to the owner rather
 than editing an unrelated package file to force a build.
 
+## Worktree
+
+1. Never edit files in the main checkout. For every task (add or fix a
+   package), create a new worktree under `.worktrees/` from the latest
+   `origin/main`:
+
+   ```sh
+   git fetch origin
+   git worktree add .worktrees/<type>-<pkg> -b <type>/<pkg> origin/main
+   ```
+
+   `<type>` is the semantic commit type (`feat` or `fix`), and `<pkg>` is the
+   package name.
+2. Do all edits, commits, and pushes from inside that worktree. Use one
+   worktree per task and one package per branch. The branch, commit, and PR
+   conventions below also apply.
+3. Push the branch from the worktree and check the CI run for that branch as
+   described below.
+4. After the branch is merged, or the task is abandoned, clean up:
+
+   ```sh
+   git worktree remove .worktrees/<type>-<pkg>
+   git worktree prune
+   ```
+
+   Delete the merged branch as part of cleanup.
+5. If a worktree for the same package already exists, reuse it instead of
+   creating another.
+
 ## Reading CI results
 
 Use the authenticated GitHub integration available to you. In the GitHub web
