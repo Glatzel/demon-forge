@@ -30,6 +30,7 @@ requirements:
       then:
         - fontconfig
         - freetype
+        - libexpat
 tests:
   - package_contents:
       bin:
