@@ -31,7 +31,6 @@ requirements:
         - fontconfig
         - freetype
         - expat
-        - libuuid
 tests:
   - package_contents:
       bin:
