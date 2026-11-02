@@ -1,0 +1,25 @@
+context:
+  name: herdr
+  version: "0.9.5"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+about:
+  repository: https://github.com/herdrdev/herdr
+
+extra:
+  update: get-version-github herdrdev/herdr
+  changelog: get-changelog-github herdrdev/herdr v
