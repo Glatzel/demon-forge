@@ -1,0 +1,23 @@
+context:
+  name: skill-xerj
+  version: "1.0.0"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/xerj-org/xerj/archive/refs/tags/v${{ version }}-rc.100.tar.gz
+build:
+  number: 0
+  noarch: generic
+tests:
+  - package_contents:
+      files:
+        - skills/*/SKILL.md
+about:
+  repository: https://github.com/xerj-org/xerj
+
+extra:
+  # update: get-version-github xerj-org/xerj
+  # changelog: get-changelog-github xerj-org/xerj v
+  update: echo "1.0.0"
+  changelog: echo "_"

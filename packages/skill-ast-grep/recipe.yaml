@@ -1,0 +1,21 @@
+context:
+  name: skill-ast-grep
+  version: "0.51.1"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/ast-grep/agent-skill/archive/refs/heads/main.zip
+build:
+  number: 0
+  noarch: generic
+tests:
+  - package_contents:
+      files:
+        - skills/*/SKILL.md
+about:
+  repository: https://github.com/ast-grep/ast-grep
+
+extra:
+  update: get-version-crateio $pkg_name
+  changelog: get-changelog-github ast-grep/ast-grep

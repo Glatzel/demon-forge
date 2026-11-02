@@ -1,5 +1,5 @@
 package:
-  version: "0.0.1"
+  version: "2.0.0"
   name: skill-duckdb
 source:
   - url: https://github.com/duckdb/duckdb-skills/archive/refs/heads/main.zip
@@ -11,10 +11,9 @@ tests:
       files:
         - skills/*/SKILL.md
   - script: cat $PREFIX/skills/duckdb-query/SKILL.md
-
 about:
-  repository: https://github.com/duckdb/duckdb-skills
+  repository: https://github.com/duckdb/duckdb
 
 extra:
-  update: echo "0.0.1"
-  changelog: get-changelog-github "duckdb/duckdb-skills"
+  update: get-version-github $pkg_name/$pkg_name
+  changelog: get-changelog-github $pkg_name/$pkg_name v
