@@ -1,5 +1,5 @@
 context:
-  name: codex-config
+  name: codex-glatzel
   version: "0.0.7"
 package:
   version: ${{ version }}
