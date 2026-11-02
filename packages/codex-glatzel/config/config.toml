@@ -8,7 +8,7 @@ enabled = true
 max_concurrent_threads_per_session = 2
 
 [mcp_servers.xerj]
-command = "/abs/path/to/xerj"
+command = "xerj"
 args = ["mcp"]
 
 [model_providers.deepseek]
