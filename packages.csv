@@ -1,6 +1,6 @@
 pkg,win-64,osx-arm64,linux-64,linux-aarch64,noarch
 7-zip,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
-_ast-grep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+ast-grep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 _blender,windows-latest,,,,
 _blender-benchmark,windows-latest,,,,
 _codewhale,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
