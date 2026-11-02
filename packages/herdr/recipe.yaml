@@ -12,6 +12,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
+    - zig
 
 tests:
   - package_contents:
