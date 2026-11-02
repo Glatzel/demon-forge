@@ -33,8 +33,6 @@ tests:
   - package_contents:
       bin:
         - ${{name}}
-      files:
-        - skills/**/SKILL.md
 about:
   repository: https://github.com/lexmount/moli
 
