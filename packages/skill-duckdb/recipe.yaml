@@ -11,8 +11,8 @@ tests:
       files:
         - skills/*/SKILL.md
   - script: cat $PREFIX/skills/duckdb-query/SKILL.md
-
-repository: https://github.com/duckdb/duckdb
+about:
+  repository: https://github.com/duckdb/duckdb
 
 extra:
   update: get-version-github $pkg_name/$pkg_name

@@ -13,8 +13,8 @@ tests:
   - package_contents:
       files:
         - skills/*/SKILL.md
-
-repository: https://github.com/ast-grep/ast-grep
+about:
+  repository: https://github.com/ast-grep/ast-grep
 
 extra:
   update: get-version-crateio $pkg_name
