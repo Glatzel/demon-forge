@@ -1,0 +1,34 @@
+context:
+  name: xerj
+  version: "1.0.0"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+build:
+  number: 0
+source:
+  url: https://github.com/lexmount/moli/archive/refs/tags/v${{ version }}-rc.100.tar.gz
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - cmake
+    - if: linux
+      then:
+        - make
+        - pkg-config
+
+tests:
+  - package_contents:
+      bin:
+        - ${{name}}
+about:
+  repository: https://github.com/xerj-org/xerj
+
+extra:
+  # update: get-version-github xerj-org/xerj
+  # changelog: get-changelog-github xerj-org/xerj v
+  update: echo "1.0.0"
+  changelog: echo "_"
