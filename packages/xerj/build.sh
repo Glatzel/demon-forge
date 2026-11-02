@@ -1,3 +1,3 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-cargo_build --path ./moli
+cargo_build --git https://github.com/xerj-org/xerj --tag "v$PKG_VERSON-rc.100"

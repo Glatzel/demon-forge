@@ -6,8 +6,6 @@ package:
   name: ${{ name }}
 build:
   number: 0
-source:
-  url: https://github.com/lexmount/moli/archive/refs/tags/v${{ version }}-rc.100.tar.gz
 requirements:
   build:
     - ${{ compiler('rust') }}
