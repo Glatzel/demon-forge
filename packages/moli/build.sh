@@ -6,4 +6,4 @@ if [ "$(uname)" = "Linux" ]; then
     export LIBCLANG_PATH="$BUILD_PREFIX/lib"
 fi
 process_skills ./skills
-cargo_build --path ./moli
+cargo_build --git https://github.com/lexmount/moli --tag v$env:PKG_VERSION moli
