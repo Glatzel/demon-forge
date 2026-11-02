@@ -7,7 +7,7 @@ build:
   number: 0
 requirements:
   build:
-    - ${{ compiler('rust') if unix }}
+    - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
 tests:
   - package_contents:
