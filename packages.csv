@@ -53,7 +53,7 @@ cargo-shear,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26
 cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cloudflared,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 codex,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
-codex-config,,,,,ubuntu-latest
+codex-glatzel,,,,,ubuntu-latest
 crsdk,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 csharpier,,,,,ubuntu-latest+ci-linux-release
 dism-plus-plus,windows-latest,,,,

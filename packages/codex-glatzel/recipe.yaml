@@ -1,6 +1,6 @@
 context:
-  name: codex-config
-  version: "0.0.6"
+  name: codex-glatzel
+  version: "0.0.7"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -14,9 +14,10 @@ requirements:
   run:
     - codex
     - rtk
+    - xerj
 tests:
   - package_contents:
       files:
         - '*.toml'
 extra:
-  update: echo "0.0.6"
+  update: echo "0.0.7"
