@@ -17,6 +17,7 @@ requirements:
       then:
         - make
         - pkg-config
+        - perl
 
 tests:
   - package_contents:
