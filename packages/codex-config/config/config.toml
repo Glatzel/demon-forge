@@ -7,6 +7,10 @@ screen_reader_detection_done = true
 enabled = true
 max_concurrent_threads_per_session = 2
 
+[mcp_servers.xerj]
+command = "/abs/path/to/xerj"
+args = ["mcp"]
+
 [model_providers.deepseek]
 name = "deepseek"
 base_url = "https://api.deepseek.com/"

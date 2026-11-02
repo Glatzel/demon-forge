@@ -14,6 +14,7 @@ requirements:
   run:
     - codex
     - rtk
+    - xerj
 tests:
   - package_contents:
       files:
