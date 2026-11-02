@@ -1,3 +1,3 @@
 ROOT=$(git rev-parse --show-toplevel)
 . "$ROOT/scripts/util.sh"
-process_skills ./ast-grep
+process_skills ./ast-grep/skills
