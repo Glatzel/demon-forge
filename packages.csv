@@ -99,6 +99,9 @@ rtk,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+
 rufus,windows-latest,,,,
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 skill-duckdb,,,,,ubuntu-latest
+skill-moli,,,,,ubuntu-latest
+skill-xerj,,,,,ubuntu-latest
+skill-ast-grep,,,,,ubuntu-latest
 skill-glatzel,,,,,ubuntu-latest
 skill-superpowers,,,,,ubuntu-latest
 solidcraft,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
