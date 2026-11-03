@@ -1,0 +1,24 @@
+context:
+  name: skill-anthropics
+  version: "2026.11"
+package:
+  version: ${{ version }}
+  name: ${{ name }}
+source:
+  - url: https://github.com/anthropics/knowledge-work-plugins/archive/refs/heads/main.zip
+    target_directory: knowledge-work-plugins
+  - url: https://github.com/anthropics/skills/archive/refs/heads/main.zip
+    target_directory: main
+build:
+  number: 0
+  noarch: generic
+tests:
+  - package_contents:
+      files:
+        - skills/*/SKILL.md
+about:
+  repository: https://github.com/ast-grep/ast-grep
+
+extra:
+  update: Get-Date -Format "yyyy.MM"
+  changelog: echo "_"

@@ -70,7 +70,7 @@ build_recipe() {
 }
 process_skills() {
     local src_dir="$1"
-    local name="${PKG_NAME#skill-}"
+    local name="${2:-${PKG_NAME:-}}"; name="${name#skill-}"
     local skill_dir dest_dir skill_name
 
     for skill_dir in "$src_dir"/*/; do
