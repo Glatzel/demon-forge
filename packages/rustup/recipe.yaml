@@ -1,6 +1,6 @@
 context:
   name: rustup
-  version: "1.29.2"
+  version: "1.29.3"
 package:
   version: ${{ version }}
   name: ${{ name }}
