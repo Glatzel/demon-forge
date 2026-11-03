@@ -17,5 +17,5 @@ about:
   repository: https://github.com/ast-grep/ast-grep
 
 extra:
-  update: get-version-crateio $pkg_name
+  update: get-version-crateio ast-grep
   changelog: get-changelog-github ast-grep/ast-grep

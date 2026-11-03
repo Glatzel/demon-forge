@@ -15,5 +15,5 @@ about:
   repository: https://github.com/duckdb/duckdb
 
 extra:
-  update: get-version-github $pkg_name/$pkg_name
-  changelog: get-changelog-github $pkg_name/$pkg_name v
+  update: get-version-github duckdb/duckdb
+  changelog: echo "_"
