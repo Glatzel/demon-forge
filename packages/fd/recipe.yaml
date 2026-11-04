@@ -1,7 +1,7 @@
 context:
   name: fd
 package:
-  version: "10.5.0"
+  version: "10.5.1"
   name: ${{ name }}
 build:
   number: 0
