@@ -1,6 +1,6 @@
 context:
   name: tombi
-  version: "1.9.9"
+  version: "1.10.0"
 package:
   version: ${{ version }}
   name: ${{ name }}
