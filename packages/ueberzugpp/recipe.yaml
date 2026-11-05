@@ -11,7 +11,7 @@ build:
   script: |
     ROOT=$(git rev-parse --show-toplevel)
     . "$ROOT/scripts/util.sh"
-    cmake-build \
+    cmake_build \
         -DENABLE_X11=OFF \
         ${{"-DCMAKE_CXX_COMPILER_CLANG_SCAN_DEPS=$BUILD_PREFIX/bin/clang-scan-deps" if osx}} \
         -DENABLE_OPENCV=OFF
