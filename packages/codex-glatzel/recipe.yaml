@@ -17,7 +17,8 @@ requirements:
 tests:
   - package_contents:
       files:
-        - 'config.toml'
-        - 'hook.json'
+        - config.toml
+        - hook.json
+        - RTK.md
 extra:
   update: echo "0.0.10"
