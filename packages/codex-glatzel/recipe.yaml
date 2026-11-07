@@ -17,6 +17,7 @@ requirements:
 tests:
   - package_contents:
       files:
-        - '*.toml'
+        - 'config.toml'
+        - 'hook.json'
 extra:
   update: echo "0.0.10"
