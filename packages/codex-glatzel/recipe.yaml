@@ -1,6 +1,6 @@
 context:
   name: codex-glatzel
-  version: "0.0.11"
+  version: "0.0.12"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -10,6 +10,7 @@ requirements:
   host:
     - rtk
   run:
+    - codex
     - rtk
     - xerj
     - moli
@@ -20,4 +21,4 @@ tests:
         - hooks.json
         - RTK.md
 extra:
-  update: echo "0.0.11"
+  update: echo "0.0.12"
