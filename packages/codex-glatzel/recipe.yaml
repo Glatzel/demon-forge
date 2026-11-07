@@ -9,10 +9,8 @@ build:
   noarch: generic
 requirements:
   host:
-    - codex
     - rtk
   run:
-    - codex
     - rtk
     - xerj
     - moli
