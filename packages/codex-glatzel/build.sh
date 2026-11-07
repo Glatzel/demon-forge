@@ -1,2 +1,2 @@
-cp $RECIPE_DIR/config/* "$PREFIX/"
+cp -r $RECIPE_DIR/config/* "$PREFIX/"
 rtk init -g --codex
