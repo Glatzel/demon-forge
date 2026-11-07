@@ -17,7 +17,7 @@ tests:
   - package_contents:
       files:
         - config.toml
-        - hook.json
+        - hooks.json
         - RTK.md
 extra:
   update: echo "0.0.11"
