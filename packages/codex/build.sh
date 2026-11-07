@@ -23,4 +23,4 @@ python scripts/build_codex_package.py \
     --force \
     --strip all \
     --strip-tool strip
-cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
+
