@@ -23,4 +23,3 @@ python scripts/build_codex_package.py \
     --force \
     --strip all \
     --strip-tool strip
-
