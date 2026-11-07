@@ -1,6 +1,6 @@
 context:
   name: codex-glatzel
-  version: "0.0.8"
+  version: "0.0.9"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -21,4 +21,4 @@ tests:
       files:
         - '*.toml'
 extra:
-  update: echo "0.0.8"
+  update: echo "0.0.9"

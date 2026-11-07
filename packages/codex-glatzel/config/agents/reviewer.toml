@@ -1,0 +1,4 @@
+name = "reviewer"
+description = "Independent whole-branch code reviewer."
+model = "deepseek-flash"
+model_reasoning_effort = "high"
