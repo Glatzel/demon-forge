@@ -6,7 +6,6 @@ package:
   name: ${{ name }}
 build:
   number: 0
-  noarch: generic
 requirements:
   host:
     - rtk
