@@ -18,6 +18,7 @@ requirements:
     - ${{ "pkg-config" if linux }}
     - ${{ "patchelf"  if linux }}
     - ${{ "llvm-tools"  if win }}
+    - just
   host:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
