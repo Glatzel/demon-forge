@@ -9,7 +9,6 @@ build:
 requirements:
   host:
     - rtk
-    - codex
   run:
     - rtk
     - xerj
