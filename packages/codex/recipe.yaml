@@ -22,6 +22,8 @@ requirements:
   host:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
+  run:
+    - rg
 tests:
   - package_contents:
       bin:
