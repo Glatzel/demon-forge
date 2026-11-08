@@ -7,6 +7,7 @@ case "$target_platform" in
         ;;
     osx-arm64)
         target="aarch64-apple-darwin"
+        export CARGO_NET_GIT_FETCH_WITH_CLI=true
         ;;
     *)
         echo "Unsupported platform: $target_platform"
