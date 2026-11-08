@@ -110,7 +110,7 @@ cmake_build() {
     cmake "${cmake_args[@]}" "$@" || return $?
 
     if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
-        cmake --build build --config Release --target install
+        cmake --build build --config Release --target install --parallel
     else
         cmake --build build --target install --parallel
     fi
