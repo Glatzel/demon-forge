@@ -27,5 +27,5 @@ python scripts/build_codex_package.py \
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 
 # Replace bundled ripgrep with the Conda-provided executable.
-rm -f "$PREFIX/lib/codex/rg"
-ln -s ../bin/rg "$PREFIX/lib/codex/rg"
+rm -f "$PREFIX/codex-path/rg"
+ln -s ../bin/rg "$PREFIX/codex-path/rg"
