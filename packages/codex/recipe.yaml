@@ -23,7 +23,7 @@ requirements:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
   run:
-    - rg
+    - ripgrep
 tests:
   - package_contents:
       bin:
