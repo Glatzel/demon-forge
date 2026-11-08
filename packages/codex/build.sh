@@ -14,9 +14,7 @@ case "$target_platform" in
         exit 1
         ;;
 esac
-export CARGO_BUILD_JOBS=1
 export CARGO_PROFILE_RELEASE_STRIP=symbols
-export CODEX_REPO_ROOT=$(pwd)
 just assemble-codex-package --cargo-profile release --package-dir out --target "${CARGO_BUILD_TARGET}" --rg-bin "${PREFIX}/bin/rg"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 ln -s ../bin/rg "$PREFIX/codex-path/rg"
