@@ -22,8 +22,9 @@ requirements:
   host:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
+    - ${{ "ripgrep"  if unix }}
   run:
-    - ripgrep
+    - ${{ "ripgrep"  if unix }}
 tests:
   - package_contents:
       bin:
