@@ -16,16 +16,6 @@ case "$target_platform" in
 esac
 export CARGO_BUILD_JOBS=1
 export CODEX_REPO_ROOT=$(pwd)
-python scripts/build_codex_package.py \
-    --target "$target" \
-    --variant codex \
-    --cargo-profile release \
-    --package-dir "$PREFIX" \
-    --force \
-    --strip all \
-    --strip-tool strip
+just assemble-codex-package --cargo-profile release --package-dir out --target "${CARGO_BUILD_TARGET}" --rg-bin "${PREFIX}/bin/rg"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
-
-# Replace bundled ripgrep with the Conda-provided executable.
-rm -f "$PREFIX/codex-path/rg"
 ln -s ../bin/rg "$PREFIX/codex-path/rg"
