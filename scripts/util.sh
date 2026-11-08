@@ -100,7 +100,6 @@ cmake_build() {
         -B build
         -G Ninja
         -DCMAKE_CXX_FLAGS="${CXXFLAGS} -w"
-        --parallel
         "-DCMAKE_INSTALL_PREFIX=${PREFIX}"
     )
 
@@ -113,6 +112,6 @@ cmake_build() {
     if [[ "${GITHUB_EVENT_NAME:-}" == "push" ]]; then
         cmake --build build --config Release --target install
     else
-        cmake --build build --target install
+        cmake --build build --target install --parallel
     fi
 }
