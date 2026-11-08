@@ -99,7 +99,8 @@ cmake_build() {
         -S .
         -B build
         -G Ninja
-        -w
+        -DCMAKE_CXX_FLAGS="${CXXFLAGS} -w"
+        --parallel
         "-DCMAKE_INSTALL_PREFIX=${PREFIX}"
     )
 
