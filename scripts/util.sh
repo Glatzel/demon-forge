@@ -99,6 +99,7 @@ cmake_build() {
         -S .
         -B build
         -G Ninja
+        -w
         "-DCMAKE_INSTALL_PREFIX=${PREFIX}"
     )
 
