@@ -1,3 +1,5 @@
+$env:CARGO_TARGET_DIR = "c:/t"
+$env:CARGO_HOME = "c:/c"
 $env:CARGO_PROFILE_RELEASE_STRIP= "symbols"
 Copy-Item $env:RECIPE_DIR/win/etc/ $env:PREFIX/ -recurse
 just assemble-codex-package --cargo-profile release --package-dir ./out --target x86_64-pc-windows-msvc
