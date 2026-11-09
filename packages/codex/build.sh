@@ -19,7 +19,7 @@ export CARGO_PROFILE_RELEASE_STRIP=symbols
 just assemble-codex-package --cargo-profile release --package-dir out --target "${CARGO_BUILD_TARGET}" --rg-bin "${PREFIX}/bin/rg"
 cp -r out/* "${PREFIX}/"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
-ln -s ../bin/rg "$PREFIX/codex-path/rg"
+ln -sf ../bin/rg "$PREFIX/codex-path/rg"
 
 # Pixi: prevent CONDA_PREFIX from leaking into sandboxed processes
 mkdir -p "${PREFIX}/etc/pixi/codex"
