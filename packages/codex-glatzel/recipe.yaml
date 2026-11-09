@@ -1,6 +1,6 @@
 context:
   name: codex-glatzel
-  version: "0.0.12"
+  version: "0.0.13"
 package:
   version: ${{ version }}
   name: ${{ name }}
@@ -21,4 +21,4 @@ tests:
         - hooks.json
         - RTK.md
 extra:
-  update: echo "0.0.12"
+  update: echo "0.0.13"
