@@ -8,7 +8,7 @@ package:
 source:
   url: https://github.com/openai/codex/archive/refs/tags/rust-v${{ version }}.tar.gz
 build:
-  number: 2
+  number: 3
 requirements:
   build:
     - ${{compiler('rust')}} 1.97.*
@@ -22,6 +22,9 @@ requirements:
   host:
     - ${{ "openssl 3.*" if linux }}
     - ${{ "libcap" if linux }}
+    - ${{ "ripgrep"  if unix }}
+  run:
+    - ${{ "ripgrep"  if unix }}
 tests:
   - package_contents:
       bin:
