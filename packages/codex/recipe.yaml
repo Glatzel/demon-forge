@@ -1,6 +1,6 @@
 context:
   name: codex
-  version: "0.167.1"
+  version: "0.167.2"
 
 package:
   version: ${{ version }}
