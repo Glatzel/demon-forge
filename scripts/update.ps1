@@ -1,3 +1,4 @@
+#Requires -Version 7
 param([int]$ThrottleLimit = 8)
 
 function get-current-version
@@ -236,7 +237,7 @@ ForEach ($Row in Import-Csv $PSScriptRoot/../packages.csv)
     {
         continue
     }
-    $jobs += [pscustomobject]@{ Index = $index++; Pkg = $Row.pkg }
+    $jobs += [pscustomobject]@{ Index = $index++; Pkg = $Row.pkg; Row = $Row }
 }
 
 $results = $jobs | ForEach-Object -ThrottleLimit $ThrottleLimit -Parallel {
@@ -245,6 +246,11 @@ $results = $jobs | ForEach-Object -ThrottleLimit $ThrottleLimit -Parallel {
     $repoRoot = $using:repoRoot
     $gitLock = $using:gitLock
     $pkgDir = Join-Path $using:pkgRoot $job.Pkg
+
+    # Variables the recipe's extra.update / extra.changelog snippets rely on
+    # (in the serial script they came from the loop scope)
+    $Row = $job.Row
+    $pkg_name = $job.Pkg
 
     # Capture every stream so the log can be replayed as one ordered group
     $lines = & {
