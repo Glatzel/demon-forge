@@ -1,6 +1,5 @@
 pkg,win-64,osx-arm64,linux-64,linux-aarch64,noarch
 7-zip,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
-ast-grep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 _blender,windows-latest,,,,
 _blender-benchmark,windows-latest,,,,
 _codewhale,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -34,6 +33,7 @@ _termscp,windows-latest,,,,
 _uutils-diffutils,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 android-sdk-platform-tools,windows-latest,macos-latest,ubuntu-latest,,
 aria2,windows-latest,,,,
+ast-grep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 atuin,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 audacity,windows-latest,,,,
 bat,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -70,6 +70,7 @@ font-cascadia-mono,,,,,ubuntu-latest
 font-hack,,,,,ubuntu-latest
 fornax-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 github-action-runner,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
+herdr,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 hexyl,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 hwinfo,windows-latest,,,,
 hyperfine,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -98,13 +99,13 @@ robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.0
 rtk,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rufus,windows-latest,,,,
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-skill-duckdb,,,,,ubuntu-latest
-skill-moli,,,,,ubuntu-latest
-skill-xerj,,,,,ubuntu-latest
 skill-ast-grep,,,,,ubuntu-latest
+skill-duckdb,,,,,ubuntu-latest
 skill-glatzel,,,,,ubuntu-latest
+skill-moli,,,,,ubuntu-latest
 skill-superpowers,,,,,ubuntu-latest
-solidcraft,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+skill-xerj,,,,,ubuntu-latest
+solidcraft,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 spek,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-icaros,windows-latest,,,,
@@ -121,8 +122,7 @@ upx,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-rel
 v2rayn,windows-latest,,,,
 vinaya-cli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 vs-buildtools,windows-latest,,,,
+xerj,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 xray,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 yazi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 zed,windows-latest,,,,
-xerj,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-herdr,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
