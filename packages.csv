@@ -105,7 +105,7 @@ skill-glatzel,,,,,ubuntu-latest
 skill-moli,,,,,ubuntu-latest
 skill-superpowers,,,,,ubuntu-latest
 skill-xerj,,,,,ubuntu-latest
-solidcraft,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+solidcraft,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm,
 spek,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-icaros,windows-latest,,,,
