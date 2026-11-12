@@ -158,6 +158,7 @@ function update-recipe
     try
     {
         git -C $repoRoot worktree add -b $update_branch $wt HEAD
+        if ($LASTEXITCODE -ne 0) { throw "git worktree add failed" }
     } finally
     {
         [Threading.Monitor]::Exit($gitLock)
@@ -177,7 +178,9 @@ function update-recipe
         Write-Output "creating new branch: $pkg_name"
         git -C $wt add -A
         git -C $wt commit -m "chore: update ``$pkg_name`` from ``$current_version`` to ``$version``"
+        if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
         git -C $wt push -u origin $update_branch
+        if ($LASTEXITCODE -ne 0) { throw "git push failed" }
         Push-Location $wt
         try
         {
@@ -186,6 +189,7 @@ function update-recipe
                 --body-file $changelogFile `
                 --base main `
                 --head $update_branch
+            if ($LASTEXITCODE -ne 0) { throw "gh pr create failed" }
         } finally
         {
             Pop-Location
@@ -209,8 +213,13 @@ function update-recipe
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
-$repoRoot = (Resolve-Path "$PSScriptRoot/../..").Path
 $pkgRoot = (Resolve-Path "$PSScriptRoot/../packages").Path
+$repoRoot = (git -C $pkgRoot rev-parse --show-toplevel).Trim()
+if ($LASTEXITCODE -ne 0 -or -not $repoRoot)
+{
+    Write-Output "::error ::Cannot find git repository root from $pkgRoot"
+    exit 1
+}
 
 # Global git identity: set once, not per package
 git config --global user.name "github-actions[bot]"
