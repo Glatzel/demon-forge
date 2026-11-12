@@ -119,10 +119,7 @@ function update-recipe
     {
         Write-Output "::error ::Invalid version format"
         add-summary-row "|$pkg_name|$current_version|$version|🔴 Invalid Version |"
-        if ($env:WORKFLOW_NAME -ne "update")
-        {
-            Write-Output "::fail::"
-        }
+        Write-Output "::fail::"
         return
     }
 
@@ -296,5 +293,6 @@ foreach ($r in ($results | Sort-Object Index))
 }
 if ($failed)
 {
+    Write-Output "::error ::One or more package updates failed, see the 🔴 rows in the summary"
     exit 1
 }
