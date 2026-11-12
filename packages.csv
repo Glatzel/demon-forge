@@ -77,7 +77,7 @@ hyperfine,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.0
 imagemagick,windows-latest,,,,
 jq,windows-latest,,,,
 libcap-ng,,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 mason,windows-latest,,,,
 microsandbox,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 mold,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
