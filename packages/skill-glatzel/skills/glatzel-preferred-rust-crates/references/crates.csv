@@ -24,7 +24,6 @@ Engineering,solidcore,Rust port of NVIDIA's SMLib (B-rep solid modeling kernel)
 Enums,num_enum,Enum <-> primitive conversions.
 Enums,strum,Enum iteration and string conversion.
 Errors,backtrace,
-Errors,thiserror,
 FFI,bindgen,Generates Rust bindings from C/C++ headers.
 FFI,libc,
 GPU kernels,CubeCL,Portable GPU kernel framework.
