@@ -1,13 +1,15 @@
 context:
   name: atuin
 package:
-  version: "18.24.6"
+  version: "18.24.7"
   name: ${{ name }}
 build:
   number: 0
 requirements:
   build:
     - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
     - pkg-config
   host:
