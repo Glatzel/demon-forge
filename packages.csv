@@ -77,8 +77,8 @@ hyperfine,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.0
 imagemagick,windows-latest,,,,
 jq,windows-latest,,,,
 libcap-ng,,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-mason,windows-latest,,,,
+_libraw,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_mason,windows-latest,,,,
 microsandbox,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 mold,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 moli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -95,7 +95,7 @@ pyxis-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04
 rattler-build,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rawspeed,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ripgrep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rtk,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rufus,windows-latest,,,,
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
@@ -105,7 +105,7 @@ skill-glatzel,,,,,ubuntu-latest
 skill-moli,,,,,ubuntu-latest
 skill-superpowers,,,,,ubuntu-latest
 skill-xerj,,,,,ubuntu-latest
-solidcraft,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
+solidcraft,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-icaros,windows-latest,,,,
