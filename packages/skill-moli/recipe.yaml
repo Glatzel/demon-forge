@@ -1,6 +1,6 @@
 context:
   name: skill-moli
-  version: "1.1.24"
+  version: "1.1.25"
 package:
   version: ${{ version }}
   name: ${{ name }}
