@@ -1,6 +1,6 @@
 context:
   name: skill-ast-grep
-  version: "0.51.2"
+  version: "0.51.3"
 package:
   version: ${{ version }}
   name: ${{ name }}
