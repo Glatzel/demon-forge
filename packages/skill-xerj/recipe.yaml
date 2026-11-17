@@ -5,7 +5,7 @@ package:
   version: ${{ version }}
   name: ${{ name }}
 source:
-  - url: https://github.com/xerj-org/xerj/archive/refs/tags/v${{ version }}-rc.100.tar.gz
+  - url: https://github.com/xerj-org/xerj/archive/refs/tags/v${{ version }}-rc.102.tar.gz
 build:
   number: 0
   noarch: generic
