@@ -1,6 +1,6 @@
 context:
   name: rattler-build
-  version: "0.80.1"
+  version: "0.80.2"
 package:
   version: ${{ version }}
   name: ${{ name }}
