@@ -52,8 +52,8 @@ cargo-nextest,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-
 cargo-shear,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cargo-unused-features,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 cloudflared,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
-codex,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
-codex-glatzel,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
+codex,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
+codex-glatzel,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 crsdk,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
 csharpier,,,,,ubuntu-latest+ci-linux-release
 dism-plus-plus,windows-latest,,,,
@@ -93,10 +93,10 @@ pureref,windows-latest,,,,
 pyxis-cli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 pyxis-py,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rattler-build,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-rawspeed,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+_rawspeed,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ripgrep,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 _robin-map,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-rtk,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+rtk,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 rufus,windows-latest,,,,
 rustup,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 skill-ast-grep,,,,,ubuntu-latest
@@ -105,7 +105,7 @@ skill-glatzel,,,,,ubuntu-latest
 skill-moli,,,,,ubuntu-latest
 skill-superpowers,,,,,ubuntu-latest
 skill-xerj,,,,,ubuntu-latest
-solidcraft,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+solidcraft,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 spek,windows-latest,,,,
 sys-dnc,windows-latest,,,,
 sys-icaros,windows-latest,,,,
@@ -122,7 +122,7 @@ upx,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-rel
 v2rayn,windows-latest,,,,
 vinaya-cli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 vs-buildtools,windows-latest,,,,
-xerj,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-xray,windows-latest,macos-latest,ubuntu-latest,ubuntu-26.04-arm,
-yazi,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+xerj,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
+xray,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
+yazi,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 zed,windows-latest,,,,
