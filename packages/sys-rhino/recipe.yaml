@@ -32,4 +32,4 @@ about:
     design, architecture, marine design and other fields.
 
 extra:
-  update: get-version-text "$(curl -sIL https://www.rhino3d.com/download/rhino-for-windows/8/latest/direct?email=users.noreply.github.com)"'rhino_en-us_(\d+\.\d+\.\d+\.\d+).exe'
+  update: get-version-text "$(curl -sIL https://www.rhino3d.com/download/rhino-for-windows/9/latest/direct?email=users.noreply.github.com)"'rhino_en-us_(\d+\.\d+\.\d+\.\d+).exe'
