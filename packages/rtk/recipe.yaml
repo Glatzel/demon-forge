@@ -2,7 +2,7 @@ context:
   name: rtk
 
 package:
-  version: "1.2.0"
+  version: "1.2.1"
   name: ${{ name }}
 build:
   number: 0
