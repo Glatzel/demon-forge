@@ -1,8 +1,10 @@
 case "$target_platform" in
     linux-64)
+        export CARGO_BUILD_JOBS=2
         target="x86_64-unknown-linux-gnu"
         ;;
     linux-aarch64)
+        export CARGO_BUILD_JOBS=2
         target="aarch64-unknown-linux-gnu"
         ;;
     osx-arm64)
