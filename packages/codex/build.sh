@@ -7,13 +7,13 @@ case "$target_platform" in
         ;;
     osx-arm64)
         target="aarch64-apple-darwin"
-        export CARGO_NET_GIT_FETCH_WITH_CLI=true
         ;;
     *)
         echo "Unsupported platform: $target_platform"
         exit 1
         ;;
 esac
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 just assemble-codex-package --cargo-profile release --package-dir out --target "${CARGO_BUILD_TARGET}" --rg-bin "${PREFIX}/bin/rg"
 cp -r out/* "${PREFIX}/"
