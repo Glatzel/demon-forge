@@ -20,6 +20,9 @@ source:
       url: https://github.com/openai/codex/releases/download/rust-v${{ version }}/codex-aarch64-unknown-linux-musl.tar.gz
 build:
   number: 1
+requirements:
+  build:
+    - ${{ 'tree' if unix}}
 tests:
   - package_contents:
       bin:
