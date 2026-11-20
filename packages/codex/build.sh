@@ -1,4 +1,5 @@
 tree
+mkdir ${PREFIX}/bin
 cp -r ./* "${PREFIX}/bin/codex"
 cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 mkdir "$PREFIX/codex-path/"
