@@ -1,5 +1,5 @@
 package:
-  version: "2.0.0"
+  version: "2.0.1"
   name: skill-duckdb
 source:
   - url: https://github.com/duckdb/duckdb-skills/archive/refs/heads/main.zip
