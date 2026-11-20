@@ -1,7 +1,7 @@
 context:
   name: sys-rhino
 package:
-  version: "8.37.26307.15001"
+  version: "9.1.26315.13001"
   name: ${{ name }}
 build:
   number: 0
@@ -20,7 +20,7 @@ tests:
       interpreter: powershell
       content: |
         install-${{name}}.ps1
-        Resolve-Path "C:\Program Files\Rhino 8\System\Rhino.exe"
+        Resolve-Path "C:\Program Files\Rhino 9\System\Rhino.exe"
 
 about:
   homepage: https://www.rhino3d.com/
@@ -32,4 +32,4 @@ about:
     design, architecture, marine design and other fields.
 
 extra:
-  update: get-version-text "$(curl -sIL https://www.rhino3d.com/download/rhino-for-windows/8/latest/direct?email=users.noreply.github.com)"'rhino_en-us_(\d+\.\d+\.\d+\.\d+).exe'
+  update: get-version-text "$(curl -sIL https://www.rhino3d.com/download/rhino-for-windows/9/latest/direct?email=users.noreply.github.com)"'rhino_(\d+\.\d+\.\d+\.\d+).exe'
