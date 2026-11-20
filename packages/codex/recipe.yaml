@@ -13,6 +13,7 @@ requirements:
   build:
     - ${{compiler('rust')}} 1.97.*
     - ${{compiler('c')}}
+    - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
     - python
     - ${{ "pkg-config" if linux }}
