@@ -5,11 +5,6 @@ package:
   name: ${{ name }}
 build:
   noarch: generic
-requirements:
-  build:
-    - ${{ compiler('rust') }}
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
 
 extra:
   update: echo "1.0.0"
