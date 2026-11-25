@@ -1,11 +1,11 @@
 context:
   name: sys-rhino-inside-revit
-  version: "1.35.9698.15636"
+  version: "1.36.9818.15046"
 package:
   version: ${{ version }}
   name: ${{ name }}
 build:
-  number: 1
+  number: 0
   script:
     interpreter: powershell
     content: |
