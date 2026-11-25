@@ -19,7 +19,6 @@ export CARGO_NET_GIT_FETCH_WITH_CLI=true
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 just assemble-codex-package --cargo-profile release --package-dir out --target "${CARGO_BUILD_TARGET}" --rg-bin "${PREFIX}/bin/rg"
 cp -r out/* "${PREFIX}/"
-cp -r "$RECIPE_DIR/unix/etc" "$PREFIX/"
 ln -sf ../bin/rg "$PREFIX/codex-path/rg"
 
 # Pixi: prevent CONDA_PREFIX from leaking into sandboxed processes
