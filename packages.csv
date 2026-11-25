@@ -127,3 +127,4 @@ xerj,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-re
 xray,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
 yazi,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 zed,windows-latest,,,,
+empty,,,,,ubuntu-latest
