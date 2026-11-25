@@ -1,0 +1,16 @@
+context:
+  name: empty
+package:
+  version: "1.0.0"
+  name: ${{ name }}
+build:
+  noarch: generic
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+
+extra:
+  update: echo "1.0.0"
+  changelog: echo ""
