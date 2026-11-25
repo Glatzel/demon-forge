@@ -1,0 +1,33 @@
+context:
+  name: deepseek-harness
+package:
+  version: "0.2.2"
+  name: ${{ name }}
+build:
+  number: 0
+requirements:
+  build:
+    - nodejs >=24.22.3
+  run:
+    - nodejs >=24.22.3
+tests:
+  - package_contents:
+      bin:
+        - dsh
+  - script:
+      - dsh --version
+      - dsh --help
+about:
+  homepage: https://deepseek.com/harness
+  license: MIT
+  summary: DeepSeek Harness plugin-based agent CLI
+  description: >
+    DeepSeek Harness (dsh) is an open-source, plugin-based agent harness
+    developed by DeepSeek AI and powered by Cordis.
+  documentation: https://deepseek-harness.github.io/deepseek-harness/
+  repository: https://github.com/deepseek-ai/deepseek-harness
+extra:
+  update: |
+    $latest_version = curl -fsSL "https://registry.npmjs.org/@deepseek-ai%2fdsh/latest" | jq -r '.version'
+    $latest_version.Split('-')[0]
+  changelog: get-changelog-github deepseek-ai/deepseek-harness
