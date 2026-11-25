@@ -1,0 +1,22 @@
+context:
+  name: antigravity
+package:
+  version: "1.5.17"
+  name: ${{ name }}
+build:
+  number: 0
+tests:
+  - package_contents:
+      bin:
+        - agy
+  - script:
+      - agy --version
+      - agy --help
+about:
+  homepage: https://antigravity.google
+  summary: Antigravity CLI coding assistant
+  description: >
+    Antigravity CLI (agy) is Google's native command-line interface for
+    autonomous software engineering workflows.
+extra:
+  update: curl -fsSL "https://antigravity-cli-auto-updater-974169037036.us-central1.run.app/manifests/linux_amd64.json" | jq -r '.version'
