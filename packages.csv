@@ -120,8 +120,6 @@ toolbox,,,,,ubuntu-latest
 ttyw,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 ueberzugpp,,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 upx,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
-v2rayn,windows-latest,,,,
-vinaya-cli,windows-latest,macos-latest,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 vs-buildtools,windows-latest,,,,
 xerj,windows-latest,,ubuntu-latest+ci-linux-release,ubuntu-26.04-arm+ci-linux-release,
 xray,windows-latest,,ubuntu-latest,ubuntu-26.04-arm,
