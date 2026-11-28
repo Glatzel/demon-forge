@@ -22,7 +22,7 @@ requirements:
         - pkg-config
     - if: win
       then:
-        - clang
+        - clang >=22
   host:
     - if: linux
       then:
